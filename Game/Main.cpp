@@ -1,6 +1,6 @@
-﻿#include <d3d11.h>
-#include <d3dx11.h>
-#include <d3dx10.h>
+﻿#include <d3d9.h>
+#include <d3dx9.h>
+
 #include <sstream>
 #include <iostream>
 #include <dinput.h>
