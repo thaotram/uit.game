@@ -66,15 +66,15 @@ void Unit::SetState(int state)
 
 void Unit::Update(float dt)
 {
-	//if (data.empty())
-	//	InitializationData(name);
+	if (data.empty())
+		InitializationData(name);
 	//if (GetFrameCount(state) <= 1) return;
 
 	if (mCurrentTime >= mTimePerFrame) {
 		//mCurrentTime -= mTimePerFrame;
 		mCurrentTime = 0;
 		NextFrame();
-		//InitializationData(name);
+		InitializationData(name);
 	}
 	else mCurrentTime += dt;
 }

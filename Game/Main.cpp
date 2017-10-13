@@ -49,8 +49,8 @@ int InitializeWindow(int cmdShow)
 	WNDCLASSEX wc;
 	wc.cbSize = sizeof(WNDCLASSEX);
 
-	//wc.style = CS_HREDRAW | CS_VREDRAW;
-	wc.style = 0;
+	wc.style = CS_HREDRAW | CS_VREDRAW;
+	//wc.style = 0;
 	wc.hInstance = GameGlobal::GetCurrentHINSTACE();
 
 	wc.lpfnWndProc = (WNDPROC)WndProc;
@@ -114,10 +114,13 @@ int InitializeDevice()
 
 	d3dpp.Windowed = TRUE;
 	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
+	d3dpp.MultiSampleType = D3DMULTISAMPLE_NONE;
 	d3dpp.BackBufferFormat = D3DFMT_A8R8G8B8;
 	d3dpp.BackBufferCount = 1;
 	d3dpp.BackBufferWidth = GameGlobal::GetWidth();
 	d3dpp.BackBufferHeight = GameGlobal::GetHeight();
+
+	// IDirect3DDevice9Ex_SetRenderState
 
 	Direct3DCreate9(D3D_SDK_VERSION)->CreateDevice(
 		D3DADAPTER_DEFAULT,
@@ -128,6 +131,11 @@ int InitializeDevice()
 		&mDevice
 	);
 	GameGlobal::SetCurrentDevice(mDevice);
+
+	mDevice->SetSamplerState(1, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
+
+	//mDevice->SetTransform();
+	// mDevice->SetRenderState(D3DRS_MULTISAMPLEANTIALIAS, FALSE);
 
 	D3DXCreateSprite(
 		mDevice,
