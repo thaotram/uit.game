@@ -45,12 +45,12 @@ void Unit::InitializationData(string name)
 			int frameIndex = 1;
 			for (auto& f : frames) {
 				size = RECT{
-					(LONG)f[0][0],
-					(LONG)f[0][1],
-					(LONG)f[0][0] + (LONG)f[0][2] ,
-					(LONG)f[0][1] + (LONG)f[0][3]
+					(LONG)f[0],
+					(LONG)f[1],
+					(LONG)f[0] + (LONG)f[2] ,
+					(LONG)f[1] + (LONG)f[3]
 				};
-				transition = D3DXVECTOR2(f[1][0], f[1][1]);
+				transition = D3DXVECTOR2(f[4], f[5]);
 				data[stateIndex][frameIndex] =
 					pair<RECT, D3DXVECTOR2>(size, transition); // transition {x,y}
 				frameIndex++;
