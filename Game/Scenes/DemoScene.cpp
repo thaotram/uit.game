@@ -17,11 +17,11 @@ void DemoScene::LoadContent()
 	mBackColor = 0xdddddd;
 
 	mUnits = new Unit("Block");
-	mUnits->GetSprite()->SetPosition(150, 150);
-	mUnits->GetSprite()->SetScale(5, 5);
+	mUnits->GetSprite()->SetPosition(50, 50);
+	mUnits->GetSprite()->SetScale(4, 4);
 
-	mAladdin = new Unit("Aladdin");
-	mAladdin->GetSprite()->SetScale(5, 5);
+	mAladdin = new Unit("Aladdin", 0xffff00ff);
+	mAladdin->GetSprite()->SetScale(3, 3);
 	mAladdin->GetSprite()->SetPosition(220, 220);
 }
 
