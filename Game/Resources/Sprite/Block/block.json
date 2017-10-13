@@ -1,14 +1,12 @@
 ﻿{
     "name": "block",
     "time": 0.3,
-    "states": [
-        {
-            "left": 80,
-            "top": 112,
-            "height": 64,
-            "frame": [
-                [ 64, 0, 0 ]
-            ]
-        }
-    ]
+    "states": [{
+        "left": 80,
+        "top": 112,
+        "height": 16,
+        "frame": [
+            [16, 0, -2, 0]
+        ]
+    }]
 }

@@ -27,10 +27,7 @@ private:
 
 	float	mTimePerFrame, mCurrentTime;
 
-	map<
-		int,
-		map<int, pair<RECT, LONG>>
-	> data;
+	map<int,map<int, pair<RECT, D3DXVECTOR2>>> data;
 public:
 	Unit(string name, D3DCOLOR color = NULL);
 	~Unit();

@@ -14,10 +14,6 @@
 #include <json.hpp>
 #include <fstream>
 
-#pragma comment (lib, "d3d11.lib") 
-#pragma comment (lib, "d3dx11.lib") 
-#pragma comment (lib, "d3dx10.lib")
-
 using json = nlohmann::json;
 using namespace std;
 
@@ -25,8 +21,8 @@ using namespace std;
 
 #define APP_CLASS L"Game"
 #define MAIN_WINDOW_TITLE L"Game Title"
-#define SCREEN_WIDTH 600
-#define SCREEN_HEIGHT 600
+#define APP_WIDTH 600
+#define APP_HEIGHT 600
 #define FPS 60
 #define KEYBOARD_BUFFERD_SIZE 1024
 
@@ -66,9 +62,12 @@ int InitializeWindow(int cmdShow)
 
 	RegisterClassEx(&wc);
 
+	RECT wr = { 0, 0, APP_WIDTH, APP_HEIGHT };
+	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
+
 	GameGlobal::SetFPS(FPS);
-	GameGlobal::SetHeight(SCREEN_HEIGHT);
-	GameGlobal::SetWidth(SCREEN_WIDTH);
+	GameGlobal::SetHeight(wr.bottom - wr.top);
+	GameGlobal::SetWidth(wr.right - wr.left);
 
 	GameGlobal::SetCurrentHWND(
 		CreateWindowEx(
@@ -108,12 +107,13 @@ int InitializeDevice()
 {
 	D3DPRESENT_PARAMETERS d3dpp;
 	LPD3DXSPRITE mSpriteHandler;
+
 	LPDIRECT3DDEVICE9 mDevice;
 
 	ZeroMemory(&d3dpp, sizeof(d3dpp));
 
 	d3dpp.Windowed = TRUE;
-	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
+	d3dpp.SwapEffect = D3DSWAPEFFECT_FLIP;
 	d3dpp.MultiSampleType = D3DMULTISAMPLE_NONE;
 	d3dpp.BackBufferFormat = D3DFMT_A8R8G8B8;
 	d3dpp.BackBufferCount = 1;
@@ -131,11 +131,6 @@ int InitializeDevice()
 		&mDevice
 	);
 	GameGlobal::SetCurrentDevice(mDevice);
-
-	mDevice->SetSamplerState(1, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
-
-	//mDevice->SetTransform();
-	// mDevice->SetRenderState(D3DRS_MULTISAMPLEANTIALIAS, FALSE);
 
 	D3DXCreateSprite(
 		mDevice,

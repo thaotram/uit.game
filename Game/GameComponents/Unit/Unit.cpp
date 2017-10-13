@@ -21,7 +21,6 @@ Sprite * Unit::GetSprite()
 	return mSprite;
 }
 
-
 void Unit::InitializationData(string name)
 {
 	try {
@@ -46,7 +45,9 @@ void Unit::InitializationData(string name)
 			for (auto& frame : frames) {
 				rect.left += frame[1]; // + space
 				rect.right = (rect.left + frame[0]); // + width
-				data[stateIndex][frameIndex] = pair<RECT, LONG>(rect, frame[2]); // & transition
+
+				data[stateIndex][frameIndex] =
+					pair<RECT, D3DXVECTOR2>(rect, D3DXVECTOR2(frame[2], frame[3])); // transition {x,y}
 				rect.left = rect.right;
 				frameIndex++;
 			}
@@ -106,7 +107,10 @@ RECT Unit::GetRect(int state, int frame)
 D3DXVECTOR2 Unit::GetTranslation(int state, int frame)
 {
 	if (data.empty()) return D3DXVECTOR2();
-	return D3DXVECTOR2(data[state][frame].second, 0);
+
+	D3DXVECTOR2 scale = mSprite->GetScale();
+	D3DXVECTOR2 trans = data[state][frame].second;
+	return D3DXVECTOR2(scale.x * trans.x, scale.y * trans.y);
 }
 
 int Unit::GetStateCount()
