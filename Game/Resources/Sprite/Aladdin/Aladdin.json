@@ -1,15 +1,15 @@
 {
     "name": "Aladdin",
+    "startFrame": 3,
     "time": 0.9,
     "states": [{
         "left": 0,
         "top": 0,
         "height": 59,
-        "startFrame": 1,
         "frame": [
             [37, 3, 0, 0],
             [41, 7, -1, 1],
-            [41, 7, -1, 1]
+            [41, 7, 0, 0]
         ]
     }]
 }

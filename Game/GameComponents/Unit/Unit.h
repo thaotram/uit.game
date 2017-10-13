@@ -16,6 +16,7 @@ private:
 	string	name;
 	int		state;
 	int		frame;
+	int		startFrame;
 	int		GetStateCount();
 	int		GetFrameCount(int state);
 	void	NextFrame();

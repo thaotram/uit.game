@@ -23,32 +23,36 @@ Sprite * Unit::GetSprite()
 
 void Unit::InitializationData(string name)
 {
+
 	try {
 		json j;
 		ifstream i;
-		RECT rect;
 		i.open("Resources/Sprite/" + name + "/" + name + ".json");
 		i >> j;
+
+		RECT size;
+		D3DXVECTOR2 transition;
+
 		json states = j["states"];
 		mTimePerFrame = j["time"];
+		startFrame = j["startFrame"];
 		data.clear();
 		int stateIndex = 1;
 		for (auto& state : states) {
 			data[stateIndex];
 			json frames = state["frame"];
 
-			rect.top = state["top"];
-			rect.left = state["left"];
-			rect.bottom = (state["height"] + rect.top);
-
 			int frameIndex = 1;
-			for (auto& frame : frames) {
-				rect.left += frame[1]; // + space
-				rect.right = (rect.left + frame[0]); // + width
-
+			for (auto& f : frames) {
+				size = RECT{
+					(LONG)f[0][0],
+					(LONG)f[0][1],
+					(LONG)f[0][0] + (LONG)f[0][2] ,
+					(LONG)f[0][1] + (LONG)f[0][3]
+				};
+				transition = D3DXVECTOR2(f[1][0], f[1][1]);
 				data[stateIndex][frameIndex] =
-					pair<RECT, D3DXVECTOR2>(rect, D3DXVECTOR2(frame[2], frame[3])); // transition {x,y}
-				rect.left = rect.right;
+					pair<RECT, D3DXVECTOR2>(size, transition); // transition {x,y}
 				frameIndex++;
 			}
 			stateIndex++;
@@ -125,5 +129,5 @@ int Unit::GetFrameCount(int state)
 
 void Unit::NextFrame()
 {
-	frame = frame < GetFrameCount(state) ? frame + 1 : 1;
+	frame = frame < GetFrameCount(state) ? frame + 1 : startFrame;
 }
