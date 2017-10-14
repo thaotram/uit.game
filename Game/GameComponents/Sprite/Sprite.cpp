@@ -126,6 +126,10 @@ void Sprite::SetPosition(D3DXVECTOR2 pos)
 {
 	this->SetPosition(pos.x, pos.y);
 }
+void Sprite::SetPositionTo(float x, float y)
+{
+	mPosition += D3DXVECTOR3(x, y, 0);
+}
 void Sprite::SetPosition(D3DXVECTOR3 pos)
 {
 	mPosition = pos;

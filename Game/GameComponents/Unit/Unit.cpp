@@ -24,7 +24,6 @@ Sprite * Unit::GetSprite()
 
 void Unit::InitializationData(string name)
 {
-
 	try {
 		json j;
 		ifstream i;
@@ -80,6 +79,11 @@ void Unit::InitializationData(string name)
 void Unit::SetState(int state)
 {
 	this->state = state;
+}
+
+void Unit::SetFrame(int frame)
+{
+	this->frame = frame;
 }
 
 void Unit::Update(float dt)

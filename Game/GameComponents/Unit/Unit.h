@@ -50,6 +50,7 @@ public:
 	Sprite * GetSprite();
 
 	void SetState(int state);
+	void SetFrame(int frame);
 	void Update(float dt);
 	void Draw();
 };

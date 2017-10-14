@@ -40,6 +40,7 @@ public:
 	void SetRect(RECT);
 	bool Sprite::isRect(RECT rect);
 
+	void SetPositionTo(float x, float y);
 	void SetPosition(D3DXVECTOR3 pos);
 	void SetPosition(float x, float y);
 	void SetPosition(D3DXVECTOR2 pos);

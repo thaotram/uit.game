@@ -175,7 +175,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Sprite\alad.png" />
-    <Image Include="Resources\Sprite\Aladdin\Aladdin x4.png" />
     <Image Include="Resources\Sprite\Aladdin\Aladdin.png" />
     <Image Include="Resources\Sprite\Block\block.png" />
     <Image Include="Resources\Sprite\questblock.png" />

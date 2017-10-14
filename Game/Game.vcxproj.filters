@@ -187,9 +187,6 @@
     <Image Include="Resources\Sprite\Block\block.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Resources\Sprite\Aladdin\Aladdin x4.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="Resources\Sprite\Aladdin\Aladdin.png">
       <Filter>Resource Files</Filter>
     </Image>
