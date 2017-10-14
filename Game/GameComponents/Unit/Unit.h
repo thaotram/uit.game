@@ -8,6 +8,22 @@
 using namespace std;
 using json = nlohmann::json;
 
+typedef struct Frame {
+	Frame() {};
+	Frame(
+		RECT	      inRect,
+		D3DXVECTOR2   inTranslation
+	) :
+		Rect(inRect),
+		Translation(inTranslation)
+	{
+		FrameLine.clear();
+	}
+	RECT Rect;
+	D3DXVECTOR2 Translation;
+	map<int, int> FrameLine;
+} Frame;
+
 class Unit
 {
 private:
@@ -15,13 +31,9 @@ private:
 
 	string	name;
 	int		state;
-	int		cycle;
 	int		frame;
-	int		startFrame;
 	void	NextFrame();
 
-	
-	int				GetFrame(int state, int cycle);
 	RECT			GetRect(int state, int cycle);
 	D3DXVECTOR2		GetTranslation(int state, int cycle);
 
@@ -29,13 +41,7 @@ private:
 
 	float	mTimePerFrame, mCurrentTime;
 
-	map<
-		int,
-		pair<
-			map<int, pair<RECT, D3DXVECTOR2>>,
-			map<int, pair<int, int>>
-		>
-	> data;
+	map<int, map<int, Frame>> data;
 public:
 	Unit(string name, D3DCOLOR color = NULL);
 	~Unit();

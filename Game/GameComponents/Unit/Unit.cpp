@@ -3,13 +3,12 @@ int oldF;
 Unit::Unit(string name, D3DCOLOR color)
 {
 	state = 1;
-	cycle = 1;
 	string path_ = "Resources/Sprite/" + name + "/" + name + ".png";
 	const char * path = path_.c_str();
 
 	mSprite = new Sprite(path, color);
 	mSprite->SetRect(
-		GetRect(state, cycle)
+		GetRect(state, frame)
 	);
 	this->name = name;
 	InitializationData(name);
@@ -30,36 +29,41 @@ void Unit::InitializationData(string name)
 		i.open("Resources/Sprite/" + name + "/" + name + ".json");
 		i >> j;
 
-		RECT size;
+		RECT rectSize;
+		json jsonSize, jsonFrameLine;
 		D3DXVECTOR2 transition;
+		map<int, int> frameLine;
 
 		json states = j["states"];
 		mTimePerFrame = j["time"];
-		startFrame = j["startFrame"];
 		data.clear();
 		int stateIndex = 1;
 		for (auto& state : states) {
-			auto p = data[stateIndex];
-			json cycles = state["cycle"];
 			json frames = state["frame"];
 
-			int cycleIndex = 1;
-			for (auto& c : cycles) {
-				data[stateIndex].second[cycleIndex] = pair<int, int>(c[0], c[1]);
-				cycleIndex++;
-			}
 			int frameIndex = 1;
-			for (auto& f : frames) {
-				size = RECT{
-					(LONG)f[0],
-					(LONG)f[1],
-					(LONG)f[0] + (LONG)f[2] ,
-					(LONG)f[1] + (LONG)f[3]
+			for (json::iterator frame = frames.begin(); frame != frames.end(); ++frame) {
+				jsonSize = frame.value()[0];
+				rectSize = RECT{
+					(LONG)jsonSize[0],
+					(LONG)jsonSize[1],
+					(LONG)jsonSize[0] + (LONG)jsonSize[2],
+					(LONG)jsonSize[1] + (LONG)jsonSize[3]
 				};
-				transition = D3DXVECTOR2(f[4], f[5]);
-				data[stateIndex].first[frameIndex] =
-					pair<RECT, D3DXVECTOR2>(size, transition); // transition {x,y}
-				frameIndex++;
+				transition = D3DXVECTOR2(jsonSize[4], jsonSize[5]);
+
+				jsonFrameLine = frame.value()[1];
+				Frame *framePointer;
+				framePointer = &data[stateIndex][stoi(frame.key())];
+				*framePointer = Frame{ rectSize, transition };
+				// jsonFrameLine = frame.value()[1];
+				// framePointer->FrameLine[1] = 0;
+				for (json::iterator it = jsonFrameLine.begin(); it != jsonFrameLine.end(); ++it) {
+					if (it.key() == "?")
+						framePointer->FrameLine[0] = (int)it.value();
+					else
+						framePointer->FrameLine[stoi(it.key())] = (int)it.value();
+				}
 			}
 			stateIndex++;
 		}
@@ -68,6 +72,7 @@ void Unit::InitializationData(string name)
 		// throw "Lỗi khi cố gắng đọc file Json";
 		data.clear();
 	}
+	return;
 }
 
 void Unit::SetState(int state)
@@ -91,15 +96,17 @@ void Unit::Update(float dt)
 }
 void Unit::Draw()
 {
-	string s1 = "c: " + to_string(cycle) + " - f: " + to_string(frame);
-	wstring s2;
-	s2.assign(s1.begin(), s1.end());
-	LPCTSTR p = s2.c_str();
-
-	SetWindowText(
-		GameGlobal::GetCurrentHWND(),
-		p
-	);
+	// Change Name to Frame
+	{
+		string s1 = "Frame: " + to_string(frame);
+		wstring s2;
+		s2.assign(s1.begin(), s1.end());
+		LPCTSTR Title = s2.c_str();
+		SetWindowText(
+			GameGlobal::GetCurrentHWND(),
+			Title
+		);
+	}
 
 	mSprite->SetRect(
 		GetRect(state, frame)
@@ -113,8 +120,8 @@ void Unit::Draw()
 RECT Unit::GetRect(int state, int frame)
 {
 	try {
-		if (!data.empty())
-			return data[state].first[frame].first;
+		//if (!data.empty())
+		//	// return data[state].first[frame].first;
 	}
 	catch (exception e) {}
 	RECT sample;
@@ -124,34 +131,29 @@ RECT Unit::GetRect(int state, int frame)
 	sample.bottom = 100;
 	return sample;
 }
-int Unit::GetFrame(int state, int cycle) {
-	int f = data[state].second[cycle].first;
-	if (f != oldF) {
-		oldF = f;
-	}
-	return f;
-}
 D3DXVECTOR2 Unit::GetTranslation(int state, int cycle)
 {
 	if (data.empty()) return D3DXVECTOR2();
 
 	D3DXVECTOR2 scale = mSprite->GetScale();
-	D3DXVECTOR2 trans = data[state].first[cycle].second;
-	return D3DXVECTOR2(scale.x * trans.x, scale.y * trans.y);
+	//D3DXVECTOR2 trans = data[state].first[cycle].second;
+	//return D3DXVECTOR2(scale.x * trans.x, scale.y * trans.y);
+	return D3DXVECTOR2();
 }
 
 void Unit::NextFrame()
 {
-	int nextCycle = data[state].second[cycle].second;
-	if (
-		data[state].second.find(nextCycle) !=
-		data[state].second.end()
-		) {
-		cycle = nextCycle; //data[state].second[nextCycle].first;
-		frame = GetFrame(state, cycle);
-	}
-	else {
-		int a = 0;
-	}
+	//int nextCycle = data[state].second[frame].second;
+	//if (
+	//	data[state].second.find(nextCycle) !=
+	//	data[state].second.end()
+	//	) {
+	//	//? Sửa chố này, thêm cái thay đổi frame vào
+	//	// cycle = nextCycle; //data[state].second[nextCycle].first;
 
+	//	// frame = GetFrame(state, cycle);
+	//}
+	//else {
+	//	int a = 0;
+	//}
 }
