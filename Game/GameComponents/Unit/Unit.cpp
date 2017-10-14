@@ -143,28 +143,7 @@ D3DXVECTOR2 Unit::GetTranslation(int state, int cycle)
 void Unit::NextFrame()
 {
 	int currentFrame = frame;
-	map<int, int> * f;
-	f = &data[state][frame].FrameLine;
-	if (f->find(previousFrame) == f->end()) {
-		// Không tìm thấy
-		frame = data[state][frame].FrameLine[0];
-		previousFrame = currentFrame;
-	}
-	else {
-		frame = data[state][frame].FrameLine[previousFrame];
-		previousFrame = currentFrame;
-	}
-	//if (
-
-	//	//data[state][.second.find(nextCycle) !=
-	//	//data[state].second.end()
-	//	) {
-	//	//? Sửa chố này, thêm cái thay đổi frame vào
-	//	// cycle = nextCycle; //data[state].second[nextCycle].first;
-
-	//	// frame = GetFrame(state, cycle);
-	//}
-	//else {
-	//	int a = 0;
-	//}
+	map<int, int> * f = &data[state][currentFrame].FrameLine;
+	frame = f->at(f->find(previousFrame) == f->end() ? 0 : previousFrame);
+	previousFrame = currentFrame;
 }

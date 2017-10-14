@@ -123,7 +123,7 @@
     <ClCompile Include="GameComponents\Game\Game.cpp" />
     <ClCompile Include="GameComponents\Game\GameGlobal.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="GameControllers\SceneManager.cpp" />
+    <ClCompile Include="GameControllers\SceneManager\SceneManager.cpp" />
     <ClCompile Include="GameComponents\Scene\Scene.cpp" />
     <ClCompile Include="GameComponents\Unit\Unit.cpp" />
   </ItemGroup>
@@ -169,7 +169,7 @@
     <ClInclude Include="Scenes\DemoScene.h" />
     <ClInclude Include="GameComponents\Game\Game.h" />
     <ClInclude Include="GameComponents\Game\GameGlobal.h" />
-    <ClInclude Include="GameControllers\SceneManager.h" />
+    <ClInclude Include="GameControllers\SceneManager\SceneManager.h" />
     <ClInclude Include="GameComponents\Scene\Scene.h" />
     <ClInclude Include="GameComponents\Unit\Unit.h" />
   </ItemGroup>

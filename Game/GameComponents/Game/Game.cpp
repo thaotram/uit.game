@@ -1,7 +1,7 @@
 ﻿#include "Game.h"
 #include "GameGlobal.h"
 #include "../../GameComponents/Game/GameTime.h"
-#include "../../GameControllers/SceneManager.h"
+#include "../../GameControllers/SceneManager/SceneManager.h"
 #include "../../Scenes/DemoScene.h"
 
 Game::Game()

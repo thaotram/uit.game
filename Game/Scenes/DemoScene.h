@@ -19,6 +19,9 @@ public:
 	void LoadContent();
 	void Draw();
 
+	void OnKeyDown(int keyCode);
+	void OnKeyUp(int keyCode);
+	void OnMouseDown(float x, float y);
 protected:
 	//Animation *mGoldBlock;
 	float mTimeCounter;

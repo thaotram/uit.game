@@ -36,3 +36,36 @@ void DemoScene::Draw()
 	//mUnits->Draw();
 	mAladdin->Draw();
 }
+
+void DemoScene::OnKeyDown(int keyCode)
+{
+	if (keyCode == VK_LEFT)
+	{
+		mAladdin->GetSprite()->SetPosition(
+			mGoldBlock->GetPosition() + D3DXVECTOR3(-10, 0, 0)
+		);
+	}
+
+	if (keyCode == VK_RIGHT)
+	{
+		mAladdin->SetPosition(mGoldBlock->GetPosition() + D3DXVECTOR3(10, 0, 0));
+	}
+
+	if (keyCode == VK_UP)
+	{
+		mAladdin->SetPosition(mGoldBlock->GetPosition() + D3DXVECTOR3(0, -10, 0));
+	}
+
+	if (keyCode == VK_DOWN)
+	{
+		mAladdin->SetPosition(mGoldBlock->GetPosition() + D3DXVECTOR3(0, 10, 0));
+	}
+}
+
+void DemoScene::OnKeyUp(int keyCode)
+{
+}
+
+void DemoScene::OnMouseDown(float x, float y)
+{
+}

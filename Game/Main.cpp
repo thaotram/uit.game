@@ -9,6 +9,7 @@
 
 #include "GameComponents\Game\Game.h"
 #include "GameComponents\Game\GameGlobal.h"
+#include "GameControllers\SceneManager\SceneManager.h"
 
 #include <iostream>
 #include <json.hpp>
@@ -152,10 +153,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		PostQuitMessage(0);
 		break;
 	case WM_LBUTTONDOWN:
+		SceneManager::GetInstance()->GetCurrentScene()
+			->OnMouseDown((float)GET_X_LPARAM(lParam), (float)GET_Y_LPARAM(lParam));
 		break;
 	case WM_KEYDOWN:
+		SceneManager::GetInstance()->GetCurrentScene()->OnKeyDown(wParam);
 		break;
 	case WM_KEYUP:
+		SceneManager::GetInstance()->GetCurrentScene()->OnKeyUp(wParam);
 		break;
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);
