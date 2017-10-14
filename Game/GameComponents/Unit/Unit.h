@@ -15,12 +15,12 @@ typedef struct Frame {
 		D3DXVECTOR2   inTranslation
 	) :
 		Rect(inRect),
-		Translation(inTranslation)
+		Transition(inTranslation)
 	{
 		FrameLine.clear();
 	}
 	RECT Rect;
-	D3DXVECTOR2 Translation;
+	D3DXVECTOR2 Transition;
 	map<int, int> FrameLine;
 } Frame;
 
@@ -32,6 +32,7 @@ private:
 	string	name;
 	int		state;
 	int		frame;
+	int		previousFrame;
 	void	NextFrame();
 
 	RECT			GetRect(int state, int cycle);

@@ -3,6 +3,8 @@ int oldF;
 Unit::Unit(string name, D3DCOLOR color)
 {
 	state = 1;
+	frame = 1;
+	previousFrame = 0;
 	string path_ = "Resources/Sprite/" + name + "/" + name + ".png";
 	const char * path = path_.c_str();
 
@@ -56,13 +58,13 @@ void Unit::InitializationData(string name)
 				Frame *framePointer;
 				framePointer = &data[stateIndex][stoi(frame.key())];
 				*framePointer = Frame{ rectSize, transition };
-				// jsonFrameLine = frame.value()[1];
-				// framePointer->FrameLine[1] = 0;
 				for (json::iterator it = jsonFrameLine.begin(); it != jsonFrameLine.end(); ++it) {
-					if (it.key() == "?")
+					if (it.key() == "?") {
 						framePointer->FrameLine[0] = (int)it.value();
-					else
+					}
+					else {
 						framePointer->FrameLine[stoi(it.key())] = (int)it.value();
+					}
 				}
 			}
 			stateIndex++;
@@ -82,9 +84,7 @@ void Unit::SetState(int state)
 
 void Unit::Update(float dt)
 {
-	if (data.empty())
-		InitializationData(name);
-	//if (GetFrameCount(state) <= 1) return;
+	if (data.empty()) InitializationData(name);
 
 	if (mCurrentTime >= mTimePerFrame) {
 		//mCurrentTime -= mTimePerFrame;
@@ -120,8 +120,8 @@ void Unit::Draw()
 RECT Unit::GetRect(int state, int frame)
 {
 	try {
-		//if (!data.empty())
-		//	// return data[state].first[frame].first;
+		if (!data.empty())
+			return data[state][frame].Rect;
 	}
 	catch (exception e) {}
 	RECT sample;
@@ -136,17 +136,28 @@ D3DXVECTOR2 Unit::GetTranslation(int state, int cycle)
 	if (data.empty()) return D3DXVECTOR2();
 
 	D3DXVECTOR2 scale = mSprite->GetScale();
-	//D3DXVECTOR2 trans = data[state].first[cycle].second;
-	//return D3DXVECTOR2(scale.x * trans.x, scale.y * trans.y);
-	return D3DXVECTOR2();
+	D3DXVECTOR2 trans = data[state][frame].Transition;
+	return D3DXVECTOR2(scale.x * trans.x, scale.y * trans.y);
 }
 
 void Unit::NextFrame()
 {
-	//int nextCycle = data[state].second[frame].second;
+	int currentFrame = frame;
+	map<int, int> * f;
+	f = &data[state][frame].FrameLine;
+	if (f->find(previousFrame) == f->end()) {
+		// Không tìm thấy
+		frame = data[state][frame].FrameLine[0];
+		previousFrame = currentFrame;
+	}
+	else {
+		frame = data[state][frame].FrameLine[previousFrame];
+		previousFrame = currentFrame;
+	}
 	//if (
-	//	data[state].second.find(nextCycle) !=
-	//	data[state].second.end()
+
+	//	//data[state][.second.find(nextCycle) !=
+	//	//data[state].second.end()
 	//	) {
 	//	//? Sửa chố này, thêm cái thay đổi frame vào
 	//	// cycle = nextCycle; //data[state].second[nextCycle].first;
