@@ -1,15 +1,15 @@
 ﻿#include "Unit.h"
-
+int oldF;
 Unit::Unit(string name, D3DCOLOR color)
 {
 	state = 1;
-	frame = 1;
+	cycle = 1;
 	string path_ = "Resources/Sprite/" + name + "/" + name + ".png";
 	const char * path = path_.c_str();
 
 	mSprite = new Sprite(path, color);
 	mSprite->SetRect(
-		GetRect(state, frame)
+		GetRect(state, cycle)
 	);
 	this->name = name;
 	InitializationData(name);
@@ -39,9 +39,15 @@ void Unit::InitializationData(string name)
 		data.clear();
 		int stateIndex = 1;
 		for (auto& state : states) {
-			data[stateIndex];
+			auto p = data[stateIndex];
+			json cycles = state["cycle"];
 			json frames = state["frame"];
 
+			int cycleIndex = 1;
+			for (auto& c : cycles) {
+				data[stateIndex].second[cycleIndex] = pair<int, int>(c[0], c[1]);
+				cycleIndex++;
+			}
 			int frameIndex = 1;
 			for (auto& f : frames) {
 				size = RECT{
@@ -51,7 +57,7 @@ void Unit::InitializationData(string name)
 					(LONG)f[1] + (LONG)f[3]
 				};
 				transition = D3DXVECTOR2(f[4], f[5]);
-				data[stateIndex][frameIndex] =
+				data[stateIndex].first[frameIndex] =
 					pair<RECT, D3DXVECTOR2>(size, transition); // transition {x,y}
 				frameIndex++;
 			}
@@ -85,6 +91,16 @@ void Unit::Update(float dt)
 }
 void Unit::Draw()
 {
+	string s1 = "c: " + to_string(cycle) + " - f: " + to_string(frame);
+	wstring s2;
+	s2.assign(s1.begin(), s1.end());
+	LPCTSTR p = s2.c_str();
+
+	SetWindowText(
+		GameGlobal::GetCurrentHWND(),
+		p
+	);
+
 	mSprite->SetRect(
 		GetRect(state, frame)
 	);
@@ -97,7 +113,8 @@ void Unit::Draw()
 RECT Unit::GetRect(int state, int frame)
 {
 	try {
-		if (!data.empty()) return data[state][frame].first;
+		if (!data.empty())
+			return data[state].first[frame].first;
 	}
 	catch (exception e) {}
 	RECT sample;
@@ -107,27 +124,34 @@ RECT Unit::GetRect(int state, int frame)
 	sample.bottom = 100;
 	return sample;
 }
-
-D3DXVECTOR2 Unit::GetTranslation(int state, int frame)
+int Unit::GetFrame(int state, int cycle) {
+	int f = data[state].second[cycle].first;
+	if (f != oldF) {
+		oldF = f;
+	}
+	return f;
+}
+D3DXVECTOR2 Unit::GetTranslation(int state, int cycle)
 {
 	if (data.empty()) return D3DXVECTOR2();
 
 	D3DXVECTOR2 scale = mSprite->GetScale();
-	D3DXVECTOR2 trans = data[state][frame].second;
+	D3DXVECTOR2 trans = data[state].first[cycle].second;
 	return D3DXVECTOR2(scale.x * trans.x, scale.y * trans.y);
-}
-
-int Unit::GetStateCount()
-{
-	return data.size();
-}
-int Unit::GetFrameCount(int state)
-{
-	if (data.empty()) return 0;
-	return data[state].size();
 }
 
 void Unit::NextFrame()
 {
-	frame = frame < GetFrameCount(state) ? frame + 1 : startFrame;
+	int nextCycle = data[state].second[cycle].second;
+	if (
+		data[state].second.find(nextCycle) !=
+		data[state].second.end()
+		) {
+		cycle = nextCycle; //data[state].second[nextCycle].first;
+		frame = GetFrame(state, cycle);
+	}
+	else {
+		int a = 0;
+	}
+
 }

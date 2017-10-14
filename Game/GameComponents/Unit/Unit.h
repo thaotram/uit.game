@@ -15,20 +15,27 @@ private:
 
 	string	name;
 	int		state;
+	int		cycle;
 	int		frame;
 	int		startFrame;
-	int		GetStateCount();
-	int		GetFrameCount(int state);
 	void	NextFrame();
 
-	RECT			GetRect(int state, int frame);
-	D3DXVECTOR2		GetTranslation(int state, int frame);
+	
+	int				GetFrame(int state, int cycle);
+	RECT			GetRect(int state, int cycle);
+	D3DXVECTOR2		GetTranslation(int state, int cycle);
 
 	void	InitializationData(string);
 
 	float	mTimePerFrame, mCurrentTime;
 
-	map<int,map<int, pair<RECT, D3DXVECTOR2>>> data;
+	map<
+		int,
+		pair<
+			map<int, pair<RECT, D3DXVECTOR2>>,
+			map<int, pair<int, int>>
+		>
+	> data;
 public:
 	Unit(string name, D3DCOLOR color = NULL);
 	~Unit();
