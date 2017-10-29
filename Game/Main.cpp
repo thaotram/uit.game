@@ -34,7 +34,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 //! Entry point
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int cmdShow)
 {
-	//MessageBox(NULL, TEXT("hello"), TEXT("what"), MB_OK);
 	GameGlobal::SetCurrentHINSTACE(hInstance);
 	InitializeWindow(cmdShow);
 	return 0;
@@ -75,7 +74,7 @@ int InitializeWindow(int cmdShow)
 			WS_EX_OVERLAPPEDWINDOW,
 			APP_CLASS,
 			APP_CLASS,
-			WS_OVERLAPPEDWINDOW,
+			WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME,
 			CW_USEDEFAULT,
 			CW_USEDEFAULT,
 			GameGlobal::GetWidth(),
