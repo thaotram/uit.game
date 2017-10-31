@@ -21,10 +21,12 @@ void Sprite::InitializeSprite(const char* filePath, D3DCOLOR colorKey) {
 	mTranslation = D3DXVECTOR2(0, 0);
 	mRotation = 0;
 
-	mSourceRect.left = 0;
-	mSourceRect.right = mImageInfo.Width;
-	mSourceRect.top = 0;
-	mSourceRect.bottom = mImageInfo.Height;
+	mSourceRect = {
+		0,
+		0,
+		(LONG)mImageInfo.Width ,
+		(LONG)mImageInfo.Height
+	};
 
 	D3DXCreateTextureFromFileExA
 	(
@@ -94,17 +96,16 @@ LPDIRECT3DTEXTURE9 Sprite::GetTexture()
 
 void Sprite::SetRectWithSize(LONG top, LONG left, LONG width, LONG height)
 {
-	mSourceRect.left = left;
-	mSourceRect.right = left + width;
-	mSourceRect.top = top;
-	mSourceRect.bottom = top + height;
+	mSourceRect = { 
+		left, 
+		top, 
+		left + width, 
+		top + height 
+	};
 }
 void Sprite::SetRect(LONG top, LONG left, LONG bottom, LONG right)
 {
-	mSourceRect.left = left;
-	mSourceRect.right = right;
-	mSourceRect.top = top;
-	mSourceRect.bottom = bottom;
+	mSourceRect = { left, top, right, bottom };
 }
 void Sprite::SetRect(RECT rect)
 {
@@ -122,17 +123,17 @@ void Sprite::SetPosition(float x, float y)
 {
 	mPosition = D3DXVECTOR3(x, y, 0);
 }
-void Sprite::SetPosition(D3DXVECTOR2 pos)
+void Sprite::SetPosition(D3DXVECTOR2 position)
 {
-	this->SetPosition(pos.x, pos.y);
+	this->SetPosition(position.x, position.y);
 }
 void Sprite::SetPositionTo(float x, float y)
 {
 	mPosition += D3DXVECTOR3(x, y, 0);
 }
-void Sprite::SetPosition(D3DXVECTOR3 pos)
+void Sprite::SetPosition(D3DXVECTOR3 position)
 {
-	mPosition = pos;
+	mPosition = position;
 }
 D3DXVECTOR3 Sprite::GetPosition()
 {

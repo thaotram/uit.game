@@ -8,6 +8,7 @@ Game::Game()
 {
 	mFPS = GameGlobal::GetFPS();
 
+	// Game Start
 	SceneManager::GetInstance()->ReplaceScene(
 		new DemoScene()
 	);
@@ -53,7 +54,7 @@ void Game::InitLoop()
 
 // Được gọi bên trong vòng lặp (bên trong hàm update)
 void Game::Render() {
-	auto device = GameGlobal::GetCurrentDevice();
+	LPDIRECT3DDEVICE9 device = GameGlobal::GetCurrentDevice();
 	Scene * scene = SceneManager::GetInstance()->GetCurrentScene();
 
 	device->Clear(0, NULL, D3DCLEAR_TARGET, scene->GetBackcolor(), 0.0f, 0);

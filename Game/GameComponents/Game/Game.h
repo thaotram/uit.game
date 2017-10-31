@@ -11,7 +11,6 @@ public:
 
 protected:
 	PDIRECT3DSURFACE9	mBackground, mBackBuffer;
-	int					mWidth, mHeight;
 	static int          mIsDone;
 	float               mFPS;
 

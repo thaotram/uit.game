@@ -5,7 +5,7 @@
 
 #include "../Game/GameGlobal.h"
 
-class Sprite
+class Sprite 
 {
 protected:
 	// Chỉ dùng cho kế thừa - không thể truy cập từ bên ngoài
@@ -24,8 +24,8 @@ protected:
 
 	D3DXIMAGE_INFO          mImageInfo;			// Thông tin hình ảnh được lấy
 	LPD3DXSPRITE            mSpriteHandler;		// SpriteHandler hỗ trợ vẽ hình
-	LPDIRECT3DTEXTURE9      mTexture;			// [*] Dùng khi vẽ
-	D3DXMATRIX              mMatrix;			// [*] Dùng khi vẽ
+	LPDIRECT3DTEXTURE9      mTexture;			// Dùng khi vẽ
+	D3DXMATRIX              mMatrix;			// Dùng khi vẽ
 public:
 	Sprite(const char* filePath, D3DCOLOR colorKey = NULL);
 	~Sprite();
@@ -64,6 +64,5 @@ public:
 	void FlipVertical(bool flag);
 	bool IsFlipHorizontal();
 	bool IsFlipVertical();
-
 };
 #endif

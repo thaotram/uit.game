@@ -1,5 +1,5 @@
 ﻿#include "Unit.h"
-int oldF;
+
 Unit::Unit(string name, D3DCOLOR color)
 {
 	state = 1;
