@@ -1,8 +1,6 @@
 #pragma once
-#ifndef __GAME_TIME__
-#define __GAME_TIME__
-
 #include <windows.h>
+
 class GameTime
 {
 private:
@@ -15,5 +13,3 @@ public:
 	DWORD GetCouter();
 	~GameTime();
 };
-
-#endif

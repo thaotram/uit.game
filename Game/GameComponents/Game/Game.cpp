@@ -60,9 +60,12 @@ void Game::Render() {
 	{
 		device->BeginScene();
 		GameGlobal::GetCurrentSpriteHandler()->Begin(D3DXSPRITE_ALPHABLEND);
-		device->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
-		device->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
-		device->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
+		{
+			// Làm cho hình ảnh sau khi scale không bị nhòe
+			device->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
+			device->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
+			device->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
+		}
 		scene->Draw();
 		GameGlobal::GetCurrentSpriteHandler()->End();
 		device->EndScene();

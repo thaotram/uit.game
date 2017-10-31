@@ -25,7 +25,6 @@ using namespace std;
 #define APP_WIDTH 600
 #define APP_HEIGHT 600
 #define FPS 60
-#define KEYBOARD_BUFFERD_SIZE 1024
 
 int InitializeWindow(int cmdShow);
 int InitializeDevice();
@@ -120,8 +119,6 @@ int InitializeDevice()
 	d3dpp.BackBufferWidth = GameGlobal::GetWidth();
 	d3dpp.BackBufferHeight = GameGlobal::GetHeight();
 
-	// IDirect3DDevice9Ex_SetRenderState
-
 	Direct3DCreate9(D3D_SDK_VERSION)->CreateDevice(
 		D3DADAPTER_DEFAULT,
 		D3DDEVTYPE_HAL,
@@ -152,8 +149,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		PostQuitMessage(0);
 		break;
 	case WM_LBUTTONDOWN:
-		SceneManager::GetInstance()->GetCurrentScene()
-			->OnMouseDown((float)GET_X_LPARAM(lParam), (float)GET_Y_LPARAM(lParam));
+		SceneManager::GetInstance()->GetCurrentScene()->OnMouseDown(
+			(float)GET_X_LPARAM(lParam),
+			(float)GET_Y_LPARAM(lParam)
+		);
 		break;
 	case WM_KEYDOWN:
 		SceneManager::GetInstance()->GetCurrentScene()->OnKeyDown(wParam);

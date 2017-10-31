@@ -11,12 +11,11 @@ private:
 	static LPD3DXSPRITE			mSpriteHandler;		// spriteHanlder hiện tại
 	static LPDIRECT3DDEVICE9	mDevice;			// device directX hiện tại
 	static int					mWidth, mHeight;	// size của cửa sổ
-	static float				FPS;				// frame per second
+	static float				mFPS;				// frame per second
 public:
 	GameGlobal();
 	~GameGlobal();
 
-	static LPDIRECT3DSURFACE9 backSurface;
 	static bool isGameRunning; //trạng thái xem game có đang chạy khong
 
 	static HWND GetCurrentHWND();

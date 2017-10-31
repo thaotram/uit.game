@@ -6,13 +6,12 @@ GameGlobal::~GameGlobal() {}
 // Init Value
 int GameGlobal::mWidth = 0;
 int GameGlobal::mHeight = 0;
-float GameGlobal::FPS = 1;
+float GameGlobal::mFPS = 1;
 HWND GameGlobal::mHwnd = NULL;
 HINSTANCE GameGlobal::mHInstance = NULL;
 LPD3DXSPRITE GameGlobal::mSpriteHandler = NULL;
 LPDIRECT3DDEVICE9 GameGlobal::mDevice = nullptr;
 bool GameGlobal::isGameRunning = true;
-IDirect3DSurface9* GameGlobal::backSurface = nullptr;
 
 void GameGlobal::SetCurrentHWND(HWND hwnd)
 {
@@ -66,9 +65,9 @@ int GameGlobal::GetHeight()
 }
 void GameGlobal::SetFPS(float fps)
 {
-	FPS = fps;
+	mFPS = fps;
 }
 float GameGlobal::GetFPS()
 {
-	return FPS;
+	return mFPS;
 }
