@@ -1,0 +1,76 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "/usr/include",
+                "/usr/local/include",
+                "${workspaceRoot}"
+            ],
+            "defines": [],
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": [
+                    "/usr/include",
+                    "/usr/local/include",
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
+            ]
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "/usr/include",
+                "/usr/local/include",
+                "${workspaceRoot}"
+            ],
+            "defines": [],
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": [
+                    "/usr/include",
+                    "/usr/local/include",
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        },
+        {
+            "name": "Win32",
+            "includePath": [
+                "E:/Visual Studio/VC/Tools/MSVC/14.11.25503/include/*",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/um",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/ucrt",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/shared",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/winrt",
+                "${workspaceRoot}",
+                "${workspaceRoot}/Game/GameComponents"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE"
+            ],
+            "intelliSenseMode": "msvc-x64",
+            "browse": {
+                "path": [
+                    "E:/Visual Studio/VC/Tools/MSVC/14.11.25503/include/*",
+                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/um",
+                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/ucrt",
+                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/shared",
+                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/winrt",
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 3
+}
