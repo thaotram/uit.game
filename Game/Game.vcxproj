@@ -118,6 +118,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GameComponents\Game\GameTime.cpp" />
+    <ClCompile Include="GameComponents\Node\Node.cpp" />
     <ClCompile Include="GameComponents\Sprite\Sprite.cpp" />
     <ClCompile Include="Scenes\DemoScene.cpp" />
     <ClCompile Include="GameComponents\Game\Game.cpp" />
@@ -129,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameComponents\Game\GameTime.h" />
+    <ClInclude Include="GameComponents\Node\Node.h" />
     <ClInclude Include="GameComponents\Sprite\Sprite.h" />
     <ClInclude Include="Include\json.hpp" />
     <ClInclude Include="Include\rapidjson\allocators.h" />
