@@ -21,6 +21,6 @@ DWORD GameTime::GetCouter()
 	QueryPerformanceCounter(&mEndTime);
 	mDelta.QuadPart = mEndTime.QuadPart - mStartTime.QuadPart;
 
-	return ((float)mDelta.QuadPart / mClockRate.QuadPart);
+	return (DWORD)((float)mDelta.QuadPart / mClockRate.QuadPart);
 }
 

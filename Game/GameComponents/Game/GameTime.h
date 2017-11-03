@@ -6,7 +6,7 @@ class GameTime
 private:
 	GameTime();
 	LARGE_INTEGER mStartTime, mEndTime, mDelta, mClockRate;
-	static GameTime *mInstance;
+	static GameTime * mInstance;
 public:
 	static GameTime* GetInstance();
 	void StartCounter();
