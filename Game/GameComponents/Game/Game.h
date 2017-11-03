@@ -10,9 +10,8 @@ public:
 	~Game();
 
 protected:
-	PDIRECT3DSURFACE9	mBackground, mBackBuffer;
-	static int          mIsDone;
 	float               mFPS;
+	D3DCOLOR            mBackgroundColor;
 
 	//khởi tạo vòng lặp game
 	//đc gọi khi khởi tạo đối tượng game
