@@ -24,19 +24,19 @@ typedef struct Frame {
 	map<int, int> FrameLine;
 } Frame;
 
-class Unit
+class Unit_
 {
 private:
 	Sprite * mSprite;
 
-	string	name;
-	int		state;
-	int		frame;
-	int		previousFrame;
+	string	mName;
+	int		mState;
+	int		mFrame;
+	int		mPreviousFrame;
 	void	NextFrame();
 
-	RECT			GetRect(int state, int cycle);
-	D3DXVECTOR2		GetTranslation(int state, int cycle);
+	RECT			GetRect(int mState, int cycle);
+	D3DXVECTOR2		GetTranslation(int mState, int cycle);
 
 	void	InitializationData(string);
 
@@ -44,13 +44,13 @@ private:
 
 	map<int, map<int, Frame>> data;
 public:
-	Unit(string name, D3DCOLOR color = NULL);
-	~Unit();
+	Unit_(string mName, D3DCOLOR color = NULL);
+	~Unit_();
 
 	Sprite * GetSprite();
 
-	void SetState(int state);
-	void SetFrame(int frame);
+	void SetState(int mState);
+	void SetFrame(int mFrame);
 	void Update(float dt);
 	void Draw();
 };
