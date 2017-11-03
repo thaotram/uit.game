@@ -15,9 +15,10 @@ class Scene
 {
 protected:
 	Scene() {
+		mNode = new Node();
 		LoadContent();
 	};
-	Node mSelf;
+	Node * mNode;
 public:
 	~Scene() {};
 
@@ -25,11 +26,16 @@ public:
 	// Tham số truyền vào là khoảng thời gian gọi giữa 2 frame được tính bằng giây.
 	// Chính là cái biến delta trong vòng lặp của class Game, sử dụng cho việc tính vận tốc của vật, đếm thời gian 
 	// (VD: như cứ 1s thì sinh quái vật lúc này sẽ dùng 1 biến khác cộng dồn biến dt này lại đến khi nào được 1s thì sẽ gọi hàm)
-	void Update(float dt) {};
+	virtual void Update(float dt) {
+		//mNode->Update(dt);
+	};
 
 	// vẽ những Sprite sẽ được vẽ trong này bằng cách gọi hàm Draw của sprite trong này.
 	// Hàm này sẽ được gọi sau mỗi lần update scene.
-	void Draw() {};
+	virtual void Draw() {
+		//mNode->Draw();
+		//x.Draw();
+	};
 
 	// khởi tạo các biến của scene
 	virtual void LoadContent() {};

@@ -20,14 +20,14 @@ private:
 		}
 	}
 protected:
-	Sprite * mSelf;
+	Sprite * mSprite;
 	list<Node *> mChildren;
 public:
 	Node() {
-		mSelf = nullptr;
+		mSprite = nullptr;
 	}
 	~Node() {
-		delete mSelf;
+		delete mSprite;
 		eachNode([=](list<Node *>::iterator it) {
 			delete *it;
 		});
@@ -44,8 +44,11 @@ public:
 		});
 	};
 
+	void SetSprite(Sprite * sprite) {
+		if (mSprite != nullptr) delete mSprite;
+		mSprite = sprite;
+	}
 	void AddChild(Node * child) {
 		mChildren.push_back(child);
 	}
 };
-
