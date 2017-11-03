@@ -57,7 +57,7 @@ void Game::Render() {
 	LPDIRECT3DDEVICE9 device = GameGlobal::GetCurrentDevice();
 	Scene * scene = SceneManager::GetInstance()->GetCurrentScene();
 
-	device->Clear(0, NULL, D3DCLEAR_TARGET, scene->GetBackcolor(), 0.0f, 0);
+	device->Clear(0, NULL, D3DCLEAR_TARGET, GameGlobal::GetBackgroundColor(), 0.0f, 0);
 	{
 		device->BeginScene();
 		GameGlobal::GetCurrentSpriteHandler()->Begin(D3DXSPRITE_ALPHABLEND);

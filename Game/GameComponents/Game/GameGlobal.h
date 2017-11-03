@@ -10,6 +10,7 @@ private:
 	static HINSTANCE			mHInstance;			// hInstance của windows hiện tại
 	static LPD3DXSPRITE			mSpriteHandler;		// spriteHanlder hiện tại
 	static LPDIRECT3DDEVICE9	mDevice;			// device directX hiện tại
+	static D3DCOLOR				mBackgroundColor;	// backgroundColor
 	static int					mWidth, mHeight;	// size của cửa sổ
 	static float				mFPS;				// frame per second
 public:
@@ -22,11 +23,13 @@ public:
 	static HINSTANCE GetCurrentHINSTACE();
 	static LPD3DXSPRITE GetCurrentSpriteHandler();
 	static LPDIRECT3DDEVICE9 GetCurrentDevice();
+	static D3DCOLOR GetBackgroundColor();
 
 	static void SetCurrentHWND(HWND hwnd);
 	static void SetCurrentHINSTACE(HINSTANCE hInstance);
-	static void SetCurrentSpriteHandler(LPD3DXSPRITE mSpriteHandler);
-	static void SetCurrentDevice(LPDIRECT3DDEVICE9 mDevice);
+	static void SetCurrentSpriteHandler(LPD3DXSPRITE spriteHandler);
+	static void SetCurrentDevice(LPDIRECT3DDEVICE9 device);
+	static void SetBackgroundColor(D3DCOLOR backgroundColor);
 
 	static void SetWidth(int width);
 	static int  GetWidth();
