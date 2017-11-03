@@ -25,7 +25,7 @@ using namespace std;
 #define APP_WIDTH 600
 #define APP_HEIGHT 600
 #define FPS 60
-#define BACKGROUND_COLOR 60
+#define BACKGROUND_COLOR 0x34495e
 
 void InitializeWindow(int cmdShow);
 int InitializeDevice();
