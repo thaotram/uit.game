@@ -1,5 +1,7 @@
 ﻿#include "Sprite.h"
 
+Sprite::Sprite(){}
+
 Sprite::Sprite(const char* filePath, D3DCOLOR colorKey)
 {
 	this->InitializeSprite(filePath, colorKey);
@@ -45,6 +47,11 @@ void Sprite::InitializeSprite(const char* filePath, D3DCOLOR colorKey) {
 		NULL,
 		&mTexture						// [Out] Đại diện cho đối tượng Texture
 	);
+}
+
+void Sprite::Update(float dt)
+{
+	// Một cái update rỗng, không làm gì cả
 }
 
 void Sprite::Draw()
@@ -111,7 +118,6 @@ void Sprite::SetRect(RECT rect)
 {
 	mSourceRect = rect;
 }
-
 bool Sprite::isRect(RECT rect)
 {
 	if (rect.left == rect.right) return false;

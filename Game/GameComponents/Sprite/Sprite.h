@@ -9,8 +9,6 @@ class Sprite
 {
 protected:
 	// Chỉ dùng cho kế thừa - không thể truy cập từ bên ngoài
-	void InitializeSprite(const char* filePath, D3DCOLOR colorKey = NULL);
-
 	D3DXVECTOR3             mPosition;			// Vị trí của sprite, gốc là chính giữa hình ảnh
 	RECT                    mSourceRect;		// Hình chữ nhật cắt ra từ ảnh texture
 
@@ -27,10 +25,13 @@ protected:
 	LPDIRECT3DTEXTURE9      mTexture;			// Dùng khi vẽ
 	D3DXMATRIX              mMatrix;			// Dùng khi vẽ
 public:
+	Sprite();
 	Sprite(const char* filePath, D3DCOLOR colorKey = NULL);
 	~Sprite();
+	void InitializeSprite(const char* filePath, D3DCOLOR colorKey = NULL);
 
-	void Draw();
+	virtual void Update(float dt);
+	virtual void Draw();
 
 	LPDIRECT3DTEXTURE9 GetTexture();
 	D3DXIMAGE_INFO GetImageInfo();
