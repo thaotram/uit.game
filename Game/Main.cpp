@@ -25,8 +25,9 @@ using namespace std;
 #define APP_WIDTH 600
 #define APP_HEIGHT 600
 #define FPS 60
+#define BACKGROUND_COLOR 60
 
-int InitializeWindow(int cmdShow);
+void InitializeWindow(int cmdShow);
 int InitializeDevice();
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -39,13 +40,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 }
 
 // Được gọi trong hàm main
-int InitializeWindow(int cmdShow)
+void InitializeWindow(int cmdShow)
 {
 	WNDCLASSEX wc;
 	wc.cbSize = sizeof(WNDCLASSEX);
 
 	wc.style = CS_HREDRAW | CS_VREDRAW;
-	//wc.style = 0;
 	wc.hInstance = GameGlobal::GetCurrentHINSTACE();
 
 	wc.lpfnWndProc = (WNDPROC)WndProc;
@@ -64,9 +64,10 @@ int InitializeWindow(int cmdShow)
 	RECT wr = { 0, 0, APP_WIDTH, APP_HEIGHT };
 	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
 
-	GameGlobal::SetFPS(FPS);
-	GameGlobal::SetHeight(wr.bottom - wr.top);
 	GameGlobal::SetWidth(wr.right - wr.left);
+	GameGlobal::SetHeight(wr.bottom - wr.top);
+	GameGlobal::SetBackgroundColor(BACKGROUND_COLOR);
+	GameGlobal::SetFPS(FPS);
 
 	GameGlobal::SetCurrentHWND(
 		CreateWindowEx(
@@ -97,8 +98,6 @@ int InitializeWindow(int cmdShow)
 	{
 		new Game();
 	}
-
-	return 0;
 }
 
 // Được gọi trong hàm InitializeWindow trong hàm main
