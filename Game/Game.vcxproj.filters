@@ -24,22 +24,16 @@
     <ClCompile Include="GameComponents\Game\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameComponents\Game\GameGlobal.cpp">
+    <ClCompile Include="GameComponents\Sprite\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameControllers\SceneManager\SceneManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameComponents\Game\GameTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameComponents\Unit\Unit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameComponents\Scene\Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameComponents\Sprite\Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameControllers\SceneManager\SceneManager.cpp">
+    <ClCompile Include="GameComponents\Game\GameGlobal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,9 +48,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameComponents\Game\GameTime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameComponents\Unit\Unit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameComponents\Scene\Scene.h">
@@ -176,6 +167,12 @@
     <ClInclude Include="GameControllers\SceneManager\SceneManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameComponents\Node\Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameComponents\Node\Unit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Sprite\questblock.png">
@@ -193,7 +190,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sprite\Aladdin\Aladdin.json" />
-    <None Include="GameComponents\Unit\Unit.json" />
     <None Include="Resources\Sprite\Block\block.json" />
     <None Include="ClassDiagram.cd" />
   </ItemGroup>

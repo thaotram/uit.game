@@ -51,7 +51,8 @@
                 "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/shared",
                 "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/winrt",
                 "${workspaceRoot}",
-                "${workspaceRoot}/Game/GameComponents"
+                "${workspaceRoot}/Game/GameComponents",
+                "${workspaceRoot}/Game/Include"
             ],
             "defines": [
                 "_DEBUG",
