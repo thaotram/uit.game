@@ -34,11 +34,13 @@ public:
 	}
 
 	void Update(float dt) {
+		if (mSprite != nullptr) mSprite->Update(dt);
 		eachNode([=](list<Node *>::iterator it) {
 			(**it).Update(dt);
 		});
 	};
 	void Draw() {
+		if (mSprite != nullptr) mSprite->Draw();
 		eachNode([=](list<Node *>::iterator it) {
 			(**it).Draw();
 		});
@@ -48,7 +50,14 @@ public:
 		if (mSprite != nullptr) delete mSprite;
 		mSprite = sprite;
 	}
+	Sprite * GetSprite() {
+		return mSprite;
+	}
 	void AddChild(Node * child) {
 		mChildren.push_back(child);
+	}
+	void RemoveChild(Node * child) {
+		mChildren.remove(child);
+		delete child;
 	}
 };
