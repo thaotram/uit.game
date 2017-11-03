@@ -119,9 +119,9 @@
   <ItemGroup>
     <ClCompile Include="GameComponents\Game\GameGlobal.cpp" />
     <ClCompile Include="GameComponents\Game\GameTime.cpp" />
+    <ClCompile Include="GameComponents\Node\Unit.cpp" />
     <ClCompile Include="GameComponents\Sprite\Sprite.cpp" />
     <ClCompile Include="GameComponents\Game\Game.cpp" />
-    <ClCompile Include="GameComponents\Unit\Unit.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="GameControllers\SceneManager\SceneManager.cpp" />
   </ItemGroup>
@@ -130,7 +130,6 @@
     <ClInclude Include="GameComponents\Node\Node.h" />
     <ClInclude Include="GameComponents\Node\Unit.h" />
     <ClInclude Include="GameComponents\Sprite\Sprite.h" />
-    <ClInclude Include="GameComponents\Unit\Unit.h" />
     <ClInclude Include="Include\json.hpp" />
     <ClInclude Include="Include\rapidjson\allocators.h" />
     <ClInclude Include="Include\rapidjson\document.h" />

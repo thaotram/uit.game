@@ -26,8 +26,8 @@ typedef struct Frame {
 
 class Unit : public Sprite
 {
-private: 
-	string	mName;
+private:
+	string  mName;
 	int		mState;
 	int		mFrame;
 	int		mPreviousFrame;
@@ -36,7 +36,8 @@ private:
 	RECT			GetRect(int mState, int cycle);
 	D3DXVECTOR2		GetTranslation(int mState, int cycle);
 
-	void	InitializationData(string);
+	void	InitializationData();
+	string  NameToImagePath(string name);
 
 	float	mTimePerFrame, mCurrentTime;
 
@@ -45,8 +46,8 @@ public:
 	Unit(string mName, D3DCOLOR color = NULL);
 	~Unit() {};
 
-	void SetState(int mState);
-	void SetFrame(int mFrame);
+	void SetState(int state) { mState = state; };
+	void SetFrame(int frame) { mFrame = frame; };
 	void Update(float dt);
 	void Draw();
 };

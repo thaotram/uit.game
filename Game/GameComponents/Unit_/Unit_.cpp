@@ -9,7 +9,7 @@ Unit_::Unit_(string mName, D3DCOLOR color)
 	string path_ = "Resources/Sprite/" + mName + "/" + mName + ".png";
 	const char * path = path_.c_str();
 
-	mSprite = new Sprite(path_.c_str(), color);
+	mSprite = new Sprite(path, color);
 	mSprite->SetRect(
 		GetRect(mState, mFrame)
 	);
