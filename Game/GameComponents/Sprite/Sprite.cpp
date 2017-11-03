@@ -1,8 +1,8 @@
 ﻿#include "Sprite.h"
 
-Sprite::Sprite(){}
+//Sprite::Sprite(){}
 
-Sprite::Sprite(const char* filePath, D3DCOLOR colorKey)
+Sprite::Sprite(string filePath, D3DCOLOR colorKey)
 {
 	this->InitializeSprite(filePath, colorKey);
 }
@@ -11,11 +11,11 @@ Sprite::~Sprite()
 	if (mTexture != NULL) mTexture->Release();
 }
 
-void Sprite::InitializeSprite(const char* filePath, D3DCOLOR colorKey) {
+void Sprite::InitializeSprite(string filePath, D3DCOLOR colorKey) {
+	const char * pSrcFile = filePath.c_str();
+	D3DXGetImageInfoFromFileA(pSrcFile, &mImageInfo);
+
 	mSpriteHandler = GameGlobal::GetCurrentSpriteHandler();
-
-	D3DXGetImageInfoFromFileA(filePath, &mImageInfo);
-
 	mPosition = D3DXVECTOR3(0, 0, 0);
 	mRotationCenter = D3DXVECTOR2(mPosition.x, mPosition.y);
 
@@ -33,7 +33,7 @@ void Sprite::InitializeSprite(const char* filePath, D3DCOLOR colorKey) {
 	D3DXCreateTextureFromFileExA
 	(
 		GameGlobal::GetCurrentDevice(), // Đại diện cho thiết bị
-		filePath,						// Đường dẫn đến file
+		pSrcFile,						// Đường dẫn đến file
 		mImageInfo.Width,
 		mImageInfo.Height,
 		D3DX_FROM_FILE,
@@ -103,11 +103,11 @@ LPDIRECT3DTEXTURE9 Sprite::GetTexture()
 
 void Sprite::SetRectWithSize(LONG top, LONG left, LONG width, LONG height)
 {
-	mSourceRect = { 
-		left, 
-		top, 
-		left + width, 
-		top + height 
+	mSourceRect = {
+		left,
+		top,
+		left + width,
+		top + height
 	};
 }
 void Sprite::SetRect(LONG top, LONG left, LONG bottom, LONG right)

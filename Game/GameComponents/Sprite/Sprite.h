@@ -2,8 +2,11 @@
 #define __SPRITE__
 #include <d3d9.h>
 #include <d3dx9.h>
+#include <iostream>
 
 #include "../Game/GameGlobal.h"
+
+using namespace std;
 
 class Sprite 
 {
@@ -25,10 +28,10 @@ protected:
 	LPDIRECT3DTEXTURE9      mTexture;			// Dùng khi vẽ
 	D3DXMATRIX              mMatrix;			// Dùng khi vẽ
 public:
-	Sprite();
-	Sprite(const char* filePath, D3DCOLOR colorKey = NULL);
+	//Sprite();
+	Sprite(string filePath, D3DCOLOR colorKey = NULL);
 	~Sprite();
-	void InitializeSprite(const char* filePath, D3DCOLOR colorKey = NULL);
+	void InitializeSprite(string filePath, D3DCOLOR colorKey = NULL);
 
 	virtual void Update(float dt);
 	virtual void Draw();
