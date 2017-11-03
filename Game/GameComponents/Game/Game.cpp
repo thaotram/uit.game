@@ -36,7 +36,7 @@ void Game::InitLoop()
 			DispatchMessage(&msg);
 		}
 
-		delta += GameTime::GetInstance()->GetCouter();
+		delta += GameTime::GetInstance()->GetCounter();
 
 		// vòng while đã chạy tgian lâu hơn hoặc bằng fps mình yêu cầu thì thực hiện update game và render lên màn hình
 		if (delta >= tickPerFrame)
