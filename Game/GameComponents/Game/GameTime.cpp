@@ -16,7 +16,7 @@ void GameTime::StartCounter()
 	QueryPerformanceCounter(&mStartTime);
 }
 
-DWORD GameTime::GetCouter()
+DWORD GameTime::GetCounter()
 {
 	QueryPerformanceCounter(&mEndTime);
 	mDelta.QuadPart = mEndTime.QuadPart - mStartTime.QuadPart;

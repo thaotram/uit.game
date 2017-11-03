@@ -10,6 +10,6 @@ private:
 public:
 	static GameTime* GetInstance();
 	void StartCounter();
-	DWORD GetCouter();
+	DWORD GetCounter();
 	~GameTime();
 };
