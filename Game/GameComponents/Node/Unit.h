@@ -32,12 +32,12 @@ private:
 	int		mFrame;
 	int		mPreviousFrame;
 	void	NextFrame();
+	string  NameToImagePath(string name);
 
 	RECT			GetRect(int mState, int cycle);
 	D3DXVECTOR2		GetTranslation(int mState, int cycle);
 
 	void	InitializationData();
-	string  NameToImagePath(string name);
 
 	float	mTimePerFrame, mCurrentTime;
 
