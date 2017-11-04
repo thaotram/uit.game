@@ -13,7 +13,9 @@ class DemoScene : public Scene
 {
 public:
 	DemoScene() {
-		mNode->SetSprite(new Unit("Aladdin", 0x00));
+		mNode->SetSprite(new Unit("Aladdin", 0xffff00ff));
+		mNode->GetSprite()->SetScale(4, 4);
+		mNode->GetSprite()->SetPosition(100,100);
 	}
 };
 
