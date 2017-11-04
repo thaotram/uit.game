@@ -8,56 +8,19 @@ class Node
 {
 	typedef void (Node::*NodeFn)();
 private:
-	void eachNode(function<void(list<Node *>::iterator)> eachFunction)
-	{
-		for (
-			list<Node *>::iterator it = mChildren.begin();
-			it != mChildren.end();
-			++it
-			)
-		{
-			eachFunction(it);
-		}
-	}
+	void eachNode(function<void(list<Node *>::iterator)> eachFunction);
 protected:
 	Sprite * mSprite;
 	list<Node *> mChildren;
 public:
-	Node() {
-		mSprite = nullptr;
-	}
-	~Node() {
-		delete mSprite;
-		eachNode([=](list<Node *>::iterator it) {
-			delete *it;
-		});
-	}
+	Node();
+	~Node();
 
-	void Update(float dt) {
-		if (mSprite != nullptr) mSprite->Update(dt);
-		eachNode([=](list<Node *>::iterator it) {
-			(**it).Update(dt);
-		});
-	};
-	void Draw() {
-		if (mSprite != nullptr) mSprite->Draw();
-		eachNode([=](list<Node *>::iterator it) {
-			(**it).Draw();
-		});
-	};
+	void Update(float dt);
+	void Draw();
 
-	void SetSprite(Sprite * sprite) {
-		if (mSprite != nullptr) delete mSprite;
-		mSprite = sprite;
-	}
-	Sprite * GetSprite() {
-		return mSprite;
-	}
-	void AddChild(Node * child) {
-		mChildren.push_back(child);
-	}
-	void RemoveChild(Node * child) {
-		mChildren.remove(child);
-		delete child;
-	}
+	void SetSprite(Sprite * sprite);
+	Sprite * GetSprite();
+	void AddChild(Node * child);
+	void RemoveChild(Node * child);
 };

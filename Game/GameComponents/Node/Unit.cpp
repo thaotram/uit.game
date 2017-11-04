@@ -1,7 +1,8 @@
 ﻿#include "Unit.h"
 
-Unit::Unit(string name, D3DCOLOR color) :
-	Sprite(NameToImagePath(name), color) {
+Unit::Unit(string name, D3DCOLOR color) : 
+	Sprite(NameToImagePath(name), color)
+{
 	mName = name;
 	mState = 1;
 	mFrame = 1;
@@ -26,7 +27,7 @@ void Unit::Update(float dt)
 }
 void Unit::Draw()
 {
-	// Change Name to Frame
+	// For Debug Change Name to Frame
 	{
 		string s1 = "Frame: " + to_string(mFrame);
 		wstring s2;
@@ -54,22 +55,22 @@ void Unit::NextFrame()
 	mPreviousFrame = currentFrame;
 }
 
-RECT Unit::GetRect(int mState, int cycle)
+RECT Unit::GetRect(int state, int frame)
 {
 	try {
 		if (!data.empty())
-			return data[mState][mFrame].Rect;
+			return data[state][frame].Rect;
 	}
 	catch (exception e) {}
 	return RECT{ 0,0,100,100 };
 }
 
-D3DXVECTOR2 Unit::GetTranslation(int mState, int cycle)
+D3DXVECTOR2 Unit::GetTranslation(int state, int frame)
 {
 	if (data.empty()) return D3DXVECTOR2();
 
 	D3DXVECTOR2 scale = GetScale();
-	D3DXVECTOR2 trans = data[mState][mFrame].Transition;
+	D3DXVECTOR2 trans = data[state][frame].Transition;
 	return D3DXVECTOR2(scale.x * trans.x, scale.y * trans.y);
 
 }
