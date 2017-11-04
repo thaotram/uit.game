@@ -5,6 +5,7 @@
 #include <d3d9.h>
 
 #include "../GameComponents/Scene/Scene.h"
+#include "../GameComponents/Node/Aladdin.h"
 #include "../GameComponents/Node/Unit.h"
 
 using namespace std;
@@ -13,9 +14,9 @@ class DemoScene : public Scene
 {
 public:
 	DemoScene() {
-		mNode->SetSprite(new Unit("Aladdin", 0xffff00ff));
-		mNode->GetSprite()->SetScale(4, 4);
-		mNode->GetSprite()->SetPosition(100,100);
+		// mNode->SetSprite(new Unit("Aladdin", 0xffff00ff));
+		mNode->SetSprite(new Aladdin());
+		mNode->GetSprite()->Update(0);
 	}
 };
 

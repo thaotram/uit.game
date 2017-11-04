@@ -39,6 +39,9 @@
     <ClCompile Include="GameComponents\Node\Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameComponents\Node\Aladdin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scenes\DemoScene.h">
@@ -174,6 +177,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameComponents\Node\Unit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameComponents\Node\Aladdin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

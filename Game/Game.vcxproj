@@ -117,6 +117,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameComponents\Node\Aladdin.cpp" />
     <ClCompile Include="GameComponents\Game\GameGlobal.cpp" />
     <ClCompile Include="GameComponents\Game\GameTime.cpp" />
     <ClCompile Include="GameComponents\Node\Node.cpp" />
@@ -127,6 +128,7 @@
     <ClCompile Include="GameControllers\SceneManager\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameComponents\Node\Aladdin.h" />
     <ClInclude Include="GameComponents\Game\GameTime.h" />
     <ClInclude Include="GameComponents\Node\Node.h" />
     <ClInclude Include="GameComponents\Node\Unit.h" />
