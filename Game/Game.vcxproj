@@ -119,6 +119,7 @@
   <ItemGroup>
     <ClCompile Include="GameComponents\Game\GameGlobal.cpp" />
     <ClCompile Include="GameComponents\Game\GameTime.cpp" />
+    <ClCompile Include="GameComponents\Node\Node.cpp" />
     <ClCompile Include="GameComponents\Node\Unit.cpp" />
     <ClCompile Include="GameComponents\Sprite\Sprite.cpp" />
     <ClCompile Include="GameComponents\Game\Game.cpp" />
