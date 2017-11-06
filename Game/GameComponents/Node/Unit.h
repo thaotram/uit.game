@@ -10,12 +10,7 @@ using json = nlohmann::json;
 
 typedef struct Frame {
 	Frame() {};
-	Frame(
-		RECT	      inRect,
-		D3DXVECTOR2   inTranslation
-	) :
-		Rect(inRect),
-		Transition(inTranslation)
+	Frame(RECT inRect, D3DXVECTOR2 inTranslation) : Rect(inRect), Transition(inTranslation)
 	{
 		FrameLine.clear();
 	}
@@ -41,7 +36,7 @@ private:
 
 	float	mTimePerFrame, mCurrentTime;
 
-	map<int, map<int, Frame>> data;
+	map<int, map<int, Frame>> mData;
 public:
 	Unit(string mName, D3DCOLOR color = NULL);
 	~Unit() {};

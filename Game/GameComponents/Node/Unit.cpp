@@ -15,7 +15,7 @@ Unit::Unit(string name, D3DCOLOR color) :
 }
 void Unit::Update(float dt)
 {
-	if (data.empty()) InitializationData();
+	if (mData.empty()) InitializationData();
 
 	if (mCurrentTime >= mTimePerFrame) {
 		//mCurrentTime -= mTimePerFrame;
@@ -50,7 +50,7 @@ void Unit::Draw()
 void Unit::NextFrame()
 {
 	int currentFrame = mFrame;
-	map<int, int> * f = &data[mState][currentFrame].FrameLine;
+	map<int, int> * f = &mData[mState][currentFrame].FrameLine;
 	mFrame = f->at(f->find(mPreviousFrame) == f->end() ? 0 : mPreviousFrame);
 	mPreviousFrame = currentFrame;
 }
@@ -58,8 +58,8 @@ void Unit::NextFrame()
 RECT Unit::GetRect(int state, int frame)
 {
 	try {
-		if (!data.empty())
-			return data[state][frame].Rect;
+		if (!mData.empty())
+			return mData[state][frame].Rect;
 	}
 	catch (exception e) {}
 	return RECT{ 0,0,100,100 };
@@ -67,10 +67,10 @@ RECT Unit::GetRect(int state, int frame)
 
 D3DXVECTOR2 Unit::GetTranslation(int state, int frame)
 {
-	if (data.empty()) return D3DXVECTOR2();
+	if (mData.empty()) return D3DXVECTOR2();
 
 	D3DXVECTOR2 scale = GetScale();
-	D3DXVECTOR2 trans = data[state][frame].Transition;
+	D3DXVECTOR2 trans = mData[state][frame].Transition;
 	return D3DXVECTOR2(scale.x * trans.x, scale.y * trans.y);
 
 }
@@ -90,7 +90,7 @@ void Unit::InitializationData()
 
 		json states = j["states"];
 		mTimePerFrame = j["time"];
-		data.clear();
+		mData.clear();
 		int stateIndex = 1;
 		for (auto& mState : states) {
 			json frames = mState["frame"];
@@ -108,7 +108,7 @@ void Unit::InitializationData()
 
 				jsonFrameLine = mFrame.value()[1];
 				Frame *framePointer;
-				framePointer = &data[stateIndex][stoi(mFrame.key())];
+				framePointer = &mData[stateIndex][stoi(mFrame.key())];
 				*framePointer = Frame{ rectSize, transition };
 				for (json::iterator it = jsonFrameLine.begin(); it != jsonFrameLine.end(); ++it) {
 					framePointer->FrameLine[
@@ -123,7 +123,7 @@ void Unit::InitializationData()
 	}
 	catch (exception e) {
 		// throw "Lỗi khi cố gắng đọc file Json";
-		data.clear();
+		mData.clear();
 	}
 	return;
 }

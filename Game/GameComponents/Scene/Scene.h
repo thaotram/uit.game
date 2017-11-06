@@ -1,11 +1,7 @@
 ﻿#pragma once
-#include <d3dx9.h>
-#include <d3d9.h>
 #include <list>
 
 #include "../Game/GameGlobal.h"
-#include "../GameComponents/Sprite/Sprite.h"
-
 #include "../GameComponents/Node/Node.h"
 using namespace std;
 
