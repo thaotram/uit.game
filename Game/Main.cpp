@@ -7,9 +7,9 @@
 #include <windows.h>
 #include <windowsx.h>
 
-#include "GameComponents\Game\Game.h"
-#include "GameComponents\Game\GameGlobal.h"
-#include "GameControllers\SceneManager\SceneManager.h"
+#include "Source/Game.h"
+#include "Source/GameGlobal.h"
+#include "Source/SceneManager.h"
 
 #include <iostream>
 #include <json.hpp>

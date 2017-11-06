@@ -1,7 +1,7 @@
 #pragma once
 #include <list>
 #include <functional>
-#include "../Sprite/Sprite.h"
+#include "Sprite.h"
 using namespace std;
 
 class Node

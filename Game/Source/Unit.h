@@ -1,5 +1,5 @@
 #pragma once
-#include "../Sprite/Sprite.h"
+#include "Sprite.h"
 #include <iostream>
 #include <fstream>
 #include <map>

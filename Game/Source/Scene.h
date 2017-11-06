@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include <list>
 
-#include "../Game/GameGlobal.h"
-#include "../GameComponents/Node/Node.h"
+#include "GameGlobal.h"
+#include "Node.h"
 using namespace std;
 
 typedef void(*func)();

@@ -4,8 +4,8 @@
 #include <d3dx9.h>
 #include <d3d9.h>
 
-#include "../Scene.h"
-#include "../../Node/Nodes/Aladdin.h"
+#include "Scene.h"
+#include "Aladdin.h"
 
 using namespace std;
 

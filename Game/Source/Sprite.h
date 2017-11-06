@@ -4,7 +4,7 @@
 #include <d3dx9.h>
 #include <iostream>
 
-#include "../Game/GameGlobal.h"
+#include "GameGlobal.h"
 
 using namespace std;
 

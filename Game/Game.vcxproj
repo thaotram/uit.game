@@ -117,75 +117,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GameComponents\Node\Nodes\Aladdin.cpp" />
-    <ClCompile Include="GameComponents\Game\GameGlobal.cpp" />
-    <ClCompile Include="GameComponents\Game\GameTime.cpp" />
-    <ClCompile Include="GameComponents\Node\Node.cpp" />
-    <ClCompile Include="GameComponents\Node\Unit.cpp" />
-    <ClCompile Include="GameComponents\Sprite\Sprite.cpp" />
-    <ClCompile Include="GameComponents\Game\Game.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="GameControllers\SceneManager\SceneManager.cpp" />
+    <None Include="Resources\Aladdin.json" />
+    <None Include="Resources\block.json" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameComponents\Node\Nodes\Aladdin.h" />
-    <ClInclude Include="GameComponents\Game\GameTime.h" />
-    <ClInclude Include="GameComponents\Node\Node.h" />
-    <ClInclude Include="GameComponents\Node\Unit.h" />
-    <ClInclude Include="GameComponents\Sprite\Sprite.h" />
+    <Image Include="Resources\AgrabahMarket.png" />
+    <Image Include="Resources\Aladdin.png" />
+    <Image Include="Resources\block.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="Include\json.hpp" />
-    <ClInclude Include="Include\rapidjson\allocators.h" />
-    <ClInclude Include="Include\rapidjson\document.h" />
-    <ClInclude Include="Include\rapidjson\encodedstream.h" />
-    <ClInclude Include="Include\rapidjson\encodings.h" />
-    <ClInclude Include="Include\rapidjson\error\en.h" />
-    <ClInclude Include="Include\rapidjson\error\error.h" />
-    <ClInclude Include="Include\rapidjson\filereadstream.h" />
-    <ClInclude Include="Include\rapidjson\filewritestream.h" />
-    <ClInclude Include="Include\rapidjson\fwd.h" />
-    <ClInclude Include="Include\rapidjson\internal\biginteger.h" />
-    <ClInclude Include="Include\rapidjson\internal\diyfp.h" />
-    <ClInclude Include="Include\rapidjson\internal\dtoa.h" />
-    <ClInclude Include="Include\rapidjson\internal\ieee754.h" />
-    <ClInclude Include="Include\rapidjson\internal\itoa.h" />
-    <ClInclude Include="Include\rapidjson\internal\meta.h" />
-    <ClInclude Include="Include\rapidjson\internal\pow10.h" />
-    <ClInclude Include="Include\rapidjson\internal\regex.h" />
-    <ClInclude Include="Include\rapidjson\internal\stack.h" />
-    <ClInclude Include="Include\rapidjson\internal\strfunc.h" />
-    <ClInclude Include="Include\rapidjson\internal\strtod.h" />
-    <ClInclude Include="Include\rapidjson\internal\swap.h" />
-    <ClInclude Include="Include\rapidjson\istreamwrapper.h" />
-    <ClInclude Include="Include\rapidjson\memorybuffer.h" />
-    <ClInclude Include="Include\rapidjson\memorystream.h" />
-    <ClInclude Include="Include\rapidjson\msinttypes\inttypes.h" />
-    <ClInclude Include="Include\rapidjson\msinttypes\stdint.h" />
-    <ClInclude Include="Include\rapidjson\ostreamwrapper.h" />
-    <ClInclude Include="Include\rapidjson\pointer.h" />
-    <ClInclude Include="Include\rapidjson\prettywriter.h" />
-    <ClInclude Include="Include\rapidjson\rapidjson.h" />
-    <ClInclude Include="Include\rapidjson\reader.h" />
-    <ClInclude Include="Include\rapidjson\schema.h" />
-    <ClInclude Include="Include\rapidjson\stream.h" />
-    <ClInclude Include="Include\rapidjson\stringbuffer.h" />
-    <ClInclude Include="Include\rapidjson\writer.h" />
-    <ClInclude Include="GameComponents\Scene\Scenes\AgrabahMarket.h" />
-    <ClInclude Include="GameComponents\Game\Game.h" />
-    <ClInclude Include="GameComponents\Game\GameGlobal.h" />
-    <ClInclude Include="GameControllers\SceneManager\SceneManager.h" />
-    <ClInclude Include="GameComponents\Scene\Scene.h" />
+    <ClInclude Include="Source\AgrabahMarket.h" />
+    <ClInclude Include="Source\Aladdin.h" />
+    <ClInclude Include="Source\Game.h" />
+    <ClInclude Include="Source\GameGlobal.h" />
+    <ClInclude Include="Source\GameTime.h" />
+    <ClInclude Include="Source\Node.h" />
+    <ClInclude Include="Source\Scene.h" />
+    <ClInclude Include="Source\SceneManager.h" />
+    <ClInclude Include="Source\Sprite.h" />
+    <ClInclude Include="Source\Unit.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\Map\Agrabah Market.png" />
-    <Image Include="Resources\Sprite\alad.png" />
-    <Image Include="Resources\Sprite\Aladdin\Aladdin.png" />
-    <Image Include="Resources\Sprite\Block\block.png" />
-    <Image Include="Resources\Sprite\questblock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="Resources\Sprite\Aladdin\Aladdin.json" />
-    <None Include="Resources\Sprite\Block\block.json" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Source\Aladdin.cpp" />
+    <ClCompile Include="Source\Game.cpp" />
+    <ClCompile Include="Source\GameGlobal.cpp" />
+    <ClCompile Include="Source\GameTime.cpp" />
+    <ClCompile Include="Source\Node.cpp" />
+    <ClCompile Include="Source\SceneManager.cpp" />
+    <ClCompile Include="Source\Sprite.cpp" />
+    <ClCompile Include="Source\Unit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

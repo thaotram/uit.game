@@ -1,8 +1,8 @@
 ﻿#include "Game.h"
 #include "GameGlobal.h"
-#include "../../GameComponents/Game/GameTime.h"
-#include "../../GameControllers/SceneManager/SceneManager.h"
-#include "../Scene/Scenes/AgrabahMarket.h"
+#include "GameTime.h"
+#include "SceneManager.h"
+#include "AgrabahMarket.h"
 
 Game::Game()
 {
