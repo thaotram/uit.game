@@ -80,7 +80,7 @@ void Unit::InitializationData()
 	try {
 		json j;
 		ifstream i;
-		i.open("Resources/Sprite/" + mName + "/" + mName + ".json");
+		i.open("Resources/" + mName + ".json");
 		i >> j;
 
 		RECT rectSize;
@@ -130,6 +130,6 @@ void Unit::InitializationData()
 
 string Unit::NameToImagePath(string name)
 {
-	return "Resources/Sprite/" + name + "/" + name + ".png";
+	return "Resources/" + name + ".png";
 }
 
