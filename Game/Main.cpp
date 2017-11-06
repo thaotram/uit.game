@@ -7,13 +7,13 @@
 #include <windows.h>
 #include <windowsx.h>
 
-#include "Source/Game.h"
-#include "Source/GameGlobal.h"
-#include "Source/SceneManager.h"
-
 #include <iostream>
 #include <json.hpp>
 #include <fstream>
+
+#include "Source/Game.h"
+#include "Source/GameGlobal.h"
+#include "Source/SceneManager.h"
 
 using json = nlohmann::json;
 using namespace std;
