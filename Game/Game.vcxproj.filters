@@ -39,14 +39,11 @@
     <ClCompile Include="GameComponents\Node\Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameComponents\Node\Aladdin.cpp">
+    <ClCompile Include="GameComponents\Node\Nodes\Aladdin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Scenes\DemoScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameComponents\Game\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -179,7 +176,10 @@
     <ClInclude Include="GameComponents\Node\Unit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameComponents\Node\Aladdin.h">
+    <ClInclude Include="GameComponents\Node\Nodes\Aladdin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameComponents\Scene\Scenes\AgrabahMarket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -194,6 +194,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\Sprite\Aladdin\Aladdin.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Map\Agrabah Market.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

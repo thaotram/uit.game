@@ -2,7 +2,7 @@
 #include "GameGlobal.h"
 #include "../../GameComponents/Game/GameTime.h"
 #include "../../GameControllers/SceneManager/SceneManager.h"
-#include "../../Scenes/DemoScene.h"
+#include "../Scene/Scenes/AgrabahMarket.h"
 
 Game::Game()
 {
@@ -11,7 +11,7 @@ Game::Game()
 
 	// Game Start
 	SceneManager::GetInstance()->ReplaceScene(
-		new DemoScene()
+		new AgrabahMarket()
 	);
 
 	InitLoop();

@@ -117,7 +117,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GameComponents\Node\Aladdin.cpp" />
+    <ClCompile Include="GameComponents\Node\Nodes\Aladdin.cpp" />
     <ClCompile Include="GameComponents\Game\GameGlobal.cpp" />
     <ClCompile Include="GameComponents\Game\GameTime.cpp" />
     <ClCompile Include="GameComponents\Node\Node.cpp" />
@@ -128,7 +128,7 @@
     <ClCompile Include="GameControllers\SceneManager\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameComponents\Node\Aladdin.h" />
+    <ClInclude Include="GameComponents\Node\Nodes\Aladdin.h" />
     <ClInclude Include="GameComponents\Game\GameTime.h" />
     <ClInclude Include="GameComponents\Node\Node.h" />
     <ClInclude Include="GameComponents\Node\Unit.h" />
@@ -169,13 +169,14 @@
     <ClInclude Include="Include\rapidjson\stream.h" />
     <ClInclude Include="Include\rapidjson\stringbuffer.h" />
     <ClInclude Include="Include\rapidjson\writer.h" />
-    <ClInclude Include="Scenes\DemoScene.h" />
+    <ClInclude Include="GameComponents\Scene\Scenes\AgrabahMarket.h" />
     <ClInclude Include="GameComponents\Game\Game.h" />
     <ClInclude Include="GameComponents\Game\GameGlobal.h" />
     <ClInclude Include="GameControllers\SceneManager\SceneManager.h" />
     <ClInclude Include="GameComponents\Scene\Scene.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resources\Map\Agrabah Market.png" />
     <Image Include="Resources\Sprite\alad.png" />
     <Image Include="Resources\Sprite\Aladdin\Aladdin.png" />
     <Image Include="Resources\Sprite\Block\block.png" />

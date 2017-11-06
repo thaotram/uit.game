@@ -4,16 +4,15 @@
 #include <d3dx9.h>
 #include <d3d9.h>
 
-#include "../GameComponents/Scene/Scene.h"
-#include "../GameComponents/Node/Aladdin.h"
-#include "../GameComponents/Node/Unit.h"
+#include "../Scene.h"
+#include "../../Node/Nodes/Aladdin.h"
 
 using namespace std;
 
-class DemoScene : public Scene
+class AgrabahMarket : public Scene
 {
 public:
-	DemoScene() {
+	AgrabahMarket() {
 		// mNode->SetSprite(new Unit("Aladdin", 0xffff00ff));
 		mNode->SetSprite(new Aladdin());
 		mNode->GetSprite()->Update(0);
