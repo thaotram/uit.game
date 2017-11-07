@@ -9,6 +9,18 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Source\Game">
+      <UniqueIdentifier>{55d6415e-d90c-40d5-87d4-9e0c4f21d508}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Unit">
+      <UniqueIdentifier>{32ea69ab-a833-4481-992a-af8ded9ffbb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scene">
+      <UniqueIdentifier>{6c02cc3d-736c-4289-8d76-1db7f06b3225}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scene\FinalScene">
+      <UniqueIdentifier>{bf814ab8-6a5c-4d0f-8ee4-60076cd2ea21}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\block.json">
@@ -30,67 +42,65 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\AgrabahMarket.h">
-      <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Aladdin.h">
-      <Filter>Source</Filter>
-    </ClInclude>
+    <ClInclude Include="Library\json.hpp" />
     <ClInclude Include="Source\Game.h">
-      <Filter>Source</Filter>
+      <Filter>Source\Game</Filter>
     </ClInclude>
     <ClInclude Include="Source\GameGlobal.h">
-      <Filter>Source</Filter>
+      <Filter>Source\Game</Filter>
     </ClInclude>
     <ClInclude Include="Source\GameTime.h">
-      <Filter>Source</Filter>
+      <Filter>Source\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Include\json.hpp">
-      <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Node.h">
-      <Filter>Source</Filter>
+    <ClInclude Include="Source\Aladdin.h">
+      <Filter>Source\Unit</Filter>
     </ClInclude>
     <ClInclude Include="Source\Scene.h">
-      <Filter>Source</Filter>
+      <Filter>Source\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\SceneManager.h">
-      <Filter>Source</Filter>
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Node.h">
+      <Filter>Source\Unit</Filter>
     </ClInclude>
     <ClInclude Include="Source\Sprite.h">
-      <Filter>Source</Filter>
+      <Filter>Source\Unit</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit.h">
-      <Filter>Source</Filter>
+      <Filter>Source\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\AgrabahMarket.h">
+      <Filter>Source\Scene\FinalScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Aladdin.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Game.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Game</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameGlobal.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Game</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameTime.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Node.cpp">
-      <Filter>Source</Filter>
+    <ClCompile Include="Source\Aladdin.cpp">
+      <Filter>Source\Unit</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneManager.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Node.cpp">
+      <Filter>Source\Unit</Filter>
     </ClCompile>
     <ClCompile Include="Source\Sprite.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Unit</Filter>
     </ClCompile>
     <ClCompile Include="Source\Unit.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Unit</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
