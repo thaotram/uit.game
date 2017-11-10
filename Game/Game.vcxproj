@@ -129,32 +129,24 @@
   <ItemGroup>
     <ClInclude Include="Library\json.hpp" />
     <ClInclude Include="Source\Unit_Texture.h" />
-    <ClInclude Include="Source\nUnit.h" />
+    <ClInclude Include="Source\Unit.h" />
     <ClInclude Include="Source\Scene_AgrabahMarket.h" />
-    <ClInclude Include="Source\Aladdin.h" />
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\GameGlobal.h" />
     <ClInclude Include="Source\GameTime.h" />
-    <ClInclude Include="Source\Node.h" />
     <ClInclude Include="Source\Scene.h" />
     <ClInclude Include="Source\SceneManager.h" />
-    <ClInclude Include="Source\Sprite.h" />
-    <ClInclude Include="Source\Unit.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Source\Unit_SourceRect.h" />
     <ClCompile Include="Source\Unit_Transform.h" />
-    <ClCompile Include="Source\Aladdin.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\GameGlobal.cpp" />
     <ClCompile Include="Source\GameTime.cpp" />
-    <ClCompile Include="Source\Node.cpp" />
     <ClCompile Include="Source\Unit_Animation.h" />
     <ClCompile Include="Source\SceneManager.cpp" />
     <ClCompile Include="Source\GameLog.h" />
-    <ClCompile Include="Source\Sprite.cpp" />
-    <ClCompile Include="Source\Unit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

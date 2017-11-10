@@ -1,49 +1,77 @@
-#pragma once
-#include "Sprite.h"
-#include <iostream>
-#include <fstream>
-#include <map>
-#include <json.hpp>
+﻿#pragma once
+#include <d3d9.h>
+#include <d3dx9.h>
 
-using namespace std;
-using json = nlohmann::json;
+#include "GameGlobal.h"
 
-typedef struct oldFrame {
-	oldFrame() {};
-	oldFrame(RECT inRect, D3DXVECTOR2 inTranslation) : Rect(inRect), Transition(inTranslation)
-	{
-		FrameLine.clear();
-	}
-	RECT Rect;
-	D3DXVECTOR2 Transition;
-	map<int, int> FrameLine;
-} oldFrame;
+#include "Unit_Texture.h"
+#include "Unit_Animation.h"
+#include "Unit_Transform.h"
+#include "Unit_SourceRect.h"
 
-class Unit : public Sprite
+
+class Unit
 {
 private:
-	string  mName;
-	int		mState;
-	int		mFrame;
-	int		mPreviousFrame;
-	void	NextFrame();
-	string  NameToImagePath(string name);
+	string							mName;
+	LPD3DXSPRITE					mSpriteHandler;
+	LPDIRECT3DTEXTURE9				mTexture;
+	UNIT_ANIMATION					mAnimation;
+	UNIT_TRANSFORM					mTransform;
+	RECT							mSourceRect;
 
-	RECT			GetRect(int mState, int cycle);
-	D3DXVECTOR2		GetTranslation(int mState, int cycle);
+	D3DXVECTOR3						mCenter;
+	D3DXVECTOR3						mPosition;
 
-	void	InitializationData();
-
-	float	mTimePerFrame, mCurrentTime;
-
-	map<int, map<int, oldFrame>> mData;
+	float mCurrentTime, mTimePerFrame;
 public:
-	Unit(string mName, D3DCOLOR color = NULL);
+	Unit(string pName) : mName(pName) {
+		mSpriteHandler = GameGlobal::GetSpriteHandler();
+		mTexture = UNIT_TEXTURE::Get("Resources/" + mName + ".png");
+
+		mPosition = { 200,200,0 };
+		mTransform.SetScale(4);
+		mTimePerFrame = 0.2f;
+		Update(0);
+	};
 	~Unit() {};
 
-	void SetState(int state) { mState = state; };
-	void SetFrame(int frame) { mFrame = frame; };
-	void Update(float dt);
-	void Draw();
-};
+	void Update(float dt) {
+		if (mAnimation.empty()) {
+			mAnimation.Initialization("Resources/" + mName + ".n.json");
+		}
+		if (mCurrentTime >= mTimePerFrame) {
+			mAnimation.Initialization("Resources/" + mName + ".n.json");
+			mAnimation.Log();
+			mCurrentTime = 0;
+			//!? Thao tác cập nhật frame - BEGIN
 
+			mAnimation.NextFrame();
+			mSourceRect = mAnimation.GetFrame();
+			mTransform.UpdateFrom(mSourceRect, mPosition, mAnimation.GetTransition());
+
+			//!? Thao tác cập nhật frame - END
+		}
+		else mCurrentTime += dt;
+	}
+
+	void Draw() {
+		mSpriteHandler->SetTransform(&mTransform);
+		mSpriteHandler->Draw(
+			mTexture,
+			&mSourceRect,
+			&mCenter,
+			&mPosition,
+			0xFFFFFFFF
+		);
+	}
+	RECT GetSourceRect() {
+		return mSourceRect;
+	}
+	D3DXVECTOR3 GetPosition() {
+		return mPosition;
+	}
+	UNIT_ANIMATION GetAnimation() {
+		return mAnimation;
+	}
+};

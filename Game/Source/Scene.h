@@ -2,30 +2,46 @@
 #include <list>
 
 #include "GameGlobal.h"
-#include "nNode.h"
-#include "nUnit.h"
+#include "Unit.h"
 
 using namespace std;
 
-typedef void(*func)();
-
 class Scene
 {
+private:
+	void EachUnit(function<void(list<Unit *>::iterator)> eachFunction) {
+		for (auto &it : mContainers) {
+			for (list<Unit *>::iterator unit = it.second.begin(); unit != it.second.end(); ++unit) {
+				eachFunction(unit);
+			}
+		}
+	}
 protected:
-	Scene() {
-		mNode = new nNode();
-	};
-	nNode * mNode;
-	nUnit * mUnit;
+	map<string, list<Unit *>> mContainers;
 public:
-	~Scene() {};
-
+	Scene() {};
+	~Scene() {
+		EachUnit([=](list<Unit *>::iterator item) {
+			delete *item;
+		});
+	};
 	void Update(float dt) {
-		mUnit->Update(dt);
+		EachUnit([=](list<Unit *>::iterator item) {
+			(**item).Update(dt);
+		});
 	};
 	void Draw() {
-		mUnit->Draw();
+		EachUnit([=](list<Unit *>::iterator item) {
+			(**item).Draw();
+		});
 	};
+
+	void AddChild(string pPart, Unit * pUnit) {
+		mContainers[pPart].push_back(pUnit);
+	}
+	void RemoveChild(string pPart, Unit * pUnit) {
+		mContainers[pPart].remove(pUnit);
+	}
 
 	virtual void OnKeyDown(int keyCode) {};
 	virtual void OnKeyUp(int keyCode) {};

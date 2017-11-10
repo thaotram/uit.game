@@ -12,9 +12,6 @@
     <Filter Include="Source\Game">
       <UniqueIdentifier>{55d6415e-d90c-40d5-87d4-9e0c4f21d508}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Unit">
-      <UniqueIdentifier>{32ea69ab-a833-4481-992a-af8ded9ffbb5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Scene">
       <UniqueIdentifier>{6c02cc3d-736c-4289-8d76-1db7f06b3225}</UniqueIdentifier>
     </Filter>
@@ -26,9 +23,6 @@
     </Filter>
     <Filter Include="Library">
       <UniqueIdentifier>{fb6c77ad-b236-43f6-9531-d1063e63e3d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Node">
-      <UniqueIdentifier>{2718f77b-7eed-45a2-b851-9fd5cd44be30}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -63,26 +57,14 @@
     <ClInclude Include="Source\GameTime.h">
       <Filter>Source\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Aladdin.h">
-      <Filter>Source\Unit</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Scene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\SceneManager.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Sprite.h">
-      <Filter>Source\Unit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit.h">
-      <Filter>Source\Unit</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Scene_AgrabahMarket.h">
       <Filter>Source\Scene\FinalScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\nUnit.h">
-      <Filter>Source\nUnit</Filter>
     </ClInclude>
     <ClInclude Include="Library\json.hpp">
       <Filter>Library</Filter>
@@ -90,8 +72,8 @@
     <ClInclude Include="Source\Unit_Texture.h">
       <Filter>Source\nUnit</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Node.h">
-      <Filter>Source\Node</Filter>
+    <ClInclude Include="Source\Unit.h">
+      <Filter>Source\nUnit</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -107,17 +89,8 @@
     <ClCompile Include="Source\GameTime.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Aladdin.cpp">
-      <Filter>Source\Unit</Filter>
-    </ClCompile>
     <ClCompile Include="Source\SceneManager.cpp">
       <Filter>Source\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Sprite.cpp">
-      <Filter>Source\Unit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Unit.cpp">
-      <Filter>Source\Unit</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameLog.h">
       <Filter>Source\Game</Filter>
@@ -130,9 +103,6 @@
     </ClCompile>
     <ClCompile Include="Source\Unit_Animation.h">
       <Filter>Source\nUnit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Node.cpp">
-      <Filter>Source\Node</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
