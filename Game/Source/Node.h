@@ -6,7 +6,6 @@ using namespace std;
 
 class Node
 {
-	typedef void (Node::*NodeFn)();
 private:
 	void eachNode(function<void(list<Node *>::iterator)> eachFunction);
 protected:

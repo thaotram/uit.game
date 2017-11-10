@@ -2,7 +2,7 @@
 #include <list>
 
 #include "GameGlobal.h"
-#include "Node.h"
+#include "nNode.h"
 #include "nUnit.h"
 
 using namespace std;
@@ -13,19 +13,17 @@ class Scene
 {
 protected:
 	Scene() {
-		mNode = new Node();
+		mNode = new nNode();
 	};
-	Node * mNode;
+	nNode * mNode;
 	nUnit * mUnit;
 public:
 	~Scene() {};
 
 	void Update(float dt) {
-		mNode->Update(dt);
 		mUnit->Update(dt);
 	};
 	void Draw() {
-		mNode->Draw();
 		mUnit->Draw();
 	};
 

@@ -27,6 +27,9 @@
     <Filter Include="Library">
       <UniqueIdentifier>{fb6c77ad-b236-43f6-9531-d1063e63e3d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Node">
+      <UniqueIdentifier>{2718f77b-7eed-45a2-b851-9fd5cd44be30}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\block.json">
@@ -69,9 +72,6 @@
     <ClInclude Include="Source\SceneManager.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Node.h">
-      <Filter>Source\Unit</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Sprite.h">
       <Filter>Source\Unit</Filter>
     </ClInclude>
@@ -89,6 +89,9 @@
     </ClInclude>
     <ClInclude Include="Source\Unit_Texture.h">
       <Filter>Source\nUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Node.h">
+      <Filter>Source\Node</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -110,9 +113,6 @@
     <ClCompile Include="Source\SceneManager.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Node.cpp">
-      <Filter>Source\Unit</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Sprite.cpp">
       <Filter>Source\Unit</Filter>
     </ClCompile>
@@ -130,6 +130,9 @@
     </ClCompile>
     <ClCompile Include="Source\Unit_Animation.h">
       <Filter>Source\nUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Node.cpp">
+      <Filter>Source\Node</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
