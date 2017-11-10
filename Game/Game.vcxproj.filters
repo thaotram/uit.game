@@ -18,11 +18,11 @@
     <Filter Include="Source\Scene\FinalScene">
       <UniqueIdentifier>{bf814ab8-6a5c-4d0f-8ee4-60076cd2ea21}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\nUnit">
-      <UniqueIdentifier>{a5dd13c7-86e2-48e4-9192-eb2e69c94320}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Library">
       <UniqueIdentifier>{fb6c77ad-b236-43f6-9531-d1063e63e3d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Unit">
+      <UniqueIdentifier>{a5dd13c7-86e2-48e4-9192-eb2e69c94320}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -70,10 +70,10 @@
       <Filter>Library</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit_Texture.h">
-      <Filter>Source\nUnit</Filter>
+      <Filter>Source\Unit</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit.h">
-      <Filter>Source\nUnit</Filter>
+      <Filter>Source\Unit</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -96,13 +96,13 @@
       <Filter>Source\Game</Filter>
     </ClCompile>
     <ClCompile Include="Source\Unit_SourceRect.h">
-      <Filter>Source\nUnit</Filter>
+      <Filter>Source\Unit</Filter>
     </ClCompile>
     <ClCompile Include="Source\Unit_Transform.h">
-      <Filter>Source\nUnit</Filter>
+      <Filter>Source\Unit</Filter>
     </ClCompile>
     <ClCompile Include="Source\Unit_Animation.h">
-      <Filter>Source\nUnit</Filter>
+      <Filter>Source\Unit</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
