@@ -8,16 +8,16 @@
 using namespace std;
 using json = nlohmann::json;
 
-typedef struct Frame {
-	Frame() {};
-	Frame(RECT inRect, D3DXVECTOR2 inTranslation) : Rect(inRect), Transition(inTranslation)
+typedef struct oldFrame {
+	oldFrame() {};
+	oldFrame(RECT inRect, D3DXVECTOR2 inTranslation) : Rect(inRect), Transition(inTranslation)
 	{
 		FrameLine.clear();
 	}
 	RECT Rect;
 	D3DXVECTOR2 Transition;
 	map<int, int> FrameLine;
-} Frame;
+} oldFrame;
 
 class Unit : public Sprite
 {
@@ -36,7 +36,7 @@ private:
 
 	float	mTimePerFrame, mCurrentTime;
 
-	map<int, map<int, Frame>> mData;
+	map<int, map<int, oldFrame>> mData;
 public:
 	Unit(string mName, D3DCOLOR color = NULL);
 	~Unit() {};

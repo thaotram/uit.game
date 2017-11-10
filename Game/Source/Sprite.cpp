@@ -15,7 +15,7 @@ void Sprite::InitializeSprite(string filePath, D3DCOLOR colorKey) {
 	const char * pSrcFile = filePath.c_str();
 	D3DXGetImageInfoFromFileA(pSrcFile, &mImageInfo);
 
-	mSpriteHandler = GameGlobal::GetCurrentSpriteHandler();
+	mSpriteHandler = GameGlobal::GetSpriteHandler();
 	mPosition = D3DXVECTOR3(0, 0, 0);
 	mRotationCenter = D3DXVECTOR2(mPosition.x, mPosition.y);
 
@@ -43,7 +43,7 @@ void Sprite::InitializeSprite(string filePath, D3DCOLOR colorKey) {
 		D3DX_DEFAULT,
 		D3DX_DEFAULT,
 		colorKey,						// Màu trong suốt có dạng 0x12345678 (32 bit tất cả)
-		&mImageInfo,					// [Out] Thông tin của hình ảnh
+		NULL,					// [Out] Thông tin của hình ảnh
 		NULL,
 		&mTexture						// [Out] Đại diện cho đối tượng Texture
 	);

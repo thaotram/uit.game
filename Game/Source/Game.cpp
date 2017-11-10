@@ -1,4 +1,5 @@
-﻿#include "Game.h"
+﻿#pragma once
+#include "Game.h"
 #include "GameGlobal.h"
 #include "GameTime.h"
 #include "SceneManager.h"
@@ -42,7 +43,6 @@ void Game::InitLoop()
 		if (delta >= tickPerFrame)
 		{
 			Update(delta);
-			//delta -= tickPerFrame;
 			delta = 0;
 		}
 		else // fps cao hơn lúc bth, tạm sleep lại bằng khoảng tgian nó nhanh hơn, sau đó sẽ update và render tiếp
@@ -61,7 +61,7 @@ void Game::Render() {
 	device->Clear(0, NULL, D3DCLEAR_TARGET, mBackgroundColor, 0.0f, 0);
 	{
 		device->BeginScene();
-		GameGlobal::GetCurrentSpriteHandler()->Begin(D3DXSPRITE_ALPHABLEND);
+		GameGlobal::GetSpriteHandler()->Begin(D3DXSPRITE_ALPHABLEND);
 		{
 			// Làm cho hình ảnh sau khi scale không bị nhòe
 			device->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
@@ -69,7 +69,7 @@ void Game::Render() {
 			device->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
 		}
 		scene->Draw();
-		GameGlobal::GetCurrentSpriteHandler()->End();
+		GameGlobal::GetSpriteHandler()->End();
 		device->EndScene();
 	}
 	device->Present(0, 0, 0, 0);

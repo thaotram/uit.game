@@ -21,12 +21,21 @@
     <Filter Include="Source\Scene\FinalScene">
       <UniqueIdentifier>{bf814ab8-6a5c-4d0f-8ee4-60076cd2ea21}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\nUnit">
+      <UniqueIdentifier>{a5dd13c7-86e2-48e4-9192-eb2e69c94320}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library">
+      <UniqueIdentifier>{fb6c77ad-b236-43f6-9531-d1063e63e3d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\block.json">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="Resources\Aladdin.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Aladdin.n.json">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
@@ -42,7 +51,6 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Library\json.hpp" />
     <ClInclude Include="Source\Game.h">
       <Filter>Source\Game</Filter>
     </ClInclude>
@@ -70,8 +78,17 @@
     <ClInclude Include="Source\Unit.h">
       <Filter>Source\Unit</Filter>
     </ClInclude>
-    <ClInclude Include="Source\AgrabahMarket.h">
+    <ClInclude Include="Source\Scene_AgrabahMarket.h">
       <Filter>Source\Scene\FinalScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\nUnit.h">
+      <Filter>Source\nUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\json.hpp">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Texture.h">
+      <Filter>Source\nUnit</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +118,18 @@
     </ClCompile>
     <ClCompile Include="Source\Unit.cpp">
       <Filter>Source\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameLog.h">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_SourceRect.h">
+      <Filter>Source\nUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Transform.h">
+      <Filter>Source\nUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Animation.h">
+      <Filter>Source\nUnit</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

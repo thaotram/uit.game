@@ -13,9 +13,10 @@ class AgrabahMarket : public Scene
 {
 public:
 	AgrabahMarket() {
-		// mNode->SetSprite(new Unit("Aladdin", 0xffff00ff));
-		mNode->SetSprite(new Aladdin());
-		mNode->GetSprite()->Update(0);
+		//mNode->SetSprite(new Aladdin());
+		//mNode->GetSprite()->SetScale(3, 3);
+		//mNode->GetSprite()->SetPosition(3, 3);
+		mUnit = new nUnit("Aladdin");
 	}
 };
 

@@ -21,13 +21,13 @@ public:
 
 	static HWND GetCurrentHWND();
 	static HINSTANCE GetCurrentHINSTACE();
-	static LPD3DXSPRITE GetCurrentSpriteHandler();
+	static LPD3DXSPRITE GetSpriteHandler();
 	static LPDIRECT3DDEVICE9 GetCurrentDevice();
 	static D3DCOLOR GetBackgroundColor();
 
 	static void SetCurrentHWND(HWND hwnd);
 	static void SetCurrentHINSTACE(HINSTANCE hInstance);
-	static void SetCurrentSpriteHandler(LPD3DXSPRITE spriteHandler);
+	static void SetSpriteHandler(LPD3DXSPRITE spriteHandler);
 	static void SetCurrentDevice(LPDIRECT3DDEVICE9 device);
 	static void SetBackgroundColor(D3DCOLOR backgroundColor);
 

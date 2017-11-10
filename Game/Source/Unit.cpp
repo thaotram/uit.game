@@ -29,14 +29,7 @@ void Unit::Draw()
 {
 	// For Debug Change Name to Frame
 	{
-		string s1 = "Frame: " + to_string(mFrame);
-		wstring s2;
-		s2.assign(s1.begin(), s1.end());
-		LPCTSTR Title = s2.c_str();
-		SetWindowText(
-			GameGlobal::GetCurrentHWND(),
-			Title
-		);
+		
 	}
 
 	SetRect(
@@ -95,7 +88,6 @@ void Unit::InitializationData()
 		for (auto& mState : states) {
 			json frames = mState["frame"];
 
-			int frameIndex = 1;
 			for (json::iterator mFrame = frames.begin(); mFrame != frames.end(); ++mFrame) {
 				jsonSize = mFrame.value()[0];
 				rectSize = RECT{
@@ -107,9 +99,9 @@ void Unit::InitializationData()
 				transition = D3DXVECTOR2(jsonSize[4], jsonSize[5]);
 
 				jsonFrameLine = mFrame.value()[1];
-				Frame *framePointer;
+				oldFrame *framePointer;
 				framePointer = &mData[stateIndex][stoi(mFrame.key())];
-				*framePointer = Frame{ rectSize, transition };
+				*framePointer = oldFrame{ rectSize, transition };
 				for (json::iterator it = jsonFrameLine.begin(); it != jsonFrameLine.end(); ++it) {
 					framePointer->FrameLine[
 						it.key() == "?" ?

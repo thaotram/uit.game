@@ -119,6 +119,7 @@
   <ItemGroup>
     <None Include="Resources\Aladdin.json" />
     <None Include="Resources\block.json" />
+    <None Include="Resources\Aladdin.n.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\AgrabahMarket.png" />
@@ -127,7 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Library\json.hpp" />
-    <ClInclude Include="Source\AgrabahMarket.h" />
+    <ClInclude Include="Source\Unit_Texture.h" />
+    <ClInclude Include="Source\nUnit.h" />
+    <ClInclude Include="Source\Scene_AgrabahMarket.h" />
     <ClInclude Include="Source\Aladdin.h" />
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\GameGlobal.h" />
@@ -140,12 +143,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Source\Unit_SourceRect.h" />
+    <ClCompile Include="Source\Unit_Transform.h" />
     <ClCompile Include="Source\Aladdin.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\GameGlobal.cpp" />
     <ClCompile Include="Source\GameTime.cpp" />
     <ClCompile Include="Source\Node.cpp" />
+    <ClCompile Include="Source\Unit_Animation.h" />
     <ClCompile Include="Source\SceneManager.cpp" />
+    <ClCompile Include="Source\GameLog.h" />
     <ClCompile Include="Source\Sprite.cpp" />
     <ClCompile Include="Source\Unit.cpp" />
   </ItemGroup>

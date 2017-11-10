@@ -1,15 +1,15 @@
 ﻿#include <d3d9.h>
 #include <d3dx9.h>
 
+#include <stdio.h>
+#include <fstream>
 #include <sstream>
 #include <iostream>
 #include <dinput.h>
 #include <windows.h>
 #include <windowsx.h>
 
-#include <iostream>
 #include <json.hpp>
-#include <fstream>
 
 #include "Source/Game.h"
 #include "Source/GameGlobal.h"
@@ -104,9 +104,9 @@ void InitializeWindow(int cmdShow)
 int InitializeDevice()
 {
 	D3DPRESENT_PARAMETERS d3dpp;
-	LPD3DXSPRITE mSpriteHandler;
-
-	LPDIRECT3DDEVICE9 mDevice;
+	LPD3DXSPRITE pSpriteHandler;
+	D3DXMATRIX pTransform;
+	LPDIRECT3DDEVICE9 pDevice;
 
 	ZeroMemory(&d3dpp, sizeof(d3dpp));
 
@@ -124,15 +124,20 @@ int InitializeDevice()
 		GameGlobal::GetCurrentHWND(),
 		D3DCREATE_SOFTWARE_VERTEXPROCESSING,
 		&d3dpp,
-		&mDevice
+		&pDevice
 	);
-	GameGlobal::SetCurrentDevice(mDevice);
+	GameGlobal::SetCurrentDevice(pDevice);
 
 	D3DXCreateSprite(
-		mDevice,
-		&mSpriteHandler
+		pDevice,
+		&pSpriteHandler
 	);
-	GameGlobal::SetCurrentSpriteHandler(mSpriteHandler);
+	D3DXMatrixTransformation2D(
+		&pTransform,
+		NULL, NULL, NULL, NULL, 0, NULL
+	);
+	pSpriteHandler->SetTransform(&pTransform);
+	GameGlobal::SetSpriteHandler(pSpriteHandler);
 
 	return 1;
 }

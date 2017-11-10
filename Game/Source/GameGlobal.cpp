@@ -12,7 +12,7 @@ HWND GameGlobal::mHwnd = NULL;
 HINSTANCE GameGlobal::mHInstance = NULL;
 LPD3DXSPRITE GameGlobal::mSpriteHandler = NULL;
 LPDIRECT3DDEVICE9 GameGlobal::mDevice = nullptr;
-D3DCOLOR  GameGlobal::mBackgroundColor = 0x00;
+D3DCOLOR  GameGlobal::mBackgroundColor = 0xffff00ff;
 bool GameGlobal::isGameRunning = true;
 
 void GameGlobal::SetCurrentHWND(HWND hwnd)
@@ -23,7 +23,7 @@ void GameGlobal::SetCurrentHINSTACE(HINSTANCE instance)
 {
 	mHInstance = instance;
 }
-void GameGlobal::SetCurrentSpriteHandler(LPD3DXSPRITE spriteHandler)
+void GameGlobal::SetSpriteHandler(LPD3DXSPRITE spriteHandler)
 {
 	mSpriteHandler = spriteHandler;
 }
@@ -44,7 +44,7 @@ HWND GameGlobal::GetCurrentHWND()
 {
 	return mHwnd;
 }
-LPD3DXSPRITE GameGlobal::GetCurrentSpriteHandler()
+LPD3DXSPRITE GameGlobal::GetSpriteHandler()
 {
 	return mSpriteHandler;
 }
