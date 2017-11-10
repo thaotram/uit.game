@@ -12,7 +12,7 @@ class AgrabahMarket : public Scene
 {
 public:
 	AgrabahMarket() {
-		this->AddChild("1", new Unit("Aladdin"));
+		this->AddChild("1", "char", new Unit("Aladdin"));
 	}
 };
 

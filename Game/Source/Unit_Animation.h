@@ -34,6 +34,7 @@ public:
 	Animation() {
 		mFrame = 1;
 		mCycleIndex = 1;
+		mState = "";
 	}
 	void Initialization(string filePath) {
 		this->clear();
@@ -43,7 +44,7 @@ public:
 			i >> j;
 
 			json states = j["states"];
-			mState = states.begin().key();
+			if(mState == "") mState = states.begin().key();
 			for (json::iterator state = states.begin(); state != states.end(); ++state)
 			{
 				//! frameCycle

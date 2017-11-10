@@ -9,38 +9,38 @@ using namespace std;
 class Scene
 {
 private:
-	void EachUnit(function<void(list<Unit *>::iterator)> eachFunction) {
-		for (auto &it : mContainers) {
-			for (list<Unit *>::iterator unit = it.second.begin(); unit != it.second.end(); ++unit) {
-				eachFunction(unit);
+	void EachUnit(function<void(Unit *)> eachFunction) {
+		for (auto &container : mContainers) {
+			for (auto &unit : container.second) {
+				eachFunction(unit.second);
 			}
 		}
 	}
 protected:
-	map<string, list<Unit *>> mContainers;
+	map<string, map<string, Unit *>> mContainers;
 public:
 	Scene() {};
 	~Scene() {
-		EachUnit([=](list<Unit *>::iterator item) {
-			delete *item;
+		EachUnit([=](Unit * item) {
+			delete item;
 		});
 	};
 	void Update(float dt) {
-		EachUnit([=](list<Unit *>::iterator item) {
-			(**item).Update(dt);
+		EachUnit([=](Unit * item) {
+			item->Update(dt);
 		});
 	};
 	void Draw() {
-		EachUnit([=](list<Unit *>::iterator item) {
-			(**item).Draw();
+		EachUnit([=](Unit * item) {
+			item->Draw();
 		});
 	};
 
-	void AddChild(string pPart, Unit * pUnit) {
-		mContainers[pPart].push_back(pUnit);
+	void AddChild(string pPart, string pUnitName, Unit * pUnit) {
+		mContainers[pPart][pUnitName] = pUnit;
 	}
-	void RemoveChild(string pPart, Unit * pUnit) {
-		mContainers[pPart].remove(pUnit);
+	void RemoveChild(string pPart, string pUnitName) {
+		mContainers[pPart].erase(pUnitName);
 	}
 
 	virtual void OnKeyDown(int keyCode) {};
