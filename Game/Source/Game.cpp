@@ -9,6 +9,7 @@ Game::Game()
 {
 	mFPS = GameGlobal::GetFPS();
 	mBackgroundColor = GameGlobal::GetBackgroundColor();
+	mDevice = GameGlobal::GetDevice();
 
 	// Game Start
 	SceneManager::GetInstance()->ReplaceScene(
@@ -55,24 +56,22 @@ void Game::InitLoop()
 
 // Được gọi bên trong vòng lặp (bên trong hàm update)
 void Game::Render() {
-	LPDIRECT3DDEVICE9 device = GameGlobal::GetCurrentDevice();
 	Scene * scene = SceneManager::GetInstance()->GetCurrentScene();
-
-	device->Clear(0, NULL, D3DCLEAR_TARGET, mBackgroundColor, 0.0f, 0);
+	mDevice->Clear(0, NULL, D3DCLEAR_TARGET, mBackgroundColor, 0.0f, 0);
 	{
-		device->BeginScene();
+		mDevice->BeginScene();
 		GameGlobal::GetSpriteHandler()->Begin(D3DXSPRITE_ALPHABLEND);
 		{
 			// Làm cho hình ảnh sau khi scale không bị nhòe
-			device->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
-			device->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
-			device->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
+			mDevice->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
+			mDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
+			mDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
 		}
 		scene->Draw();
 		GameGlobal::GetSpriteHandler()->End();
-		device->EndScene();
+		mDevice->EndScene();
 	}
-	device->Present(0, 0, 0, 0);
+	mDevice->Present(0, 0, 0, 0);
 }
 
 // Được gọi bên trong vòng lặp

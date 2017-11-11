@@ -9,10 +9,10 @@ using namespace std;
 class Scene
 {
 private:
-	void EachUnit(function<void(Unit *)> eachFunction) {
+	void EachUnit(function<void(Unit *)> eachUnit) {
 		for (auto &container : mContainers) {
 			for (auto &unit : container.second) {
-				eachFunction(unit.second);
+				eachUnit(unit.second);
 			}
 		}
 	}
@@ -34,7 +34,9 @@ public:
 		EachUnit([=](Unit * item) {
 			item->Draw();
 		});
+		AfterDrawUnit();
 	};
+	virtual void AfterDrawUnit() {}
 
 	void AddChild(string pPart, string pUnitName, Unit * pUnit) {
 		mContainers[pPart][pUnitName] = pUnit;
@@ -48,4 +50,8 @@ public:
 	virtual void OnKeyDown(int keyCode) {};
 	virtual void OnKeyUp(int keyCode) {};
 	virtual void OnMouseDown(float x, float y) {};
+
+	map<string, Unit *> operator[](string pPart) {
+		return mContainers[pPart];
+	}
 };

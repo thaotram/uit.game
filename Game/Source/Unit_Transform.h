@@ -6,6 +6,7 @@
 #include <d3dx9.h>
 #include <iostream>
 
+#include "GameGlobal.h"
 class Transform : public D3DXMATRIX {
 private:
 	bool                    mIsFlipVertical;	// Lật theo chiều dọc
@@ -21,18 +22,16 @@ public:
 		mIsFlipVertical = false;
 		mIsFlipHorizontal = false;
 
-		mScaling = { 1,1 };
+		mScaling = {
+			GameGlobal::GetScale(),GameGlobal::GetScale()
+		};
 		mTranslation = { 0,0 };
 	}
 	void UpdateFrom(RECT pSourceRect, D3DXVECTOR3 pPosition, D3DXVECTOR2 pTransition) {
-		// = pUnit->GetSourceRect();
-		// = pUnit->GetPosition();
-		// = pUnit->GetAnimation().GetTransition();
-
 		D3DXVECTOR2 pScalingCenter = D3DXVECTOR2(
 			pPosition.x, // + (pSourceRect.right - pSourceRect.left) / 2,
 			pPosition.y  // + (pSourceRect.bottom - pSourceRect.top) / 2
-			);
+		);
 		D3DXVECTOR2 pScaling = D3DXVECTOR2(
 			mScaling.x * (mIsFlipHorizontal ? -1 : 1),	// Chiều ngang
 			mScaling.y * (mIsFlipVertical ? -1 : 1)		// Chiều dọc

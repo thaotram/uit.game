@@ -12,7 +12,7 @@
 
 class Unit
 {
-private:
+protected:
 	string							mName;
 	LPD3DXSPRITE					mSpriteHandler;
 	LPDIRECT3DTEXTURE9				mTexture;
@@ -29,28 +29,42 @@ public:
 		mSpriteHandler = GameGlobal::GetSpriteHandler();
 		mTexture = UNIT_TEXTURE::Get("Resources/" + mName + ".png");
 
-		mPosition = { 200,200,0 };
-		mTransform.SetScale(4);
 		mTimePerFrame = 0.2f;
-		Update(0);
+		mPosition = { 0, 0, 0 };
+		Update();
 	};
 	~Unit() {};
 
-	void Update(float dt) {
+	//? Remove
+	bool log = false;
+
+	void Update(float dt = 0) {
 		if (mAnimation.empty()) {
 			mAnimation.Initialization("Resources/" + mName + ".json");
 		}
 		if (mCurrentTime >= mTimePerFrame) {
-			mAnimation.Initialization("Resources/" + mName + ".json");
-			mAnimation.Log();
 			mCurrentTime = 0;
-			//!? Thao tác cập nhật frame - BEGIN
-
-			mAnimation.NextFrame();
-			mSourceRect = mAnimation.GetFrame();
-			mTransform.UpdateFrom(mSourceRect, mPosition, mAnimation.GetTransition());
-
-			//!? Thao tác cập nhật frame - END
+			
+			//!? Update Animation
+			mAnimation.Initialization("Resources/" + mName + ".json");
+			
+			//? Remove
+			if (log) {
+				//mAnimation.Log();
+				RECT _ = GetBound();
+				GameDebug::Title(
+					to_string(_.left) + " " +
+					to_string(_.top) + " " +
+					to_string(_.right) + " " +
+					to_string(_.bottom)
+				);
+			}
+			{
+				//!? Thao tác cập nhật frame - BEGIN
+				mAnimation.NextFrame();
+				mSourceRect = mAnimation.GetFrame();
+				mTransform.UpdateFrom(mSourceRect, mPosition, mAnimation.GetTransition());
+			}
 		}
 		else mCurrentTime += dt;
 	}
@@ -65,6 +79,7 @@ public:
 			0xFFFFFFFF
 		);
 	}
+
 	RECT GetSourceRect() {
 		return mSourceRect;
 	}
@@ -73,5 +88,16 @@ public:
 	}
 	UNIT_ANIMATION GetAnimation() {
 		return mAnimation;
+	}
+	void SetPosition(float x, float y) {
+		mPosition = { x, y, 0 };
+	}
+	RECT GetBound() {
+		return RECT{
+			(LONG)(mPosition.x),
+			(LONG)(mPosition.y),
+			(LONG)(mPosition.x + (mSourceRect.right - mSourceRect.left) * GameGlobal::GetScale()),
+			(LONG)(mPosition.y + (mSourceRect.bottom - mSourceRect.top) * GameGlobal::GetScale())
+		};
 	}
 };

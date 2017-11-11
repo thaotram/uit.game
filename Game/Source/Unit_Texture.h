@@ -5,7 +5,7 @@
 #include "Unit_Animation.h"
 #include "Unit.h"
 #include "GameGlobal.h"
-#include "GameLog.h"
+#include "GameDebug.h"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ public:
 
 		D3DXCreateTextureFromFileExA
 		(
-			GameGlobal::GetCurrentDevice(), // Đại diện cho thiết bị
+			GameGlobal::GetDevice(), // Đại diện cho thiết bị
 			pSrcFile,						// Đường dẫn đến file
 			pImageInfo.Width,
 			pImageInfo.Height,

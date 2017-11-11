@@ -33,6 +33,9 @@
     <Filter Include="Resource Files\Map">
       <UniqueIdentifier>{2b49052b-e3d3-4056-9785-fceb5aa48e2f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Map">
+      <UniqueIdentifier>{1a7713e5-176b-45ff-8218-ecb954d9b5ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -41,7 +44,9 @@
     <None Include="Resources\block.json">
       <Filter>Resource Files\Unit</Filter>
     </None>
-    <None Include="Resources\AgrabahMarket.json" />
+    <None Include="Resources\AgrabahMarket.json">
+      <Filter>Resource Files\Map</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -99,9 +104,6 @@
     <ClCompile Include="Source\SceneManager.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GameLog.h">
-      <Filter>Source\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Unit_SourceRect.h">
       <Filter>Source\Unit</Filter>
     </ClCompile>
@@ -110,6 +112,12 @@
     </ClCompile>
     <ClCompile Include="Source\Unit_Animation.h">
       <Filter>Source\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameDebug.h">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Map.h">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -8,6 +8,7 @@ GameGlobal::~GameGlobal() {}
 int GameGlobal::mWidth = 0;
 int GameGlobal::mHeight = 0;
 float GameGlobal::mFPS = 1;
+float GameGlobal::mScale = 1;
 HWND GameGlobal::mHwnd = NULL;
 HINSTANCE GameGlobal::mHInstance = NULL;
 LPD3DXSPRITE GameGlobal::mSpriteHandler = NULL;
@@ -15,11 +16,11 @@ LPDIRECT3DDEVICE9 GameGlobal::mDevice = nullptr;
 D3DCOLOR  GameGlobal::mBackgroundColor = 0xffff00ff;
 bool GameGlobal::isGameRunning = true;
 
-void GameGlobal::SetCurrentHWND(HWND hwnd)
+void GameGlobal::SetHWND(HWND hwnd)
 {
 	mHwnd = hwnd;
 }
-void GameGlobal::SetCurrentHINSTACE(HINSTANCE instance)
+void GameGlobal::SetHINSTACE(HINSTANCE instance)
 {
 	mHInstance = instance;
 }
@@ -27,7 +28,7 @@ void GameGlobal::SetSpriteHandler(LPD3DXSPRITE spriteHandler)
 {
 	mSpriteHandler = spriteHandler;
 }
-void GameGlobal::SetCurrentDevice(LPDIRECT3DDEVICE9 device)
+void GameGlobal::SetDevice(LPDIRECT3DDEVICE9 device)
 {
 	mDevice = device;
 }
@@ -36,11 +37,11 @@ void GameGlobal::SetBackgroundColor(D3DCOLOR backgroundColor)
 	mBackgroundColor = backgroundColor;
 }
 
-HINSTANCE GameGlobal::GetCurrentHINSTACE()
+HINSTANCE GameGlobal::GetHINSTACE()
 {
 	return mHInstance;
 }
-HWND GameGlobal::GetCurrentHWND()
+HWND GameGlobal::GetHWND()
 {
 	return mHwnd;
 }
@@ -48,7 +49,7 @@ LPD3DXSPRITE GameGlobal::GetSpriteHandler()
 {
 	return mSpriteHandler;
 }
-LPDIRECT3DDEVICE9 GameGlobal::GetCurrentDevice()
+LPDIRECT3DDEVICE9 GameGlobal::GetDevice()
 {
 	return mDevice;
 }
@@ -80,4 +81,12 @@ void GameGlobal::SetFPS(float fps)
 float GameGlobal::GetFPS()
 {
 	return mFPS;
+}
+void GameGlobal::SetScale(float scale)
+{
+	mScale = scale;
+}
+float GameGlobal::GetScale()
+{
+	return mScale;
 }

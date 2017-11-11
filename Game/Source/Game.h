@@ -12,6 +12,7 @@ public:
 protected:
 	float               mFPS;
 	D3DCOLOR            mBackgroundColor;
+	LPDIRECT3DDEVICE9	mDevice;
 
 	//khởi tạo vòng lặp game
 	//đc gọi khi khởi tạo đối tượng game

@@ -8,7 +8,7 @@
 #include <vector>
 
 #include <json.hpp>
-#include "GameLog.h"
+#include "GameDebug.h"
 
 using namespace std;
 using json = nlohmann::json;
@@ -101,8 +101,9 @@ public:
 	D3DXVECTOR2 GetTransition() {
 		return this->find(mState)->second.second[mFrame].Transition;
 	}
+	//!? Thao tác ghi log lên trên thanh title
 	void Log() {
-		GameLog::Title(
+		GameDebug::Title(
 			to_string(mCycleIndex)
 			+ " - " + 
 			to_string(mFrame)

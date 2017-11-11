@@ -13,22 +13,23 @@ private:
 	static D3DCOLOR				mBackgroundColor;	// backgroundColor
 	static int					mWidth, mHeight;	// size của cửa sổ
 	static float				mFPS;				// frame per second
+	static float				mScale;				// Scale
 public:
 	GameGlobal();
 	~GameGlobal();
 
 	static bool isGameRunning; //trạng thái xem game có đang chạy khong
 
-	static HWND GetCurrentHWND();
-	static HINSTANCE GetCurrentHINSTACE();
+	static HWND GetHWND();
+	static HINSTANCE GetHINSTACE();
 	static LPD3DXSPRITE GetSpriteHandler();
-	static LPDIRECT3DDEVICE9 GetCurrentDevice();
+	static LPDIRECT3DDEVICE9 GetDevice();
 	static D3DCOLOR GetBackgroundColor();
 
-	static void SetCurrentHWND(HWND hwnd);
-	static void SetCurrentHINSTACE(HINSTANCE hInstance);
+	static void SetHWND(HWND hwnd);
+	static void SetHINSTACE(HINSTANCE hInstance);
 	static void SetSpriteHandler(LPD3DXSPRITE spriteHandler);
-	static void SetCurrentDevice(LPDIRECT3DDEVICE9 device);
+	static void SetDevice(LPDIRECT3DDEVICE9 device);
 	static void SetBackgroundColor(D3DCOLOR backgroundColor);
 
 	static void SetWidth(int width);
@@ -39,4 +40,7 @@ public:
 
 	static void  SetFPS(float fps);
 	static float GetFPS();
+
+	static void  SetScale(float scale);
+	static float GetScale();
 };

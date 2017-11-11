@@ -24,8 +24,9 @@ using namespace std;
 #define MAIN_WINDOW_TITLE L"Game Title"
 #define APP_WIDTH 800
 #define APP_HEIGHT 560
-#define FPS 60
-#define BACKGROUND_COLOR 0x34495e
+#define APP_SCALE 3
+#define FPS 30
+#define BACKGROUND_COLOR 0xffffffff
 
 void InitializeWindow(int cmdShow);
 int InitializeDevice();
@@ -34,7 +35,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 //! Entry point
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int cmdShow)
 {
-	GameGlobal::SetCurrentHINSTACE(hInstance);
+	GameGlobal::SetHINSTACE(hInstance);
 	InitializeWindow(cmdShow);
 	return 0;
 }
@@ -46,7 +47,7 @@ void InitializeWindow(int cmdShow)
 	wc.cbSize = sizeof(WNDCLASSEX);
 
 	wc.style = CS_HREDRAW | CS_VREDRAW;
-	wc.hInstance = GameGlobal::GetCurrentHINSTACE();
+	wc.hInstance = GameGlobal::GetHINSTACE();
 
 	wc.lpfnWndProc = (WNDPROC)WndProc;
 	wc.cbClsExtra = 0;
@@ -66,32 +67,34 @@ void InitializeWindow(int cmdShow)
 
 	GameGlobal::SetWidth(wr.right - wr.left);
 	GameGlobal::SetHeight(wr.bottom - wr.top);
+
 	GameGlobal::SetBackgroundColor(BACKGROUND_COLOR);
 	GameGlobal::SetFPS(FPS);
+	GameGlobal::SetScale(APP_SCALE);
 
-	GameGlobal::SetCurrentHWND(
+	GameGlobal::SetHWND(
 		CreateWindowEx(
 			WS_EX_OVERLAPPEDWINDOW,
 			APP_CLASS,
 			APP_CLASS,
-			WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME ^ WS_MAXIMIZEBOX,
+			WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME ^ WS_MAXIMIZEBOX ^ WS_CAPTION,
 			CW_USEDEFAULT,
 			CW_USEDEFAULT,
 			GameGlobal::GetWidth(),
 			GameGlobal::GetHeight(),
 			NULL,
 			NULL,
-			GameGlobal::GetCurrentHINSTACE(),
+			GameGlobal::GetHINSTACE(),
 			NULL
 		)
 	);
 
 	ShowWindow(
-		GameGlobal::GetCurrentHWND(),
+		GameGlobal::GetHWND(),
 		cmdShow
 	);
 	UpdateWindow(
-		GameGlobal::GetCurrentHWND()
+		GameGlobal::GetHWND()
 	);
 
 	if (InitializeDevice())
@@ -121,12 +124,12 @@ int InitializeDevice()
 	Direct3DCreate9(D3D_SDK_VERSION)->CreateDevice(
 		D3DADAPTER_DEFAULT,
 		D3DDEVTYPE_HAL,
-		GameGlobal::GetCurrentHWND(),
+		GameGlobal::GetHWND(),
 		D3DCREATE_SOFTWARE_VERTEXPROCESSING,
 		&d3dpp,
 		&pDevice
 	);
-	GameGlobal::SetCurrentDevice(pDevice);
+	GameGlobal::SetDevice(pDevice);
 
 	D3DXCreateSprite(
 		pDevice,
