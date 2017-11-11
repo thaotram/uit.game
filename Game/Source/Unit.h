@@ -38,10 +38,10 @@ public:
 
 	void Update(float dt) {
 		if (mAnimation.empty()) {
-			mAnimation.Initialization("Resources/" + mName + ".n.json");
+			mAnimation.Initialization("Resources/" + mName + ".json");
 		}
 		if (mCurrentTime >= mTimePerFrame) {
-			mAnimation.Initialization("Resources/" + mName + ".n.json");
+			mAnimation.Initialization("Resources/" + mName + ".json");
 			mAnimation.Log();
 			mCurrentTime = 0;
 			//!? Thao tác cập nhật frame - BEGIN

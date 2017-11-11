@@ -42,7 +42,9 @@ public:
 	void RemoveChild(string pPart, string pUnitName) {
 		mContainers[pPart].erase(pUnitName);
 	}
-
+	Unit * GetUnit(string pPart, string pUnitName) {
+		mContainers[pPart][pUnitName];
+	}
 	virtual void OnKeyDown(int keyCode) {};
 	virtual void OnKeyUp(int keyCode) {};
 	virtual void OnMouseDown(float x, float y) {};

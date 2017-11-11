@@ -24,27 +24,34 @@
     <Filter Include="Source\Unit">
       <UniqueIdentifier>{a5dd13c7-86e2-48e4-9192-eb2e69c94320}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Unit\FinalUnit">
+      <UniqueIdentifier>{fe78fdd8-8619-4ec1-984e-3ecffc630ab9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Unit">
+      <UniqueIdentifier>{f171396f-a1a7-4bdf-b46d-ed849fd3d215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Map">
+      <UniqueIdentifier>{2b49052b-e3d3-4056-9785-fceb5aa48e2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\block.json">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="Resources\Aladdin.json">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Unit</Filter>
     </None>
-    <None Include="Resources\Aladdin.n.json">
-      <Filter>Resource Files</Filter>
+    <None Include="Resources\block.json">
+      <Filter>Resource Files\Unit</Filter>
     </None>
+    <None Include="Resources\AgrabahMarket.json" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\AgrabahMarket.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="Resources\Aladdin.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Unit</Filter>
     </Image>
     <Image Include="Resources\block.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\AgrabahMarket.png">
+      <Filter>Resource Files\Map</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
