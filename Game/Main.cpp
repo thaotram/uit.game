@@ -23,7 +23,7 @@ using namespace std;
 #define APP_CLASS L"Game"
 #define MAIN_WINDOW_TITLE L"Game Title"
 #define APP_WIDTH 800
-#define APP_HEIGHT 600
+#define APP_HEIGHT 560
 #define FPS 60
 #define BACKGROUND_COLOR 0x34495e
 
@@ -74,7 +74,7 @@ void InitializeWindow(int cmdShow)
 			WS_EX_OVERLAPPEDWINDOW,
 			APP_CLASS,
 			APP_CLASS,
-			WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME,
+			WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME ^ WS_MAXIMIZEBOX,
 			CW_USEDEFAULT,
 			CW_USEDEFAULT,
 			GameGlobal::GetWidth(),
