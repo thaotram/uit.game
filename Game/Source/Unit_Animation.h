@@ -45,14 +45,19 @@ public:
 			i >> j;
 
 			json states = j["states"];
-			if(mState == "") mState = states.begin().key();
+			if (mState == "") mState = states.begin().key();
 			for (json::iterator state = states.begin(); state != states.end(); ++state)
 			{
 				//! basePoint
-				mBasePoint = {
-					state.value()["basePoint"][0],
-					state.value()["basePoint"][1]
-				};
+				try {
+					mBasePoint = {
+						state.value()["basePoint"][0],
+						state.value()["basePoint"][1]
+					};
+				}
+				catch (exception e) {
+					mBasePoint = { 0,0 };
+				}
 
 				//! frameCycle
 				json j_frameCycle = state.value()["frameCycle"];
@@ -84,6 +89,7 @@ public:
 						)
 					);
 				}
+				auto mmm = state.key();
 				this->insert_or_assign(state.key(), make_pair(p_frameCycle, p_frame));
 			}
 		}
@@ -95,6 +101,8 @@ public:
 	void NextFrame() {
 		//! Đếm từ 0 và đếm từ 1 => phải trừ 1
 		//!? cycles[index - 1]
+		auto o = this->find(mState);
+
 		vector<int> cycles = this->find(mState)->second.first;
 		int nextFrame = cycles[mCycleIndex + 1 - 1];
 		if (nextFrame > 0) 	mCycleIndex++;
@@ -116,7 +124,7 @@ public:
 	void Log() {
 		GameDebug::Title(
 			to_string(mCycleIndex)
-			+ " - " + 
+			+ " - " +
 			to_string(mFrame)
 		);
 	}
