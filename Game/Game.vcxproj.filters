@@ -33,9 +33,6 @@
     <Filter Include="Resource Files\Map">
       <UniqueIdentifier>{2b49052b-e3d3-4056-9785-fceb5aa48e2f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Map">
-      <UniqueIdentifier>{1a7713e5-176b-45ff-8218-ecb954d9b5ad}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">

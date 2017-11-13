@@ -34,9 +34,8 @@ public:
 		Update();
 	};
 	~Unit() {};
-
-	//? Remove
-	bool log = false;
+	
+	bool log = false; //? Remove
 
 	void Update(float dt = 0) {
 		if (mAnimation.empty()) {
@@ -59,11 +58,12 @@ public:
 					to_string(_.bottom)
 				);
 			}
+			//? End Remove
 			{
 				//!? Thao tác cập nhật frame - BEGIN
 				mAnimation.NextFrame();
 				mSourceRect = mAnimation.GetFrame();
-				mTransform.UpdateFrom(mSourceRect, mPosition, mAnimation.GetTransition());
+				mTransform.UpdateFrom(mPosition, mAnimation.GetTransition(), mAnimation.GetBasePoint());
 			}
 		}
 		else mCurrentTime += dt;
@@ -86,8 +86,11 @@ public:
 	D3DXVECTOR3 GetPosition() {
 		return mPosition;
 	}
-	UNIT_ANIMATION GetAnimation() {
-		return mAnimation;
+	UNIT_ANIMATION * GetAnimation() {
+		return &mAnimation;
+	}
+	UNIT_TRANSFORM * GetTransform() {
+		return &mTransform;
 	}
 	void SetPosition(float x, float y) {
 		mPosition = { x, y, 0 };

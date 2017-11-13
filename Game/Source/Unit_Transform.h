@@ -27,10 +27,10 @@ public:
 		};
 		mTranslation = { 0,0 };
 	}
-	void UpdateFrom(RECT pSourceRect, D3DXVECTOR3 pPosition, D3DXVECTOR2 pTransition) {
+	void UpdateFrom(D3DXVECTOR3 pPosition, D3DXVECTOR2 pTransition, POINT pBasePoint) {
 		D3DXVECTOR2 pScalingCenter = D3DXVECTOR2(
-			pPosition.x, // + (pSourceRect.right - pSourceRect.left) / 2,
-			pPosition.y  // + (pSourceRect.bottom - pSourceRect.top) / 2
+			pPosition.x + pBasePoint.x,
+			pPosition.y + pBasePoint.y
 		);
 		D3DXVECTOR2 pScaling = D3DXVECTOR2(
 			mScaling.x * (mIsFlipHorizontal ? -1 : 1),	// Chiều ngang
@@ -38,8 +38,8 @@ public:
 		);
 
 		mTranslation = {
-			mScaling.x * pTransition.x,
-			mScaling.y * pTransition.y
+			((pTransition.x) * mScaling.x - pBasePoint.x) * (mIsFlipHorizontal ? -1 : 1),
+			(pTransition.y) * mScaling.y - pBasePoint.y
 		};
 
 		D3DXMatrixTransformation2D(

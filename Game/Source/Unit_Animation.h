@@ -30,6 +30,7 @@ private:
 	string	mState;
 	int		mFrame;
 	int		mCycleIndex;
+	POINT	mBasePoint;
 public:
 	Animation() {
 		mFrame = 1;
@@ -47,6 +48,12 @@ public:
 			if(mState == "") mState = states.begin().key();
 			for (json::iterator state = states.begin(); state != states.end(); ++state)
 			{
+				//! basePoint
+				mBasePoint = {
+					state.value()["basePoint"][0],
+					state.value()["basePoint"][1]
+				};
+
 				//! frameCycle
 				json j_frameCycle = state.value()["frameCycle"];
 				vector<int> p_frameCycle;
@@ -101,6 +108,10 @@ public:
 	D3DXVECTOR2 GetTransition() {
 		return this->find(mState)->second.second[mFrame].Transition;
 	}
+	POINT GetBasePoint() {
+		return mBasePoint;
+	}
+
 	//!? Thao tác ghi log lên trên thanh title
 	void Log() {
 		GameDebug::Title(
