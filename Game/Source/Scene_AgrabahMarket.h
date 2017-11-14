@@ -7,26 +7,51 @@
 #include "Scene.h"
 #include "GameDebug.h"
 
+#include "Unit_Aladdin.h";
+
 using namespace std;
+
+Unit * sMap;
+Unit * sChar;
 
 class AgrabahMarket : public Scene
 {
 public:
 	AgrabahMarket() {
-		this->AddChild("2", "1", new Unit("Aladdin"));
-		(*this)["2"]["1"]->SetPosition(300, 300);
-		(*this)["2"]["1"]->GetAnimation()->SetState("stand_cut");
-		(*this)["2"]["1"]->log = true;
+		sMap = new Unit("AgrabahMarket");
+		this->AddChild("1_Map", "1", sMap);
+		sMap->SetPosition(0, 480);
 
-		this->AddChild("2", "2", new Unit("Aladdin"));
-		(*this)["2"]["2"]->SetPosition(600, 300);
-		(*this)["2"]["2"]->GetAnimation()->SetState("stand_cut");
-		(*this)["2"]["2"]->GetTransform()->SetFlip(true, false);
+		sChar = new Unit_Aladdin();
+		this->AddChild("2_char", "char", sChar);
+		sChar->SetPosition(GameGlobal::GetWidth() / 2, 189 * GameGlobal::GetScale());
+		sChar->GetAnimation()->SetState("run");
+		////(*this)["2"]["1"]->log = true;
 	}
 	void AfterDrawUnit() {
-		GameDebug::DrawHL(300, 1);
-		GameDebug::DrawVL(300, 1);
-		GameDebug::DrawVL(600, 1);
+		GameDebug::DrawHL(480, 1);
+		//GameDebug::DrawVL(300, 1);
+		//GameDebug::DrawVL(600, 1);
+	}
+	void AfterUpdateUnit() {
+		//sMap->SetPositionTo(-1, 0);
+	}
+	void OnKeyDown(int pKeyCode) {
+		switch (pKeyCode)
+		{
+		case VK_LEFT:
+			sChar
+				->GetAnimation()->SetState("stand_still");
+			break;
+		case VK_RIGHT:
+			sChar
+				->GetAnimation()->SetState("run");
+			break;
+		default:
+			break;
+		}
+		if (pKeyCode == VK_LEFT) {
+		}
 	}
 };
 

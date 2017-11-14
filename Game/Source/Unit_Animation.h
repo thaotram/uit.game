@@ -98,7 +98,7 @@ public:
 			this->clear();
 		}
 	};
-	
+
 	void NextFrame() {
 		//! Đếm từ 0 và đếm từ 1 => phải trừ 1
 		//!? cycles[index - 1]
@@ -120,6 +120,11 @@ public:
 
 	void SetState(string pState) {
 		mState = pState;
+		mFrame = 1;
+		mCycleIndex = 1;
+	}
+	string GetState() {
+		return mState;
 	}
 
 	//!? Thao tác ghi log lên trên thanh title

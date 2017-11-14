@@ -29,6 +29,7 @@ public:
 		EachUnit([=](Unit * item) {
 			item->Update(dt);
 		});
+		AfterUpdateUnit();
 	};
 	void Draw() {
 		EachUnit([=](Unit * item) {
@@ -37,6 +38,7 @@ public:
 		AfterDrawUnit();
 	};
 	virtual void AfterDrawUnit() {}
+	virtual void AfterUpdateUnit() {}
 
 	void AddChild(string pPart, string pUnitName, Unit * pUnit) {
 		mContainers[pPart][pUnitName] = pUnit;
@@ -47,8 +49,8 @@ public:
 	Unit * GetUnit(string pPart, string pUnitName) {
 		mContainers[pPart][pUnitName];
 	}
-	virtual void OnKeyDown(int keyCode) {};
-	virtual void OnKeyUp(int keyCode) {};
+	virtual void OnKeyDown(int pKeyCode) {};
+	virtual void OnKeyUp(int pKeyCode) {};
 	virtual void OnMouseDown(float x, float y) {};
 
 	map<string, Unit *> operator[](string pPart) {

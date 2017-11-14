@@ -22,8 +22,8 @@ using namespace std;
 
 #define APP_CLASS L"Game"
 #define MAIN_WINDOW_TITLE L"Game Title"
-#define APP_WIDTH 800
-#define APP_HEIGHT 560
+#define APP_WIDTH 320
+#define APP_HEIGHT 224
 #define APP_SCALE 3
 #define FPS 60
 #define BACKGROUND_COLOR 0xffffffff
@@ -62,7 +62,12 @@ void InitializeWindow(int cmdShow)
 
 	RegisterClassEx(&wc);
 
-	RECT wr = { 0, 0, APP_WIDTH, APP_HEIGHT };
+	RECT wr = { 
+		0,
+		0, 
+		APP_WIDTH * APP_SCALE,
+		APP_HEIGHT * APP_SCALE
+	};
 	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
 
 	GameGlobal::SetWidth(wr.right - wr.left);

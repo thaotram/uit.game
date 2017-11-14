@@ -35,7 +35,7 @@ public:
 		Update();
 	};
 	~Unit() {};
-	
+
 	bool log = false; //? Remove
 
 	void Update(float dt = 0) {
@@ -44,10 +44,10 @@ public:
 		}
 		if (mCurrentTime >= mTimePerFrame) {
 			mCurrentTime = 0;
-			
+
 			//!? Update Animation
 			mAnimation.Initialization("Resources/" + mName + ".json");
-			
+
 			//? Remove
 			if (log) {
 				//mAnimation.Log();
@@ -95,6 +95,13 @@ public:
 	}
 	void SetPosition(float x, float y) {
 		mPosition = { x, y, 0 };
+	}
+	void SetPositionTo(float x, float y) {
+		mPosition = {
+			mPosition.x + x * GameGlobal::GetScale(),
+			mPosition.y + y * GameGlobal::GetScale(),
+			0
+		};
 	}
 	RECT GetBound() {
 		return RECT{

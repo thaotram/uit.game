@@ -127,6 +127,7 @@
     <Image Include="Resources\block.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Unit_Aladdin.h" />
     <ClInclude Include="Library\json.hpp" />
     <ClInclude Include="Source\Unit_Texture.h" />
     <ClInclude Include="Source\Unit.h" />
