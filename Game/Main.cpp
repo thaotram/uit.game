@@ -25,7 +25,7 @@ using namespace std;
 #define APP_WIDTH 800
 #define APP_HEIGHT 560
 #define APP_SCALE 3
-#define FPS 30
+#define FPS 60
 #define BACKGROUND_COLOR 0xffffffff
 
 void InitializeWindow(int cmdShow);

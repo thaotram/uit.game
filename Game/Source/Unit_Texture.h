@@ -29,7 +29,7 @@ public:
 			D3DPOOL_DEFAULT,
 			D3DX_DEFAULT,
 			D3DX_DEFAULT,
-			0x12345678,						// Màu trong suốt có dạng 0x12345678 (32 bit tất cả)
+			0xffff00ff,						// Màu trong suốt có dạng 0x12345678 (32 bit tất cả)
 			NULL,							// [Out] Thông tin của hình ảnh
 			NULL,
 			&oTexture						// [Out] Đại diện cho đối tượng Texture

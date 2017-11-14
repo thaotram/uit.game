@@ -23,7 +23,8 @@ public:
 		mIsFlipHorizontal = false;
 
 		mScaling = {
-			GameGlobal::GetScale(),GameGlobal::GetScale()
+			GameGlobal::GetScale(),
+			GameGlobal::GetScale()
 		};
 		mTranslation = { 0,0 };
 	}
@@ -38,8 +39,8 @@ public:
 		);
 
 		mTranslation = {
-			((pTransition.x) * mScaling.x - pBasePoint.x) * (mIsFlipHorizontal ? -1 : 1),
-			(pTransition.y) * mScaling.y - pBasePoint.y
+			(mIsFlipHorizontal ? -1 : 1) * mScaling.x * pTransition.x - pBasePoint.x,
+			mScaling.y * pTransition.y - pBasePoint.y
 		};
 
 		D3DXMatrixTransformation2D(

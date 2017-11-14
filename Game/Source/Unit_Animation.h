@@ -6,6 +6,7 @@
 #include <map>
 #include <list>
 #include <vector>
+#include <tuple>
 
 #include <json.hpp>
 #include "GameDebug.h"
@@ -24,13 +25,12 @@ typedef struct Frame {
 
 class Animation : public map<
 	string,
-	pair<vector<int>, map<int, Frame>>
+	pair<POINT, pair<vector<int>, map<int, Frame>>>
 > {
 private:
 	string	mState;
 	int		mFrame;
 	int		mCycleIndex;
-	POINT	mBasePoint;
 public:
 	Animation() {
 		mFrame = 1;
@@ -49,14 +49,15 @@ public:
 			for (json::iterator state = states.begin(); state != states.end(); ++state)
 			{
 				//! basePoint
+				POINT	p_basePoint;
 				try {
-					mBasePoint = {
+					p_basePoint = {
 						state.value()["basePoint"][0],
 						state.value()["basePoint"][1]
 					};
 				}
 				catch (exception e) {
-					mBasePoint = { 0,0 };
+					p_basePoint = { 0,0 };
 				}
 
 				//! frameCycle
@@ -90,34 +91,35 @@ public:
 					);
 				}
 				auto mmm = state.key();
-				this->insert_or_assign(state.key(), make_pair(p_frameCycle, p_frame));
+				this->insert_or_assign(state.key(), make_pair(p_basePoint, make_pair(p_frameCycle, p_frame)));
 			}
 		}
 		catch (exception e) {
 			this->clear();
 		}
 	};
-
+	
 	void NextFrame() {
 		//! Đếm từ 0 và đếm từ 1 => phải trừ 1
 		//!? cycles[index - 1]
-		auto o = this->find(mState);
-
-		vector<int> cycles = this->find(mState)->second.first;
+		vector<int> cycles = this->find(mState)->second.second.first;
 		int nextFrame = cycles[mCycleIndex + 1 - 1];
 		if (nextFrame > 0) 	mCycleIndex++;
 		else				mCycleIndex = -nextFrame;
 		mFrame = cycles[mCycleIndex - 1];
 	}
-
 	RECT GetFrame() {
-		return this->find(mState)->second.second[mFrame].Rect;
+		return this->find(mState)->second.second.second[mFrame].Rect;
 	}
 	D3DXVECTOR2 GetTransition() {
-		return this->find(mState)->second.second[mFrame].Transition;
+		return this->find(mState)->second.second.second[mFrame].Transition;
 	}
 	POINT GetBasePoint() {
-		return mBasePoint;
+		return this->find(mState)->second.first;
+	}
+
+	void SetState(string pState) {
+		mState = pState;
 	}
 
 	//!? Thao tác ghi log lên trên thanh title

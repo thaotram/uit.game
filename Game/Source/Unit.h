@@ -29,7 +29,8 @@ public:
 		mSpriteHandler = GameGlobal::GetSpriteHandler();
 		mTexture = UNIT_TEXTURE::Get("Resources/" + mName + ".png");
 
-		mTimePerFrame = 0.2f;
+		mCurrentTime = 0;
+		mTimePerFrame = 0.05f;
 		mPosition = { 0, 0, 0 };
 		Update();
 	};

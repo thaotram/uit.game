@@ -13,23 +13,20 @@ class AgrabahMarket : public Scene
 {
 public:
 	AgrabahMarket() {
-		//this->AddChild("1", "1", new Unit("Aladdin"));
-		//(*this)["1"]["1"]->SetPosition(211, 250);
-
 		this->AddChild("2", "1", new Unit("Aladdin"));
-		(*this)["2"]["1"]->SetPosition(200, 200);
+		(*this)["2"]["1"]->SetPosition(300, 300);
+		(*this)["2"]["1"]->GetAnimation()->SetState("stand_cut");
 		(*this)["2"]["1"]->log = true;
 
 		this->AddChild("2", "2", new Unit("Aladdin"));
-		(*this)["2"]["2"]->SetPosition(400, 200);
+		(*this)["2"]["2"]->SetPosition(600, 300);
+		(*this)["2"]["2"]->GetAnimation()->SetState("stand_cut");
 		(*this)["2"]["2"]->GetTransform()->SetFlip(true, false);
-
 	}
 	void AfterDrawUnit() {
-		//GameDebug::Draw(RECT{ 248,300,500,500 });
-		GameDebug::DrawHL(200, 1);
-		GameDebug::DrawVL(200, 1);
-		GameDebug::DrawVL(400, 1);
+		GameDebug::DrawHL(300, 1);
+		GameDebug::DrawVL(300, 1);
+		GameDebug::DrawVL(600, 1);
 	}
 };
 
