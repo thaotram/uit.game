@@ -47,6 +47,24 @@
     <None Include="Resources\AgrabahMarket.json">
       <Filter>Resource Files\Map</Filter>
     </None>
+    <None Include="Resources\Camel.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Peddler.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Abu.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Genie.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Guards.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\MagicCarpet.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -57,6 +75,27 @@
     </Image>
     <Image Include="Resources\AgrabahMarket.png">
       <Filter>Resource Files\Map</Filter>
+    </Image>
+    <Image Include="Resources\Camel.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Peddler.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Abu.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\BossJafar.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Genie.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Guards.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\MagicCarpet.png">
+      <Filter>Resource Files\Unit</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +127,24 @@
       <Filter>Source\Scene\FinalScene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit_Aladdin.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Camel.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Peddler.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_MagicCarpet.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Guards.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Genie.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Abu.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
   </ItemGroup>

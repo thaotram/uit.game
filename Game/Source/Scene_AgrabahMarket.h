@@ -8,6 +8,8 @@
 #include "GameDebug.h"
 
 #include "Unit_Aladdin.h";
+#include "Unit_Camel.h";
+#include "Unit_Peddler.h";
 
 using namespace std;
 
@@ -22,11 +24,18 @@ public:
 		this->AddChild("1_Map", "1", sMap);
 		sMap->SetPosition(0, 480);
 
-		sChar = new Unit_Aladdin();
+		/*sChar = new Unit_Aladdin();
 		this->AddChild("2_char", "char", sChar);
 		sChar->SetPosition(GameGlobal::GetWidth() / 2, 189 * GameGlobal::GetScale());
-		sChar->GetAnimation()->SetState("run");
+		sChar->GetAnimation()->SetState("apple");*/
+
 		////(*this)["2"]["1"]->log = true;
+
+		sChar = new Unit_Peddler();
+		this->AddChild("2_char", "char", sChar);
+		sChar->SetPosition(GameGlobal::GetWidth() / 2, 189 * GameGlobal::GetScale());
+		sChar->GetAnimation()->SetState("peddler_show");
+
 	}
 	void AfterDrawUnit() {
 		GameDebug::DrawHL(480, 1);
