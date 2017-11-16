@@ -10,6 +10,8 @@
 #include "Unit_Aladdin.h";
 #include "Unit_Camel.h";
 #include "Unit_Peddler.h";
+#include "Unit_Genie.h";
+#include "Unit_Guards.h";
 
 using namespace std;
 
@@ -27,14 +29,14 @@ public:
 		/*sChar = new Unit_Aladdin();
 		this->AddChild("2_char", "char", sChar);
 		sChar->SetPosition(GameGlobal::GetWidth() / 2, 189 * GameGlobal::GetScale());
-		sChar->GetAnimation()->SetState("apple");*/
+		sChar->GetAnimation()->SetState("run");*/
 
 		////(*this)["2"]["1"]->log = true;
 
-		sChar = new Unit_Peddler();
+		sChar = new Unit_Guards();
 		this->AddChild("2_char", "char", sChar);
 		sChar->SetPosition(GameGlobal::GetWidth() / 2, 189 * GameGlobal::GetScale());
-		sChar->GetAnimation()->SetState("peddler_show");
+		sChar->GetAnimation()->SetState("thin_run");
 
 	}
 	void AfterDrawUnit() {
