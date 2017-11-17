@@ -162,6 +162,9 @@
     <ClInclude Include="Source\Unit_Status.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Unit_Item.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

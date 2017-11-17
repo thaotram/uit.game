@@ -13,6 +13,7 @@
 #include "Unit_Genie.h";
 #include "Unit_Guards.h";
 #include "Unit_Status.h";
+#include "Unit_Item.h";
 
 using namespace std;
 
@@ -34,10 +35,10 @@ public:
 
 		////(*this)["2"]["1"]->log = true;
 
-		sChar = new Unit_Status();
+		sChar = new Unit_Peddler();
 		this->AddChild("2_char", "char", sChar);
 		sChar->SetPosition(GameGlobal::GetWidth() / 2, 189 * GameGlobal::GetScale());
-		sChar->GetAnimation()->SetState("health_meter_7");
+		sChar->GetAnimation()->SetState("peddler_show");
 
 	}
 	void AfterDrawUnit() {
