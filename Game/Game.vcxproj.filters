@@ -84,11 +84,11 @@
     <ClInclude Include="Source\Unit.h">
       <Filter>Source\Unit</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene_AgrabahMarket.h">
-      <Filter>Source\Scene\FinalScene</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Unit_Aladdin.h">
       <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene_AgrabahMarket.h">
+      <Filter>Source\Scene\FinalScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +121,9 @@
     </ClCompile>
     <ClCompile Include="Source\Map.h">
       <Filter>Source\No-filter</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene_AgrabahMarket.cpp">
+      <Filter>Source\Scene\FinalScene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

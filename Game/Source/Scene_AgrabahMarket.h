@@ -11,47 +11,12 @@
 
 using namespace std;
 
-Unit * sMap;
-Unit * sChar;
-
 class AgrabahMarket : public Scene
 {
 public:
-	AgrabahMarket() {
-		sMap = new Unit("AgrabahMarket");
-		this->AddChild("1_Map", "1", sMap);
-		sMap->SetPosition(0, 480);
-
-		sChar = new Unit_Aladdin();
-		this->AddChild("2_char", "char", sChar);
-		sChar->SetPosition(GameGlobal::GetWidth() / 2, 189 * GameGlobal::GetScale());
-		sChar->GetAnimation()->SetState("run");
-		////(*this)["2"]["1"]->log = true;
-	}
-	void AfterDrawUnit() {
-		GameDebug::DrawHL(480, 1);
-		//GameDebug::DrawVL(300, 1);
-		//GameDebug::DrawVL(600, 1);
-	}
-	void AfterUpdateUnit() {
-		//sMap->SetPositionTo(-1, 0);
-	}
-	void OnKeyDown(int pKeyCode) {
-		switch (pKeyCode)
-		{
-		case VK_LEFT:
-			sChar
-				->GetAnimation()->SetState("stand_still");
-			break;
-		case VK_RIGHT:
-			sChar
-				->GetAnimation()->SetState("run");
-			break;
-		default:
-			break;
-		}
-		if (pKeyCode == VK_LEFT) {
-		}
-	}
+	AgrabahMarket();
+	void AfterDrawUnit();
+	void AfterUpdateUnit();
+	void OnKeyDown(int pKeyCode);
 };
 
