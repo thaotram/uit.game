@@ -12,6 +12,7 @@
 #include "Unit_Peddler.h";
 #include "Unit_Genie.h";
 #include "Unit_Guards.h";
+#include "Unit_Status.h";
 
 using namespace std;
 
@@ -29,14 +30,14 @@ public:
 		/*sChar = new Unit_Aladdin();
 		this->AddChild("2_char", "char", sChar);
 		sChar->SetPosition(GameGlobal::GetWidth() / 2, 189 * GameGlobal::GetScale());
-		sChar->GetAnimation()->SetState("run");*/
+		sChar->GetAnimation()->SetState("die");*/
 
 		////(*this)["2"]["1"]->log = true;
 
-		sChar = new Unit_Guards();
+		sChar = new Unit_Status();
 		this->AddChild("2_char", "char", sChar);
 		sChar->SetPosition(GameGlobal::GetWidth() / 2, 189 * GameGlobal::GetScale());
-		sChar->GetAnimation()->SetState("thin_run");
+		sChar->GetAnimation()->SetState("health_meter_7");
 
 	}
 	void AfterDrawUnit() {
