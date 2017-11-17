@@ -30,7 +30,7 @@ public:
 		mTexture = UNIT_TEXTURE::Get("Resources/" + mName + ".png");
 
 		mCurrentTime = 0;
-		mTimePerFrame = 0.05f;
+		mTimePerFrame = 0.5f;
 		mPosition = { 0, 0, 0 };
 		Update();
 	};

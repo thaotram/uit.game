@@ -8,6 +8,10 @@
 #include "GameDebug.h"
 
 #include "Unit_Aladdin.h";
+#include "Unit_Camel.h";
+#include "Unit_Peddler.h";
+#include "Unit_Genie.h";
+#include "Unit_Guards.h";
 
 using namespace std;
 

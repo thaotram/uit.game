@@ -117,18 +117,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="Resources\Abu.json" />
     <None Include="Resources\AgrabahMarket.json" />
     <None Include="Resources\Aladdin.json" />
     <None Include="Resources\block.json" />
+    <None Include="Resources\Camel.json" />
+    <None Include="Resources\Genie.json" />
+    <None Include="Resources\Guards.json" />
+    <None Include="Resources\MagicCarpet.json" />
+    <None Include="Resources\Peddler.json" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resources\Abu.png" />
     <Image Include="Resources\AgrabahMarket.png" />
     <Image Include="Resources\Aladdin.png" />
     <Image Include="Resources\block.png" />
+    <Image Include="Resources\BossJafar.png" />
+    <Image Include="Resources\Camel.png" />
+    <Image Include="Resources\Genie.png" />
+    <Image Include="Resources\Guards.png" />
+    <Image Include="Resources\MagicCarpet.png" />
+    <Image Include="Resources\Peddler.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Unit_Abu.h" />
     <ClInclude Include="Source\Unit_Aladdin.h" />
     <ClInclude Include="Library\json.hpp" />
+    <ClInclude Include="Source\Unit_Camel.h" />
+    <ClInclude Include="Source\Unit_Genie.h" />
+    <ClInclude Include="Source\Unit_Guards.h" />
+    <ClInclude Include="Source\Unit_MagicCarpet.h" />
+    <ClInclude Include="Source\Unit_Peddler.h" />
     <ClInclude Include="Source\Unit_Texture.h" />
     <ClInclude Include="Source\Unit.h" />
     <ClInclude Include="Source\Scene_AgrabahMarket.h" />
