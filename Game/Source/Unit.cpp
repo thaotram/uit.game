@@ -10,7 +10,7 @@ Unit::Unit(string pName) : mName(pName) {
 
 	mCurrentTime = 0;
 	mTimePerFrame = 0.16f;
-	mPosition = { 0, 0, 0 };
+	mPosition = { 0, 0 };
 	mAnimation.Initialization("Resources/" + mName + ".json");
 	Update(0);
 }
@@ -18,10 +18,13 @@ void Unit::Update(float dt) {
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
 
-		BeforeUpdateUnit();
+		//BeforeUpdateUnit();
 		mAnimation.NextFrame();
 		mSourceRect = mAnimation.GetFrame();
-		mTransform.UpdateFrom(mPosition, mAnimation.GetTransition(), mAnimation.GetBasePoint());
+		mTransform.UpdateFrom(
+			mPosition,
+			mAnimation
+		);
 	}
 	else mCurrentTime += dt;
 }
@@ -31,7 +34,11 @@ void Unit::Draw() {
 		mTexture,
 		&mSourceRect,
 		&mCenter,
-		&mPosition,
+		&D3DXVECTOR3(
+			mPosition.x,
+			mPosition.y,
+			0
+		),
 		0xFFFFFFFF
 	);
 }
@@ -39,7 +46,7 @@ void Unit::Draw() {
 RECT Unit::GetSourceRect() {
 	return mSourceRect;
 }
-D3DXVECTOR3 Unit::GetPosition() {
+D3DXVECTOR2 Unit::GetPosition() {
 	return mPosition;
 }
 
@@ -51,14 +58,7 @@ UNIT_TRANSFORM * Unit::GetTransform() {
 }
 
 void Unit::SetPosition(float x, float y) {
-	mPosition = { x, y, 0 };
-}
-void Unit::SetPositionTo(float x, float y) {
-	mPosition = {
-		mPosition.x + x * GameGlobal::GetScale(),
-		mPosition.y + y * GameGlobal::GetScale(),
-		0
-	};
+	mPosition = { x, y };
 }
 RECT Unit::GetBound() {
 	return RECT{

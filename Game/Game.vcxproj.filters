@@ -36,6 +36,9 @@
     <Filter Include="Source\No-filter">
       <UniqueIdentifier>{45e37737-5674-49e3-a11d-883f0fe09721}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Unit\Unit_">
+      <UniqueIdentifier>{4341c467-830b-47df-a1e4-1703c0869230}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -141,9 +144,6 @@
     <ClInclude Include="Library\json.hpp">
       <Filter>Library</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Texture.h">
-      <Filter>Source\Unit</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Unit.h">
       <Filter>Source\Unit</Filter>
     </ClInclude>
@@ -180,6 +180,9 @@
     <ClInclude Include="Source\Unit_Item.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Unit_Texture.h">
+      <Filter>Source\Unit\Unit_</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -197,20 +200,8 @@
     <ClCompile Include="Source\SceneManager.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_SourceRect.h">
-      <Filter>Source\Unit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Unit_Transform.h">
-      <Filter>Source\Unit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Unit_Animation.h">
-      <Filter>Source\Unit</Filter>
-    </ClCompile>
     <ClCompile Include="Source\GameDebug.h">
       <Filter>Source\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Map.h">
-      <Filter>Source\No-filter</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scene_AgrabahMarket.cpp">
       <Filter>Source\Scene\FinalScene</Filter>
@@ -224,8 +215,17 @@
     <ClCompile Include="Source\Unit_Aladdin.cpp">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_Animation.cpp">
-      <Filter>Source</Filter>
+    <ClCompile Include="Source\Maps.h">
+      <Filter>Source\No-filter</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Animation.h">
+      <Filter>Source\Unit\Unit_</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_SourceRect.h">
+      <Filter>Source\Unit\Unit_</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Transform.h">
+      <Filter>Source\Unit\Unit_</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

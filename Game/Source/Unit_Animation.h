@@ -14,9 +14,9 @@
 using namespace std;
 using json = nlohmann::json;
 
-typedef struct UNIT_FRAME {
-	UNIT_FRAME() {}
-	UNIT_FRAME(
+typedef struct Frame {
+	Frame() {}
+	Frame(
 		RECT inRect, D3DXVECTOR2 inTranslation
 	) : Rect(inRect), Transition(inTranslation) {}
 	RECT Rect;
@@ -25,7 +25,7 @@ typedef struct UNIT_FRAME {
 
 class Animation : public map<
 	string,
-	pair<POINT, pair<vector<int>, map<int, UNIT_FRAME>>>
+	pair<D3DXVECTOR2, pair<vector<int>, map<int, UNIT_FRAME>>>
 > {
 private:
 	string	mState;
@@ -49,7 +49,7 @@ public:
 			for (json::iterator state = states.begin(); state != states.end(); ++state)
 			{
 				//! basePoint
-				POINT	p_basePoint;
+				D3DXVECTOR2	p_basePoint;
 				try {
 					p_basePoint = {
 						state.value()["basePoint"][0],
@@ -114,7 +114,7 @@ public:
 	D3DXVECTOR2 GetTransition() {
 		return this->find(mState)->second.second.second[mFrame].Transition;
 	}
-	POINT GetBasePoint() {
+	D3DXVECTOR2 GetBasePoint() {
 		return this->find(mState)->second.first;
 	}
 
