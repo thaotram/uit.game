@@ -65,11 +65,14 @@
     <None Include="Resources\MagicCarpet.json">
       <Filter>Resource Files\Unit</Filter>
     </None>
-    <None Include="Resources\Item.json">
-      <Filter>Resource Files\Unit</Filter>
-    </None>
     <None Include="Resources\Status.json">
       <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\EnemyExplosions.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Item.json">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +111,18 @@
     </Image>
     <Image Include="Resources\Item.png">
       <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\CivilianEnemies.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\EnemyExplosions.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Aladdin_Miscellaneous_Cutscenes.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Iago.png">
+      <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

@@ -122,6 +122,7 @@
     <None Include="Resources\Aladdin.json" />
     <None Include="Resources\block.json" />
     <None Include="Resources\Camel.json" />
+    <None Include="Resources\EnemyExplosions.json" />
     <None Include="Resources\Genie.json" />
     <None Include="Resources\Guards.json" />
     <None Include="Resources\Item.json" />
@@ -133,11 +134,15 @@
     <Image Include="Resources\Abu.png" />
     <Image Include="Resources\AgrabahMarket.png" />
     <Image Include="Resources\Aladdin.png" />
+    <Image Include="Resources\Aladdin_Miscellaneous_Cutscenes.png" />
     <Image Include="Resources\block.png" />
     <Image Include="Resources\BossJafar.png" />
     <Image Include="Resources\Camel.png" />
+    <Image Include="Resources\CivilianEnemies.png" />
+    <Image Include="Resources\EnemyExplosions.png" />
     <Image Include="Resources\Genie.png" />
     <Image Include="Resources\Guards.png" />
+    <Image Include="Resources\Iago.png" />
     <Image Include="Resources\Item.png" />
     <Image Include="Resources\MagicCarpet.png" />
     <Image Include="Resources\Peddler.png" />
