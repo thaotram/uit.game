@@ -68,11 +68,14 @@
     <None Include="Resources\Status.json">
       <Filter>Resource Files\Unit</Filter>
     </None>
-    <None Include="Resources\EnemyExplosions.json">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="Resources\Item.json">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\EnemyExplosions.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\CivilianEnemies.json">
+      <Filter>Resource Files\Unit</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -112,17 +115,17 @@
     <Image Include="Resources\Item.png">
       <Filter>Resource Files\Unit</Filter>
     </Image>
-    <Image Include="Resources\CivilianEnemies.png">
-      <Filter>Resource Files</Filter>
+    <Image Include="Resources\Iago.png">
+      <Filter>Resource Files\Unit</Filter>
     </Image>
     <Image Include="Resources\EnemyExplosions.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\CivilianEnemies.png">
+      <Filter>Resource Files\Unit</Filter>
     </Image>
     <Image Include="Resources\Aladdin_Miscellaneous_Cutscenes.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\Iago.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Unit</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +184,12 @@
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit_Item.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_EnemyExplosions.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_CivilianEnemies.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
   </ItemGroup>
