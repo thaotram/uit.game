@@ -167,6 +167,8 @@
     <ClCompile Include="Source\Map.h" />
     <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="Source\Scene_AgrabahMarket.cpp" />
+    <ClCompile Include="Source\Unit.cpp" />
+    <ClCompile Include="Source\Unit_Aladdin.cpp" />
     <ClCompile Include="Source\Unit_SourceRect.h" />
     <ClCompile Include="Source\Unit_Transform.h" />
     <ClCompile Include="Source\Game.cpp" />

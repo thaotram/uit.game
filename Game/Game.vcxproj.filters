@@ -203,5 +203,11 @@
     <ClCompile Include="Source\Scene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Unit.cpp">
+      <Filter>Source\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Aladdin.cpp">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
