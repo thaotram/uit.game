@@ -1,9 +1,9 @@
 #include "Scene.h"
 
 //! Private
-void Scene::EachUnit(function<void(Unit*)> eachUnit) {
-	for (auto &unit : mUnits) {
-		eachUnit(unit.second);
+void Scene::EachUnit(function<void(Unit*)> pEachUnit) {
+	for (auto &unit : *this) {
+		pEachUnit(unit.second);
 	}
 }
 
@@ -27,29 +27,6 @@ void Scene::Draw() {
 	});
 }
 
-void Scene::AddChild(string pUnitName, Unit * pUnit) {
-	mUnits[pUnitName] = pUnit;
-}
-void Scene::RemoveChild(string pUnitName) {
-	mUnits.erase(pUnitName);
-}
-Unit * Scene::GetUnit(string pUnitName) {
-	return mUnits[pUnitName];
-}
-
-inline Unit * Scene::operator[](string pUnitName)
-{
-	return mUnits[pUnitName];
-}
-inline Unit * Scene::operator()(string pUnitName)
-{
-	return mUnits[pUnitName];
-}
-inline void Scene::operator()(string pUnitName, Unit * pUnit)
-{
-	mUnits[pUnitName] = pUnit;
-}
-
 void Scene::OnKeyDown(int pKeyCode) {}
 void Scene::OnKeyUp(int pKeyCode) {}
-void Scene::OnMouseDown(float x, float y) {}
+void Scene::OnMouseDown(float pX, float pY) {}

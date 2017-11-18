@@ -13,6 +13,5 @@ class AgrabahMarket : public Scene
 {
 public:
 	AgrabahMarket();
-	void OnKeyDown(int pKeyCode);
 };
 

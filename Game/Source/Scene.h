@@ -6,26 +6,17 @@
 
 using namespace std;
 
-class Scene
+class Scene: public map<string, Unit *>
 {
 private:
-	void EachUnit(function<void(Unit *)> eachUnit);
-protected:
-	map<string, Unit *> mUnits;
+	void EachUnit(function<void(Unit *)> pEachUnit);
 public:
 	Scene();
 	~Scene();
 	void Update(float dt);
 	void Draw();
 
-	void AddChild(string pUnitName, Unit * pUnit);
-	void RemoveChild(string pUnitName);
 	virtual void OnKeyDown(int pKeyCode);
 	virtual void OnKeyUp(int pKeyCode);
-	virtual void OnMouseDown(float x, float y);
-
-	Unit * GetUnit(string pUnitName);
-	Unit * operator[](string pUnitName);
-	Unit * operator()(string pUnitName);
-	void operator()(string pUnitName, Unit * pUnit);
+	virtual void OnMouseDown(float pX, float pY);
 };
