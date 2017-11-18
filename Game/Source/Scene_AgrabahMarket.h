@@ -7,21 +7,12 @@
 #include "Scene.h"
 #include "GameDebug.h"
 
-#include "Unit_Aladdin.h";
-#include "Unit_Camel.h";
-#include "Unit_Peddler.h";
-#include "Unit_Genie.h";
-#include "Unit_Guards.h";
-#include "Unit_Status.h";
-
 using namespace std;
 
 class AgrabahMarket : public Scene
 {
 public:
 	AgrabahMarket();
-	void AfterDrawUnit();
-	void AfterUpdateUnit();
 	void OnKeyDown(int pKeyCode);
 };
 

@@ -1,21 +1,8 @@
 #include "Scene_AgrabahMarket.h"
-
-Unit * sChar;
-float x;
+#include "Unit_Aladdin.h"
 
 AgrabahMarket::AgrabahMarket() {
-	sChar = new Unit("Aladdin");
-	this->AddChild("1_Map", "1", sChar);
-	sChar->SetPosition(0, 480);
-}
-
-void AgrabahMarket::AfterDrawUnit() {
-	//sChar->Draw();
-}
-
-void AgrabahMarket::AfterUpdateUnit() {
-	x = x + 1;
-	sChar->SetPosition(x, 480);
+	(*this)("2_Char", new Unit_Aladdin());
 }
 
 void AgrabahMarket::OnKeyDown(int pKeyCode) {

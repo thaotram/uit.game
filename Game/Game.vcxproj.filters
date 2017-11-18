@@ -200,5 +200,8 @@
     <ClCompile Include="Source\Scene_AgrabahMarket.cpp">
       <Filter>Source\Scene\FinalScene</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Scene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
