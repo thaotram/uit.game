@@ -65,6 +65,12 @@
     <None Include="Resources\MagicCarpet.json">
       <Filter>Resource Files\Unit</Filter>
     </None>
+    <None Include="Resources\Item.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Status.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -95,6 +101,12 @@
       <Filter>Resource Files\Unit</Filter>
     </Image>
     <Image Include="Resources\MagicCarpet.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Status.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Item.png">
       <Filter>Resource Files\Unit</Filter>
     </Image>
   </ItemGroup>
@@ -148,6 +160,9 @@
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit_Abu.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Status.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
   </ItemGroup>

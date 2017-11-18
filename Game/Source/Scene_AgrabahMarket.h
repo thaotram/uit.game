@@ -12,6 +12,7 @@
 #include "Unit_Peddler.h";
 #include "Unit_Genie.h";
 #include "Unit_Guards.h";
+#include "Unit_Status.h";
 
 using namespace std;
 
