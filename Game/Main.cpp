@@ -5,7 +5,6 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include <dinput.h>
 #include <windows.h>
 #include <windowsx.h>
 

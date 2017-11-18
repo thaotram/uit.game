@@ -27,6 +27,3 @@ void Scene::Draw() {
 	});
 }
 
-void Scene::OnKeyDown(int pKeyCode) {}
-void Scene::OnKeyUp(int pKeyCode) {}
-void Scene::OnMouseDown(float pX, float pY) {}

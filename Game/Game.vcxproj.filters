@@ -109,6 +109,18 @@
     <Image Include="Resources\Item.png">
       <Filter>Resource Files\Unit</Filter>
     </Image>
+    <Image Include="Resources\Aladdin_Miscellaneous_Cutscenes.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\CivilianEnemies.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\EnemyExplosions.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Iago.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Game.h">
@@ -211,6 +223,9 @@
     </ClCompile>
     <ClCompile Include="Source\Unit_Aladdin.cpp">
       <Filter>Source\Unit\FinalUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Animation.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

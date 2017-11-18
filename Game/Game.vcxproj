@@ -133,11 +133,15 @@
     <Image Include="Resources\Abu.png" />
     <Image Include="Resources\AgrabahMarket.png" />
     <Image Include="Resources\Aladdin.png" />
+    <Image Include="Resources\Aladdin_Miscellaneous_Cutscenes.png" />
     <Image Include="Resources\block.png" />
     <Image Include="Resources\BossJafar.png" />
     <Image Include="Resources\Camel.png" />
+    <Image Include="Resources\CivilianEnemies.png" />
+    <Image Include="Resources\EnemyExplosions.png" />
     <Image Include="Resources\Genie.png" />
     <Image Include="Resources\Guards.png" />
+    <Image Include="Resources\Iago.png" />
     <Image Include="Resources\Item.png" />
     <Image Include="Resources\MagicCarpet.png" />
     <Image Include="Resources\Peddler.png" />
@@ -170,6 +174,7 @@
     <ClCompile Include="Source\Scene_AgrabahMarket.cpp" />
     <ClCompile Include="Source\Unit.cpp" />
     <ClCompile Include="Source\Unit_Aladdin.cpp" />
+    <ClCompile Include="Source\Unit_Animation.cpp" />
     <ClCompile Include="Source\Unit_SourceRect.h" />
     <ClCompile Include="Source\Unit_Transform.h" />
     <ClCompile Include="Source\Game.cpp" />

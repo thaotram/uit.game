@@ -16,7 +16,7 @@ public:
 	void Update(float dt);
 	void Draw();
 
-	virtual void OnKeyDown(int pKeyCode);
-	virtual void OnKeyUp(int pKeyCode);
-	virtual void OnMouseDown(float pX, float pY);
+	virtual void OnKeyDown(int pKeyCode) {}
+	virtual void OnKeyUp(int pKeyCode) {}
+	virtual void OnMouseDown(float pX, float pY) {}
 };

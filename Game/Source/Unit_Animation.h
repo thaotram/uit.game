@@ -14,18 +14,18 @@
 using namespace std;
 using json = nlohmann::json;
 
-typedef struct Frame {
-	Frame() {};
-	Frame(
+typedef struct UNIT_FRAME {
+	UNIT_FRAME() {}
+	UNIT_FRAME(
 		RECT inRect, D3DXVECTOR2 inTranslation
-	) : Rect(inRect), Transition(inTranslation) {};
+	) : Rect(inRect), Transition(inTranslation) {}
 	RECT Rect;
 	D3DXVECTOR2 Transition;
-} Frame;
+} UNIT_FRAME;
 
 class Animation : public map<
 	string,
-	pair<POINT, pair<vector<int>, map<int, Frame>>>
+	pair<POINT, pair<vector<int>, map<int, UNIT_FRAME>>>
 > {
 private:
 	string	mState;
@@ -69,7 +69,7 @@ public:
 
 				//! frame
 				json j_frame = state.value()["frame"];
-				map<int, Frame> p_frame;
+				map<int, UNIT_FRAME> p_frame;
 				for (
 					json::iterator frame = j_frame.begin();
 					frame != j_frame.end();
@@ -77,7 +77,7 @@ public:
 					)
 				{
 					json f = frame.value();
-					p_frame[stoi(frame.key())] = Frame(
+					p_frame[stoi(frame.key())] = UNIT_FRAME(
 						RECT{
 						(LONG)f[0],
 						(LONG)f[1],
@@ -125,15 +125,6 @@ public:
 	}
 	string GetState() {
 		return mState;
-	}
-
-	//!? Thao tác ghi log lên trên thanh title
-	void Log() {
-		GameDebug::Title(
-			to_string(mCycleIndex)
-			+ " - " +
-			to_string(mFrame)
-		);
 	}
 };
 
