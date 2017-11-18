@@ -22,6 +22,9 @@ public:
 			wstringstream.str().c_str()
 		);
 	}
+	static void Title(float input) {
+		Title(to_string(input));
+	}
 	static void Title(string input) {
 		wstring wstring;
 		wstring.assign(input.begin(), input.end());

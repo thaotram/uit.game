@@ -6,54 +6,17 @@
 
 using namespace std;
 
-class Scene
+class Scene: public map<string, Unit *>
 {
 private:
-	void EachUnit(function<void(Unit *)> eachUnit) {
-		for (auto &container : mContainers) {
-			for (auto &unit : container.second) {
-				eachUnit(unit.second);
-			}
-		}
-	}
-protected:
-	map<string, map<string, Unit *>> mContainers;
+	void EachUnit(function<void(Unit *)> pEachUnit);
 public:
-	Scene() {};
-	~Scene() {
-		EachUnit([=](Unit * item) {
-			delete item;
-		});
-	};
-	void Update(float dt) {
-		EachUnit([=](Unit * item) {
-			item->Update(dt);
-		});
-		AfterUpdateUnit();
-	};
-	void Draw() {
-		EachUnit([=](Unit * item) {
-			item->Draw();
-		});
-		AfterDrawUnit();
-	};
-	virtual void AfterDrawUnit() {}
-	virtual void AfterUpdateUnit() {}
+	Scene();
+	~Scene();
+	void Update(float dt);
+	void Draw();
 
-	void AddChild(string pPart, string pUnitName, Unit * pUnit) {
-		mContainers[pPart][pUnitName] = pUnit;
-	}
-	void RemoveChild(string pPart, string pUnitName) {
-		mContainers[pPart].erase(pUnitName);
-	}
-	Unit * GetUnit(string pPart, string pUnitName) {
-		mContainers[pPart][pUnitName];
-	}
-	virtual void OnKeyDown(int pKeyCode) {};
-	virtual void OnKeyUp(int pKeyCode) {};
-	virtual void OnMouseDown(float x, float y) {};
-
-	map<string, Unit *> operator[](string pPart) {
-		return mContainers[pPart];
-	}
+	virtual void OnKeyDown(int pKeyCode);
+	virtual void OnKeyUp(int pKeyCode);
+	virtual void OnMouseDown(float pX, float pY);
 };

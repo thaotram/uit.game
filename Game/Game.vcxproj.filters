@@ -135,6 +135,9 @@
     <ClInclude Include="Source\Unit.h">
       <Filter>Source\Unit</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Unit_Aladdin.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Scene_AgrabahMarket.h">
       <Filter>Source\Scene\FinalScene</Filter>
     </ClInclude>
@@ -196,6 +199,18 @@
     </ClCompile>
     <ClCompile Include="Source\Map.h">
       <Filter>Source\No-filter</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene_AgrabahMarket.cpp">
+      <Filter>Source\Scene\FinalScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit.cpp">
+      <Filter>Source\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Aladdin.cpp">
+      <Filter>Source\Unit\FinalUnit</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

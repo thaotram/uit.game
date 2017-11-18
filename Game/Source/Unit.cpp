@@ -9,7 +9,7 @@ Unit::Unit(string pName) : mName(pName) {
 	mTexture = UNIT_TEXTURE::Get("Resources/" + mName + ".png");
 
 	mCurrentTime = 0;
-	mTimePerFrame = 0.2;
+	mTimePerFrame = 0.16f;
 	mPosition = { 0, 0, 0 };
 	mAnimation.Initialization("Resources/" + mName + ".json");
 	Update(0);

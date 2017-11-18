@@ -24,7 +24,7 @@ void Game::InitLoop()
 {
 	MSG msg;
 	float
-		tickPerFrame = 1.0f / mFPS,		// Tickperframe là khoảng thời gian hiển thị của mỗi frame
+		timePerFrame = 1.0f / mFPS,		// Tickperframe là khoảng thời gian hiển thị của mỗi frame
 		delta = 0;						// Delta chứa tổng tgian thực hiện của mỗi vòng while
 
 	while (GameGlobal::isGameRunning)
@@ -41,15 +41,15 @@ void Game::InitLoop()
 		delta += GameTime::GetInstance()->GetCounter();
 
 		// vòng while đã chạy tgian lâu hơn hoặc bằng fps mình yêu cầu thì thực hiện update game và render lên màn hình
-		if (delta >= tickPerFrame)
+		if (delta >= timePerFrame)
 		{
 			Update(delta);
-			delta = 0;
+			delta -= timePerFrame;
 		}
 		else // fps cao hơn lúc bth, tạm sleep lại bằng khoảng tgian nó nhanh hơn, sau đó sẽ update và render tiếp
 		{
-			Sleep((DWORD)((tickPerFrame - delta) * 1000));
-			delta = tickPerFrame;
+			Sleep((DWORD)((timePerFrame - delta) * 1000));
+			delta = timePerFrame;
 		}
 	}
 }
