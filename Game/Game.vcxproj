@@ -166,6 +166,7 @@
     <ClInclude Include="Source\GameTime.h" />
     <ClInclude Include="Source\Scene.h" />
     <ClInclude Include="Source\SceneManager.h" />
+    <ClInclude Include="Source\Unit_Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -175,13 +176,13 @@
     <ClCompile Include="Source\Unit.cpp" />
     <ClCompile Include="Source\Unit_Aladdin.cpp" />
     <ClCompile Include="Source\Unit_SourceRect.h" />
-    <ClCompile Include="Source\Unit_Transform.h" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\GameGlobal.cpp" />
     <ClCompile Include="Source\GameTime.cpp" />
     <ClCompile Include="Source\Unit_Animation.h" />
     <ClCompile Include="Source\SceneManager.cpp" />
     <ClCompile Include="Source\GameDebug.h" />
+    <ClCompile Include="Source\Unit_Transform.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

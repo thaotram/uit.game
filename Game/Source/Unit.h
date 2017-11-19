@@ -9,6 +9,16 @@
 #include "Unit_Transform.h"
 #include "Unit_SourceRect.h"
 
+class VECTOR2 : public D3DXVECTOR2 {
+public:
+	VECTOR2(bool flip) :D3DXVECTOR2(
+		(float)(flip ? -1 : 1), 1
+	) {}
+	D3DXVECTOR2 operator * (CONST D3DXVECTOR2& v) const {
+		return D3DXVECTOR2(x * v.x, y * v.y);
+	}
+};
+
 class Unit
 {
 protected:
@@ -36,7 +46,7 @@ public:
 	RECT GetSourceRect();
 	D3DXVECTOR2 GetPosition();
 	UNIT_ANIMATION * GetAnimation();
-	UNIT_TRANSFORM * GetTransform();
+	//UNIT_TRANSFORM * GetTransform();
 	void SetPosition(float x, float y);
 	RECT GetBound();
 };

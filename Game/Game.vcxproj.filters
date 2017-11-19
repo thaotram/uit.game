@@ -183,6 +183,9 @@
     <ClInclude Include="Source\Unit_Texture.h">
       <Filter>Source\Unit\Unit_</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Unit_Transform.h">
+      <Filter>Source\Unit\Unit_</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -224,7 +227,7 @@
     <ClCompile Include="Source\Unit_SourceRect.h">
       <Filter>Source\Unit\Unit_</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_Transform.h">
+    <ClCompile Include="Source\Unit_Transform.cpp">
       <Filter>Source\Unit\Unit_</Filter>
     </ClCompile>
   </ItemGroup>

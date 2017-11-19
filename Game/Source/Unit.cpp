@@ -11,6 +11,7 @@ Unit::Unit(string pName) : mName(pName) {
 	mCurrentTime = 0;
 	mTimePerFrame = 0.16f;
 	mPosition = { 0, 0 };
+	mCenter = { 0, 0, 0 };
 	mAnimation.Initialization("Resources/" + mName + ".json");
 	Update(0);
 }
@@ -21,10 +22,7 @@ void Unit::Update(float dt) {
 		//BeforeUpdateUnit();
 		mAnimation.NextFrame();
 		mSourceRect = mAnimation.GetFrame();
-		mTransform.UpdateFrom(
-			mPosition,
-			mAnimation
-		);
+		mTransform << this;
 	}
 	else mCurrentTime += dt;
 }
@@ -53,9 +51,9 @@ D3DXVECTOR2 Unit::GetPosition() {
 UNIT_ANIMATION * Unit::GetAnimation() {
 	return &mAnimation;
 }
-UNIT_TRANSFORM * Unit::GetTransform() {
-	return &mTransform;
-}
+//UNIT_TRANSFORM * Unit::GetTransform() {
+//	return &mTransform;
+//}
 
 void Unit::SetPosition(float x, float y) {
 	mPosition = { x, y };
