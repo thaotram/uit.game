@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\Game">
+      <UniqueIdentifier>{55d6415e-d90c-40d5-87d4-9e0c4f21d508}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scene">
+      <UniqueIdentifier>{6c02cc3d-736c-4289-8d76-1db7f06b3225}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scene\FinalScene">
+      <UniqueIdentifier>{bf814ab8-6a5c-4d0f-8ee4-60076cd2ea21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library">
+      <UniqueIdentifier>{fb6c77ad-b236-43f6-9531-d1063e63e3d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Unit">
+      <UniqueIdentifier>{a5dd13c7-86e2-48e4-9192-eb2e69c94320}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Unit\FinalUnit">
+      <UniqueIdentifier>{fe78fdd8-8619-4ec1-984e-3ecffc630ab9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Unit">
+      <UniqueIdentifier>{f171396f-a1a7-4bdf-b46d-ed849fd3d215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Map">
+      <UniqueIdentifier>{2b49052b-e3d3-4056-9785-fceb5aa48e2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\No-filter">
+      <UniqueIdentifier>{45e37737-5674-49e3-a11d-883f0fe09721}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aladdin.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\block.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\AgrabahMarket.json">
+      <Filter>Resource Files\Map</Filter>
+    </None>
+    <None Include="Resources\Camel.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Peddler.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Abu.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Genie.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Guards.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\MagicCarpet.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Status.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Item.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\EnemyExplosions.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\CivilianEnemies.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Aladdin.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\block.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\AgrabahMarket.png">
+      <Filter>Resource Files\Map</Filter>
+    </Image>
+    <Image Include="Resources\Camel.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Peddler.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Abu.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\BossJafar.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Genie.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Guards.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\MagicCarpet.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Status.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Item.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Iago.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\EnemyExplosions.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\CivilianEnemies.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\Aladdin_Miscellaneous_Cutscenes.png">
+      <Filter>Resource Files\Unit</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Game.h">
+      <Filter>Source\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameGlobal.h">
+      <Filter>Source\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameTime.h">
+      <Filter>Source\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneManager.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\json.hpp">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Texture.h">
+      <Filter>Source\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit.h">
+      <Filter>Source\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Aladdin.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene_AgrabahMarket.h">
+      <Filter>Source\Scene\FinalScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Aladdin.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Camel.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Peddler.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_MagicCarpet.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Guards.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Genie.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Abu.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Status.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Item.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_EnemyExplosions.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_CivilianEnemies.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameGlobal.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameTime.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneManager.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_SourceRect.h">
+      <Filter>Source\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Transform.h">
+      <Filter>Source\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Animation.h">
+      <Filter>Source\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameDebug.h">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Map.h">
+      <Filter>Source\No-filter</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene_AgrabahMarket.cpp">
+      <Filter>Source\Scene\FinalScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit.cpp">
+      <Filter>Source\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Aladdin.cpp">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
