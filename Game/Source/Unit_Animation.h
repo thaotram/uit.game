@@ -14,6 +14,14 @@
 using namespace std;
 using json = nlohmann::json;
 
+struct Frame;
+typedef Frame UNIT_FRAME;
+struct State;
+typedef State UNIT_STATE;
+
+class Animation;
+typedef Animation UNIT_ANIMATION;
+
 struct Frame {
 	Frame() {}
 	Frame(
@@ -23,11 +31,20 @@ struct Frame {
 	D3DXVECTOR2 Transition;
 };
 
-typedef Frame UNIT_FRAME;
+struct State {
+	State() {};
+	State(
+		D3DXVECTOR2 pBasePoint, vector<int> pFrameCycle, map<int, UNIT_FRAME> pFrame
+	) : BasePoint(pBasePoint), FrameCycle(pFrameCycle), FrameList(pFrame) {};
+
+	D3DXVECTOR2				BasePoint;
+	vector<int>				FrameCycle;
+	map<int, UNIT_FRAME>	FrameList;
+};
 
 class Animation : public map<
 	string,
-	pair<D3DXVECTOR2, pair<vector<int>, map<int, UNIT_FRAME>>>
+	UNIT_STATE
 > {
 private:
 	string	mState;
@@ -39,12 +56,16 @@ public:
 
 	// Đi đến Frame tiếp theo
 	void operator++(int);
+	
+	UNIT_STATE operator[](string pState);
+
 	RECT GetFrame();
+	RECT GetFrame(string pState, int pFrame);
 	D3DXVECTOR2 GetTransition();
+	D3DXVECTOR2 GetTransition(string pState, int pFrame);
 	D3DXVECTOR2 GetBasePoint();
+	D3DXVECTOR2 GetBasePoint(string pState);
 
 	void SetState(string pState);
 	string GetState();
 };
-
-typedef Animation UNIT_ANIMATION;
