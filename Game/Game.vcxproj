@@ -150,6 +150,9 @@
     <Image Include="Resources\Status.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Library\json.hpp" />
+    <ClInclude Include="Source\Unit.h" />
+    <ClInclude Include="Source\Unit_Animation.h" />
     <ClInclude Include="Source\Unit_CivilianEnemies.h" />
     <ClInclude Include="Source\Unit_EnemyExplosions.h" />
     <ClInclude Include="Source\Unit_Item.h" />
@@ -157,36 +160,35 @@
     <ClInclude Include="Source\Unit_Status.h" />
     <ClInclude Include="Source\Unit_Abu.h" />
     <ClInclude Include="Source\Unit_Aladdin.h" />
-    <ClInclude Include="Library\json.hpp" />
     <ClInclude Include="Source\Unit_Camel.h" />
     <ClInclude Include="Source\Unit_Genie.h" />
     <ClInclude Include="Source\Unit_Guards.h" />
     <ClInclude Include="Source\Unit_MagicCarpet.h" />
     <ClInclude Include="Source\Unit_Peddler.h" />
-    <ClInclude Include="Source\Unit_Texture.h" />
-    <ClInclude Include="Source\Unit.h" />
     <ClInclude Include="Source\Scene_AgrabahMarket.h" />
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\GameGlobal.h" />
     <ClInclude Include="Source\GameTime.h" />
     <ClInclude Include="Source\Scene.h" />
     <ClInclude Include="Source\SceneManager.h" />
+    <ClInclude Include="Source\Unit_Texture.h" />
     <ClInclude Include="Source\Unit_Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Source\Game.cpp" />
+    <ClCompile Include="Source\GameGlobal.cpp" />
+    <ClCompile Include="Source\GameTime.cpp" />
+    <ClCompile Include="Source\GameDebug.h" />
+    <ClCompile Include="Source\SceneManager.cpp" />
     <ClCompile Include="Source\Maps.h" />
     <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="Source\Scene_AgrabahMarket.cpp" />
     <ClCompile Include="Source\Unit.cpp" />
     <ClCompile Include="Source\Unit_Aladdin.cpp" />
+    <ClCompile Include="Source\Unit_Animation.cpp" />
     <ClCompile Include="Source\Unit_SourceRect.cpp" />
-    <ClCompile Include="Source\Game.cpp" />
-    <ClCompile Include="Source\GameGlobal.cpp" />
-    <ClCompile Include="Source\GameTime.cpp" />
-    <ClCompile Include="Source\Unit_Animation.h" />
-    <ClCompile Include="Source\SceneManager.cpp" />
-    <ClCompile Include="Source\GameDebug.h" />
+    <ClCompile Include="Source\Unit_Texture.cpp" />
     <ClCompile Include="Source\Unit_Transform.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

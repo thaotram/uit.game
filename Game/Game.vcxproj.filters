@@ -21,12 +21,6 @@
     <Filter Include="Library">
       <UniqueIdentifier>{fb6c77ad-b236-43f6-9531-d1063e63e3d3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Unit">
-      <UniqueIdentifier>{a5dd13c7-86e2-48e4-9192-eb2e69c94320}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Unit\FinalUnit">
-      <UniqueIdentifier>{fe78fdd8-8619-4ec1-984e-3ecffc630ab9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\Unit">
       <UniqueIdentifier>{f171396f-a1a7-4bdf-b46d-ed849fd3d215}</UniqueIdentifier>
     </Filter>
@@ -36,8 +30,14 @@
     <Filter Include="Source\No-filter">
       <UniqueIdentifier>{45e37737-5674-49e3-a11d-883f0fe09721}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Unit">
+      <UniqueIdentifier>{4b2bf328-e013-4829-815d-9671e33e5a30}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source\Unit\Unit_Properties">
       <UniqueIdentifier>{dc1f7ba3-d1ba-48f4-ab08-8e090d4c3665}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Unit\FinalUnit">
+      <UniqueIdentifier>{fe78fdd8-8619-4ec1-984e-3ecffc630ab9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -150,9 +150,6 @@
     <ClInclude Include="Library\json.hpp">
       <Filter>Library</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit.h">
-      <Filter>Source\Unit</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Unit_Aladdin.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
@@ -192,20 +189,23 @@
     <ClInclude Include="Source\Unit_CivilianEnemies.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Unit_Animation.h">
+      <Filter>Source\Unit\Unit_Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_SourceRect.h">
+      <Filter>Source\Unit\Unit_Properties</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Unit_Texture.h">
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit_Transform.h">
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_SourceRect.h">
-      <Filter>Source\Unit\Unit_Properties</Filter>
+    <ClInclude Include="Source\Unit.h">
+      <Filter>Source\Unit</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Game.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
@@ -227,14 +227,8 @@
     <ClCompile Include="Source\Scene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit.cpp">
-      <Filter>Source\Unit</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Unit_Aladdin.cpp">
       <Filter>Source\Unit\FinalUnit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Unit_Animation.h">
-      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
     <ClCompile Include="Source\Unit_SourceRect.cpp">
       <Filter>Source\Unit\Unit_Properties</Filter>
@@ -244,6 +238,16 @@
     </ClCompile>
     <ClCompile Include="Source\Maps.h">
       <Filter>Source\No-filter</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Texture.cpp">
+      <Filter>Source\Unit\Unit_Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Source\Unit.cpp">
+      <Filter>Source\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Animation.cpp">
+      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

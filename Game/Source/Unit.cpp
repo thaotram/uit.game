@@ -12,20 +12,20 @@ Unit::Unit(string pName) : mName(pName) {
 	mTimePerFrame = 0.16f;
 	mPosition = { 0, 0, 0 };
 	mCenter = { 0, 0, 0 };
+
+	mAnimation.Initialization("Resources/" + mName + ".json");
 	Update(0);
 }
 void Unit::Update(float dt) {
 	if (mAnimation.empty()) {
 		mAnimation.Initialization("Resources/" + mName + ".json");
 	}
-
 	// Update mAnimation
-	mAnimation.Initialization("Resources/" + mName + ".json");
-
+	// mAnimation.Initialization("Resources/" + mName + ".json");
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
 
-		//BeforeUpdateUnit();
+		BeforeUpdateUnit();
 		mAnimation.NextFrame();
 		mSourceRect << this;
 		mTransform << this;

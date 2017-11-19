@@ -2,6 +2,16 @@
 #include "Unit_Transform.h"
 #include "Unit.h"
 
+class VECTOR2 : public D3DXVECTOR2 {
+public:
+	VECTOR2(bool flip) :D3DXVECTOR2(
+		(float)(flip ? -1 : 1), 1
+	) {}
+	D3DXVECTOR2 operator * (CONST D3DXVECTOR2& v) const {
+		return D3DXVECTOR2(x * v.x, y * v.y);
+	}
+};
+
 UNIT_TRANSFORM::UNIT_TRANSFORM() {
 	D3DXMatrixTransformation2D(
 		this, NULL, NULL, NULL, NULL, NULL, NULL
