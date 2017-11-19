@@ -11,5 +11,12 @@ public:
 	// + Animation > Frame
 	Unit * operator<<(Unit * pUnit);
 	void operator=(RECT pRect);
+
+	LONG GetWidth() {
+		return right - left;
+	}
+	LONG GetHeight() {
+		return bottom - top;
+	}
 };
 

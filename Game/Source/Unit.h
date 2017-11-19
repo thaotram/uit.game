@@ -9,6 +9,18 @@
 #include "Unit_Transform.h"
 #include "Unit_SourceRect.h"
 
+class VECTOR2 : public D3DXVECTOR2 {
+public:
+	VECTOR2() {};
+	VECTOR2(float x, float y) :D3DXVECTOR2(x, y) {};
+	D3DXVECTOR2 operator * (CONST D3DXVECTOR2& v) const {
+		return D3DXVECTOR2(x * v.x, y * v.y);
+	};
+	D3DXVECTOR3 VECTOR3() {
+		return D3DXVECTOR3(x, y, 0);
+	};
+};
+
 class Unit
 {
 protected:
@@ -21,23 +33,23 @@ protected:
 	UNIT_SOURCERECT					mSourceRect;
 
 	D3DXVECTOR3						mCenter;
-	D3DXVECTOR3						mPosition;
+	VECTOR2							mPosition;
 
 	float							mCurrentTime;	//	Thời gian hiện tại
 	float 							mTimePerFrame;
 protected:
 	virtual bool UpdateAnimation();
 public:
-	Unit(string pName);;
+	Unit(string pName);
 	~Unit() {};
 
 	void Update(float dt);
 	void Draw();
 
 	RECT GetSourceRect();
-	D3DXVECTOR3 GetPosition();
+	VECTOR2 GetPosition();
 	UNIT_ANIMATION * GetAnimation();
 	UNIT_TRANSFORM * GetTransform();
-	void SetPosition(float x, float y, float z = 0);
+	void SetPosition(float x, float y);
 	RECT GetBound();
 };

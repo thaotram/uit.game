@@ -3,7 +3,7 @@
 //!Public
 // Được gọi chính xác trong hàm Update, không lệ thuộc "dt"
 bool Unit::UpdateAnimation() {
-	return true;
+	return false;
 }
 
 Unit::Unit(string pName) : mName(pName) {
@@ -12,7 +12,7 @@ Unit::Unit(string pName) : mName(pName) {
 
 	mCurrentTime = 0;
 	mTimePerFrame = 0.16f;
-	mPosition = { 0, 0, 0 };
+	mPosition = { 0, 0 };
 	mCenter = { 0, 0, 0 };
 
 	mAnimation.Initialization("Resources/" + mName + ".json");
@@ -39,7 +39,7 @@ void Unit::Draw() {
 		mTexture,
 		&mSourceRect,
 		&mCenter,
-		&(mPosition * GameGlobal::GetScale()),
+		&(mPosition.VECTOR3() * GameGlobal::GetScale()),
 		0xFFFFFFFF
 	);
 }
@@ -47,7 +47,7 @@ void Unit::Draw() {
 RECT Unit::GetSourceRect() {
 	return mSourceRect;
 }
-D3DXVECTOR3 Unit::GetPosition() {
+VECTOR2 Unit::GetPosition() {
 	return mPosition;
 }
 
@@ -58,14 +58,14 @@ UNIT_TRANSFORM * Unit::GetTransform() {
 	return &mTransform;
 }
 
-void Unit::SetPosition(float x, float y, float z) {
-	mPosition = { x, y, 0 };
+void Unit::SetPosition(float x, float y) {
+	mPosition = { x, y };
 }
 RECT Unit::GetBound() {
 	return RECT{
 		(LONG)(mPosition.x),
 		(LONG)(mPosition.y),
-		(LONG)(mPosition.x + (mSourceRect.right - mSourceRect.left) * GameGlobal::GetScale()),
-		(LONG)(mPosition.y + (mSourceRect.bottom - mSourceRect.top) * GameGlobal::GetScale())
+		(LONG)(mPosition.x + mSourceRect.GetWidth()),
+		(LONG)(mPosition.y + mSourceRect.GetHeight())
 	};
 }

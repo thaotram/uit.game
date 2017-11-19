@@ -173,6 +173,7 @@
     <ClInclude Include="Source\SceneManager.h" />
     <ClInclude Include="Source\Unit_Texture.h" />
     <ClInclude Include="Source\Unit_Transform.h" />
+    <ClInclude Include="Source\Unit_Block.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Unit_Item.cpp" />
@@ -191,6 +192,7 @@
     <ClCompile Include="Source\Unit_SourceRect.cpp" />
     <ClCompile Include="Source\Unit_Texture.cpp" />
     <ClCompile Include="Source\Unit_Transform.cpp" />
+    <ClCompile Include="Source\Unit_Block.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

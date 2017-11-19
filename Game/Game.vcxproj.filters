@@ -207,6 +207,9 @@
     <ClInclude Include="Source\Unit_Item.h">
       <Filter>Source\Unit_Class</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Unit_Block.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -254,6 +257,9 @@
     </ClCompile>
     <ClCompile Include="Source\Unit_Item.cpp">
       <Filter>Source\Unit_Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Block.cpp">
+      <Filter>Source\Unit\FinalUnit</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
