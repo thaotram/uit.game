@@ -1,19 +1,20 @@
+﻿#pragma once
 #include "Unit_Transform.h"
 #include "Unit.h"
 
-Transform::Transform() {
+UNIT_TRANSFORM::UNIT_TRANSFORM() {
 	D3DXMatrixTransformation2D(
 		this, NULL, NULL, NULL, NULL, NULL, NULL
 	);
 	mFlip = false;
 }
 
-void Transform::operator<<(Unit * pParent){
+Unit * UNIT_TRANSFORM::operator<<(Unit * pUnit) {
 	float pScaling = GameGlobal::GetScale();
-	VECTOR2 pFlip(mFlip);
-	D3DXVECTOR2 pBasePoint = pParent->GetAnimation()->GetBasePoint();
-	D3DXVECTOR2 pTransition = pParent->GetAnimation()->GetTransition();
-	D3DXVECTOR2 pPosition = pParent->GetPosition();
+	VECTOR2 pFlip = VECTOR2(mFlip);
+	D3DXVECTOR2 pBasePoint = pUnit->GetAnimation()->GetBasePoint();
+	D3DXVECTOR2 pTransition = pUnit->GetAnimation()->GetTransition();
+	D3DXVECTOR2 pPosition = pUnit->GetPosition();
 	D3DXMatrixTransformation2D(
 		this,											//		 D3DXMATRIX	 * pOut
 		&(pPosition + pBasePoint),						// const D3DXVECTOR2 * pScalingCenter
@@ -23,8 +24,9 @@ void Transform::operator<<(Unit * pParent){
 		NULL,											//		 FLOAT		 Rotation
 		&(pFlip * pTransition * pScaling - pBasePoint)	// const D3DXVECTOR2 * pTranslation
 	);
+	return pUnit;
 }
 
-void Transform::SetFlip(bool pFlip) {
+void UNIT_TRANSFORM::SetFlip(bool pFlip) {
 	mFlip = pFlip;
 }

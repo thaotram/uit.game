@@ -230,5 +230,8 @@
     <ClCompile Include="Source\Unit_Transform.cpp">
       <Filter>Source\Unit\Unit_</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Unit_SourceRect.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

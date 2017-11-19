@@ -175,6 +175,7 @@
     <ClCompile Include="Source\Scene_AgrabahMarket.cpp" />
     <ClCompile Include="Source\Unit.cpp" />
     <ClCompile Include="Source\Unit_Aladdin.cpp" />
+    <ClCompile Include="Source\Unit_SourceRect.cpp" />
     <ClCompile Include="Source\Unit_SourceRect.h" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\GameGlobal.cpp" />

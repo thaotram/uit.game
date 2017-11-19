@@ -27,7 +27,7 @@ protected:
 	LPDIRECT3DTEXTURE9				mTexture;
 	UNIT_ANIMATION					mAnimation;
 	UNIT_TRANSFORM					mTransform;
-	RECT							mSourceRect;
+	UNIT_SOURCERECT					mSourceRect;
 
 	D3DXVECTOR3						mCenter;
 	D3DXVECTOR2						mPosition;
@@ -46,7 +46,7 @@ public:
 	RECT GetSourceRect();
 	D3DXVECTOR2 GetPosition();
 	UNIT_ANIMATION * GetAnimation();
-	//UNIT_TRANSFORM * GetTransform();
+	UNIT_TRANSFORM * GetTransform();
 	void SetPosition(float x, float y);
 	RECT GetBound();
 };

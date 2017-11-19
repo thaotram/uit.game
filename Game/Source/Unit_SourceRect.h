@@ -1,17 +1,15 @@
+﻿#pragma once
 #include <d3d9.h>
 #include <d3dx9.h>
+#include <iostream>
 
-class SourceRect : public RECT {
+class Unit;
+
+class UNIT_SOURCERECT : public RECT {
 public:
-	void Set(int pLeft, int pTop, int pRight, int pBottom) {
-		this->left = pLeft;
-		this->top = pTop;
-		this->right = pRight;
-		this->bottom = pBottom;
-	}
-	void Set(RECT pRect) {
-		Set(pRect.left, pRect.top, pRect.right, pRect.bottom);
-	}
+	// Lấy thông tin cho SourceRect từ
+	// + Animation > Frame
+	Unit * operator<<(Unit * pUnit);
+	void operator=(RECT pRect);
 };
 
-typedef SourceRect UNIT_SOURCERECT;

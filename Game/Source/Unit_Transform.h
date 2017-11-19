@@ -1,18 +1,21 @@
-#pragma once
+﻿#pragma once
 #include <d3d9.h>
 #include <d3dx9.h>
 #include <iostream>
 
 class Unit;
 
-class Transform;
-typedef Transform UNIT_TRANSFORM;
-
-class Transform : public D3DXMATRIX {
+class UNIT_TRANSFORM: public D3DXMATRIX {
 private:
 	bool mFlip;	// Flip
 public:
-	Transform();
-	void operator<< (Unit * p);
+	UNIT_TRANSFORM();
+
+	// Lấy thông tin Transform từ
+	// + Animation > BasePoint
+	// + Animation > Transition
+	// + Unit > Position
+	// + Transform > Flip (this)
+	Unit * operator<< (Unit * pUnit);
 	void SetFlip(bool pFlip);
 };

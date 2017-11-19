@@ -21,7 +21,7 @@ void Unit::Update(float dt) {
 
 		//BeforeUpdateUnit();
 		mAnimation.NextFrame();
-		mSourceRect = mAnimation.GetFrame();
+		mSourceRect << this;
 		mTransform << this;
 	}
 	else mCurrentTime += dt;
