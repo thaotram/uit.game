@@ -30,7 +30,7 @@ protected:
 	UNIT_SOURCERECT					mSourceRect;
 
 	D3DXVECTOR3						mCenter;
-	D3DXVECTOR2						mPosition;
+	D3DXVECTOR3						mPosition;
 
 	float							mCurrentTime;	//	Thời gian hiện tại
 	float 							mTimePerFrame;
@@ -44,9 +44,9 @@ public:
 	void Draw();
 
 	RECT GetSourceRect();
-	D3DXVECTOR2 GetPosition();
+	D3DXVECTOR3 GetPosition();
 	UNIT_ANIMATION * GetAnimation();
 	UNIT_TRANSFORM * GetTransform();
-	void SetPosition(float x, float y);
+	void SetPosition(float x, float y, float z = 0);
 	RECT GetBound();
 };

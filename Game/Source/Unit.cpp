@@ -10,7 +10,7 @@ Unit::Unit(string pName) : mName(pName) {
 
 	mCurrentTime = 0;
 	mTimePerFrame = 0.16f;
-	mPosition = { 0, 0 };
+	mPosition = { 0, 0, 0 };
 	mCenter = { 0, 0, 0 };
 	Update(0);
 }
@@ -38,11 +38,7 @@ void Unit::Draw() {
 		mTexture,
 		&mSourceRect,
 		&mCenter,
-		&D3DXVECTOR3(
-			mPosition.x,
-			mPosition.y,
-			0
-		),
+		&(mPosition * GameGlobal::GetScale()),
 		0xFFFFFFFF
 	);
 }
@@ -50,7 +46,7 @@ void Unit::Draw() {
 RECT Unit::GetSourceRect() {
 	return mSourceRect;
 }
-D3DXVECTOR2 Unit::GetPosition() {
+D3DXVECTOR3 Unit::GetPosition() {
 	return mPosition;
 }
 
@@ -61,8 +57,8 @@ UNIT_TRANSFORM * Unit::GetTransform() {
 	return &mTransform;
 }
 
-void Unit::SetPosition(float x, float y) {
-	mPosition = { x, y };
+void Unit::SetPosition(float x, float y, float z) {
+	mPosition = { x, y, 0 };
 }
 RECT Unit::GetBound() {
 	return RECT{

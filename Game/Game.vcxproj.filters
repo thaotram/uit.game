@@ -36,7 +36,7 @@
     <Filter Include="Source\No-filter">
       <UniqueIdentifier>{45e37737-5674-49e3-a11d-883f0fe09721}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Unit\Unit_Child">
+    <Filter Include="Source\Unit\Unit_Properties">
       <UniqueIdentifier>{dc1f7ba3-d1ba-48f4-ab08-8e090d4c3665}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -193,13 +193,13 @@
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit_Texture.h">
-      <Filter>Source\Unit\Unit_Child</Filter>
+      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit_Transform.h">
-      <Filter>Source\Unit\Unit_Child</Filter>
+      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit_SourceRect.h">
-      <Filter>Source\Unit\Unit_Child</Filter>
+      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -234,13 +234,13 @@
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClCompile>
     <ClCompile Include="Source\Unit_Animation.h">
-      <Filter>Source\Unit\Unit_Child</Filter>
+      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
     <ClCompile Include="Source\Unit_SourceRect.cpp">
-      <Filter>Source\Unit\Unit_Child</Filter>
+      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
     <ClCompile Include="Source\Unit_Transform.cpp">
-      <Filter>Source\Unit\Unit_Child</Filter>
+      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
     <ClCompile Include="Source\Maps.h">
       <Filter>Source\No-filter</Filter>
