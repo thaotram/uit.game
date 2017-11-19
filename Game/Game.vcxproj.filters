@@ -36,6 +36,9 @@
     <Filter Include="Source\No-filter">
       <UniqueIdentifier>{45e37737-5674-49e3-a11d-883f0fe09721}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Unit\Unit_Child">
+      <UniqueIdentifier>{dc1f7ba3-d1ba-48f4-ab08-8e090d4c3665}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -147,9 +150,6 @@
     <ClInclude Include="Library\json.hpp">
       <Filter>Library</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Texture.h">
-      <Filter>Source\Unit</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Unit.h">
       <Filter>Source\Unit</Filter>
     </ClInclude>
@@ -192,6 +192,15 @@
     <ClInclude Include="Source\Unit_CivilianEnemies.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Unit_Texture.h">
+      <Filter>Source\Unit\Unit_Child</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Transform.h">
+      <Filter>Source\Unit\Unit_Child</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_SourceRect.h">
+      <Filter>Source\Unit\Unit_Child</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -209,20 +218,8 @@
     <ClCompile Include="Source\SceneManager.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_SourceRect.h">
-      <Filter>Source\Unit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Unit_Transform.h">
-      <Filter>Source\Unit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Unit_Animation.h">
-      <Filter>Source\Unit</Filter>
-    </ClCompile>
     <ClCompile Include="Source\GameDebug.h">
       <Filter>Source\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Map.h">
-      <Filter>Source\No-filter</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scene_AgrabahMarket.cpp">
       <Filter>Source\Scene\FinalScene</Filter>
@@ -235,6 +232,18 @@
     </ClCompile>
     <ClCompile Include="Source\Unit_Aladdin.cpp">
       <Filter>Source\Unit\FinalUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Animation.h">
+      <Filter>Source\Unit\Unit_Child</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_SourceRect.cpp">
+      <Filter>Source\Unit\Unit_Child</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Transform.cpp">
+      <Filter>Source\Unit\Unit_Child</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Maps.h">
+      <Filter>Source\No-filter</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

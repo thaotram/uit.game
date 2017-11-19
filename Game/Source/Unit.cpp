@@ -18,7 +18,7 @@ void Unit::Update(float dt) {
 	if (mAnimation.empty()) {
 		mAnimation.Initialization("Resources/" + mName + ".json");
 	}
-	
+
 	// Update mAnimation
 	mAnimation.Initialization("Resources/" + mName + ".json");
 
@@ -57,9 +57,9 @@ D3DXVECTOR2 Unit::GetPosition() {
 UNIT_ANIMATION * Unit::GetAnimation() {
 	return &mAnimation;
 }
-//UNIT_TRANSFORM * Unit::GetTransform() {
-//	return &mTransform;
-//}
+UNIT_TRANSFORM * Unit::GetTransform() {
+	return &mTransform;
+}
 
 void Unit::SetPosition(float x, float y) {
 	mPosition = { x, y };
