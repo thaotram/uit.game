@@ -26,12 +26,12 @@ protected:
 	float							mCurrentTime;	//	Thời gian hiện tại
 	float 							mTimePerFrame;
 protected:
-	virtual void BeforeUpdateUnit();
+	virtual bool UpdateAnimation();
 public:
 	Unit(string pName);;
 	~Unit() {};
 
-	void Update(float dt = 0);
+	void Update(float dt);
 	void Draw();
 
 	RECT GetSourceRect();

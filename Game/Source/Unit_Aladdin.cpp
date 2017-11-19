@@ -2,9 +2,10 @@
 
 Unit_Aladdin::Unit_Aladdin() : Unit("Aladdin") {
 	this->SetPosition(50, 50);
-	this->GetAnimation()->SetState("run");
+	this->mAnimation.SetState("levelcomplete");
 }
 
-void Unit_Aladdin::BeforeUpdateUnit() {
-	//this->SetPosition(x, 480);
+bool Unit_Aladdin::UpdateAnimation() {
+	this->mAnimation++;
+	return true;
 }

@@ -68,7 +68,8 @@ void Animation::Initialization(string filePath) {
 	}
 }
 
-void Animation::NextFrame() {
+void Animation::operator++(int)
+{
 	//! Đếm từ 0 và đếm từ 1 => phải trừ 1
 	//!? cycles[index - 1]
 	vector<int> cycles = this->find(mState)->second.second.first;

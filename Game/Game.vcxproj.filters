@@ -39,6 +39,9 @@
     <Filter Include="Source\Unit\FinalUnit">
       <UniqueIdentifier>{fe78fdd8-8619-4ec1-984e-3ecffc630ab9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Unit_Class">
+      <UniqueIdentifier>{833f1aea-bae1-4537-8ddb-c7ca8bb3f318}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -180,9 +183,6 @@
     <ClInclude Include="Source\Unit_Status.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Item.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Unit_EnemyExplosions.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
@@ -203,6 +203,9 @@
     </ClInclude>
     <ClInclude Include="Source\Unit.h">
       <Filter>Source\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Item.h">
+      <Filter>Source\Unit_Class</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -248,6 +251,9 @@
     </ClCompile>
     <ClCompile Include="Source\Unit_Animation.cpp">
       <Filter>Source\Unit\Unit_Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Item.cpp">
+      <Filter>Source\Unit_Class</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -2,7 +2,9 @@
 
 //!Public
 // Được gọi chính xác trong hàm Update, không lệ thuộc "dt"
-void Unit::BeforeUpdateUnit() {}
+bool Unit::UpdateAnimation() {
+	return true;
+}
 
 Unit::Unit(string pName) : mName(pName) {
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
@@ -20,13 +22,12 @@ void Unit::Update(float dt) {
 	if (mAnimation.empty()) {
 		mAnimation.Initialization("Resources/" + mName + ".json");
 	}
-	// Update mAnimation
-	// mAnimation.Initialization("Resources/" + mName + ".json");
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
 
-		BeforeUpdateUnit();
-		mAnimation.NextFrame();
+		if (!UpdateAnimation()) {
+			mAnimation++;
+		};
 		mSourceRect << this;
 		mTransform << this;
 	}

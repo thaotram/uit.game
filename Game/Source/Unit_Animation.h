@@ -37,7 +37,8 @@ public:
 	Animation();
 	void Initialization(string filePath);;
 
-	void NextFrame();
+	// Đi đến Frame tiếp theo
+	void operator++(int);
 	RECT GetFrame();
 	D3DXVECTOR2 GetTransition();
 	D3DXVECTOR2 GetBasePoint();
