@@ -2,15 +2,13 @@
 
 Unit::Unit(string pName) : mName(pName) {
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
-	mJson.Initialization("Resources/" + mName + ".json");
-	mTexture.Initialization("Resources/" + mName + ".png");
-	
+	mJson << mName;
+	mTexture << mName;
+
 	mCurrentTime = 0;
 	mTimePerFrame = 0.16f;
-	mPosition = { 0, 0 };
-	mCenter = { 0, 0, 0 };
 
-	mAnimation.Initialization("Resources/" + mName + ".json");
+	mPosition = { 0, 0 };
 	Update(0);
 }
 void Unit::Update(float dt) {
@@ -19,7 +17,7 @@ void Unit::Update(float dt) {
 
 		if (UpdateSprite()) return;
 
-		mAnimation++;
+		mAnimation.NextFrame(mJson);
 		mSourceRect << this;
 		mTransform << this;
 	}
@@ -36,7 +34,7 @@ void Unit::Draw(UNIT_TRANSFORM pTransform, UNIT_SOURCERECT pSourceRect, VECTOR2 
 	mSpriteHandler->Draw(
 		&mTexture,
 		&pSourceRect,
-		&mCenter,
+		NULL,
 		&pPosition.V3(GameGlobal::GetScale()),
 		0xFFFFFFFF
 	);
@@ -47,6 +45,11 @@ RECT Unit::GetSourceRect() {
 }
 VECTOR2 Unit::GetPosition() {
 	return mPosition;
+}
+
+UNIT_JSON * Unit::GetJson()
+{
+	return &mJson;
 }
 
 UNIT_ANIMATION * Unit::GetAnimation() {
@@ -67,3 +70,4 @@ RECT Unit::GetBound() {
 		(LONG)(mPosition.y + mSourceRect.GetHeight())
 	};
 }
+

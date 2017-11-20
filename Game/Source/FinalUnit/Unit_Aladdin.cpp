@@ -5,10 +5,10 @@ Unit_Aladdin::Unit_Aladdin() : Unit("Aladdin") {
 	mAnimation.SetState("stand_still");
 }
 
-bool Unit_Aladdin::UpdateSprite()
-{
-	mAnimation++;
-	mSourceRect << this;
-	mTransform << this;
-	return true;
-}
+//bool Unit_Aladdin::UpdateSprite()
+//{
+//	mAnimation++;
+//	mSourceRect << this;
+//	mTransform << this;
+//	return true;
+//}

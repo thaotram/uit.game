@@ -1,8 +1,9 @@
 ﻿#include "Unit_Texture.h"
 
-void Texture::Initialization(string filePath) {
+void Texture::operator<<(string pName) {
+	pName = "Resources/" + pName + ".png";
 	D3DXIMAGE_INFO		pImageInfo;
-	LPCSTR				pSrcFile = filePath.c_str();
+	LPCSTR				pSrcFile = pName.c_str();
 	D3DXGetImageInfoFromFileA(pSrcFile, &pImageInfo);
 	//auto mm = (LPDIRECT3DTEXTURE9)this;
 	D3DXCreateTextureFromFileExA

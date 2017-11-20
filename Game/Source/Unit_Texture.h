@@ -12,7 +12,7 @@ private:
 	LPDIRECT3DTEXTURE9 mSelf;
 public:
 	Texture() {};
-	void Initialization(string filePath);
+	void operator<<(string pName);
 	LPDIRECT3DTEXTURE9 operator&();
 };
 

@@ -5,5 +5,5 @@ private:
 	int hp;
 public:
 	Unit_Aladdin();
-	bool UpdateSprite();
+	//bool UpdateSprite();
 };

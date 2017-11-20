@@ -9,6 +9,7 @@
 
 #include <json.hpp>
 #include "GameDebug.h"
+#include "Unit_Animation.h"
 
 using namespace std;
 using json = nlohmann::json;
@@ -40,15 +41,22 @@ struct State {
 	map<int, FRAME>	FrameList;
 };
 
+class Animation;
+
 class Json : public map<string, STATE> {
+private:
+	STATE operator[](string pState);
 public:
 	Json() {};
-	void Initialization(string filePath);;
-
-	STATE operator[](string pState);
+	void operator<<(string pName);
 
 	RECT GetFrame(string mState, int mFrameIndex);
 	D3DXVECTOR2 GetTransition(string pState, int pFrameIndex);
 	D3DXVECTOR2 GetBasePoint(string pState, int pFrameIndex);
 	vector<int> GetFrameCycle(string pState);
+
+	RECT GetFrame(Animation * pAnimation);
+	D3DXVECTOR2 GetTransition(Animation * pAnimation);
+	D3DXVECTOR2 GetBasePoint(Animation * pAnimation);
+	vector<int> GetFrameCycle(Animation * pAnimation);
 };

@@ -1,9 +1,11 @@
 #include "Unit_Json.h"
+#include "Unit_Animation.h"
 
-void Json::Initialization(string filePath) {
+void Json::operator<<(string pName){
+	pName = "Resources/" + pName + ".json";
 	this->clear();
 	try {
-		ifstream i(filePath);
+		ifstream i(pName);
 		json j;
 		i >> j;
 
@@ -79,4 +81,28 @@ D3DXVECTOR2 Json::GetBasePoint(string pState, int pFrameIndex) {
 }
 vector<int> Json::GetFrameCycle(string pState) {
 	return (*this)[pState].FrameCycle;
+}
+
+RECT Json::GetFrame(Animation * pAnimation) {
+	return GetFrame(
+		pAnimation->GetState(),
+		pAnimation->GetFrameIndex()
+	);
+}
+D3DXVECTOR2 Json::GetTransition(Animation * pAnimation) {
+	return GetTransition(
+		pAnimation->GetState(),
+		pAnimation->GetFrameIndex()
+	);
+}
+D3DXVECTOR2 Json::GetBasePoint(Animation * pAnimation) {
+	return GetBasePoint(
+		pAnimation->GetState(),
+		pAnimation->GetFrameIndex()
+	);
+}
+vector<int> Json::GetFrameCycle(Animation * pAnimation) {
+	return GetFrameCycle(
+		pAnimation->GetState()
+	);
 }

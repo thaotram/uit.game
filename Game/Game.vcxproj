@@ -159,7 +159,6 @@
     <ClInclude Include="Source\FinalUnit\Unit_CivilianEnemies.h" />
     <ClInclude Include="Source\FinalUnit\Unit_EnemyExplosions.h" />
     <ClInclude Include="Source\Unit_Json.h" />
-    <ClInclude Include="Source\Unit_SourceRect.h" />
     <ClInclude Include="Source\FinalUnit\Unit_Status.h" />
     <ClInclude Include="Source\FinalUnit\Unit_Abu.h" />
     <ClInclude Include="Source\FinalUnit\Unit_Aladdin.h" />
@@ -174,10 +173,11 @@
     <ClInclude Include="Source\GameTime.h" />
     <ClInclude Include="Source\Scene.h" />
     <ClInclude Include="Source\SceneManager.h" />
+    <ClInclude Include="Source\Unit_SourceRect.h" />
     <ClInclude Include="Source\Unit_Texture.h" />
-    <ClInclude Include="Source\Unit_Transform.h" />
     <ClInclude Include="Source\FinalUnit\Unit_Block.h" />
     <ClInclude Include="Source\Debug\Unit_Debug.h" />
+    <ClInclude Include="Source\Unit_Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Unit.cpp" />

@@ -168,13 +168,7 @@
     <ClInclude Include="Source\Scene_AgrabahMarket.h">
       <Filter>Source\Scene\FinalScene</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_SourceRect.h">
-      <Filter>Source\Unit\Unit_Properties</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Unit_Texture.h">
-      <Filter>Source\Unit\Unit_Properties</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Transform.h">
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit_Item.h">
@@ -225,6 +219,8 @@
     <ClInclude Include="Source\Unit_Json.h">
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Unit_Transform.h" />
+    <ClInclude Include="Source\Unit_SourceRect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">

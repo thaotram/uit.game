@@ -22,6 +22,19 @@ public:
 	};
 };
 
+typedef VECTOR2 UNIT_POSITION;
+
+class Entity {
+private:
+	UNIT_ANIMATION					mAnimation;
+	UNIT_TRANSFORM					mTransform;
+	UNIT_SOURCERECT					mSourceRect;
+	UNIT_POSITION					mPosition;
+public:
+	void Draw() {
+	}
+};
+
 class Unit
 {
 protected:
@@ -29,12 +42,11 @@ protected:
 	LPD3DXSPRITE					mSpriteHandler;
 	UNIT_JSON						mJson;
 	UNIT_TEXTURE					mTexture;
-	
+
 	UNIT_ANIMATION					mAnimation;
 	UNIT_TRANSFORM					mTransform;
 	UNIT_SOURCERECT					mSourceRect;
-	D3DXVECTOR3						mCenter;
-	VECTOR2							mPosition;
+	UNIT_POSITION					mPosition;
 
 	float							mCurrentTime;	//	Thời gian hiện tại
 	float 							mTimePerFrame;
@@ -48,13 +60,14 @@ public:
 	void Update(float dt);
 	void Draw();
 	void Draw(
-		UNIT_TRANSFORM pTransform, 
-		UNIT_SOURCERECT pSourceRect, 
+		UNIT_TRANSFORM pTransform,
+		UNIT_SOURCERECT pSourceRect,
 		VECTOR2 pPosition
 	);
 
 	RECT GetSourceRect();
 	VECTOR2 GetPosition();
+	UNIT_JSON	   * GetJson();
 	UNIT_ANIMATION * GetAnimation();
 	UNIT_TRANSFORM * GetTransform();
 	void SetPosition(float x, float y);
