@@ -11,7 +11,7 @@ void Unit_Animation::NextFrame(Unit * pUnit, Unit_Entity * pEntity) {
 	vector<int> pFrameCycle = pUnit->GetJson()->GetFrameCycle(mState);
 	int nextFrame = pFrameCycle[mCycleIndex + 1];
 	if (nextFrame == 0) {
-		pEntity->mEndFunction();
+		pEntity->mToZeroFunction();
 	}
 	else if (nextFrame > 0) {
 		mCycleIndex++;
@@ -41,6 +41,7 @@ void Unit_Animation::SetCycleIndex(int pCycleIndex) {
 }
 
 void Unit_Animation::Set(string pState, int pCycleIndex) {
+	if (mState == pState) return;
 	mState = pState;
 	mCycleIndex = pCycleIndex;
 }

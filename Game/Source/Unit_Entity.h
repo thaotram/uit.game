@@ -31,7 +31,7 @@ public:
 	Unit_Transform  * GetTransform();
 	Unit_SourceRect * GetSourceRect();
 
-	function<void()>  mEndFunction;
+	function<void()>  mToZeroFunction;
 };
 
 class Unit_Entities : public map<string, Unit_Entity*> {
