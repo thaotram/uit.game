@@ -1,12 +1,6 @@
-﻿#include "Unit_Animation.h"
+#include "Unit_Json.h"
 
-Animation::Animation() {
-	mState = "";
-	mFrameIndex = 1;
-	mCycleIndex = 1;
-}
-
-void Animation::Initialization(string filePath) {
+void Json::Initialization(string filePath) {
 	this->clear();
 	try {
 		ifstream i(filePath);
@@ -14,7 +8,6 @@ void Animation::Initialization(string filePath) {
 		i >> j;
 
 		json states = j["states"];
-		if (mState == "") mState = states.begin().key();
 		for (json::iterator state = states.begin(); state != states.end(); ++state)
 		{
 			//! basePoint
@@ -71,45 +64,19 @@ void Animation::Initialization(string filePath) {
 	}
 }
 
-void Animation::operator++(int) {
-	vector<int> frameCycle = (*this)[mState].FrameCycle;
-	int nextFrame = frameCycle[mCycleIndex + 1];
-	if (nextFrame > 0) 	mCycleIndex++;
-	else				mCycleIndex = -nextFrame;
-	mFrameIndex = frameCycle[mCycleIndex];
-}
-STATE Animation::operator[](string pState)
-{
+STATE Json::operator[](string pState) {
 	return find(pState)->second;
 }
 
-RECT Animation::GetFrame() {
-	return (*this)[mState].FrameList[mFrameIndex].Rect;
+RECT Json::GetFrame(string pState, int pFrameIndex) {
+	return (*this)[pState].FrameList[pFrameIndex].Rect;
 }
-D3DXVECTOR2 Animation::GetTransition() {
-	return (*this)[mState].FrameList[mFrameIndex].Transition;
+D3DXVECTOR2 Json::GetTransition(string pState, int pFrameIndex) {
+	return (*this)[pState].FrameList[pFrameIndex].Transition;
 }
-D3DXVECTOR2 Animation::GetBasePoint() {
-	return (*this)[mState].BasePoint;
+D3DXVECTOR2 Json::GetBasePoint(string pState, int pFrameIndex) {
+	return (*this)[pState].BasePoint;
 }
-
-void Animation::SetState(string pState) {
-	mState = pState;
-	mFrameIndex = 1;
-	mCycleIndex = 1;
-}
-string Animation::GetState() {
-	return mState;
-}
-int Animation::GetFrameIndex() {
-	return mFrameIndex;
-}
-void Animation::SetFrameIndex(int pFrameIndex) {
-	mFrameIndex = pFrameIndex;
-}
-int Animation::GetCycleIndex() {
-	return mCycleIndex;
-}
-void Animation::SetCycleIndex(int pCycleIndex) {
-	mCycleIndex = pCycleIndex;
+vector<int> Json::GetFrameCycle(string pState) {
+	return (*this)[pState].FrameCycle;
 }

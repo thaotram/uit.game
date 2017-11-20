@@ -158,6 +158,7 @@
     <ClInclude Include="Library\json.hpp" />
     <ClInclude Include="Source\FinalUnit\Unit_CivilianEnemies.h" />
     <ClInclude Include="Source\FinalUnit\Unit_EnemyExplosions.h" />
+    <ClInclude Include="Source\Unit_Json.h" />
     <ClInclude Include="Source\Unit_SourceRect.h" />
     <ClInclude Include="Source\FinalUnit\Unit_Status.h" />
     <ClInclude Include="Source\FinalUnit\Unit_Abu.h" />
@@ -192,6 +193,7 @@
     <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="Source\Scene_AgrabahMarket.cpp" />
     <ClCompile Include="Source\FinalUnit\Unit_Aladdin.cpp" />
+    <ClCompile Include="Source\Unit_Json.cpp" />
     <ClCompile Include="Source\Unit_SourceRect.cpp" />
     <ClCompile Include="Source\Unit_Texture.cpp" />
     <ClCompile Include="Source\Unit_Transform.cpp" />

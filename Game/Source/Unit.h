@@ -4,6 +4,7 @@
 
 #include "GameGlobal.h"
 
+#include "Unit_Json.h"
 #include "Unit_Texture.h"
 #include "Unit_Animation.h"
 #include "Unit_Transform.h"
@@ -26,12 +27,12 @@ class Unit
 protected:
 	string							mName;
 	LPD3DXSPRITE					mSpriteHandler;
+	UNIT_JSON						mJson;
 	UNIT_TEXTURE					mTexture;
+	
 	UNIT_ANIMATION					mAnimation;
-
 	UNIT_TRANSFORM					mTransform;
 	UNIT_SOURCERECT					mSourceRect;
-
 	D3DXVECTOR3						mCenter;
 	VECTOR2							mPosition;
 

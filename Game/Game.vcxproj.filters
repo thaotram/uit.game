@@ -222,6 +222,9 @@
     <ClInclude Include="Source\Unit.h">
       <Filter>Source\Unit</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Unit_Json.h">
+      <Filter>Source\Unit\Unit_Properties</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -275,6 +278,9 @@
     </ClCompile>
     <ClCompile Include="Source\Unit.cpp">
       <Filter>Source\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Json.cpp">
+      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

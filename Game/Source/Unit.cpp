@@ -2,8 +2,9 @@
 
 Unit::Unit(string pName) : mName(pName) {
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
+	mJson.Initialization("Resources/" + mName + ".json");
 	mTexture.Initialization("Resources/" + mName + ".png");
-
+	
 	mCurrentTime = 0;
 	mTimePerFrame = 0.16f;
 	mPosition = { 0, 0 };
