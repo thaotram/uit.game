@@ -16,8 +16,8 @@ public:
 	D3DXVECTOR2 operator * (CONST D3DXVECTOR2& v) const {
 		return D3DXVECTOR2(x * v.x, y * v.y);
 	};
-	D3DXVECTOR3 VECTOR3() {
-		return D3DXVECTOR3(x, y, 0);
+	D3DXVECTOR3 V3(float pScale) {
+		return D3DXVECTOR3(x, y, 0) * pScale;
 	};
 };
 
@@ -26,9 +26,10 @@ class Unit
 protected:
 	string							mName;
 	LPD3DXSPRITE					mSpriteHandler;
-
-	LPDIRECT3DTEXTURE9				mTexture;
+	UNIT_TEXTURE					mTexture;
 	UNIT_ANIMATION					mAnimation;
+
+
 	UNIT_TRANSFORM					mTransform;
 	UNIT_SOURCERECT					mSourceRect;
 
@@ -38,13 +39,19 @@ protected:
 	float							mCurrentTime;	//	Thời gian hiện tại
 	float 							mTimePerFrame;
 protected:
-	virtual void UpdateAnimation() {};
+	virtual bool UpdateSprite() { return false; };
+	virtual bool DrawSprite() { return false; };
 public:
 	Unit(string pName);
 	~Unit() {};
 
 	void Update(float dt);
 	void Draw();
+	void Draw(
+		UNIT_TRANSFORM pTransform, 
+		UNIT_SOURCERECT pSourceRect, 
+		VECTOR2 pPosition
+	);
 
 	RECT GetSourceRect();
 	VECTOR2 GetPosition();

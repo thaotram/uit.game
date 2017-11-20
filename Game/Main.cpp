@@ -61,21 +61,11 @@ void InitializeWindow(int cmdShow)
 
 	RegisterClassEx(&wc);
 
-	RECT wr = { 
-		0,
-		0, 
-		APP_WIDTH * APP_SCALE,
-		APP_HEIGHT * APP_SCALE
-	};
-	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
-
-	GameGlobal::SetWidth(wr.right - wr.left);
-	GameGlobal::SetHeight(wr.bottom - wr.top);
-
+	GameGlobal::SetScale(APP_SCALE);
+	GameGlobal::SetWidth(APP_WIDTH * APP_SCALE);
+	GameGlobal::SetHeight(APP_HEIGHT * APP_SCALE);
 	GameGlobal::SetBackgroundColor(BACKGROUND_COLOR);
 	GameGlobal::SetFPS(FPS);
-	GameGlobal::SetScale(APP_SCALE);
-
 	GameGlobal::SetHWND(
 		CreateWindowEx(
 			WS_EX_OVERLAPPEDWINDOW,

@@ -42,10 +42,7 @@ struct State {
 	map<int, UNIT_FRAME>	FrameList;
 };
 
-class Animation : public map<
-	string,
-	UNIT_STATE
-> {
+class Animation : public map<string, UNIT_STATE> {
 private:
 	string	mState;
 	int		mFrameIndex;

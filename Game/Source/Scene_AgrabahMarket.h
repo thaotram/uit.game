@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class AgrabahMarket : public Scene
+class AgrabahMarket final : public Scene
 {
 public:
 	AgrabahMarket();

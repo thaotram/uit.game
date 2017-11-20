@@ -123,6 +123,7 @@
     <None Include="Resources\block.json" />
     <None Include="Resources\Camel.json" />
     <None Include="Resources\CivilianEnemies.json" />
+    <None Include="Resources\Debug.json" />
     <None Include="Resources\EnemyExplosions.json" />
     <None Include="Resources\Genie.json" />
     <None Include="Resources\Guards.json" />
@@ -140,6 +141,7 @@
     <Image Include="Resources\BossJafar.png" />
     <Image Include="Resources\Camel.png" />
     <Image Include="Resources\CivilianEnemies.png" />
+    <Image Include="Resources\Debug.png" />
     <Image Include="Resources\EnemyExplosions.png" />
     <Image Include="Resources\Genie.png" />
     <Image Include="Resources\Guards.png" />
@@ -150,21 +152,21 @@
     <Image Include="Resources\Status.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Unit_Item.h" />
-    <ClInclude Include="Library\json.hpp" />
     <ClInclude Include="Source\Unit.h" />
     <ClInclude Include="Source\Unit_Animation.h" />
-    <ClInclude Include="Source\Unit_CivilianEnemies.h" />
-    <ClInclude Include="Source\Unit_EnemyExplosions.h" />
+    <ClInclude Include="Source\Unit_Item.h" />
+    <ClInclude Include="Library\json.hpp" />
+    <ClInclude Include="Source\FinalUnit\Unit_CivilianEnemies.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_EnemyExplosions.h" />
     <ClInclude Include="Source\Unit_SourceRect.h" />
-    <ClInclude Include="Source\Unit_Status.h" />
-    <ClInclude Include="Source\Unit_Abu.h" />
-    <ClInclude Include="Source\Unit_Aladdin.h" />
-    <ClInclude Include="Source\Unit_Camel.h" />
-    <ClInclude Include="Source\Unit_Genie.h" />
-    <ClInclude Include="Source\Unit_Guards.h" />
-    <ClInclude Include="Source\Unit_MagicCarpet.h" />
-    <ClInclude Include="Source\Unit_Peddler.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Status.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Abu.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Aladdin.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Camel.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Genie.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Guards.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_MagicCarpet.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Peddler.h" />
     <ClInclude Include="Source\Scene_AgrabahMarket.h" />
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\GameGlobal.h" />
@@ -173,9 +175,12 @@
     <ClInclude Include="Source\SceneManager.h" />
     <ClInclude Include="Source\Unit_Texture.h" />
     <ClInclude Include="Source\Unit_Transform.h" />
-    <ClInclude Include="Source\Unit_Block.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Block.h" />
+    <ClInclude Include="Source\Debug\Unit_Debug.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Unit.cpp" />
+    <ClCompile Include="Source\Unit_Animation.cpp" />
     <ClCompile Include="Source\Unit_Item.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Source\Game.cpp" />
@@ -186,13 +191,12 @@
     <ClCompile Include="Source\Maps.h" />
     <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="Source\Scene_AgrabahMarket.cpp" />
-    <ClCompile Include="Source\Unit.cpp" />
-    <ClCompile Include="Source\Unit_Aladdin.cpp" />
-    <ClCompile Include="Source\Unit_Animation.cpp" />
+    <ClCompile Include="Source\FinalUnit\Unit_Aladdin.cpp" />
     <ClCompile Include="Source\Unit_SourceRect.cpp" />
     <ClCompile Include="Source\Unit_Texture.cpp" />
     <ClCompile Include="Source\Unit_Transform.cpp" />
-    <ClCompile Include="Source\Unit_Block.cpp" />
+    <ClCompile Include="Source\FinalUnit\Unit_Block.cpp" />
+    <ClCompile Include="Source\Debug\Unit_Debug.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

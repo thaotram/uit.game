@@ -1,0 +1,20 @@
+﻿{
+    "name": "debug",
+    "states": {
+        "-": {
+            "note": "left top right bottom | 320-224",
+            "basePoint": [ 0, 0 ],
+            "frameCycle": [ 1, -1 ],
+            "frame": {
+                "1": [ 0, 0, 320, 224, 0, 0 ]
+            }
+        },
+        "|": {
+            "basePoint": [ 0, 0 ],
+            "frameCycle": [ 1, -1 ],
+            "frame": {
+                "1": [ 0, 0, 30, 224, 0, 0 ]
+            }
+        }
+    }
+}

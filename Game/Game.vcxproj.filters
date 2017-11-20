@@ -42,6 +42,12 @@
     <Filter Include="Source\Unit_Class">
       <UniqueIdentifier>{833f1aea-bae1-4537-8ddb-c7ca8bb3f318}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Debug">
+      <UniqueIdentifier>{67c34769-c023-4d2f-991d-98867cf88c17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Debug">
+      <UniqueIdentifier>{41e64fb5-e7ba-4bbe-ba85-1ab7ab9e7cf2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -82,6 +88,9 @@
     </None>
     <None Include="Resources\CivilianEnemies.json">
       <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Debug.json">
+      <Filter>Resource Files\Debug</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +142,9 @@
     <Image Include="Resources\Aladdin_Miscellaneous_Cutscenes.png">
       <Filter>Resource Files\Unit</Filter>
     </Image>
+    <Image Include="Resources\Debug.png">
+      <Filter>Resource Files\Debug</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Game.h">
@@ -153,44 +165,8 @@
     <ClInclude Include="Library\json.hpp">
       <Filter>Library</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Aladdin.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Scene_AgrabahMarket.h">
       <Filter>Source\Scene\FinalScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Aladdin.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Camel.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Peddler.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_MagicCarpet.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Guards.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Genie.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Abu.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Status.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_EnemyExplosions.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_CivilianEnemies.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Animation.h">
-      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit_SourceRect.h">
       <Filter>Source\Unit\Unit_Properties</Filter>
@@ -201,14 +177,50 @@
     <ClInclude Include="Source\Unit_Transform.h">
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit.h">
-      <Filter>Source\Unit</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Unit_Item.h">
       <Filter>Source\Unit_Class</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Block.h">
+    <ClInclude Include="Source\FinalUnit\Unit_Abu.h">
       <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_Aladdin.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_Block.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_Camel.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_CivilianEnemies.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_EnemyExplosions.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_Genie.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_Guards.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_MagicCarpet.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_Peddler.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_Status.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Debug\Unit_Debug.h">
+      <Filter>Source\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Animation.h">
+      <Filter>Source\Unit\Unit_Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit.h">
+      <Filter>Source\Unit</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -233,9 +245,6 @@
     <ClCompile Include="Source\Scene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_Aladdin.cpp">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Unit_SourceRect.cpp">
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
@@ -249,17 +258,23 @@
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Source\Unit.cpp">
-      <Filter>Source\Unit</Filter>
+    <ClCompile Include="Source\Unit_Item.cpp">
+      <Filter>Source\Unit_Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FinalUnit\Unit_Aladdin.cpp">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FinalUnit\Unit_Block.cpp">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Debug\Unit_Debug.cpp">
+      <Filter>Source\Debug</Filter>
     </ClCompile>
     <ClCompile Include="Source\Unit_Animation.cpp">
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_Item.cpp">
-      <Filter>Source\Unit_Class</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Unit_Block.cpp">
-      <Filter>Source\Unit\FinalUnit</Filter>
+    <ClCompile Include="Source\Unit.cpp">
+      <Filter>Source\Unit</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 
 Unit::Unit(string pName) : mName(pName) {
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
-	mTexture = UNIT_TEXTURE::Get("Resources/" + mName + ".png");
+	mTexture.Initialization("Resources/" + mName + ".png");
 
 	mCurrentTime = 0;
 	mTimePerFrame = 0.16f;
@@ -13,26 +13,30 @@ Unit::Unit(string pName) : mName(pName) {
 	Update(0);
 }
 void Unit::Update(float dt) {
-	if (mAnimation.empty()) {
-		mAnimation.Initialization("Resources/" + mName + ".json");
-	}
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
 
-		UpdateAnimation();
+		if (UpdateSprite()) return;
 
+		mAnimation++;
 		mSourceRect << this;
 		mTransform << this;
 	}
 	else mCurrentTime += dt;
 }
 void Unit::Draw() {
-	mSpriteHandler->SetTransform(&mTransform);
+	if (DrawSprite()) return;
+	Draw(mTransform, mSourceRect, mPosition);
+}
+
+void Unit::Draw(UNIT_TRANSFORM pTransform, UNIT_SOURCERECT pSourceRect, VECTOR2 pPosition)
+{
+	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(
-		mTexture,
-		&mSourceRect,
+		mTexture.Get(),
+		&pSourceRect,
 		&mCenter,
-		&(mPosition.VECTOR3() * GameGlobal::GetScale()),
+		&pPosition.V3(GameGlobal::GetScale()),
 		0xFFFFFFFF
 	);
 }

@@ -1,7 +1,6 @@
 ﻿#include "Unit_Texture.h"
 
-LPDIRECT3DTEXTURE9 Texture::Get(string filePath) {
-	LPDIRECT3DTEXTURE9  oTexture;
+void Texture::Initialization(string filePath) {
 	D3DXIMAGE_INFO		pImageInfo;
 	LPCSTR				pSrcFile = filePath.c_str();
 	D3DXGetImageInfoFromFileA(pSrcFile, &pImageInfo);
@@ -21,7 +20,6 @@ LPDIRECT3DTEXTURE9 Texture::Get(string filePath) {
 		0xffff00ff,						// Màu trong suốt có dạng 0x12345678 (32 bit tất cả)
 		NULL,							// [Out] Thông tin của hình ảnh
 		NULL,
-		&oTexture						// [Out] Đại diện cho đối tượng Texture
+		&mSelf							// [Out] Đại diện cho đối tượng Texture
 	);
-	return oTexture;
 }

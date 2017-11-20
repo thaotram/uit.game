@@ -8,7 +8,7 @@ class Unit;
 class UNIT_SOURCERECT : public RECT {
 public:
 	// Lấy thông tin cho SourceRect từ
-	// + Animation > Frame
+	// + Animation > Frame {mState, mFrameIndex}
 	Unit * operator<<(Unit * pUnit);
 	void operator=(RECT pRect);
 
