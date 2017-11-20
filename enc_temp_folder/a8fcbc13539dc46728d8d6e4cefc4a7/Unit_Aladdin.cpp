@@ -22,8 +22,7 @@ bool Unit_Aladdin::UpdateUnit()
 
 	if (GameInput::GetKeyCode(VK_DOWN)) {
 		this->Get()->GetAnimation()->Set("stand_sit", 1);
-	}
-	else {
+	} else {
 		if (this->Get()->GetAnimation()->GetState() == "stand_sit") {
 			this->Get()->GetAnimation()->Set("stand_up_to_still", 1);
 		};
