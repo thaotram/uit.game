@@ -11,6 +11,7 @@
 #include <json.hpp>
 
 #include "Source/Game.h"
+#include "Source/GameInput.h"
 #include "Source/GameGlobal.h"
 #include "Source/SceneManager.h"
 
@@ -23,7 +24,7 @@ using namespace std;
 #define MAIN_WINDOW_TITLE L"Game Title"
 #define APP_WIDTH 320
 #define APP_HEIGHT 224
-#define APP_SCALE 3
+#define APP_SCALE 2
 #define FPS 60
 #define BACKGROUND_COLOR 0xffffffff
 
@@ -156,10 +157,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		);
 		break;
 	case WM_KEYDOWN:
-		SceneManager::GetInstance()->GetCurrentScene()->OnKeyDown(wParam);
+		//SceneManager::GetInstance()->GetCurrentScene()->OnKeyDown(wParam);
+		GameInput::SetKeyCode(wParam, true);
 		break;
 	case WM_KEYUP:
-		SceneManager::GetInstance()->GetCurrentScene()->OnKeyUp(wParam);
+		//SceneManager::GetInstance()->GetCurrentScene()->OnKeyUp(wParam);
+		GameInput::SetKeyCode(wParam, false);
 		break;
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);

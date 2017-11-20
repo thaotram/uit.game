@@ -2,6 +2,10 @@
 #include <d3dx9.h>
 #include <d3d9.h>
 #include <windows.h>
+#include <map>
+#include "GameInput.h"
+
+using namespace std;
 
 class GameGlobal
 {
@@ -14,6 +18,7 @@ private:
 	static int					mWidth, mHeight;	// size của cửa sổ
 	static float				mFPS;				// frame per second
 	static float				mScale;				// Scale
+	static GameInput			mInput;
 public:
 	GameGlobal();
 	~GameGlobal();
@@ -43,4 +48,8 @@ public:
 
 	static void  SetScale(float scale);
 	static float GetScale();
+
+	static GameInput GetInput() {
+		return mInput;
+	};
 };

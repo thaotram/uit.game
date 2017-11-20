@@ -3,10 +3,12 @@
 #include <d3dx9.h>
 #include <iostream>
 #include <vector>
+#include <functional> 
 
 #include "GameDebug.h"
 
-class Unit_Json;
+class Unit;
+class Unit_Entity;
 
 class Unit_Animation {
 private:
@@ -17,7 +19,7 @@ public:
 	Unit_Animation();
 	
 	// Thay đổi FrameIndex, CycleIndex
-	void NextFrame(Unit_Json * pJson);
+	void NextFrame(Unit * pJson, Unit_Entity * pEntity);
 
 	void SetState(string pState);
 	string GetState();
@@ -27,4 +29,6 @@ public:
 
 	int GetCycleIndex();
 	void SetCycleIndex(int pCycleIndex);
+
+	void Set(string pState, int pFrameIndex, int pCycleIndex);
 };

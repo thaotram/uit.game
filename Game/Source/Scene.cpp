@@ -27,3 +27,11 @@ void Scene::Draw() {
 	});
 }
 
+void Scene::OnKeyDown(int pKeyCode) {
+	
+}
+
+void Scene::OnKeyUp(int pKeyCode) {
+
+}
+

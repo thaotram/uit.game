@@ -5,7 +5,7 @@ void Unit_Entity::Draw(Unit * pUnit) {
 	pUnit->Draw(mTransform, mSourceRect, mPosition);
 }
 void Unit_Entity::Update(Unit * pUnit) {
-	mAnimation.NextFrame(pUnit->GetJson());
+	mAnimation.NextFrame(pUnit, this);
 	mSourceRect.Update(pUnit, this);
 	mTransform.Update(pUnit, this);
 }

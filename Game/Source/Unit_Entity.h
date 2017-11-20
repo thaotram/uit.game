@@ -12,11 +12,12 @@
 class Unit;
 
 class Unit_Entity {
-private:
+protected:
 	Unit_Vector2		mPosition;
 	Unit_Animation		mAnimation;
 	Unit_Transform		mTransform;
 	Unit_SourceRect		mSourceRect;
+
 public:
 	Unit_Entity(Unit_Vector2 pPosition, string pState) {
 		mPosition = pPosition;
@@ -24,11 +25,13 @@ public:
 	};
 	void Draw(Unit * pUnit);
 	void Update(Unit * pUnit);
-
+	
 	Unit_Vector2    * GetPosition();
 	Unit_Animation  * GetAnimation();
 	Unit_Transform  * GetTransform();
 	Unit_SourceRect * GetSourceRect();
+
+	function<void()>  mEndFunction;
 };
 
 class Unit_Entities : public map<string, Unit_Entity*> {

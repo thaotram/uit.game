@@ -6,19 +6,20 @@ Unit::Unit(string pName) : mName(pName) {
 	mTexture << mName;
 
 	mCurrentTime = 0;
-	mTimePerFrame = 0.16f;
+	mTimePerFrame = 0.12f;
 }
 void Unit::Update(float dt) {
 	if (mCurrentTime >= mTimePerFrame) {
-		mCurrentTime -= mTimePerFrame;
-		if (UpdateSprite()) return;
-		mEntity.Update(this);
+		//mCurrentTime -= mTimePerFrame;
+		mCurrentTime = 0;
+		if (UpdateUnit()) return;
+		mEntities.Update(this);
 	}
 	else mCurrentTime += dt;
 }
 void Unit::Draw() {
-	if (DrawSprite()) return;
-	mEntity.Draw(this);
+	if (DrawUnit()) return;
+	mEntities.Draw(this);
 }
 
 void Unit::Draw(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vector2 pPosition)
@@ -31,6 +32,16 @@ void Unit::Draw(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vec
 		&(pPosition.V3() * GameGlobal::GetScale()),
 		0xFFFFFFFF
 	);
+}
+
+void Unit::Set(Unit_Entity * pEntity)
+{
+	mEntities["default"] = pEntity;
+}
+
+Unit_Entity * Unit::Get()
+{
+	return mEntities["default"];
 }
 
 Unit_Json * Unit::GetJson()

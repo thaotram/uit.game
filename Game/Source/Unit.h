@@ -23,13 +23,13 @@ protected:
 	Unit_Json						mJson;
 	Unit_Texture					mTexture;
 
-	Unit_Entities					mEntity;
+	Unit_Entities					mEntities;
 
 	float							mCurrentTime;
 	float 							mTimePerFrame;
 protected:
-	virtual bool UpdateSprite() { return false; };
-	virtual bool DrawSprite() { return false; };
+	virtual bool UpdateUnit() { return false; };
+	virtual bool DrawUnit() { return false; };
 public:
 	Unit(string pName);
 	~Unit() {};
@@ -42,7 +42,8 @@ public:
 		Unit_Vector2 pPosition
 	);
 
-	Unit_Entity Get()
+	void Set(Unit_Entity *);
+	Unit_Entity * Get();
 
 	Unit_Json * GetJson();
 };

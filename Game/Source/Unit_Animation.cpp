@@ -1,5 +1,6 @@
 ﻿#include "Unit_Animation.h"
-#include "Unit_Json.h"
+#include "Unit.h"
+#include "Unit_Entity.h"
 
 Unit_Animation::Unit_Animation() {
 	mState = "";
@@ -7,11 +8,18 @@ Unit_Animation::Unit_Animation() {
 	mCycleIndex = 1;
 }
 
-void Unit_Animation::NextFrame(Unit_Json * pJson) {
-	vector<int> pFrameCycle = pJson->GetFrameCycle(mState);
+void Unit_Animation::NextFrame(Unit * pUnit, Unit_Entity * pEntity) {
+	vector<int> pFrameCycle = pUnit->GetJson()->GetFrameCycle(mState);
 	int nextFrame = pFrameCycle[mCycleIndex + 1];
-	if (nextFrame > 0) 	mCycleIndex++;
-	else				mCycleIndex = -nextFrame;
+	if (nextFrame == 0) {
+		pEntity->mEndFunction();
+	}
+	else if (nextFrame > 0) {
+		mCycleIndex++;
+	}
+	else {
+		mCycleIndex = -nextFrame;
+	}
 	mFrameIndex = pFrameCycle[mCycleIndex];
 }
 
@@ -31,5 +39,11 @@ int Unit_Animation::GetCycleIndex() {
 	return mCycleIndex;
 }
 void Unit_Animation::SetCycleIndex(int pCycleIndex) {
+	mCycleIndex = pCycleIndex;
+}
+
+void Unit_Animation::Set(string pState, int pFrameIndex, int pCycleIndex) {
+	mState = pState;
+	mFrameIndex = pFrameIndex;
 	mCycleIndex = pCycleIndex;
 }

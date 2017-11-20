@@ -2,11 +2,12 @@
 #include <list>
 
 #include "GameGlobal.h"
+#include "GameInput.h"
 #include "Unit.h"
 
 using namespace std;
 
-class Scene: public map<string, Unit *>
+class Scene : public map<string, Unit *>
 {
 private:
 	void EachUnit(function<void(Unit *)> pEachUnit);
@@ -16,7 +17,7 @@ public:
 	void Update(float dt);
 	void Draw();
 
-	virtual void OnKeyDown(int pKeyCode) {}
-	virtual void OnKeyUp(int pKeyCode) {}
-	virtual void OnMouseDown(float pX, float pY) {}
+	void OnKeyDown(int pKeyCode);
+	void OnKeyUp(int pKeyCode);
+	void OnMouseDown(float pX, float pY) {}
 };

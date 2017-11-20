@@ -231,6 +231,7 @@
     <ClInclude Include="Source\Unit_Transform.h">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClInclude>
+    <ClInclude Include="Source\GameInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -290,6 +291,9 @@
     </ClCompile>
     <ClCompile Include="Source\Unit_Transform.cpp">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameInput.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
