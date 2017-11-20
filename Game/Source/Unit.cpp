@@ -7,8 +7,6 @@ Unit::Unit(string pName) : mName(pName) {
 
 	mCurrentTime = 0;
 	mTimePerFrame = 0.16f;
-
-	Update(0);
 }
 void Unit::Update(float dt) {
 	if (mCurrentTime >= mTimePerFrame) {
@@ -23,18 +21,14 @@ void Unit::Draw() {
 	mEntity.Draw(this);
 }
 
-void Unit::Draw(Unit_Transform pTransform, Unit_SourceRect pSourceRect, D3DXVECTOR2 pPosition)
+void Unit::Draw(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vector2 pPosition)
 {
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(
 		&mTexture,
 		&pSourceRect,
 		NULL,
-		&D3DXVECTOR3(
-			pPosition.x * GameGlobal::GetScale(),
-			pPosition.y * GameGlobal::GetScale(),
-			0
-		),
+		&(pPosition.V3() * GameGlobal::GetScale()),
 		0xFFFFFFFF
 	);
 }

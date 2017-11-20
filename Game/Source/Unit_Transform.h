@@ -2,6 +2,7 @@
 #include <d3d9.h>
 #include <d3dx9.h>
 #include <iostream>
+#include "Unit_Vector2.h"
 
 class Unit;
 class Unit_Entity;

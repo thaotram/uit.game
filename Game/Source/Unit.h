@@ -12,22 +12,8 @@
 #include "Unit_Transform.h"
 #include "Unit_SourceRect.h"
 
+class Unit_Entities;
 class Unit_Entity;
-
-class VECTOR2 : public D3DXVECTOR2 {
-public:
-	VECTOR2() :D3DXVECTOR2(0, 0) {};
-	VECTOR2(float x, float y) :D3DXVECTOR2(x, y) {};
-	D3DXVECTOR2 operator * (CONST D3DXVECTOR2& v) const {
-		return D3DXVECTOR2(x * v.x, y * v.y);
-	};
-	D3DXVECTOR3 V3(float pScale) {
-		return D3DXVECTOR3(x, y, 0) * pScale;
-	};
-	D3DXVECTOR2 V2() {
-		return D3DXVECTOR2(x, y);
-	};
-};
 
 class Unit
 {
@@ -37,9 +23,9 @@ protected:
 	Unit_Json						mJson;
 	Unit_Texture					mTexture;
 
-	Unit_Entity						mEntity;
+	Unit_Entities					mEntity;
 
-	float							mCurrentTime;	//	Thời gian hiện tại
+	float							mCurrentTime;
 	float 							mTimePerFrame;
 protected:
 	virtual bool UpdateSprite() { return false; };
@@ -53,14 +39,10 @@ public:
 	void Draw(
 		Unit_Transform pTransform,
 		Unit_SourceRect pSourceRect,
-		D3DXVECTOR2 pPosition
+		Unit_Vector2 pPosition
 	);
 
-	Unit_Json	   * GetJson();
-	//RECT GetSourceRect();
-	//VECTOR2 GetPosition();
-	//UNIT_ANIMATION * GetAnimation();
-	//UNIT_TRANSFORM * GetTransform();
-	//void SetPosition(float x, float y);
-	//RECT GetBound();
+	Unit_Entity Get()
+
+	Unit_Json * GetJson();
 };

@@ -11,7 +11,7 @@ Unit_Transform::Unit_Transform() {
 
 void Unit_Transform::Update(Unit * pUnit, Unit_Entity * pEntity) {
 	float pScaling = GameGlobal::GetScale();
-	VECTOR2 pFlip = { mFlip ? -1.f : 1.f, 1.f };
+	Unit_Vector2 pFlip = { mFlip ? -1.f : 1.f, 1.f };
 
 	Unit_Json * pJson = pUnit->GetJson();
 	Unit_Animation * pAnimation = pEntity->GetAnimation();
