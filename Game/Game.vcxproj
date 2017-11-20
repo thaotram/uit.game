@@ -176,8 +176,9 @@
     <ClInclude Include="Source\Unit_SourceRect.h" />
     <ClInclude Include="Source\Unit_Texture.h" />
     <ClInclude Include="Source\FinalUnit\Unit_Block.h" />
-    <ClInclude Include="Source\Debug\Unit_Debug.h" />
     <ClInclude Include="Source\Unit_Transform.h" />
+    <ClInclude Include="Source\Unit_Entity.h" />
+    <ClInclude Include="Source\Unit_Vector2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Unit.cpp" />
@@ -198,7 +199,8 @@
     <ClCompile Include="Source\Unit_Texture.cpp" />
     <ClCompile Include="Source\Unit_Transform.cpp" />
     <ClCompile Include="Source\FinalUnit\Unit_Block.cpp" />
-    <ClCompile Include="Source\Debug\Unit_Debug.cpp" />
+    <ClCompile Include="Source\Unit_Entity.cpp" />
+    <ClCompile Include="Source\Unit_Vector2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

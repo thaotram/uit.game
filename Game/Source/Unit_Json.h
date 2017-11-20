@@ -18,8 +18,7 @@ struct Frame;
 typedef Frame FRAME;
 struct State;
 typedef State STATE;
-class Json;
-typedef Json UNIT_JSON;
+class Unit_Json;
 
 struct Frame {
 	Frame() {}
@@ -41,13 +40,13 @@ struct State {
 	map<int, FRAME>	FrameList;
 };
 
-class Animation;
+class Unit_Animation;
 
-class Json : public map<string, STATE> {
+class Unit_Json : public map<string, STATE> {
 private:
 	STATE operator[](string pState);
 public:
-	Json() {};
+	Unit_Json() {};
 	void operator<<(string pName);
 
 	RECT GetFrame(string mState, int mFrameIndex);
@@ -55,8 +54,8 @@ public:
 	D3DXVECTOR2 GetBasePoint(string pState, int pFrameIndex);
 	vector<int> GetFrameCycle(string pState);
 
-	RECT GetFrame(Animation * pAnimation);
-	D3DXVECTOR2 GetTransition(Animation * pAnimation);
-	D3DXVECTOR2 GetBasePoint(Animation * pAnimation);
-	vector<int> GetFrameCycle(Animation * pAnimation);
+	RECT GetFrame(Unit_Animation * pAnimation);
+	D3DXVECTOR2 GetTransition(Unit_Animation * pAnimation);
+	D3DXVECTOR2 GetBasePoint(Unit_Animation * pAnimation);
+	vector<int> GetFrameCycle(Unit_Animation * pAnimation);
 };

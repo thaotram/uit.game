@@ -48,6 +48,9 @@
     <Filter Include="Resource Files\Debug">
       <UniqueIdentifier>{41e64fb5-e7ba-4bbe-ba85-1ab7ab9e7cf2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Unit\Unit_Properties\Entity">
+      <UniqueIdentifier>{a1916c7c-5750-410c-9daf-09d5f1e1053b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -168,9 +171,6 @@
     <ClInclude Include="Source\Scene_AgrabahMarket.h">
       <Filter>Source\Scene\FinalScene</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Texture.h">
-      <Filter>Source\Unit\Unit_Properties</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Unit_Item.h">
       <Filter>Source\Unit_Class</Filter>
     </ClInclude>
@@ -207,20 +207,30 @@
     <ClInclude Include="Source\FinalUnit\Unit_Status.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Debug\Unit_Debug.h">
-      <Filter>Source\Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Animation.h">
+    <ClInclude Include="Source\Unit_Json.h">
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit.h">
       <Filter>Source\Unit</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Json.h">
+    <ClInclude Include="Source\Unit_Vector2.h">
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Transform.h" />
-    <ClInclude Include="Source\Unit_SourceRect.h" />
+    <ClInclude Include="Source\Unit_Animation.h">
+      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Entity.h">
+      <Filter>Source\Unit\Unit_Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_SourceRect.h">
+      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Texture.h">
+      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Transform.h">
+      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -244,17 +254,8 @@
     <ClCompile Include="Source\Scene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_SourceRect.cpp">
-      <Filter>Source\Unit\Unit_Properties</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Unit_Transform.cpp">
-      <Filter>Source\Unit\Unit_Properties</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Maps.h">
       <Filter>Source\No-filter</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Unit_Texture.cpp">
-      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Source\Unit_Item.cpp">
@@ -266,17 +267,29 @@
     <ClCompile Include="Source\FinalUnit\Unit_Block.cpp">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Debug\Unit_Debug.cpp">
-      <Filter>Source\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Unit_Animation.cpp">
+    <ClCompile Include="Source\Unit_Json.cpp">
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
     <ClCompile Include="Source\Unit.cpp">
       <Filter>Source\Unit</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_Json.cpp">
+    <ClCompile Include="Source\Unit_Vector2.cpp">
       <Filter>Source\Unit\Unit_Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Animation.cpp">
+      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Entity.cpp">
+      <Filter>Source\Unit\Unit_Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_SourceRect.cpp">
+      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Texture.cpp">
+      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Unit_Transform.cpp">
+      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

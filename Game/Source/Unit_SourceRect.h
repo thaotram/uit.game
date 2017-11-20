@@ -1,15 +1,19 @@
 ﻿#pragma once
 #include <d3d9.h>
 #include <d3dx9.h>
+#include <utility>
 #include <iostream>
 
-class Unit;
+using namespace std;
 
-class UNIT_SOURCERECT : public RECT {
+class Unit;
+class Unit_Entity;
+
+class Unit_SourceRect : public RECT {
 public:
 	// Lấy thông tin cho SourceRect từ
-	// + Animation > Frame {mState, mFrameIndex}
-	Unit * operator<<(Unit * pUnit);
+	// + Unit_Animation > Frame {mState, mFrameIndex}
+	void Update(Unit * pUnit, Unit_Entity * pEntity);
 	void operator=(RECT pRect);
 
 	LONG GetWidth() {

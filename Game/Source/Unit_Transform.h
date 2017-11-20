@@ -4,17 +4,18 @@
 #include <iostream>
 
 class Unit;
+class Unit_Entity;
 
-class UNIT_TRANSFORM: public D3DXMATRIX {
+class Unit_Transform: public D3DXMATRIX {
 private:
 	bool mFlip;	// Flip
 public:
-	UNIT_TRANSFORM();
+	Unit_Transform();
 
 	// Lấy thông tin Transform từ
-	// + Animation > BasePoint, Transition {mState, mFrameIndex}
+	// + Unit_Animation > BasePoint, Transition {mState, mFrameIndex}
 	// + Unit > Position {mPosition}
 	// + Transform > Flip {this.mFlip}
-	Unit * operator<< (Unit * pUnit);
+	void Update(Unit * pUnit, Unit_Entity * pEntity);
 	void SetFlip(bool pFlip);
 };

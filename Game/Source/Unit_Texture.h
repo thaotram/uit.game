@@ -7,13 +7,11 @@
 
 using namespace std;
 
-class Texture {
+class Unit_Texture {
 private:
 	LPDIRECT3DTEXTURE9 mSelf;
 public:
-	Texture() {};
+	Unit_Texture() {};
 	void operator<<(string pName);
 	LPDIRECT3DTEXTURE9 operator&();
 };
-
-typedef Texture UNIT_TEXTURE;

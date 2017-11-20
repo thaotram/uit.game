@@ -8,66 +8,38 @@ Unit::Unit(string pName) : mName(pName) {
 	mCurrentTime = 0;
 	mTimePerFrame = 0.16f;
 
-	mPosition = { 0, 0 };
 	Update(0);
 }
 void Unit::Update(float dt) {
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
-
 		if (UpdateSprite()) return;
-
-		mAnimation.NextFrame(mJson);
-		mSourceRect << this;
-		mTransform << this;
+		mEntity.Update(this);
 	}
 	else mCurrentTime += dt;
 }
 void Unit::Draw() {
 	if (DrawSprite()) return;
-	Draw(mTransform, mSourceRect, mPosition);
+	mEntity.Draw(this);
 }
 
-void Unit::Draw(UNIT_TRANSFORM pTransform, UNIT_SOURCERECT pSourceRect, VECTOR2 pPosition)
+void Unit::Draw(Unit_Transform pTransform, Unit_SourceRect pSourceRect, D3DXVECTOR2 pPosition)
 {
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(
 		&mTexture,
 		&pSourceRect,
 		NULL,
-		&pPosition.V3(GameGlobal::GetScale()),
+		&D3DXVECTOR3(
+			pPosition.x * GameGlobal::GetScale(),
+			pPosition.y * GameGlobal::GetScale(),
+			0
+		),
 		0xFFFFFFFF
 	);
 }
 
-RECT Unit::GetSourceRect() {
-	return mSourceRect;
-}
-VECTOR2 Unit::GetPosition() {
-	return mPosition;
-}
-
-UNIT_JSON * Unit::GetJson()
+Unit_Json * Unit::GetJson()
 {
 	return &mJson;
 }
-
-UNIT_ANIMATION * Unit::GetAnimation() {
-	return &mAnimation;
-}
-UNIT_TRANSFORM * Unit::GetTransform() {
-	return &mTransform;
-}
-
-void Unit::SetPosition(float x, float y) {
-	mPosition = { x, y };
-}
-RECT Unit::GetBound() {
-	return RECT{
-		(LONG)(mPosition.x),
-		(LONG)(mPosition.y),
-		(LONG)(mPosition.x + mSourceRect.GetWidth()),
-		(LONG)(mPosition.y + mSourceRect.GetHeight())
-	};
-}
-

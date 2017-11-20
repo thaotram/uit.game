@@ -1,35 +1,35 @@
 ﻿#include "Unit_Animation.h"
 #include "Unit_Json.h"
 
-Animation::Animation() {
+Unit_Animation::Unit_Animation() {
 	mState = "";
 	mFrameIndex = 1;
 	mCycleIndex = 1;
 }
 
-void Animation::NextFrame(Json pJson) {
-	vector<int> pFrameCycle = pJson.GetFrameCycle(mState);
+void Unit_Animation::NextFrame(Unit_Json * pJson) {
+	vector<int> pFrameCycle = pJson->GetFrameCycle(mState);
 	int nextFrame = pFrameCycle[mCycleIndex + 1];
 	if (nextFrame > 0) 	mCycleIndex++;
 	else				mCycleIndex = -nextFrame;
 	mFrameIndex = pFrameCycle[mCycleIndex];
 }
 
-void Animation::SetState(string pState) {
+void Unit_Animation::SetState(string pState) {
 	mState = pState;
 }
-string Animation::GetState() {
+string Unit_Animation::GetState() {
 	return mState;
 }
-int Animation::GetFrameIndex() {
+int Unit_Animation::GetFrameIndex() {
 	return mFrameIndex;
 }
-void Animation::SetFrameIndex(int pFrameIndex) {
+void Unit_Animation::SetFrameIndex(int pFrameIndex) {
 	mFrameIndex = pFrameIndex;
 }
-int Animation::GetCycleIndex() {
+int Unit_Animation::GetCycleIndex() {
 	return mCycleIndex;
 }
-void Animation::SetCycleIndex(int pCycleIndex) {
+void Unit_Animation::SetCycleIndex(int pCycleIndex) {
 	mCycleIndex = pCycleIndex;
 }

@@ -4,15 +4,19 @@
 
 #include "GameGlobal.h"
 
+#include "Unit_Entity.h"
+
 #include "Unit_Json.h"
 #include "Unit_Texture.h"
 #include "Unit_Animation.h"
 #include "Unit_Transform.h"
 #include "Unit_SourceRect.h"
 
+class Unit_Entity;
+
 class VECTOR2 : public D3DXVECTOR2 {
 public:
-	VECTOR2() {};
+	VECTOR2() :D3DXVECTOR2(0, 0) {};
 	VECTOR2(float x, float y) :D3DXVECTOR2(x, y) {};
 	D3DXVECTOR2 operator * (CONST D3DXVECTOR2& v) const {
 		return D3DXVECTOR2(x * v.x, y * v.y);
@@ -20,19 +24,9 @@ public:
 	D3DXVECTOR3 V3(float pScale) {
 		return D3DXVECTOR3(x, y, 0) * pScale;
 	};
-};
-
-typedef VECTOR2 UNIT_POSITION;
-
-class Entity {
-private:
-	UNIT_ANIMATION					mAnimation;
-	UNIT_TRANSFORM					mTransform;
-	UNIT_SOURCERECT					mSourceRect;
-	UNIT_POSITION					mPosition;
-public:
-	void Draw() {
-	}
+	D3DXVECTOR2 V2() {
+		return D3DXVECTOR2(x, y);
+	};
 };
 
 class Unit
@@ -40,13 +34,10 @@ class Unit
 protected:
 	string							mName;
 	LPD3DXSPRITE					mSpriteHandler;
-	UNIT_JSON						mJson;
-	UNIT_TEXTURE					mTexture;
+	Unit_Json						mJson;
+	Unit_Texture					mTexture;
 
-	UNIT_ANIMATION					mAnimation;
-	UNIT_TRANSFORM					mTransform;
-	UNIT_SOURCERECT					mSourceRect;
-	UNIT_POSITION					mPosition;
+	Unit_Entity						mEntity;
 
 	float							mCurrentTime;	//	Thời gian hiện tại
 	float 							mTimePerFrame;
@@ -60,16 +51,16 @@ public:
 	void Update(float dt);
 	void Draw();
 	void Draw(
-		UNIT_TRANSFORM pTransform,
-		UNIT_SOURCERECT pSourceRect,
-		VECTOR2 pPosition
+		Unit_Transform pTransform,
+		Unit_SourceRect pSourceRect,
+		D3DXVECTOR2 pPosition
 	);
 
-	RECT GetSourceRect();
-	VECTOR2 GetPosition();
-	UNIT_JSON	   * GetJson();
-	UNIT_ANIMATION * GetAnimation();
-	UNIT_TRANSFORM * GetTransform();
-	void SetPosition(float x, float y);
-	RECT GetBound();
+	Unit_Json	   * GetJson();
+	//RECT GetSourceRect();
+	//VECTOR2 GetPosition();
+	//UNIT_ANIMATION * GetAnimation();
+	//UNIT_TRANSFORM * GetTransform();
+	//void SetPosition(float x, float y);
+	//RECT GetBound();
 };

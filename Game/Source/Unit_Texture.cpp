@@ -1,6 +1,6 @@
 ﻿#include "Unit_Texture.h"
 
-void Texture::operator<<(string pName) {
+void Unit_Texture::operator<<(string pName) {
 	pName = "Resources/" + pName + ".png";
 	D3DXIMAGE_INFO		pImageInfo;
 	LPCSTR				pSrcFile = pName.c_str();
@@ -21,11 +21,11 @@ void Texture::operator<<(string pName) {
 		0xffff00ff,						// Màu trong suốt có dạng 0x12345678 (32 bit tất cả)
 		NULL,							// [Out] Thông tin của hình ảnh
 		NULL,
-		&mSelf						// [Out] Đại diện cho đối tượng Texture
+		&mSelf						// [Out] Đại diện cho đối tượng Unit_Texture
 	);
 }
 
-LPDIRECT3DTEXTURE9 Texture::operator&()
+LPDIRECT3DTEXTURE9 Unit_Texture::operator&()
 {
 	return mSelf;
 }

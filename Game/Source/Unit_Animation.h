@@ -6,18 +6,18 @@
 
 #include "GameDebug.h"
 
-class Json;
+class Unit_Json;
 
-class Animation {
+class Unit_Animation {
 private:
 	string	mState;
 	int		mFrameIndex;
 	int		mCycleIndex;
 public:
-	Animation();
+	Unit_Animation();
 	
 	// Thay đổi FrameIndex, CycleIndex
-	void NextFrame(Json pJson);
+	void NextFrame(Unit_Json * pJson);
 
 	void SetState(string pState);
 	string GetState();
@@ -28,5 +28,3 @@ public:
 	int GetCycleIndex();
 	void SetCycleIndex(int pCycleIndex);
 };
-
-typedef Animation UNIT_ANIMATION;
