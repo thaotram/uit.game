@@ -48,7 +48,7 @@ class Animation : public map<
 > {
 private:
 	string	mState;
-	int		mFrame;
+	int		mFrameIndex;
 	int		mCycleIndex;
 public:
 	Animation();
@@ -56,16 +56,19 @@ public:
 
 	// Đi đến Frame tiếp theo
 	void operator++(int);
-	
+
 	UNIT_STATE operator[](string pState);
 
 	RECT GetFrame();
-	RECT GetFrame(string pState, int pFrame);
 	D3DXVECTOR2 GetTransition();
-	D3DXVECTOR2 GetTransition(string pState, int pFrame);
 	D3DXVECTOR2 GetBasePoint();
-	D3DXVECTOR2 GetBasePoint(string pState);
 
 	void SetState(string pState);
 	string GetState();
+
+	int GetFrameIndex();
+	void SetFrameIndex(int pFrameIndex);;
+
+	int GetCycleIndex();
+	void SetCycleIndex(int pCycleIndex);
 };

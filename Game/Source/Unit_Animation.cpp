@@ -2,7 +2,7 @@
 
 Animation::Animation() {
 	mState = "";
-	mFrame = 1;
+	mFrameIndex = 1;
 	mCycleIndex = 1;
 }
 
@@ -76,39 +76,40 @@ void Animation::operator++(int) {
 	int nextFrame = frameCycle[mCycleIndex + 1];
 	if (nextFrame > 0) 	mCycleIndex++;
 	else				mCycleIndex = -nextFrame;
-	mFrame = frameCycle[mCycleIndex];
+	mFrameIndex = frameCycle[mCycleIndex];
 }
 UNIT_STATE Animation::operator[](string pState)
 {
-	return this->find(pState)->second;
+	return find(pState)->second;
 }
+
 RECT Animation::GetFrame() {
-	return GetFrame(mState, mFrame);
+	return (*this)[mState].FrameList[mFrameIndex].Rect;
 }
-RECT Animation::GetFrame(string pState, int pFrame)
-{
-	return (*this)[pState].FrameList[pFrame].Rect;
-}
-
 D3DXVECTOR2 Animation::GetTransition() {
-	return GetTransition(mState, mFrame);
+	return (*this)[mState].FrameList[mFrameIndex].Transition;
 }
-D3DXVECTOR2 Animation::GetTransition(string pState, int pFrame) {
-	return (*this)[pState].FrameList[pFrame].Transition;
-}
-
 D3DXVECTOR2 Animation::GetBasePoint() {
-	return GetBasePoint(mState);
-}
-D3DXVECTOR2 Animation::GetBasePoint(string pState) {
-	return (*this)[pState].BasePoint;
+	return (*this)[mState].BasePoint;
 }
 
 void Animation::SetState(string pState) {
 	mState = pState;
-	mFrame = 1;
+	mFrameIndex = 1;
 	mCycleIndex = 1;
 }
 string Animation::GetState() {
 	return mState;
+}
+int Animation::GetFrameIndex() {
+	return mFrameIndex;
+}
+void Animation::SetFrameIndex(int pFrameIndex) {
+	mFrameIndex = pFrameIndex;
+}
+int Animation::GetCycleIndex() {
+	return mCycleIndex;
+}
+void Animation::SetCycleIndex(int pCycleIndex) {
+	mCycleIndex = pCycleIndex;
 }

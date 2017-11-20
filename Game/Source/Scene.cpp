@@ -10,20 +10,20 @@ void Scene::EachUnit(function<void(Unit*)> pEachUnit) {
 //! Public
 Scene::Scene() {}
 Scene::~Scene() {
-	EachUnit([=](Unit * item) {
-		delete item;
+	EachUnit([=](Unit * pItem) {
+		delete pItem;
 	});
 }
 
 void Scene::Update(float dt) {
-	EachUnit([=](Unit * item) {
-		item->Update(dt);
+	EachUnit([=](Unit * pItem) {
+		pItem->Update(dt);
 	});
 }
 
 void Scene::Draw() {
-	EachUnit([=](Unit * item) {
-		item->Draw();
+	EachUnit([=](Unit * pItem) {
+		pItem->Draw();
 	});
 }
 

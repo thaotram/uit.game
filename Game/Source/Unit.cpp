@@ -1,11 +1,5 @@
 ﻿#include "Unit.h"
 
-//!Public
-// Được gọi chính xác trong hàm Update, không lệ thuộc "dt"
-bool Unit::UpdateAnimation() {
-	return false;
-}
-
 Unit::Unit(string pName) : mName(pName) {
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
 	mTexture = UNIT_TEXTURE::Get("Resources/" + mName + ".png");
@@ -25,9 +19,8 @@ void Unit::Update(float dt) {
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
 
-		if (!UpdateAnimation()) {
-			mAnimation++;
-		};
+		UpdateAnimation();
+
 		mSourceRect << this;
 		mTransform << this;
 	}

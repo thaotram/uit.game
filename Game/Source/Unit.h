@@ -38,7 +38,7 @@ protected:
 	float							mCurrentTime;	//	Thời gian hiện tại
 	float 							mTimePerFrame;
 protected:
-	virtual bool UpdateAnimation();
+	virtual void UpdateAnimation() {};
 public:
 	Unit(string pName);
 	~Unit() {};
