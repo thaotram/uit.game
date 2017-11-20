@@ -83,22 +83,22 @@ vector<int> Unit_Json::GetFrameCycle(string pState) {
 	return (*this)[pState].FrameCycle;
 }
 
-RECT Unit_Json::GetFrame(Unit_Animation * pAnimation) {
+RECT Unit_Json::GetFrame(Unit * pUnit, Unit_Animation * pAnimation) {
 	return GetFrame(
 		pAnimation->GetState(),
-		pAnimation->GetFrameIndex()
+		pAnimation->GetFrameIndex(pUnit)
 	);
 }
-D3DXVECTOR2 Unit_Json::GetTransition(Unit_Animation * pAnimation) {
+D3DXVECTOR2 Unit_Json::GetTransition(Unit * pUnit, Unit_Animation * pAnimation) {
 	return GetTransition(
 		pAnimation->GetState(),
-		pAnimation->GetFrameIndex()
+		pAnimation->GetFrameIndex(pUnit)
 	);
 }
-D3DXVECTOR2 Unit_Json::GetBasePoint(Unit_Animation * pAnimation) {
+D3DXVECTOR2 Unit_Json::GetBasePoint(Unit * pUnit, Unit_Animation * pAnimation) {
 	return GetBasePoint(
 		pAnimation->GetState(),
-		pAnimation->GetFrameIndex()
+		pAnimation->GetFrameIndex(pUnit)
 	);
 }
 vector<int> Unit_Json::GetFrameCycle(Unit_Animation * pAnimation) {

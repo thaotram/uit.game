@@ -4,6 +4,7 @@
 
 Unit_Animation::Unit_Animation() {
 	mState = "";
+	//mFrameIndex = 1;
 	mCycleIndex = 1;
 }
 

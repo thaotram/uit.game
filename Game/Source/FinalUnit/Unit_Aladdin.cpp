@@ -12,11 +12,11 @@ Unit_Aladdin::Unit_Aladdin() : Unit("Aladdin") {
 bool Unit_Aladdin::UpdateUnit()
 {
 	if (GameInput::GetKeyCode(VK_UP)) {
-		this->Get()->GetAnimation()->Set("stand_up", 1, 1);
+		this->Get()->GetAnimation()->Set("stand_up", 1);
 	}
 	else {
 		if (this->Get()->GetAnimation()->GetState() == "stand_up") {
-			this->Get()->GetAnimation()->Set("stand_up_to_still", 1, 1);
+			this->Get()->GetAnimation()->Set("stand_up_to_still", 1);
 		};
 	}
 	//mEntities.Update(this);

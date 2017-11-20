@@ -54,8 +54,8 @@ public:
 	D3DXVECTOR2 GetBasePoint(string pState, int pFrameIndex);
 	vector<int> GetFrameCycle(string pState);
 
-	RECT GetFrame(Unit_Animation * pAnimation);
-	D3DXVECTOR2 GetTransition(Unit_Animation * pAnimation);
-	D3DXVECTOR2 GetBasePoint(Unit_Animation * pAnimation);
+	RECT GetFrame(Unit * pUnit, Unit_Animation * pAnimation);
+	D3DXVECTOR2 GetTransition(Unit * pUnit, Unit_Animation * pAnimation);
+	D3DXVECTOR2 GetBasePoint(Unit * pUnit, Unit_Animation * pAnimation);
 	vector<int> GetFrameCycle(Unit_Animation * pAnimation);
 };

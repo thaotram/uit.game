@@ -4,6 +4,7 @@
 
 void Unit_SourceRect::Update(Unit * pUnit, Unit_Entity * pEntity) {
 	(*this) = pUnit->GetJson()->GetFrame(
+		pUnit,
 		pEntity->GetAnimation()
 	);
 }

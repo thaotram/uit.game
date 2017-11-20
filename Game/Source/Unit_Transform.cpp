@@ -16,9 +16,9 @@ void Unit_Transform::Update(Unit * pUnit, Unit_Entity * pEntity) {
 	Unit_Json * pJson = pUnit->GetJson();
 	Unit_Animation * pAnimation = pEntity->GetAnimation();
 
-	D3DXVECTOR2 pBasePoint = pJson->GetBasePoint(pAnimation);
-	D3DXVECTOR2 pTransition = pJson->GetTransition(pAnimation);
-	D3DXVECTOR2	* pPosition = pEntity->GetPosition(); 
+	D3DXVECTOR2 pBasePoint = pJson->GetBasePoint(pUnit, pAnimation);
+	D3DXVECTOR2 pTransition = pJson->GetTransition(pUnit, pAnimation);
+	D3DXVECTOR2	* pPosition = pEntity->GetPosition();
 
 	D3DXMatrixTransformation2D(
 		this,											//		 D3DXMATRIX	 * pOut

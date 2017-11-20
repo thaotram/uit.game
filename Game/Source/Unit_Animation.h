@@ -13,22 +13,19 @@ class Unit_Entity;
 class Unit_Animation {
 private:
 	string	mState;
-	int		mFrameIndex;
 	int		mCycleIndex;
 public:
 	Unit_Animation();
 	
-	// Thay đổi FrameIndex, CycleIndex
 	void NextFrame(Unit * pJson, Unit_Entity * pEntity);
 
 	void SetState(string pState);
 	string GetState();
 
-	int GetFrameIndex();
-	void SetFrameIndex(int pFrameIndex);;
+	int GetFrameIndex(Unit * pUnit);
 
 	int GetCycleIndex();
 	void SetCycleIndex(int pCycleIndex);
 
-	void Set(string pState, int pFrameIndex, int pCycleIndex);
+	void Set(string pState, int pCycleIndex);
 };
