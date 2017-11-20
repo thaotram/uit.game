@@ -4,10 +4,10 @@ void Texture::Initialization(string filePath) {
 	D3DXIMAGE_INFO		pImageInfo;
 	LPCSTR				pSrcFile = filePath.c_str();
 	D3DXGetImageInfoFromFileA(pSrcFile, &pImageInfo);
-
+	//auto mm = (LPDIRECT3DTEXTURE9)this;
 	D3DXCreateTextureFromFileExA
 	(
-		GameGlobal::GetDevice(), // Đại diện cho thiết bị
+		GameGlobal::GetDevice(),		// Đại diện cho thiết bị
 		pSrcFile,						// Đường dẫn đến file
 		pImageInfo.Width,
 		pImageInfo.Height,
@@ -20,6 +20,11 @@ void Texture::Initialization(string filePath) {
 		0xffff00ff,						// Màu trong suốt có dạng 0x12345678 (32 bit tất cả)
 		NULL,							// [Out] Thông tin của hình ảnh
 		NULL,
-		&mSelf							// [Out] Đại diện cho đối tượng Texture
+		&mSelf						// [Out] Đại diện cho đối tượng Texture
 	);
+}
+
+LPDIRECT3DTEXTURE9 Texture::operator&()
+{
+	return mSelf;
 }

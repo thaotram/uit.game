@@ -8,14 +8,12 @@
 using namespace std;
 
 class Texture {
-private: 
+private:
 	LPDIRECT3DTEXTURE9 mSelf;
 public:
 	Texture() {};
 	void Initialization(string filePath);
-	LPDIRECT3DTEXTURE9 Get() {
-		return mSelf;
-	}
+	LPDIRECT3DTEXTURE9 operator&();
 };
 
 typedef Texture UNIT_TEXTURE;

@@ -33,7 +33,7 @@ void Unit::Draw(UNIT_TRANSFORM pTransform, UNIT_SOURCERECT pSourceRect, VECTOR2 
 {
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(
-		mTexture.Get(),
+		&mTexture,
 		&pSourceRect,
 		&mCenter,
 		&pPosition.V3(GameGlobal::GetScale()),

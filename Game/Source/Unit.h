@@ -29,7 +29,6 @@ protected:
 	UNIT_TEXTURE					mTexture;
 	UNIT_ANIMATION					mAnimation;
 
-
 	UNIT_TRANSFORM					mTransform;
 	UNIT_SOURCERECT					mSourceRect;
 
