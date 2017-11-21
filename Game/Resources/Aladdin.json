@@ -149,9 +149,9 @@
             }
         },
         "sit_throwapple": {
-            "note": "ngồi ném táo (UP + Z)",
+            "note": "ngồi ném táo (DOWN + Z)",
             "basePoint": [21, 43],
-            "frameCycle": [1, 2, 3, 4, 5, -1],
+            "frameCycle": [1, 2, 3, 4, 5, 0],
             "frame": {
                 "1": [9, 571, 37, 44, 0, 0],
                 "2": [58, 567, 37, 48, 0, -4],

@@ -5,6 +5,7 @@ GameGlobal::~GameGlobal() {}
 
 // Init Value
 
+map<int, bool> GameGlobal::mInput;
 int GameGlobal::mWidth = 0;
 int GameGlobal::mHeight = 0;
 float GameGlobal::mFPS = 1;

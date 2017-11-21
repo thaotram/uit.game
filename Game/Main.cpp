@@ -11,7 +11,6 @@
 #include <json.hpp>
 
 #include "Source/Game.h"
-#include "Source/GameInput.h"
 #include "Source/GameGlobal.h"
 #include "Source/SceneManager.h"
 
@@ -143,6 +142,7 @@ int InitializeDevice()
 // Được gọi trong hàm InitializeWindow trong hàm main
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+	map<int, bool> * GameInput = GameGlobal::GetInput();
 	// Message ở đây là các event của windows
 	switch (message)
 	{
@@ -158,11 +158,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 	case WM_KEYDOWN:
 		//SceneManager::GetInstance()->GetCurrentScene()->OnKeyDown(wParam);
-		GameInput::SetKeyCode(wParam, true);
+		(*GameInput)[wParam] = true;
 		break;
 	case WM_KEYUP:
 		//SceneManager::GetInstance()->GetCurrentScene()->OnKeyUp(wParam);
-		GameInput::SetKeyCode(wParam, false);
+		(*GameInput)[wParam] = false;
 		break;
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);

@@ -28,6 +28,11 @@ string Unit_Animation::GetState() {
 	return mState;
 }
 
+string * Unit_Animation::State()
+{
+	return &mState;
+}
+
 int Unit_Animation::GetFrameIndex(Unit * pUnit) {
 	vector<int> pFrameCycle = pUnit->GetJson()->GetFrameCycle(mState);
 	return pFrameCycle[mCycleIndex];

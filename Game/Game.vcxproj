@@ -152,7 +152,6 @@
     <Image Include="Resources\Status.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\GameInput.h" />
     <ClInclude Include="Source\Unit.h" />
     <ClInclude Include="Source\Unit_Animation.h" />
     <ClInclude Include="Source\Unit_Item.h" />
@@ -182,7 +181,6 @@
     <ClInclude Include="Source\Unit_Vector2.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\GameInput.cpp" />
     <ClCompile Include="Source\Unit.cpp" />
     <ClCompile Include="Source\Unit_Animation.cpp" />
     <ClCompile Include="Source\Unit_Item.cpp" />

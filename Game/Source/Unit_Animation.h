@@ -22,6 +22,8 @@ public:
 	void SetState(string pState);
 	string GetState();
 
+	string * State();
+
 	int GetFrameIndex(Unit * pUnit);
 
 	int GetCycleIndex();

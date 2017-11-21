@@ -1,9 +1,10 @@
 #pragma once
 #include "../Unit.h"
-#include "../GameInput.h"
 
 class Unit_Aladdin : public Unit {
 private:
+	Unit_Animation * animation;
+	string * state;
 	int hp;
 public:
 	Unit_Aladdin();

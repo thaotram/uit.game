@@ -2,7 +2,6 @@
 #include <list>
 
 #include "GameGlobal.h"
-#include "GameInput.h"
 #include "Unit.h"
 
 using namespace std;
