@@ -6,13 +6,13 @@ Unit::Unit(string pName) : mName(pName) {
 	mTexture << mName;
 
 	mCurrentTime = 0;
-	mTimePerFrame = 0.1f;
+	mTimePerFrame = 0.07f;
 }
 void Unit::Update(float dt) {
 	if (mCurrentTime >= mTimePerFrame) {
-		//mCurrentTime -= mTimePerFrame;
-		mCurrentTime = 0;
-		mJson << mName;
+		mCurrentTime -= mTimePerFrame;
+		//mCurrentTime = 0;
+		//mJson << mName;
 
 		if (UpdateUnit()) return;
 		mEntities.Update(this);
