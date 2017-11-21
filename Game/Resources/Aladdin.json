@@ -137,7 +137,7 @@
                 "4": [378, 516, 53, 35, 3, 16]
             }
         },
-        "stand_sit_to_stand": {
+        "stand_sit_to_still": {
             "note": "ngồi xuống (Down)",
             "basePoint": [27, 49],
             "frameCycle": [4, 3, 2, 1, 0],
