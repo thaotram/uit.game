@@ -42,6 +42,14 @@ bool Unit_Aladdin::UpdateUnit()
 		if (K_DOWN) {
 			animation->Set("sit", 1);
 		}
+		if (K_RIGHT) {
+			animation->Set("run", 1);
+			this->Get()->GetTransform()->SetFlip(false);
+		}
+		if (K_LEFT) {
+			animation->Set("run", 1);
+			this->Get()->GetTransform()->SetFlip(true);
+		}
 		if (K_Z) {
 			animation->Set("stand_throwapple", 1, "stand_still", 1);
 		}
@@ -82,7 +90,27 @@ bool Unit_Aladdin::UpdateUnit()
 			animation->Set("stand_jump", 1, "sit", 1);	//? Lỗi
 		}
 	}
-	if (*state == "sit_throwapple") {}
+	if (*state == "run") {
+		if (K_RIGHT) {
+			this->Get()->GetTransform()->SetFlip(false);
+		}
+		if (K_LEFT) {
+			this->Get()->GetTransform()->SetFlip(true);
+		}
+		if (!K_RIGHT && !K_LEFT) {
+			animation->Set("stand_still", 1);
+
+		}
+		//if (K_Z) {
+		//	animation->Set("sit_throwapple", 1, "sit", 4);
+		//}
+		//if (K_X) {
+		//	animation->Set("sit_cut", 1, "sit", 4);
+		//}
+		//if (K_C) {
+		//	animation->Set("stand_jump", 1, "sit", 1);	//? Lỗi
+		//}
+	}
 
 
 	return false;
