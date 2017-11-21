@@ -27,9 +27,6 @@
     <Filter Include="Resource Files\Map">
       <UniqueIdentifier>{2b49052b-e3d3-4056-9785-fceb5aa48e2f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\No-filter">
-      <UniqueIdentifier>{45e37737-5674-49e3-a11d-883f0fe09721}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Unit">
       <UniqueIdentifier>{4b2bf328-e013-4829-815d-9671e33e5a30}</UniqueIdentifier>
     </Filter>
@@ -50,6 +47,9 @@
     </Filter>
     <Filter Include="Source\Unit\Unit_Properties\Entity">
       <UniqueIdentifier>{a1916c7c-5750-410c-9daf-09d5f1e1053b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Unit\FinalMap">
+      <UniqueIdentifier>{45e37737-5674-49e3-a11d-883f0fe09721}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -231,7 +231,9 @@
     <ClInclude Include="Source\Unit_Transform.h">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene_AgrabahMarket_Map.h" />
+    <ClInclude Include="Source\Map_AgrabahMarket.h">
+      <Filter>Source\Unit\FinalMap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -289,14 +291,14 @@
     <ClCompile Include="Source\Unit_Transform.cpp">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scene_AgrabahMarket_Map.cpp">
-      <Filter>Source\No-filter</Filter>
-    </ClCompile>
     <ClCompile Include="Source\FinalUnit\Unit_Camel.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\FinalUnit\Unit_Guards.cpp">
       <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Map_AgrabahMarket.cpp">
+      <Filter>Source\Unit\FinalMap</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

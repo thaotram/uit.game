@@ -30,8 +30,6 @@ public:
 	Unit_Animation  * GetAnimation();
 	Unit_Transform  * GetTransform();
 	Unit_SourceRect * GetSourceRect();
-
-	function<void()>  mToZeroFunction;
 };
 
 class Unit_Entities : public map<string, Unit_Entity*> {

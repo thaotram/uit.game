@@ -4,11 +4,11 @@
 #include "FinalUnit/Unit_Aladdin.h"
 #include "FinalUnit/Unit_Guards.h"
 
-#include "Scene_AgrabahMarket_Map.h"
+#include "Map_AgrabahMarket.h"
 
 
 AgrabahMarket::AgrabahMarket() {
-	(*this)["1"] = new Scene_AgrabahMarket_Map();
+	(*this)["1"] = new Map_AgrabahMarket();
 	(*this)["3"] = new Unit_Aladdin();
 	(*this)["4"] = new Unit_Guards();
 }

@@ -3,7 +3,7 @@
     "startFrame": 1,
     "time": 0.1,
     "states": {
-        "stand_still": {
+        "stand": {
             "note": "Ghi chú trong này ",
             "basePoint": [19, 49],
             "frameCycle": [1, 2, 3, 4, 3, 5, 6, 7, 6, 5, -3],

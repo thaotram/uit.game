@@ -1,6 +1,7 @@
 #include "Unit_Entity.h"
 #include "Unit.h"
 
+//! Unit_Entity
 void Unit_Entity::Draw(Unit * pUnit) {
 	pUnit->Draw(mTransform, mSourceRect, mPosition);
 }
@@ -23,6 +24,7 @@ Unit_Transform * Unit_Entity::GetTransform() {
 	return &mTransform;
 }
 
+//! Unit_Entities
 void Unit_Entities::EachEntity(function<void(Unit_Entity*)> pEachEntity) {
 	for (auto &unit : *this) {
 		pEachEntity(unit.second);

@@ -12,7 +12,6 @@ void Unit_Animation::NextFrame(Unit * pUnit, Unit_Entity * pEntity) {
 	int nextFrame = pFrameCycle[mCycleIndex + 1];
 	if (nextFrame == 0) {
 		Set(mNextState, mNextCycleIndex);
-		//pEntity->mToZeroFunction();
 	}
 	else if (nextFrame > 0) {
 		mCycleIndex++;
