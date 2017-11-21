@@ -61,15 +61,15 @@ bool Unit_Aladdin::UpdateUnit()
 		}
 	}
 	if (*state == "up") {
+		if (!K_UP) {
+			animation->Set("up_to_stand", 1, "stand_still", 1);
+			return false;
+		}
 		if (K_RIGHT) {
 			this->Get()->GetTransform()->SetFlip(false);
 		}
 		if (K_LEFT) {
 			this->Get()->GetTransform()->SetFlip(true);
-		}
-		if (!K_UP) {
-			animation->Set("up_to_stand", 1, "stand_still", 1);
-			return false;
 		}
 		if (K_Z) {
 			animation->Set("stand_throwapple", 1, "up", 3);
@@ -82,15 +82,15 @@ bool Unit_Aladdin::UpdateUnit()
 		}
 	}
 	if (*state == "sit") {
+		if (!K_DOWN) {
+			animation->Set("sit_to_stand", 1, "stand_still", 1);
+			return false;
+		}
 		if (K_RIGHT) {
 			this->Get()->GetTransform()->SetFlip(false);
 		}
 		if (K_LEFT) {
 			this->Get()->GetTransform()->SetFlip(true);
-		}
-		if (!K_DOWN) {
-			animation->Set("sit_to_stand", 1, "stand_still", 1);
-			return false;
 		}
 		if (K_Z) {
 			animation->Set("sit_throwapple", 1, "sit", 4);
@@ -105,11 +105,11 @@ bool Unit_Aladdin::UpdateUnit()
 	if (*state == "run") {
 		if (K_RIGHT) {
 			this->Get()->GetTransform()->SetFlip(false);
-			*(this->Get()->GetPosition()) += Unit_Vector2(13, 0);
+			*(this->Get()->GetPosition()) += Unit_Vector2(12, 0);
 		}
 		if (K_LEFT) {
 			this->Get()->GetTransform()->SetFlip(true);
-			*(this->Get()->GetPosition()) += Unit_Vector2(-13, 0);
+			*(this->Get()->GetPosition()) += Unit_Vector2(-11, 0);
 		}
 		if (!K_RIGHT && !K_LEFT) {
 			animation->Set("stand_still", 1);

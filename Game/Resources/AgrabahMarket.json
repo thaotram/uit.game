@@ -5,7 +5,7 @@
     "states": {
         "back": {
             "frameCycle": [ 1, -1 ],
-            "basePoint": [ 0, 595],
+            "basePoint": [ 0, 624],
             "frame": {
                 "1": [ 0, 0, 4771, 686, 0, 0 ]
             }

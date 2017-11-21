@@ -152,6 +152,7 @@
     <Image Include="Resources\Status.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Scene_AgrabahMarket_Map.h" />
     <ClInclude Include="Source\Unit.h" />
     <ClInclude Include="Source\Unit_Animation.h" />
     <ClInclude Include="Source\Unit_Item.h" />
@@ -190,7 +191,7 @@
     <ClCompile Include="Source\GameTime.cpp" />
     <ClCompile Include="Source\GameDebug.h" />
     <ClCompile Include="Source\SceneManager.cpp" />
-    <ClCompile Include="Source\Maps.h" />
+    <ClCompile Include="Source\Scene_AgrabahMarket_Map.cpp" />
     <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="Source\Scene_AgrabahMarket.cpp" />
     <ClCompile Include="Source\FinalUnit\Unit_Aladdin.cpp" />
