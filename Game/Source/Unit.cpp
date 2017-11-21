@@ -12,7 +12,7 @@ void Unit::Update(float dt) {
 	if (mCurrentTime >= mTimePerFrame) {
 		//mCurrentTime -= mTimePerFrame;
 		mCurrentTime = 0;
-		mJson << mName;
+		//mJson << mName;
 
 		if (UpdateUnit()) return;
 		mEntities.Update(this);

@@ -1,4 +1,4 @@
-#include "Unit_Aladdin.h"
+﻿#include "Unit_Aladdin.h"
 
 Unit_Aladdin::Unit_Aladdin() : Unit("Aladdin") {
 	this->Set(
@@ -12,12 +12,12 @@ Unit_Aladdin::Unit_Aladdin() : Unit("Aladdin") {
 	//		animation->Set("stand_still", 1);
 	//	}
 	//	if (*state == "sit_throwapple") {
-	//		animation->Set("stand_sit", 4);
+	//		animation->Set("sit", 4);
 	//	}
-	//	if (*state == "stand_sit_to_still") {
+	//	if (*state == "sit_to_stand") {
 	//		animation->Set("stand_still", 1);
 	//	}
-	//	if (*state == "stand_up_to_still") {
+	//	if (*state == "up_to_stand") {
 	//		animation->Set("stand_still", 1);
 	//	}
 	//});
@@ -37,10 +37,10 @@ bool Unit_Aladdin::UpdateUnit()
 
 	if (*state == "stand_still") {
 		if (K_UP) {
-			animation->Set("stand_up", 1);
+			animation->Set("up", 1);
 		}
 		if (K_DOWN) {
-			animation->Set("stand_sit", 1);
+			animation->Set("sit", 1);
 		}
 		if (K_Z) {
 			animation->Set("stand_throwapple", 1, "stand_still", 1);
@@ -49,20 +49,37 @@ bool Unit_Aladdin::UpdateUnit()
 			animation->Set("stand_cut", 1, "stand_still", 1);
 		}
 		if (K_C) {
-			animation->Set("stand_jump", 1, "stand_still", 1);
+			animation->Set("stand_jump", 1, "stand_still", 1); //? Lỗi
 		}
 	}
-	if (*state == "stand_up") {
+	if (*state == "up") {
 		if (!K_UP) {
-			animation->Set("stand_up_to_still", 1, "stand_still", 1);
+			animation->Set("up_to_stand", 1, "stand_still", 1);
+			return false;
+		}
+		if (K_Z) {
+			animation->Set("stand_throwapple", 1, "up", 3);
+		}
+		if (K_X) {
+			animation->Set("up_cut", 1, "up", 3);
+		}
+		if (K_C) {
+			animation->Set("stand_jump", 1, "up", 3);	//? Lỗi
 		}
 	}
-	if (*state == "stand_sit") {
+	if (*state == "sit") {
 		if (!K_DOWN) {
-			animation->Set("stand_sit_to_still", 1, "stand_still", 1);
+			animation->Set("sit_to_stand", 1, "stand_still", 1);
+			return false;
 		}
-		if (K_DOWN && K_Z) {
-			animation->Set("sit_throwapple", 1, "stand_sit", 4);
+		if (K_Z) {
+			animation->Set("sit_throwapple", 1, "sit", 4);
+		}
+		if (K_X) {
+			animation->Set("sit_cut", 1, "sit", 4);
+		}
+		if (K_C) {
+			animation->Set("stand_jump", 1, "sit", 1);	//? Lỗi
 		}
 	}
 	if (*state == "sit_throwapple") {}
