@@ -7,17 +7,20 @@ Unit_Aladdin::Unit_Aladdin() : Unit("Aladdin") {
 	animation = this->Get()->GetAnimation();
 	state = animation->State();
 
-	this->Get()->mToZeroFunction = ([=] {
-		if (*state == "sit_throwapple") {
-			animation->Set("stand_sit", 4);
-		}
-		if (*state == "stand_sit_to_still") {
-			animation->Set("stand_still", 1);
-		}
-		if (*state == "stand_up_to_still") {
-			animation->Set("stand_still", 1);
-		}
-	});
+	//this->Get()->mToZeroFunction = ([=] {
+	//	if (*state == "stand_throwapple") {
+	//		animation->Set("stand_still", 1);
+	//	}
+	//	if (*state == "sit_throwapple") {
+	//		animation->Set("stand_sit", 4);
+	//	}
+	//	if (*state == "stand_sit_to_still") {
+	//		animation->Set("stand_still", 1);
+	//	}
+	//	if (*state == "stand_up_to_still") {
+	//		animation->Set("stand_still", 1);
+	//	}
+	//});
 }
 
 bool Unit_Aladdin::UpdateUnit()
@@ -39,25 +42,30 @@ bool Unit_Aladdin::UpdateUnit()
 		if (K_DOWN) {
 			animation->Set("stand_sit", 1);
 		}
+		if (K_Z) {
+			animation->Set("stand_throwapple", 1, "stand_still", 1);
+		}
+		if (K_X) {
+			animation->Set("stand_cut", 1, "stand_still", 1);
+		}
+		if (K_C) {
+			animation->Set("stand_jump", 1, "stand_still", 1);
+		}
 	}
 	if (*state == "stand_up") {
 		if (!K_UP) {
-			animation->Set("stand_up_to_still", 1);
+			animation->Set("stand_up_to_still", 1, "stand_still", 1);
 		}
 	}
 	if (*state == "stand_sit") {
 		if (!K_DOWN) {
-			animation->Set("stand_sit_to_still", 1);
+			animation->Set("stand_sit_to_still", 1, "stand_still", 1);
 		}
 		if (K_DOWN && K_Z) {
-			animation->Set("sit_throwapple", 1);
+			animation->Set("sit_throwapple", 1, "stand_sit", 4);
 		}
 	}
-	if (*state == "sit_throwapple") {
-		//if (!K_Z) {
-		//	animation->Set("sit_throwapple", 1);
-		//}
-	}
+	if (*state == "sit_throwapple") {}
 
 
 	return false;

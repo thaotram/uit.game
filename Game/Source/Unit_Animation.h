@@ -14,9 +14,12 @@ class Unit_Animation {
 private:
 	string	mState;
 	int		mCycleIndex;
+
+	string  mNextState;
+	int		mNextCycleIndex;
 public:
 	Unit_Animation();
-	
+
 	void NextFrame(Unit * pJson, Unit_Entity * pEntity);
 
 	void SetState(string pState);
@@ -30,4 +33,5 @@ public:
 	void SetCycleIndex(int pCycleIndex);
 
 	void Set(string pState, int pCycleIndex);
+	void Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex);
 };
