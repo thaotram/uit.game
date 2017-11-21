@@ -292,5 +292,11 @@
     <ClCompile Include="Source\Scene_AgrabahMarket_Map.cpp">
       <Filter>Source\No-filter</Filter>
     </ClCompile>
+    <ClCompile Include="Source\FinalUnit\Unit_Camel.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FinalUnit\Unit_Guards.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

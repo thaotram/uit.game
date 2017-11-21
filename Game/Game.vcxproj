@@ -182,6 +182,8 @@
     <ClInclude Include="Source\Unit_Vector2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\FinalUnit\Unit_Camel.cpp" />
+    <ClCompile Include="Source\FinalUnit\Unit_Guards.cpp" />
     <ClCompile Include="Source\Unit.cpp" />
     <ClCompile Include="Source\Unit_Animation.cpp" />
     <ClCompile Include="Source\Unit_Item.cpp" />

@@ -23,7 +23,7 @@ using namespace std;
 #define MAIN_WINDOW_TITLE L"Game Title"
 #define APP_WIDTH 320
 #define APP_HEIGHT 224
-#define APP_SCALE 2
+#define APP_SCALE 3
 #define FPS 60
 #define BACKGROUND_COLOR 0xffffffff
 
