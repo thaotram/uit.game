@@ -120,9 +120,9 @@ bool Unit_Aladdin::UpdateUnit()
 		//	animation->Set("sit_throwapple", 1, "sit", 4);
 		//}
 		//? spriters-resource thiếu sprite này
-		//if (K_X) {
-		//	animation->Set("sit_cut", 1, "sit", 4);			
-		//}
+		if (K_X) {
+			animation->Set("run_cut", 1, "run", 4);			
+		}
 		if (K_C) {
 			animation->Set("run_jump", 1, "run", 1);	//? chưa quản lý / viết các thao tác bay nhảy
 		}
