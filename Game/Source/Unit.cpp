@@ -6,7 +6,7 @@ Unit::Unit(string pName) : mName(pName) {
 	mTexture << mName;
 
 	mCurrentTime = 0;
-	mTimePerFrame = 0.07f;
+	mTimePerFrame = 0.3f;
 }
 void Unit::Update(float dt) {
 	if (mCurrentTime >= mTimePerFrame) {

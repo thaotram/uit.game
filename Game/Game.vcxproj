@@ -157,17 +157,10 @@
     <ClInclude Include="Source\Unit_Animation.h" />
     <ClInclude Include="Source\Unit_Item.h" />
     <ClInclude Include="Library\json.hpp" />
-    <ClInclude Include="Source\FinalUnit\Unit_CivilianEnemies.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_EnemyExplosions.h" />
     <ClInclude Include="Source\Unit_Json.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_Status.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_Abu.h" />
     <ClInclude Include="Source\FinalUnit\Unit_Aladdin.h" />
     <ClInclude Include="Source\FinalUnit\Unit_Camel.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_Genie.h" />
     <ClInclude Include="Source\FinalUnit\Unit_Guards.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_MagicCarpet.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_Peddler.h" />
     <ClInclude Include="Source\Scene_AgrabahMarket.h" />
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\GameGlobal.h" />
@@ -180,6 +173,7 @@
     <ClInclude Include="Source\Unit_Transform.h" />
     <ClInclude Include="Source\Unit_Entity.h" />
     <ClInclude Include="Source\Unit_Vector2.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Status.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\FinalUnit\Unit_Camel.cpp" />
@@ -204,6 +198,7 @@
     <ClCompile Include="Source\FinalUnit\Unit_Block.cpp" />
     <ClCompile Include="Source\Unit_Entity.cpp" />
     <ClCompile Include="Source\Unit_Vector2.cpp" />
+    <ClCompile Include="Source\FinalUnit\Unit_Status.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

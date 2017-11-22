@@ -174,9 +174,6 @@
     <ClInclude Include="Source\Unit_Item.h">
       <Filter>Source\Unit_Class</Filter>
     </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Abu.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
     <ClInclude Include="Source\FinalUnit\Unit_Aladdin.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
@@ -186,25 +183,7 @@
     <ClInclude Include="Source\FinalUnit\Unit_Camel.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_CivilianEnemies.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_EnemyExplosions.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Genie.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
     <ClInclude Include="Source\FinalUnit\Unit_Guards.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_MagicCarpet.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Peddler.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Status.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
     <ClInclude Include="Source\Unit_Json.h">
@@ -233,6 +212,9 @@
     </ClInclude>
     <ClInclude Include="Source\Map_AgrabahMarket.h">
       <Filter>Source\Unit\FinalMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_Status.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -291,14 +273,17 @@
     <ClCompile Include="Source\Unit_Transform.cpp">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="Source\FinalUnit\Unit_Camel.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\FinalUnit\Unit_Guards.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Map_AgrabahMarket.cpp">
       <Filter>Source\Unit\FinalMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FinalUnit\Unit_Camel.cpp">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FinalUnit\Unit_Guards.cpp">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FinalUnit\Unit_Status.cpp">
+      <Filter>Source\Unit\FinalUnit</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

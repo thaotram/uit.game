@@ -17,6 +17,7 @@ private:
 
 	string  mNextState;
 	int		mNextCycleIndex;
+	bool	mSkipNextFrame;
 public:
 	Unit_Animation();
 

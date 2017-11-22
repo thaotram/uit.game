@@ -8,6 +8,10 @@ Unit_Animation::Unit_Animation() {
 }
 
 void Unit_Animation::NextFrame(Unit * pUnit, Unit_Entity * pEntity) {
+	if (mSkipNextFrame) {
+		mSkipNextFrame = false;
+		return;
+	}
 	vector<int> pFrameCycle = pUnit->GetJson()->GetFrameCycle(mState);
 	int nextFrame = pFrameCycle[mCycleIndex + 1];
 	if (nextFrame == 0) {
@@ -53,6 +57,7 @@ void Unit_Animation::Set(string pState, int pCycleIndex) {
 
 void Unit_Animation::Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex) {
 	Set(pState, pCycleIndex);
+	mSkipNextFrame = true;
 	mNextState = pNextState;
 	mNextCycleIndex = pNextCycleIndex;
 }

@@ -6,21 +6,6 @@ Unit_Aladdin::Unit_Aladdin() : Unit("Aladdin") {
 	);
 	animation = this->Get()->GetAnimation();
 	state = animation->State();
-
-	//this->Get()->mToZeroFunction = ([=] {
-	//	if (*state == "stand_throwapple") {
-	//		animation->Set("stand", 1);
-	//	}
-	//	if (*state == "sit_throwapple") {
-	//		animation->Set("sit", 4);
-	//	}
-	//	if (*state == "sit_to_stand") {
-	//		animation->Set("stand", 1);
-	//	}
-	//	if (*state == "up_to_stand") {
-	//		animation->Set("stand", 1);
-	//	}
-	//});
 }
 
 bool Unit_Aladdin::UpdateUnit()
@@ -105,15 +90,14 @@ bool Unit_Aladdin::UpdateUnit()
 	if (*state == "run") {
 		if (K_RIGHT) {
 			this->Get()->GetTransform()->SetFlip(false);
-			*(this->Get()->GetPosition()) += Unit_Vector2(11, 0);
+			//*(this->Get()->GetPosition()) += Unit_Vector2(11, 0);
 		}
 		if (K_LEFT) {
 			this->Get()->GetTransform()->SetFlip(true);
-			*(this->Get()->GetPosition()) += Unit_Vector2(-11, 0);
+			//*(this->Get()->GetPosition()) += Unit_Vector2(-11, 0);
 		}
 		if (!K_RIGHT && !K_LEFT) {
 			animation->Set("stand", 1);
-
 		}
 		//? spriters-resource thiếu sprite này
 		//if (K_Z) {
@@ -121,12 +105,23 @@ bool Unit_Aladdin::UpdateUnit()
 		//}
 		//? spriters-resource thiếu sprite này
 		if (K_X) {
-			animation->Set("run_cut", 1, "run", 4);			
+			animation->Set("run_cut", 1, "run", 9);
 		}
 		if (K_C) {
 			animation->Set("run_jump", 1, "run", 1);	//? chưa quản lý / viết các thao tác bay nhảy
 		}
 	}
+	if (*state == "run_cut") {
+		//if (K_RIGHT) {
+		//	this->Get()->GetTransform()->SetFlip(false);
+		//	//*(this->Get()->GetPosition()) += Unit_Vector2(11, 0);
+		//}
+		//if (K_LEFT) {
+		//	this->Get()->GetTransform()->SetFlip(true);
+		//	//*(this->Get()->GetPosition()) += Unit_Vector2(-11, 0);
+		//}
+	}
+
 
 
 	return false;
