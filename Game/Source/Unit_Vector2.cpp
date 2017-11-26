@@ -13,6 +13,12 @@ Unit_Vector2 Unit_Vector2::operator*(const float v) const {
 Unit_Vector2 Unit_Vector2::operator*(const D3DXVECTOR2 &v) const {
 	return Unit_Vector2(x * v.x, y * v.y);
 }
+Unit_Vector2 Unit_Vector2::operator+(const Unit_Vector2 &v) const {
+	return Unit_Vector2(x + v.x, y + v.y);
+}
+Unit_Vector2 Unit_Vector2::operator+(const D3DXVECTOR2 &v) const {
+	return Unit_Vector2(x + v.x, y + v.y);
+}
 Unit_Vector2 Unit_Vector2::operator-(const Unit_Vector2 &v) const {
 	return Unit_Vector2(x - v.x, y - v.y);
 }

@@ -1,14 +1,19 @@
 ﻿#pragma once
 #include <d3d9.h>
 #include <d3dx9.h>
+#include <functional>
 
 #include "GameGlobal.h"
 
 #include "Unit_Json.h"
 #include "Unit_Texture.h"
+
+#include "Unit_Vector2.h"
 #include "Unit_Animation.h"
 #include "Unit_Transform.h"
 #include "Unit_SourceRect.h"
+
+#include "Scene.h"
 
 class Unit
 {
@@ -25,22 +30,24 @@ protected:
 
 	float				mCurrentTime;
 	float 				mTimePerFrame;
+
 protected:
-	virtual bool AutoNextFrame() { return false; };
-	virtual bool DrawUnit() { return false; };		//? Tạm thời bỏ qua hàm này
+	virtual bool AutoNextFrame() { return true; };
+	virtual void SelfUpdateBeforeNextFrame() {};
 	/* Đoạn này viết còn tệ, còn nhập nhằng khi gọi làm AutoNextFrame... */
 public:
 	Unit(string pName);
 	~Unit() {};
+	Scene		 * mScene;
+	virtual void AfterAddToScene() {};
 
-	void Update(float dt);
-	void Draw();
-	void Draw(
+	void		 Update(float dt);
+	virtual void Draw();
+	void		 DrawWithParameter(
 		Unit_Transform pTransform,
 		Unit_SourceRect pSourceRect,
 		Unit_Vector2 pPosition
 	);
-
 	Unit_SourceRect * GetSourceRect() {
 		return &mSourceRect;
 	}

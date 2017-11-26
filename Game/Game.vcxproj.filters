@@ -201,10 +201,18 @@
     <ClInclude Include="Source\Unit_Texture.h">
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Block.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_Camel.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_Guards.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_Status.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Status.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_Block.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_Camel.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_Guards.h">
+      <Filter>Source\Unit\FinalUnit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -260,16 +268,16 @@
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
     <ClCompile Include="Source\FinalUnit\Unit_Block.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Unit\FinalUnit</Filter>
     </ClCompile>
     <ClCompile Include="Source\FinalUnit\Unit_Camel.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Unit\FinalUnit</Filter>
     </ClCompile>
     <ClCompile Include="Source\FinalUnit\Unit_Guards.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Unit\FinalUnit</Filter>
     </ClCompile>
     <ClCompile Include="Source\FinalUnit\Unit_Status.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Unit\FinalUnit</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

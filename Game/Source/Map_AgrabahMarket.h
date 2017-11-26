@@ -4,5 +4,8 @@
 class Map_AgrabahMarket : public Unit {
 public:
 	Map_AgrabahMarket();
-	bool UpdateUnit();;
+	void AfterAddToScene();
+	void SelfUpdateBeforeNextFrame();
+	bool AutoNextFrame();
+	void Draw();
 };

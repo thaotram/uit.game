@@ -9,9 +9,9 @@
 
 using namespace std;
 
-class AgrabahMarket final : public Scene
+class Scene_AgrabahMarket final : public Scene
 {
 public:
-	AgrabahMarket();
+	Scene_AgrabahMarket();
 };
 

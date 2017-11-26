@@ -1,4 +1,5 @@
 ﻿#include "Unit.h"
+#include "Scene.h"
 
 Unit::Unit(string pName) : mName(pName) {
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
@@ -13,21 +14,24 @@ void Unit::Update(float dt) {
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
 
-		if (!AutoNextFrame()) mAnimation.NextFrame(this);
+		SelfUpdateBeforeNextFrame();
+		if (!AutoNextFrame()) return;
 
+		mAnimation.NextFrame(this);
 		mSourceRect.Update(this);
 		mTransform.Update(this);
 	}
 	else mCurrentTime += dt;
 }
 void Unit::Draw() {
-	this->Draw(mTransform, mSourceRect, mPosition);
+	this->DrawWithParameter(mTransform, mSourceRect, mPosition);
 }
 
-void Unit::Draw(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vector2 pPosition)
+void Unit::DrawWithParameter(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vector2 pPosition)
 {
 	float pScale = GameGlobal::GetScale();
-	Unit_Vector2 pCameraPotition = { 50,166 };
+	Unit_Vector2 pCameraPotition = mScene->mCameraPosition;
+
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(
 		&*mTexture,

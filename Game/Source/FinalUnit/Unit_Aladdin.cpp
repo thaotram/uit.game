@@ -1,12 +1,12 @@
 ﻿#include "Unit_Aladdin.h"
 
 Unit_Aladdin::Unit_Aladdin() : Unit("Aladdin") {
-	mPosition = { 0,0 };
+	mPosition = { 50,628 };
 	mAnimation.SetState("stand");
 	state = mAnimation.State();
 }
 
-bool Unit_Aladdin::UpdateUnit()
+void Unit_Aladdin::SelfUpdateBeforeNextFrame()
 {
 	map<int, bool> * Key = GameGlobal::GetInput();
 
@@ -47,10 +47,11 @@ bool Unit_Aladdin::UpdateUnit()
 	}
 	else if (*state == "up") {
 		if (mAnimation.GetCycleIndex() == 3) {
+			mScene->mCameraPosition -= {0, 3};
 		}
 		if (!K_UP) {
 			mAnimation.Set("up_to_stand", 1, "stand", 1);
-			return false;
+			return;
 		}
 		if (K_Z) {
 			mAnimation.Set("stand_throwapple", 1, "up", 3);
@@ -65,7 +66,7 @@ bool Unit_Aladdin::UpdateUnit()
 	else if (*state == "sit") {
 		if (!K_DOWN) {
 			mAnimation.Set("sit_to_stand", 1, "stand", 1);
-			return false;
+			return;
 		}
 		if (K_Z) {
 			mAnimation.Set("sit_throwapple", 1, "sit", 4);
@@ -108,5 +109,4 @@ bool Unit_Aladdin::UpdateUnit()
 	}
 	else if (*state == "up_to_stand") {
 	}
-	return false;
 }

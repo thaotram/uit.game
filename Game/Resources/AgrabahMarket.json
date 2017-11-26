@@ -4,10 +4,10 @@
     "time": 0.1,
     "states": {
         "back": {
-            "frameCycle": [ 1, -1 ],
-            "basePoint": [ 0, 686],
+            "frameCycle": [1, -1],
+            "basePoint": [0, 0],
             "frame": {
-                "1": [ 0, 0, 1000, 1000, 0, 0 ]
+                "1": [0, 0, 4771, 686, 0, 0]
             }
         }
     }

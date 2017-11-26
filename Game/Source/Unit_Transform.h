@@ -14,9 +14,9 @@ public:
 	Unit_Transform();
 
 	// Lấy thông tin Transform từ
-	// + Unit_Animation > BasePoint, Transition {mState, mFrameIndex}
-	// + Unit > Position {mPosition}
-	// + Transform > Flip {this.mFlip}
+	// + Json
+	// + Position
+	// + Animation
 	void Update(Unit * pUnit);
 	void SetFlip(bool pFlip);
 };
