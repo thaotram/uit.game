@@ -159,8 +159,6 @@
     <ClInclude Include="Library\json.hpp" />
     <ClInclude Include="Source\Unit_Json.h" />
     <ClInclude Include="Source\FinalUnit\Unit_Aladdin.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_Camel.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_Guards.h" />
     <ClInclude Include="Source\Scene_AgrabahMarket.h" />
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\GameGlobal.h" />
@@ -169,15 +167,11 @@
     <ClInclude Include="Source\SceneManager.h" />
     <ClInclude Include="Source\Unit_SourceRect.h" />
     <ClInclude Include="Source\Unit_Texture.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_Block.h" />
     <ClInclude Include="Source\Unit_Transform.h" />
     <ClInclude Include="Source\Unit_Entity.h" />
     <ClInclude Include="Source\Unit_Vector2.h" />
-    <ClInclude Include="Source\FinalUnit\Unit_Status.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\FinalUnit\Unit_Camel.cpp" />
-    <ClCompile Include="Source\FinalUnit\Unit_Guards.cpp" />
     <ClCompile Include="Source\Unit.cpp" />
     <ClCompile Include="Source\Unit_Animation.cpp" />
     <ClCompile Include="Source\Unit_Item.cpp" />
@@ -195,10 +189,8 @@
     <ClCompile Include="Source\Unit_SourceRect.cpp" />
     <ClCompile Include="Source\Unit_Texture.cpp" />
     <ClCompile Include="Source\Unit_Transform.cpp" />
-    <ClCompile Include="Source\FinalUnit\Unit_Block.cpp" />
     <ClCompile Include="Source\Unit_Entity.cpp" />
     <ClCompile Include="Source\Unit_Vector2.cpp" />
-    <ClCompile Include="Source\FinalUnit\Unit_Status.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

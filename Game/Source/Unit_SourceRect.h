@@ -13,7 +13,7 @@ class Unit_SourceRect : public RECT {
 public:
 	// Lấy thông tin cho SourceRect từ
 	// + Unit_Animation > Frame {mState, mFrameIndex}
-	void Update(Unit * pUnit, Unit_Entity * pEntity);
+	void Update(Unit * pUnit);
 	void operator=(RECT pRect);
 
 	LONG GetWidth() {

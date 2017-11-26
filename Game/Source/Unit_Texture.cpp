@@ -1,6 +1,14 @@
 ﻿#include "Unit_Texture.h"
 
-void Unit_Texture::operator<<(string pName) {
+map<string, Unit_Texture*> Unit_Texture::Unit_Textures;
+
+Unit_Texture * Unit_Texture::GetTexture(string pName)
+{
+	return Unit_Textures.find(pName) == Unit_Textures.end() ?
+		new Unit_Texture(pName) : Unit_Textures.at(pName);
+}
+
+Unit_Texture::Unit_Texture(string pName) {
 	pName = "Resources/" + pName + ".png";
 	D3DXIMAGE_INFO		pImageInfo;
 	LPCSTR				pSrcFile = pName.c_str();

@@ -17,6 +17,6 @@ public:
 	// + Unit_Animation > BasePoint, Transition {mState, mFrameIndex}
 	// + Unit > Position {mPosition}
 	// + Transform > Flip {this.mFlip}
-	void Update(Unit * pUnit, Unit_Entity * pEntity);
+	void Update(Unit * pUnit);
 	void SetFlip(bool pFlip);
 };

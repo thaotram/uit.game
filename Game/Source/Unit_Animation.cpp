@@ -7,7 +7,7 @@ Unit_Animation::Unit_Animation() {
 	mCycleIndex = 1;
 }
 
-void Unit_Animation::NextFrame(Unit * pUnit, Unit_Entity * pEntity) {
+void Unit_Animation::NextFrame(Unit * pUnit) {
 	if (mSkipNextFrame) {
 		mSkipNextFrame = false;
 		return;
@@ -54,7 +54,6 @@ void Unit_Animation::Set(string pState, int pCycleIndex) {
 	mState = pState;
 	mCycleIndex = pCycleIndex;
 }
-
 void Unit_Animation::Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex) {
 	Set(pState, pCycleIndex);
 	mSkipNextFrame = true;

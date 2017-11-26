@@ -1,7 +1,9 @@
 #include "Unit_Json.h"
-#include "Unit_Animation.h"
+#include "Unit.h"
 
-void Unit_Json::operator<<(string pName){
+map<string, Unit_Json *> Unit_Json::Unit_Jsons;
+
+Unit_Json::Unit_Json(string pName) {
 	pName = "Resources/" + pName + ".json";
 	this->clear();
 	try {
@@ -66,6 +68,12 @@ void Unit_Json::operator<<(string pName){
 	}
 }
 
+Unit_Json * Unit_Json::GetJson(string pName)
+{
+	return Unit_Jsons.find(pName) == Unit_Jsons.end() ?
+		new Unit_Json(pName) : Unit_Jsons.at(pName);
+}
+
 STATE Unit_Json::operator[](string pState) {
 	return find(pState)->second;
 }
@@ -83,26 +91,26 @@ vector<int> Unit_Json::GetFrameCycle(string pState) {
 	return (*this)[pState].FrameCycle;
 }
 
-RECT Unit_Json::GetFrame(Unit * pUnit, Unit_Animation * pAnimation) {
+RECT Unit_Json::GetFrame(Unit * pUnit) {
 	return GetFrame(
-		pAnimation->GetState(),
-		pAnimation->GetFrameIndex(pUnit)
+		pUnit->GetAnimation()->GetState(),
+		pUnit->GetAnimation()->GetFrameIndex(pUnit)
 	);
 }
-D3DXVECTOR2 Unit_Json::GetTransition(Unit * pUnit, Unit_Animation * pAnimation) {
+D3DXVECTOR2 Unit_Json::GetTransition(Unit * pUnit) {
 	return GetTransition(
-		pAnimation->GetState(),
-		pAnimation->GetFrameIndex(pUnit)
+		pUnit->GetAnimation()->GetState(),
+		pUnit->GetAnimation()->GetFrameIndex(pUnit)
 	);
 }
-D3DXVECTOR2 Unit_Json::GetBasePoint(Unit * pUnit, Unit_Animation * pAnimation) {
+D3DXVECTOR2 Unit_Json::GetBasePoint(Unit * pUnit) {
 	return GetBasePoint(
-		pAnimation->GetState(),
-		pAnimation->GetFrameIndex(pUnit)
+		pUnit->GetAnimation()->GetState(),
+		pUnit->GetAnimation()->GetFrameIndex(pUnit)
 	);
 }
-vector<int> Unit_Json::GetFrameCycle(Unit_Animation * pAnimation) {
+vector<int> Unit_Json::GetFrameCycle(Unit * pUnit) {
 	return GetFrameCycle(
-		pAnimation->GetState()
+		pUnit->GetAnimation()->GetState()
 	);
 }

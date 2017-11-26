@@ -4,29 +4,27 @@
 
 #include "GameGlobal.h"
 
-#include "Unit_Entity.h"
-
 #include "Unit_Json.h"
 #include "Unit_Texture.h"
 #include "Unit_Animation.h"
 #include "Unit_Transform.h"
 #include "Unit_SourceRect.h"
 
-class Unit_Entities;
-class Unit_Entity;
-
 class Unit
 {
 protected:
-	string							mName;
-	LPD3DXSPRITE					mSpriteHandler;
-	Unit_Json						mJson;
-	Unit_Texture					mTexture;
+	string				mName;
+	LPD3DXSPRITE		mSpriteHandler;
+	Unit_Json			* mJson;
+	Unit_Texture		* mTexture;
 
-	Unit_Entities					mEntities;
+	Unit_Vector2		mPosition;
+	Unit_Animation		mAnimation;
+	Unit_Transform		mTransform;
+	Unit_SourceRect		mSourceRect;
 
-	float							mCurrentTime;
-	float 							mTimePerFrame;
+	float				mCurrentTime;
+	float 				mTimePerFrame;
 protected:
 	virtual bool UpdateUnit() { return false; };
 	virtual bool DrawUnit() { return false; };
@@ -42,8 +40,18 @@ public:
 		Unit_Vector2 pPosition
 	);
 
-	void Set(Unit_Entity *);
-	Unit_Entity * Get();
+	Unit_SourceRect * GetSourceRect() {
+		return &mSourceRect;
+	}
+	Unit_Vector2 * GetPosition() {
+		return &mPosition;
+	}
+	Unit_Animation * GetAnimation() {
+		return &mAnimation;
+	}
+	Unit_Transform * GetTransform() {
+		return &mTransform;
+	}
 
 	Unit_Json * GetJson();
 };

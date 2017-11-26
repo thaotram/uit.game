@@ -40,22 +40,26 @@ struct State {
 	map<int, FRAME>	FrameList;
 };
 
-class Unit_Animation;
+//class Unit_Animation;
+class Unit;
 
 class Unit_Json : public map<string, STATE> {
 private:
+	static map<string, Unit_Json *> Unit_Jsons;
+
 	STATE operator[](string pState);
+	Unit_Json(string pName);
 public:
-	Unit_Json() {};
-	void operator<<(string pName);
+	static Unit_Json * GetJson(string pName);
 
 	RECT GetFrame(string mState, int mFrameIndex);
 	D3DXVECTOR2 GetTransition(string pState, int pFrameIndex);
 	D3DXVECTOR2 GetBasePoint(string pState, int pFrameIndex);
 	vector<int> GetFrameCycle(string pState);
 
-	RECT GetFrame(Unit * pUnit, Unit_Animation * pAnimation);
-	D3DXVECTOR2 GetTransition(Unit * pUnit, Unit_Animation * pAnimation);
-	D3DXVECTOR2 GetBasePoint(Unit * pUnit, Unit_Animation * pAnimation);
-	vector<int> GetFrameCycle(Unit_Animation * pAnimation);
+	RECT		GetFrame(Unit * pUnit);
+	D3DXVECTOR2 GetTransition(Unit * pUnit);
+	D3DXVECTOR2 GetBasePoint(Unit * pUnit);
+
+	vector<int> GetFrameCycle(Unit * pUnit);
 };

@@ -9,16 +9,16 @@ Unit_Transform::Unit_Transform() {
 	mFlip = false;
 }
 
-void Unit_Transform::Update(Unit * pUnit, Unit_Entity * pEntity) {
+void Unit_Transform::Update(Unit * pUnit) {
 	float pScaling = GameGlobal::GetScale();
 	Unit_Vector2 pFlip = { mFlip ? -1.f : 1.f, 1.f };
 
 	Unit_Json * pJson = pUnit->GetJson();
-	Unit_Animation * pAnimation = pEntity->GetAnimation();
+	Unit_Animation * pAnimation = pUnit->GetAnimation();
 
-	D3DXVECTOR2 pBasePoint = pJson->GetBasePoint(pUnit, pAnimation);
-	D3DXVECTOR2 pTransition = pJson->GetTransition(pUnit, pAnimation);
-	D3DXVECTOR2	* pPosition = pEntity->GetPosition();
+	D3DXVECTOR2 pBasePoint = pJson->GetBasePoint(pUnit);
+	D3DXVECTOR2 pTransition = pJson->GetTransition(pUnit);
+	D3DXVECTOR2	* pPosition = pUnit->GetPosition();
 
 	D3DXMatrixTransformation2D(
 		this,											//		 D3DXMATRIX	 * pOut

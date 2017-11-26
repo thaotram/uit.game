@@ -7,6 +7,5 @@ private:
 
 public:
 	Unit_Status();
-	bool UpdateUnit();
 };
 

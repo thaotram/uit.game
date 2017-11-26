@@ -2,11 +2,8 @@
 #include "Unit_SourceRect.h"
 #include "Unit.h"
 
-void Unit_SourceRect::Update(Unit * pUnit, Unit_Entity * pEntity) {
-	(*this) = pUnit->GetJson()->GetFrame(
-		pUnit,
-		pEntity->GetAnimation()
-	);
+void Unit_SourceRect::Update(Unit * pUnit) {
+	(*this) = pUnit->GetJson()->GetFrame(pUnit);
 }
 void Unit_SourceRect::operator=(RECT pRect) {
 	this->top = pRect.top;

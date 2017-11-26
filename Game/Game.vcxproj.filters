@@ -177,18 +177,6 @@
     <ClInclude Include="Source\FinalUnit\Unit_Aladdin.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Block.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Camel.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Guards.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Json.h">
-      <Filter>Source\Unit\Unit_Properties</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Unit.h">
       <Filter>Source\Unit</Filter>
     </ClInclude>
@@ -204,17 +192,17 @@
     <ClInclude Include="Source\Unit_SourceRect.h">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Texture.h">
-      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Unit_Transform.h">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClInclude>
     <ClInclude Include="Source\Map_AgrabahMarket.h">
       <Filter>Source\Unit\FinalMap</Filter>
     </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Status.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
+    <ClInclude Include="Source\Unit_Json.h">
+      <Filter>Source\Unit\Unit_Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Unit_Texture.h">
+      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -246,12 +234,6 @@
     <ClCompile Include="Source\FinalUnit\Unit_Aladdin.cpp">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClCompile>
-    <ClCompile Include="Source\FinalUnit\Unit_Block.cpp">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Unit_Json.cpp">
-      <Filter>Source\Unit\Unit_Properties</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Unit.cpp">
       <Filter>Source\Unit</Filter>
     </ClCompile>
@@ -267,23 +249,17 @@
     <ClCompile Include="Source\Unit_SourceRect.cpp">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_Texture.cpp">
-      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Unit_Transform.cpp">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClCompile>
     <ClCompile Include="Source\Map_AgrabahMarket.cpp">
       <Filter>Source\Unit\FinalMap</Filter>
     </ClCompile>
-    <ClCompile Include="Source\FinalUnit\Unit_Camel.cpp">
-      <Filter>Source\Unit\FinalUnit</Filter>
+    <ClCompile Include="Source\Unit_Json.cpp">
+      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
-    <ClCompile Include="Source\FinalUnit\Unit_Guards.cpp">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\FinalUnit\Unit_Status.cpp">
-      <Filter>Source\Unit\FinalUnit</Filter>
+    <ClCompile Include="Source\Unit_Texture.cpp">
+      <Filter>Source\Unit\Unit_Properties</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

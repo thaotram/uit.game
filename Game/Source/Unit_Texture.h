@@ -9,9 +9,10 @@ using namespace std;
 
 class Unit_Texture {
 private:
+	static map<string, Unit_Texture*> Unit_Textures;
 	LPDIRECT3DTEXTURE9 mSelf;
+	Unit_Texture(string pName);
 public:
-	Unit_Texture() {};
-	void operator<<(string pName);
+	static Unit_Texture * GetTexture(string pName);
 	LPDIRECT3DTEXTURE9 operator&();
 };

@@ -21,7 +21,7 @@ private:
 public:
 	Unit_Animation();
 
-	void NextFrame(Unit * pJson, Unit_Entity * pEntity);
+	void NextFrame(Unit * pUnit);
 
 	void SetState(string pState);
 	string GetState();

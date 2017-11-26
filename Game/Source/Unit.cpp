@@ -2,33 +2,35 @@
 
 Unit::Unit(string pName) : mName(pName) {
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
-	mJson << mName;
-	mTexture << mName;
+
+	mJson = Unit_Json::GetJson(mName);
+	mTexture = Unit_Texture::GetTexture(mName);
 
 	mCurrentTime = 0;
-	mTimePerFrame = 0.3f;
+	mTimePerFrame = 0.08f;
 }
 void Unit::Update(float dt) {
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
-		//mCurrentTime = 0;
-		//mJson << mName;
 
 		if (UpdateUnit()) return;
-		mEntities.Update(this);
+
+		mAnimation.NextFrame(this);
+		mSourceRect.Update(this);
+		mTransform.Update(this);
 	}
 	else mCurrentTime += dt;
 }
 void Unit::Draw() {
 	if (DrawUnit()) return;
-	mEntities.Draw(this);
+	this->Draw(mTransform, mSourceRect, mPosition);
 }
 
 void Unit::Draw(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vector2 pPosition)
 {
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(
-		&mTexture,
+		&*mTexture,
 		&pSourceRect,
 		NULL,
 		&(pPosition.V3() * GameGlobal::GetScale()),
@@ -36,17 +38,7 @@ void Unit::Draw(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vec
 	);
 }
 
-void Unit::Set(Unit_Entity * pEntity)
-{
-	mEntities["default"] = pEntity;
-}
-
-Unit_Entity * Unit::Get()
-{
-	return mEntities["default"];
-}
-
 Unit_Json * Unit::GetJson()
 {
-	return &mJson;
+	return mJson;
 }
