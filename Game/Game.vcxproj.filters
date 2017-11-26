@@ -186,9 +186,6 @@
     <ClInclude Include="Source\Unit_Animation.h">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Entity.h">
-      <Filter>Source\Unit\Unit_Properties</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Unit_SourceRect.h">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClInclude>
@@ -204,6 +201,10 @@
     <ClInclude Include="Source\Unit_Texture.h">
       <Filter>Source\Unit\Unit_Properties</Filter>
     </ClInclude>
+    <ClInclude Include="Source\FinalUnit\Unit_Block.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Camel.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Guards.h" />
+    <ClInclude Include="Source\FinalUnit\Unit_Status.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -243,9 +244,6 @@
     <ClCompile Include="Source\Unit_Animation.cpp">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_Entity.cpp">
-      <Filter>Source\Unit\Unit_Properties</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Unit_SourceRect.cpp">
       <Filter>Source\Unit\Unit_Properties\Entity</Filter>
     </ClCompile>
@@ -260,6 +258,18 @@
     </ClCompile>
     <ClCompile Include="Source\Unit_Texture.cpp">
       <Filter>Source\Unit\Unit_Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FinalUnit\Unit_Block.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FinalUnit\Unit_Camel.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FinalUnit\Unit_Guards.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FinalUnit\Unit_Status.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

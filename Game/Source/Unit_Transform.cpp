@@ -10,24 +10,28 @@ Unit_Transform::Unit_Transform() {
 }
 
 void Unit_Transform::Update(Unit * pUnit) {
-	float pScaling = GameGlobal::GetScale();
+	float pScalingFloat = GameGlobal::GetScale();
 	Unit_Vector2 pFlip = { mFlip ? -1.f : 1.f, 1.f };
 
-	Unit_Json * pJson = pUnit->GetJson();
-	Unit_Animation * pAnimation = pUnit->GetAnimation();
+	Unit_Json		* pJson = pUnit->GetJson();
+	D3DXVECTOR2		* pPosition = pUnit->GetPosition();
+	Unit_Animation  * pAnimation = pUnit->GetAnimation();
 
 	D3DXVECTOR2 pBasePoint = pJson->GetBasePoint(pUnit);
-	D3DXVECTOR2 pTransition = pJson->GetTransition(pUnit);
-	D3DXVECTOR2	* pPosition = pUnit->GetPosition();
+	D3DXVECTOR2 pFrameTransition = pJson->GetTransition(pUnit);
+
+	D3DXVECTOR2 pScalingCenter = *pPosition * pScalingFloat + pBasePoint;
+	D3DXVECTOR2 pTransition = (pFlip * pFrameTransition * pScalingFloat - pBasePoint).VECTOR2();
+	D3DXVECTOR2 pScaling = pScalingFloat  * pFlip;
 
 	D3DXMatrixTransformation2D(
-		this,											//		 D3DXMATRIX	 * pOut
-		&(*pPosition * pScaling + pBasePoint),			// const D3DXVECTOR2 * pScalingCenter
-		NULL,											//		 FLOAT		 ScalingRotation
-		&(pScaling  * pFlip),							// const D3DXVECTOR2 * pScaling
-		NULL,											// const D3DXVECTOR2 * pRotationCenter
-		NULL,											//		 FLOAT		 Rotation
-		&(pFlip * pTransition * pScaling - pBasePoint)	// const D3DXVECTOR2 * pTranslation
+		this,				//		 D3DXMATRIX	 * pOut
+		&pScalingCenter,	// const D3DXVECTOR2 * pScalingCenter
+		NULL,				//		 FLOAT		   ScalingRotation
+		&pScaling,			// const D3DXVECTOR2 * pScalingFloat
+		NULL,				// const D3DXVECTOR2 * pRotationCenter
+		NULL,				//		 FLOAT		   Rotation
+		&pTransition		// const D3DXVECTOR2 * pTranslation
 	);
 }
 

@@ -26,8 +26,9 @@ protected:
 	float				mCurrentTime;
 	float 				mTimePerFrame;
 protected:
-	virtual bool UpdateUnit() { return false; };
-	virtual bool DrawUnit() { return false; };
+	virtual bool AutoNextFrame() { return false; };
+	virtual bool DrawUnit() { return false; };		//? Tạm thời bỏ qua hàm này
+	/* Đoạn này viết còn tệ, còn nhập nhằng khi gọi làm AutoNextFrame... */
 public:
 	Unit(string pName);
 	~Unit() {};
@@ -52,6 +53,7 @@ public:
 	Unit_Transform * GetTransform() {
 		return &mTransform;
 	}
-
-	Unit_Json * GetJson();
+	Unit_Json * GetJson() {
+		return mJson;
+	}
 };

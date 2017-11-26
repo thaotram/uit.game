@@ -44,12 +44,12 @@ void Game::InitLoop()
 		if (delta >= timePerFrame)
 		{
 			Update(delta);
-			//delta = 0;
-			delta -= timePerFrame;
+			delta = 0;
+			//delta -= timePerFrame;
 		}
 		else // fps cao hơn lúc bth, tạm sleep lại bằng khoảng tgian nó nhanh hơn, sau đó sẽ update và render tiếp
 		{
-			Sleep((DWORD)((timePerFrame - delta) * 1000));
+			Sleep((DWORD)((timePerFrame - delta)));
 			delta = timePerFrame;
 		}
 	}

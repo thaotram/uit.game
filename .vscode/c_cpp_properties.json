@@ -12,7 +12,8 @@
                 "C:/Program Files (x86)/Microsoft DirectX SDK (June 2010)/Lib/x64/",
                 "${workspaceRoot}",
                 "${workspaceRoot}/Game/GameComponents",
-                "${workspaceRoot}/Game/Include"
+                "${workspaceRoot}/Game/Include",
+                "${workspaceRoot}/Game/Library"
             ],
             "defines": [
                 "_DEBUG",

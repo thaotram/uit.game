@@ -1,6 +1,5 @@
 ﻿#include "Unit_Animation.h"
 #include "Unit.h"
-#include "Unit_Entity.h"
 
 Unit_Animation::Unit_Animation() {
 	mState = "";

@@ -13,32 +13,27 @@ void Unit::Update(float dt) {
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
 
-		if (UpdateUnit()) return;
+		if (!AutoNextFrame()) mAnimation.NextFrame(this);
 
-		mAnimation.NextFrame(this);
 		mSourceRect.Update(this);
 		mTransform.Update(this);
 	}
 	else mCurrentTime += dt;
 }
 void Unit::Draw() {
-	if (DrawUnit()) return;
 	this->Draw(mTransform, mSourceRect, mPosition);
 }
 
 void Unit::Draw(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vector2 pPosition)
 {
+	float pScale = GameGlobal::GetScale();
+	Unit_Vector2 pCameraPotition = { 50,166 };
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(
 		&*mTexture,
 		&pSourceRect,
 		NULL,
-		&(pPosition.V3() * GameGlobal::GetScale()),
+		&(pPosition * pScale).VECTOR3(),
 		0xFFFFFFFF
 	);
-}
-
-Unit_Json * Unit::GetJson()
-{
-	return mJson;
 }

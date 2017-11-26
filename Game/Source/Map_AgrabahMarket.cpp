@@ -2,11 +2,10 @@
 #include "Map_AgrabahMarket.h"
 
 Map_AgrabahMarket::Map_AgrabahMarket() : Unit("AgrabahMarket") {
-	//this->Set(
-	//	new Unit_Entity({ 0, 166 }, "back")
-	//);
+	mAnimation.SetState("back");
+	mPosition = { 0,224 };
 }
 
-bool Map_AgrabahMarket::UpdateUnit() {
+bool Map_AgrabahMarket::AutoNextFrame() {
 	return false;
 }
