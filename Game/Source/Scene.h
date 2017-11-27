@@ -17,8 +17,7 @@ public:
 
 	Unit_Vector2 mCameraPosition;		// Tính từ góc trên bên phải của camera
 
-	void Update(float dt);
-	void Draw();
+	void SceneRender(float delay);
 
 	void OnKeyDown(int pKeyCode);
 	void OnKeyUp(int pKeyCode);

@@ -41,9 +41,8 @@ public:
 	Scene		 * mScene;
 	virtual void AfterAddToScene() {};
 
-	void		 Update(float dt);
-	virtual void Draw();
-	void		 DrawWithParameter(
+	virtual void UnitRender(float delay);
+	void		 UnitRenderWithParameter(
 		Unit_Transform pTransform,
 		Unit_SourceRect pSourceRect,
 		Unit_Vector2 pPosition

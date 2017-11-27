@@ -6,5 +6,5 @@ public:
 	Map_AgrabahMarket();
 	void AfterAddToScene();
 	void SelfUpdateBeforeNextFrame();
-	void Draw();
+	void UnitRender(float dt);
 };

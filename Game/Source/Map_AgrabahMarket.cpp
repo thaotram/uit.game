@@ -29,10 +29,10 @@ void Map_AgrabahMarket::SelfUpdateBeforeNextFrame() {
 	if (K_LEFT)   mScene->mCameraPosition -= {2, 0};
 	if (K_RIGHT)  mScene->mCameraPosition += {2, 0};
 }
-void Map_AgrabahMarket::Draw() {
+void Map_AgrabahMarket::UnitRender(float dt) {
 	//mScene->mCameraPosition += {2, 0};
 	mSourceRect = mScene->mCameraPosition.BOUND(
 		GameGlobal::GetSize()
 	);
-	DrawWithParameter(mTransform, mSourceRect, mPosition);
+	UnitRenderWithParameter(mTransform, mSourceRect, mPosition);
 }

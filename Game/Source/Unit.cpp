@@ -11,25 +11,23 @@ Unit::Unit(string pName) : mName(pName) {
 	mCurrentTime = 0;
 	mTimePerFrame = 0.01f;
 }
-void Unit::Update(float dt) {
+void Unit::UnitRender(float delay) {
 	SelfUpdateBeforeNextFrame();
 
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
 		if (mAutoNextFrame) mAnimation.NextFrame(this);
 	}
-	else mCurrentTime += dt;
-}
-void Unit::Draw() {
+	else mCurrentTime += delay;
+
 	mSourceRect.Update(this);
 	mTransform.Update(this);
-	this->DrawWithParameter(mTransform, mSourceRect, mPosition);
+	this->UnitRenderWithParameter(mTransform, mSourceRect, mPosition);
 }
 
-void Unit::DrawWithParameter(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vector2 pPosition)
+void Unit::UnitRenderWithParameter(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vector2 pPosition)
 {
 	float pScale = GameGlobal::GetScale();
-	Unit_Vector2 pCameraPotition = mScene->mCameraPosition;
 
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(

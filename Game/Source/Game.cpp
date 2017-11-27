@@ -35,11 +35,11 @@ void Game::InitLoop()
 		}
 		delay += GameTime::GetCounter();
 		if (delay >= timePerFrame) {
-			RenderAndUpdate(delay);
+			GameRender(delay);
 			delay -= timePerFrame;
 		}
 		else {
-			//GameDebug::Title(timePerFrame - delay); 
+			//GameDebug::Title(timePerFrame - delay);
 			Sleep(
 				(DWORD)((timePerFrame - delay) * 1000) // milisecond
 			);
@@ -48,44 +48,24 @@ void Game::InitLoop()
 	}
 }
 
-// Được gọi bên trong vòng lặp (bên trong hàm update)
-void Game::Draw() {
-	Scene * mScene = SceneManager::GetInstance()->GetCurrentScene();
-	mDevice->Clear(0, NULL, D3DCLEAR_TARGET, mBackgroundColor, 0.0f, 0);
-	{
-		mDevice->BeginScene();
-		GameGlobal::GetSpriteHandler()->Begin(D3DXSPRITE_ALPHABLEND);
-		{
-			// Làm cho hình ảnh sau khi scale không bị nhòe
-			mDevice->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
-			mDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
-			mDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
-		}
-		mScene->Draw();
-		GameGlobal::GetSpriteHandler()->End();
-		mDevice->EndScene();
-	}
-	mDevice->Present(0, 0, 0, 0);
-}
-
 // Được gọi bên trong vòng lặp
-void Game::RenderAndUpdate(float delta) {
-	Scene * mScene = SceneManager::GetInstance()->GetCurrentScene();
+void Game::GameRender(float delay) {
+	Scene        * mScene = SceneManager::GetInstance()->GetCurrentScene();
+	ID3DXSprite  * mSpriteHandler = GameGlobal::GetSpriteHandler();
+	
+	// Before
+	mDevice->Clear(0, NULL, D3DCLEAR_TARGET, mBackgroundColor, 0.f, 0);
+	mDevice->BeginScene();
+	mDevice->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
+	mDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
+	mDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
+	mSpriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
 
-	mScene->Update(delta);
-	mDevice->Clear(0, NULL, D3DCLEAR_TARGET, mBackgroundColor, 0.0f, 0);
-	{
-		mDevice->BeginScene();
-		GameGlobal::GetSpriteHandler()->Begin(D3DXSPRITE_ALPHABLEND);
-		{
-			// Làm cho hình ảnh sau khi scale không bị nhòe
-			mDevice->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
-			mDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
-			mDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
-		}
-		mScene->Draw();
-		GameGlobal::GetSpriteHandler()->End();
-		mDevice->EndScene();
-	}
+	// Render
+	mScene->SceneRender(delay);
+
+	// End
+	mSpriteHandler->End();
+	mDevice->EndScene();
 	mDevice->Present(0, 0, 0, 0);
 }

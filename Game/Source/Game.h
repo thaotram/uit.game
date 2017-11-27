@@ -18,9 +18,6 @@ protected:
 	//đc gọi khi khởi tạo đối tượng game
 	void InitLoop();
 
-	//hàm dùng để vẽ sau khi update
-	void Draw();
-
 	//hàm update của game
-	void RenderAndUpdate(float dt);
+	void GameRender(float dt);
 };

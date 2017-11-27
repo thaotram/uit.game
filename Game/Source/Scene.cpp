@@ -18,23 +18,14 @@ Scene::~Scene() {
 	});
 }
 
-void Scene::Update(float dt) {
+void Scene::SceneRender(float delay) {
 	EachUnit([=](Unit * pItem) {
-		pItem->Update(dt);
+		pItem->UnitRender(delay);
 	});
 }
 
-void Scene::Draw() {
-	EachUnit([=](Unit * pItem) {
-		pItem->Draw();
-	});
-}
-
-void Scene::OnKeyDown(int pKeyCode) {
-}
-
-void Scene::OnKeyUp(int pKeyCode) {
-}
+void Scene::OnKeyDown(int pKeyCode) {}
+void Scene::OnKeyUp(int pKeyCode) {}
 
 void Scene::Add(string pName, Unit * pUnit) {
 	(*this)[pName] = pUnit;
