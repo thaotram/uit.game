@@ -32,7 +32,7 @@ protected:
 	float 				mTimePerFrame;
 
 protected:
-	virtual bool AutoNextFrame() { return true; };
+	bool mAutoNextFrame;
 	virtual void SelfUpdateBeforeNextFrame() {};
 	/* Đoạn này viết còn tệ, còn nhập nhằng khi gọi làm AutoNextFrame... */
 public:

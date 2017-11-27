@@ -159,7 +159,6 @@
     <ClInclude Include="Source\Map_AgrabahMarket.h" />
     <ClInclude Include="Source\Unit.h" />
     <ClInclude Include="Source\Unit_Animation.h" />
-    <ClInclude Include="Source\Unit_Item.h" />
     <ClInclude Include="Library\json.hpp" />
     <ClInclude Include="Source\Unit_Json.h" />
     <ClInclude Include="Source\FinalUnit\Unit_Aladdin.h" />
@@ -181,7 +180,6 @@
     <ClCompile Include="Source\FinalUnit\Unit_Status.cpp" />
     <ClCompile Include="Source\Unit.cpp" />
     <ClCompile Include="Source\Unit_Animation.cpp" />
-    <ClCompile Include="Source\Unit_Item.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\GameGlobal.cpp" />

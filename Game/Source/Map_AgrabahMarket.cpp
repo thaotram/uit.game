@@ -5,14 +5,13 @@
 Map_AgrabahMarket::Map_AgrabahMarket() : Unit("AgrabahMarket") {
 	mPosition = { 0,0 };
 	mAnimation.Set("back", 1);
-	mTimePerFrame = 1.f/60;
+	mAutoNextFrame = false;
 }
 
 void Map_AgrabahMarket::AfterAddToScene() {
 	RECT pMap = mJson->GetFrame(this);
 	mScene->mCameraPosition = {
-		0,
-		(float)(pMap.bottom - GameGlobal::GetHeight() / GameGlobal::GetScale())
+		0, (float)(pMap.bottom - GameGlobal::GetHeight() / GameGlobal::GetScale())
 	};
 	mTransform.Update(this);
 }
@@ -30,19 +29,10 @@ void Map_AgrabahMarket::SelfUpdateBeforeNextFrame() {
 	if (K_LEFT)   mScene->mCameraPosition -= {2, 0};
 	if (K_RIGHT)  mScene->mCameraPosition += {2, 0};
 }
-
-bool Map_AgrabahMarket::AutoNextFrame() {
-	return false;
-}
-
 void Map_AgrabahMarket::Draw() {
-	mScene->mCameraPosition += {2, 0};
-	auto camera = mScene->mCameraPosition;
-	mSourceRect = RECT{
-		(LONG)(camera.x),
-		(LONG)(camera.y),
-		(LONG)(camera.x + GameGlobal::GetWidth()),
-		(LONG)(camera.y + GameGlobal::GetHeight())
-	};
+	//mScene->mCameraPosition += {2, 0};
+	mSourceRect = mScene->mCameraPosition.BOUND(
+		GameGlobal::GetSize()
+	);
 	DrawWithParameter(mTransform, mSourceRect, mPosition);
 }

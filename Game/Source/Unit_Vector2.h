@@ -14,4 +14,5 @@ public:
 	Unit_Vector2 operator- (const D3DXVECTOR2& v) const;
 	D3DXVECTOR2 VECTOR2();
 	D3DXVECTOR3 VECTOR3();
+	RECT BOUND(const D3DXVECTOR2& v);
 };

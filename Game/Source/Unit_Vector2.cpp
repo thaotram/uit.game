@@ -3,6 +3,14 @@
 D3DXVECTOR3 Unit_Vector2::VECTOR3() {
 	return D3DXVECTOR3(x, y, 0);
 }
+RECT Unit_Vector2::BOUND(const D3DXVECTOR2 & v) {
+	return RECT{
+		(LONG)(x),
+		(LONG)(y),
+		(LONG)(x + v.x),
+		(LONG)(y + v.y)
+	};
+}
 D3DXVECTOR2 Unit_Vector2::VECTOR2() {
 	return D3DXVECTOR2(x, y);
 }

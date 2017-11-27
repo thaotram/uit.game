@@ -42,6 +42,8 @@ public:
 	static void SetHeight(int height);
 	static int  GetHeight();
 
+	static D3DXVECTOR2 GetSize();
+
 	static void  SetFPS(float fps);
 	static float GetFPS();
 

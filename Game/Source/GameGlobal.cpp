@@ -75,6 +75,10 @@ int GameGlobal::GetHeight()
 {
 	return mHeight;
 }
+D3DXVECTOR2 GameGlobal::GetSize()
+{
+	return D3DXVECTOR2(mWidth, mHeight);
+}
 void GameGlobal::SetFPS(float fps)
 {
 	mFPS = fps;

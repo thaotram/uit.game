@@ -4,12 +4,8 @@
 class GameTime
 {
 private:
-	GameTime();
-	LARGE_INTEGER mStartTime, mEndTime, mDelta, mClockRate;
-	static GameTime * mInstance;
+	static LARGE_INTEGER mStartTime, mEndTime, mFrequency;
 public:
-	static GameTime* GetInstance();
-	void StartCounter();
-	DWORD GetCounter();
-	~GameTime();
+	static void StartCounter();
+	static float GetCounter();
 };

@@ -1,26 +1,17 @@
 #include "GameTime.h"
 
-GameTime* GameTime::mInstance = NULL;
-GameTime::GameTime() {}
-GameTime::~GameTime() {}
-
-GameTime * GameTime::GetInstance()
-{
-	if (!mInstance) mInstance = new GameTime();
-	return mInstance;
-}
-
+LARGE_INTEGER GameTime::mStartTime;
+LARGE_INTEGER GameTime::mEndTime;
+LARGE_INTEGER GameTime::mFrequency;
+float count = 0;
 void GameTime::StartCounter()
 {
-	if (!QueryPerformanceFrequency(&mClockRate)) return;
+	if (!QueryPerformanceFrequency(&mFrequency)) return;
 	QueryPerformanceCounter(&mStartTime);
 }
 
-DWORD GameTime::GetCounter()
+float GameTime::GetCounter()
 {
 	QueryPerformanceCounter(&mEndTime);
-	mDelta.QuadPart = mEndTime.QuadPart - mStartTime.QuadPart;
-
-	return (DWORD)((float)mDelta.QuadPart / mClockRate.QuadPart);
+	return static_cast<float>((mEndTime.QuadPart - mStartTime.QuadPart)) / static_cast<float>(mFrequency.QuadPart);
 }
-

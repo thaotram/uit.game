@@ -36,9 +36,6 @@
     <Filter Include="Source\Unit\FinalUnit">
       <UniqueIdentifier>{fe78fdd8-8619-4ec1-984e-3ecffc630ab9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Unit_Class">
-      <UniqueIdentifier>{833f1aea-bae1-4537-8ddb-c7ca8bb3f318}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Debug">
       <UniqueIdentifier>{67c34769-c023-4d2f-991d-98867cf88c17}</UniqueIdentifier>
     </Filter>
@@ -171,9 +168,6 @@
     <ClInclude Include="Source\Scene_AgrabahMarket.h">
       <Filter>Source\Scene\FinalScene</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Item.h">
-      <Filter>Source\Unit_Class</Filter>
-    </ClInclude>
     <ClInclude Include="Source\FinalUnit\Unit_Aladdin.h">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClInclude>
@@ -237,9 +231,6 @@
       <Filter>Source\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Source\Unit_Item.cpp">
-      <Filter>Source\Unit_Class</Filter>
-    </ClCompile>
     <ClCompile Include="Source\FinalUnit\Unit_Aladdin.cpp">
       <Filter>Source\Unit\FinalUnit</Filter>
     </ClCompile>
