@@ -31,9 +31,11 @@ protected:
 	float				mCurrentTime;
 	float 				mTimePerFrame;
 
+	float				mScale;
+
 protected:
 	bool mAutoNextFrame;
-	virtual void SelfUpdateBeforeNextFrame() {};
+	virtual void UnitUpdateBeforeNextFrame() {};
 	/* Đoạn này viết còn tệ, còn nhập nhằng khi gọi làm AutoNextFrame... */
 public:
 	Unit(string pName);
@@ -42,7 +44,7 @@ public:
 	virtual void AfterAddToScene() {};
 
 	virtual void UnitRender(float delay);
-	void		 UnitRenderWithParameter(
+	void		 UnitDraw(
 		Unit_Transform pTransform,
 		Unit_SourceRect pSourceRect,
 		Unit_Vector2 pPosition

@@ -4,6 +4,7 @@
 Unit::Unit(string pName) : mName(pName) {
 	mAutoNextFrame = false;
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
+	mScale = GameGlobal::GetScale();
 
 	mJson = Unit_Json::GetJson(mName);
 	mTexture = Unit_Texture::GetTexture(mName);
@@ -12,7 +13,7 @@ Unit::Unit(string pName) : mName(pName) {
 	mTimePerFrame = 0.01f;
 }
 void Unit::UnitRender(float delay) {
-	SelfUpdateBeforeNextFrame();
+	UnitUpdateBeforeNextFrame();
 
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
@@ -22,19 +23,18 @@ void Unit::UnitRender(float delay) {
 
 	mSourceRect.Update(this);
 	mTransform.Update(this);
-	this->UnitRenderWithParameter(mTransform, mSourceRect, mPosition);
+
+	this->UnitDraw(mTransform, mSourceRect, mPosition);
 }
 
-void Unit::UnitRenderWithParameter(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vector2 pPosition)
+void Unit::UnitDraw(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vector2 pPosition)
 {
-	float pScale = GameGlobal::GetScale();
-
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(
 		&*mTexture,
 		&pSourceRect,
 		NULL,
-		&(pPosition * pScale).VECTOR3(),
+		&(pPosition * mScale).VECTOR3(),
 		0xFFFFFFFF
 	);
 }

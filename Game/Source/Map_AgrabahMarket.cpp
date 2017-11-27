@@ -16,7 +16,7 @@ void Map_AgrabahMarket::AfterAddToScene() {
 	mTransform.Update(this);
 }
 
-void Map_AgrabahMarket::SelfUpdateBeforeNextFrame() {
+void Map_AgrabahMarket::UnitUpdateBeforeNextFrame() {
 	map<int, bool> * Key = GameGlobal::GetInput();
 
 	bool K_UP = (*Key)[VK_UP];
@@ -34,5 +34,5 @@ void Map_AgrabahMarket::UnitRender(float dt) {
 	mSourceRect = mScene->mCameraPosition.BOUND(
 		GameGlobal::GetSize()
 	);
-	UnitRenderWithParameter(mTransform, mSourceRect, mPosition);
+	UnitDraw(mTransform, mSourceRect, mPosition);
 }

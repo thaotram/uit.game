@@ -7,5 +7,5 @@ private:
 	string * state;
 public:
 	Unit_Aladdin();
-	void SelfUpdateBeforeNextFrame();
+	void UnitUpdateBeforeNextFrame();
 };

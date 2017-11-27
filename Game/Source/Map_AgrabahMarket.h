@@ -5,6 +5,6 @@ class Map_AgrabahMarket : public Unit {
 public:
 	Map_AgrabahMarket();
 	void AfterAddToScene();
-	void SelfUpdateBeforeNextFrame();
+	void UnitUpdateBeforeNextFrame();
 	void UnitRender(float dt);
 };

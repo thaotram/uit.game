@@ -17,7 +17,7 @@ Scene * SceneManager::GetCurrentScene()
 
 void SceneManager::Update(float dt)
 {
-	mCurrentScene->Update(dt);
+	mCurrentScene->SceneRender(dt);
 }
 void SceneManager::ReplaceScene(Scene * scene)
 {
