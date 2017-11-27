@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(Name=Unit::DrawWithParameter @1 @2 OverloadingParameters=[(Type=Unit_Transform Name=pTransform),(Type=Unit_SourceRect Name=pSourceRect),(Type=Unit_Vector2 Name=pPosition)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="0,895.360691362799,142.166666666667,25.96" Label="DrawWithParameter" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/unit.cpp&quot; StartLineNumber=31 StartCharacterOffset=0 EndLineNumber=31 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=Unit::Update @1 @2 OverloadingParameters=[(Type=float Name=dt)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="199.676666666667,839.400591362799,74.8133333333332,25.96" Label="Update" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/unit.cpp&quot; StartLineNumber=15 StartCharacterOffset=0 EndLineNumber=15 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@10" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="196.128333333333,503.639991362799,81.91,25.96" Label="operator" SourceLocation="(Assembly=&quot;file:///e:/visual studio/vc/tools/msvc/14.11.25503/include/functional&quot; StartLineNumber=349 StartCharacterOffset=0 EndLineNumber=349 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@11" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="175.501666666667,111.919291362799,123.163333333333,25.9599999999999" Label="InitializeWindow" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/main.cpp&quot; StartLineNumber=94 StartCharacterOffset=0 EndLineNumber=94 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@12" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="199.676666666667,279.799591362799,74.8133333333333,25.96" Label="Update" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/game.cpp&quot; StartLineNumber=80 StartCharacterOffset=0 EndLineNumber=80 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@13" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="199.676666666667,391.719791362799,74.8133333333332,25.96" Label="Update" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/scene.cpp&quot; StartLineNumber=22 StartCharacterOffset=0 EndLineNumber=22 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@14" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="195.385522812886,447.679891362799,82.5166666666666,25.96" Label="EachUnit" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/scene.cpp&quot; StartLineNumber=6 StartCharacterOffset=0 EndLineNumber=6 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@15" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="6.30166666666665,783.440491362799,129.563333333333,25.96" Label="Scene::Draw::__l2::" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/scene.cpp&quot; StartLineNumber=28 StartCharacterOffset=0 EndLineNumber=28 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@16" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="166.578333333333,783.440491362799,141.01,25.96" Label="Scene::Update::__l2::" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/scene.cpp&quot; StartLineNumber=23 StartCharacterOffset=0 EndLineNumber=23 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@17" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="105.918333333333,727.480391362799,60.33,25.96" Label="_Call" SourceLocation="(Assembly=&quot;file:///e:/visual studio/vc/tools/msvc/14.11.25503/include/type_traits&quot; StartLineNumber=1608 StartCharacterOffset=0 EndLineNumber=1608 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@18" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="100.726666666667,671.520291362799,70.7133333333334,25.96" Label="invoke" SourceLocation="(Assembly=&quot;file:///e:/visual studio/vc/tools/msvc/14.11.25503/include/type_traits&quot; StartLineNumber=1608 StartCharacterOffset=0 EndLineNumber=1608 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@19" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="206.918333333333,727.480391362799,60.33,25.96" Label="_Call" SourceLocation="(Assembly=&quot;file:///e:/visual studio/vc/tools/msvc/14.11.25503/include/type_traits&quot; StartLineNumber=1608 StartCharacterOffset=0 EndLineNumber=1608 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@20" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="201.726666666667,671.520291362799,70.7133333333333,25.96" Label="invoke" SourceLocation="(Assembly=&quot;file:///e:/visual studio/vc/tools/msvc/14.11.25503/include/type_traits&quot; StartLineNumber=1608 StartCharacterOffset=0 EndLineNumber=1608 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@21" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="115.918333333333,615.560191362799,60.33,25.96" Label="_Call" SourceLocation="(Assembly=&quot;file:///e:/visual studio/vc/tools/msvc/14.11.25503/include/type_traits&quot; StartLineNumber=1814 StartCharacterOffset=0 EndLineNumber=1814 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@22" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="206.918333333333,615.560191362799,60.33,25.96" Label="_Call" SourceLocation="(Assembly=&quot;file:///e:/visual studio/vc/tools/msvc/14.11.25503/include/type_traits&quot; StartLineNumber=1814 StartCharacterOffset=0 EndLineNumber=1814 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@23" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="195.34,55.9591913627987,83.4866666666667,25.96" Label="WinMain" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/main.cpp&quot; StartLineNumber=37 StartCharacterOffset=0 EndLineNumber=37 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@4" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="203.606666666667,167.879391362799,66.9533333333333,25.96" Label="Game" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/game.cpp&quot; StartLineNumber=19 StartCharacterOffset=0 EndLineNumber=19 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@5" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="197.223333333333,223.839491362799,79.72,25.96" Label="InitLoop" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/game.cpp&quot; StartLineNumber=46 StartCharacterOffset=0 EndLineNumber=46 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@6" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="132.378333333333,335.759691362799,73.41,25.96" Label="Render" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/game.cpp&quot; StartLineNumber=71 StartCharacterOffset=0 EndLineNumber=71 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@7" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="39.4,839.400591362799,63.3666666666667,25.96" Label="Draw" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/map_agrabahmarket.cpp&quot; StartLineNumber=47 StartCharacterOffset=0 EndLineNumber=47 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@8" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="105.4,391.719791362799,63.3666666666667,25.96" Label="Draw" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/scene.cpp&quot; StartLineNumber=28 StartCharacterOffset=0 EndLineNumber=28 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@9" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="197.65,559.600091362799,78.8666666666666,25.96" Label="_Do_call" SourceLocation="(Assembly=&quot;file:///e:/visual studio/vc/tools/msvc/14.11.25503/include/functional&quot; StartLineNumber=298 StartCharacterOffset=0 EndLineNumber=298 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="ExternalCodeRootNode" Category="ExternalCallStackEntry" Bounds="190.59,-0.000908637201332496,92.9866666666667,25.96" Label="External Code">
+      <Category Ref="CallStackEntry" />
+    </Node>
+  </Nodes>
+  <Links>
+    <Link Source="@10" Target="@9" Category="CallStackDirectCall" Bounds="237.083333333333,529.599991362799,2.8421709430404E-14,21.0001" />
+    <Link Source="@11" Target="@4" Category="CallStackDirectCall" Bounds="237.083333333333,137.879291362799,0,21.0001" />
+    <Link Source="@12" Target="@13" Category="CallStackDirectCall" Bounds="237.083333333333,305.759591362799,5.6843418860808E-14,76.9602" />
+    <Link Source="@12" Target="@6" Category="CallStackDirectCall" Bounds="191.805372614846,305.759591362799,29.5052941221086,24.2811648470972" />
+    <Link Source="@13" Target="@14" Category="CallStackDirectCall" Bounds="236.816471752788,417.679791362799,0.164924416588093,21.0003775288486" />
+    <Link Source="@14" Target="@10" Category="CallStackDirectCall" Bounds="236.745793310176,473.639891362799,0.164924416588121,21.0003775288484" />
+    <Link Source="@15" Target="@7" Category="CallStackDirectCall" Bounds="71.0833333333333,809.400491362799,0,21.0001" />
+    <Link Source="@16" Target="(Name=Unit::Update @1 @2 OverloadingParameters=[(Type=float Name=dt)] @3)" Category="CallStackDirectCall" Bounds="237.083333333333,809.400491362799,0,21.0001" />
+    <Link Source="@17" Target="@15" Category="CallStackDirectCall" Bounds="92.980695130478,753.440391362799,28.0258245445523,24.1281222168554" />
+    <Link Source="@18" Target="@17" Category="CallStackDirectCall" Bounds="136.083333333333,697.480291362799,0,21.0001" />
+    <Link Source="@19" Target="@16" Category="CallStackDirectCall" Bounds="237.083333333333,753.440391362799,0,21.0001" />
+    <Link Source="@20" Target="@19" Category="CallStackDirectCall" Bounds="237.083333333333,697.480291362799,0,21.0001" />
+    <Link Source="@21" Target="@18" Category="CallStackDirectCall" Bounds="139.986052038605,641.520191362799,3.77777150114292,21.1404470981108" />
+    <Link Source="@22" Target="@20" Category="CallStackDirectCall" Bounds="237.083333333333,641.520191362799,0,21.0001000000001" />
+    <Link Source="@23" Target="@11" Category="CallStackDirectCall" Bounds="237.083333333333,81.9191913627987,5.6843418860808E-14,21.0001" />
+    <Link Source="@4" Target="@5" Category="CallStackDirectCall" Bounds="237.083333333333,193.839391362799,2.8421709430404E-14,21.0001000000001" />
+    <Link Source="@5" Target="@12" Category="CallStackDirectCall" Bounds="237.083333333333,249.799491362799,0,21.0001" />
+    <Link Source="@6" Target="@8" Category="CallStackDirectCall" Bounds="148.973414550956,361.719691362799,12.6874874429048,22.1872833141781" />
+    <Link Source="@7" Target="(Name=Unit::DrawWithParameter @1 @2 OverloadingParameters=[(Type=Unit_Transform Name=pTransform),(Type=Unit_SourceRect Name=pSourceRect),(Type=Unit_Vector2 Name=pPosition)] @3)" Category="CallStackDirectCall" Bounds="71.0833333333333,865.360591362799,0,21.0001" />
+    <Link Source="@8" Target="@14" Category="CallStackDirectCall" Bounds="160.176494105227,417.679791362799,45.5285842442238,25.590304823464" />
+    <Link Source="@9" Target="@21" Category="CallStackDirectCall" Bounds="174.857297299388,585.560091362799,41.1184969123212,25.2856615281669" />
+    <Link Source="@9" Target="@22" Category="CallStackDirectCall" Bounds="237.083333333333,585.560091362799,0,21.0001" />
+    <Link Source="ExternalCodeRootNode" Target="@23" Category="CallStackIndirectCall" Bounds="237.083333333333,25.9590913627987,0,21.0001" />
+  </Links>
+  <Categories>
+    <Category Id="CallStackDirectCall" Label="Call Stack direct call" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Call Stack direct call" OutgoingActionLabel="Call Stack direct call" />
+    <Category Id="CallStackEntry" Label="Call Stack Entry" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="Call Stack Entry" />
+    <Category Id="CallStackIndirectCall" Label="Call Stack indirect call" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Call Stack indirect call" OutgoingActionLabel="Call Stack indirect call" />
+    <Category Id="CodeSchema_CallStackUnresolvedMethod" Label="Unresolved Method" CanBeDataDriven="True" DefaultAction="Microsoft.AllOutBoundLinks" IsProviderRoot="False" NavigationActionLabel="Unresolved Method" />
+    <Category Id="CodeSchema_SourceLocation" Label="Source Location" Icon="File" />
+    <Category Id="ExternalCallStackEntry" Label="External Call Stack Entry" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="External Call Stack Entry" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsProviderRoot" Label="IsProviderRoot" Description="IsProviderRoot" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="IsUnresolved" Label="Is Unresolved" ValueType="System.String" />
+    <Name Id="Name" Label="Name" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=Game.exe" />
+    <Alias n="2" Id="Type=void" />
+    <Alias n="3" Id="IsUnresolved=True" />
+    <Alias n="4" Id="(Name=Game::Game @1 @2 @3)" />
+    <Alias n="5" Id="(Name=Game::InitLoop @1 @2 @3)" />
+    <Alias n="6" Id="(Name=Game::Render @1 @2 @3)" />
+    <Alias n="7" Id="(Name=Map_AgrabahMarket::Draw @1 @2 @3)" />
+    <Alias n="8" Id="(Name=Scene::Draw @1 @2 @3)" />
+    <Alias n="9" Id="(Name=&quot;std::_Func_impl_no_alloc&lt;void &lt;lambda&gt;(Unit *),void,Unit *&gt;::_Do_call&quot; @1 @2 OverloadingParameters=[(Type=&quot;Unit * &amp;&amp; {Map_AgrabahMarket}&quot; Name=&lt;_Args_0&gt;)] @3)" />
+    <Alias n="10" Id="(Name=&quot;std::_Func_class&lt;void,Unit *&gt;::operator()&quot; @1 @2 OverloadingParameters=[(Type=&quot;Unit * {Map_AgrabahMarket}&quot; Name=&lt;_Args_0&gt;)] @3)" />
+    <Alias n="11" Id="(Name=InitializeWindow @1 @2 OverloadingParameters=[(Type=int Name=cmdShow)] @3)" />
+    <Alias n="12" Id="(Name=Game::Update @1 @2 OverloadingParameters=[(Type=float Name=delta)] @3)" />
+    <Alias n="13" Id="(Name=Scene::Update @1 @2 OverloadingParameters=[(Type=float Name=dt)] @3)" />
+    <Alias n="14" Id="(Name=Scene::EachUnit @1 @2 OverloadingParameters=[(Type=&quot;std::function&lt;void __cdecl(Unit *)&gt;&quot; Name=pEachUnit)] @3)" />
+    <Alias n="15" Id="(Name=Scene::Draw::__l2::&lt;lambda&gt; @1 @2 OverloadingParameters=[(Type=&quot;Unit * {Map_AgrabahMarket}&quot; Name=pItem)] @3)" />
+    <Alias n="16" Id="(Name=Scene::Update::__l2::&lt;lambda&gt; @1 @2 OverloadingParameters=[(Type=&quot;Unit * {Map_AgrabahMarket}&quot; Name=pItem)] @3)" />
+    <Alias n="17" Id="(Name=&quot;std::_Invoker_functor::_Call&lt;void &lt;lambda&gt;(Unit *) &amp;,Unit *&gt;&quot; @1 @2 OverloadingParameters=[(Type=&quot;Scene::Draw::__l2::void &lt;lambda&gt;(Unit *) &amp;&quot; Name=_Obj),(Type=&quot;Unit * &amp;&amp; {Map_AgrabahMarket}&quot; Name=&lt;_Args_0&gt;)] @3)" />
+    <Alias n="18" Id="(Name=&quot;std::invoke&lt;void &lt;lambda&gt;(Unit *) &amp;,Unit *&gt;&quot; @1 @2 OverloadingParameters=[(Type=&quot;Scene::Draw::__l2::void &lt;lambda&gt;(Unit *) &amp;&quot; Name=_Obj),(Type=&quot;Unit * &amp;&amp; {Map_AgrabahMarket}&quot; Name=&lt;_Args_0&gt;)] @3)" />
+    <Alias n="19" Id="(Name=&quot;std::_Invoker_functor::_Call&lt;void &lt;lambda&gt;(Unit *) &amp;,Unit *&gt;&quot; @1 @2 OverloadingParameters=[(Type=&quot;Scene::Update::__l2::void &lt;lambda&gt;(Unit *) &amp;&quot; Name=_Obj),(Type=&quot;Unit * &amp;&amp; {Map_AgrabahMarket}&quot; Name=&lt;_Args_0&gt;)] @3)" />
+    <Alias n="20" Id="(Name=&quot;std::invoke&lt;void &lt;lambda&gt;(Unit *) &amp;,Unit *&gt;&quot; @1 @2 OverloadingParameters=[(Type=&quot;Scene::Update::__l2::void &lt;lambda&gt;(Unit *) &amp;&quot; Name=_Obj),(Type=&quot;Unit * &amp;&amp; {Map_AgrabahMarket}&quot; Name=&lt;_Args_0&gt;)] @3)" />
+    <Alias n="21" Id="(Name=&quot;std::_Invoker_ret&lt;void,1&gt;::_Call&lt;void &lt;lambda&gt;(Unit *) &amp;,Unit *&gt;&quot; @1 @2 OverloadingParameters=[(Type=&quot;Scene::Draw::__l2::void &lt;lambda&gt;(Unit *) &amp;&quot; Name=&lt;_Vals_0&gt;),(Type=&quot;Unit * &amp;&amp; {Map_AgrabahMarket}&quot; Name=&lt;_Vals_1&gt;)] @3)" />
+    <Alias n="22" Id="(Name=&quot;std::_Invoker_ret&lt;void,1&gt;::_Call&lt;void &lt;lambda&gt;(Unit *) &amp;,Unit *&gt;&quot; @1 @2 OverloadingParameters=[(Type=&quot;Scene::Update::__l2::void &lt;lambda&gt;(Unit *) &amp;&quot; Name=&lt;_Vals_0&gt;),(Type=&quot;Unit * &amp;&amp; {Map_AgrabahMarket}&quot; Name=&lt;_Vals_1&gt;)] @3)" />
+    <Alias n="23" Id="(Name=WinMain @1 Type=int OverloadingParameters=[(Type=&quot;HINSTANCE__ *&quot; Name=hInstance),(Type=&quot;HINSTANCE__ *&quot; Name=hPrevInstance),(Type=&quot;char *&quot; Name=lpCmdLine),(Type=int Name=cmdShow)] @3)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Link" GroupLabel="Current Call Stack Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CurrentCallStackCall')" />
+      <Setter Property="Stroke" Value="#FFD93701" />
+      <Setter Property="Weight" Value="1" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Call Stack Indirect Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CallStackIndirectCall')" />
+      <Setter Property="Stroke" Value="#FFB8B8B8" />
+      <Setter Property="StrokeDashArray" Value="4 1" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Call Stack Direct Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CallStackDirectCall')" />
+      <Setter Property="Stroke" Value="#FFB8B8B8" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Call Stack (no source)" ValueLabel="True">
+      <Condition Expression="HasCategory('CurrentCallStackEntry') And !HasCategory('CodeSchema_SourceLocation')" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="#FFA5A5A5" />
+      <Setter Property="Stroke" Value="#FF0072C6" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="External And Current" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('ExternalCallStackEntry') And HasCategory('CurrentCallStackEntry')" />
+      <Setter Property="Background" Value="#FFFFF8F0" />
+      <Setter Property="Stroke" Value="#FFCE5100" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Call Stack (source)" ValueLabel="True">
+      <Condition Expression="HasCategory('CurrentCallStackEntry') And !HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFFFE3C6" />
+      <Setter Property="Stroke" Value="#FFD93701" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="External Call Stack" ValueLabel="True">
+      <Condition Expression="HasCategory('ExternalCallStackEntry')" />
+      <Setter Property="Background" Value="#FFF7F7F7" />
+      <Setter Property="StrokeDashArray" Value="1 3" />
+      <Setter Property="Foreground" Value="#FF717171" />
+      <Setter Property="Stroke" Value="#FFA5A5A5" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Test Project" ValueLabel="Test Project">
+      <Condition Expression="HasCategory('CodeMap_TestProject')" />
+      <Setter Property="Icon" Value="CodeMap_TestProject" />
+      <Setter Property="Background" Value="#FF307A69" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Web Project" ValueLabel="Web Project">
+      <Condition Expression="HasCategory('CodeMap_WebProject')" />
+      <Setter Property="Icon" Value="CodeMap_WebProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Windows Store Project" ValueLabel="Windows Store Project">
+      <Condition Expression="HasCategory('CodeMap_WindowsStoreProject')" />
+      <Setter Property="Icon" Value="CodeMap_WindowsStoreProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Phone Project" ValueLabel="Phone Project">
+      <Condition Expression="HasCategory('CodeMap_PhoneProject')" />
+      <Setter Property="Icon" Value="CodeMap_PhoneProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Portable Library" ValueLabel="Portable Library">
+      <Condition Expression="HasCategory('CodeMap_PortableLibraryProject')" />
+      <Setter Property="Icon" Value="CodeMap_PortableLibraryProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="WPF Project" ValueLabel="WPF Project">
+      <Condition Expression="HasCategory('CodeMap_WpfProject')" />
+      <Setter Property="Icon" Value="CodeMap_WpfProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="VSIX Project" ValueLabel="VSIX Project">
+      <Condition Expression="HasCategory('CodeMap_VsixProject')" />
+      <Setter Property="Icon" Value="CodeMap_VsixProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Modeling Project" ValueLabel="Modeling Project">
+      <Condition Expression="HasCategory('CodeMap_ModelingProject')" />
+      <Setter Property="Icon" Value="CodeMap_ModelingProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Assembly" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Namespace" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Interface" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Struct" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enumeration" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Delegate" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Class" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF0E70C0" />
+      <Setter Property="Stroke" Value="#FF0E70C0" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Method" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Event" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out Parameter" ValueLabel="Has category">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Parameter" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Local Variable" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Externals" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True">
+      <Condition Expression="HasCategory('InheritsFrom')" />
+      <Setter Property="Stroke" Value="#FF00A600" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True">
+      <Condition Expression="HasCategory('Implements')" />
+      <Setter Property="Stroke" Value="#8000A600" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Calls" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_Calls')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Function Pointer" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FunctionPointer')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Write" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FieldWrite')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="DrawArrow" Value="true" />
+      <Setter Property="IsHidden" Value="false" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Return" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeSchema_ReturnTypeLink')" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="References" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('References')" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Uses Attribute" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeSchema_AttributeUse')" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Solution Folder" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeMap_SolutionFolder')" />
+      <Setter Property="Background" Value="#FFDEBA83" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Project Reference" ValueLabel="Project Reference">
+      <Condition Expression="HasCategory('CodeMap_ProjectReference')" />
+      <Setter Property="Stroke" Value="#9A9A9A" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="External Reference" ValueLabel="External Reference">
+      <Condition Expression="HasCategory('CodeMap_ExternalReference')" />
+      <Setter Property="Stroke" Value="#9A9A9A" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Comment" ValueLabel="Has comment">
+      <Condition Expression="HasCategory('Comment')" />
+      <Setter Property="Background" Value="#FFFFFACD" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+      <Setter Property="StrokeThickness" Value="1" />
+      <Setter Property="NodeRadius" Value="2" />
+      <Setter Property="MaxWidth" Value="250" />
+    </Style>
+  </Styles>
+</DirectedGraph>

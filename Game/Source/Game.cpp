@@ -40,14 +40,14 @@ void Game::InitLoop()
 
 		delta += GameTime::GetInstance()->GetCounter();
 
-		// vòng while đã chạy tgian lâu hơn hoặc bằng fps mình yêu cầu thì thực hiện update game và render lên màn hình
+		// vòng while đã chạy tgian lâu hơn hoặc bằng fps mình yêu cầu thì thực hiện update game và Draw lên màn hình
 		if (delta >= timePerFrame)
 		{
-			Update(delta);
+			RenderAndUpdate(delta);
 			//delta = 0;
 			delta -= timePerFrame;
 		}
-		else // fps cao hơn lúc bth, tạm sleep lại bằng khoảng tgian nó nhanh hơn, sau đó sẽ update và render tiếp
+		else // fps cao hơn lúc bth, tạm sleep lại bằng khoảng tgian nó nhanh hơn, sau đó sẽ update và Draw tiếp
 		{
 			Sleep((DWORD)((timePerFrame - delta)));
 			delta = timePerFrame;
@@ -56,8 +56,8 @@ void Game::InitLoop()
 }
 
 // Được gọi bên trong vòng lặp (bên trong hàm update)
-void Game::Render() {
-	Scene * scene = SceneManager::GetInstance()->GetCurrentScene();
+void Game::Draw() {
+	Scene * mScene = SceneManager::GetInstance()->GetCurrentScene();
 	mDevice->Clear(0, NULL, D3DCLEAR_TARGET, mBackgroundColor, 0.0f, 0);
 	{
 		mDevice->BeginScene();
@@ -68,7 +68,7 @@ void Game::Render() {
 			mDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
 			mDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
 		}
-		scene->Draw();
+		mScene->Draw();
 		GameGlobal::GetSpriteHandler()->End();
 		mDevice->EndScene();
 	}
@@ -76,7 +76,7 @@ void Game::Render() {
 }
 
 // Được gọi bên trong vòng lặp
-void Game::Update(float delta) {
+void Game::RenderAndUpdate(float delta) {
 	SceneManager::GetInstance()->GetCurrentScene()->Update(delta);
-	Render();
+	Draw();
 }

@@ -19,8 +19,8 @@ protected:
 	void InitLoop();
 
 	//hàm dùng để vẽ sau khi update
-	void Render();
+	void Draw();
 
 	//hàm update của game
-	void Update(float dt);
+	void RenderAndUpdate(float dt);
 };

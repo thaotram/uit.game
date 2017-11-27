@@ -5,7 +5,7 @@
 Map_AgrabahMarket::Map_AgrabahMarket() : Unit("AgrabahMarket") {
 	mPosition = { 0,0 };
 	mAnimation.Set("back", 1);
-	mTimePerFrame = 0.01;
+	mTimePerFrame = 1.f/60;
 }
 
 void Map_AgrabahMarket::AfterAddToScene() {
@@ -36,7 +36,7 @@ bool Map_AgrabahMarket::AutoNextFrame() {
 }
 
 void Map_AgrabahMarket::Draw() {
-	//mScene->mCameraPosition += {2, 0};
+	mScene->mCameraPosition += {2, 0};
 	auto camera = mScene->mCameraPosition;
 	mSourceRect = RECT{
 		(LONG)(camera.x),
