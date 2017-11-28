@@ -16,7 +16,7 @@ void Map_AgrabahMarket::AfterAddToScene() {
 	mTransform.Update(this);
 }
 
-void Map_AgrabahMarket::UnitRender(float dt) {
+void Map_AgrabahMarket::UnitRender(float delay) {
 	map<int, bool> * Key = GameGlobal::GetInput();
 
 	bool K_UP = (*Key)[VK_UP];

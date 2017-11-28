@@ -13,14 +13,14 @@ Scene::Scene() {
 	mCameraPosition = { 0,0 };
 }
 Scene::~Scene() {
-	EachUnit([=](Unit * pItem) {
-		delete pItem;
+	EachUnit([=](Unit * pUnit) {
+		delete pUnit;
 	});
 }
 
 void Scene::SceneRender(float delay) {
-	EachUnit([=](Unit * pItem) {
-		pItem->UnitRender(delay);
+	EachUnit([=](Unit * pUnit) {
+		pUnit->UnitRender(delay);
 	});
 }
 

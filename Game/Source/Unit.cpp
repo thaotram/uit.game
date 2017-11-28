@@ -25,7 +25,6 @@ void Unit::UnitRender(float delay) {
 	mTransform.Update(this);	
 	this->UnitDraw(mTransform, mSourceRect, mPosition);
 }
-
 void Unit::UnitDraw(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vector2 pPosition)
 {
 	mSpriteHandler->SetTransform(&pTransform);

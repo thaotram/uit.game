@@ -157,11 +157,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		);
 		break;
 	case WM_KEYDOWN:
-		//SceneManager::GetInstance()->GetCurrentScene()->OnKeyDown(wParam);
 		(*GameInput)[wParam] = true;
 		break;
 	case WM_KEYUP:
-		//SceneManager::GetInstance()->GetCurrentScene()->OnKeyUp(wParam);
 		(*GameInput)[wParam] = false;
 		break;
 	default:
