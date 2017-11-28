@@ -2,7 +2,7 @@
 #include "Scene.h"
 
 Unit::Unit(string pName) : mName(pName) {
-	mAutoNextFrame = false;
+	mAutoNextFrame = true;
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
 	mScale = GameGlobal::GetScale();
 
@@ -13,17 +13,16 @@ Unit::Unit(string pName) : mName(pName) {
 	mTimePerFrame = 0.01f;
 }
 void Unit::UnitRender(float delay) {
-	UnitUpdateBeforeNextFrame();
-
-	if (mCurrentTime >= mTimePerFrame) {
-		mCurrentTime -= mTimePerFrame;
-		if (mAutoNextFrame) mAnimation.NextFrame(this);
+	if (mAutoNextFrame) {
+		if (mCurrentTime >= mTimePerFrame) {
+			mCurrentTime -= mTimePerFrame;
+			mAnimation.NextFrame(this);
+		}
+		else mCurrentTime += delay;
 	}
-	else mCurrentTime += delay;
-
+	
 	mSourceRect.Update(this);
-	mTransform.Update(this);
-
+	mTransform.Update(this);	
 	this->UnitDraw(mTransform, mSourceRect, mPosition);
 }
 

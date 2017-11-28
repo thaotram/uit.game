@@ -6,7 +6,7 @@ Unit_Aladdin::Unit_Aladdin() : Unit("Aladdin") {
 	state = mAnimation.State();
 }
 
-void Unit_Aladdin::UnitUpdateBeforeNextFrame()
+void Unit_Aladdin::BeforeNextFrame()
 {
 	map<int, bool> * Key = GameGlobal::GetInput();
 

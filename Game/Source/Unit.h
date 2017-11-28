@@ -35,7 +35,6 @@ protected:
 
 protected:
 	bool mAutoNextFrame;
-	virtual void UnitUpdateBeforeNextFrame() {};
 	/* Đoạn này viết còn tệ, còn nhập nhằng khi gọi làm AutoNextFrame... */
 public:
 	Unit(string pName);

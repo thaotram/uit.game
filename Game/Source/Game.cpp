@@ -56,11 +56,12 @@ void Game::GameRender(float delay) {
 	// Before
 	mDevice->Clear(0, NULL, D3DCLEAR_TARGET, mBackgroundColor, 0.f, 0);
 	mDevice->BeginScene();
+	mSpriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
+
+	// ?
 	mDevice->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
 	mDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
 	mDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
-	mSpriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
-
 	// Render
 	mScene->SceneRender(delay);
 

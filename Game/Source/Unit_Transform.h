@@ -16,7 +16,6 @@ public:
 	// Lấy thông tin Transform từ
 	// + Json
 	// + Position
-	// + Animation
 	void Update(Unit * pUnit);
 	void SetFlip(bool pFlip);
 };
