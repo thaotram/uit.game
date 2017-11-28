@@ -2,8 +2,8 @@
 #include "Game.h"
 #include "GameGlobal.h"
 #include "GameTime.h"
-#include "SceneManager.h"
-#include "Scene_AgrabahMarket.h"
+#include "Scene\SceneManager.h"
+#include "Scene\Scene_AgrabahMarket.h"
 
 Game::Game()
 {

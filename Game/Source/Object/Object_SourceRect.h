@@ -6,14 +6,13 @@
 
 using namespace std;
 
-class Unit;
-class Unit_Entity;
+class Object;
 
-class Unit_SourceRect : public RECT {
+class Object_SourceRect : public RECT {
 public:
 	// Lấy thông tin cho SourceRect từ
-	// + Unit_Animation > Frame {mState, mFrameIndex}
-	void Update(Unit * pUnit);
+	// + Object_Animation > Frame {mState, mFrameIndex}
+	void Update(Object * pObject);
 	void operator=(RECT pRect);
 
 	LONG GetWidth() {

@@ -8,8 +8,7 @@
 #include <vector>
 
 #include <json.hpp>
-#include "GameDebug.h"
-#include "Unit_Animation.h"
+#include "Object_Animation.h"
 
 using namespace std;
 using json = nlohmann::json;
@@ -18,7 +17,7 @@ struct Frame;
 typedef Frame FRAME;
 struct State;
 typedef State STATE;
-class Unit_Json;
+class Object_Json;
 
 struct Frame {
 	Frame() {}
@@ -40,26 +39,26 @@ struct State {
 	map<int, FRAME>	FrameList;
 };
 
-//class Unit_Animation;
-class Unit;
+//class Object_Animation;
+class Object;
 
-class Unit_Json : public map<string, STATE> {
+class Object_Json : public map<string, STATE> {
 private:
-	static map<string, Unit_Json *> Unit_Jsons;
+	static map<string, Object_Json *> Object_Jsons;
 
 	STATE operator[](string pState);
-	Unit_Json(string pName);
+	Object_Json(string pName);
 public:
-	static Unit_Json * GetJson(string pName);
+	static Object_Json * GetJson(string pName);
 
 	RECT GetFrame(string mState, int mFrameIndex);
 	D3DXVECTOR2 GetTransition(string pState, int pFrameIndex);
 	D3DXVECTOR2 GetBasePoint(string pState, int pFrameIndex);
 	vector<int> GetFrameCycle(string pState);
 
-	RECT		GetFrame(Unit * pUnit);
-	D3DXVECTOR2 GetTransition(Unit * pUnit);
-	D3DXVECTOR2 GetBasePoint(Unit * pUnit);
+	RECT		GetFrame(Object * pObject);
+	D3DXVECTOR2 GetTransition(Object * pObject);
+	D3DXVECTOR2 GetBasePoint(Object * pObject);
 
-	vector<int> GetFrameCycle(Unit * pUnit);
+	vector<int> GetFrameCycle(Object * pObject);
 };

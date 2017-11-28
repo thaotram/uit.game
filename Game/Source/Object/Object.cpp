@@ -1,18 +1,18 @@
-﻿#include "Unit.h"
-#include "Scene.h"
+﻿#include "Object.h"
+#include "../Scene/Scene.h"
 
-Unit::Unit(string pName) : mName(pName) {
+Object::Object(string pName) : mName(pName) {
 	mAutoNextFrame = true;
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
 	mScale = GameGlobal::GetScale();
 
-	mJson = Unit_Json::GetJson(mName);
-	mTexture = Unit_Texture::GetTexture(mName);
+	mJson = Object_Json::GetJson(mName);
+	mTexture = Object_Texture::GetTexture(mName);
 
 	mCurrentTime = 0;
 	mTimePerFrame = 0.01f;
 }
-void Unit::UnitRender(float delay) {
+void Object::UnitRender(float delay) {
 	if (mAutoNextFrame) {
 		if (mCurrentTime >= mTimePerFrame) {
 			mCurrentTime -= mTimePerFrame;
@@ -25,7 +25,7 @@ void Unit::UnitRender(float delay) {
 	mTransform.Update(this);	
 	this->UnitDraw(mTransform, mSourceRect, mPosition);
 }
-void Unit::UnitDraw(Unit_Transform pTransform, Unit_SourceRect pSourceRect, Unit_Vector2 pPosition)
+void Object::UnitDraw(Object_Transform pTransform, Object_SourceRect pSourceRect, Object_Vector2 pPosition)
 {
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(

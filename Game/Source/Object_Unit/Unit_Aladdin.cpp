@@ -1,12 +1,12 @@
 ﻿#include "Unit_Aladdin.h"
 
-Unit_Aladdin::Unit_Aladdin() : Unit("Aladdin") {
+Object_Aladdin::Object_Aladdin() : Object("Aladdin") {
 	mPosition = { 50,628 };
 	mAnimation.SetState("stand");
 	state = mAnimation.State();
 }
 
-void Unit_Aladdin::BeforeNextFrame()
+void Object_Aladdin::BeforeNextFrame()
 {
 	map<int, bool> * Key = GameGlobal::GetInput();
 
@@ -100,11 +100,11 @@ void Unit_Aladdin::BeforeNextFrame()
 	else if (*state == "run_cut") {
 		//if (K_RIGHT) {
 		//	this->Get()->GetTransform()->SetFlip(false);
-		//	//*(this->Get()->GetPosition()) += Unit_Vector2(11, 0);
+		//	//*(this->Get()->GetPosition()) += Object_Vector2(11, 0);
 		//}
 		//if (K_LEFT) {
 		//	this->Get()->GetTransform()->SetFlip(true);
-		//	//*(this->Get()->GetPosition()) += Unit_Vector2(-11, 0);
+		//	//*(this->Get()->GetPosition()) += Object_Vector2(-11, 0);
 		//}
 	}
 	else if (*state == "up_to_stand") {

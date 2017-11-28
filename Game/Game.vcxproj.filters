@@ -9,15 +9,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Source\Game">
-      <UniqueIdentifier>{55d6415e-d90c-40d5-87d4-9e0c4f21d508}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Scene">
-      <UniqueIdentifier>{6c02cc3d-736c-4289-8d76-1db7f06b3225}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Scene\FinalScene">
-      <UniqueIdentifier>{bf814ab8-6a5c-4d0f-8ee4-60076cd2ea21}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Library">
       <UniqueIdentifier>{fb6c77ad-b236-43f6-9531-d1063e63e3d3}</UniqueIdentifier>
     </Filter>
@@ -27,26 +18,26 @@
     <Filter Include="Resource Files\Map">
       <UniqueIdentifier>{2b49052b-e3d3-4056-9785-fceb5aa48e2f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Unit">
-      <UniqueIdentifier>{4b2bf328-e013-4829-815d-9671e33e5a30}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Unit\Unit_Properties">
-      <UniqueIdentifier>{dc1f7ba3-d1ba-48f4-ab08-8e090d4c3665}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Unit\FinalUnit">
-      <UniqueIdentifier>{fe78fdd8-8619-4ec1-984e-3ecffc630ab9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Debug">
-      <UniqueIdentifier>{67c34769-c023-4d2f-991d-98867cf88c17}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\Debug">
       <UniqueIdentifier>{41e64fb5-e7ba-4bbe-ba85-1ab7ab9e7cf2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Unit\Unit_Properties\Entity">
-      <UniqueIdentifier>{a1916c7c-5750-410c-9daf-09d5f1e1053b}</UniqueIdentifier>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{83958e80-bb41-49f0-8daf-2bc94c66a3b7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Unit\FinalMap">
-      <UniqueIdentifier>{45e37737-5674-49e3-a11d-883f0fe09721}</UniqueIdentifier>
+    <Filter Include="Source\Object">
+      <UniqueIdentifier>{375df169-4ba2-471b-b485-610cfc547b2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object_Unit">
+      <UniqueIdentifier>{b89653c1-7904-4c44-b693-39dfc3bf7432}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object_Map">
+      <UniqueIdentifier>{6e6f20f7-66dc-4c5e-a394-a3ab78056970}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scene">
+      <UniqueIdentifier>{d40c39b3-7ae3-47ce-b6e1-d29c96c2357f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game">
+      <UniqueIdentifier>{5cf13dde-d2e0-4661-abb8-e471d50aa528}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -147,69 +138,41 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Game.h">
-      <Filter>Source\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameGlobal.h">
-      <Filter>Source\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameTime.h">
-      <Filter>Source\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Scene.h">
-      <Filter>Source\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SceneManager.h">
-      <Filter>Source\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Library\json.hpp">
       <Filter>Library</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene_AgrabahMarket.h">
-      <Filter>Source\Scene\FinalScene</Filter>
+    <ClInclude Include="Source\Game.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Aladdin.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
+    <ClInclude Include="Source\GameDebug.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit.h">
-      <Filter>Source\Unit</Filter>
+    <ClInclude Include="Source\GameGlobal.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Vector2.h">
-      <Filter>Source\Unit\Unit_Properties</Filter>
+    <ClInclude Include="Source\GameTime.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Unit_Animation.h">
-      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_SourceRect.h">
-      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Transform.h">
-      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Map_AgrabahMarket.h">
-      <Filter>Source\Unit\FinalMap</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Json.h">
-      <Filter>Source\Unit\Unit_Properties</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Unit_Texture.h">
-      <Filter>Source\Unit\Unit_Properties</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Status.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Block.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Camel.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\FinalUnit\Unit_Guards.h">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClInclude>
+    <ClInclude Include="Source\Object_Map\Map_AgrabahMarket.h" />
+    <ClInclude Include="Source\Object_Unit\Unit_Aladdin.h" />
+    <ClInclude Include="Source\Scene\Scene.h" />
+    <ClInclude Include="Source\Scene\Scene_AgrabahMarket.h" />
+    <ClInclude Include="Source\Scene\Scene_Camera.h" />
+    <ClInclude Include="Source\Scene\SceneManager.h" />
+    <ClInclude Include="Source\Object\Object_Vector2.h" />
+    <ClInclude Include="Source\Object\Object.h" />
+    <ClInclude Include="Source\Object\Object_Animation.h" />
+    <ClInclude Include="Source\Object\Object_Json.h" />
+    <ClInclude Include="Source\Object\Object_SourceRect.h" />
+    <ClInclude Include="Source\Object\Object_Texture.h" />
+    <ClInclude Include="Source\Object\Object_Transform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Source\Game.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameDebug.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameGlobal.cpp">
@@ -218,57 +181,44 @@
     <ClCompile Include="Source\GameTime.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Source\SceneManager.cpp">
-      <Filter>Source\Scene</Filter>
+    <ClCompile Include="Source\Object_Map\Map_AgrabahMarket.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GameDebug.h">
-      <Filter>Source\Game</Filter>
+    <ClCompile Include="Source\Object_Unit\Unit_Aladdin.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scene_AgrabahMarket.cpp">
-      <Filter>Source\Scene\FinalScene</Filter>
+    <ClCompile Include="Source\Scene\Scene.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scene.cpp">
-      <Filter>Source\Scene</Filter>
+    <ClCompile Include="Source\Scene\Scene_AgrabahMarket.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Source\FinalUnit\Unit_Aladdin.cpp">
-      <Filter>Source\Unit\FinalUnit</Filter>
+    <ClCompile Include="Source\Scene\Scene_Camera.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit.cpp">
-      <Filter>Source\Unit</Filter>
+    <ClCompile Include="Source\Scene\SceneManager.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_Vector2.cpp">
-      <Filter>Source\Unit\Unit_Properties</Filter>
+    <ClCompile Include="Source\Object\Object.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_Animation.cpp">
-      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
+    <ClCompile Include="Source\Object\Object_Animation.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_SourceRect.cpp">
-      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
+    <ClCompile Include="Source\Object\Object_Json.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_Transform.cpp">
-      <Filter>Source\Unit\Unit_Properties\Entity</Filter>
+    <ClCompile Include="Source\Object\Object_SourceRect.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Map_AgrabahMarket.cpp">
-      <Filter>Source\Unit\FinalMap</Filter>
+    <ClCompile Include="Source\Object\Object_Texture.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_Json.cpp">
-      <Filter>Source\Unit\Unit_Properties</Filter>
+    <ClCompile Include="Source\Object\Object_Transform.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Unit_Texture.cpp">
-      <Filter>Source\Unit\Unit_Properties</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\FinalUnit\Unit_Block.cpp">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\FinalUnit\Unit_Camel.cpp">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\FinalUnit\Unit_Guards.cpp">
-      <Filter>Source\Unit\FinalUnit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\FinalUnit\Unit_Status.cpp">
-      <Filter>Source\Unit\FinalUnit</Filter>
+    <ClCompile Include="Source\Object\Object_Vector2.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@
 #include <d3d9.h>
 
 #include "Scene.h"
-#include "GameDebug.h"
+#include "../GameDebug.h"
 
 using namespace std;
 

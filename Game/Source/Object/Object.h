@@ -1,0 +1,66 @@
+﻿#pragma once
+#include <d3d9.h>
+#include <d3dx9.h>
+#include <functional>
+
+#include "../GameGlobal.h"
+
+#include "Object_Json.h"
+#include "Object_Texture.h"
+
+#include "Object_Vector2.h"
+#include "Object_Animation.h"
+#include "Object_Transform.h"
+#include "Object_SourceRect.h"
+
+#include "../Scene/Scene.h"
+
+class Object
+{
+protected:
+	string				mName;
+	LPD3DXSPRITE		mSpriteHandler;
+	Object_Json			* mJson;
+	Object_Texture		* mTexture;
+
+	Object_Vector2		mPosition;
+	Object_Animation		mAnimation;
+	Object_Transform		mTransform;
+	Object_SourceRect		mSourceRect;
+
+	float				mCurrentTime;
+	float 				mTimePerFrame;
+
+	float				mScale;
+
+protected:
+	bool mAutoNextFrame;
+	/* Đoạn này viết còn tệ, còn nhập nhằng khi gọi làm AutoNextFrame... */
+public:
+	Object(string pName);
+	~Object() {};
+	Scene		 * mScene;
+	virtual void AfterAddToScene() {};
+
+	virtual void UnitRender(float delay);
+	void		 UnitDraw(
+		Object_Transform pTransform,
+		Object_SourceRect pSourceRect,
+		Object_Vector2 pPosition
+	);
+	Object_SourceRect * GetSourceRect() {
+		return &mSourceRect;
+	}
+	Object_Vector2 * GetPosition() {
+		return &mPosition;
+	}
+	Object_Animation * GetAnimation() {
+		return &mAnimation;
+	}
+	Object_Transform * GetTransform() {
+		return &mTransform;
+	}
+	Object_Json * GetJson() {
+		return mJson;
+	}
+};

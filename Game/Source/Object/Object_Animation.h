@@ -4,13 +4,12 @@
 #include <iostream>
 #include <vector>
 #include <functional> 
+#include <string> 
 
-#include "GameDebug.h"
+using namespace std;
 
-class Unit;
-class Unit_Entity;
-
-class Unit_Animation {
+class Object;
+class Object_Animation {
 private:
 	string	mState;
 	int		mCycleIndex;
@@ -19,16 +18,16 @@ private:
 	int		mNextCycleIndex;
 	bool	mSkipNextFrame;
 public:
-	Unit_Animation();
+	Object_Animation();
 
-	void NextFrame(Unit * pUnit);
+	void NextFrame(Object * pObject);
 
 	void SetState(string pState);
 	string GetState();
 
 	string * State();
 
-	int GetFrameIndex(Unit * pUnit);
+	int GetFrameIndex(Object * pObject);
 
 	int GetCycleIndex();
 	void SetCycleIndex(int pCycleIndex);

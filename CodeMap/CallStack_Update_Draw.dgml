@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph DataVirtualized="True" Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="(Name=Unit::DrawWithParameter @1 @2 OverloadingParameters=[(Type=Unit_Transform Name=pTransform),(Type=Unit_SourceRect Name=pSourceRect),(Type=Unit_Vector2 Name=pPosition)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="0,895.360691362799,142.166666666667,25.96" Label="DrawWithParameter" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/unit.cpp&quot; StartLineNumber=31 StartCharacterOffset=0 EndLineNumber=31 EndCharacterOffset=0)">
+    <Node Id="(Name=Unit::DrawWithParameter @1 @2 OverloadingParameters=[(Type=Object_Transform Name=pTransform),(Type=Object_SourceRect Name=pSourceRect),(Type=Object_Vector2 Name=pPosition)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="0,895.360691362799,142.166666666667,25.96" Label="DrawWithParameter" SourceLocation="(Assembly=&quot;file:///e:/code/ongoing project/uit.game/game/source/unit.cpp&quot; StartLineNumber=31 StartCharacterOffset=0 EndLineNumber=31 EndCharacterOffset=0)">
       <Category Ref="CallStackEntry" />
       <Category Ref="CodeSchema_SourceLocation" />
     </Node>
@@ -112,7 +112,7 @@
     <Link Source="@4" Target="@5" Category="CallStackDirectCall" Bounds="237.083333333333,193.839391362799,2.8421709430404E-14,21.0001000000001" />
     <Link Source="@5" Target="@12" Category="CallStackDirectCall" Bounds="237.083333333333,249.799491362799,0,21.0001" />
     <Link Source="@6" Target="@8" Category="CallStackDirectCall" Bounds="148.973414550956,361.719691362799,12.6874874429048,22.1872833141781" />
-    <Link Source="@7" Target="(Name=Unit::DrawWithParameter @1 @2 OverloadingParameters=[(Type=Unit_Transform Name=pTransform),(Type=Unit_SourceRect Name=pSourceRect),(Type=Unit_Vector2 Name=pPosition)] @3)" Category="CallStackDirectCall" Bounds="71.0833333333333,865.360591362799,0,21.0001" />
+    <Link Source="@7" Target="(Name=Unit::DrawWithParameter @1 @2 OverloadingParameters=[(Type=Object_Transform Name=pTransform),(Type=Object_SourceRect Name=pSourceRect),(Type=Object_Vector2 Name=pPosition)] @3)" Category="CallStackDirectCall" Bounds="71.0833333333333,865.360591362799,0,21.0001" />
     <Link Source="@8" Target="@14" Category="CallStackDirectCall" Bounds="160.176494105227,417.679791362799,45.5285842442238,25.590304823464" />
     <Link Source="@9" Target="@21" Category="CallStackDirectCall" Bounds="174.857297299388,585.560091362799,41.1184969123212,25.2856615281669" />
     <Link Source="@9" Target="@22" Category="CallStackDirectCall" Bounds="237.083333333333,585.560091362799,0,21.0001" />
@@ -170,8 +170,8 @@
     <Alias n="12" Id="(Name=Game::Update @1 @2 OverloadingParameters=[(Type=float Name=delta)] @3)" />
     <Alias n="13" Id="(Name=Scene::Update @1 @2 OverloadingParameters=[(Type=float Name=dt)] @3)" />
     <Alias n="14" Id="(Name=Scene::EachUnit @1 @2 OverloadingParameters=[(Type=&quot;std::function&lt;void __cdecl(Unit *)&gt;&quot; Name=pEachUnit)] @3)" />
-    <Alias n="15" Id="(Name=Scene::Draw::__l2::&lt;lambda&gt; @1 @2 OverloadingParameters=[(Type=&quot;Unit * {Map_AgrabahMarket}&quot; Name=pUnit)] @3)" />
-    <Alias n="16" Id="(Name=Scene::Update::__l2::&lt;lambda&gt; @1 @2 OverloadingParameters=[(Type=&quot;Unit * {Map_AgrabahMarket}&quot; Name=pUnit)] @3)" />
+    <Alias n="15" Id="(Name=Scene::Draw::__l2::&lt;lambda&gt; @1 @2 OverloadingParameters=[(Type=&quot;Unit * {Map_AgrabahMarket}&quot; Name=pObject)] @3)" />
+    <Alias n="16" Id="(Name=Scene::Update::__l2::&lt;lambda&gt; @1 @2 OverloadingParameters=[(Type=&quot;Unit * {Map_AgrabahMarket}&quot; Name=pObject)] @3)" />
     <Alias n="17" Id="(Name=&quot;std::_Invoker_functor::_Call&lt;void &lt;lambda&gt;(Unit *) &amp;,Unit *&gt;&quot; @1 @2 OverloadingParameters=[(Type=&quot;Scene::Draw::__l2::void &lt;lambda&gt;(Unit *) &amp;&quot; Name=_Obj),(Type=&quot;Unit * &amp;&amp; {Map_AgrabahMarket}&quot; Name=&lt;_Args_0&gt;)] @3)" />
     <Alias n="18" Id="(Name=&quot;std::invoke&lt;void &lt;lambda&gt;(Unit *) &amp;,Unit *&gt;&quot; @1 @2 OverloadingParameters=[(Type=&quot;Scene::Draw::__l2::void &lt;lambda&gt;(Unit *) &amp;&quot; Name=_Obj),(Type=&quot;Unit * &amp;&amp; {Map_AgrabahMarket}&quot; Name=&lt;_Args_0&gt;)] @3)" />
     <Alias n="19" Id="(Name=&quot;std::_Invoker_functor::_Call&lt;void &lt;lambda&gt;(Unit *) &amp;,Unit *&gt;&quot; @1 @2 OverloadingParameters=[(Type=&quot;Scene::Update::__l2::void &lt;lambda&gt;(Unit *) &amp;&quot; Name=_Obj),(Type=&quot;Unit * &amp;&amp; {Map_AgrabahMarket}&quot; Name=&lt;_Args_0&gt;)] @3)" />

@@ -12,7 +12,7 @@
 
 #include "Source/Game.h"
 #include "Source/GameGlobal.h"
-#include "Source/SceneManager.h"
+#include "Source/Scene/SceneManager.h"
 
 using json = nlohmann::json;
 using namespace std;

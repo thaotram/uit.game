@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include "Map_AgrabahMarket.h"
-#include "Scene.h"
+#include "../Scene/Scene.h"
 
-Map_AgrabahMarket::Map_AgrabahMarket() : Unit("AgrabahMarket") {
+Map_AgrabahMarket::Map_AgrabahMarket() : Object("AgrabahMarket") {
 	mPosition = { 0,0 };
 	mAnimation.Set("back", 1);
 	mAutoNextFrame = false;

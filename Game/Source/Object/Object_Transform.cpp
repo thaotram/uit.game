@@ -1,23 +1,23 @@
 ﻿#pragma once
-#include "Unit_Transform.h"
-#include "Unit.h"
+#include "Object_Transform.h"
+#include "Object.h"
 
-Unit_Transform::Unit_Transform() {
+Object_Transform::Object_Transform() {
 	D3DXMatrixTransformation2D(
 		this, NULL, NULL, NULL, NULL, NULL, NULL
 	);
 	mFlip = false;
 }
 
-void Unit_Transform::Update(Unit * pUnit) {
+void Object_Transform::Update(Object * pObject) {
 	float pScalingFloat = GameGlobal::GetScale();
-	Unit_Vector2 pFlip = { mFlip ? -1.f : 1.f, 1.f };
+	Object_Vector2 pFlip = { mFlip ? -1.f : 1.f, 1.f };
 
-	Unit_Json		* pJson = pUnit->GetJson();
-	D3DXVECTOR2		* pPosition = pUnit->GetPosition();
+	Object_Json		* pJson = pObject->GetJson();
+	D3DXVECTOR2		* pPosition = pObject->GetPosition();
 
-	D3DXVECTOR2 pBasePoint = pJson->GetBasePoint(pUnit);
-	D3DXVECTOR2 pFrameTransition = pJson->GetTransition(pUnit);
+	D3DXVECTOR2 pBasePoint = pJson->GetBasePoint(pObject);
+	D3DXVECTOR2 pFrameTransition = pJson->GetTransition(pObject);
 
 	D3DXVECTOR2 pScalingCenter = *pPosition * pScalingFloat + pBasePoint;
 	D3DXVECTOR2 pTransition = (pFlip * pFrameTransition * pScalingFloat - pBasePoint).VECTOR2();
@@ -34,6 +34,6 @@ void Unit_Transform::Update(Unit * pUnit) {
 	);
 }
 
-void Unit_Transform::SetFlip(bool pFlip) {
+void Object_Transform::SetFlip(bool pFlip) {
 	mFlip = pFlip;
 }

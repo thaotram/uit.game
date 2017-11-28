@@ -1,14 +1,14 @@
-﻿#include "Unit_Texture.h"
+﻿#include "Object_Texture.h"
 
-map<string, Unit_Texture*> Unit_Texture::Unit_Textures;
+map<string, Object_Texture*> Object_Texture::Object_Textures;
 
-Unit_Texture * Unit_Texture::GetTexture(string pName)
+Object_Texture * Object_Texture::GetTexture(string pName)
 {
-	return Unit_Textures.find(pName) == Unit_Textures.end() ?
-		new Unit_Texture(pName) : Unit_Textures.at(pName);
+	return Object_Textures.find(pName) == Object_Textures.end() ?
+		new Object_Texture(pName) : Object_Textures.at(pName);
 }
 
-Unit_Texture::Unit_Texture(string pName) {
+Object_Texture::Object_Texture(string pName) {
 	pName = "Resources/" + pName + ".png";
 	D3DXIMAGE_INFO		pImageInfo;
 	LPCSTR				pSrcFile = pName.c_str();
@@ -29,11 +29,11 @@ Unit_Texture::Unit_Texture(string pName) {
 		0xffff00ff,						// Màu trong suốt có dạng 0x12345678 (32 bit tất cả)
 		NULL,							// [Out] Thông tin của hình ảnh
 		NULL,
-		&mSelf						// [Out] Đại diện cho đối tượng Unit_Texture
+		&mSelf						// [Out] Đại diện cho đối tượng Object_Texture
 	);
 }
 
-LPDIRECT3DTEXTURE9 Unit_Texture::operator&()
+LPDIRECT3DTEXTURE9 Object_Texture::operator&()
 {
 	return mSelf;
 }

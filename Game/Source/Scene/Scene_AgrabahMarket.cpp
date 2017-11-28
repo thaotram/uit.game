@@ -1,6 +1,5 @@
 ﻿#include "Scene_AgrabahMarket.h"
-#include "FinalUnit/Unit_Aladdin.h"
-#include "Map_AgrabahMarket.h"
+#include "../Object_Map/Map_AgrabahMarket.h"
 
 // Scene_AgrabahMarket
 Scene_AgrabahMarket::Scene_AgrabahMarket() {
