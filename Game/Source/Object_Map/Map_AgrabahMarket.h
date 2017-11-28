@@ -1,9 +1,9 @@
 #pragma once
-#include "../Object/Object.h"
+#include "../Object_Map/Map.h"
 
-class Map_AgrabahMarket : public Object {
+class Map_AgrabahMarket : public Map {
 public:
 	Map_AgrabahMarket();
 	void AfterAddToScene();
-	void UnitRender(float delay);
+	void BeforeRender(float delay);
 };

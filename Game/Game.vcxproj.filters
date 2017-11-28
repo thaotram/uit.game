@@ -153,19 +153,49 @@
     <ClInclude Include="Source\GameTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Map\Map_AgrabahMarket.h" />
-    <ClInclude Include="Source\Object_Unit\Unit_Aladdin.h" />
-    <ClInclude Include="Source\Scene\Scene.h" />
-    <ClInclude Include="Source\Scene\Scene_AgrabahMarket.h" />
-    <ClInclude Include="Source\Scene\Scene_Camera.h" />
-    <ClInclude Include="Source\Scene\SceneManager.h" />
-    <ClInclude Include="Source\Object\Object_Vector2.h" />
-    <ClInclude Include="Source\Object\Object.h" />
-    <ClInclude Include="Source\Object\Object_Animation.h" />
-    <ClInclude Include="Source\Object\Object_Json.h" />
-    <ClInclude Include="Source\Object\Object_SourceRect.h" />
-    <ClInclude Include="Source\Object\Object_Texture.h" />
-    <ClInclude Include="Source\Object\Object_Transform.h" />
+    <ClInclude Include="Source\Object_Map\Map_AgrabahMarket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Object_Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Object_Json.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Object_SourceRect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Object_Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Object_Transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object\Object_Vector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\Scene_AgrabahMarket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\Scene_Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\SceneManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit\Unit_Aladdin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Map\Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -181,44 +211,47 @@
     <ClCompile Include="Source\GameTime.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Map\Map_AgrabahMarket.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit\Unit_Aladdin.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\Scene.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\Scene_AgrabahMarket.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\Scene_Camera.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Scene\SceneManager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object\Object.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object\Object_Animation.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object\Object_Json.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object\Object_SourceRect.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object\Object_Texture.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object\Object_Transform.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object\Object_Vector2.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\Scene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\Scene_AgrabahMarket.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\Scene_Camera.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Map\Map_AgrabahMarket.cpp">
+      <Filter>Source\Object_Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit\Unit_Aladdin.cpp">
+      <Filter>Source\Object_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Map\Map.cpp">
+      <Filter>Source\Object_Map</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

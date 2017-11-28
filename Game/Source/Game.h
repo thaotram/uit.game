@@ -10,8 +10,6 @@ public:
 	~Game();
 
 protected:
-	float               mFPS;
-	D3DCOLOR            mBackgroundColor;
 	LPDIRECT3DDEVICE9	mDevice;
 
 	//khởi tạo vòng lặp game

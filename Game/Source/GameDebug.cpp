@@ -1,4 +1,5 @@
 #include "GameDebug.h"
+#include "../Define.h"
 
 void GameDebug::Log(string input) {
 	wstring wstring;
@@ -48,7 +49,7 @@ void GameDebug::DrawHL(LONG pTop, LONG pWeight, D3DCOLOR pColor) {
 	Draw(RECT{
 		0,
 		pTop,
-		GameGlobal::GetWidth(),
+		WIDTH,
 		pTop + pWeight
 	}, pColor);
 }
@@ -58,6 +59,6 @@ void GameDebug::DrawVL(LONG pLeft, LONG pWeight, D3DCOLOR pColor) {
 		pLeft,
 		0,
 		pLeft + pWeight,
-		GameGlobal::GetHeight()
+		HEIGHT
 	}, pColor);
 }

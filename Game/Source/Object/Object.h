@@ -24,17 +24,14 @@ protected:
 	Object_Texture		* mTexture;
 
 	Object_Vector2		mPosition;
-	Object_Animation		mAnimation;
-	Object_Transform		mTransform;
-	Object_SourceRect		mSourceRect;
+	Object_Animation	mAnimation;
+	Object_Transform	mTransform;
+	Object_SourceRect	mSourceRect;
 
 	float				mCurrentTime;
 	float 				mTimePerFrame;
-
-	float				mScale;
-
 protected:
-	bool mAutoNextFrame;
+	//bool mAutoNextFrame;
 	/* Đoạn này viết còn tệ, còn nhập nhằng khi gọi làm AutoNextFrame... */
 public:
 	Object(string pName);
@@ -42,8 +39,8 @@ public:
 	Scene		 * mScene;
 	virtual void AfterAddToScene() {};
 
-	virtual void UnitRender(float delay);
-	void		 UnitDraw(
+	virtual void ObjectRender(float delay) {};
+	void		 ObjectDraw(
 		Object_Transform pTransform,
 		Object_SourceRect pSourceRect,
 		Object_Vector2 pPosition

@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Object_Transform.h"
 #include "Object.h"
+#include "../../Define.h"
 
 Object_Transform::Object_Transform() {
 	D3DXMatrixTransformation2D(
@@ -10,18 +11,17 @@ Object_Transform::Object_Transform() {
 }
 
 void Object_Transform::Update(Object * pObject) {
-	float pScalingFloat = GameGlobal::GetScale();
 	Object_Vector2 pFlip = { mFlip ? -1.f : 1.f, 1.f };
 
-	Object_Json		* pJson = pObject->GetJson();
-	D3DXVECTOR2		* pPosition = pObject->GetPosition();
+	Object_Json	* pJson = pObject->GetJson();
+	D3DXVECTOR2	* pPosition = pObject->GetPosition();
 
 	D3DXVECTOR2 pBasePoint = pJson->GetBasePoint(pObject);
 	D3DXVECTOR2 pFrameTransition = pJson->GetTransition(pObject);
 
-	D3DXVECTOR2 pScalingCenter = *pPosition * pScalingFloat + pBasePoint;
-	D3DXVECTOR2 pTransition = (pFlip * pFrameTransition * pScalingFloat - pBasePoint).VECTOR2();
-	D3DXVECTOR2 pScaling = pScalingFloat  * pFlip;
+	D3DXVECTOR2 pScalingCenter = *pPosition * SCALE + pBasePoint;
+	D3DXVECTOR2 pTransition = (pFlip * pFrameTransition * SCALE - pBasePoint).VECTOR2();
+	D3DXVECTOR2 pScaling = SCALE * pFlip;
 
 	D3DXMatrixTransformation2D(
 		this,				//		 D3DXMATRIX	 * pOut

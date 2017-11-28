@@ -20,7 +20,7 @@ Scene::~Scene() {
 
 void Scene::SceneRender(float delay) {
 	EachUnit([=](Object * pObject) {
-		pObject->UnitRender(delay);
+		pObject->ObjectRender(delay);
 	});
 }
 

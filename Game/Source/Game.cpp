@@ -5,10 +5,11 @@
 #include "Scene\SceneManager.h"
 #include "Scene\Scene_AgrabahMarket.h"
 
+#include "../Define.h"
+
+
 Game::Game()
 {
-	mFPS = GameGlobal::GetFPS();
-	mBackgroundColor = GameGlobal::GetBackgroundColor();
 	mDevice = GameGlobal::GetDevice();
 
 	// Game Start
@@ -24,7 +25,7 @@ void Game::InitLoop()
 {
 	MSG msg;
 	float
-		timePerFrame = 1.f / mFPS,		// Tickperframe là khoảng thời gian hiển thị của mỗi frame
+		timePerFrame = 1.f / FPS,		// Tickperframe là khoảng thời gian hiển thị của mỗi frame
 		delay = 0;						// Delta chứa tổng tgian thực hiện của mỗi vòng while
 
 	while (GameGlobal::isGameRunning) {
@@ -54,7 +55,7 @@ void Game::GameRender(float delay) {
 	ID3DXSprite  * mSpriteHandler = GameGlobal::GetSpriteHandler();
 	
 	// Before
-	mDevice->Clear(0, NULL, D3DCLEAR_TARGET, mBackgroundColor, 0.f, 0);
+	mDevice->Clear(0, NULL, D3DCLEAR_TARGET, BACKGROUND_COLOR, 0.f, 0);
 	mDevice->BeginScene();
 	mSpriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
 

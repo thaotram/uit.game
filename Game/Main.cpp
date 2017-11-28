@@ -17,15 +17,7 @@
 using json = nlohmann::json;
 using namespace std;
 
-//#include "GameComponents\GameTime.h"
-
-#define APP_CLASS L"Game"
-#define MAIN_WINDOW_TITLE L"Game Title"
-#define APP_WIDTH 320
-#define APP_HEIGHT 224
-#define APP_SCALE 3
-#define FPS 120
-#define BACKGROUND_COLOR 0xffffffff
+#include "Define.h"
 
 void InitializeWindow(int cmdShow);
 int InitializeDevice();
@@ -60,12 +52,6 @@ void InitializeWindow(int cmdShow)
 	wc.hIconSm = NULL;
 
 	RegisterClassEx(&wc);
-
-	GameGlobal::SetScale(APP_SCALE);
-	GameGlobal::SetWidth(APP_WIDTH * APP_SCALE);
-	GameGlobal::SetHeight(APP_HEIGHT * APP_SCALE);
-	GameGlobal::SetBackgroundColor(BACKGROUND_COLOR);
-	GameGlobal::SetFPS(FPS);
 	GameGlobal::SetHWND(
 		CreateWindowEx(
 			WS_EX_OVERLAPPEDWINDOW,
@@ -74,8 +60,8 @@ void InitializeWindow(int cmdShow)
 			WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME ^ WS_MAXIMIZEBOX ^ WS_CAPTION,
 			CW_USEDEFAULT,
 			CW_USEDEFAULT,
-			GameGlobal::GetWidth(),
-			GameGlobal::GetHeight(),
+			WIDTH  * SCALE,
+			HEIGHT * SCALE,
 			NULL,
 			NULL,
 			GameGlobal::GetHINSTACE(),
@@ -112,8 +98,8 @@ int InitializeDevice()
 	d3dpp.MultiSampleType = D3DMULTISAMPLE_NONE;
 	d3dpp.BackBufferFormat = D3DFMT_A8R8G8B8;
 	d3dpp.BackBufferCount = 1;
-	d3dpp.BackBufferWidth = GameGlobal::GetWidth();
-	d3dpp.BackBufferHeight = GameGlobal::GetHeight();
+	d3dpp.BackBufferWidth = WIDTH * SCALE;
+	d3dpp.BackBufferHeight = HEIGHT * SCALE;
 
 	Direct3DCreate9(D3D_SDK_VERSION)->CreateDevice(
 		D3DADAPTER_DEFAULT,

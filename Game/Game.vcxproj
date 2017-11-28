@@ -152,7 +152,9 @@
     <Image Include="Resources\Status.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Define.h" />
     <ClInclude Include="Library\json.hpp" />
+    <ClInclude Include="Source\Object_Map\Map.h" />
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\GameDebug.h" />
     <ClInclude Include="Source\GameGlobal.h" />
@@ -173,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Source\Object_Map\Map.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\GameDebug.cpp" />
     <ClCompile Include="Source\GameGlobal.cpp" />
