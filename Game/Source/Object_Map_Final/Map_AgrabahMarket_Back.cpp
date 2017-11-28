@@ -1,17 +1,17 @@
 ﻿#pragma once
-#include "Map_AgrabahMarket.h"
+#include "Map_AgrabahMarket_Back.h"
 #include "../Scene/Scene.h"
 
 // Khai báo
-Map_AgrabahMarket::Map_AgrabahMarket() : Map("AgrabahMarket") {
+Map_AgrabahMarket_Back::Map_AgrabahMarket_Back() : Map("AgrabahMarket") {
 	mAnimation.Set("back", 1);
 }
 
-void Map_AgrabahMarket::AfterAddToScene() {
+void Map_AgrabahMarket_Back::AfterAddToScene() {
 	mTransform.Update(this);
 }
 
-void Map_AgrabahMarket::BeforeRender(float delay) {
+void Map_AgrabahMarket_Back::BeforeRender(float delay) {
 	map<int, bool> * Key = GameGlobal::GetInput();
 
 	bool K_UP = (*Key)[VK_UP];

@@ -1,4 +1,5 @@
 #include "Map.h"
+#include <bitset>  
 
 Map::Map(string pName) : Object(pName) {
 	// Do something here
@@ -15,6 +16,17 @@ void Map::ObjectRender(float delay) {
 	//	}
 	//	else mCurrentTime += delay;
 	//}
+
+	enum Butoon
+	{
+		LEFT,
+		TOP,
+		RIGHT,
+		BOTTOM
+	};
+	int x;
+	bitset<LEFT> x;
+
 	BeforeRender(delay);
 
 	mSourceRect = mScene->mCameraPosition.BOUND(
