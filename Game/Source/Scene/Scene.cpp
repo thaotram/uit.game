@@ -2,7 +2,7 @@
 #include "../Object/Object.h"
 
 //! Private
-void Scene::EachUnit(function<void(Object*)> pEachUnit) {
+void Scene::EachObject(function<void(Object*)> pEachUnit) {
 	for (auto &unit : *this) {
 		pEachUnit(unit.second);
 	}
@@ -13,13 +13,13 @@ Scene::Scene() {
 	mCameraPosition = { 0,0 };
 }
 Scene::~Scene() {
-	EachUnit([=](Object * pObject) {
+	EachObject([=](Object * pObject) {
 		delete pObject;
 	});
 }
 
 void Scene::SceneRender(float delay) {
-	EachUnit([=](Object * pObject) {
+	EachObject([=](Object * pObject) {
 		pObject->ObjectRender(delay);
 	});
 }

@@ -11,7 +11,11 @@ Object::Object(string pName) : mName(pName) {
 	mCurrentTime = 0;
 	mTimePerFrame = 0.01f;
 }
-
+void Object::ObjectRender(float delay) {
+	ObjectUpdateEvent(delay);
+	ObjectUpdateProperties(delay);
+	ObjectDraw(mTransform, mSourceRect, mPosition);
+}
 void Object::ObjectDraw(Object_Transform pTransform, Object_SourceRect pSourceRect, Object_Vector2 pPosition) {
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(

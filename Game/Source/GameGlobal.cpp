@@ -3,14 +3,13 @@
 GameGlobal::GameGlobal() {}
 GameGlobal::~GameGlobal() {}
 
-// Init Value
-
 map<int, bool> GameGlobal::mInput;
 HWND GameGlobal::mHwnd = NULL;
 HINSTANCE GameGlobal::mHInstance = NULL;
 LPD3DXSPRITE GameGlobal::mSpriteHandler = NULL;
 LPDIRECT3DDEVICE9 GameGlobal::mDevice = nullptr;
 bool GameGlobal::isGameRunning = true;
+bitset<7> GameGlobal::Input = 0;
 
 void GameGlobal::SetHWND(HWND hwnd)
 {

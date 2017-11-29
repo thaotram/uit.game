@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <bitset>
 #include <windows.h>
 #include <windowsx.h>
 
@@ -128,7 +129,15 @@ int InitializeDevice()
 // Được gọi trong hàm InitializeWindow trong hàm main
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	map<int, bool> * GameInput = GameGlobal::GetInput();
+	map<int, int> InputMap;
+	InputMap[VK_LEFT] = LEFT;
+	InputMap[VK_UP] = UP;
+	InputMap[VK_RIGHT] = RIGHT;
+	InputMap[VK_DOWN] = DOWN;
+	InputMap['Z'] = Z;
+	InputMap['X'] = X;
+	InputMap['C'] = C;
+
 	// Message ở đây là các event của windows
 	switch (message)
 	{
@@ -143,13 +152,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		);
 		break;
 	case WM_KEYDOWN:
-		(*GameInput)[wParam] = true;
+		GameGlobal::Input.set(InputMap[wParam], true);
+		// (*GameInput)[wParam] = true;
 		break;
 	case WM_KEYUP:
-		(*GameInput)[wParam] = false;
+		GameGlobal::Input.set(InputMap[wParam], false);
+		//(*GameInput)[wParam] = false;
 		break;
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
+
 	return 0;
 }

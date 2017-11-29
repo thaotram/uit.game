@@ -38,13 +38,16 @@ public:
 	~Object() {};
 	Scene		 * mScene;
 	virtual void AfterAddToScene() {};
-
-	virtual void ObjectRender(float delay) {};
+	void		 ObjectRender(float delay);
+	
+	virtual void ObjectUpdateEvent(float delay) {};
+	virtual void ObjectUpdateProperties(float delay) {};
 	void		 ObjectDraw(
 		Object_Transform pTransform,
 		Object_SourceRect pSourceRect,
 		Object_Vector2 pPosition
 	);
+
 	Object_SourceRect * GetSourceRect() {
 		return &mSourceRect;
 	}

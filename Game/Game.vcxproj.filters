@@ -89,6 +89,7 @@
     <None Include="Resources\Debug.json">
       <Filter>Resource Files\Debug</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -147,6 +148,7 @@
     <ClInclude Include="Library\json.hpp">
       <Filter>Library</Filter>
     </ClInclude>
+    <ClInclude Include="Define.h" />
     <ClInclude Include="Source\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -157,6 +159,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\GameTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Map_Final\Map_AgrabahMarket_Back.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object\Object.h">
@@ -183,28 +188,22 @@
     <ClInclude Include="Source\Scene\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Scene\Scene_Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Scene\SceneManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Map\Map.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Object_Map_Final\Map_AgrabahMarket_Back.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Object_Unit_Final\Unit_Aladdin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Define.h">
+    <ClInclude Include="Source\Object_Unit\Object_Unit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Unit\Object_Unit.h">
+    <ClInclude Include="Source\Object_Map\Object_Map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -214,9 +213,6 @@
       <Filter>Source\Game</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameDebug.cpp">
-      <Filter>Source\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameGlobal.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameTime.cpp">
@@ -252,9 +248,6 @@
     <ClCompile Include="Source\Scene\Scene_Camera.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Map\Map.cpp">
-      <Filter>Source\Object_Map</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Scene_Final\Scene_AgrabahMarket.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
@@ -264,8 +257,14 @@
     <ClCompile Include="Source\Object_Map_Final\Map_AgrabahMarket_Back.cpp">
       <Filter>Source\Object_Map_Final</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GameGlobal.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Object_Unit\Object_Unit.cpp">
       <Filter>Source\Object_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Map\Object_Map.cpp">
+      <Filter>Source\Object_Map</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

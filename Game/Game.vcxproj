@@ -117,6 +117,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="Resources\Abu.json" />
     <None Include="Resources\AgrabahMarket.json" />
     <None Include="Resources\Aladdin.json" />
@@ -154,8 +155,6 @@
   <ItemGroup>
     <ClInclude Include="Define.h" />
     <ClInclude Include="Library\json.hpp" />
-    <ClInclude Include="Source\Object_Unit\Object_Unit.h" />
-    <ClInclude Include="Source\Object_Map\Map.h" />
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\GameDebug.h" />
     <ClInclude Include="Source\GameGlobal.h" />
@@ -167,17 +166,19 @@
     <ClInclude Include="Source\Object\Object_Texture.h" />
     <ClInclude Include="Source\Object\Object_Transform.h" />
     <ClInclude Include="Source\Object\Object_Vector2.h" />
+    <ClInclude Include="Source\Object_Map\Object_Map.h" />
     <ClInclude Include="Source\Object_Map_Final\Map_AgrabahMarket_Back.h" />
+    <ClInclude Include="Source\Object_Unit\Object_Unit.h" />
     <ClInclude Include="Source\Object_Unit_Final\Unit_Aladdin.h" />
     <ClInclude Include="Source\Scene\Scene.h" />
     <ClInclude Include="Source\Scene\SceneManager.h" />
-    <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h" />
     <ClInclude Include="Source\Scene\Scene_Camera.h" />
+    <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Source\Object_Unit\Object_Unit.cpp" />
-    <ClCompile Include="Source\Object_Map\Map.cpp" />
+    <ClCompile Include="Source\Object_Map\Object_Map.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\GameDebug.cpp" />
     <ClCompile Include="Source\GameGlobal.cpp" />

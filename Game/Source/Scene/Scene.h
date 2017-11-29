@@ -10,7 +10,7 @@ class Object;
 class Scene : public map<string, Object *>
 {
 private:
-	void EachUnit(function<void(Object *)> pEachUnit);
+	void EachObject(function<void(Object *)> pEachUnit);
 public:
 	Scene();
 	~Scene();

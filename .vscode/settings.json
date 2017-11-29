@@ -1,4 +1,20 @@
 {
+    "files.exclude": {
+        "**/.vs": true,
+        "**/.vscode": true,
+        "**/node_modules": true,
+        "Game/Debug": true,
+        "Game/Library": true,
+        "Game/Game.vcxproj": true,
+        "Game/Game.vcxproj.filters": true,
+        "Game/Game.vcxproj.user": true,
+        "Debug": true,
+        "CodeMap": true,
+        ".gitattributes": true,
+        ".gitignore": true,
+        "Game.sln": true
+
+    },
     "files.associations": {
         "sstream": "cpp",
         "iosfwd": "cpp"
