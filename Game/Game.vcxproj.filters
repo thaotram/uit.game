@@ -161,9 +161,6 @@
     <ClInclude Include="Source\GameTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Map_Final\Map_AgrabahMarket_Back.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Object\Object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -197,13 +194,16 @@
     <ClInclude Include="Source\Scene\SceneManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Unit_Aladdin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Object_Unit\Object_Unit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object_Map\Object_Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Aladdin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Back.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -251,12 +251,6 @@
     <ClCompile Include="Source\Scene_Final\Scene_AgrabahMarket.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Unit_Aladdin.cpp">
-      <Filter>Source\Object_Unit_Final</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Map_Final\Map_AgrabahMarket_Back.cpp">
-      <Filter>Source\Object_Map_Final</Filter>
-    </ClCompile>
     <ClCompile Include="Source\GameGlobal.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
@@ -265,6 +259,12 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Map\Object_Map.cpp">
       <Filter>Source\Object_Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Aladdin.cpp">
+      <Filter>Source\Object_Unit_Final</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Back.cpp">
+      <Filter>Source\Object_Map_Final</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

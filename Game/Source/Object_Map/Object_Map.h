@@ -3,6 +3,7 @@
 #include "../../Define.h"
 
 using namespace std;
+
 class Object_Map : public Object {
 public:
 	Object_Map(string pName);
@@ -10,6 +11,6 @@ public:
 
 	void AfterAddToScene();
 
-	virtual void ObjectUpdateEvent(float delay) {}
+	virtual void ObjectUpdateEvent(float delay) {};
 	virtual void ObjectUpdateProperties();
 };

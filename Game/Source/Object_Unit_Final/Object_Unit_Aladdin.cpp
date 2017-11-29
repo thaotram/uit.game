@@ -1,12 +1,12 @@
-﻿#include "Unit_Aladdin.h"
+﻿#include "Object_Unit_Aladdin.h"
 
-Object_Aladdin::Object_Aladdin() : Object("Aladdin") {
+Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mPosition = { 50,628 };
 	mAnimation.SetState("stand");
 	state = mAnimation.State();
 }
 
-void Object_Aladdin::BeforeNextFrame()
+void Object_Unit_Aladdin::BeforeNextFrame()
 {
 	map<int, bool> * Key = GameGlobal::GetInput();
 
