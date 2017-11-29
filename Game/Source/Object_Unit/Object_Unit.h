@@ -10,5 +10,5 @@ public:
 	void AfterAddToScene();
 
 	virtual void ObjectUpdateEvent(float delay) {};
-	virtual void ObjectUpdateProperties(float delay);
+	void ObjectUpdateProperties(float delay);
 };

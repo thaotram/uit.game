@@ -8,8 +8,7 @@ void Object_Map::AfterAddToScene() {
 	mTransform.Update(this);
 }
 
-void Object_Map::ObjectUpdateProperties()
-{
+void Object_Map::ObjectUpdateProperties(float delay) {
 	mSourceRect = mScene->mCameraPosition.BOUND(
 		D3DXVECTOR2(WIDTH, HEIGHT)
 	);

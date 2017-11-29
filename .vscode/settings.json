@@ -17,6 +17,7 @@
     },
     "files.associations": {
         "sstream": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "xstring": "cpp"
     }
 }

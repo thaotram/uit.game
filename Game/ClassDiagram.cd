@@ -122,7 +122,7 @@
   <Class Name="Object_Unit_Aladdin">
     <Position X="10.75" Y="10.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAgAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>Source\Object_Unit_Final\Object_Unit_Aladdin.h</FileName>
     </TypeIdentifier>
   </Class>

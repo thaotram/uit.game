@@ -3,6 +3,7 @@
 Object_Unit::Object_Unit(string pName) : Object(pName) {}
 
 void Object_Unit::AfterAddToScene() {
+
 }
 
 void Object_Unit::ObjectUpdateProperties(float delay) {
@@ -11,4 +12,7 @@ void Object_Unit::ObjectUpdateProperties(float delay) {
 		mAnimation.NextFrame(this);
 	}
 	else mCurrentTime += delay;
+	mTransform.Update(this);
+	mSourceRect.Update(this);
+	
 }

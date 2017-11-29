@@ -3,9 +3,9 @@
 #include "../Scene/Scene.h"
 
 class Object_Unit_Aladdin : public Object_Unit {
-private:
-	string * state;
 public:
 	Object_Unit_Aladdin();
-	void BeforeNextFrame();
+	~Object_Unit_Aladdin() {};
+
+	void ObjectUpdateEvent(float delay);
 };
