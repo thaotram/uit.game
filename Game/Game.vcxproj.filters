@@ -36,12 +36,6 @@
     <Filter Include="Source\Game">
       <UniqueIdentifier>{5cf13dde-d2e0-4661-abb8-e471d50aa528}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Object_Map_Final">
-      <UniqueIdentifier>{1e081cbc-b4e4-4d7c-9612-70204c022bc8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Object_Unit_Final">
-      <UniqueIdentifier>{b89653c1-7904-4c44-b693-39dfc3bf7432}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Object_Unit">
       <UniqueIdentifier>{b77585a1-f2f1-4e59-965e-3553a15b64d0}</UniqueIdentifier>
     </Filter>
@@ -261,10 +255,10 @@
       <Filter>Source\Object_Map</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Aladdin.cpp">
-      <Filter>Source\Object_Unit_Final</Filter>
+      <Filter>Source\Object_Unit</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Back.cpp">
-      <Filter>Source\Object_Map_Final</Filter>
+      <Filter>Source\Object_Map</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

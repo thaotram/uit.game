@@ -1,19 +1,17 @@
 ﻿#include "Object_Unit_Aladdin.h"
-string * state;
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPosition = { 50,628 };
+	mPosition = { 50,50 };
 	mAnimation.SetState("stand");
-
-	state = mAnimation.State();
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 	auto I = GameGlobal::Input;
+	auto S = mAnimation.GetState();
 
 	if (I[LEFT]) mTransform.SetFlip(true);
 	else if (I[RIGHT]) mTransform.SetFlip(false);
 
-	if (*state == "stand") {
+	if (S == "stand") {
 		if (I[UP]) {
 			mAnimation.Set("up", 1);
 		}
@@ -34,10 +32,10 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 		}
 		if (I[C]) {
 			mAnimation.Set("stand_jump", 1, "stand", 1);
-			//? chưa quản lý / viết các thao tác bay nhảy
+			//! chưa quản lý / viết các thao tác bay nhảy
 		}
 	}
-	else if (*state == "up") {
+	else if (S == "up") {
 		if (mAnimation.GetCycleIndex() == 3) {
 			mScene->mCameraPosition -= {0, 3};
 		}
@@ -52,10 +50,11 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 			mAnimation.Set("up_cut", 1, "up", 3);
 		}
 		if (I[C]) {
-			mAnimation.Set("stand_jump", 1, "up", 3);	//? chưa quản lý / viết các thao tác bay nhảy
+			mAnimation.Set("stand_jump", 1, "up", 3);	
+			//! chưa quản lý / viết các thao tác bay nhảy
 		}
 	}
-	else if (*state == "sit") {
+	else if (S == "sit") {
 		if (!I[DOWN]) {
 			mAnimation.Set("sit_to_stand", 1, "stand", 1);
 			return;
@@ -68,11 +67,10 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 		}
 		if (I[C]) {
 			mAnimation.Set("stand_jump", 1, "sit", 1);
-
-			//? chưa quản lý / viết các thao tác bay nhảy
+			//! chưa quản lý / viết các thao tác bay nhảy
 		}
 	}
-	else if (*state == "run") {
+	else if (S == "run") {
 		if (I[RIGHT]) mPosition += { 11, 0};
 		if (I[LEFT])  mPosition += {-11, 0};
 		if (!I[RIGHT] && !I[LEFT]) {
@@ -90,8 +88,8 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 			//! chưa quản lý / viết các thao tác bay nhảy
 		}
 	}
-	else if (*state == "run_cut") {
+	else if (S == "run_cut") {
 	}
-	else if (*state == "up_to_stand") {
+	else if (S == "up_to_stand") {
 	}
 }
