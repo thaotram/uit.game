@@ -10,7 +10,7 @@ void Scene::EachObject(function<void(Object*)> pEachUnit) {
 
 //! Public
 Scene::Scene() {
-	mCameraPosition = { 0,0 };
+	mCameraPosition = new VECTOR(0, 0);
 }
 Scene::~Scene() {
 	EachObject([=](Object * pObject) {

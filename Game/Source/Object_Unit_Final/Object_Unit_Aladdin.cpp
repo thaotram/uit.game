@@ -1,6 +1,6 @@
 ﻿#include "Object_Unit_Aladdin.h"
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPosition = { 50,50 };
+	mPosition = { 50, HEIGHT - 156 };
 	mAnimation.SetState("stand");
 }
 
@@ -37,7 +37,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 	}
 	else if (S == "up") {
 		if (mAnimation.GetCycleIndex() == 3) {
-			mScene->mCameraPosition -= {0, 3};
+			// mScene->mCameraPosition -= {0, 2};
 		}
 		if (!I[UP]) {
 			mAnimation.Set("up_to_stand", 1, "stand", 1);
@@ -50,7 +50,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 			mAnimation.Set("up_cut", 1, "up", 3);
 		}
 		if (I[C]) {
-			mAnimation.Set("stand_jump", 1, "up", 3);	
+			mAnimation.Set("stand_jump", 1, "up", 3);
 			//! chưa quản lý / viết các thao tác bay nhảy
 		}
 	}
@@ -71,10 +71,10 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 		}
 	}
 	else if (S == "run") {
-		if (I[RIGHT]) mPosition += { 11, 0};
-		if (I[LEFT])  mPosition += {-11, 0};
+		if (I[RIGHT]) mPosition += { 1, 0};
+		if (I[LEFT])  mPosition += {-1, 0};
 		if (!I[RIGHT] && !I[LEFT]) {
-			mAnimation.Set("I[and]", 1);
+			mAnimation.Set("stand", 1);
 		}
 		if (I[Z]) {
 			//! thiếu sprite này

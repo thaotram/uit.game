@@ -77,11 +77,11 @@
       <FileName>Source\Object_Unit\Object_Unit.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Object_Vector2">
+  <Class Name="Vector2">
     <Position X="24.25" Y="3.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAggAGAAAA=</HashCode>
-      <FileName>Source\Object\Object_Vector2.h</FileName>
+      <FileName>Source\Object\Vector2.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Scene">

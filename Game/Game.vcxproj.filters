@@ -39,6 +39,9 @@
     <Filter Include="Source\Object_Unit">
       <UniqueIdentifier>{b77585a1-f2f1-4e59-965e-3553a15b64d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Utility">
+      <UniqueIdentifier>{d03c4b0d-7fcb-49fa-b5e6-9b2e8d4629f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -173,9 +176,6 @@
     <ClInclude Include="Source\Object\Object_Transform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object\Object_Vector2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Scene\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -183,9 +183,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Scene\Scene_Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Scene\SceneManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object_Unit\Object_Unit.h">
@@ -200,6 +197,15 @@
     <ClInclude Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Back.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Scene\Scene_Manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Easing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -211,9 +217,6 @@
     </ClCompile>
     <ClCompile Include="Source\GameTime.cpp">
       <Filter>Source\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\SceneManager.cpp">
-      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object\Object.cpp">
       <Filter>Source\Object</Filter>
@@ -231,9 +234,6 @@
       <Filter>Source\Object</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object\Object_Transform.cpp">
-      <Filter>Source\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object\Object_Vector2.cpp">
       <Filter>Source\Object</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scene\Scene.cpp">
@@ -259,6 +259,15 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Back.cpp">
       <Filter>Source\Object_Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\Scene_Manager.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Easing.cpp">
+      <Filter>Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Vector.cpp">
+      <Filter>Source\Utility</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

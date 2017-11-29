@@ -16,7 +16,7 @@ void Object::ObjectRender(float delay) {
 	ObjectUpdateProperties(delay);
 	ObjectDraw(mTransform, mSourceRect, mPosition);
 }
-void Object::ObjectDraw(Object_Transform pTransform, Object_SourceRect pSourceRect, Object_Vector2 pPosition) {
+void Object::ObjectDraw(Object_Transform pTransform, Object_SourceRect pSourceRect, VECTOR pPosition) {
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(
 		&*mTexture,

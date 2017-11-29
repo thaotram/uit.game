@@ -1,10 +1,8 @@
 #pragma once
-#include "../Object/Object_Vector2.h"
+#include "../Utility/Vector.h"
 
-class Scene_Camera: public Object_Vector2
-{
+class Scene_Camera : public VECTOR {
 public:
-	Scene_Camera();
-	~Scene_Camera();
+	Scene_Camera(float x, float y);
+	~Scene_Camera() {};
 };
-

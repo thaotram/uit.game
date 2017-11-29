@@ -1,16 +1,16 @@
 ﻿#pragma once
 #include "Scene.h"
 
-class SceneManager
+class Scene_Manager
 {
 private:
-	SceneManager();
-	static SceneManager     *mInstance;
+	Scene_Manager();
+	static Scene_Manager     *mInstance;
 	Scene                   *mCurrentScene;
 public:
-	// lấy instance của SceneManager, thì instance này sẽ tồn tại từ đầu cho đến cuối game loop
-	static SceneManager *GetInstance();
-	~SceneManager();
+	// lấy instance của Scene_Manager, thì instance này sẽ tồn tại từ đầu cho đến cuối game loop
+	static Scene_Manager *GetInstance();
+	~Scene_Manager();
 
 	//hàm return Scene hiện tại
 	Scene* GetCurrentScene();

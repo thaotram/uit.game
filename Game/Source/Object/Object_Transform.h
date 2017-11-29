@@ -2,7 +2,7 @@
 #include <d3d9.h>
 #include <d3dx9.h>
 #include <iostream>
-#include "Object_Vector2.h"
+#include "../Utility/Vector.h"
 
 class Object;
 

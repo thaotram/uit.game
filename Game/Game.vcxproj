@@ -165,13 +165,14 @@
     <ClInclude Include="Source\Object\Object_SourceRect.h" />
     <ClInclude Include="Source\Object\Object_Texture.h" />
     <ClInclude Include="Source\Object\Object_Transform.h" />
-    <ClInclude Include="Source\Object\Object_Vector2.h" />
+    <ClInclude Include="Source\Utility\Easing.h" />
+    <ClInclude Include="Source\Utility\Vector.h" />
     <ClInclude Include="Source\Object_Map\Object_Map.h" />
     <ClInclude Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Back.h" />
     <ClInclude Include="Source\Object_Unit\Object_Unit.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Aladdin.h" />
     <ClInclude Include="Source\Scene\Scene.h" />
-    <ClInclude Include="Source\Scene\SceneManager.h" />
+    <ClInclude Include="Source\Scene\Scene_Manager.h" />
     <ClInclude Include="Source\Scene\Scene_Camera.h" />
     <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h" />
   </ItemGroup>
@@ -189,11 +190,12 @@
     <ClCompile Include="Source\Object\Object_SourceRect.cpp" />
     <ClCompile Include="Source\Object\Object_Texture.cpp" />
     <ClCompile Include="Source\Object\Object_Transform.cpp" />
-    <ClCompile Include="Source\Object\Object_Vector2.cpp" />
+    <ClCompile Include="Source\Utility\Easing.cpp" />
+    <ClCompile Include="Source\Utility\Vector.cpp" />
     <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Back.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Aladdin.cpp" />
     <ClCompile Include="Source\Scene\Scene.cpp" />
-    <ClCompile Include="Source\Scene\SceneManager.cpp" />
+    <ClCompile Include="Source\Scene\Scene_Manager.cpp" />
     <ClCompile Include="Source\Scene_Final\Scene_AgrabahMarket.cpp" />
     <ClCompile Include="Source\Scene\Scene_Camera.cpp" />
   </ItemGroup>

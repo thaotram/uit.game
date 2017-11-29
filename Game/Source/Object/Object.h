@@ -8,7 +8,7 @@
 #include "Object_Json.h"
 #include "Object_Texture.h"
 
-#include "Object_Vector2.h"
+#include "../Utility/Vector.h"
 #include "Object_Animation.h"
 #include "Object_Transform.h"
 #include "Object_SourceRect.h"
@@ -23,7 +23,7 @@ protected:
 	Object_Json			* mJson;
 	Object_Texture		* mTexture;
 
-	Object_Vector2		mPosition;
+	VECTOR		mPosition;
 	Object_Animation	mAnimation;
 	Object_Transform	mTransform;
 	Object_SourceRect	mSourceRect;
@@ -45,13 +45,13 @@ public:
 	void		 ObjectDraw(
 		Object_Transform pTransform,
 		Object_SourceRect pSourceRect,
-		Object_Vector2 pPosition
+		VECTOR pPosition
 	);
 
 	Object_SourceRect * GetSourceRect() {
 		return &mSourceRect;
 	}
-	Object_Vector2 * GetPosition() {
+	VECTOR * GetPosition() {
 		return &mPosition;
 	}
 	Object_Animation * GetAnimation() {

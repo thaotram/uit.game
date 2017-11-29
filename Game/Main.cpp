@@ -13,7 +13,7 @@
 
 #include "Source/Game.h"
 #include "Source/GameGlobal.h"
-#include "Source/Scene/SceneManager.h"
+#include "Source/Scene/Scene_Manager.h"
 
 using json = nlohmann::json;
 using namespace std;
@@ -146,18 +146,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		PostQuitMessage(0);
 		break;
 	case WM_LBUTTONDOWN:
-		SceneManager::GetInstance()->GetCurrentScene()->OnMouseDown(
+		Scene_Manager::GetInstance()->GetCurrentScene()->OnMouseDown(
 			(float)GET_X_LPARAM(lParam),
 			(float)GET_Y_LPARAM(lParam)
 		);
 		break;
 	case WM_KEYDOWN:
 		GameGlobal::Input.set(InputMap[wParam], true);
-		// (*GameInput)[wParam] = true;
 		break;
 	case WM_KEYUP:
 		GameGlobal::Input.set(InputMap[wParam], false);
-		//(*GameInput)[wParam] = false;
 		break;
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);

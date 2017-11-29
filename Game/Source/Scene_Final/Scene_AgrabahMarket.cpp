@@ -5,8 +5,8 @@
 #include "../../Define.h"
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() {
-	mCameraPosition = { 0, MAP_HEIGHT - HEIGHT };
+	*mCameraPosition = { 0, MAP_HEIGHT - HEIGHT };
 
-	//Add("1", new Object_Map_AgrabahMarket_Back());
-	Add("2", new Object_Unit_Aladdin());
+	Add("1", new Object_Map_AgrabahMarket_Back());
+	//Add("2", new Object_Unit_Aladdin());
 }

@@ -9,7 +9,11 @@ void Object_Map::AfterAddToScene() {
 }
 
 void Object_Map::ObjectUpdateProperties(float delay) {
-	mSourceRect = mScene->mCameraPosition.BOUND(
-		D3DXVECTOR2(WIDTH, HEIGHT)
-	);
+	auto c = *mScene->mCameraPosition;
+	mSourceRect = RECT{
+		(LONG)(c.x),
+		(LONG)(c.y),
+		(LONG)(c.x + WIDTH),
+		(LONG)(c.y + HEIGHT)
+	};
 }

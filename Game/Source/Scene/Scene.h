@@ -2,7 +2,8 @@
 #include <list>
 #include <functional> 
 #include "../GameGlobal.h"
-#include "../Object/Object_Vector2.h"
+#include "../Utility/Vector.h"
+#include "../Scene/Scene_Camera.h"
 
 using namespace std;
 class Object;
@@ -15,7 +16,7 @@ public:
 	Scene();
 	~Scene();
 
-	Object_Vector2 mCameraPosition;		// Tính từ góc trên bên phải của camera
+	VECTOR * mCameraPosition;		// Tính từ góc trên bên phải của camera
 
 	void SceneRender(float delay);
 
