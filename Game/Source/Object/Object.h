@@ -23,7 +23,7 @@ protected:
 	Object_Json			* mJson;
 	Object_Texture		* mTexture;
 
-	VECTOR		mPosition;
+	Vector		mPosition;
 	Object_Animation	mAnimation;
 	Object_Transform	mTransform;
 	Object_SourceRect	mSourceRect;
@@ -45,13 +45,13 @@ public:
 	void		 ObjectDraw(
 		Object_Transform pTransform,
 		Object_SourceRect pSourceRect,
-		VECTOR pPosition
+		Vector pPosition
 	);
 
 	Object_SourceRect * GetSourceRect() {
 		return &mSourceRect;
 	}
-	VECTOR * GetPosition() {
+	Vector * GetPosition() {
 		return &mPosition;
 	}
 	Object_Animation * GetAnimation() {

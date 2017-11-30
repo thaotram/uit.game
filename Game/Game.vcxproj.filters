@@ -197,13 +197,10 @@
     <ClInclude Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Back.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene\Scene_Manager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Utility\Easing.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Utility\Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Vector_Easing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -260,13 +257,10 @@
     <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Back.cpp">
       <Filter>Source\Object_Map</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scene\Scene_Manager.cpp">
-      <Filter>Source\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Utility\Easing.cpp">
+    <ClCompile Include="Source\Utility\Vector.cpp">
       <Filter>Source\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Utility\Vector.cpp">
+    <ClCompile Include="Source\Utility\Vector_Easing.cpp">
       <Filter>Source\Utility</Filter>
     </ClCompile>
   </ItemGroup>

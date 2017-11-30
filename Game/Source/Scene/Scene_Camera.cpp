@@ -1,3 +1,11 @@
 #include "Scene_Camera.h"
 
-Scene_Camera::Scene_Camera(float x, float y) : VECTOR(x, y) {}
+RECT Scene_Camera::GetSourceRect(float delay) {
+	auto v = this->VECTOR2(delay);
+	return RECT{
+		(LONG)(v.x),
+		(LONG)(v.y),
+		(LONG)(v.x + WIDTH),
+		(LONG)(v.y + HEIGHT)
+	};
+}

@@ -1,22 +1,21 @@
 ﻿#pragma once
 #include <list>
-#include <functional> 
+#include <functional>
 #include "../GameGlobal.h"
-#include "../Utility/Vector.h"
 #include "../Scene/Scene_Camera.h"
 
 using namespace std;
 class Object;
 
-class Scene : public map<string, Object *>
-{
+class Scene : public map<string, Object *> {
 private:
+	static Scene * mCurrentScene;
 	void EachObject(function<void(Object *)> pEachUnit);
 public:
 	Scene();
 	~Scene();
 
-	VECTOR * mCameraPosition;		// Tính từ góc trên bên phải của camera
+	Scene_Camera mCamera;		// Tính từ góc trên bên phải của camera
 
 	void SceneRender(float delay);
 
@@ -25,4 +24,7 @@ public:
 	void OnMouseDown(float pX, float pY) {};
 
 	void Add(string pName, Object * pObject);
+
+	static void ReplaceScene(Scene * pScene);
+	static Scene * GetCurrentScene();
 };

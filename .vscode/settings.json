@@ -8,10 +8,11 @@
         // "Game/Game.vcxproj": true,
         // "Game/Game.vcxproj.filters": true,
         // "Game/Game.vcxproj.user": true,
+        // "CodeGraphData": true,
         "Debug": true,
         "CodeMap": true,
         ".gitattributes": true,
-        ".gitignore": true,
+        // ".gitignore": true,
         "Game.sln": true
 
     },
@@ -19,5 +20,6 @@
         "sstream": "cpp",
         "iosfwd": "cpp",
         "xstring": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

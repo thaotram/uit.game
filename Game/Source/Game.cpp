@@ -2,7 +2,6 @@
 #include "Game.h"
 #include "GameGlobal.h"
 #include "GameTime.h"
-#include "Scene\Scene_Manager.h"
 #include "Scene_Final\Scene_AgrabahMarket.h"
 
 #include "../Define.h"
@@ -13,7 +12,7 @@ Game::Game()
 	mDevice = GameGlobal::GetDevice();
 
 	// Game Start
-	Scene_Manager::GetInstance()->ReplaceScene(
+	Scene::ReplaceScene(
 		new Scene_AgrabahMarket()
 	);
 
@@ -51,7 +50,7 @@ void Game::InitLoop()
 
 // Được gọi bên trong vòng lặp
 void Game::GameRender(float delay) {
-	Scene        * mScene = Scene_Manager::GetInstance()->GetCurrentScene();
+	Scene        * mScene = Scene::GetCurrentScene();
 	ID3DXSprite  * mSpriteHandler = GameGlobal::GetSpriteHandler();
 	
 	// Before

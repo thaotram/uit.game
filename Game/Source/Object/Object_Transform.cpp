@@ -12,7 +12,7 @@ Object_Transform::Object_Transform() {
 }
 
 void Object_Transform::Update(Object * pObject) {
-	VECTOR pFlip = { mFlip ? -1.f : 1.f, 1.f };
+	Vector pFlip = { mFlip ? -1.f : 1.f, 1.f };
 
 	Object_Json	* pJson = pObject->GetJson();
 	D3DXVECTOR2	* pPosition = pObject->GetPosition();

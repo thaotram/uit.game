@@ -1,6 +1,8 @@
 #include "Scene.h"
 #include "../Object/Object.h"
 
+Scene * Scene::mCurrentScene = NULL;
+
 //! Private
 void Scene::EachObject(function<void(Object*)> pEachUnit) {
 	for (auto &unit : *this) {
@@ -8,10 +10,17 @@ void Scene::EachObject(function<void(Object*)> pEachUnit) {
 	}
 }
 
-//! Public
-Scene::Scene() {
-	mCameraPosition = new VECTOR(0, 0);
+//! Static Public
+void Scene::ReplaceScene(Scene * pScene) {
+	mCurrentScene = pScene;
 }
+
+Scene * Scene::GetCurrentScene() {
+	return mCurrentScene;
+}
+
+//! Public
+Scene::Scene() {}
 Scene::~Scene() {
 	EachObject([=](Object * pObject) {
 		delete pObject;
