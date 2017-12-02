@@ -11,12 +11,10 @@
 
 #define MAP_HEIGHT 686
 
-//#define LEFT  0b1000
-//#define UP    0b0100
-//#define RIGHT 0b0010
-//#define DOWN  0b0001
+#define V2 D3DXVECTOR2
 
 enum {
+	ANY,
 	LEFT,
 	UP,
 	RIGHT,

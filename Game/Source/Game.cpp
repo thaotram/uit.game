@@ -6,7 +6,6 @@
 
 #include "../Define.h"
 
-
 Game::Game()
 {
 	mDevice = GameGlobal::GetDevice();
@@ -15,7 +14,6 @@ Game::Game()
 	Scene::ReplaceScene(
 		new Scene_AgrabahMarket()
 	);
-
 	InitLoop();
 }
 Game::~Game() {}
@@ -35,7 +33,9 @@ void Game::InitLoop()
 		}
 		delay += GameTime::GetCounter();
 		if (delay >= timePerFrame) {
-			GameRender(delay);
+			if (delay < timePerFrame * 3) {
+				GameRender(delay);
+			}
 			delay -= timePerFrame;
 		}
 		else {
@@ -52,7 +52,7 @@ void Game::InitLoop()
 void Game::GameRender(float delay) {
 	Scene        * mScene = Scene::GetCurrentScene();
 	ID3DXSprite  * mSpriteHandler = GameGlobal::GetSpriteHandler();
-	
+
 	// Before
 	mDevice->Clear(0, NULL, D3DCLEAR_TARGET, BACKGROUND_COLOR, 0.f, 0);
 	mDevice->BeginScene();

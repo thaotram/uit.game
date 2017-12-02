@@ -10,7 +10,7 @@ using namespace std;
 class Object_Texture {
 private:
 	static map<string, Object_Texture*> Object_Textures;
-	LPDIRECT3DTEXTURE9 mSelf;
+	LPDIRECT3DTEXTURE9 mNow;
 	Object_Texture(string pName);
 public:
 	static Object_Texture * GetTexture(string pName);

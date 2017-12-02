@@ -15,7 +15,7 @@ public:
 	Scene();
 	~Scene();
 
-	Scene_Camera mCamera;		// Tính từ góc trên bên phải của camera
+	Scene_Camera mCamera;
 
 	void SceneRender(float delay);
 

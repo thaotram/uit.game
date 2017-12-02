@@ -9,7 +9,7 @@ HINSTANCE GameGlobal::mHInstance = NULL;
 LPD3DXSPRITE GameGlobal::mSpriteHandler = NULL;
 LPDIRECT3DDEVICE9 GameGlobal::mDevice = nullptr;
 bool GameGlobal::isGameRunning = true;
-bitset<7> GameGlobal::Input = 0;
+bitset<8> GameGlobal::Input = 0;
 
 void GameGlobal::SetHWND(HWND hwnd)
 {

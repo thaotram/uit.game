@@ -31,7 +31,7 @@ public:
 	static void SetSpriteHandler(LPD3DXSPRITE spriteHandler);
 	static void SetDevice(LPDIRECT3DDEVICE9 device);
 
-	static bitset<7> Input;
+	static bitset<8> Input;
 	static map<int, bool> * GetInput() {
 		return &mInput;
 	};

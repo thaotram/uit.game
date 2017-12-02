@@ -5,8 +5,8 @@
 #include "../../Define.h"
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() {
-	mCamera = { 0, MAP_HEIGHT - HEIGHT };
+	mCamera << D3DXVECTOR2{ 0, MAP_HEIGHT - HEIGHT };
 
 	Add("1", new Object_Map_AgrabahMarket_Back());
-	//Add("2", new Object_Unit_Aladdin());
+	Add("2", new Object_Unit_Aladdin());
 }

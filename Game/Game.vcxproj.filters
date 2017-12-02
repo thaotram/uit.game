@@ -182,9 +182,6 @@
     <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene\Scene_Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Object_Unit\Object_Unit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -203,6 +200,10 @@
     <ClInclude Include="Source\Utility\Vector_Easing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Utility\Float_Easing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\Scene_Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -236,9 +237,6 @@
     <ClCompile Include="Source\Scene\Scene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scene\Scene_Camera.cpp">
-      <Filter>Source\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Scene_Final\Scene_AgrabahMarket.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
@@ -262,6 +260,12 @@
     </ClCompile>
     <ClCompile Include="Source\Utility\Vector_Easing.cpp">
       <Filter>Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Float_Easing.cpp">
+      <Filter>Source\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\Scene_Camera.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

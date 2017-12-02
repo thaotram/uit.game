@@ -154,6 +154,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Scene\Scene_Camera.h" />
+    <ClInclude Include="Source\Utility\Float_Easing.h" />
     <ClInclude Include="Library\json.hpp" />
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\GameDebug.h" />
@@ -172,10 +174,11 @@
     <ClInclude Include="Source\Object_Unit\Object_Unit.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Aladdin.h" />
     <ClInclude Include="Source\Scene\Scene.h" />
-    <ClInclude Include="Source\Scene\Scene_Camera.h" />
     <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Scene\Scene_Camera.cpp" />
+    <ClCompile Include="Source\Utility\Float_Easing.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Source\Object_Unit\Object_Unit.cpp" />
     <ClCompile Include="Source\Object_Map\Object_Map.cpp" />
@@ -195,7 +198,6 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Aladdin.cpp" />
     <ClCompile Include="Source\Scene\Scene.cpp" />
     <ClCompile Include="Source\Scene_Final\Scene_AgrabahMarket.cpp" />
-    <ClCompile Include="Source\Scene\Scene_Camera.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,7 @@
 #pragma once
 #include "../Object/Object.h"
 #include "../../Define.h"
+#include "../Scene/Scene.h" 
 
 class Object_Unit : public Object {
 public:

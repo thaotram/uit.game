@@ -8,9 +8,7 @@ Object_Map_AgrabahMarket_Back::Object_Map_AgrabahMarket_Back() : Object_Map("Agr
 }
 
 void Object_Map_AgrabahMarket_Back::ObjectUpdateEvent(float delay) {
-	auto I = GameGlobal::Input;
-
-	if (I[UP])    mScene->mCamera.StartTranslation({ 0,-40 }, 0.2f);
-	if (I[DOWN])  mScene->mCamera.StartTranslation({ 0,-40 }, 0.2f);
-
+	//auto I = GameGlobal::Input;
+	//if (I[UP])		mScene->mCamera += {0, 3};
+	//if (I[DOWN])	mScene->mCamera -= {0, 3};
 }

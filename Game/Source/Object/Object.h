@@ -22,21 +22,21 @@ protected:
 	LPD3DXSPRITE		mSpriteHandler;
 	Object_Json			* mJson;
 	Object_Texture		* mTexture;
-
-	Vector		mPosition;
+	
+	Vector				mPosition;
 	Object_Animation	mAnimation;
 	Object_Transform	mTransform;
 	Object_SourceRect	mSourceRect;
 
 	float				mCurrentTime;
 	float 				mTimePerFrame;
-protected:
-	//bool mAutoNextFrame;
-	/* Đoạn này viết còn tệ, còn nhập nhằng khi gọi làm AutoNextFrame... */
 public:
+
 	Object(string pName);
 	~Object() {};
+
 	Scene		 * mScene;
+
 	virtual void AfterAddToScene() {};
 	void		 ObjectRender(float delay);
 	

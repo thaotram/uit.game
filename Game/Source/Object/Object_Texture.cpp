@@ -29,11 +29,11 @@ Object_Texture::Object_Texture(string pName) {
 		0xffff00ff,						// Màu trong suốt có dạng 0x12345678 (32 bit tất cả)
 		NULL,							// [Out] Thông tin của hình ảnh
 		NULL,
-		&mSelf						// [Out] Đại diện cho đối tượng Object_Texture
+		&mNow						// [Out] Đại diện cho đối tượng Object_Texture
 	);
 }
 
 LPDIRECT3DTEXTURE9 Object_Texture::operator&()
 {
-	return mSelf;
+	return mNow;
 }

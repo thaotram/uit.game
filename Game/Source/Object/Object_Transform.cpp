@@ -1,7 +1,8 @@
-﻿
-#pragma once
+﻿#pragma once
 #include "Object_Transform.h"
 #include "Object.h"
+#include "../Object_Unit/Object_Unit.h"
+#include "../Scene/Scene.h"
 #include "../../Define.h"
 
 Object_Transform::Object_Transform() {
@@ -12,6 +13,11 @@ Object_Transform::Object_Transform() {
 }
 
 void Object_Transform::Update(Object * pObject) {
+	V2 pCamera = { 0,0 };
+	if (dynamic_cast<Object_Unit*>(pObject)) {
+		pCamera = pObject->mScene->mCamera;
+	};
+
 	Vector pFlip = { mFlip ? -1.f : 1.f, 1.f };
 
 	Object_Json	* pJson = pObject->GetJson();
@@ -21,7 +27,7 @@ void Object_Transform::Update(Object * pObject) {
 	D3DXVECTOR2 pFrameTransition = pJson->GetTransition(pObject);
 
 	D3DXVECTOR2 pScalingCenter = *pPosition * SCALE + pBasePoint;
-	D3DXVECTOR2 pTranslation = (pFlip * pFrameTransition * SCALE - pBasePoint).VECTOR2();
+	D3DXVECTOR2 pTranslation = ((pFlip * pFrameTransition - pCamera) * SCALE - pBasePoint).VECTOR2();
 	D3DXVECTOR2 pScaling = SCALE * pFlip;
 
 	D3DXMatrixTransformation2D(

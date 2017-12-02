@@ -1,6 +1,6 @@
 ﻿#include "Object_Unit_Aladdin.h"
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPosition = { 50, HEIGHT - 156 };
+	mPosition = { 50, MAP_HEIGHT - 50 };
 	mAnimation.SetState("stand");
 }
 
