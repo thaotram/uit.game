@@ -12,6 +12,8 @@ public:
 	Vector_Easing() {}
 
 	void operator+=(V2 pDelta);
+	void operator-=(V2 pDelta);
+	void operator=(V2 pDelta);
 	void operator<<(V2 pVector);
 
 	void Update(float delay);

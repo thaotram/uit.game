@@ -11,15 +11,17 @@ void Float_Easing::operator<<(float pValue) {
 	mValue = mNext = pValue;
 }
 
-void Float_Easing::operator+=(float pDelta) {
-	mNext += pDelta;
-}
-
 void Float_Easing::operator=(float pNext) {
 	mNext = pNext;
 }
-
+void Float_Easing::operator+=(float pDelta) {
+	mNext += pDelta;
+}
+void Float_Easing::operator-=(float pDelta) {
+	mNext -= pDelta;
+}
 void Float_Easing::Update(float delay) {
+
 	switch (mEase)
 	{
 	case Ease::in:
@@ -39,7 +41,6 @@ void Float_Easing::Update(float delay) {
 		break;
 	}
 }
-
 float Float_Easing::operator()() {
 	return float(mValue);
 }

@@ -203,7 +203,9 @@
     <ClInclude Include="Source\Utility\Float_Easing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene\Scene_Camera.h" />
+    <ClInclude Include="Source\Scene\Scene_Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -265,7 +267,7 @@
       <Filter>Source\Utility</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scene\Scene_Camera.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
