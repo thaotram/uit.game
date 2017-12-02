@@ -15,7 +15,7 @@ Object_Transform::Object_Transform() {
 void Object_Transform::Update(Object * pObject) {
 	V2 pCamera = { 0,0 };
 	if (dynamic_cast<Object_Unit*>(pObject)) {
-		pCamera = pObject->mScene->mCamera;
+		pCamera = pObject->mScene->mCamera.VECTOR2();
 	};
 
 	Vector pFlip = { mFlip ? -1.f : 1.f, 1.f };

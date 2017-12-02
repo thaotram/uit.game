@@ -28,6 +28,7 @@ Scene::~Scene() {
 }
 
 void Scene::SceneRender(float delay) {
+	mCamera.Update(delay);
 	EachObject([=](Object * pObject) {
 		pObject->ObjectRender(delay);
 	});

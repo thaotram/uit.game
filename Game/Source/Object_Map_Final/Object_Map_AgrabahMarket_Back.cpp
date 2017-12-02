@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Object_Map_AgrabahMarket_Back.h"
 #include "../Scene/Scene.h"
+#define I GameGlobal::Input
 
 // Khai báo
 Object_Map_AgrabahMarket_Back::Object_Map_AgrabahMarket_Back() : Object_Map("AgrabahMarket") {
@@ -8,7 +9,6 @@ Object_Map_AgrabahMarket_Back::Object_Map_AgrabahMarket_Back() : Object_Map("Agr
 }
 
 void Object_Map_AgrabahMarket_Back::ObjectUpdateEvent(float delay) {
-	//auto I = GameGlobal::Input;
-	//if (I[UP])		mScene->mCamera += {0, 3};
+	if (I[UP])		mScene->mCamera += {0, 100};
 	//if (I[DOWN])	mScene->mCamera -= {0, 3};
 }

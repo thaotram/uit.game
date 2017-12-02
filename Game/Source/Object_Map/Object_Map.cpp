@@ -9,5 +9,5 @@ void Object_Map::AfterAddToScene() {
 }
 
 void Object_Map::ObjectUpdateProperties(float delay) {
-	mSourceRect = mScene->mCamera.GetSourceRect(delay);
+	mSourceRect = mScene->mCamera.GetSourceRect();
 }
