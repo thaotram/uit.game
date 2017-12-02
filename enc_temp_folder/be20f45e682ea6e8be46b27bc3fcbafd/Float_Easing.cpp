@@ -7,6 +7,7 @@
 #define at 0.2f		// accel time
 
 #define D GameDebug::Title
+// 50 px/s => 1s
 
 Float_Easing::Float_Easing() {
 	mTime = 0;
@@ -19,7 +20,7 @@ void Float_Easing::operator<<(float pValue) {
 
 void Float_Easing::operator=(float pNext) {
 	mNext = pNext;
-	pxps = 80; // (mNext - mNow) / 2;
+	pxps = 50; // (mNext - mNow) / 2;
 }
 void Float_Easing::operator+=(float pDelta) {
 	*this = mNext + pDelta;
