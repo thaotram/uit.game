@@ -8,17 +8,21 @@ enum Ease {
 
 class Float_Easing {
 private:
-	float	mVelocity;
-	float	mValue;
-	float	mNext;
+	float
+		mTime,
+		mNow,
+		mNext,
+		mBack,
+		pxps;
 	Ease	mEase;
 public:
 	Float_Easing();
 
-	void operator<<(float pValue);		// Gán giá trị mặc định
-	void operator=(float pNext);		// Gán giá trị mới
-	void operator+=(float pNext);		// Gán giá trị mới
-	void operator-=(float pNext);		// Gán giá trị mới
+	void operator<<(float pValue);	// mặc định
+
+	void operator=(float pNext);	// mới
+	void operator+=(float pNext);	// mới
+	void operator-=(float pNext);	// mới
 
 	void Update(float delay);
 	float operator()();
