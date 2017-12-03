@@ -14,6 +14,7 @@ private:
 		mNext,
 		mBack,
 		pxps;
+	char	flag;
 	Ease	mEase;
 public:
 	Float_Easing();

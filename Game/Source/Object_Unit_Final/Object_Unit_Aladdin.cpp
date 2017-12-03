@@ -1,11 +1,12 @@
 ﻿#include "Object_Unit_Aladdin.h"
+#define I GameGlobal::Input
+
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mPosition = { 50, MAP_HEIGHT - 50 };
 	mAnimation.SetState("stand");
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
-	auto I = GameGlobal::Input;
 	auto S = mAnimation.GetState();
 
 	if (I[LEFT]) mTransform.SetFlip(true);

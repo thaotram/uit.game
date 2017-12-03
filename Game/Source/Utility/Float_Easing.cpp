@@ -4,7 +4,7 @@
 
 //#define	pxps 50
 #define f float
-#define at 0.2f		// accel time
+#define at 1.f		// accel time
 
 #define D GameDebug::Title
 
@@ -29,7 +29,8 @@ void Float_Easing::operator-=(float pDelta) {
 }
 
 void Float_Easing::Update(float dt) {
-	float flag = -1;
+	// init
+	float maxTime;
 
 	switch (mEase) {
 	case Ease::in:
@@ -47,9 +48,10 @@ void Float_Easing::Update(float dt) {
 		break;
 	case Ease::linear:
 		mTime += dt;
-		if (mTime >= (abs(mNext - mBack) - pxps) / pxps / 3 * at) {
+		maxTime = (abs(mNext - mBack) - pxps) / pxps / 3 * at;
+		if (mTime >= maxTime) {
 			mEase = Ease::out;
-			mTime -= (abs(mNext - mBack) - pxps) / pxps / 3 * at;
+			mTime -= maxTime;
 			mBack = mNext - flag * pxps;
 			Update(0);
 		}
@@ -74,6 +76,7 @@ void Float_Easing::Update(float dt) {
 		if (mNext != mNow) {
 			mEase = Ease::in;
 			mBack = mNow;
+			flag = mNext > mNow ? 1 : -1;
 			Update(dt);
 		}
 		else {
