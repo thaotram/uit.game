@@ -16,7 +16,6 @@ private:
 		mBack,
 		pxps;
 
-	char	F;
 	bool	isBack;
 	Ease	mEase;
 public:

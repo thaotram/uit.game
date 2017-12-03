@@ -3,7 +3,7 @@
 #include <math.h>
 
 //#define	pxps 50
-#define f float
+//#define f float
 //#define at 2.f		// accel time
 float at = 0.3f;
 
@@ -43,13 +43,6 @@ void Float_Easing::Update(float dt) {
 		);
 	}
 
-	//if (mEase == Ease::in) {
-	//	if (abs(mLast - mBack) < 2 * abs(mBack - mNext)) {
-	//		pxps = abs(mLast - mBack) / 2;
-	//		mNext = (mLast + mBack) / 2;
-	//	}
-	//}
-
 	switch (mEase) {
 	case Ease::in:
 		mTime += dt;
@@ -72,7 +65,7 @@ void Float_Easing::Update(float dt) {
 		}
 		else {
 			if (isBack == true || min(mBack, mLast) <= mNext && mNext <= max(mBack, mLast)) {
-				mNow = mBack + (mNext - mBack) * (f)pow(mTime / at, 3);
+				mNow = mBack + (mNext - mBack) * pow(mTime / at, 3);
 			}
 			else {
 				// Đổi chiều
@@ -142,7 +135,7 @@ void Float_Easing::Update(float dt) {
 		}
 		else {
 			if (isBack == true || mLast == mBack || is_Next_Mid) {
-				mNow = mBack + (mNext > mBack ? 1 : -1) * ((f)pow((mTime / at) - 1, 3) + 1) * pxps;
+				mNow = mBack + (mNext > mBack ? 1 : -1) * (pow((mTime / at) - 1, 3) + 1) * pxps;
 			}
 			else {
 				// Đổi chiều
