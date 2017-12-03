@@ -12,9 +12,12 @@ private:
 		mTime,
 		mNow,
 		mNext,
+		mLast,
 		mBack,
 		pxps;
-	char	flag;
+
+	char	F;
+	bool	isBack;
 	Ease	mEase;
 public:
 	Float_Easing();
