@@ -4,6 +4,8 @@
 #include "../Scene/Scene.h" 
 
 class Object_Unit : public Object {
+protected:
+	bool mAutoNextFrame;
 public:
 	Object_Unit(string pName);
 	~Object_Unit() {};

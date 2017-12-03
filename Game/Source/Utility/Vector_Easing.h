@@ -17,6 +17,7 @@ public:
 	void operator<<(V2 pVector);
 
 	void SetAuto(float autoX, float autoY);
+
 	void Update(float delay);
 	V2 VECTOR2();
 	Vector VECTOR();

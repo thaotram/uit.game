@@ -46,11 +46,10 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 		}
 	}
 	else if (S == "up_cut") {
-
+		
 	}
-
-
 	else if (S == "sit") {
+		mPosition.SetAuto(0, 0);
 		if (!I[DOWN]) {
 			mAnimation.Set("sit_to_stand", 1, "stand", 1);
 			return;
@@ -66,6 +65,11 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 			//! chưa quản lý / viết các thao tác bay nhảy
 		}
 	}
+	else if (S == "stand_jump") {
+		if (mAnimation.GetCycleIndex() == 1) {
+			mPosition << mPosition.VECTOR2() - V2{ 0,30 };
+		};
+	}
 	else if (S == "run") {
 		if (!I[RIGHT] && !I[LEFT]) {
 			mAnimation.Set("stand", 1);
@@ -73,11 +77,14 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 		}
 		else if (I[RIGHT])	mPosition.SetAuto(280, 0);
 		else if (I[LEFT])	mPosition.SetAuto(-280, 0);
-		else if (I[Z]) {}	//mAnimation.Set("sit_throwapple", 1, "sit", 4);
-		else if (I[X])		mAnimation.Set("run_cut", 1, "run", 9);
-		else if (I[C])		mAnimation.Set("run_jump", 1, "run", 1);
+		
+		if (I[Z]) {}	//mAnimation.Set("sit_throwapple", 1, "sit", 4);
+		if (I[X])		mAnimation.Set("run_cut", 1, "run", 9);
+		if (I[C])		mAnimation.Set("run_jump", 1, "run", 1);
 		//! chưa quản lý / viết các thao tác bay nhảy
 	}
-	else if (S == "run_cut") {}
+	else if (S == "run_cut") {
+		
+	}
 	else if (S == "up_to_stand") {}
 }

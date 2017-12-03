@@ -16,9 +16,9 @@ private:
 		mBack,
 		pxps;
 	float mAuto;
-	Ease	mEase;
 public:
 	Float_Easing();
+	Ease	mEase;
 
 	void operator<<(float pValue);	// mặc định
 
