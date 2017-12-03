@@ -5,7 +5,7 @@
 //#define	pxps 50
 #define f float
 //#define at 2.f		// accel time
-float at = 0.1f;
+float at = 0.3f;
 
 #define D GameDebug::Title
 #define is_Next_Mid min(mBack, mLast) <= mNext && mNext <= max(mBack, mLast)
@@ -54,7 +54,7 @@ void Float_Easing::Update(float dt) {
 	case Ease::in:
 		mTime += dt;
 		if (mTime >= at) {
-			if (mLast - mNext <= pxps) {
+			if (abs(mLast - mNext) <= pxps) {
 				mEase = Ease::out;
 				mTime -= at;
 				swap(mBack, mNext);
@@ -156,9 +156,13 @@ void Float_Easing::Update(float dt) {
 		if (mLast != mNow) {
 			mEase = Ease::in;
 			mTime = 0;
+			if (abs(mLast - mNow) < pxps * 2) {
+				pxps = abs(mLast - mNow) / 2;
+			}
 			mBack = mNow;
-			mNext = mBack + (mLast > mNow ? 1 : -1) * pxps;
+			mNext = mNow + (mLast > mNow ? 1 : -1) * pxps;
 			isBack = false;
+
 			Update(dt);
 		}
 		else {}
