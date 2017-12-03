@@ -25,6 +25,11 @@ void Vector_Easing::operator<<(V2 pVector) {
 	y << pVector.y;
 }
 
+void Vector_Easing::SetAuto(float autoX, float autoY) {
+	x.SetAuto(autoX);
+	y.SetAuto(autoY);
+}
+
 void Vector_Easing::Update(float delay) {
 	x.Update(delay);
 	y.Update(delay);
@@ -32,6 +37,13 @@ void Vector_Easing::Update(float delay) {
 
 V2 Vector_Easing::VECTOR2() {
 	return V2(
+		x(),
+		y()
+	);
+}
+
+Vector Vector_Easing::VECTOR() {
+	return Vector(
 		x(),
 		y()
 	);

@@ -45,11 +45,6 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 			//! chưa quản lý / viết các thao tác bay nhảy
 		}
 	}
-	else if (S == "up_cut") {
-
-	}
-
-
 	else if (S == "sit") {
 		if (!I[DOWN]) {
 			mAnimation.Set("sit_to_stand", 1, "stand", 1);

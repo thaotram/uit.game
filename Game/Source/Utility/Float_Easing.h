@@ -3,7 +3,8 @@ enum Ease {
 	in,
 	linear,
 	out,
-	stop
+	stop,
+	run
 };
 
 class Float_Easing {
@@ -11,12 +12,10 @@ private:
 	float
 		mTime,
 		mNow,
-		mNext,
 		mLast,
 		mBack,
 		pxps;
-
-	bool	isBack;
+	float mAuto;
 	Ease	mEase;
 public:
 	Float_Easing();
@@ -27,6 +26,7 @@ public:
 	void operator+=(float pNext);	// mới
 	void operator-=(float pNext);	// mới
 
+	void SetAuto(float pAuto);
 	void Update(float delay);
 	float operator()();
 };

@@ -13,15 +13,9 @@ void Object_Animation::NextFrame(Object * pObject) {
 	}
 	vector<int> pFrameCycle = pObject->GetJson()->GetFrameCycle(mState);
 	int nextFrame = pFrameCycle[mCycleIndex + 1];
-	if (nextFrame == 0) {
-		Set(mNextState, mNextCycleIndex);
-	}
-	else if (nextFrame > 0) {
-		mCycleIndex++;
-	}
-	else {
-		mCycleIndex = -nextFrame;
-	}
+	if (nextFrame == 0)			Set(mNextState, mNextCycleIndex);
+	else if (nextFrame > 0)		mCycleIndex++;
+	else						mCycleIndex = -nextFrame;
 }
 
 void Object_Animation::SetState(string pState) {
