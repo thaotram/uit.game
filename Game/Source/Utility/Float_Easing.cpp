@@ -7,7 +7,7 @@
 Float_Easing::Float_Easing() {
 	mTime = 0;
 	mEase = Ease::stop;
-	mType = Type::linear;
+	mType = Type::quad;
 	mNow = 0;
 }
 void Float_Easing::operator<<(float pValue) {
@@ -18,7 +18,6 @@ void Float_Easing::operator=(float pLast) {
 	mLast = pLast;
 	mTime = 0;
 	mDuration = 0.3f;
-	pxps = 300;
 }
 void Float_Easing::operator+=(float pDelta) {
 	*this = mLast + pDelta;
@@ -29,18 +28,9 @@ void Float_Easing::operator-=(float pDelta) {
 
 void Float_Easing::Update(float dt = 0) {
 	switch (mType) {
-	case Type::linear:					//! ----- LINEAR -----
+	case Type::quad:					//! ----- LINEAR -----
 		switch (mEase) {
-		case Ease::stop:
-			if (mNow != mLast) {
-				mEase = Ease::in;
-				mTime = dt;
-				mBack = mNow;
-				mNext = mLast;
-				Update();
-			}
-			break;
-		case Ease::in:
+		case in:
 			mTime += dt;
 			if (mTime >= mDuration) {
 				mEase = Ease::stop;
@@ -52,8 +42,38 @@ void Float_Easing::Update(float dt = 0) {
 				mNow = mBack + mTime / mDuration * (mNext - mBack);
 			}
 			break;
+		case stop:
+			if (mNow != mLast) {
+				mEase = Ease::in;
+				mTime = dt;
+				mBack = mNow;
+				mNext = mLast;
+				Update();
+			}
+			break;
 		}
 		break;
+	case Type::linear:
+		switch (mEase) {
+		case in:
+			mTime += dt;
+			if (mVelocity == 0) {
+				mEase = Ease::stop;
+			}
+			else mNow = mBack + mTime * mVelocity;
+			break;
+		case stop:
+			if (mVelocity != 0) {
+				mEase = Ease::in;
+				mTime = dt;
+				mBack = mNow;
+				Update();
+			}
+			break;
+		}
+		break;
+	case Type::none:
+		mNow = mLast;
 	}
 }
 float Float_Easing::operator()() {

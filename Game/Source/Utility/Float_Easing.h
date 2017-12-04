@@ -5,8 +5,9 @@ enum Ease {
 	stop
 };
 enum Type {
+	quad,
 	linear,
-	quad
+	none
 };
 
 class Float_Easing {
@@ -19,7 +20,7 @@ public:
 	Ease	mEase, mNextEase;
 	Type	mType;
 
-	float	mDuration;
+	float	mDuration, mVelocity;
 
 	void operator<<(float pValue);	// mặc định
 

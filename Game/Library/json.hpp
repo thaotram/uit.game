@@ -2196,7 +2196,7 @@ class basic_json
 
     @param[in] val the value to be forwarded
 
-    @complexity Usually linear in the size of the passed @a val, also
+    @complexity Usually quad in the size of the passed @a val, also
                 depending on the implementation of the called `to_json()`
                 method.
 
