@@ -9,12 +9,5 @@ void Object_Map::AfterAddToScene() {
 }
 
 void Object_Map::ObjectUpdateProperties(float delay) {
-	auto c = mScene->mCamera;
-	
-	mSourceRect = RECT{
-		(LONG)(c.x),
-		(LONG)(c.y),
-		(LONG)(c.x + WIDTH),
-		(LONG)(c.y + HEIGHT)
-	};
+	mSourceRect = mScene->mCamera.RECT( V2{ WIDTH, HEIGHT } );
 }

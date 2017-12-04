@@ -15,4 +15,13 @@ public:
 	Vector operator- (const D3DXVECTOR2& v) const;
 	D3DXVECTOR2 VECTOR2();
 	D3DXVECTOR3 VECTOR3();
+
+	RECT RECT(D3DXVECTOR2 v) {
+		return {
+			(LONG)(x),
+			(LONG)(y),
+			(LONG)(x + v.x),
+			(LONG)(y + v.y)
+		};
+	}
 };
