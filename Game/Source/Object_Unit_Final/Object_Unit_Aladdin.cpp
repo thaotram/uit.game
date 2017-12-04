@@ -22,9 +22,7 @@ Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
-	mPos.Update(dt);
-	mScene->mCamera = V2(50, MAP_HEIGHT - HEIGHT - 56);
-		// mPos.VECTOR2() - V2{ WIDTH / 2, HEIGHT - 56 };
+	mScene->mCamera = mPos.VECTOR2() - V2{ WIDTH / 2, HEIGHT - 56 };
 
 	auto S = mAni.GetState();
 
@@ -32,28 +30,33 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	//else if (R) mTransform.SetFlip(false);
 
 	if (S == "stand") {
-		if		(U)			mAni.Set("up", 1);
+		if (U)				mAni.Set("up", 1);
 		else if (D)			mAni.Set("sit", 1);
 		else if (R || L)	mAni.Set("run", 1);
 		else if (Z) 		mAni.Set("stand_throwapple", 1, "stand", 1);
 		else if (X) 		mAni.Set("stand_cut", 1, "stand", 1);
-		else if (C) 		mAni.Set("stand_jump_up", 1);
+		else if (C) 		mAni.Set("stand_jump_up", 1, "stand", 1);
 	}
 	else if (S == "stand_jump_up") {
 		if (!isJumpUp) {
 			isJumpUp = true;
-			mAni.SetNext("stand_throw_down", 1);
-			mPos -= V2(0, 50);	
-			mPos.GetY()->mMaxTime = 0.12f;
+			//mTimePerFrame = 0.03s
+			mPos -= V2(0, 50);
+			mPos.GetY()->mDuration = mTimePerFrame * 4;
+		}
+		else if (mPos.GetY()->mEase == Ease::stop) {
+			mAni.Set("stand_throw_down", 1);
 		}
 	}
 	else if (S == "stand_throw_down") {
 		if (isJumpUp) {
 			isJumpUp = false;
-			mAni.SetNext("stand", 1);
-			mPos += V2(0, 50);	
+			mPos += V2(0, 50);
+			mPos.GetY()->mDuration = mTimePerFrame * 4;
 			// thay thế điểm tiếp đất bằng rơi tự do, tính toán thông qua đụng độ
-			mPos.GetY()->mMaxTime = 0.12f;
+		}
+		else if (mPos.GetY()->mEase == Ease::stop) {
+			mAni.Next();
 		}
 	}
 	else if (S == "up") {

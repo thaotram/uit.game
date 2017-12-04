@@ -13,14 +13,13 @@ class Float_Easing {
 private:
 	float
 		mTime,
-		mBack, mNext, mNow, mLast,
-		pxps;
+		mBack, mNext, mNow, mLast;
 public:
 	Float_Easing();
 	Ease	mEase, mNextEase;
 	Type	mType;
 
-	float	mMaxTime;
+	float	mDuration;
 
 	void operator<<(float pValue);	// mặc định
 

@@ -7,6 +7,7 @@ private:
 	bool
 		isJumpUp,
 		isGround;
+	int lastIndex;
 public:
 	Object_Unit_Aladdin();
 	~Object_Unit_Aladdin() {};

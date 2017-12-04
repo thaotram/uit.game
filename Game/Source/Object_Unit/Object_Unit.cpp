@@ -13,6 +13,7 @@ void Object_Unit::ObjectUpdateProperties(float delay) {
 		mAnimation.NextFrame(this);
 	}
 	else mCurrentTime += delay;
+	mPosition.Update(delay);
 	mTransform.Update(this);
 	mSourceRect.Update(this);
 }

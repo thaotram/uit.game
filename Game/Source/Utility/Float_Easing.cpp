@@ -3,7 +3,7 @@
 #include <math.h>
 
 #define D GameDebug::Title
-
+#define MT 0.2f
 Float_Easing::Float_Easing() {
 	mTime = 0;
 	mEase = Ease::stop;
@@ -17,7 +17,7 @@ void Float_Easing::operator<<(float pValue) {
 void Float_Easing::operator=(float pLast) {
 	mLast = pLast;
 	mTime = 0;
-	mMaxTime = 0;
+	mDuration = 0.3f;
 	pxps = 300;
 }
 void Float_Easing::operator+=(float pDelta) {
@@ -32,9 +32,6 @@ void Float_Easing::Update(float dt = 0) {
 	case Type::linear:					//! ----- LINEAR -----
 		switch (mEase) {
 		case Ease::stop:
-			if (mNow != 160) {
-				int a = 8;
-			}
 			if (mNow != mLast) {
 				mEase = Ease::in;
 				mTime = dt;
@@ -45,14 +42,14 @@ void Float_Easing::Update(float dt = 0) {
 			break;
 		case Ease::in:
 			mTime += dt;
-			if (mTime >= mMaxTime) {
+			if (mTime >= mDuration) {
 				mEase = Ease::stop;
 				mTime = 0;
 				mNow = mBack = mNext;
 				Update(0);
 			}
 			else {
-				mNow = mBack + mTime / mMaxTime * (mNext - mBack);
+				mNow = mBack + mTime / mDuration * (mNext - mBack);
 			}
 			break;
 		}

@@ -36,4 +36,5 @@ public:
 	bool Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex);
 
 	bool SetNext(string pNextState, int pNextCycleIndex);
+	bool Next();
 };
