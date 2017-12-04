@@ -9,14 +9,15 @@
 #define C I[CHAR_C]
 
 #define mAni mAnimation
+#define mPos mPosition
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPosition = V2{ WIDTH / 2, MAP_HEIGHT - 50 };
+	mPos = V2{ WIDTH / 2, MAP_HEIGHT - 62 };
 	mAni.SetState("stand");
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
-	mScene->mCamera = mPosition.VECTOR2() - V2{ WIDTH / 2,HEIGHT - 50 };
+	mScene->mCamera = mPosition.VECTOR2() - V2{ WIDTH / 2, HEIGHT - 56 };
 
 	auto S = mAni.GetState();
 
@@ -60,13 +61,13 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 		};
 	}
 	else if (S == "run") {
-		if (!R && !L) mAni.Set("stand", 1);
-		else if (R)	{} 
-		else if (L)	{} 
+		if (!R && !L)		mAni.Set("stand", 1);
+		else if (R) {}
+		else if (L) {}
 
-		if (Z) {}		//mAni.Set("sit_throwapple", 1, "sit", 4);
-		else if (X)		mAni.Set("run_cut", 1, "run", 9);
-		else if (C)		mAni.Set("run_jump", 1, "run", 1);
+		if (Z) {}			//mAni.Set("sit_throwapple", 1, "sit", 4);
+		else if (X)			mAni.Set("run_cut", 1, "run", 9);
+		else if (C)			mAni.Set("run_jump", 1, "run", 1);
 	}
 	else if (S == "run_cut") {}
 	else if (S == "up_to_stand") {}

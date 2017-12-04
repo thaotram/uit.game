@@ -5,7 +5,7 @@
 
 #define WIDTH 320
 #define HEIGHT 224
-#define SCALE 2
+#define SCALE 3
 #define FPS 120
 #define BACKGROUND_COLOR 0xffffffff
 
