@@ -134,9 +134,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	InputMap[VK_UP] = UP;
 	InputMap[VK_RIGHT] = RIGHT;
 	InputMap[VK_DOWN] = DOWN;
-	InputMap['Z'] = Z;
-	InputMap['X'] = X;
-	InputMap['C'] = C;
+	InputMap['Z'] = CHAR_Z;
+	InputMap['X'] = CHAR_X;
+	InputMap['C'] = CHAR_C;
 
 	// Message ở đây là các event của windows
 	switch (message)

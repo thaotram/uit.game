@@ -19,8 +19,8 @@ enum {
 	UP,
 	RIGHT,
 	DOWN,
-	Z,
-	X,
-	C
+	CHAR_Z,
+	CHAR_X,
+	CHAR_C
 };
 
