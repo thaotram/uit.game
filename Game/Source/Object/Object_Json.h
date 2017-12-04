@@ -34,9 +34,9 @@ struct State {
 		D3DXVECTOR2 pBasePoint, vector<int> pFrameCycle, map<int, FRAME> pFrame
 	) : BasePoint(pBasePoint), FrameCycle(pFrameCycle), FrameList(pFrame) {};
 
-	D3DXVECTOR2				BasePoint;
-	vector<int>				FrameCycle;
-	map<int, FRAME>	FrameList;
+	D3DXVECTOR2			BasePoint;
+	vector<int>			FrameCycle;
+	map<int, FRAME>		FrameList;
 };
 
 //class Object_Animation;

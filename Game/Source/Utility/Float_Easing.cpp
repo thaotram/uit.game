@@ -28,6 +28,17 @@ void Float_Easing::operator-=(float pDelta) {
 
 void Float_Easing::Update(float dt = 0) {
 	switch (mType) {
+	case Type::gravity:
+		switch (mEase) {
+		case in:
+			mNow += mVelocity * dt * 2;
+			mVelocity += dt * 1000;
+			break;
+		case stop:
+			// Do nothing
+			break;
+		}
+		break;
 	case Type::quad:					//! ----- LINEAR -----
 		switch (mEase) {
 		case in:
@@ -48,25 +59,6 @@ void Float_Easing::Update(float dt = 0) {
 				mTime = dt;
 				mBack = mNow;
 				mNext = mLast;
-				Update();
-			}
-			break;
-		}
-		break;
-	case Type::linear:
-		switch (mEase) {
-		case in:
-			mTime += dt;
-			if (mVelocity == 0) {
-				mEase = Ease::stop;
-			}
-			else mNow = mBack + mTime * mVelocity;
-			break;
-		case stop:
-			if (mVelocity != 0) {
-				mEase = Ease::in;
-				mTime = dt;
-				mBack = mNow;
 				Update();
 			}
 			break;

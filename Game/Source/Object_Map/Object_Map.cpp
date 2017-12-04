@@ -10,7 +10,7 @@ void Object_Map::AfterAddToScene() {
 
 void Object_Map::ObjectUpdateProperties(float delay) {
 	auto c = mScene->mCamera;
-
+	
 	mSourceRect = RECT{
 		(LONG)(c.x),
 		(LONG)(c.y),

@@ -29,8 +29,12 @@ Scene::~Scene() {
 
 void Scene::SceneRender(float delay) {
 	EachObject([=](Object * pObject) {
+		pObject->ObjectUpdateEvent(delay);
+	});
+	EachObject([=](Object * pObject) {
 		pObject->ObjectRender(delay);
 	});
+
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}

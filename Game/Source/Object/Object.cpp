@@ -12,7 +12,7 @@ Object::Object(string pName) : mName(pName) {
 	mTimePerFrame = 0.03f;
 }
 void Object::ObjectRender(float delay) {
-	ObjectUpdateEvent(delay);
+	//ObjectUpdateEvent(delay);
 	ObjectUpdateProperties(delay);
 	ObjectDraw(mTransform, mSourceRect, mPosition);
 }
