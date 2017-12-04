@@ -8,7 +8,7 @@ void Object_Unit::AfterAddToScene() {}
 
 void Object_Unit::ObjectUpdateProperties(float delay) {
 	// mTimePerFrame = 0.08f
-	if (mCurrentTime >= mTimePerFrame && mAutoNextFrame) {
+	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
 		mAnimation.NextFrame(this);
 	}
