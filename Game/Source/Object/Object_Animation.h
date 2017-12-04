@@ -34,4 +34,9 @@ public:
 
 	void Set(string pState, int pCycleIndex);
 	void Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex);
+
+	void SetNext(string pNextState, int pNextCycleIndex) {
+		mNextState = pNextState;
+		mNextCycleIndex = pNextCycleIndex;
+	}
 };

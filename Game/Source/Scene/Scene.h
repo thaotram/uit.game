@@ -15,7 +15,7 @@ public:
 	Scene();
 	~Scene();
 
-	Scene_Camera mCamera;
+	Vector mCamera;
 
 	void SceneRender(float delay);
 
