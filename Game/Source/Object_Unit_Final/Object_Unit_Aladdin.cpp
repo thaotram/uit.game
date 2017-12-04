@@ -8,7 +8,6 @@ Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
-	//mPosition.Update(delay);
 	mScene->mCamera = mPosition.VECTOR2() - V2{ WIDTH / 2,HEIGHT - 50 };
 
 	auto S = mAni.GetState();
@@ -53,12 +52,9 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float delay) {
 		};
 	}
 	else if (S == "run") {
-		if (!I[RIGHT] && !I[LEFT]) {
-			mAni.Set("stand", 1);
-			//mPosition.SetAuto(0, 0);
-		}
-		//else if (I[RIGHT])	mPosition.SetAuto(280, 0);
-		//else if (I[LEFT])		mPosition.SetAuto(-280, 0);
+		if (!I[RIGHT] && !I[LEFT]) mAni.Set("stand", 1);
+		else if (I[RIGHT])	{} 
+		else if (I[LEFT])	{} 
 
 		if (I[Z]) {}		//mAni.Set("sit_throwapple", 1, "sit", 4);
 		else if (I[X])		mAni.Set("run_cut", 1, "run", 9);

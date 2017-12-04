@@ -32,11 +32,8 @@ public:
 	int GetCycleIndex();
 	void SetCycleIndex(int pCycleIndex);
 
-	void Set(string pState, int pCycleIndex);
-	void Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex);
+	bool Set(string pState, int pCycleIndex);
+	bool Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex);
 
-	void SetNext(string pNextState, int pNextCycleIndex) {
-		mNextState = pNextState;
-		mNextCycleIndex = pNextCycleIndex;
-	}
+	bool SetNext(string pNextState, int pNextCycleIndex);
 };

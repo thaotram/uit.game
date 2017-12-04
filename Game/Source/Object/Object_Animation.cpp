@@ -42,14 +42,23 @@ void Object_Animation::SetCycleIndex(int pCycleIndex) {
 	mCycleIndex = pCycleIndex;
 }
 
-void Object_Animation::Set(string pState, int pCycleIndex) {
-	if (mState == pState) return;
-	mState = pState;
-	mCycleIndex = pCycleIndex;
+bool Object_Animation::Set(string pState, int pCycleIndex) {
+	if (mState != pState) {
+		mState = pState;
+		mCycleIndex = pCycleIndex;
+	}
+	return true;
 }
-void Object_Animation::Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex) {
+bool Object_Animation::Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex) {
 	Set(pState, pCycleIndex);
 	mSkipNextFrame = true;
 	mNextState = pNextState;
 	mNextCycleIndex = pNextCycleIndex;
+	return true;
+}
+
+bool Object_Animation::SetNext(string pNextState, int pNextCycleIndex) {
+	mNextState = pNextState;
+	mNextCycleIndex = pNextCycleIndex;
+	return true;
 }
