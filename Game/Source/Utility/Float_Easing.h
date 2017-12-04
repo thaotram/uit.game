@@ -1,24 +1,26 @@
 ﻿#pragma once
 enum Ease {
 	in,
-	linear,
 	out,
-	stop,
-	run
+	stop
+};
+enum Type {
+	linear,
+	quad
 };
 
 class Float_Easing {
 private:
 	float
 		mTime,
-		mNow,
-		mLast,
-		mBack,
+		mBack, mNext, mNow, mLast,
 		pxps;
-	float mAuto;
 public:
 	Float_Easing();
-	Ease	mEase;
+	Ease	mEase, mNextEase;
+	Type	mType;
+
+	float	mMaxTime;
 
 	void operator<<(float pValue);	// mặc định
 
@@ -26,7 +28,6 @@ public:
 	void operator+=(float pNext);	// mới
 	void operator-=(float pNext);	// mới
 
-	void SetAuto(float pAuto);
 	void Update(float delay);
 	float operator()();
 };

@@ -13,12 +13,13 @@ public:
 
 	void operator+=(V2 pDelta);
 	void operator-=(V2 pDelta);
-	void operator=(V2 pDelta);
+	void operator=(V2 pLast);
 	void operator<<(V2 pVector);
-
-	void SetAuto(float autoX, float autoY);
 
 	void Update(float delay);
 	V2 VECTOR2();
 	Vector VECTOR();
+
+	Float_Easing * GetX();
+	Float_Easing * GetY();
 };

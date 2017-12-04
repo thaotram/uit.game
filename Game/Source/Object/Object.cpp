@@ -16,13 +16,13 @@ void Object::ObjectRender(float delay) {
 	ObjectUpdateProperties(delay);
 	ObjectDraw(mTransform, mSourceRect, mPosition);
 }
-void Object::ObjectDraw(Object_Transform pTransform, Object_SourceRect pSourceRect, Vector pPosition) {
+void Object::ObjectDraw(Object_Transform pTransform, Object_SourceRect pSourceRect, Vector_Easing pPosition) {
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(
 		&*mTexture,
 		&pSourceRect,
 		NULL,
-		&(pPosition * SCALE).VECTOR3(),
+		&(pPosition.VECTOR() * SCALE).VECTOR3(),
 		0xFFFFFFFF
 	);
 }

@@ -3,6 +3,10 @@
 #include "../Scene/Scene.h"
 
 class Object_Unit_Aladdin : public Object_Unit {
+private:
+	bool
+		isJumpUp,
+		isGround;
 public:
 	Object_Unit_Aladdin();
 	~Object_Unit_Aladdin() {};
