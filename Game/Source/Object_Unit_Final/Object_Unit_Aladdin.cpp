@@ -1,4 +1,5 @@
 ﻿#include "Object_Unit_Aladdin.h"
+#include "../GameDebug.h"
 
 #define ef else if
 #define I GameGlobal::Input
@@ -17,23 +18,20 @@
 #define speed 300
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ WIDTH / 2, MAP_HEIGHT - 78 };
+	mPos << V2{ WIDTH / 2, MAP_HEIGHT - 56 };
 	mPos.GetX()->mType = Type::none;
 	mPos.GetY()->mType = Type::gravity;
 
 	mAni.SetState("stand");
-	isJumpUp = false;
-	isGround = true;
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	mScene->mCamera = mPos.VECTOR2() - V2{ WIDTH / 2, HEIGHT - 56 };
 
-	auto S = mAni.GetState();
-
 	if (L) mTransform.SetFlip(true);
 	ef(R) mTransform.SetFlip(false);
 
+	string S = mAni.GetState();
 	if (S == "stand") {
 		if (U)			mAni.Set("up", 1);
 		ef(D)			mAni.Set("sit", 1);
@@ -43,49 +41,37 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef(C) 			mAni.Set("stand_jump", 1, "stand", 1);
 	}
 	ef(S == "stand_jump") {
-		//mAutoNextFrame = false;
-		if (!isJumpUp) {
+		// Xác định điểm tiếp đất
+		float Ground = MAP_HEIGHT - 56;
+		mPos.GetY()->operator=(Ground);
+		float v = mPos.GetY()->mVelocity;
+
+		if (mAni.GetCycleIndex() == 1 && v == 0) {
+			mAutoNextFrame = false;
 			mPos.GetY()->mEase = Ease::in;
 			mPos.GetY()->mVelocity = -jump;
-			isJumpUp = true;
+			mAni.SetCycleIndex(1);
 		}
-		auto v = mPos.GetY()->mVelocity;
-
-		if (0) {}
-		ef(v <= 0.75 * -jump)		mAni.SetCycleIndex(1);
-		ef(v <= 0.50 * -jump)		mAni.SetCycleIndex(2);
-		ef(v <= 0.25 * -jump)		mAni.SetCycleIndex(3);
+		ef(Ground - mPos.GetY()->operator()() < 20 && v > 0 && !mAutoNextFrame) {
+			mAutoNextFrame = true;
+			mAni.SetCycleIndex(11);
+		}
+		ef(mAutoNextFrame) { /* Không cho chạy xuống dưới */ }
+		ef(v <= 0.65 * -jump)		mAni.SetCycleIndex(2);
+		ef(v <= 0.30 * -jump)		mAni.SetCycleIndex(3);
 		ef(v <= 0)					mAni.SetCycleIndex(4);
-		ef(v <= 0.25 * +jump)		mAni.SetCycleIndex(5);
+		ef(v <= 0.30 * +jump)		mAni.SetCycleIndex(5);
 		ef(v <= 0.50 * +jump)		mAni.SetCycleIndex(6);
-		ef(v <= 0.75 * +jump)		mAni.SetCycleIndex(7);
+		ef(v <= 0.70 * +jump)		mAni.SetCycleIndex(7);
+		ef(v <= 0.90 * +jump)		mAni.SetCycleIndex(8);
+		ef(v <= 1.00 * +jump)		mAni.SetCycleIndex(9);
+		ef(v <= 1.10 * +jump)		mAni.SetCycleIndex(9);
+		ef(v <= 1.20 * +jump)		mAni.SetCycleIndex(10);
 
-		//if (0 <= v && v <= jump)	mAni.SetCycleIndex(8);
-
-		if (mPos.GetY()->operator()() > MAP_HEIGHT - 56) {
-			mPos.GetY()->operator<<(MAP_HEIGHT - 56);
-			mPos.GetY()->mEase = Ease::stop;
-			mAni.Set("stand", 1);
-			isJumpUp = false;
-		}
+		//! Move Left or Right
 		if (R)			mPos.GetX()->operator+=(speed * dt);
 		ef(L)			mPos.GetX()->operator-=(speed * dt);
 	}
-	ef(S == "stand_jump_down") {
-		if (isJumpUp) {
-			isJumpUp = false;
-			mPos += V2(0, 50);
-			mPos.GetY()->mDuration = mTimePerFrame * 4;
-			// thay thế điểm tiếp đất bằng rơi tự do, tính toán thông qua đụng độ
-		}
-		ef(mPos.GetY()->mEase == Ease::stop) {
-			mAni.Next();
-		}
-
-		if (R)			mPos.GetX()->operator+=(speed * dt);
-		ef(L)			mPos.GetX()->operator-=(speed * dt);
-	}
-
 	ef(S == "up") {
 		if (mAni.GetCycleIndex() == 3) {}
 
@@ -107,15 +93,16 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef(D && X) 	mAni.Set("sit_cut", 1, "sit", 4);
 		ef(D && C)		mAni.Set("stand_jump", 1, "sit", 1);
 	}
-
 	ef(S == "run") {
 		if (!R && !L)	mAni.Set("stand", 1);
 		ef(R)			mPos.GetX()->operator+=(speed * dt);
 		ef(L)			mPos.GetX()->operator-=(speed * dt);
 
-		if (Z) {}			//mAni.Set("sit_throwapple", 1, "sit", 4);
+		GameDebug::Title(speed * dt);
+
+		if (Z) {}		//mAni.Set("sit_throwapple", 1, "sit", 4);
 		ef(X)			mAni.Set("run_cut", 1, "run", 9);
-		ef(C)			mAni.Set("run_jump", 1, "run", 1);
+		ef(C)			mAni.Set("run_jump", 1, "run", 11);
 	}
 	ef(S == "run_cut") {
 		if (!R && !L)	mAni.Set("stand", 1);
@@ -123,23 +110,54 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef(L)			mPos.GetX()->operator-=(speed * dt);
 	}
 	ef(S == "run_jump") {
-		if (!isJumpUp) {
+		// Xác định điểm tiếp đất
+		float Ground = MAP_HEIGHT - 56;
+		mPos.GetY()->operator=(Ground);
+		float v = mPos.GetY()->mVelocity;
+
+		if (mAni.GetCycleIndex() == 1 && v == 0) {
+			mAutoNextFrame = false;
 			mPos.GetY()->mEase = Ease::in;
 			mPos.GetY()->mVelocity = -jump;
-			isJumpUp = true;
+			mAni.SetCycleIndex(1);
 		}
+		ef(Ground - mPos.GetY()->operator()() < 20 && v > 0 && !mAutoNextFrame) {
+			mAutoNextFrame = true;
+			if (R || L)				mAni.SetCycleIndex(11) && mAni.SetNext("run", 11);	// run
+			else					mAni.SetCycleIndex(7); // stand
+		}
+		ef(mAutoNextFrame && mPos.GetY()->mEase == Ease::stop) {
+			mAni.Next();
+		}
+		ef(mAutoNextFrame) { /* Không cho chạy xuống dưới */ }
+		// ef(v <= 0.90 * -jump)	mAni.SetCycleIndex(1);
+		ef(v <= 0.90 * -jump)		mAni.SetCycleIndex(2);
+		ef(v <= 0.60 * -jump)		mAni.SetCycleIndex(3);
+		ef(v <= 0.30 * -jump)		mAni.SetCycleIndex(4);
+		ef(v <= 0)					mAni.SetCycleIndex(5);
+		ef(v <= 0.50 * +jump)		mAni.SetCycleIndex(5);
+		ef(v <= 0.90 * +jump)		mAni.SetCycleIndex(6);
 
-		if (mPos.GetY()->operator()() > MAP_HEIGHT - 56) {
-			mPos.GetY()->operator<<(MAP_HEIGHT - 56);
-			mPos.GetY()->mEase = Ease::stop;
-			mAni.Set("stand", 1);
-			isJumpUp = false;
-		}
 		if (R)			mPos.GetX()->operator+=(speed * dt);
 		ef(L)			mPos.GetX()->operator-=(speed * dt);
 	}
 
 	/*
+	ef(S == "stand_jump_down") {
+		if (isJumpUp) {
+			isJumpUp = false;
+			mPos += V2(0, 50);
+			mPos.GetY()->mDuration = mTimePerFrame * 4;
+			// thay thế điểm tiếp đất bằng rơi tự do, tính toán thông qua đụng độ
+		}
+		ef(mPos.GetY()->mEase == Ease::stop) {
+			mAni.Next();
+		}
+
+		if (R)			mPos.GetX()->operator+=(speed * dt);
+		ef(L)			mPos.GetX()->operator-=(speed * dt);
+	}
+
 	ef (S == "run_jump_up") {
 		if (!isJumpUp) {
 			isJumpUp = true;

@@ -30,8 +30,8 @@ public:
 	int GetFrameIndex(Object * pObject);
 
 	int GetCycleIndex();
-	void SetCycleIndex(int pCycleIndex);
 
+	bool SetCycleIndex(int pCycleIndex);
 	bool Set(string pState, int pCycleIndex);
 	bool Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex);
 

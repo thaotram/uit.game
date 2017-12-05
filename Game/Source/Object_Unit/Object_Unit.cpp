@@ -14,7 +14,8 @@ void Object_Unit::ObjectUpdateProperties(float delay) {
 	}
 	else mCurrentTime += delay;
 
-	GameDebug::Title(mAnimation.GetFrameIndex(this	));
+	GameDebug::Title(mAnimation.GetCycleIndex());
+
 	mPosition.Update(delay);
 	mTransform.Update(this);
 	mSourceRect.Update(this);

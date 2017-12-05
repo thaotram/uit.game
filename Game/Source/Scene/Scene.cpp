@@ -34,7 +34,6 @@ void Scene::SceneRender(float delay) {
 	EachObject([=](Object * pObject) {
 		pObject->ObjectRender(delay);
 	});
-
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}

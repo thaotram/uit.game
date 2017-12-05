@@ -7,7 +7,7 @@
 Float_Easing::Float_Easing() {
 	mTime = 0;
 	mEase = Ease::stop;
-	mType = Type::quad;
+	mType = Type::none;
 	mNow = 0;
 }
 void Float_Easing::operator<<(float pValue) {
@@ -33,8 +33,14 @@ void Float_Easing::Update(float dt = 0) {
 		case in:
 			mNow += mVelocity * dt * 2;
 			mVelocity += dt * 1000;
+			if (mNow >= mLast) {
+				mEase = Ease::stop;
+				mNow = mLast;
+				mVelocity = 0;
+			}
 			break;
 		case stop:
+			mVelocity = 0;
 			// Do nothing
 			break;
 		}

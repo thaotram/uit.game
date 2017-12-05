@@ -39,8 +39,9 @@ int Object_Animation::GetFrameIndex(Object * pObject) {
 int Object_Animation::GetCycleIndex() {
 	return mCycleIndex;
 }
-void Object_Animation::SetCycleIndex(int pCycleIndex) {
+bool Object_Animation::SetCycleIndex(int pCycleIndex) {
 	mCycleIndex = pCycleIndex;
+	return true;
 }
 bool Object_Animation::Next() {
 	Set(mNextState, mNextCycleIndex);
