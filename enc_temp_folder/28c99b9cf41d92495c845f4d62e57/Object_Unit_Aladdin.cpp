@@ -52,13 +52,13 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		auto v = mPos.GetY()->mVelocity;
 
 		if (0) {}
-		ef(v <= 0.75 * -jump)		mAni.SetCycleIndex(1);
-		ef(v <= 0.50 * -jump)		mAni.SetCycleIndex(2);
-		ef(v <= 0.25 * -jump)		mAni.SetCycleIndex(3);
+		ef(v <= -0.75 * jump)		mAni.SetCycleIndex(1);
+		ef(v <= -0.50 * jump)		mAni.SetCycleIndex(2);
+		ef(v <= -0.25 * jump)		mAni.SetCycleIndex(3);
 		ef(v <= 0)					mAni.SetCycleIndex(4);
-		ef(v <= 0.25 * +jump)		mAni.SetCycleIndex(5);
-		ef(v <= 0.50 * +jump)		mAni.SetCycleIndex(6);
-		ef(v <= 0.75 * +jump)		mAni.SetCycleIndex(7);
+		ef(v <= 0.25 * jump)		mAni.SetCycleIndex(5);
+		ef(v <= 0.50 * jump)		mAni.SetCycleIndex(6);
+		ef(v <= 0.75 * jump)		mAni.SetCycleIndex(7);
 
 		//if (0 <= v && v <= jump)	mAni.SetCycleIndex(8);
 
