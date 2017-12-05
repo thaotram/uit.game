@@ -12,7 +12,6 @@
 
 using namespace std;
 using json = nlohmann::json;
-
 struct Frame;
 typedef Frame FRAME;
 struct State;

@@ -119,7 +119,9 @@
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="Resources\Abu.json" />
-    <None Include="Resources\AgrabahMarket.json" />
+    <None Include="Resources\AgrabahMarket_Back.json" />
+    <None Include="Resources\AgrabahMarket_Cloud.json" />
+    <None Include="Resources\AgrabahMarket_Front.json" />
     <None Include="Resources\Aladdin.json" />
     <None Include="Resources\block.json" />
     <None Include="Resources\Camel.json" />
@@ -135,7 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Abu.png" />
-    <Image Include="Resources\AgrabahMarket.png" />
+    <Image Include="Resources\AgrabahMarket_Back.png" />
+    <Image Include="Resources\AgrabahMarket_Cloud.png" />
+    <Image Include="Resources\AgrabahMarket_Front.png" />
     <Image Include="Resources\Aladdin.png" />
     <Image Include="Resources\Aladdin_Miscellaneous_Cutscenes.png" />
     <Image Include="Resources\block.png" />
@@ -155,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Object_Map_Block\Object_Map_Block.h" />
     <ClInclude Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.h" />
     <ClInclude Include="Source\Scene\Scene_Camera.h" />
     <ClInclude Include="Source\Utility\Float_Easing.h" />
@@ -179,6 +184,7 @@
     <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Object_Map_Block\Object_Map_Block.cpp" />
     <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.cpp" />
     <ClCompile Include="Source\Scene\Scene_Camera.cpp" />
     <ClCompile Include="Source\Utility\Float_Easing.cpp" />

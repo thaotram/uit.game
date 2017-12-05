@@ -39,7 +39,6 @@ void Game::InitLoop()
 			delay -= timePerFrame;
 		}
 		else {
-			//GameDebug::Title(timePerFrame - delay);
 			Sleep(
 				(DWORD)((timePerFrame - delay) * 1000) // milisecond
 			);

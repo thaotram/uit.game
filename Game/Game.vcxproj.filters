@@ -42,6 +42,9 @@
     <Filter Include="Source\Utility">
       <UniqueIdentifier>{d03c4b0d-7fcb-49fa-b5e6-9b2e8d4629f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Object_Map_Block">
+      <UniqueIdentifier>{06821d94-b8e6-408d-a181-35ab1019115a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -49,9 +52,6 @@
     </None>
     <None Include="Resources\block.json">
       <Filter>Resource Files\Unit</Filter>
-    </None>
-    <None Include="Resources\AgrabahMarket.json">
-      <Filter>Resource Files\Map</Filter>
     </None>
     <None Include="Resources\Camel.json">
       <Filter>Resource Files\Unit</Filter>
@@ -87,6 +87,15 @@
       <Filter>Resource Files\Debug</Filter>
     </None>
     <None Include="ClassDiagram.cd" />
+    <None Include="Resources\AgrabahMarket_Back.json">
+      <Filter>Resource Files\Map</Filter>
+    </None>
+    <None Include="Resources\AgrabahMarket_Cloud.json">
+      <Filter>Resource Files\Map</Filter>
+    </None>
+    <None Include="Resources\AgrabahMarket_Front.json">
+      <Filter>Resource Files\Map</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -94,9 +103,6 @@
     </Image>
     <Image Include="Resources\block.png">
       <Filter>Resource Files\Unit</Filter>
-    </Image>
-    <Image Include="Resources\AgrabahMarket.png">
-      <Filter>Resource Files\Map</Filter>
     </Image>
     <Image Include="Resources\Camel.png">
       <Filter>Resource Files\Unit</Filter>
@@ -142,6 +148,15 @@
     </Image>
     <Image Include="Resources\Stick.png">
       <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\AgrabahMarket_Front.png">
+      <Filter>Resource Files\Map</Filter>
+    </Image>
+    <Image Include="Resources\AgrabahMarket_Back.png">
+      <Filter>Resource Files\Map</Filter>
+    </Image>
+    <Image Include="Resources\AgrabahMarket_Cloud.png">
+      <Filter>Resource Files\Map</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +227,9 @@
     <ClInclude Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Object_Map_Block\Object_Map_Block.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -277,6 +295,9 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.cpp">
       <Filter>Source\Object_Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Map_Block\Object_Map_Block.cpp">
+      <Filter>Source\Object_Map_Block</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

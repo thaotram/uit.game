@@ -1,0 +1,23 @@
+#pragma once
+#include <d3d9.h>
+#include <d3dx9.h>
+#include <iostream>
+#include <fstream>
+#include <map>
+#include <list>
+#include <vector>
+
+#include <json.hpp>
+
+using json = nlohmann::json;
+using namespace std;
+
+enum BlockType {
+	square
+};
+
+class Object_Map_Block :public map<BlockType, RECT> {
+public:
+	Object_Map_Block(string pName);
+	~Object_Map_Block() {}
+};

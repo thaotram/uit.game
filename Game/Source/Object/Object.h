@@ -31,14 +31,13 @@ protected:
 	float				mCurrentTime;
 	float 				mTimePerFrame;
 public:
-
 	Object(string pName);
 	~Object() {};
 
 	Scene		 * mScene;
 
 	virtual void AfterAddToScene() {};
-	void		 ObjectRender(float delay);
+	virtual void ObjectRender(float delay);
 	
 	virtual void ObjectUpdateEvent(float delay) {};
 	virtual void ObjectUpdateProperties(float delay) {};
