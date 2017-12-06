@@ -12,5 +12,5 @@ public:
 	Object_Unit_Aladdin();
 	~Object_Unit_Aladdin() {};
 
-	void ObjectUpdateEvent(float delay);
+	void ObjectUpdateEvent(float dt);
 };

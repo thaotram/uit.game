@@ -3,7 +3,6 @@
 #include <d3dx9.h>
 #include <iostream>
 #include <fstream>
-#include <map>
 #include <list>
 #include <vector>
 
@@ -16,8 +15,12 @@ enum BlockType {
 	square
 };
 
-class Object_Map_Block :public map<BlockType, RECT> {
+class Object;
+
+class Object_Map_Block :public list<pair<BlockType, RECT>> {
 public:
 	Object_Map_Block(string pName);
-	~Object_Map_Block() {}
+	~Object_Map_Block() {};
+
+	float GetGround(Object * pUnit);
 };

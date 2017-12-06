@@ -170,7 +170,7 @@
         "run_jump": {
             "note": "chạy + nhảy (Left/Right + C) | 8,9 là cho stand. 11 là cho run",
             "basePoint": [13, 41],
-            "frameCycle": [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 7, -7],
+            "frameCycle": [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 7, -11],
             "frame": {
                 "1": [10, 705, 41, 42, 0, 0],
                 "2": [66, 683, 45, 76, -19, -36],

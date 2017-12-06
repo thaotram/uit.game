@@ -2,8 +2,6 @@
 #include "../GameDebug.h"
 #include <math.h>
 
-#define D GameDebug::Title
-#define MT 0.2f
 Float_Easing::Float_Easing() {
 	mTime = 0;
 	mEase = Ease::stop;
@@ -40,8 +38,9 @@ void Float_Easing::Update(float dt = 0) {
 			}
 			break;
 		case stop:
-			mVelocity = 0;
-			// Do nothing
+			if (mVelocity != 0 || mLast != mNow) {
+				mEase = Ease::in;
+			}
 			break;
 		}
 		break;
@@ -75,5 +74,6 @@ void Float_Easing::Update(float dt = 0) {
 	}
 }
 float Float_Easing::operator()() {
+	//return float(round(mNow));
 	return float(mNow);
 }
