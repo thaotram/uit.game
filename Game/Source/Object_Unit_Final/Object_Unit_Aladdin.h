@@ -4,14 +4,7 @@
 
 class Object_Unit_Aladdin final : public Object_Unit {
 private:
-	bool
-		isJumpUp,
-		isGround;
-	int lastIndex;
-
-
-	char leftOrRight;
-	float * velocity;
+	bool isChangeX;
 public:
 	Object_Unit_Aladdin();
 	~Object_Unit_Aladdin() {};

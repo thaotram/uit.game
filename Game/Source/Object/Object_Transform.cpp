@@ -41,6 +41,13 @@ void Object_Transform::Update(Object * pObject) {
 	);
 }
 
-void Object_Transform::SetFlip(bool pFlip) {
-	mFlip = pFlip;
+void Object_Transform::SetFlip(Flip pFlip) {
+	switch (pFlip) {
+	case Left:
+		mFlip = true;
+		break;
+	case Right:
+		mFlip = false;
+		break;
+	}
 }

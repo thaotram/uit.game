@@ -4,6 +4,12 @@
 #include <iostream>
 #include "../Utility/Vector.h"
 
+enum Flip {
+	Left, 
+	Right,
+	Stand
+};
+
 class Object;
 
 class Object_Transform: public D3DXMATRIX {
@@ -16,5 +22,5 @@ public:
 	// + Json
 	// + Position
 	void Update(Object * pObject);
-	void SetFlip(bool pFlip);
+	void SetFlip(Flip pFlip);
 };

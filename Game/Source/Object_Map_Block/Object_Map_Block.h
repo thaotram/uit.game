@@ -24,4 +24,5 @@ public:
 
 	float GetGround(Object * pUnit);
 	float GetGround(float x, float y);
+
 };
