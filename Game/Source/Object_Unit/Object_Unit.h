@@ -1,7 +1,7 @@
 #pragma once
 #include "../Object/Object.h"
 #include "../../Define.h"
-#include "../Scene/Scene.h" 
+#include "../Scene/Scene.h"
 
 class Object_Unit : public Object {
 protected:
@@ -13,5 +13,6 @@ public:
 	void AfterAddToScene();
 
 	virtual void ObjectUpdateEvent(float delay) {};
+	virtual void ObjectCollision(float delay) {};
 	void ObjectUpdateProperties(float delay);
 };

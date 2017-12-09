@@ -2,7 +2,7 @@
 #include "../Object_Unit/Object_Unit.h"
 #include "../Scene/Scene.h"
 
-class Object_Unit_Aladdin : public Object_Unit {
+class Object_Unit_Aladdin final : public Object_Unit {
 private:
 	bool
 		isJumpUp,
@@ -13,4 +13,5 @@ public:
 	~Object_Unit_Aladdin() {};
 
 	void ObjectUpdateEvent(float dt);
+	void ObjectCollision(float dt);
 };

@@ -22,4 +22,11 @@ public:
 
 	Float_Easing * GetX();
 	Float_Easing * GetY();
+
+	float vX() {
+		return x();
+	};
+	float vY() {
+		return y();
+	};
 };

@@ -23,4 +23,5 @@ public:
 	~Object_Map_Block() {};
 
 	float GetGround(Object * pUnit);
+	float GetGround(float x, float y);
 };

@@ -9,11 +9,11 @@ Object::Object(string pName) : mName(pName) {
 	mTexture = Object_Texture::GetTexture(mName);
 
 	mCurrentTime = 0;
-	mTimePerFrame = 0.03f;
+	mTimePerFrame = 0.06f;
 }
 void Object::ObjectRender(float delay) {
 	//mJson = Object_Json::GetJson(mName);
-
+	
 	ObjectUpdateProperties(delay);
 	ObjectDraw(mTransform, mSourceRect, mPosition);
 }

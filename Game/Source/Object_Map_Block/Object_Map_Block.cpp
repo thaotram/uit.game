@@ -31,11 +31,15 @@ Object_Map_Block::Object_Map_Block(string pName) {
 float Object_Map_Block::GetGround(Object * pUnit) {
 	float x = pUnit->GetPosition()->GetX()->operator()();
 	float y = pUnit->GetPosition()->GetY()->operator()();
+	return GetGround(x, y);
+}
 
+float Object_Map_Block::GetGround(float x, float y)
+{
 	float ground;
 	bool f = false;
 	for (auto &rect : *this) {
-		#define r rect.second
+/**/	#define r rect.second
 		if (r.left <= x && x <= r.right && y <= r.top) {
 			ground = f ? (r.top, ground) : r.top;
 			f = true;

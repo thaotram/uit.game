@@ -30,5 +30,8 @@ public:
 	void operator-=(float pNext);	// mới
 
 	void Update(float delay);
+
+	void ppp(float delay);
+
 	float operator()();
 };

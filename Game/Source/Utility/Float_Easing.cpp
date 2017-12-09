@@ -23,13 +23,16 @@ void Float_Easing::operator+=(float pDelta) {
 void Float_Easing::operator-=(float pDelta) {
 	*this = mLast - pDelta;
 }
+float Float_Easing::operator()() {
+	return float(mNow);
+}
 
 void Float_Easing::Update(float dt = 0) {
 	switch (mType) {
-	case Type::gravity:
+	case Type::gravity:		//# Gravity
 		switch (mEase) {
 		case in:
-			mNow += mVelocity * dt * 2;
+			mNow += mVelocity * dt;
 			mVelocity += dt * 1000;
 			if (mNow >= mLast) {
 				mEase = Ease::stop;
@@ -44,36 +47,12 @@ void Float_Easing::Update(float dt = 0) {
 			break;
 		}
 		break;
-	case Type::quad:					//! ----- LINEAR -----
-		switch (mEase) {
-		case in:
-			mTime += dt;
-			if (mTime >= mDuration) {
-				mEase = Ease::stop;
-				mTime = 0;
-				mNow = mBack = mNext;
-				Update(0);
-			}
-			else {
-				mNow = mBack + mTime / mDuration * (mNext - mBack);
-			}
-			break;
-		case stop:
-			if (mNow != mLast) {
-				mEase = Ease::in;
-				mTime = dt;
-				mBack = mNow;
-				mNext = mLast;
-				Update();
-			}
-			break;
-		}
-		break;
-	case Type::none:
+	case Type::none:		//# None
 		mNow = mLast;
+		break;
 	}
 }
-float Float_Easing::operator()() {
-	//return float(round(mNow));
-	return float(mNow);
+
+void Float_Easing::ppp(float delay) {
+
 }

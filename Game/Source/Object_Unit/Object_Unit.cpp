@@ -1,4 +1,4 @@
-#include "Object_Unit.h"
+﻿#include "Object_Unit.h"
 #include "../GameDebug.h"
 
 Object_Unit::Object_Unit(string pName) : Object(pName) {
@@ -8,11 +8,10 @@ Object_Unit::Object_Unit(string pName) : Object(pName) {
 void Object_Unit::AfterAddToScene() {}
 
 void Object_Unit::ObjectUpdateProperties(float delay) {
-	mPosition.Update(delay);
-
+	ObjectCollision(delay);
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
-		if(mAutoNextFrame) mAnimation.NextFrame(this);
+		if (mAutoNextFrame) mAnimation.NextFrame(this);
 	}
 	else mCurrentTime += delay;
 
