@@ -6,10 +6,10 @@
 #include "Float_Easing.h"
 
 class Vector_Easing {
-protected:
-	Float_Easing x, y;
-public:
+protected:public:
 	Vector_Easing() {}
+
+	Float_Easing x, y;
 
 	void operator+=(V2 pDelta);
 	void operator-=(V2 pDelta);
@@ -19,14 +19,4 @@ public:
 	void Update(float delay);
 	V2 VECTOR2();
 	Vector VECTOR();
-
-	Float_Easing * GetX();
-	Float_Easing * GetY();
-
-	float vX() {
-		return x();
-	};
-	float vY() {
-		return y();
-	};
 };

@@ -12,29 +12,26 @@ class Object;
 class Object_Animation {
 private:
 	string	mState;
-	int		mCycleIndex;
-
 	string  mNextState;
+	
+	int		mCycleIndex;
 	int		mNextCycleIndex;
+
 	bool	mSkipNextFrame;
 public:
 	Object_Animation();
 
-	void NextFrame(Object * pObject);
 
-	void SetState(string pState);
-	string GetState();
+	void	NextFrame(Object * pObject);
+	
+	string	GetState();
+	int		GetFrameIndex(Object * pObject);
+	int		GetCycleIndex();
+	
+	bool	Set(string pState, int pCycleIndex);
+	bool	Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex);
+	bool	SetCycleIndex(int pCycleIndex);
 
-	string * State();
-
-	int GetFrameIndex(Object * pObject);
-
-	int GetCycleIndex();
-
-	bool SetCycleIndex(int pCycleIndex);
-	bool Set(string pState, int pCycleIndex);
-	bool Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex);
-
-	bool SetNext(string pNextState, int pNextCycleIndex);
-	bool Next();
+	bool	SetNext(string pNextState, int pNextCycleIndex);
+	bool	Next();
 };

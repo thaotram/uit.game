@@ -29,8 +29,8 @@ Object_Map_Block::Object_Map_Block(string pName) {
 }
 
 float Object_Map_Block::GetGround(Object * pUnit) {
-	float x = pUnit->GetPosition()->GetX()->operator()();
-	float y = pUnit->GetPosition()->GetY()->operator()();
+	float x = pUnit->GetPosition()->x();
+	float y = pUnit->GetPosition()->y();
 	return GetGround(x, y);
 }
 

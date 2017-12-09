@@ -8,10 +8,14 @@ private:
 		isJumpUp,
 		isGround;
 	int lastIndex;
+
+
+	char leftOrRight;
+	float * velocity;
 public:
 	Object_Unit_Aladdin();
 	~Object_Unit_Aladdin() {};
 
 	void ObjectUpdateEvent(float dt);
-	void ObjectCollision(float dt);
+	void ObjectUpdatePosition(float dt);
 };

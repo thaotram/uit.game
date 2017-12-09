@@ -19,16 +19,8 @@ void Object_Animation::NextFrame(Object * pObject) {
 	else						mCycleIndex = -nextFrame;
 }
 
-void Object_Animation::SetState(string pState) {
-	mState = pState;
-}
 string Object_Animation::GetState() {
 	return mState;
-}
-
-string * Object_Animation::State()
-{
-	return &mState;
 }
 
 int Object_Animation::GetFrameIndex(Object * pObject) {

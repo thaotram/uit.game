@@ -37,10 +37,3 @@ Vector Vector_Easing::VECTOR() {
 		y()
 	);
 }
-
-Float_Easing * Vector_Easing::GetX() {
-	return &x;
-}
-Float_Easing * Vector_Easing::GetY() {
-	return &y;
-}
