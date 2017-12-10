@@ -64,7 +64,7 @@ float Object_Map_Block::GetBottom(RECT u) {
 	return (float)distance;
 }
 
-#define check(v, value) long v = value; out.v = (v > 0 && v < out.v || out.v == -1) ? v : out.v
+#define check(v, value) long v = value; out.v = (v >= 0 && (v < out.v || out.v == -1)) ? v : out.v
 #define checks(x,y)		{ check(x, u.x - b->y);	check(y, b->x - u.y); }
 #define condition(x,y)	u.x > b->y && b->x > u.y
 RECT Object_Map_Block::GetDistance(RECT u) {

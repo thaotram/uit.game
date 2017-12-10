@@ -46,8 +46,13 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		(LONG)yy
 	};
 
-	auto a = mScene->mMapBlock->GetBottom(bound);
-	GameDebug::Title(a);
+	auto a = mScene->mMapBlock->GetDistance(bound);
+	GameDebug::Title(
+		to_string(a.left) + "      " + 
+		to_string(a.top) + "     " +
+		to_string(a.right) + "     " +
+		to_string(a.bottom) 
+	);
 
 	mPos.x += deltaX;
 	mPos.y = ground;
