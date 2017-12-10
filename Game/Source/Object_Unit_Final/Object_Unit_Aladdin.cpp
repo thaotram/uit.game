@@ -11,6 +11,9 @@
 #define X I[CHAR_X]
 #define C I[CHAR_C]
 
+#define xx mPos.x()
+#define yy mPos.y()
+
 #define mAni	mAnimation
 #define mPos	mPosition
 
@@ -19,8 +22,7 @@
 
 #define state	mAni.GetState()
 
-#define ground	mScene->mMapBlock->GetGround(mPos.x(), mPos.y())
-//#define height
+#define ground	mScene->mMapBlock->GetGround(xx, yy)
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mPos << V2{ WIDTH / 2, MAP_HEIGHT - 100 };
@@ -34,6 +36,10 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	//# Position
 	isChangeX = true;
 	float deltaX = (isChangeX ? (R ? 1 : L ? -1 : 0) : 0) * speed * dt;
+
+	//# Position Update
+
+	RECT bound = { xx - 20, yy - 50, xx + 20, yy };
 
 	mPos.x += deltaX;
 	mPos.y = ground;
@@ -58,7 +64,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 			mAni.SetCycleIndex(1);
 		}
 		ef_(
-			ground - mPos.y() < 20
+			ground - yy < 20
 			&& mPos.y.mVelocity >= 0
 			&& !mAutoNextFrame
 		) {
@@ -87,23 +93,21 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(U && C)		mAni.Set("stand_jump", 1, "stand", 1);
 	}
 	ef_(state == "up_cut") {
-		if (U)			mAni.SetNext("up", 3);
-		ef_(!U)			mAni.SetNext("stand", 1);
-
-		if (D)			mAni.Set("sit", 1);
-		ef_(R || L)		mAni.Set("run", 1);
+		if (R || L)		mAni.Set("run", 1);
+		ef_(U)			mAni.SetNext("up", 3);
+		ef_(D)			mAni.Set("sit", 1);
+		else			mAni.SetNext("stand", 1);
 	}
 	ef_(state == "sit") {
 		if (!D)			mAni.Set("sit_to_stand", 1, "stand", 1);
-		ef_(D && Z)		mAni.Set("sit_throwapple", 1, "sit", 4);
-		ef_(D && X) 	mAni.Set("sit_cut", 1, "sit", 4);
-		ef_(D && C)		mAni.Set("stand_jump", 1, "sit", 1);
+		ef_(Z)			mAni.Set("sit_throwapple", 1, "sit", 4);
+		ef_(X)			mAni.Set("sit_cut", 1, "sit", 4);
+		ef_(C)			mAni.Set("stand_jump", 1, "sit", 1);
 	}
 
 	ef_(state == "run") {
 		if (!R && !L)	mAni.Set("stand", 1);
-
-		if (Z) {} 		//- mAni.Set("run_throwapple", 1, "run", 4);
+		if (Z)			0; /// "run_throwapple" - Not found
 		ef_(X)			mAni.Set("run_cut", 1, "run", 9);
 		ef_(C)			mAni.Set("run_jump", 1);
 	}
@@ -117,7 +121,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 			mAni.SetCycleIndex(1);
 		}
 		ef_(
-			ground - mPos.y() < 20
+			ground - yy < 20
 			&& mPos.y.mVelocity > 0
 			&& !mAutoNextFrame
 		) {
@@ -136,12 +140,4 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(mPos.y.mVelocity <= 0.50 * +jump)		mAni.SetCycleIndex(5);
 		ef_(mPos.y.mVelocity <= 0.90 * +jump)		mAni.SetCycleIndex(6);
 	}
-}
-
-void Object_Unit_Aladdin::ObjectUpdatePosition(float dt) {
-	/// Sau khi đã biết move qua trái hay qua phải thì dùng đụng độ để xác định là kết quả phép nhân ở trên...
-	/// Sau đó, tính toán delta X cuối cùng và để cho mPos.x += với delta x đã được kiểm soát.
-	/// Với DeltaX mới, tìm ground và để cho y tiến về giá trị ground đó.
-	/// => suy ra: deltaX phải được tính toán trong quá trình gọi moveLeftOrRight
-	/// thay đổi cách làm
 }

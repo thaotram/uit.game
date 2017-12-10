@@ -2,6 +2,8 @@
 #include "../Scene/Scene.h"
 #include "../../Define.h"
 
+#define mPos mPosition
+
 Object::Object(string pName) : mName(pName) {
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
 
@@ -12,12 +14,10 @@ Object::Object(string pName) : mName(pName) {
 	mTimePerFrame = 0.06f;
 }
 void Object::ObjectRender(float delay) {
-	//mJson = Object_Json::GetJson(mName);
-	
 	ObjectUpdateProperties(delay);
-	ObjectDraw(mTransform, mSourceRect, mPosition);
+	ObjectDraw(mPosition, mTransform, mSourceRect);
 }
-void Object::ObjectDraw(Object_Transform pTransform, Object_SourceRect pSourceRect, Vector_Easing pPosition) {
+void Object::ObjectDraw(Vector_Easing pPosition, Object_Transform pTransform, Object_SourceRect pSourceRect) {
 	mSpriteHandler->SetTransform(&pTransform);
 	mSpriteHandler->Draw(
 		&*mTexture,
@@ -26,4 +26,13 @@ void Object::ObjectDraw(Object_Transform pTransform, Object_SourceRect pSourceRe
 		&(pPosition.VECTOR() * SCALE).VECTOR3(),
 		0xFFFFFFFF
 	);
+}
+
+RECT Object::GetBound() {
+	return RECT{
+		(LONG)mPos.x(),
+		(LONG)mPos.y(),
+		(LONG)mPos.x(),
+		(LONG)mPos.y()
+	};
 }

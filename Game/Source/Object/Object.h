@@ -42,9 +42,9 @@ public:
 	virtual void ObjectUpdateEvent(float delay) {};
 	virtual void ObjectUpdateProperties(float delay) {};
 	void		 ObjectDraw(
+		Vector_Easing pPosition,
 		Object_Transform pTransform,
-		Object_SourceRect pSourceRect,
-		Vector_Easing pPosition
+		Object_SourceRect pSourceRect
 	);
 
 	Object_SourceRect * GetSourceRect() {
@@ -62,4 +62,6 @@ public:
 	Object_Json * GetJson() {
 		return mJson;
 	}
+
+	RECT GetBound();
 };

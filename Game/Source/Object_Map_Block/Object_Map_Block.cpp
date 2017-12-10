@@ -47,3 +47,20 @@ float Object_Map_Block::GetGround(float x, float y)
 	}
 	return f ? ground : MAP_HEIGHT;
 }
+
+float Object_Map_Block::GetBottom(RECT u) {
+	list<RECT *> filter;
+	for (auto &rect : *this) {
+		auto b = &(rect.second);
+		if (u.bottom < b->top && b->left < u.right && u.left < b->right) {
+			filter.push_back(b);
+		}
+	}
+	LONG distance = -1;
+	for (auto &b : filter) {
+		if ((b->top - u.bottom < distance && distance != -1) || distance == -1) {
+			distance = b->top - u.bottom;
+		}
+	}
+	return (float)distance;
+}

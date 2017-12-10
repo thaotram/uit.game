@@ -8,6 +8,7 @@
 
 #include <json.hpp>
 
+#define V2 D3DXVECTOR2
 using json = nlohmann::json;
 using namespace std;
 
@@ -24,5 +25,6 @@ public:
 
 	float GetGround(Object * pUnit);
 	float GetGround(float x, float y);
-
+	
+	float GetBottom(RECT r);
 };

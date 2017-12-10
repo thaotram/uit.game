@@ -10,5 +10,4 @@ public:
 	~Object_Unit_Aladdin() {};
 
 	void ObjectUpdateEvent(float dt);
-	void ObjectUpdatePosition(float dt);
 };
