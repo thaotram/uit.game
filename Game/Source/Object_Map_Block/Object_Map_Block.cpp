@@ -34,8 +34,7 @@ float Object_Map_Block::GetGround(Object * pUnit) {
 	return GetGround(x, y);
 }
 
-float Object_Map_Block::GetGround(float x, float y)
-{
+float Object_Map_Block::GetGround(float x, float y) {
 	float ground;
 	bool f = false;
 	for (auto &rect : *this) {
@@ -52,15 +51,33 @@ float Object_Map_Block::GetBottom(RECT u) {
 	list<RECT *> filter;
 	for (auto &rect : *this) {
 		auto b = &(rect.second);
-		if (u.bottom < b->top && b->left < u.right && u.left < b->right) {
+		if (u.bottom <= (*b).top && (*b).left < u.right && u.left < (*b).right) {
 			filter.push_back(b);
 		}
 	}
 	LONG distance = -1;
 	for (auto &b : filter) {
-		if ((b->top - u.bottom < distance && distance != -1) || distance == -1) {
+		if ((b->top - u.bottom < distance) || distance == -1) {
 			distance = b->top - u.bottom;
 		}
 	}
 	return (float)distance;
+}
+
+#define check(v, value) long v = value; out.v = (v > 0 && v < out.v || out.v == -1) ? v : out.v
+#define checks(x,y)		{ check(x, u.x - b->y);	check(y, b->x - u.y); }
+#define condition(x,y)	u.x > b->y && b->x > u.y
+RECT Object_Map_Block::GetDistance(RECT u) {
+	list<RECT *> left_right;
+	list<RECT *> top_bottom;
+	RECT out = { -1,-1,-1,-1 };
+
+	for (auto &rect : *this) {
+		auto b = &(rect.second);
+		if (condition(right, left)) 	top_bottom.push_back(b);
+		if (condition(bottom, top))		left_right.push_back(b);
+	}
+	for (auto &b : top_bottom)	checks(top, bottom);
+	for (auto &b : left_right)	checks(left, right);
+	return out;
 }

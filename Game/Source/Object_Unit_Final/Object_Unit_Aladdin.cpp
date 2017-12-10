@@ -11,11 +11,11 @@
 #define X I[CHAR_X]
 #define C I[CHAR_C]
 
-#define xx mPos.x()
-#define yy mPos.y()
-
 #define mAni	mAnimation
 #define mPos	mPosition
+
+#define xx mPos.x()
+#define yy mPos.y()
 
 #define jump	350
 #define speed	200
@@ -39,7 +39,15 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 
 	//# Position Update
 
-	RECT bound = { xx - 20, yy - 50, xx + 20, yy };
+	RECT bound = {
+		(LONG)xx - 20,
+		(LONG)yy - 50,
+		(LONG)xx + 20,
+		(LONG)yy
+	};
+
+	auto a = mScene->mMapBlock->GetBottom(bound);
+	GameDebug::Title(a);
 
 	mPos.x += deltaX;
 	mPos.y = ground;

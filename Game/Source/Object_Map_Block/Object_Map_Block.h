@@ -26,5 +26,6 @@ public:
 	float GetGround(Object * pUnit);
 	float GetGround(float x, float y);
 	
-	float GetBottom(RECT r);
+	float GetBottom(RECT u);
+	RECT  GetDistance(RECT u);
 };
