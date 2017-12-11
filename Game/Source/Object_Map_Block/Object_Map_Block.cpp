@@ -53,7 +53,7 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 			check_squares(top, bottom);
 			break;
 		case BlockType::stairs_LTR:
-			if (bb.bottom > u.bottom) {
+			if (bb.bottom >= u.bottom) {
 				LONG b_height = bb.bottom - bb.top;
 				LONG b_weight = bb.right - bb.left;
 				LONG u_y = max(u.right - bb.left, 0);
