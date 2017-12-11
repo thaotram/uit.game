@@ -14,7 +14,7 @@
 #define V2 D3DXVECTOR2
 
 enum {
-	ANY,
+	ANYBUTTON,
 	LEFT,
 	UP,
 	RIGHT,

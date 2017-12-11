@@ -10,7 +10,7 @@ Game::Game()
 {
 	mDevice = GameGlobal::GetDevice();
 
-	// Game Start
+	//# Game Start
 	Scene::ReplaceScene(
 		new Scene_AgrabahMarket()
 	);
@@ -47,7 +47,7 @@ void Game::InitLoop()
 	}
 }
 
-// Được gọi bên trong vòng lặp
+//# Được gọi bên trong vòng lặp
 void Game::GameRender(float delay) {
 	Scene        * mScene = Scene::GetCurrentScene();
 	ID3DXSprite  * mSpriteHandler = GameGlobal::GetSpriteHandler();

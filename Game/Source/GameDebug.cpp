@@ -17,6 +17,15 @@ void GameDebug::Title(float input) {
 	Title(to_string(input));
 }
 
+void GameDebug::Title(RECT input) {
+	Title(
+		to_string(input.left) + "    " +
+		to_string(input.top) + "    " +
+		to_string(input.right) + "    " +
+		to_string(input.bottom)
+	);
+}
+
 void GameDebug::Title(string input) {
 	wstring wstring;
 	wstring.assign(input.begin(), input.end());

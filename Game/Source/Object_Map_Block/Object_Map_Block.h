@@ -13,7 +13,9 @@ using json = nlohmann::json;
 using namespace std;
 
 enum BlockType {
-	square
+	square,
+	stairs_LTR,
+	stairs_RTL
 };
 
 class Object;
@@ -23,9 +25,5 @@ public:
 	Object_Map_Block(string pName);
 	~Object_Map_Block() {};
 
-	float GetGround(Object * pUnit);
-	float GetGround(float x, float y);
-	
-	float GetBottom(RECT u);
 	RECT  GetDistance(RECT u);
 };

@@ -34,15 +34,23 @@ void Float_Easing::Update(float dt = 0) {
 		case in:
 			mNow += mVelocity * dt;
 			mVelocity += dt * 1000;
+
 			if (mNow >= mLast) {
 				mEase = Ease::stop;
 				mNow = mLast;
 				mVelocity = 0;
 			}
+
+			GameDebug::Title(
+				to_string(mNow) + "   " +
+				to_string(mVelocity * dt) + "   " +
+				to_string(mVelocity)
+			);
 			break;
 		case stop:
 			if (mVelocity != 0 || mLast != mNow) {
-				mEase = Ease::in;
+				if (mVelocity == 0 && mNow >= mLast) mNow = mLast;
+				else mEase = Ease::in;
 			}
 			break;
 		}
@@ -51,8 +59,4 @@ void Float_Easing::Update(float dt = 0) {
 		mNow = mLast;
 		break;
 	}
-}
-
-void Float_Easing::ppp(float delay) {
-
 }

@@ -31,7 +31,5 @@ public:
 
 	void Update(float delay);
 
-	void ppp(float delay);
-
 	float operator()();
 };

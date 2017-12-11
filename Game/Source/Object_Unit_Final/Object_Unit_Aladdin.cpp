@@ -23,27 +23,22 @@
 
 #define state	mAni.GetState()
 
-//#define ground	mScene->mMapBlock->GetGround(xx, yy)
+#define update_distance						\
+dis = mScene->mMapBlock->GetDistance(RECT{	\
+	(LONG)xx - 15,							\
+	(LONG)yy - 50,							\
+	(LONG)xx + 15,							\
+	(LONG)yy								\
+})
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ WIDTH / 2, MAP_HEIGHT - 100 };
+	mPos << V2{ 1100, MAP_HEIGHT - 100 };
 	mAni.Set("stand", 1);
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
-	//# Camera
-	mScene->mCamera = mPos.VECTOR2() - V2{ WIDTH / 2, HEIGHT - 56 };
-
 	//# Distance
-	RECT dis = mScene->mMapBlock->GetDistance(RECT{
-		(LONG)xx - 15,
-		(LONG)yy - 50,
-		(LONG)xx + 15,
-		(LONG)yy
-	});
-
-	//# Flip
-	mTransform.SetFlip(L ? Left : R ? Right : Stand);
+	RECT update_distance;
 
 	//# Each State
 	if (state == "stand") {
@@ -73,7 +68,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(mAutoNextFrame && mPos.y.mVelocity == 0) {
 			mAni.Next();
 		}
-		ef_(mAutoNextFrame)					0;
+		ef_(mAutoNextFrame)						0;
 		ef_(mPos.y.mVelocity <= 0.65 * -jump)	mAni.SetCycleIndex(2);
 		ef_(mPos.y.mVelocity <= 0.30 * -jump)	mAni.SetCycleIndex(3);
 		ef_(mPos.y.mVelocity <= 0)				mAni.SetCycleIndex(4);
@@ -106,10 +101,9 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(X)			mAni.Set("sit_cut", 1, "sit", 4);
 		ef_(C)			mAni.Set("stand_jump", 1, "sit", 1);
 	}
-
 	ef_(state == "run") {
 		isChangeX = true;
-		if (!R && !L)	mAni.Set("stand", 1);
+		if (!L && !R)	mAni.Set("stand", 1);
 		if (Z)			0; /// "run_throwapple" - thiếu
 		ef_(X)			mAni.Set("run_cut", 1, "run", 9);
 		ef_(C)			mAni.Set("run_jump", 1);
@@ -146,11 +140,20 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(mPos.y.mVelocity <= 0.90 * +jump)		mAni.SetCycleIndex(6);
 	}
 
+	//# Flip
+	mTransform.SetFlip(L ? Left : R ? Right : Stand);
+
 	//# Position
-	mPos.x += !isChangeX ? 0 
-		: R ? min(+speed * dt, +dis.right) 
+	mPos.x += !isChangeX ? 0
+		: R ? min(+speed * dt, +dis.right)
 		: L ? max(-speed * dt, -dis.left)
 		: 0;
+	mPos.x.Update(dt);
+	update_distance;
 	mPos.y = yy + dis.bottom;
-	mPos.Update(dt);
+	mPos.y.Update(dt);
+
+	//# Camera
+	mScene->mCamera = mPos.VECTOR2() - V2{ WIDTH / 2, HEIGHT - 56 };
+
 }
