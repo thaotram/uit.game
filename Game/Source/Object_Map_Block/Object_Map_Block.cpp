@@ -25,8 +25,8 @@ Object_Map_Block::Object_Map_Block(string pName) {
 		json block = j["block"];
 
 		add(square);
-		add(stairs_LTR);
-		add(stairs_RTL);
+		add(stairs_backslash);
+		add(stairs_slash);
 	}
 	catch (exception e) {
 		this->clear();
@@ -53,16 +53,16 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 		case BlockType::square:
 			check_squares(top, bottom);
 			break;
-		case BlockType::stairs_LTR:
+		case BlockType::stairs_slash:
 			if (bb.bottom >= u.bottom) {
 				LONG b_height = bb.bottom - bb.top;
 				LONG b_weight = bb.right - bb.left;
 				LONG u_y = max(u.right - bb.left, 0);
 				LONG u_x = min(b_height * u_y / b_weight, b_height);
-				out.bottom = (bb.bottom - u_x) - u.bottom
+				out.bottom = (bb.bottom - u_x) - u.bottom;
 			}
 			break;
-		case BlockType::stairs_RTL:
+		case BlockType::stairs_backslash:
 			if (bb.bottom >= u.bottom) {
 				LONG b_height = bb.bottom - bb.top;
 				LONG b_weight = bb.right - bb.left;
@@ -78,9 +78,10 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 		case BlockType::square:
 			check_squares(left, right);
 			break;
-		case BlockType::stairs_LTR:
+		case BlockType::stairs_slash:
 			break;
 		}
 	}
 	return out;
 }
+

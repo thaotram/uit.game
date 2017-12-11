@@ -14,8 +14,8 @@ using namespace std;
 
 enum BlockType {
 	square,
-	stairs_LTR,
-	stairs_RTL
+	stairs_slash,
+	stairs_backslash
 };
 
 class Object;
@@ -26,4 +26,8 @@ public:
 	~Object_Map_Block() {};
 
 	RECT  GetDistance(RECT u);
+
+	bool isRope() {
+
+	}
 };

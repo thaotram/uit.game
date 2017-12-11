@@ -32,7 +32,7 @@ dis = mScene->mMapBlock->GetDistance(RECT{	\
 })
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 1100, MAP_HEIGHT - 100 };
+	mPos << V2{ 2000, MAP_HEIGHT - 100 };
 	mAni.Set("stand", 1);
 }
 
