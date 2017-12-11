@@ -26,6 +26,7 @@ Object_Map_Block::Object_Map_Block(string pName) {
 
 		add(square);
 		add(stairs_LTR);
+		add(stairs_RTL);
 	}
 	catch (exception e) {
 		this->clear();
@@ -57,6 +58,15 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 				LONG b_height = bb.bottom - bb.top;
 				LONG b_weight = bb.right - bb.left;
 				LONG u_y = max(u.right - bb.left, 0);
+				LONG u_x = min(b_height * u_y / b_weight, b_height);
+				out.bottom = (bb.bottom - u_x) - u.bottom
+			}
+			break;
+		case BlockType::stairs_RTL:
+			if (bb.bottom >= u.bottom) {
+				LONG b_height = bb.bottom - bb.top;
+				LONG b_weight = bb.right - bb.left;
+				LONG u_y = max(bb.right - u.left, 0);
 				LONG u_x = min(b_height * u_y / b_weight, b_height);
 				out.bottom = (bb.bottom - u_x) - u.bottom;
 			}
