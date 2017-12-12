@@ -23,6 +23,11 @@ void Float_Easing::operator+=(float pDelta) {
 void Float_Easing::operator-=(float pDelta) {
 	*this = mLast - pDelta;
 }
+bool Float_Easing::SetVelocity(float value)
+{
+	mVelocity = value;
+	return true;
+}
 float Float_Easing::operator()() {
 	return float(mNow);
 }

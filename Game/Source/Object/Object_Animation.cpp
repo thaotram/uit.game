@@ -23,6 +23,11 @@ string Object_Animation::GetState() {
 	return mState;
 }
 
+string Object_Animation::GetNextState()
+{
+	return mNextState;
+}
+
 int Object_Animation::GetFrameIndex(Object * pObject) {
 	vector<int> pFrameCycle = pObject->GetJson()->GetFrameCycle(mState);
 	return pFrameCycle[mCycleIndex];

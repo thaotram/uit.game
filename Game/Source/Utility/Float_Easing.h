@@ -31,5 +31,6 @@ public:
 
 	void Update(float delay);
 
+	bool SetVelocity(float value);
 	float operator()();
 };

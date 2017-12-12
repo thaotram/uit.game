@@ -25,6 +25,7 @@ public:
 	void	NextFrame(Object * pObject);
 	
 	string	GetState();
+	string	GetNextState();
 	int		GetFrameIndex(Object * pObject);
 	int		GetCycleIndex();
 	

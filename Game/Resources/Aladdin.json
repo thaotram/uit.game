@@ -370,7 +370,7 @@
         "climb_vertical": {
             "note": "leo dọc",
             "basePoint": [17, 86],
-            "frameCycle": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -3],
+            "frameCycle": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0],
             "frame": {
                 "1": [11, 1362, 29, 86, 0, 0],
                 "2": [53, 1361, 28, 89, 0, 0],
@@ -416,7 +416,7 @@
         "climb_throwapple": {
             "note": "leo + ném táo",
             "basePoint": [11, 87],
-            "frameCycle": [1, 2, 3, 4, 5, -1],
+            "frameCycle": [1, 2, 3, 4, 5, 0],
             "frame": {
                 "1": [13, 1666, 37, 87, 0, 0],
                 "2": [65, 1666, 41, 87, 0, 0],
@@ -428,7 +428,7 @@
         "climb_cut": {
             "note": "leo + chém",
             "basePoint": [10, 87],
-            "frameCycle": [1, 2, 3, 4, 5, 3, 6, 7, -1],
+            "frameCycle": [1, 2, 3, 4, 5, 3, 6, 7, 0],
             "frame": {
                 "1": [15, 1769, 48, 87, 0, 0],
                 "2": [81, 1769, 52, 89, 0, 0],
@@ -442,7 +442,7 @@
         "climb_jump": {
             "note": "đang leo dọc + nhấn nhảy, hình như (nhảy từ leo ngang qua thanh leo dọc) cũng là cái này",
             "basePoint": [20, 73],
-            "frameCycle": [1, 2, 3, 4, 5, 6, 7, 8, 9, -1],
+            "frameCycle": [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
             "frame": {
                 "1": [10, 1870, 34, 73, 0, 0],
                 "2": [65, 1873, 25, 77, 5, -10],
