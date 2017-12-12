@@ -116,3 +116,21 @@ pair<bool, RECT> Object_Map_Block::GetRope(RECT u, float step) {
 	}
 	return make_pair(is, out);
 }
+
+pair<bool, RECT> Object_Map_Block::GetWoodenBar(RECT u, float step) {
+	bool is = false;
+	RECT out = { 0,0,0,0 };
+	for (auto &b : *this) {
+		if (b.first == BlockType::woodenbar) {
+			if (u.left >= b.second.left &&
+				u.right <= b.second.right &&
+				u.top -30 <= b.second.top &&
+				u.top -30 + step >= b.second.top) {
+				is = true;
+				out = b.second;
+				break;
+			}
+		}
+	}
+	return make_pair(is, out);
+}

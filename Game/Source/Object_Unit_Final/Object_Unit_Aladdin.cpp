@@ -29,13 +29,13 @@
 
 #define unit	RECT{		\
 	(LONG)xx - 15,			\
-	(LONG)yy - 70,			\
+	(LONG)yy - 45,			\
 	(LONG)xx + 15,			\
 	(LONG)yy				\
 }
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 4000, MAP_HEIGHT - 56 };
+	mPos << V2{ 4600, MAP_HEIGHT - 90 };
 	//mPos << V2{ 1900, 400 };
 	mAni.Set("stand", 1);
 }
@@ -48,6 +48,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	//# Global
 	RECT dis = mBlk->GetDistance(unit);
 	pair<bool, RECT> rope = mBlk->GetRope(unit, speedX * dt);
+	pair<bool, RECT> bar = mBlk->GetWoodenBar(unit, mPos.y.mVelocity * dt);
 	isChangeX = isChangeY = true;
 
 	GameDebug::Title(dis);
@@ -207,7 +208,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 
 		if (Z)		mAni.Set("climb_throwapple", 1, "climb_vertical", cycleIndex);
 		ef_(X)		mAni.Set("climb_cut", 1, "climb_vertical", cycleIndex);
-		ef_(C)		mAni.Set("climb_jump", 1, "stand_jump", 4) && mPos.y.SetVelocity(-jump);
+		ef_(C)		mAni.Set("climb_jump", 1) && mPos.y.SetVelocity(-jump);
 	}
 	ef_(state == "climb_cut") {
 		mTimePerFrame = 0.06f;
@@ -221,8 +222,19 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	}
 	ef_(state == "climb_jump") {
 		mTimePerFrame = 0.06f;
-		mAutoNextFrame = true;
+		mAutoNextFrame = false;
 		isChangeX = isChangeY = true;
+		if (dis.bottom == 0)						mAni.Set("Stand", 1);
+		ef_(mPos.y.mVelocity <= 0.9 * -jump)		mAni.SetCycleIndex(1);
+		ef_(mPos.y.mVelocity <= 0.6 * -jump)		mAni.SetCycleIndex(2);
+		ef_(mPos.y.mVelocity <= 0.3 * -jump)		mAni.SetCycleIndex(3);
+		ef_(mPos.y.mVelocity <= 0)					mAni.SetCycleIndex(3);
+		ef_(mPos.y.mVelocity <= 0.1 * +jump)		mAni.SetCycleIndex(4);
+		ef_(mPos.y.mVelocity <= 0.3 * +jump)		mAni.SetCycleIndex(5);
+		ef_(mPos.y.mVelocity <= 0.5 * +jump)		mAni.SetCycleIndex(6);
+		ef_(mPos.y.mVelocity <= 0.7 * +jump)		mAni.SetCycleIndex(7);
+		ef_(mPos.y.mVelocity <= 0.9 * +jump)		mAni.SetCycleIndex(8);
+		ef_(mPos.y.mVelocity <= 1.1 * +jump)		mAni.Set("stand_jump", 4, "stand", 1);
 	}
 
 	if (mPos.y.mVelocity >= -0.2 * jump && rope.first) {
@@ -235,6 +247,21 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 			mAni.Set("climb_vertical", 1);
 		}
 	}
+	ef_(mPos.y.mVelocity > 0 && bar.first) {
+		GameDebug::Title("true");
+		if (state != "climb_vertical" &&
+			state != "climb_cut" &&
+			state != "climb_throwapple") {
+			isChangeX = false;
+			mCurrentTime = 0;
+			mPos.x << (rope.second.left + rope.second.right) / 2.f;
+			mAni.Set("climb_vertical", 1);
+		}
+	}
+	else {
+		GameDebug::Title("false");
+	}
+	
 
 
 	//# Position

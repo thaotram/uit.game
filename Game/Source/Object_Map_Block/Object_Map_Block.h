@@ -29,4 +29,5 @@ public:
 
 	RECT				GetDistance(RECT u);
 	pair<bool, RECT>	GetRope(RECT u, float step);
+	pair<bool, RECT>	GetWoodenBar(RECT u, float step);
 };
