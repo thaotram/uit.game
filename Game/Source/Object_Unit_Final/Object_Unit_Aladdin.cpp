@@ -269,15 +269,15 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		}
 	}
 	ef_(mPos.y.mVelocity > 0 && bar.first) {
-		/*	GameDebug::Title("true");
-			if (state != "climb_vertical" &&
-				state != "climb_cut" &&
-				state != "climb_throwapple") {
-				isChangeX = false;
-				mCurrentTime = 0;
-				mPos.x << (rope.second.left + rope.second.right) / 2.f;
-				mAni.Set("climb_vertical", 1);
-			}*/
+		GameDebug::Title("true");
+		//if (state != "climb_vertical" &&
+		//	state != "climb_cut" &&
+		//	state != "climb_throwapple") {
+		//	isChangeX = false;
+		//	mCurrentTime = 0;
+		//	mPos.x << (rope.second.left + rope.second.right) / 2.f;
+		//	mAni.Set("climb_vertical", 1);
+		//}
 	}
 	else {
 		//GameDebug::Title("false");
