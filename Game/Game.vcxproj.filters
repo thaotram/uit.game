@@ -96,6 +96,7 @@
     <None Include="Resources\AgrabahMarket_Front.json">
       <Filter>Resource Files\Map</Filter>
     </None>
+    <None Include="Resources\AgrabahMarket_Block.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -230,6 +231,7 @@
     <ClInclude Include="Source\Object_Map_Block\Object_Map_Block.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Apple.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -298,6 +300,9 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Map_Block\Object_Map_Block.cpp">
       <Filter>Source\Object_Map_Block</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Apple.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

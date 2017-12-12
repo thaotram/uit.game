@@ -5,11 +5,11 @@
 
 class Object_Unit : public Object {
 protected:
-	bool mAutoNextFrame;
 public:
 	Object_Unit(string pName);
 	~Object_Unit() {};
 
+	bool mAutoNextFrame;
 	void AfterAddToScene();
 
 	virtual void ObjectUpdateEvent(float delay) {};

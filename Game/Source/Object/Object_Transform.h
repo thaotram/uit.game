@@ -23,4 +23,5 @@ public:
 	// + Position
 	void Update(Object * pObject);
 	void SetFlip(Flip pFlip);
+	bool GetFlip();
 };
