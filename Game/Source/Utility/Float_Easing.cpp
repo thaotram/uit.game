@@ -40,12 +40,6 @@ void Float_Easing::Update(float dt = 0) {
 				mNow = mLast;
 				mVelocity = 0;
 			}
-
-			GameDebug::Title(
-				to_string(mNow) + "   " +
-				to_string(mVelocity * dt) + "   " +
-				to_string(mVelocity)
-			);
 			break;
 		case stop:
 			if (mVelocity != 0 || mLast != mNow) {

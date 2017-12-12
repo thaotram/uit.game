@@ -13,23 +13,25 @@
 
 #define mAni	mAnimation
 #define mPos	mPosition
-#define dis		vDistance
+#define	mCam	mScene->mCamera
+#define	mBlk	mScene->mMapBlock
 
+#define dis		vDistance
 #define xx mPos.x()
 #define yy mPos.y()
 
 #define jump	350
-#define speed	200
+#define speedX	200
+#define speedY	200
 
 #define state	mAni.GetState()
 
-#define update_distance						\
-dis = mScene->mMapBlock->GetDistance(RECT{	\
-	(LONG)xx - 15,							\
-	(LONG)yy - 50,							\
-	(LONG)xx + 15,							\
-	(LONG)yy								\
-})
+#define unit	RECT{		\
+	(LONG)xx - 15,			\
+	(LONG)yy - 50,			\
+	(LONG)xx + 15,			\
+	(LONG)yy				\
+}
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mPos << V2{ 2000, MAP_HEIGHT - 100 };
@@ -38,8 +40,9 @@ Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	//# Distance
-	RECT update_distance;
+	RECT dis = mBlk->GetDistance(unit);
 
+	isChangeX = isChangeY = true;
 	//# Each State
 	if (state == "stand") {
 		isChangeX = false;
@@ -51,7 +54,6 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(C) 			mAni.Set("stand_jump", 1, "stand", 1);
 	}
 	ef_(state == "stand_jump") {
-		isChangeX = true;
 		if (mAni.GetCycleIndex() == 1 && mPos.y.mVelocity == 0) {
 			mPos.y.mVelocity = -jump;
 			mAutoNextFrame = false;
@@ -69,16 +71,16 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 			mAni.Next();
 		}
 		ef_(mAutoNextFrame)						0;
-		ef_(mPos.y.mVelocity <= 0.65 * -jump)	mAni.SetCycleIndex(2);
-		ef_(mPos.y.mVelocity <= 0.30 * -jump)	mAni.SetCycleIndex(3);
+		ef_(mPos.y.mVelocity <= 0.7 * -jump)	mAni.SetCycleIndex(2);
+		ef_(mPos.y.mVelocity <= 0.3 * -jump)	mAni.SetCycleIndex(3);
 		ef_(mPos.y.mVelocity <= 0)				mAni.SetCycleIndex(4);
-		ef_(mPos.y.mVelocity <= 0.30 * +jump)	mAni.SetCycleIndex(5);
-		ef_(mPos.y.mVelocity <= 0.50 * +jump)	mAni.SetCycleIndex(6);
-		ef_(mPos.y.mVelocity <= 0.70 * +jump)	mAni.SetCycleIndex(7);
-		ef_(mPos.y.mVelocity <= 0.90 * +jump)	mAni.SetCycleIndex(8);
-		ef_(mPos.y.mVelocity <= 1.00 * +jump)	mAni.SetCycleIndex(9);
-		ef_(mPos.y.mVelocity <= 1.10 * +jump)	mAni.SetCycleIndex(9);
-		ef_(mPos.y.mVelocity <= 1.20 * +jump)	mAni.SetCycleIndex(10);
+		ef_(mPos.y.mVelocity <= 0.3 * +jump)	mAni.SetCycleIndex(5);
+		ef_(mPos.y.mVelocity <= 0.5 * +jump)	mAni.SetCycleIndex(6);
+		ef_(mPos.y.mVelocity <= 0.7 * +jump)	mAni.SetCycleIndex(7);
+		ef_(mPos.y.mVelocity <= 0.9 * +jump)	mAni.SetCycleIndex(8);
+		ef_(mPos.y.mVelocity <= 1.0 * +jump)	mAni.SetCycleIndex(9);
+		ef_(mPos.y.mVelocity <= 1.1 * +jump)	mAni.SetCycleIndex(9);
+		ef_(mPos.y.mVelocity <= 1.2 * +jump)	mAni.SetCycleIndex(10);
 	}
 	ef_(state == "up") {
 		isChangeX = false;
@@ -102,18 +104,15 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(C)			mAni.Set("stand_jump", 1, "sit", 1);
 	}
 	ef_(state == "run") {
-		isChangeX = true;
 		if (!L && !R)	mAni.Set("stand", 1);
 		if (Z)			0; /// "run_throwapple" - thiếu
 		ef_(X)			mAni.Set("run_cut", 1, "run", 9);
 		ef_(C)			mAni.Set("run_jump", 1);
 	}
 	ef_(state == "run_cut") {
-		isChangeX = true;
 		if (!R && !L)	mAni.Set("stand", 1);
 	}
 	ef_(state == "run_jump") {
-		isChangeX = true;
 		if (mAni.GetCycleIndex() == 1 && mPos.y.mVelocity == 0) {
 			mAutoNextFrame = false;
 			mPos.y.mVelocity = -jump;
@@ -140,20 +139,36 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(mPos.y.mVelocity <= 0.90 * +jump)		mAni.SetCycleIndex(6);
 	}
 
+	//# Climb_vertical
+	auto rope = mBlk->GetRope(unit, speedX * dt);
+	if (state == "climb_vertical") {
+		isChangeX = isChangeY = false;
+		mPos.y.mVelocity = 0;
+		mPos.y << yy + (D ? 1 : U ? -1 : 0) * speedY * dt;
+		mPos.y.Update(0);
+	}
+
+	ef_(mPos.y.mVelocity >= 0 && rope.first) {
+		mAni.Set("climb_vertical", 1);
+	}
+
 	//# Flip
 	mTransform.SetFlip(L ? Left : R ? Right : Stand);
 
 	//# Position
 	mPos.x += !isChangeX ? 0
-		: R ? min(+speed * dt, +dis.right)
-		: L ? max(-speed * dt, -dis.left)
+		: R ? +min(speedX * dt, dis.right)
+		: L ? -min(speedX * dt, dis.left)
 		: 0;
 	mPos.x.Update(dt);
-	update_distance;
-	mPos.y = yy + dis.bottom;
+	dis = mBlk->GetDistance(unit);
+	mPos.y = !isChangeY ? yy :
+		yy + dis.bottom;
 	mPos.y.Update(dt);
 
 	//# Camera
-	mScene->mCamera = mPos.VECTOR2() - V2{ WIDTH / 2, HEIGHT - 56 };
-
+	mCam = V2{
+		min(max(0, mPos.x() - (WIDTH / 2)), MAP_WIDTH - WIDTH),
+		min(max(0, mPos.y() - (HEIGHT - 56)), MAP_HEIGHT - HEIGHT)
+	};
 }

@@ -10,6 +10,7 @@
 #define BACKGROUND_COLOR 0xffffffff
 
 #define MAP_HEIGHT 686
+#define MAP_WIDTH 4771
 
 #define V2 D3DXVECTOR2
 

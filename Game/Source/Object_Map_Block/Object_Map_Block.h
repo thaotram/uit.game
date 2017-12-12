@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <d3d9.h>
 #include <d3dx9.h>
 #include <iostream>
@@ -13,6 +13,8 @@ using json = nlohmann::json;
 using namespace std;
 
 enum BlockType {
+	rope,
+	woodenbar,
 	square,
 	stairs_slash,
 	stairs_backslash
@@ -25,9 +27,6 @@ public:
 	Object_Map_Block(string pName);
 	~Object_Map_Block() {};
 
-	RECT  GetDistance(RECT u);
-
-	bool isRope() {
-
-	}
+	RECT				GetDistance(RECT u);
+	pair<bool, RECT>	GetRope(RECT u, float step);
 };

@@ -1,5 +1,6 @@
 ﻿#include "Object_Map_Block.h"
 #include "../Object/Object.h"
+#include "../GameDebug.h"
 #include <math.h>
 
 #define bb b->second
@@ -24,6 +25,8 @@ Object_Map_Block::Object_Map_Block(string pName) {
 
 		json block = j["block"];
 
+		add(rope);
+		add(woodenbar);
 		add(square);
 		add(stairs_backslash);
 		add(stairs_slash);
@@ -85,3 +88,19 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 	return out;
 }
 
+pair<bool, RECT> Object_Map_Block::GetRope(RECT u, float step) {
+	bool is = false;
+	RECT out = { 0,0,0,0 };
+	for (auto &b : *this) {
+		if (b.first == BlockType::rope) {
+			if (u.bottom <= b.second.bottom &&
+				u.top >= b.second.top &&
+				abs((u.left + u.right) - (b.second.left + b.second.right)) <= 2 * step) {
+				is = true;
+				out = b.second;
+				break;
+			}
+		}
+	}
+	return make_pair(is, out);
+}
