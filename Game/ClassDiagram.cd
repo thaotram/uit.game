@@ -31,14 +31,14 @@
   <Class Name="Object">
     <Position X="7.5" Y="7.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAARAASAAAABggABAAiAAgABgIAAIAAgUAGBAQgA=</HashCode>
+      <HashCode>AAAAAARAASgAAABggABAAiAAgABgIAAIAAgUAGBAQgA=</HashCode>
       <FileName>Source\Object\Object.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Object_Animation">
     <Position X="16.5" Y="2.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>EAEABEAACAAABABBAAAAAAAoAAAAAAAAAACABIAACAA=</HashCode>
+      <HashCode>EgEAAEAACAAABABBAAAAAAAoAAAgAAAAAACAAIgACAA=</HashCode>
       <FileName>Source\Object\Object_Animation.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -59,7 +59,7 @@
   <Class Name="Object_Texture">
     <Position X="20.75" Y="4" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAACAAAAAAAAAAAAAABAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAACAAAAAACAAABAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Source\Object\Object_Texture.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -73,21 +73,14 @@
   <Class Name="Object_Unit">
     <Position X="10.75" Y="7.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAgAAAQAAAAAAAAEBAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABAAAABAAAAAAAAgAAAQAAAAAAAAEBAAAA=</HashCode>
       <FileName>Source\Object_Unit\Object_Unit.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Vector2">
-    <Position X="24.25" Y="3.75" Width="3" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAggAGAAAA=</HashCode>
-      <FileName>Source\Object\Vector2.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Scene">
     <Position X="17.5" Y="6.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAIAABAAAACAAAAAgCAAAAAAQAKAAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAIIEBAAAACAAAAggCgAAgAAQAIAAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Source\Scene\Scene.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -101,15 +94,8 @@
   <Class Name="Scene_Camera">
     <Position X="20.5" Y="6.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAA=</HashCode>
       <FileName>Source\Scene\Scene_Camera.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SceneManager">
-    <Position X="20.5" Y="8.5" Width="3" />
-    <TypeIdentifier>
-      <HashCode>EAQAAAAAAAAAAEAgAAgAAgAABAAAAAAAAAAAAAAAAAQ=</HashCode>
-      <FileName>Source\Scene\SceneManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Object_Map">
@@ -122,7 +108,7 @@
   <Class Name="Object_Unit_Aladdin">
     <Position X="10.75" Y="10.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <HashCode>AAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAACA=</HashCode>
       <FileName>Source\Object_Unit_Final\Object_Unit_Aladdin.h</FileName>
     </TypeIdentifier>
   </Class>

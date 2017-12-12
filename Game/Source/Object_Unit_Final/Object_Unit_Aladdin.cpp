@@ -28,13 +28,13 @@
 
 #define unit	RECT{		\
 	(LONG)xx - 15,			\
-	(LONG)yy - 50,			\
+	(LONG)yy - 70,			\
 	(LONG)xx + 15,			\
 	(LONG)yy				\
 }
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 2000, MAP_HEIGHT - 100 };
+	mPos << V2{ 4000, MAP_HEIGHT - 56 };
 	//mPos << V2{ 1900, 400 };
 	mAni.Set("stand", 1);
 }
@@ -45,6 +45,8 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	pair<bool, RECT> rope = mBlk->GetRope(unit, speedX * dt);
 	isChangeX = isChangeY = true;
 
+
+	GameDebug::Title(dis);
 	//# Each State
 	if (state == "stand") {
 		isChangeX = false;
@@ -163,7 +165,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 
 		if (Z)		mAni.Set("climb_throwapple", 1, "climb_vertical", cycleIndex);
 		ef_(X)		mAni.Set("climb_cut", 1, "climb_vertical", cycleIndex);
-		ef_(C)		mAni.Set("climb_jump", 1, "stand_jump", 1) && mPos.y.SetVelocity(-jump);
+		ef_(C)		mAni.Set("climb_jump", 1, "stand_jump", 4) && mPos.y.SetVelocity(-jump);
 	}
 	ef_(state == "climb_cut") {
 		mAutoNextFrame = true;
@@ -178,10 +180,11 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		isChangeX = isChangeY = true;
 	}
 
-	if (mPos.y.mVelocity >= 0 && rope.first) {
+	if (mPos.y.mVelocity >= -0.2 * jump && rope.first) {
 		if (state != "climb_vertical" &&
 			state != "climb_cut" &&
 			state != "climb_throwapple") {
+			isChangeX = false;
 			mCurrentTime = 0;
 			mPos.x << (rope.second.left + rope.second.right) / 2.f;
 			mAni.Set("climb_vertical", 1);

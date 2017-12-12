@@ -5,6 +5,17 @@
 
 #define bb b->second
 
+struct Bool_RECT {
+	Bool_RECT() {};
+	Bool_RECT(
+		bool pLeft, bool pTop, bool pRight, bool pBottom
+	) : left(pLeft), top(pTop), right(pRight), bottom(pBottom) {};
+	bool left;
+	bool top;
+	bool right;
+	bool bottom;
+};
+
 //# Add(type)
 #define add(type)					\
 json type = block[#type];			\
@@ -25,11 +36,11 @@ Object_Map_Block::Object_Map_Block(string pName) {
 
 		json block = j["block"];
 
+		add(square);
 		add(rope);
 		add(woodenbar);
-		add(square);
-		add(stairs_backslash);
 		add(stairs_slash);
+		add(stairs_backslash);
 	}
 	catch (exception e) {
 		this->clear();
@@ -47,6 +58,7 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 	list<pair<BlockType, RECT> *> top_bottom;
 
 	RECT out = { -1,-1,-1,-1 };
+	Bool_RECT bout = { false, false, false, false };
 	for (auto &b : *this) {
 		if (condition(right, left)) 		top_bottom.push_back(&b);
 		if (condition(bottom, top))			left_right.push_back(&b);
@@ -62,7 +74,7 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 				LONG b_weight = bb.right - bb.left;
 				LONG u_y = max(u.right - bb.left, 0);
 				LONG u_x = min(b_height * u_y / b_weight, b_height);
-				out.bottom = (bb.bottom - u_x) - u.bottom;
+				out.bottom = min(out.bottom, (bb.bottom - u_x) - u.bottom);
 			}
 			break;
 		case BlockType::stairs_backslash:
@@ -71,7 +83,7 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 				LONG b_weight = bb.right - bb.left;
 				LONG u_y = max(bb.right - u.left, 0);
 				LONG u_x = min(b_height * u_y / b_weight, b_height);
-				out.bottom = (bb.bottom - u_x) - u.bottom;
+				out.bottom = min(out.bottom, (bb.bottom - u_x) - u.bottom);
 			}
 			break;
 		}
