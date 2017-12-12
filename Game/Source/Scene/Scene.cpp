@@ -44,3 +44,12 @@ void Scene::Add(string pName, Object * pObject) {
 	pObject->mScene = this;
 	pObject->AfterAddToScene();
 }
+
+void Scene::Remove(string pName) {
+	for (map<string, Object *>::iterator it = this->begin(); it != this->end(); it++) {
+		if ((it->first) == pName) {
+			this->erase(it);
+			break;
+		}
+	}
+}

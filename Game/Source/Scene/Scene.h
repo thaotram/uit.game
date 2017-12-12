@@ -19,7 +19,6 @@ public:
 	Vector mCamera;
 	Object_Map_Block * mMapBlock;
 
-
 	void SceneRender(float delay);
 
 	void OnKeyDown(int pKeyCode);
@@ -27,6 +26,7 @@ public:
 	void OnMouseDown(float pX, float pY) {};
 
 	void Add(string pName, Object * pObject);
+	void Remove(string pName);
 
 	static void ReplaceScene(Scene * pScene);
 	static Scene * GetCurrentScene();
