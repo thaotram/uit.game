@@ -264,9 +264,15 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Spendthese_Item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Extrahealth.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Restartpoint.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Abubonus.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Abubonus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Extrahealth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Restartpoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -366,14 +372,14 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Spendthese_Item.cpp">
       <Filter>Source\Object_Unit</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Extrahealth.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Restartpoint.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Unit</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Abubonus.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Extrahealth.cpp">
+      <Filter>Source\Object_Unit</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
