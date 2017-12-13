@@ -82,11 +82,14 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	}
 	ef_(state == "stand_jump") {
 		mTimePerFrame = 0.06f;
-		if (mAni.GetNextState() == "stand_jump") mAni.SetNext("stand", 1);
-		if (mAni.GetCycleIndex() == 1 && mPos.y.mVelocity == 0 && mAni.GetNextState() != "stand") {
-			mAutoNextFrame = false;
-			mAni.SetCycleIndex(1);
+		//if (mAni.GetNextState() == "stand_jump") mAni.SetNext("stand", 1)
+		if (dis.bottom == 0 && mPos.y.mVelocity == 0) {
+			mAni.Set("stand", 1);
 		}
+		//if (mAni.GetCycleIndex() == 1 && mPos.y.mVelocity == 0 && mAni.GetNextState() != "stand") {
+		//	mAutoNextFrame = false;
+		//	mAni.SetCycleIndex(1);
+		//}
 		ef_(
 			dis.bottom < 20
 			&& mPos.y.mVelocity >= 0
@@ -114,7 +117,9 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 			//mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
 		}
-		if (X)			mAni.Set("jump_cut", 1, "stand_jump", 4);
+		if (X && dis.bottom > 30) {
+			mAni.Set("jump_cut", 1, "stand_jump", 4);
+		}
 	}
 	ef_(state == "jump_throwapple") {
 		mTimePerFrame = 0.03f;
