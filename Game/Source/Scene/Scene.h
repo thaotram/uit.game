@@ -7,7 +7,7 @@
 using namespace std;
 class Object;
 
-class Scene : public map<string, Object *> {
+class Scene : public map<int, Object *> {
 private:
 	static Scene * mCurrentScene;
 public:
@@ -23,8 +23,8 @@ public:
 	void OnKeyUp(int pKeyCode);
 	void OnMouseDown(float pX, float pY) {};
 
-	void Add(string pName, Object * pObject);
-	void Remove(string pName);
+	void Add(int pName, Object * pObject);
+	void Remove(int pName);
 
 	static void ReplaceScene(Scene * pScene);
 	static Scene * GetCurrentScene();

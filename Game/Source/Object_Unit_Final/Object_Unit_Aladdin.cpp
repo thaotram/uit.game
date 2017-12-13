@@ -67,7 +67,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(D)						mAni.Set("sit", 1);
 		ef_(R || L)					mAni.Set("run", 1);
 		ef_(Z) {
-			mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
+			//mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("stand_throwapple", 1, "stand", 1);
 		}
 		ef_(X) 						mAni.Set("stand_cut", 1, "stand", 1);
@@ -77,7 +77,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		mTimePerFrame = 0.06f;
 		isChangeX = false;
 		if (mAni.GetCycleIndex() == 4) {
-			((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
+			//((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
 		}
 	}
 	ef_(state == "stand_jump") {
@@ -111,7 +111,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(mPos.y.mVelocity <= 1.2 * +jump)	mAni.SetCycleIndex(10);
 
 		if (Z) {
-			mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
+			//mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
 		}
 		if (X)			mAni.Set("jump_cut", 1, "stand_jump", 4);
@@ -120,7 +120,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		mTimePerFrame = 0.03f;
 		isChangeX = false;
 		if (mAni.GetCycleIndex() == 4) {
-			((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
+			//((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
 		}
 	}
 	ef_(state == "jump_cut") {
@@ -148,7 +148,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		isChangeX = false;
 		if (!D)			mAni.Set("sit_to_stand", 1, "stand", 1);
 		ef_(Z) {
-			mScene->Add("2", new Object_Unit_Apple(xx + 5, yy - 27, mTransform.GetFlip()));
+			//mScene->Add("2", new Object_Unit_Apple(xx + 5, yy - 27, mTransform.GetFlip()));
 			mAni.Set("sit_throwapple", 1, "sit", 4);
 		}
 		ef_(X)			mAni.Set("sit_cut", 1, "sit", 4);
@@ -167,7 +167,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		mTimePerFrame = 0.06f;
 		isChangeX = false;
 		if (mAni.GetCycleIndex() == 3) {
-			((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
+			//((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
 		}
 	}
 	ef_(state == "run") {

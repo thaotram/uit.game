@@ -14,29 +14,21 @@
 
 #include "../../Define.h"
 
-#define Add_Block(string, type, object)			\
-if (b.first == BlockType::type) Add(			\
-	string + #type + "_" + toString(i), 		\
+#define Add_Block(start, type, object)			\
+if (b.first == BlockType::type)					\
+Add(											\
+	start, 										\
 	new object(b.second.left, b.second.top)		\
 );												\
 
-string toString(int number, int length = 3) {
-	string out = to_string(number);
-	for (int i = out.length(); i < length; i++) {
-		out = "0" + out;
-	}
-	return out;
-}
-
-void Scene_AgrabahMarket::AddBlock(string str)
+void Scene_AgrabahMarket::AddBlock(int start)
 {
-	int i = 0;
 	for (auto &b : *mMapBlock) {
-		Add_Block(str, apple, Object_Unit_Static_Apple);
+		Add_Block(start, apple, Object_Unit_Static_Apple);
 		//Add_Block(str, black_magiclamp, Object_Unit_Static_Black_Magiclamp);
 		//Add_Block(str, geniebonus, Object_Unit_Static_Geniebonus);
 		//Add_Block(str, spendthese_item, Object_Unit_Static_Spendthese_Item);
-		i++;
+		start++;
 	}
 }
 
@@ -44,14 +36,14 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	mMapBlock = new Object_Map_Block("AgrabahMarket_Block");
 
 	//# Map
-	Add("1", new Object_Map_AgrabahMarket_Back());
-	Add("8", new Object_Map_AgrabahMarket_Front());
+	Add(1, new Object_Map_AgrabahMarket_Back());
+	Add(10000, new Object_Map_AgrabahMarket_Front());
 
 	//# Block 
-	AddBlock("4_");
+	 AddBlock(4000);
+	
 	//# Unit
-	Add("5", new Object_Unit_Aladdin());
-
+	Add(5000, new Object_Unit_Aladdin());
 	//# Status
-	Add("9", new Object_Status_Apple());
+	//Add(9000, new Object_Status_Apple());
 }

@@ -61,14 +61,14 @@ void Scene::SceneRender(float delay) {
 void Scene::OnKeyDown(int pKeyCode) {}
 void Scene::OnKeyUp(int pKeyCode) {}
 
-void Scene::Add(string pName, Object * pObject) {
+void Scene::Add(int pName, Object * pObject) {
 	(*this)[pName] = pObject;
 	pObject->mScene = this;
 	pObject->AfterAddToScene();
 }
 
-void Scene::Remove(string pName) {
-	for (map<string, Object *>::iterator it = this->begin(); it != this->end(); it++) {
+void Scene::Remove(int pName) {
+	for (map<int, Object *>::iterator it = this->begin(); it != this->end(); it++) {
 		if ((it->first) == pName) {
 			this->erase(it);
 			break;
