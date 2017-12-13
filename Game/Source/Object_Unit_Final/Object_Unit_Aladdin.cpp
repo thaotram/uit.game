@@ -27,7 +27,7 @@
 #define state	mAni.GetState()
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 200, 600 };
+	mPos << V2{ 4600, 600 };
 	//mPos << V2{ 1900, 400 };
 	mAni.Set("stand", 1);
 }
@@ -310,7 +310,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		//GameDebug::Title("false");
 	}
 
-	//GameDebug::Title(mAni.GetCycleIndex());
+	GameDebug::Title(mAni.GetCycleIndex());
 
 	//# Position
 	mPos.x += !isChangeX ? 0
