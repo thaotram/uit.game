@@ -15,6 +15,9 @@ using namespace std;
 enum BlockType {
 	rope,
 	apple,
+	black_magiclamp,
+	spendthese_item,
+	geniebonus,
 	woodenbar,
 	square,
 	stairs_slash,

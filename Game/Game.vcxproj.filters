@@ -236,6 +236,11 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Black_Magiclamp.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Geniebonus.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Spendthese_Item.h" />
+    <ClInclude Include="Source\Object_Status\Object_Status.h" />
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Apple.h" />
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Life.h" />
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Score.h" />
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Spendthese.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -318,6 +323,21 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Spendthese_Item.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Status\Object_Status.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Status_Final\Object_Status_Apple.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Status_Final\Object_Status_Life.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Status_Final\Object_Status_Score.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Status_Final\Object_Status_Spendthese.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
