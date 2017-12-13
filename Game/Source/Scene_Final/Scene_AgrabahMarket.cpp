@@ -6,14 +6,17 @@
 #include "../Object_Unit_Final/Object_Unit_Apple.h"
 #include "../Object_Unit_Final/Object_Unit_Aladdin.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Apple.h"
+#include "../Object_Unit_Final/Object_Unit_Black_Magiclamp.h"
+#include "../Object_Unit_Final/Object_Unit_Geniebonus.h"
+#include "../Object_Unit_Final/Object_Unit_Spendthese_Item.h"
 
 #include "../../Define.h"
 
-#define Add_Block(string, type, object)											\
+#define Add_Block(string, type, object)									\
 if (b.first == BlockType::type) {										\
 	Add(string + toString(i), new object(b.second.left, b.second.top));	\
 	i++;																\
-}
+}																		\
 
 string toString(int number,int l=3) {
 	string out = to_string(number);
@@ -29,6 +32,16 @@ void Scene_AgrabahMarket::AddBlock(string str)
 	for (auto &b : *mMapBlock) {
 		Add_Block(str, apple, Object_Unit_Static_Apple);
 	}
+	for (auto &b : *mMapBlock) {
+		Add_Block(str, black_magiclamp, Object_Unit_Black_Magiclamp);
+	}
+	for (auto &b : *mMapBlock) {
+		Add_Block(str, geniebonus, Object_Unit_Geniebonus);
+	}
+	for (auto &b : *mMapBlock) {
+		Add_Block(str, spendthese_item, Object_Unit_Spendthese_Item);
+	}
+
 }
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() {
