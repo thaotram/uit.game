@@ -1,5 +1,6 @@
 #include "GameDebug.h"
 #include "../Define.h"
+int GameDebug::count = 0;
 
 void GameDebug::Log(string input) {
 	wstring wstring;
@@ -36,6 +37,11 @@ void GameDebug::Title(string input) {
 		GameGlobal::GetHWND(),
 		wstring.c_str()
 	);
+}
+
+void GameDebug::TitleCount() {
+	count++;
+	Title(count);
 }
 
 void GameDebug::Draw(RECT pRect, D3DCOLOR pColor) {

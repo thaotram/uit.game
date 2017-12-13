@@ -9,7 +9,7 @@ using namespace std;
 
 class GameDebug {
 private:
-
+	static int count;
 public:
 	static void Log(string input);
 
@@ -17,6 +17,7 @@ public:
 	static void Title(RECT input);
 	static void Title(float input);
 	static void Title(string input);
+	static void TitleCount();
 
 	static void Draw(RECT pRect, D3DCOLOR pColor = 0xffff0000);
 	static void DrawHL(LONG pTop, LONG pWeight, D3DCOLOR pColor = 0xffff0000);

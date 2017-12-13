@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <map>
 #include <bitset>
+#include "../Define.h"
 
 using namespace std;
 
@@ -14,7 +15,6 @@ private:
 	static HINSTANCE			mHInstance;			// hInstance của windows hiện tại
 	static LPD3DXSPRITE			mSpriteHandler;		// spriteHanlder hiện tại
 	static LPDIRECT3DDEVICE9	mDevice;			// device directX hiện tại
-	static map<int, bool>		mInput;
 public:
 	GameGlobal();
 	~GameGlobal();
@@ -32,7 +32,7 @@ public:
 	static void SetDevice(LPDIRECT3DDEVICE9 device);
 
 	static bitset<8> Input;
-	static map<int, bool> * GetInput() {
-		return &mInput;
-	};
+	static bitset<8> InputReal;
+	
+	static map<int, int> InputMap;
 };

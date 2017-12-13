@@ -13,6 +13,7 @@
 
 #include "Source/Game.h"
 #include "Source/GameGlobal.h"
+#include "Source/GameDebug.h"
 #include "Source/Scene/Scene.h"
 
 using json = nlohmann::json;
@@ -126,18 +127,11 @@ int InitializeDevice()
 	return 1;
 }
 
+#define KEY GameGlobal::Input[GameGlobal::InputMap[wParam]]
+#define REAL GameGlobal::InputReal[GameGlobal::InputMap[wParam]]
 // Được gọi trong hàm InitializeWindow trong hàm main
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	map<int, int> InputMap;
-	InputMap[VK_LEFT] = LEFT;
-	InputMap[VK_UP] = UP;
-	InputMap[VK_RIGHT] = RIGHT;
-	InputMap[VK_DOWN] = DOWN;
-	InputMap['Z'] = CHAR_Z;
-	InputMap['X'] = CHAR_X;
-	InputMap['C'] = CHAR_C;
-
 	// Message ở đây là các event của windows
 	switch (message)
 	{
@@ -152,10 +146,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		);
 		break;
 	case WM_KEYDOWN:
-		GameGlobal::Input.set(InputMap[wParam], true);
+		if (REAL == 0) KEY = 1;
+		REAL = 1;
 		break;
 	case WM_KEYUP:
-		GameGlobal::Input.set(InputMap[wParam], false);
+		REAL = KEY = 0;
 		break;
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);
