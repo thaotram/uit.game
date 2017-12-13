@@ -96,7 +96,7 @@
                 "10": [ 596, 213, 19, 20, 0, -1 ]
 			}		
 		},
-		"revival_jar": {
+		"restartpoint": {
 			"note": "điểm hồi sinh, frame 11 là frame 1 nhưng tăng độ cao",
 			"basePoint": [ 10, 33 ],
 			"frameCycle": [ 1, 3, 11, 2, 4, 5, 6, 7, 8, 2, 4, 5, 6, 7, 9, 10, -16 ],
