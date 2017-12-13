@@ -232,6 +232,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Apple.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Black_Magiclamp.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Geniebonus.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Spendthese_Item.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -302,6 +306,18 @@
       <Filter>Source\Object_Map_Block</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Apple.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Black_Magiclamp.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Geniebonus.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Spendthese_Item.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

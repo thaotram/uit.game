@@ -160,6 +160,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Spendthese_Item.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Geniebonus.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Black_Magiclamp.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Apple.h" />
     <ClInclude Include="Source\Object_Map_Block\Object_Map_Block.h" />
     <ClInclude Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.h" />
@@ -186,6 +190,10 @@
     <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Spendthese_Item.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Geniebonus.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Black_Magiclamp.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Apple.cpp" />
     <ClCompile Include="Source\Object_Map_Block\Object_Map_Block.cpp" />
     <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.cpp" />
