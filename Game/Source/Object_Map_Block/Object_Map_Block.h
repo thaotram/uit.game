@@ -14,6 +14,7 @@ using namespace std;
 
 enum BlockType {
 	rope,
+	apple,
 	woodenbar,
 	square,
 	stairs_slash,
