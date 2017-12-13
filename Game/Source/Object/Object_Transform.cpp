@@ -2,6 +2,7 @@
 #include "Object_Transform.h"
 #include "Object.h"
 #include "../Object_Unit/Object_Unit.h"
+#include "../Object_Status/Object_Status.h"
 #include "../Scene/Scene.h"
 #include "../../Define.h"
 
@@ -14,7 +15,8 @@ Object_Transform::Object_Transform() {
 
 void Object_Transform::Update(Object * pObject) {
 	V2 pCamera = { 0,0 };
-	if (dynamic_cast<Object_Unit*>(pObject)) {
+	if (dynamic_cast<Object_Unit*>(pObject)||
+		dynamic_cast<Object_Status*>(pObject)) {
 		pCamera = pObject->mScene->mCamera.VECTOR2();
 	};
 
