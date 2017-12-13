@@ -41,8 +41,15 @@ Object_Map_Block::Object_Map_Block(string pName) {
 		add(woodenbar);
 		add(stairs_slash);
 		add(stairs_backslash);
-		
+	
 		add(apple);
+		add(abubonus);
+		add(black_magiclamp);
+		add(extrahealth);
+		add(geniebonus);
+		add(spendthese_item);
+		add(restartpoint);
+
 	}
 	catch (exception e) {
 		this->clear();

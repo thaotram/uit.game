@@ -160,6 +160,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Abubonus.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Extrahealth.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Restartpoint.h" />
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Apple.h" />
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Life.h" />
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Score.h" />
@@ -195,6 +198,9 @@
     <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Abubonus.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Extrahealth.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Restartpoint.cpp" />
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Apple.cpp" />
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Life.cpp" />
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Score.cpp" />

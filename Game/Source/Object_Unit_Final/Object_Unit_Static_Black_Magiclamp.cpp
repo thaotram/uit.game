@@ -5,7 +5,7 @@
 Object_Unit_Static_Black_Magiclamp::Object_Unit_Static_Black_Magiclamp(float x, float y) : Object_Unit("Item") {
 	mPos << V2{ 4600 , MAP_HEIGHT - 90 };
 	//mPos << V2{ 1900, 400 };
-	mAni.Set("apple_item", 1);
+	mAni.Set("black_magiclamp", 1);
 	mAutoNextFrame = false;
 }
 

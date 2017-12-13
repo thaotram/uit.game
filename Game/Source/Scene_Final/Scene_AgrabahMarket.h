@@ -12,7 +12,8 @@ using namespace std;
 class Scene_AgrabahMarket final : public Scene
 {
 private:
-	void AddBlock(int start);
+	void AddBlock(string str);
+	void AddStatus(string str);
 public:
 	Scene_AgrabahMarket();
 };
