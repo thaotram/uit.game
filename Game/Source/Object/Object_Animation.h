@@ -3,7 +3,6 @@
 #include <d3dx9.h>
 #include <iostream>
 #include <vector>
-#include <functional> 
 #include <string> 
 
 using namespace std;

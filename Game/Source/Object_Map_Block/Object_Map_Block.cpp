@@ -37,11 +37,12 @@ Object_Map_Block::Object_Map_Block(string pName) {
 		json block = j["block"];
 
 		add(square);
-		add(apple);
 		add(rope);
 		add(woodenbar);
 		add(stairs_slash);
 		add(stairs_backslash);
+		
+		add(apple);
 	}
 	catch (exception e) {
 		this->clear();

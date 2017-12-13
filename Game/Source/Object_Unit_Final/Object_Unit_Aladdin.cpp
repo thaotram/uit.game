@@ -55,8 +55,6 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 
 		auto p = mBlk->GetWoodenBar(unit, mPos.y.mVelocity * dt);
 	}
-
-	GameDebug::Title(dis);
 	//# Each State
 	if (state == "") {
 		mAni.Set("stand", 1);

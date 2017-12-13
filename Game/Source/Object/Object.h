@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include <d3d9.h>
 #include <d3dx9.h>
-#include <functional>
 
 #include "../GameGlobal.h"
 
@@ -62,6 +61,7 @@ public:
 	Object_Json * GetJson() {
 		return mJson;
 	}
-
+	// Hàm này sẽ khiến hệ thống tính toán nhiều >> tốn kém tài nguyên
+	// Không nên dùng
 	RECT GetBound();
 };

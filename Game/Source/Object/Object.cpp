@@ -29,10 +29,13 @@ void Object::ObjectDraw(Vector_Easing pPosition, Object_Transform pTransform, Ob
 }
 
 RECT Object::GetBound() {
+	float xx = mPos.x();
+	float yy = mPos.y();
+	V2 basepoint = mJson->GetBasePoint(this);
 	return RECT{
-		(LONG)mPos.x(),
-		(LONG)mPos.y(),
-		(LONG)mPos.x(),
-		(LONG)mPos.y()
+		(LONG)(xx - basepoint.x),
+		(LONG)(yy - basepoint.y),
+		(LONG)(xx - basepoint.x + mSourceRect.GetWidth()),
+		(LONG)(yy - basepoint.y + mSourceRect.GetHeight())
 	};
 }

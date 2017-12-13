@@ -1,14 +1,8 @@
 #include "Scene.h"
 #include "../Object/Object.h"
+#include "../Object_Unit/Object_Unit.h"
 
 Scene * Scene::mCurrentScene = NULL;
-
-//! Private
-void Scene::EachObject(function<void(Object*)> pEachUnit) {
-	for (auto &unit : *this) {
-		pEachUnit(unit.second);
-	}
-}
 
 //! Static Public
 void Scene::ReplaceScene(Scene * pScene) {
@@ -22,18 +16,46 @@ Scene * Scene::GetCurrentScene() {
 //! Public
 Scene::Scene() {}
 Scene::~Scene() {
-	EachObject([=](Object * pObject) {
-		delete pObject;
-	});
+	for (auto &unit : *this) {
+		delete unit.second;
+	}
 }
 
 void Scene::SceneRender(float delay) {
-	EachObject([=](Object * pObject) {
-		pObject->ObjectUpdateEvent(delay);
-	});
-	EachObject([=](Object * pObject) {
-		pObject->ObjectRender(delay);
-	});
+	for (auto &unit : *this) {
+		//if (dynamic_cast<Object_Unit *>(pObject)) {
+		//	auto bb = pObject->GetBound();
+		//	if (bb.left < mCamera.x + WIDTH &&
+		//		bb.right > mCamera.x &&
+		//		bb.top < mCamera.y + HEIGHT &&
+		//		bb.bottom > mCamera.y) {
+		//		pObject->ObjectUpdateEvent(delay);
+		//	}
+		//}
+		//else {
+		//}
+		unit.second->ObjectUpdateEvent(delay);
+	}
+	for (auto &unit : *this) {
+		if (dynamic_cast<Object_Unit *>(unit.second)) {
+			//auto bb = unit.second->GetBound();
+			//if (bb.left < mCamera.x + WIDTH &&
+			//	bb.right > mCamera.x &&
+			//	bb.top < mCamera.y + HEIGHT &&
+			//	bb.bottom > mCamera.y) {
+			//}
+			auto pos = unit.second->GetPosition();
+			if (pos->x() > mCamera.x &&
+				pos->x() < mCamera.x + WIDTH &&
+				pos->y() > mCamera.y &&
+				pos->y() < mCamera.y + HEIGHT) {
+				unit.second->ObjectRender(delay);
+			}
+		}
+		else {
+			unit.second->ObjectRender(delay);
+		}
+	}
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}

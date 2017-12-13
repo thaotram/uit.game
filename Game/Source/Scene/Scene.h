@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include <list>
-#include <functional>
 #include "../GameGlobal.h"
 #include "../Scene/Scene_Camera.h"
 #include "../Object_Map_Block/Object_Map_Block.h"
@@ -11,7 +10,6 @@ class Object;
 class Scene : public map<string, Object *> {
 private:
 	static Scene * mCurrentScene;
-	void EachObject(function<void(Object *)> pEachUnit);
 public:
 	Scene();
 	~Scene();

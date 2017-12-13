@@ -16,7 +16,7 @@
 
 #define Add_Block(string, type, object)			\
 if (b.first == BlockType::type) Add(			\
-	string + #type + toString(i), 				\
+	string + #type + "_" + toString(i), 		\
 	new object(b.second.left, b.second.top)		\
 );												\
 
@@ -33,9 +33,9 @@ void Scene_AgrabahMarket::AddBlock(string str)
 	int i = 0;
 	for (auto &b : *mMapBlock) {
 		Add_Block(str, apple, Object_Unit_Static_Apple);
-		Add_Block(str, black_magiclamp, Object_Unit_Static_Black_Magiclamp);
-		Add_Block(str, geniebonus, Object_Unit_Static_Geniebonus);
-		Add_Block(str, spendthese_item, Object_Unit_Static_Spendthese_Item);
+		//Add_Block(str, black_magiclamp, Object_Unit_Static_Black_Magiclamp);
+		//Add_Block(str, geniebonus, Object_Unit_Static_Geniebonus);
+		//Add_Block(str, spendthese_item, Object_Unit_Static_Spendthese_Item);
 		i++;
 	}
 }
@@ -44,9 +44,11 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	mMapBlock = new Object_Map_Block("AgrabahMarket_Block");
 
 	//# Map
-	//Add("1", new Object_Map_AgrabahMarket_Back());
-	//Add("8", new Object_Map_AgrabahMarket_Front());
-	//
+	Add("1", new Object_Map_AgrabahMarket_Back());
+	Add("8", new Object_Map_AgrabahMarket_Front());
+
+	//# Block 
+	AddBlock("4_");
 	//# Unit
 	Add("5", new Object_Unit_Aladdin());
 
