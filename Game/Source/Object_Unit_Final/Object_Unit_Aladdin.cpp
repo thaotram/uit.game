@@ -41,7 +41,6 @@ Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
-
 	//# Flip
 	mTransform.SetFlip(R ? Right : L ? Left : Stand);
 
@@ -60,7 +59,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(D)			mAni.Set("sit", 1);
 		ef_(R || L)		mAni.Set("run", 1);
 		ef_(Z) {
-			mScene->Add("2", new Object_Unit_Apple(xx -12 , yy -55 , mTransform.GetFlip()));
+			mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("stand_throwapple", 1, "stand", 1);
 		}
 		ef_(X) 			mAni.Set("stand_cut", 1, "stand", 1);
@@ -68,6 +67,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	}
 	ef_(state == "stand_throwapple") {
 		mTimePerFrame = 0.06f;
+		isChangeX = false;
 		if (mAni.GetCycleIndex() == 4) {
 			((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
 		}
@@ -102,14 +102,22 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(mPos.y.mVelocity <= 1.1 * +jump)	mAni.SetCycleIndex(9);
 		ef_(mPos.y.mVelocity <= 1.2 * +jump)	mAni.SetCycleIndex(10);
 
-		if (Z)			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
+		if (Z) {
+			mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
+			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
+		}
 		if (X)			mAni.Set("jump_cut", 1, "stand_jump", 4);
 	}
 	ef_(state == "jump_throwapple") {
-		mTimePerFrame = 0.06f;
+		mTimePerFrame = 0.03f;
+		isChangeX = false;
+		if (mAni.GetCycleIndex() == 4) {
+			((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
+		}
 	}
 	ef_(state == "jump_cut") {
-		mTimePerFrame = 0.06f;
+		mTimePerFrame = 0.03f;
+		mAutoNextFrame = true;
 	}
 	ef_(state == "up") {
 		mTimePerFrame = 0.06f;
@@ -138,8 +146,18 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(X)			mAni.Set("sit_cut", 1, "sit", 4);
 		ef_(C)			mAni.Set("stand_jump", 1, "sit", 1) && mPos.y.SetVelocity(-jump);
 	}
+	ef_(state == "sit_to_stand") {
+		mTimePerFrame = 0.06f;
+		isChangeX = false;
+		mAutoNextFrame = true;
+	}
+	ef_(state == "sit_cut") {
+		mTimePerFrame = 0.06f;
+		isChangeX = false;
+	}
 	ef_(state == "sit_throwapple") {
 		mTimePerFrame = 0.06f;
+		isChangeX = false;
 		if (mAni.GetCycleIndex() == 3) {
 			((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
 		}
@@ -149,7 +167,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		if (!L && !R)	mAni.Set("stand", 1);
 		if (Z)			0; /// "run_throwapple" - thiếu
 		ef_(X)			mAni.Set("run_cut", 1, "run", 9);
-		ef_(C)			mAni.Set("run_jump", 1);
+		ef_(C)			mAni.Set("run_jump", 1) && mPos.y.SetVelocity(-jump);
 	}
 	ef_(state == "run_cut") {
 		mTimePerFrame = 0.06f;
@@ -157,10 +175,13 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	}
 	ef_(state == "run_jump") {
 		mTimePerFrame = 0.06f;
-		if (mAni.GetCycleIndex() == 1 && mPos.y.mVelocity == 0) {
+		if (mAni.GetCycleIndex() == 1 && mPos.y.mVelocity == -jump) {
 			mAutoNextFrame = false;
-			mPos.y.mVelocity = -jump;
+			// mPos.y.mVelocity = -jump;
 			mAni.SetCycleIndex(1);
+		}
+		ef_(mPos.y.mVelocity == 0 && dis.bottom == 0) {
+			mAni.Set("stand", 1);
 		}
 		ef_(
 			dis.bottom < 20
@@ -181,6 +202,8 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(mPos.y.mVelocity <= 0)					mAni.SetCycleIndex(5);
 		ef_(mPos.y.mVelocity <= 0.50 * +jump)		mAni.SetCycleIndex(5);
 		ef_(mPos.y.mVelocity <= 0.90 * +jump)		mAni.SetCycleIndex(6);
+		//if (Z) mAni.Set("jump_thowapple", 1, "run_jump", 1);
+		if (X) mAni.Set("jump_cut", 1, "run_jump", 1);
 	}
 	ef_(state == "climb_vertical") {
 		mTimePerFrame = 0.06f;
@@ -261,7 +284,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		//}
 	}
 	else {
-		GameDebug::Title("false");
+		//GameDebug::Title("false");
 	}
 	
 	//# Position
