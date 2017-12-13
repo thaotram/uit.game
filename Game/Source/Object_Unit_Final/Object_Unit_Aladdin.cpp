@@ -27,15 +27,8 @@
 
 #define state	mAni.GetState()
 
-#define unit	RECT{		\
-	(LONG)xx - 15,			\
-	(LONG)yy - 45,			\
-	(LONG)xx + 15,			\
-	(LONG)yy				\
-}
-
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 4650, 300 };
+	mPos << V2{ 4650, 400 };
 	//mPos << V2{ 1900, 400 };
 	mAni.Set("stand", 1);
 }
@@ -45,6 +38,13 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	mTransform.SetFlip(R ? Right : L ? Left : Stand);
 
 	//# Global
+	RECT unit = RECT{
+		(LONG)xx - mSourceRect.GetWidth() / 2,
+		(LONG)yy - mSourceRect.GetHeight(),
+		(LONG)xx + mSourceRect.GetWidth() / 2,
+		(LONG)yy
+	};
+
 	float speedX = 200;
 	RECT dis = mBlk->GetDistance(unit);
 	pair<bool, RECT> rope = mBlk->GetRope(unit, speedX * dt);
@@ -260,9 +260,9 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		mAutoNextFrame = true;
 		speedX = 80;
 		isChangeY = false;
-		//if (!L && !R)								mAni.Set("climb_still", 1);
+		if (!L && !R)								mAni.Set("climb_still", 1);
 	}
-	ef_(state == "climb_still"){
+	ef_(state == "climb_still") {
 		mTimePerFrame = 0.06f;
 		mAutoNextFrame = true;
 		isChangeX = isChangeY = false;
@@ -279,8 +279,8 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		}
 	}
 	ef_(mPos.y.mVelocity > 0 && bar.first) {
-		if (state != "climb_horizontal") {
-			mAni.Set("climb_horizontal", 1);
+		if (state != "climb_still") {
+			mAni.Set("climb_still", 1);
 		}
 		//if (state != "climb_vertical" &&
 		//	state != "climb_cut" &&
@@ -296,7 +296,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	}
 
 	GameDebug::Title(mAni.GetCycleIndex());
-	
+
 	//# Position
 	mPos.x += !isChangeX ? 0
 		: R ? +min(speedX * dt, dis.right)
