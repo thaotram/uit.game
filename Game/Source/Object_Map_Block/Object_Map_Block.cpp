@@ -125,8 +125,8 @@ pair<bool, RECT> Object_Map_Block::GetWoodenBar(RECT u, float step) {
 		if (b.first == BlockType::woodenbar) {
 			if (u.left >= b.second.left &&
 				u.right <= b.second.right &&
-				u.top <= b.second.top &&
-				u.top + step >= b.second.top) {
+				u.top - 35 <= b.second.top &&
+				u.top - 35 + step >= b.second.top) {
 				is = true;
 				out = b.second;
 				break;
