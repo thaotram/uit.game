@@ -9,6 +9,12 @@
 
 #include "../../Define.h"
 
+#define Add_Block(string, type, object)											\
+if (b.first == BlockType::type) {										\
+	Add(string + toString(i), new object(b.second.left, b.second.top));	\
+	i++;																\
+}
+
 string toString(int number,int l=3) {
 	string out = to_string(number);
 	for (int i = out.length(); i < l; i++) {
@@ -17,20 +23,19 @@ string toString(int number,int l=3) {
 	return out;
 }
 
+void Scene_AgrabahMarket::AddBlock(string str)
+{
+	int i = 0;
+	for (auto &b : *mMapBlock) {
+		Add_Block(str, apple, Object_Unit_Static_Apple);
+	}
+}
+
 Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	mMapBlock = new Object_Map_Block("AgrabahMarket_Block");
-
 	// Add Object
 	Add("1", new Object_Map_AgrabahMarket_Back());
 	Add("5", new Object_Unit_Aladdin());
+	AddBlock("2");
 	Add("9", new Object_Map_AgrabahMarket_Front());
-
-	int i = 0;
-	for(auto &b: *mMapBlock){
-		if (b.first == BlockType::apple) {
-			Add("2"+toString(i), new Object_Unit_Static_Apple(b.second.left, b.second.top));
-			i++;
-		}
-	}
-
 }
