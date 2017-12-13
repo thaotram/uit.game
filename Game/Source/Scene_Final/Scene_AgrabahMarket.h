@@ -11,7 +11,10 @@ using namespace std;
 
 class Scene_AgrabahMarket final : public Scene
 {
+private:
+	void AddBlock(string str);
 public:
 	Scene_AgrabahMarket();
+
 };
 
