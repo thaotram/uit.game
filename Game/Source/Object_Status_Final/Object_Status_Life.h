@@ -1,5 +1,6 @@
 #pragma once
-class Object_Status_Life
+#include "../Object_Status/Object_Status.h"
+class Object_Status_Life final : public Object_Status
 {
 public:
 	Object_Status_Life();
