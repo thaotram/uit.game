@@ -16,6 +16,9 @@ void GameDebug::Log(string input) {
 void GameDebug::Title(float input) {
 	Title(to_string(input));
 }
+void GameDebug::Title(int input) {
+	Title(to_string(input));
+}
 
 void GameDebug::Title(RECT input) {
 	Title(
