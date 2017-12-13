@@ -7,8 +7,6 @@ Object_Unit::Object_Unit(string pName) : Object(pName) {
 	mAutoNextFrame = true;
 }
 
-void Object_Unit::AfterAddToScene() {}
-
 void Object_Unit::ObjectUpdateProperties(float delay) {
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;

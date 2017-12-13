@@ -10,7 +10,6 @@ public:
 	~Object_Unit() {};
 
 	bool mAutoNextFrame;
-	void AfterAddToScene();
 
 	virtual void ObjectUpdateEvent(float delay) {};
 	void ObjectUpdateProperties(float delay);
