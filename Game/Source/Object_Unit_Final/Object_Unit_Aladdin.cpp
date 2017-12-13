@@ -218,6 +218,8 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		mAutoNextFrame = true;
 		isChangeX = isChangeY = false;
 		if (L || R)				mAni.Set("climb_horizontal", 1);
+		ef_(Z)		mAni.Set("climb_throwapple", 1, "climb_still", 1);
+		ef_(X)		mAni.Set("climb_cut", 1, "climb_still", 1);
 		ef_(C) {
 			mAutoNextFrame = false;
 			mAni.Set("stand_jump", 1);
@@ -254,7 +256,10 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		speedX = 80;
 		mAutoNextFrame = true;
 		isChangeY = false;
+
 		if (!L && !R)			mAni.Set("climb_still", 1);
+		ef_(Z)		mAni.Set("climb_throwapple", 1, "climb_still", 1);
+		ef_(X)		mAni.Set("climb_cut", 1, "climb_still", 1);
 		ef_(C) {
 			mAutoNextFrame = false;
 			mAni.Set("stand_jump", 1);
@@ -302,7 +307,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 			state != "climb_cut" &&
 			state != "climb_throwapple" &&
 			state != "stand_jump") {
-			mPos.y << bar.second.top + 87;
+			mPos.y << (float)bar.second.top + 87;
 			mAni.Set("climb_still", 1);
 		}
 	}

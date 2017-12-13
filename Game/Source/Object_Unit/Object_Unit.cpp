@@ -10,7 +10,7 @@ Object_Unit::Object_Unit(string pName) : Object(pName) {
 void Object_Unit::ObjectUpdateProperties(float delay) {
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
-		mJson = Object_Json::GetJson(mName);
+		//mJson = Object_Json::GetJson(mName);
 		if (mAutoNextFrame) mAnimation.NextFrame(this);
 	}
 	else mCurrentTime += delay;

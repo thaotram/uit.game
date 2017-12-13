@@ -70,9 +70,9 @@ Object_Json::Object_Json(string pName) {
 
 Object_Json * Object_Json::GetJson(string pName)
 {
-	return new Object_Json(pName);
-	//return Object_Jsons.find(pName) == Object_Jsons.end() ?
-		//new Object_Json(pName) : Object_Jsons.at(pName);
+	//return new Object_Json(pName);
+	return Object_Jsons.find(pName) == Object_Jsons.end() ?
+		new Object_Json(pName) : Object_Jsons.at(pName);
 }
 
 STATE Object_Json::operator[](string pState) {
