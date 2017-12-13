@@ -165,9 +165,9 @@
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Score.h" />
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Spendthese.h" />
     <ClInclude Include="Source\Object_Status\Object_Status.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Spendthese_Item.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Geniebonus.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Black_Magiclamp.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Spendthese_Item.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Geniebonus.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Black_Magiclamp.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Apple.h" />
     <ClInclude Include="Source\Object_Map_Block\Object_Map_Block.h" />
@@ -200,9 +200,9 @@
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Score.cpp" />
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Spendthese.cpp" />
     <ClCompile Include="Source\Object_Status\Object_Status.cpp" />
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Spendthese_Item.cpp" />
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Geniebonus.cpp" />
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Black_Magiclamp.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Spendthese_Item.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Geniebonus.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Black_Magiclamp.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Apple.cpp" />
     <ClCompile Include="Source\Object_Map_Block\Object_Map_Block.cpp" />

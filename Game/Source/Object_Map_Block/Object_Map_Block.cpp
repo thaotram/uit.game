@@ -5,6 +5,7 @@
 
 #define bb b->second
 
+bool Object_Map_Block::isBar = false;
 struct Bool_RECT {
 	Bool_RECT() {};
 	Bool_RECT(
@@ -16,7 +17,7 @@ struct Bool_RECT {
 	bool bottom;
 };
 
-//# Add(type)
+//# Object_Map_Block
 #define add(type)					\
 json type = block[#type];			\
 for (auto& s : type) {				\
@@ -25,7 +26,6 @@ for (auto& s : type) {				\
 		RECT{s[0],s[1],s[2],s[3]}	\
 	));								\
 }
-
 Object_Map_Block::Object_Map_Block(string pName) {
 	pName = "Resources/" + pName + ".json";
 	this->clear();
@@ -48,6 +48,7 @@ Object_Map_Block::Object_Map_Block(string pName) {
 	}
 }
 
+//# GetDistance
 #define check_square(v, value) long v = value; out.v = (v >= 0 && (v < out.v || out.v == -1)) ? v : out.v
 #define check_squares(x,y) {			\
 	check_square(x, u.x - b->second.y);	\
@@ -125,8 +126,8 @@ pair<bool, RECT> Object_Map_Block::GetWoodenBar(RECT u, float step) {
 		if (b.first == BlockType::woodenbar) {
 			if (u.left >= b.second.left &&
 				u.right <= b.second.right &&
-				u.top - 35 <= b.second.top &&
-				u.top - 35 + step >= b.second.top) {
+				u.top - 35 <= b.second.top && 
+				step >= 0) {
 				is = true;
 				out = b.second;
 				break;

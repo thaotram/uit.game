@@ -27,6 +27,8 @@ enum BlockType {
 class Object;
 
 class Object_Map_Block :public list<pair<BlockType, RECT>> {
+private:
+	static bool isBar;
 public:
 	Object_Map_Block(string pName);
 	~Object_Map_Block() {};

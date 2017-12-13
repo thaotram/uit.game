@@ -27,7 +27,7 @@
 #define state	mAni.GetState()
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 4650, 300 };
+	mPos << V2{ 4650, 400 };
 	//mPos << V2{ 1900, 400 };
 	mAni.Set("stand", 1);
 }
@@ -41,7 +41,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		(LONG)xx - 15,
 		(LONG)yy - 55,
 		(LONG)xx + 15,
-		(LONG)yy				
+		(LONG)yy
 	};
 
 	float speedX = 200;
@@ -52,6 +52,8 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 
 	if (bar.first) {
 		int a = 1;
+
+		auto p = mBlk->GetWoodenBar(unit, mPos.y.mVelocity * dt);
 	}
 
 	GameDebug::Title(dis);
@@ -63,15 +65,15 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		mAutoNextFrame = true;
 		mTimePerFrame = 0.06f;
 		isChangeX = false;
-		if (U)			mAni.Set("up", 1);
-		ef_(D)			mAni.Set("sit", 1);
-		ef_(R || L)		mAni.Set("run", 1);
+		if (U)						mAni.Set("up", 1);
+		ef_(D)						mAni.Set("sit", 1);
+		ef_(R || L)					mAni.Set("run", 1);
 		ef_(Z) {
 			mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("stand_throwapple", 1, "stand", 1);
 		}
-		ef_(X) 			mAni.Set("stand_cut", 1, "stand", 1);
-		ef_(C)			mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-jump);
+		ef_(X) 						mAni.Set("stand_cut", 1, "stand", 1);
+		ef_(C && dis.bottom == 0)	mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-jump);
 	}
 	ef_(state == "stand_throwapple") {
 		mTimePerFrame = 0.06f;
@@ -213,6 +215,16 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		//if (Z) mAni.Set("jump_thowapple", 1, "run_jump", 1);
 		if (X) mAni.Set("jump_cut", 1, "run_jump", 1);
 	}
+	ef_(state == "climb_still") {
+		mTimePerFrame = 0.06f;
+		mAutoNextFrame = true;
+		isChangeX = isChangeY = false;
+		if (L || R)				mAni.Set("climb_horizontal", 1);
+		ef_(C) {
+			mAutoNextFrame = false;
+			mAni.Set("stand_jump", 1);
+		}
+	}
 	ef_(state == "climb_vertical") {
 		mTimePerFrame = 0.06f;
 		mPos.y.mVelocity = 0;
@@ -239,10 +251,16 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(X)		mAni.Set("climb_cut", 1, "climb_vertical", cycleIndex);
 		ef_(C)		mAni.Set("climb_jump", 1) && mPos.y.SetVelocity(-jump);
 	}
-	ef_(state == "climb_cut") {
+	ef_(state == "climb_horizontal") {
 		mTimePerFrame = 0.06f;
+		speedX = 80;
 		mAutoNextFrame = true;
-		isChangeX = isChangeY = false;
+		isChangeY = false;
+		if (!L && !R)			mAni.Set("climb_still", 1);
+		ef_(C) {
+			mAutoNextFrame = false;
+			mAni.Set("stand_jump", 1);
+		}
 	}
 	ef_(state == "climb_throwapple") {
 		mTimePerFrame = 0.06f;
@@ -264,20 +282,12 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		ef_(mPos.y.mVelocity <= 0.9 * +jump)		mAni.SetCycleIndex(9);
 		ef_(mPos.y.mVelocity <= 1.0 * +jump)		mAni.Set("stand_jump", 4, "stand", 1);
 	}
-	ef_(state == "climb_horizontal") {
-		mTimePerFrame = 0.06f;
-		mAutoNextFrame = true;
-		speedX = 80;
-		isChangeY = false;
-		if (!L && !R)								mAni.Set("climb_still", 1);
-	}
-	ef_(state == "climb_still") {
+	ef_(state == "climb_cut") {
 		mTimePerFrame = 0.06f;
 		mAutoNextFrame = true;
 		isChangeX = isChangeY = false;
-		if (L || R)									mAni.Set("climb_horizontal", 1);
-		ef_(C)										mAni.Set("stand_jump", 1);
 	}
+
 	if (mPos.y.mVelocity >= -0.2 * jump && rope.first) {
 		if (state != "climb_vertical" &&
 			state != "climb_cut" &&
@@ -288,12 +298,15 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 			mAni.Set("climb_vertical", 1);
 		}
 	}
-	ef_(mPos.y.mVelocity > 0 && bar.first) {
-		if (state != "climb_still") {
-			mPos.y << bar.second.top + 80;
+	ef_(bar.first) {
+		if (state != "climb_still" &&
+			state != "climb_horizontal" &&
+			state != "climb_cut" &&
+			state != "climb_throwapple" &&
+			state != "stand_jump") {
+			mPos.y << bar.second.top + 87;
 			mAni.Set("climb_still", 1);
 		}
-
 	}
 	else {
 		//GameDebug::Title("false");

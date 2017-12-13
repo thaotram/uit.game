@@ -45,6 +45,9 @@
     <Filter Include="Source\Object_Map_Block">
       <UniqueIdentifier>{06821d94-b8e6-408d-a181-35ab1019115a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Object_Status">
+      <UniqueIdentifier>{a74ba347-6a0b-4197-8aa1-7853a6a122d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -231,16 +234,36 @@
     <ClInclude Include="Source\Object_Map_Block\Object_Map_Block.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Apple.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Black_Magiclamp.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Geniebonus.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Spendthese_Item.h" />
-    <ClInclude Include="Source\Object_Status\Object_Status.h" />
-    <ClInclude Include="Source\Object_Status_Final\Object_Status_Apple.h" />
-    <ClInclude Include="Source\Object_Status_Final\Object_Status_Life.h" />
-    <ClInclude Include="Source\Object_Status_Final\Object_Status_Score.h" />
-    <ClInclude Include="Source\Object_Status_Final\Object_Status_Spendthese.h" />
+    <ClInclude Include="Source\Object_Status\Object_Status.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Apple.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Life.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Score.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Spendthese.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Apple.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Black_Magiclamp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Geniebonus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Spendthese_Item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -310,35 +333,35 @@
     <ClCompile Include="Source\Object_Map_Block\Object_Map_Block.cpp">
       <Filter>Source\Object_Map_Block</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Apple.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Black_Magiclamp.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Geniebonus.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Spendthese_Item.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Object_Status\Object_Status.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Status</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Apple.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Status</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Life.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Status</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Score.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Status</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Spendthese.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Apple.cpp">
+      <Filter>Source\Object_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.cpp">
+      <Filter>Source\Object_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Black_Magiclamp.cpp">
+      <Filter>Source\Object_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Geniebonus.cpp">
+      <Filter>Source\Object_Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Spendthese_Item.cpp">
+      <Filter>Source\Object_Unit</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
