@@ -263,22 +263,7 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Black_Magiclamp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Geniebonus.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Spendthese_Item.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Abubonus.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Extrahealth.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Restartpoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Health_Meter.h">
@@ -288,6 +273,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Number_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Restart_Point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Genie_Bonus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Extra_Health.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Spend_These.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Black_Magic_Lamp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -383,21 +383,6 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.cpp">
       <Filter>Source\Object_Unit\Static</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Black_Magiclamp.cpp">
-      <Filter>Source\Object_Unit\Static</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Extrahealth.cpp">
-      <Filter>Source\Object_Unit\Static</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Geniebonus.cpp">
-      <Filter>Source\Object_Unit\Static</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Restartpoint.cpp">
-      <Filter>Source\Object_Unit\Static</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Spendthese_Item.cpp">
-      <Filter>Source\Object_Unit\Static</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Health_Meter.cpp">
       <Filter>Source\Object_Status</Filter>
     </ClCompile>
@@ -406,6 +391,21 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Number_S.cpp">
       <Filter>Source\Object_Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Restart_Point.cpp">
+      <Filter>Source\Object_Unit\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Genie_Bonus.cpp">
+      <Filter>Source\Object_Unit\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Extra_Health.cpp">
+      <Filter>Source\Object_Unit\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Spend_These.cpp">
+      <Filter>Source\Object_Unit\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Black_Magic_Lamp.cpp">
+      <Filter>Source\Object_Unit\Static</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
