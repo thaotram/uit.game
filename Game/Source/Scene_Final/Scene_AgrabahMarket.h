@@ -9,12 +9,7 @@
 
 using namespace std;
 
-class Scene_AgrabahMarket final : public Scene
-{
-private:
-	void AddBlock(int str);
-	void AddStatus(int str);
+class Scene_AgrabahMarket final : public Scene {
 public:
 	Scene_AgrabahMarket();
 };
-
