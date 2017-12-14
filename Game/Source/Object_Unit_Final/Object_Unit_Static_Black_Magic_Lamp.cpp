@@ -7,5 +7,6 @@ Object_Unit_Static_Black_Magic_Lamp::Object_Unit_Static_Black_Magic_Lamp(float x
 	mAutoNextFrame = false;
 }
 
-void Object_Unit_Static_Black_Magic_Lamp::ObjectUpdateEvent(float dt) {
+void Object_Unit_Static_Black_Magic_Lamp::ObjectUpdateEvent(float dt)
+{
 }
