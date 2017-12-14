@@ -20,22 +20,19 @@ Object_Map_Block::Object_Map_Block(string pName) {
 
 	json block = j["block"];
 
-	add(Rope);
 	add(Bar);
-
+	add(Rope);
 	add(Square);
 	add(Stairs_slash);
 	add(Stairs_backslash);
 
+	add(Abubonus);
 	add(Apple);
-
-	//add(apple);
-	//add(abubonus);
-	//add(black_magiclamp);
-	//add(extrahealth);
-	//add(geniebonus);
-	//add(spendthese_item);
-	//add(restartpoint);
+	add(Black_Magic_Lamp);
+	add(Extra_Health);
+	add(Genie_Bonus);
+	add(Restart_Point);
+	add(Spend_These);
 }
 
 //# GetDistance
@@ -44,7 +41,7 @@ Object_Map_Block::Object_Map_Block(string pName) {
 #define check_squares(x,y) {		\
 	check_square(x, u.x - b->y);	\
 	check_square(y, b->x - u.y);	\
-}									
+}
 
 #define check_stair(uy)												\
 if (b->bottom >= u.bottom) {										\

@@ -39,9 +39,15 @@ private:
 public:
 	Object_Map_Block(string pName);
 	~Object_Map_Block() {};
-	
+
 	//# Static Item
-	list<RECT>			mApple;
+	list<RECT> mAbubonus;
+	list<RECT> mApple;
+	list<RECT> mBlack_Magic_Lamp;
+	list<RECT> mExtra_Health;
+	list<RECT> mGenie_Bonus;
+	list<RECT> mRestart_Point;
+	list<RECT> mSpend_These;
 
 	RECT				GetDistance(RECT u);
 	pair<bool, RECT>	GetRope(RECT u, float step);
