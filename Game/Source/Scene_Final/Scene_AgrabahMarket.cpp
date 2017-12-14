@@ -17,14 +17,18 @@
 
 #include "../../Define.h"
 
-#define Add_Block(index, object)	\
-Add(								\
-	index, 							\
-	new object(b.left, b.top)		\
-);									\
+#define Add_Block(index, type)					\
+for(auto &b : mMapBlock->m##type) {				\
+	Add(index, new Object_Unit_Static_##type(	\
+			(float)b.left,						\
+			(float)b.top						\
+		)										\
+	);											\
+	index++;									\
+}												
 
+#define a(v) mMapBlock->m##v
 void Scene_AgrabahMarket::AddBlock(int start) {
-	
 }
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() {
@@ -35,11 +39,8 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	Add(5000, new Object_Map_AgrabahMarket_Front());
 
 	//# Block
-	//int index = 4000;
-	//for (auto &b : mMapBlock->apple) {
-	//	Add_Block(index, Object_Unit_Static_Apple);
-	//	index++;
-	//}
+	int index = 4000;
+	Add_Block(index, Apple);
 
 	//# Unit
 	Add(2, new Object_Unit_Aladdin());
