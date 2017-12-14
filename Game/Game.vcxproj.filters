@@ -281,6 +281,9 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Restartpoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Health_Meter.h" />
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Number_L.h" />
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Number_S.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -388,6 +391,15 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Spendthese_Item.cpp">
       <Filter>Source\Object_Unit\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Status_Final\Object_Status_Health_Meter.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Status_Final\Object_Status_Number_L.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Status_Final\Object_Status_Number_S.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
