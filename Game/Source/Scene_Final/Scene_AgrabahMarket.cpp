@@ -17,24 +17,14 @@
 
 #include "../../Define.h"
 
-#define Add_Block(start, type, object)			\
-if (b.first == BlockType::type)					\
-Add(											\
-	start, 										\
-	new object(b.second.left, b.second.top)		\
-);												\
+#define Add_Block(index, object)	\
+Add(								\
+	index, 							\
+	new object(b.left, b.top)		\
+);									\
 
 void Scene_AgrabahMarket::AddBlock(int start) {
-	//	for (auto &b : mMapBlock) {
-	//		start++;
-	//		Add_Block(start, apple, Object_Unit_Static_Apple);
-	//		Add_Block(start, black_magiclamp, Object_Unit_Static_Black_Magiclamp);
-	//		Add_Block(start, geniebonus, Object_Unit_Static_Geniebonus);
-	//		Add_Block(start, spendthese_item, Object_Unit_Static_Spendthese_Item);
-	//		Add_Block(start, abubonus, Object_Unit_Static_Abubonus);
-	//		Add_Block(start, extrahealth, Object_Unit_Static_Extrahealth);
-	//		Add_Block(start, restartpoint, Object_Unit_Static_Restartpoint);
-	//	}
+	
 }
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() {
@@ -42,10 +32,14 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 
 	//# Map
 	Add(1, new Object_Map_AgrabahMarket_Back());
-	Add(1000, new Object_Map_AgrabahMarket_Front());
+	Add(5000, new Object_Map_AgrabahMarket_Front());
 
 	//# Block
-	//AddBlock(4000);
+	//int index = 4000;
+	//for (auto &b : mMapBlock->apple) {
+	//	Add_Block(index, Object_Unit_Static_Apple);
+	//	index++;
+	//}
 
 	//# Unit
 	Add(2, new Object_Unit_Aladdin());

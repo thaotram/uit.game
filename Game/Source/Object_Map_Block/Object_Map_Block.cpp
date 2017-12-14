@@ -3,48 +3,31 @@
 #include "../GameDebug.h"
 #include <math.h>
 
-struct Bool_RECT {
-	Bool_RECT() {};
-	Bool_RECT(
-		bool pLeft, bool pTop, bool pRight, bool pBottom
-	) : left(pLeft), top(pTop), right(pRight), bottom(pBottom) {};
-	bool left;
-	bool top;
-	bool right;
-	bool bottom;
-};
-
 //# Object_Map_Block
-#define add(type)					\
-json type = block[#type];			\
-for (auto& s : type) {				\
-	this->push_back(make_pair(		\
-		BlockType::type,			\
-		RECT{s[0],s[1],s[2],s[3]}	\
-	));								\
-}
-
-#define addTo(var, type)			\
-json type = block[#type];			\
-for (auto& s : type) {				\
-	var.push_back(					\
+#define add(kind)					\
+json kind = block[#kind];			\
+for (auto& s : kind) {				\
+	m##kind.push_back(				\
 		RECT{s[0],s[1],s[2],s[3]}	\
 	);								\
 }
 
 Object_Map_Block::Object_Map_Block(string pName) {
-	ifstream i("Resources/" + pName + ".json");
+	pName = "Resources/" + pName + ".json";
+	ifstream i(pName);
 	json j;
 	i >> j;
 
 	json block = j["block"];
 
-	addTo(mRope, rope);
-	addTo(mBar, bar);
+	add(Rope);
+	add(Bar);
 
-	addTo(mSquare, square);
-	addTo(mStairs_slash, stairs_slash);
-	addTo(mStairs_backslash, stairs_backslash);
+	add(Square);
+	add(Stairs_slash);
+	add(Stairs_backslash);
+
+	add(Apple);
 
 	//add(apple);
 	//add(abubonus);
@@ -56,69 +39,61 @@ Object_Map_Block::Object_Map_Block(string pName) {
 }
 
 //# GetDistance
-#define check_square(v, value)	\
-long v = value;					\
-out.v = (v >= 0 && (v < out.v || out.v == -1)) ? v : out.v
+#define check_square(v, value) long v = value; out.v = (v >= 0 && (v < out.v || out.v == -1)) ? v : out.v
 
 #define check_squares(x,y) {		\
 	check_square(x, u.x - b->y);	\
 	check_square(y, b->x - u.y);	\
+}									
+
+#define check_stair(uy)												\
+if (b->bottom >= u.bottom) {										\
+	LONG b_height = b->bottom - b->top;								\
+	LONG b_weight = b->right - b->left;								\
+	LONG u_y = max(uy, 0);											\
+	LONG u_x = min(b_height * u_y / b_weight, b_height);			\
+	out.bottom = min(out.bottom, (b->bottom - u_x) - u.bottom);		\
 }
 
 #define filter(var)										\
-for (auto &b : var) {									\
+for (auto &b : m##var) {								\
 	if_in(right, left) 		top_bottom.push_back(&b);	\
 	if_in(bottom, top)		left_right.push_back(&b);	\
-}
+}														\
 
 #define clearFilter()	\
 left_right.clear();		\
-top_bottom.clear();
+top_bottom.clear();		\
 
 #define if_in(x,y)	if(u.x > b.y && b.x > u.y)
+
 RECT Object_Map_Block::GetDistance(RECT u) {
-	Bool_RECT bout = { false, false, false, false };
 	RECT out = { -1,-1,-1,-1 };
 
-	//# Re Use
+	//# Filter
 	list<RECT *> left_right;
 	list<RECT *> top_bottom;
 
 	//# Square
-	filter(mSquare);
+	filter(Square);
 	for (auto &b : left_right)	check_squares(left, right);
 	for (auto &b : top_bottom)	check_squares(top, bottom);
 	clearFilter();
 
 	// Chỉ tỉnh toán bottom, không quan tâm các thể loại khác
 	//# Stairs Slash
-	filter(mStairs_slash);
-	for (auto &b : top_bottom) {
-		if (b->bottom >= u.bottom) {
-			LONG b_height = b->bottom - b->top;
-			LONG b_weight = b->right - b->left;
-			LONG u_y = max(u.right - b->left, 0);
-			LONG u_x = min(b_height * u_y / b_weight, b_height);
-			out.bottom = min(out.bottom, (b->bottom - u_x) - u.bottom);
-		}
-	}
+	filter(Stairs_slash);
+	for (auto &b : top_bottom)	check_stair(u.right - b->left);
 	clearFilter();
 
 	//# Stairs Backslash
-	filter(mStairs_backslash);
-	for (auto &b : top_bottom) {
-		if (b->bottom >= u.bottom) {
-			LONG b_height = b->bottom - b->top;
-			LONG b_weight = b->right - b->left;
-			LONG u_y = max(b->right - u.left, 0);
-			LONG u_x = min(b_height * u_y / b_weight, b_height);
-			out.bottom = min(out.bottom, (b->bottom - u_x) - u.bottom);
-		}
-	}
+	filter(Stairs_backslash);
+	for (auto &b : top_bottom)	check_stair(b->right - u.left);
 	clearFilter();
 	return out;
 }
 
+//# Get Rope
 pair<bool, RECT> Object_Map_Block::GetRope(RECT u, float step) {
 	bool is = false;
 	RECT out = { 0,0,0,0 };
@@ -134,6 +109,7 @@ pair<bool, RECT> Object_Map_Block::GetRope(RECT u, float step) {
 	return pair<bool, RECT>(is, out);
 }
 
+//# Get Bar
 pair<bool, RECT> Object_Map_Block::GetBar(RECT u, float step) {
 	bool is = false;
 	RECT out = { 0,0,0,0 };

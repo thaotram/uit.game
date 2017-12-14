@@ -31,16 +31,19 @@ class Object;
 
 class Object_Map_Block {
 private:
-	list<RECT> mRope;
-	list<RECT> mBar;
-	list<RECT> mSquare;
-	list<RECT> mStairs_slash;
-	list<RECT> mStairs_backslash;
+	list<RECT>			mRope;
+	list<RECT>			mBar;
+	list<RECT>			mSquare;
+	list<RECT>			mStairs_slash;
+	list<RECT>			mStairs_backslash;
 public:
 	Object_Map_Block(string pName);
 	~Object_Map_Block() {};
+	
+	//# Static Item
+	list<RECT>			mApple;
 
-	RECT			GetDistance(RECT u);
+	RECT				GetDistance(RECT u);
 	pair<bool, RECT>	GetRope(RECT u, float step);
 	pair<bool, RECT>	GetBar(RECT u, float step);
 };
