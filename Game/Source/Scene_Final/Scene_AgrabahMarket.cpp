@@ -27,6 +27,8 @@ for(auto &b : mMapBlock->m##name) {		\
 	));									\
 }
 
+
+
 Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	mMapBlock = new Object_Map_Block("AgrabahMarket_Block");
 
@@ -46,6 +48,5 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	Add(new Object_Unit_Aladdin());
 	Add(new Object_Map_AgrabahMarket_Front());
 
-	//# Status
 	Add(new Object_Status_Apple());
 }
