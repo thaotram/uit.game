@@ -28,7 +28,8 @@
 #define state	mAni.GetState()
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 4300, 46 };
+	mPos << V2{ 2200, 185 };
+	mPos << V2{ 2700, 640 };
 	mAni.Set("stand", 1);
 }
 
@@ -47,7 +48,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	float speedX = 200;
 	RECT dis = mBlk->GetDistance(unit);
 	pair<bool, RECT> rope = mBlk->GetRope(unit, speedX * dt);
-	pair<bool, RECT> bar = mBlk->GetWoodenBar(unit, mPos.y.mVelocity * dt);
+	pair<bool, RECT> bar = mBlk->GetBar(unit, mPos.y.mVelocity * dt);
 	isChangeX = isChangeY = true;
 
 
@@ -178,7 +179,8 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		if (!L && !R)	mAni.Set("stand", 1);
 		if (Z)			0; /// "run_throwapple" - thiếu
 		ef_(X)			mAni.Set("run_cut", 1, "run", 9);
-		ef_(C) {
+		ef_(C && dis.bottom == 0) {
+			// Phải ở dưới đấy thì mới được nhảy
 			C = false;
 			mAni.Set("run_jump", 1) && mPos.y.SetVelocity(-jump);
 		}
@@ -321,7 +323,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 			state != "climb_cut" &&
 			state != "climb_throwapple")){
 			// Đang nhảy lên
-			mBlk->GetWoodenBar(unit, mPos.y.mVelocity * dt);
+			mBlk->GetBar(unit, mPos.y.mVelocity * dt);
 			mPos.y << (float)bar.second.top + unitHeight;
 			mAni.Set("climb_still", 1);
 			isChangeY = false;
