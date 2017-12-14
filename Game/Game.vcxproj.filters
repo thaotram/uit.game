@@ -281,9 +281,15 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Restartpoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Status_Final\Object_Status_Health_Meter.h" />
-    <ClInclude Include="Source\Object_Status_Final\Object_Status_Number_L.h" />
-    <ClInclude Include="Source\Object_Status_Final\Object_Status_Number_S.h" />
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Health_Meter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Number_L.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Number_S.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -393,13 +399,13 @@
       <Filter>Source\Object_Unit\Static</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Health_Meter.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Status</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Number_L.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Status</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Number_S.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Status</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

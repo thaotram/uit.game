@@ -7,7 +7,7 @@
 using namespace std;
 class Object;
 
-class Scene : public map<int, Object *> {
+class Scene : public list<Object *> {
 private:
 	static Scene * mCurrentScene;
 public:
@@ -23,8 +23,9 @@ public:
 	void OnKeyUp(int pKeyCode);
 	void OnMouseDown(float pX, float pY) {};
 
-	void Add(int pName, Object * pObject);
-	void Remove(int pName);
+	void Add(list<Object *>::iterator pIt, Object * pObject);
+	void Add(Object * pObject);
+	void Remove(Object * pIt);
 
 	static void ReplaceScene(Scene * pScene);
 	static Scene * GetCurrentScene();

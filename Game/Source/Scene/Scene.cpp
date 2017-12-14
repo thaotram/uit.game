@@ -19,16 +19,16 @@ Scene * Scene::GetCurrentScene() {
 Scene::Scene() {}
 Scene::~Scene() {
 	for (auto &unit : *this) {
-		delete unit.second;
+		delete unit;
 	}
 }
 
-#define isRender	obj.second->mIsRender
-#define isUpdate	obj.second->mIsUpdate
+#define isRender	obj->mIsRender
+#define isUpdate	obj->mIsUpdate
 void Scene::SceneRender(float delay) {
 	for (auto &obj : *this) {
-		if (dynamic_cast<Object_Unit *>(obj.second)) {
-			auto pos = obj.second->GetPosition();
+		if (dynamic_cast<Object_Unit *>(obj)) {
+			auto pos = obj->GetPosition();
 			bool inCamera =
 				pos->x() + margin > mCamera.x &&
 				pos->x() - margin < mCamera.x + WIDTH &&
@@ -37,10 +37,10 @@ void Scene::SceneRender(float delay) {
 			if (inCamera) {
 				isRender = true;
 				isUpdate = true;
-				obj.second->ObjectUpdateEvent(delay);
+				obj->ObjectUpdateEvent(delay);
 			}
 			ef_(isUpdate) {		// !inCamera && isUpdate - Chỉ gọi một lần thôi
-				obj.second->ObjectUpdateEvent(delay);
+				obj->ObjectUpdateEvent(delay);
 				isUpdate = false;
 			}
 			else {				// !inCamera && !isUpdate
@@ -48,12 +48,12 @@ void Scene::SceneRender(float delay) {
 			}
 		}
 		else {
-			obj.second->ObjectUpdateEvent(delay);
+			obj->ObjectUpdateEvent(delay);
 		}
 	}
 	for (auto &obj : *this) {
 		if (isRender == true) {
-			obj.second->ObjectRender(delay);
+			obj->ObjectRender(delay);
 		}
 	}
 }
@@ -61,17 +61,16 @@ void Scene::SceneRender(float delay) {
 void Scene::OnKeyDown(int pKeyCode) {}
 void Scene::OnKeyUp(int pKeyCode) {}
 
-void Scene::Add(int pName, Object * pObject) {
-	(*this)[pName] = pObject;
+void Scene::Add(list<Object *>::iterator pIt, Object * pObject) {
+	(*this).insert(pIt, pObject);
 	pObject->mScene = this;
 	pObject->AfterAddToScene();
 }
 
-void Scene::Remove(int pName) {
-	for (map<int, Object *>::iterator it = this->begin(); it != this->end(); it++) {
-		if ((it->first) == pName) {
-			this->erase(it);
-			break;
-		}
-	}
+void Scene::Add(Object * pObject) {
+	Add(this->end(), pObject);
+}
+
+void Scene::Remove(Object * pObject){
+	this->remove(pObject);
 }
