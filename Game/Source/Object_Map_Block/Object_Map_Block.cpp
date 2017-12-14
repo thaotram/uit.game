@@ -134,11 +134,13 @@ pair<bool, RECT> Object_Map_Block::GetWoodenBar(RECT u, float step) {
 		if (b.first == BlockType::woodenbar) {
 			if (u.left >= b.second.left &&
 				u.right <= b.second.right &&
-				u.top - 35 <= b.second.top && 
-				step >= 0) {
+				u.top <= b.second.top &&
+				u.bottom > b.second.bottom && 
+				u.top + step >= b.second.top && step >= 0) {
 				is = true;
-				out = b.second;
-				break;
+				if (b.second.top < out.top || out.top == 0) {
+					out = b.second;
+				}
 			}
 		}
 	}

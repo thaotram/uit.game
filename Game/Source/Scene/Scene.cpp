@@ -1,7 +1,9 @@
-#include "Scene.h"
+﻿#include "Scene.h"
 #include "../Object/Object.h"
 #include "../Object_Unit/Object_Unit.h"
 
+#define ef_ else if
+#define margin 100
 Scene * Scene::mCurrentScene = NULL;
 
 //! Static Public
@@ -21,39 +23,37 @@ Scene::~Scene() {
 	}
 }
 
+#define isRender	obj.second->mIsRender
+#define isUpdate	obj.second->mIsUpdate
 void Scene::SceneRender(float delay) {
-	for (auto &unit : *this) {
-		//if (dynamic_cast<Object_Unit *>(pObject)) {
-		//	auto bb = pObject->GetBound();
-		//	if (bb.left < mCamera.x + WIDTH &&
-		//		bb.right > mCamera.x &&
-		//		bb.top < mCamera.y + HEIGHT &&
-		//		bb.bottom > mCamera.y) {
-		//		pObject->ObjectUpdateEvent(delay);
-		//	}
-		//}
-		//else {
-		//}
-		unit.second->ObjectUpdateEvent(delay);
-	}
-	for (auto &unit : *this) {
-		if (dynamic_cast<Object_Unit *>(unit.second)) {
-			//auto bb = unit.second->GetBound();
-			//if (bb.left < mCamera.x + WIDTH &&
-			//	bb.right > mCamera.x &&
-			//	bb.top < mCamera.y + HEIGHT &&
-			//	bb.bottom > mCamera.y) {
-			//}
-			auto pos = unit.second->GetPosition();
-			if (pos->x() > mCamera.x &&
-				pos->x() < mCamera.x + WIDTH &&
-				pos->y() > mCamera.y &&
-				pos->y() < mCamera.y + HEIGHT) {
-				unit.second->ObjectRender(delay);
+	for (auto &obj : *this) {
+		if (dynamic_cast<Object_Unit *>(obj.second)) {
+			auto pos = obj.second->GetPosition();
+			bool inCamera =
+				pos->x() + margin > mCamera.x &&
+				pos->x() - margin < mCamera.x + WIDTH &&
+				pos->y() + margin > mCamera.y &&
+				pos->y() - margin < mCamera.y + HEIGHT;
+			if (inCamera) {
+				isRender = true;
+				isUpdate = true;
+				obj.second->ObjectUpdateEvent(delay);
+			}
+			ef_(isUpdate) {		// !inCamera && isUpdate - Chỉ gọi một lần thôi
+				obj.second->ObjectUpdateEvent(delay);
+				isUpdate = false;
+			}
+			else {				// !inCamera && !isUpdate
+				isRender = false;
 			}
 		}
 		else {
-			unit.second->ObjectRender(delay);
+			obj.second->ObjectUpdateEvent(delay);
+		}
+	}
+	for (auto &obj : *this) {
+		if (isRender == true) {
+			obj.second->ObjectRender(delay);
 		}
 	}
 }

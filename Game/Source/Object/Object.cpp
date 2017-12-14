@@ -12,6 +12,9 @@ Object::Object(string pName) : mName(pName) {
 
 	mCurrentTime = 0;
 	mTimePerFrame = 0.06f;
+
+	mIsRender = true;
+	mIsUpdate = true;
 }
 void Object::ObjectRender(float delay) {
 	ObjectUpdateProperties(delay);

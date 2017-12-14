@@ -26,16 +26,14 @@ int InitializeDevice();
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 //! Entry point
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int cmdShow)
-{
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int cmdShow) {
 	GameGlobal::SetHINSTACE(hInstance);
 	InitializeWindow(cmdShow);
 	return 0;
 }
 
 // Được gọi trong hàm main
-void InitializeWindow(int cmdShow)
-{
+void InitializeWindow(int cmdShow) {
 	WNDCLASSEX wc;
 	wc.cbSize = sizeof(WNDCLASSEX);
 
@@ -79,15 +77,13 @@ void InitializeWindow(int cmdShow)
 		GameGlobal::GetHWND()
 	);
 
-	if (InitializeDevice())
-	{
+	if (InitializeDevice()) {
 		new Game();
 	}
 }
 
 // Được gọi trong hàm InitializeWindow trong hàm main
-int InitializeDevice()
-{
+int InitializeDevice() {
 	D3DPRESENT_PARAMETERS d3dpp;
 	LPD3DXSPRITE pSpriteHandler;
 	D3DXMATRIX pTransform;
@@ -130,8 +126,7 @@ int InitializeDevice()
 #define KEY GameGlobal::Input[GameGlobal::InputMap[wParam]]
 #define REAL GameGlobal::InputReal[GameGlobal::InputMap[wParam]]
 // Được gọi trong hàm InitializeWindow trong hàm main
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
-{
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	// Message ở đây là các event của windows
 	switch (message)
 	{
@@ -155,6 +150,5 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
-
 	return 0;
 }

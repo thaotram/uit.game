@@ -48,6 +48,12 @@
     <Filter Include="Source\Object_Status">
       <UniqueIdentifier>{a74ba347-6a0b-4197-8aa1-7853a6a122d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Object_Unit\Static">
+      <UniqueIdentifier>{6ed94f50-ce13-41e0-b759-84beccfa8bf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Block">
+      <UniqueIdentifier>{e7221f6f-a3ab-44ce-b7d7-9f290de8582d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -99,7 +105,9 @@
     <None Include="Resources\AgrabahMarket_Front.json">
       <Filter>Resource Files\Map</Filter>
     </None>
-    <None Include="Resources\AgrabahMarket_Block.json" />
+    <None Include="Resources\AgrabahMarket_Block.json">
+      <Filter>Resource Files\Block</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -150,9 +158,6 @@
     <Image Include="Resources\Debug.png">
       <Filter>Resource Files\Debug</Filter>
     </Image>
-    <Image Include="Resources\Stick.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="Resources\AgrabahMarket_Front.png">
       <Filter>Resource Files\Map</Filter>
     </Image>
@@ -161,6 +166,9 @@
     </Image>
     <Image Include="Resources\AgrabahMarket_Cloud.png">
       <Filter>Resource Files\Map</Filter>
+    </Image>
+    <Image Include="Resources\Stick.png">
+      <Filter>Resource Files\Unit</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -360,26 +368,26 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Apple.cpp">
       <Filter>Source\Object_Unit</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Abubonus.cpp">
+      <Filter>Source\Object_Unit\Static</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.cpp">
-      <Filter>Source\Object_Unit</Filter>
+      <Filter>Source\Object_Unit\Static</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Black_Magiclamp.cpp">
-      <Filter>Source\Object_Unit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Geniebonus.cpp">
-      <Filter>Source\Object_Unit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Spendthese_Item.cpp">
-      <Filter>Source\Object_Unit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Restartpoint.cpp">
-      <Filter>Source\Object_Unit</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Abubonus.cpp">
-      <Filter>Source\Object_Unit</Filter>
+      <Filter>Source\Object_Unit\Static</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Extrahealth.cpp">
-      <Filter>Source\Object_Unit</Filter>
+      <Filter>Source\Object_Unit\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Geniebonus.cpp">
+      <Filter>Source\Object_Unit\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Restartpoint.cpp">
+      <Filter>Source\Object_Unit\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Spendthese_Item.cpp">
+      <Filter>Source\Object_Unit\Static</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

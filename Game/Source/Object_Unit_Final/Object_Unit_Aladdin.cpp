@@ -1,6 +1,7 @@
 ﻿#include "Object_Unit_Aladdin.h"
 #include "../Object_Unit_Final/Object_Unit_Apple.h"
 #include "../GameDebug.h"
+#include "../../Define.h"
 
 #define ef_ else if
 #define I GameGlobal::Input
@@ -21,13 +22,13 @@
 #define xx mPos.x()
 #define yy mPos.y()
 
-#define jump	350
+#define jump	380
 #define speedY	100
 
 #define state	mAni.GetState()
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 4600, 600 };
+	mPos << V2{ 4300, 46 };
 	mAni.Set("stand", 1);
 }
 
@@ -37,9 +38,9 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 
 	//# Global
 	RECT unit = RECT{
-		(LONG)xx - 15,
-		(LONG)yy - 55,
-		(LONG)xx + 15,
+		(LONG)xx - unitWidth / 2,
+		(LONG)yy - unitHeight,
+		(LONG)xx + unitWidth / 2,
 		(LONG)yy
 	};
 
@@ -48,6 +49,9 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	pair<bool, RECT> rope = mBlk->GetRope(unit, speedX * dt);
 	pair<bool, RECT> bar = mBlk->GetWoodenBar(unit, mPos.y.mVelocity * dt);
 	isChangeX = isChangeY = true;
+
+
+	GameDebug::Title(bar.first);
 
 	//# Each State
 	if (state == "") {
@@ -174,7 +178,10 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		if (!L && !R)	mAni.Set("stand", 1);
 		if (Z)			0; /// "run_throwapple" - thiếu
 		ef_(X)			mAni.Set("run_cut", 1, "run", 9);
-		ef_(C)			mAni.Set("run_jump", 1) && mPos.y.SetVelocity(-jump);
+		ef_(C) {
+			C = false;
+			mAni.Set("run_jump", 1) && mPos.y.SetVelocity(-jump);
+		}
 	}
 	ef_(state == "run_cut") {
 		mTimePerFrame = 0.06f;
@@ -212,15 +219,20 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		//if (Z) mAni.Set("jump_thowapple", 1, "run_jump", 1);
 		if (X) mAni.Set("jump_cut", 1, "run_jump", 1);
 	}
+
+	//# Climb (still, vertical, horizontal, cut, jump, throwapple)
 	ef_(state == "climb_still") {
 		mTimePerFrame = 0.15f;
 		mAutoNextFrame = true;
 		isChangeX = isChangeY = false;
-		if (L || R)				mAni.Set("climb_horizontal", 1);
-		ef_(Z)		mAni.Set("climb_throwapple", 1, "climb_still", 1);
-		ef_(X)		mAni.Set("climb_cut", 1, "climb_still", 1);
-		ef_(C) {
-			mAutoNextFrame = false;
+		if (L || R)			mAni.Set("climb_horizontal", 1);
+		ef_(Z)				mAni.Set("climb_throwapple", 1, "climb_still", 1);
+		ef_(X)				mAni.Set("climb_cut", 1, "climb_still", 1);
+		ef_(C || bar.first == false) {
+			C = false;
+			bar.first = false;
+			mAutoNextFrame = false;	
+			mPos.y << mPos.y() + 1;
 			mAni.Set("stand_jump", 1);
 		}
 	}
@@ -252,15 +264,18 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	}
 	ef_(state == "climb_horizontal") {
 		mTimePerFrame = 0.06f;
-		speedX = 80;
+		speedX = 100;
 		mAutoNextFrame = true;
 		isChangeY = false;
 
-		if (!L && !R)			mAni.Set("climb_still", 1);
-		ef_(Z)		mAni.Set("climb_throwapple", 1, "climb_still", 1);
-		ef_(X)		mAni.Set("climb_cut", 1, "climb_still", 1);
+		if (!L && !R)		mAni.Set("climb_still", 1);
+		ef_(Z)				mAni.Set("climb_throwapple", 1, "climb_still", 1);
+		ef_(X)				mAni.Set("climb_cut", 1, "climb_still", 1);
 		ef_(C) {
+			C = false;
+			bar.first = false;
 			mAutoNextFrame = false;
+			mPos.y << mPos.y() + 1;
 			mAni.Set("stand_jump", 1);
 		}
 	}
@@ -301,13 +316,15 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		}
 	}
 	ef_(bar.first) {
-		if (state != "climb_still" &&
+		if((state != "climb_still" &&
 			state != "climb_horizontal" &&
 			state != "climb_cut" &&
-			state != "climb_throwapple" &&
-			state != "stand_jump") {
-			mPos.y << (float)bar.second.top + 87;
+			state != "climb_throwapple")){
+			// Đang nhảy lên
+			mBlk->GetWoodenBar(unit, mPos.y.mVelocity * dt);
+			mPos.y << (float)bar.second.top + unitHeight;
 			mAni.Set("climb_still", 1);
+			isChangeY = false;
 		}
 	}
 	else {

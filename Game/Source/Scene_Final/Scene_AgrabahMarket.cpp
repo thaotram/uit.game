@@ -43,14 +43,14 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 
 	//# Map
 	Add(1, new Object_Map_AgrabahMarket_Back());
-	Add(10000, new Object_Map_AgrabahMarket_Front());
+	Add(1000, new Object_Map_AgrabahMarket_Front());
 	
 	//# Block 
-	AddBlock(4000);
+	//AddBlock(4000);
 	
 	//# Unit
-	Add(5000, new Object_Unit_Aladdin());
+	Add(2, new Object_Unit_Aladdin());
 	
 	//# Status
-	Add(9000, new Object_Status_Apple());
+	//Add(1200, new Object_Status_Apple());
 }

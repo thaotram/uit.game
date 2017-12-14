@@ -34,6 +34,8 @@ public:
 	~Object() {};
 
 	Scene		 * mScene;
+	bool		 mIsRender;
+	bool		 mIsUpdate;
 
 	virtual void AfterAddToScene() {};
 			void ObjectRender(float delay);

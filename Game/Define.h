@@ -12,6 +12,9 @@
 #define MAP_HEIGHT 686
 #define MAP_WIDTH 4771
 
+#define unitHeight 87
+#define unitWidth 30
+
 #define V2 D3DXVECTOR2
 
 enum {
