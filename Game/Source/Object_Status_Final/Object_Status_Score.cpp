@@ -1,12 +1,13 @@
 #include "Object_Status_Score.h"
+#define mAni	mAnimation
+#define mPos	mPosition
+#define speedX	490
 
 
-
-Object_Status_Score::Object_Status_Score()
-{
+Object_Status_Score::Object_Status_Score() : Object_Status("Status") {
+	mAni.Set("s_apple", 1);
 }
 
-
-Object_Status_Score::~Object_Status_Score()
-{
+void Object_Status_Score::ObjectUpdateEvent(float delay) {
+	mPos << mScene->mCamera.VECTOR2() + V2{ 0  , 0 };
 }

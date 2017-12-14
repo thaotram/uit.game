@@ -3,7 +3,11 @@
 #define mPos	mPosition
 #define speedX	490
 
+
 Object_Status_Apple::Object_Status_Apple() : Object_Status("Status") {
-	mPos << V2{ 200  , 600 };
 	mAni.Set("s_apple", 1);
+}
+
+void Object_Status_Apple::ObjectUpdateEvent(float delay){
+	mPos << mScene->mCamera.VECTOR2()+ V2{ 270  , 192 };
 }

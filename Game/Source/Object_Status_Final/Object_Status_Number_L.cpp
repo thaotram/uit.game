@@ -4,6 +4,10 @@
 #define speedX	490
 
 Object_Status_Number_L::Object_Status_Number_L() : Object_Status("Status") {
-	mPos << V2{ 200  , 600 };
 	mAni.Set("number_l", 1);
+}
+
+void Object_Status_Number_L::ObjectUpdateEvent(float delay)
+{
+	mPos << mScene->mCamera.VECTOR2()+ V2{ 0  , 0 };
 }

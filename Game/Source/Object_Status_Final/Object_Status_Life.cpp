@@ -4,6 +4,10 @@
 #define mPos	mPosition
 #define speedX	490
 Object_Status_Life::Object_Status_Life() : Object_Status("Status") {
-	mPos << V2{ 200  , 600 };
-	mAni.Set("s_apple", 1);
+	mAni.Set("1up", 1);
+}
+
+void Object_Status_Life::ObjectUpdateEvent(float delay)
+{
+	mPos << mScene->mCamera.VECTOR2() + V2{ 17  , 184 };
 }

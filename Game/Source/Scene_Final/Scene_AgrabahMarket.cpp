@@ -15,6 +15,7 @@
 #include "../Object_Unit_Final/Object_Unit_Static_Spend_These.h"
 
 #include "../Object_Status_Final/Object_Status_Apple.h"
+#include "../Object_Status_Final/Object_Status_Life.h"
 
 #include "../../Define.h"
 
@@ -44,4 +45,7 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	//# Unit
 	Add(new Object_Unit_Aladdin());
 	Add(new Object_Map_AgrabahMarket_Front());
+
+	//# Status
+	Add(new Object_Status_Apple());
 }
