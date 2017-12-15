@@ -25,7 +25,7 @@
 #define state	mAni.GetState()
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 1530, 415 };
+	mPos << V2{ 50, 600 };
 	mAni.Set("stand", 1);
 }
 

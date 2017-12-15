@@ -20,6 +20,15 @@
 #include "../Object_Status_Final/Object_Status_Health_Meter.h"
 #include "../Object_Status_Final/Object_Status_Magic_Lamp.h"
 
+#include "../Object_Unit_Final/Object_Unit_Enemy_Assassin.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Circus.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Fat.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Pirates.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Straw.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Thin.h"
+#include "../Object_Unit_Final/Object_Unit_NPC_Camel.h"
+#include "../Object_Unit_Final/Object_Unit_NPC_Peddler.h"
+
 #include "../../Define.h"
 
 #define Add_Static(name)				\
@@ -55,4 +64,17 @@ Scene_AgrabahMarket::Scene_AgrabahMarket(): Scene() {
 	//Add(new Object_Status_Apple());
 	Add(new Object_Status_Magic_Lamp());
 	Add(new Object_Status_Health_Meter(mBlood));
+
+	//# Enemy
+	/*Add(new Object_Unit_Enemy_Assassin(, , ));
+	Add(new Object_Unit_Enemy_Circus(, , ));
+	Add(new Object_Unit_Enemy_Fat(, , ));
+	Add(new Object_Unit_Enemy_Pirates(, , ));
+	Add(new Object_Unit_Enemy_Straw(, , ));*/
+	Add(new Object_Unit_Enemy_Thin(590, 758, 624));
+
+	//# NPC
+	Add(new Object_Unit_NPC_Camel(1545, 1578, 648));
+	//Add(new Object_Unit_NPC_Peddler(, , ));
+
 }
