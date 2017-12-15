@@ -32,9 +32,9 @@ for(auto &b : mMapBlock->m##name) {		\
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	mMapBlock = new Object_Map_Block("AgrabahMarket_Block");
-	auto b = new Object_Map_AgrabahMarket_Back();
+	
 	//# Map
-	Add(b);
+	Add(new Object_Map_AgrabahMarket_Back());
 
 	//# Block
 	Add_Static(Abubonus);

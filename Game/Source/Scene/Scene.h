@@ -9,7 +9,7 @@ class Object;
 
 class Scene : public list<Object *> {
 private:
-	static Scene * mCurrentScene;
+	static Scene *	mCurrentScene;
 public:
 	Scene();
 	~Scene();
@@ -23,8 +23,8 @@ public:
 	void OnKeyUp(int pKeyCode);
 	void OnMouseDown(float pX, float pY) {};
 
-	void Add(list<Object *>::iterator pIt, Object * pObject);
-	void Add(Object * pObject);
+	list<Object *>::iterator Add(list<Object *>::iterator pIt, Object * pObject);
+	list<Object *>::iterator Add(Object * pObject);
 	void Remove(Object * pIt);
 
 	static void ReplaceScene(Scene * pScene);

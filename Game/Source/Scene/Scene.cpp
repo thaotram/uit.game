@@ -38,7 +38,7 @@ void Scene::SceneRender(float delay) {
 				isUpdate = true;
 				obj->ObjectUpdateEvent(delay);
 			}
-			else if(isUpdate) {		// !inCamera && isUpdate - Chỉ gọi một lần thôi
+			else if (isUpdate) {		// !inCamera && isUpdate - Chỉ gọi một lần thôi
 				obj->ObjectUpdateEvent(delay);
 				isUpdate = false;
 			}
@@ -60,16 +60,16 @@ void Scene::SceneRender(float delay) {
 void Scene::OnKeyDown(int pKeyCode) {}
 void Scene::OnKeyUp(int pKeyCode) {}
 
-void Scene::Add(list<Object *>::iterator pIt, Object * pObject) {
-	(*this).insert(pIt, pObject);
+list<Object *>::iterator Scene::Add(list<Object *>::iterator pIt, Object * pObject) {
 	pObject->mScene = this;
 	pObject->AfterAddToScene();
+	return insert(pIt, pObject);
 }
 
-void Scene::Add(Object * pObject) {
-	Add(this->end(), pObject);
+list<Object *>::iterator Scene::Add(Object * pObject) {
+	return Add(end(), pObject);
 }
 
-void Scene::Remove(Object * pObject){
+void Scene::Remove(Object * pObject) {
 	this->remove(pObject);
 }
