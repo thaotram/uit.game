@@ -9,8 +9,7 @@
 #define yy mPos.y()
 
 //# Quả táo dùng để ném đi
-Object_Unit_Apple::Object_Unit_Apple(float x, float y, bool flip) : Object_Unit("Aladdin") {
-	mFlip = flip;
+Object_Unit_Apple::Object_Unit_Apple(float x, float y) : Object_Unit("Aladdin") {
 	mPos << V2{ x , y };
 	mAni.Set("apple", 1);
 	mTimePerFrame = 0.03f;
@@ -27,7 +26,7 @@ void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
 		(LONG)xx + 3,
 		(LONG)yy
 	};
-	tDis = mBlock->GetDistance(tUnit);
+	tDis = mBlock->GetDistance(tUnit, this);
 
 	if(tDis.bottom != 0){
 		mPos.x += tSpeedX * dt * (mFlip ? -1 : 1);
@@ -44,9 +43,10 @@ void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
 	}
 }
 
-void Object_Unit_Apple::ThrowApple() {
+void Object_Unit_Apple::ThrowApple(bool pFlip) {
 	if (mIsThrow) return;
 
+	mFlip = pFlip;
 	mIsThrow = true;
 	mAni.SetCycleIndex(2);
 }

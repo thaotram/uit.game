@@ -47,7 +47,7 @@ public:
 	list<RECT> mRestart_Point;
 	list<RECT> mSpend_These;
 
-	RECT				GetDistance(RECT u);
+	RECT				GetDistance(RECT u, Object * pUnit);
 	void				UpdateStairState(RECT u);
 	pair<bool, RECT>	GetRope(RECT u, float step);
 	pair<bool, RECT>	GetBar(RECT u, float step);

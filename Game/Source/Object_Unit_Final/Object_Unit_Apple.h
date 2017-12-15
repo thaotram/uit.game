@@ -9,11 +9,11 @@ private:
 	RECT tUnit;
 	bool mFlip;
 public:
-	Object_Unit_Apple(float x, float y, bool flip);
+	Object_Unit_Apple(float x, float y);
 	~Object_Unit_Apple() {};
 
 	bool mIsThrow;
 	void ObjectUpdateEvent(float dt);
-	void ThrowApple();
+	void ThrowApple(bool flip);
 };
 
