@@ -10,6 +10,7 @@ Object_Unit_Static_Black_Magic_Lamp::Object_Unit_Static_Black_Magic_Lamp(float x
 void Object_Unit_Static_Black_Magic_Lamp::ObjectIntersect(Object * pObject)
 {
 	mAutoNextFrame = true;
+	mScene->AddToRemoveList(this);
 }
 
 void Object_Unit_Static_Black_Magic_Lamp::ObjectUpdateEvent(float dt)

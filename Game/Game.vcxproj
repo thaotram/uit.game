@@ -160,6 +160,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Assassin.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Circus.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Fat.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Straw.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Camel.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Peddler.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Pirates.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Thin.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Block_Drop.h" />
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Magic_Lamp.h" />
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Number_L.h" />
@@ -203,6 +211,14 @@
     <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Assassin.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Circus.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Fat.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Straw.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Camel.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Peddler.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Pirates.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Thin.cpp" />
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Magic_Lamp.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Block_Drop.cpp" />
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Number_L.cpp" />

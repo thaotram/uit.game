@@ -5,7 +5,6 @@ Object_Unit_Static_Spend_These::Object_Unit_Static_Spend_These(float x, float y)
 	mPos << V2{ x , y };
 	mAni.Set("spendthese_item", 1);
 	mAutoNextFrame = true;
-	mIs = false;
 }
 
 void Object_Unit_Static_Spend_These::ObjectUpdateEvent(float dt)
@@ -14,11 +13,8 @@ void Object_Unit_Static_Spend_These::ObjectUpdateEvent(float dt)
 
 void Object_Unit_Static_Spend_These::ObjectIntersect(Object * pObject)
 {
-	mAni.SetCycleIndex(10);
-	if (!mIs) {
-		mIs = true;
-		mScene->mSpendthese++;
-		mAutoNextFrame = false;
-	}
-
+	mScene->mSpendthese++;
+	mScene->mScore += 150;
+	mScene->AddToRemoveList(this);
+	//mAutoNextFrame = false;
 }

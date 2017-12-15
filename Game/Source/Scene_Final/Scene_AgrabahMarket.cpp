@@ -20,6 +20,15 @@
 #include "../Object_Status_Final/Object_Status_Health_Meter.h"
 #include "../Object_Status_Final/Object_Status_Magic_Lamp.h"
 
+#include "../Object_Unit_Final/Object_Unit_Enemy_Assassin.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Circus.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Fat.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Pirates.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Straw.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Thin.h"
+#include "../Object_Unit_Final/Object_Unit_NPC_Camel.h"
+#include "../Object_Unit_Final/Object_Unit_NPC_Peddler.h"
+
 #include "../../Define.h"
 
 #define Add_Static(name)				\
@@ -30,21 +39,21 @@ for(auto &b : mMapBlock->m##name) {		\
 	));									\
 }
 
-Scene_AgrabahMarket::Scene_AgrabahMarket() {
+Scene_AgrabahMarket::Scene_AgrabahMarket(): Scene() {
 	mMapBlock = new Object_Map_Block("AgrabahMarket_Block");
-
+	
 	//# Map
 	Add(new Object_Map_AgrabahMarket_Back());
 
 	//# Block
-	//Add_Static(Abubonus);
-	//Add_Static(Apple);
-	//Add_Static(Black_Magic_Lamp);
+	Add_Static(Abubonus);
+	Add_Static(Apple);
+	Add_Static(Black_Magic_Lamp);
 	Add_Static(Block_Drop);
-	//Add_Static(Extra_Health);
-	//Add_Static(Genie_Bonus);
-	//Add_Static(Restart_Point);
-	//Add_Static(Spend_These);
+	Add_Static(Extra_Health);
+	Add_Static(Genie_Bonus);
+	Add_Static(Restart_Point);
+	Add_Static(Spend_These);
 
 	//# Unit
 	Add(new Object_Unit_Aladdin(), itPlayer);
@@ -53,6 +62,19 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	//# Status
 	/// Phần này để cho Huyền làm
 	//Add(new Object_Status_Apple());
-	//Add(new Object_Status_Magic_Lamp());
-	//Add(new Object_Status_Health_Meter(1));
+	Add(new Object_Status_Magic_Lamp());
+	Add(new Object_Status_Health_Meter(mBlood));
+
+	//# Enemy
+	/*Add(new Object_Unit_Enemy_Assassin(, , ));
+	Add(new Object_Unit_Enemy_Circus(, , ));
+	Add(new Object_Unit_Enemy_Fat(, , ));
+	Add(new Object_Unit_Enemy_Pirates(, , ));
+	Add(new Object_Unit_Enemy_Straw(, , ));*/
+	Add(new Object_Unit_Enemy_Thin(590, 758, 624));
+
+	//# NPC
+	Add(new Object_Unit_NPC_Camel(1545, 1578, 648));
+	//Add(new Object_Unit_NPC_Peddler(, , ));
+
 }

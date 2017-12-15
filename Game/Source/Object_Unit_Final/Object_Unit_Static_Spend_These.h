@@ -3,8 +3,6 @@
 #include "../Scene/Scene.h"
 
 class Object_Unit_Static_Spend_These final : public Object_Unit {
-private:
-	bool mIs;
 public:
 	Object_Unit_Static_Spend_These(float x, float y);
 	~Object_Unit_Static_Spend_These() {};
