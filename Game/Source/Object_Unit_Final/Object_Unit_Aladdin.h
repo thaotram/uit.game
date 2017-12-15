@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "../Object_Unit/Object_Unit.h"
+#include "../Object_Unit_Final/Object_Unit_Apple.h"
 #include "../Scene/Scene.h"
 
 class Object_Unit_Aladdin final : public Object_Unit {

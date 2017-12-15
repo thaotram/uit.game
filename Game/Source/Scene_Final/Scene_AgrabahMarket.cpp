@@ -47,10 +47,11 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	Add_Static(Spend_These);
 
 	//# Unit
-	Add(new Object_Unit_Aladdin());
+	itPlayer = Add(new Object_Unit_Aladdin());
 	Add(new Object_Map_AgrabahMarket_Front());
 
 	//# Status
+	/// Phần này để cho Huyền làm
 	Add(new Object_Status_Apple());
 	Add(new Object_Status_Magic_Lamp());
 	Add(new Object_Status_Health_Meter(1));

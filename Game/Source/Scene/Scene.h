@@ -17,6 +17,8 @@ public:
 	Vector mCamera;
 	Object_Map_Block * mMapBlock;
 
+	list<Object *>::iterator itPlayer;
+
 	void SceneRender(float delay);
 
 	void OnKeyDown(int pKeyCode);

@@ -66,6 +66,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (Z) {
 			Z = false;
 			mAni.Set("stand_throwapple", 1, "stand", 1);
+			mScene->Add(mScene->itPlayer, new Object_Unit_Apple(xx, yy, true));
 		}
 		else if (X) {
 			X = false;
@@ -97,7 +98,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		}
 		else if (
 			tDis.bottom < 20
-			&& mPos.y.mVelocity >= 0	
+			&& mPos.y.mVelocity >= 0
 			&& !mAutoNextFrame
 			) {
 			mAutoNextFrame = true;
@@ -288,7 +289,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mAutoNextFrame = true;
 		tIsChangeY = false;
 
-		if (!L && !R)		mAni.Set("climb_still", 1);
+		if (!L && !R)			mAni.Set("climb_still", 1);
 		else if (Z)				mAni.Set("climb_throwapple", 1, "climb_still", 1);
 		else if (X)				mAni.Set("climb_cut", 1, "climb_still", 1);
 		else if (C) {

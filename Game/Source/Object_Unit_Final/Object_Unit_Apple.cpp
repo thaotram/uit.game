@@ -6,7 +6,7 @@ Object_Unit_Apple::Object_Unit_Apple(float x, float y, bool flip) : Object_Unit(
 	mPos << V2{ x , y };
 	//mPos << V2{ 1900, 400 };
 	mFlip = flip;
-	mAni.Set("apple", 1);
+	mAni.Set("apple", 2);
 	mAutoNextFrame = false;
 }
 
