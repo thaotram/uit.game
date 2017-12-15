@@ -1,7 +1,7 @@
 #include "Object_Unit_Apple.h"
 #define mAni	mAnimation
 #define mPos	mPosition
-#define speedX	490
+#define tSpeedX	490
 Object_Unit_Apple::Object_Unit_Apple(float x, float y, bool flip) : Object_Unit("Aladdin") {
 	mPos << V2{ x , y };
 	//mPos << V2{ 1900, 400 };
@@ -18,7 +18,7 @@ void Object_Unit_Apple::ObjectUpdateEvent(float dt)
 	}
 
 	if (mAutoNextFrame) {
-		mPos.x += speedX * dt * (mFlip ? -1 : 1);
+		mPos.x += tSpeedX * dt * (mFlip ? -1 : 1);
 		mPos.y = MAP_HEIGHT;
 
 		mPos.x.Update(dt);

@@ -2,7 +2,6 @@
 
 #define mAni	mAnimation
 #define mPos	mPosition
-#define speedX	490
 Object_Status_Life::Object_Status_Life() : Object_Status("Status") {
 	mAni.Set("1up", 1);
 }

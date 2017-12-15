@@ -2,7 +2,6 @@
 #include "../Object/Object.h"
 #include "../Object_Unit/Object_Unit.h"
 
-#define ef_ else if
 #define margin 100
 Scene * Scene::mCurrentScene = NULL;
 
@@ -18,8 +17,8 @@ Scene * Scene::GetCurrentScene() {
 //! Public
 Scene::Scene() {}
 Scene::~Scene() {
-	for (auto &unit : *this) {
-		delete unit;
+	for (auto &tUnit : *this) {
+		delete tUnit;
 	}
 }
 
@@ -39,7 +38,7 @@ void Scene::SceneRender(float delay) {
 				isUpdate = true;
 				obj->ObjectUpdateEvent(delay);
 			}
-			ef_(isUpdate) {		// !inCamera && isUpdate - Chỉ gọi một lần thôi
+			else if(isUpdate) {		// !inCamera && isUpdate - Chỉ gọi một lần thôi
 				obj->ObjectUpdateEvent(delay);
 				isUpdate = false;
 			}

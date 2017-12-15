@@ -1,7 +1,6 @@
 #include "Object_Status_Score.h"
 #define mAni	mAnimation
 #define mPos	mPosition
-#define speedX	490
 
 
 Object_Status_Score::Object_Status_Score() : Object_Status("Status") {

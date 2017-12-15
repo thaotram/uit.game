@@ -1,7 +1,6 @@
 #include "Object_Status_Spendthese.h"
 #define mAni	mAnimation
 #define mPos	mPosition
-#define speedX	490
 
 
 Object_Status_Spendthese::Object_Status_Spendthese() : Object_Status("Status") {

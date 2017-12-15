@@ -3,7 +3,6 @@
 #include "../GameDebug.h"
 #include "../../Define.h"
 
-#define ef_ else if
 #define I GameGlobal::Input
 #define L I[LEFT]
 #define U I[UP]
@@ -16,342 +15,331 @@
 #define mAni	mAnimation
 #define mPos	mPosition
 #define	mCam	mScene->mCamera
-#define	mBlk	mScene->mMapBlock
+#define	mBlock	mScene->mMapBlock
 
-#define dis		vDistance
 #define xx mPos.x()
 #define yy mPos.y()
-
-#define jump	380
-#define speedY	100
 
 #define state	mAni.GetState()
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mPos << V2{ 1530, 415 };
-	//mPos << V2{ 2700, 640 };
-	//mPos << V2{ 50, 640 };
 	mAni.Set("stand", 1);
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
-	//# Flip
-	mTransform.SetFlip(R ? Right : L ? Left : Stand);
-
-	//# Global
-	RECT unit = RECT{
+	//# Tính toán lại giá trị các biến tạm
+	tDt = dt;
+	tJump = 380;
+	tSpeedX = 200;
+	tSpeedY = 100;
+	tIsChangeX = tIsChangeY = true;
+	tUnit = RECT{
 		(LONG)xx - unitWidth / 2,
 		(LONG)yy - unitHeight,
 		(LONG)xx + unitWidth / 2,
 		(LONG)yy
 	};
+	tDis = mBlock->GetDistance(tUnit);
+	tRope = mBlock->GetRope(tUnit, tSpeedX * tDt);
+	tBar = mBlock->GetBar(tUnit, mPos.y.mVelocity * tDt);
 
-	float speedX = 200;
-	RECT dis = mBlk->GetDistance(unit);
-	pair<bool, RECT> rope = mBlk->GetRope(unit, speedX * dt);
-	pair<bool, RECT> bar = mBlk->GetBar(unit, mPos.y.mVelocity * dt);
-	isChangeX = isChangeY = true;
-
-	//GameDebug::Title(dis);
-
+	//# Each State
+	ObjectEachState();
+	ObjectAfterEachState();
+}
+void Object_Unit_Aladdin::ObjectEachState() {
 	//# Each State
 	if (state == "") {
 		mAni.Set("stand", 1);
 	}
-	ef_(state == "stand") {
+	else if (state == "stand") {
 		mAutoNextFrame = true;
 		mTimePerFrame = 0.06f;
-		isChangeX = false;
+		tIsChangeX = false;
 		if (U)						mAni.Set("up", 1);
-		ef_(D)						mAni.Set("sit", 1);
-		ef_(R || L)					mAni.Set("run", 1);
-		ef_(Z) {
-			//mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
-			mAni.Set("stand_throwapple", 1, "stand", 1);
-		}
-		ef_(X) {
+		else if (D)					mAni.Set("sit", 1);
+		else if (R || L)			mAni.Set("run", 1);
+		else if (Z)					mAni.Set("stand_throwapple", 1, "stand", 1);
+		else if (X) {
 			mAni.Set("stand_cut", 1, "stand", 1);
 		}
-		ef_(C && dis.bottom == 0) {
-			C = false;
-			mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-jump);
+		else if (C && tDis.bottom == 0) {
+			mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-tJump);
 		}
 	}
-	ef_(state == "stand_throwapple") {
+	else if (state == "stand_throwapple") {
 		mTimePerFrame = 0.06f;
-		isChangeX = false;
+		tIsChangeX = false;
 		if (mAni.GetCycleIndex() == 4) {
 			//((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
 		}
 	}
-	ef_(state == "stand_jump") {
+	else if (state == "stand_jump") {
 		mTimePerFrame = 0.06f;
-		if (dis.bottom == 0 && mPos.y.mVelocity == 0) {
+		if (tDis.bottom == 0 && mPos.y.mVelocity == 0) {
 			mAni.Set("stand", 1);
 		}
-		ef_(
-			dis.bottom < 20
+		else if (
+			tDis.bottom < 20
 			&& mPos.y.mVelocity >= 0
 			&& !mAutoNextFrame
-		) {
+			) {
 			mAutoNextFrame = true;
 			mAni.SetCycleIndex(11);
 		}
-		ef_(mAutoNextFrame && mPos.y.mVelocity == 0) {
+		else if (mAutoNextFrame && mPos.y.mVelocity == 0) {
 			mAni.Next();
 		}
-		ef_(mAutoNextFrame)						0;
-		ef_(mPos.y.mVelocity <= 0.7 * -jump)	mAni.SetCycleIndex(2);
-		ef_(mPos.y.mVelocity <= 0.3 * -jump)	mAni.SetCycleIndex(3);
-		ef_(mPos.y.mVelocity <= 0)				mAni.SetCycleIndex(4);
-		ef_(mPos.y.mVelocity <= 0.3 * +jump)	mAni.SetCycleIndex(5);
-		ef_(mPos.y.mVelocity <= 0.5 * +jump)	mAni.SetCycleIndex(6);
-		ef_(mPos.y.mVelocity <= 0.7 * +jump)	mAni.SetCycleIndex(7);
-		ef_(mPos.y.mVelocity <= 0.9 * +jump)	mAni.SetCycleIndex(8);
-		ef_(mPos.y.mVelocity <= 1.0 * +jump)	mAni.SetCycleIndex(9);
-		ef_(mPos.y.mVelocity <= 1.1 * +jump)	mAni.SetCycleIndex(9);
-		ef_(mPos.y.mVelocity <= 1.2 * +jump)	mAni.SetCycleIndex(10);
+		else if (mAutoNextFrame)						0;
+		else if (mPos.y.mVelocity <= 0.7 * -tJump)	mAni.SetCycleIndex(2);
+		else if (mPos.y.mVelocity <= 0.3 * -tJump)	mAni.SetCycleIndex(3);
+		else if (mPos.y.mVelocity <= 0)				mAni.SetCycleIndex(4);
+		else if (mPos.y.mVelocity <= 0.3 * +tJump)	mAni.SetCycleIndex(5);
+		else if (mPos.y.mVelocity <= 0.5 * +tJump)	mAni.SetCycleIndex(6);
+		else if (mPos.y.mVelocity <= 0.7 * +tJump)	mAni.SetCycleIndex(7);
+		else if (mPos.y.mVelocity <= 0.9 * +tJump)	mAni.SetCycleIndex(8);
+		else if (mPos.y.mVelocity <= 1.0 * +tJump)	mAni.SetCycleIndex(9);
+		else if (mPos.y.mVelocity <= 1.1 * +tJump)	mAni.SetCycleIndex(9);
+		else if (mPos.y.mVelocity <= 1.2 * +tJump)	mAni.SetCycleIndex(10);
 
 		if (Z) {
 			//mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
 		}
-		if (X && dis.bottom > 50) {
+		if (X && tDis.bottom > 50) {
 			mAni.Set("jump_cut", 1, "stand_jump", 4);
 		}
 	}
-	ef_(state == "jump_throwapple") {
+	else if (state == "jump_throwapple") {
 		mTimePerFrame = 0.03f;
-		isChangeX = false;
+		tIsChangeX = false;
 		if (mAni.GetCycleIndex() == 4) {
 			//((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
 		}
 	}
-	ef_(state == "jump_cut") {
+	else if (state == "jump_cut") {
 		mTimePerFrame = 0.03f;
 		mAutoNextFrame = true;
 	}
-	ef_(state == "up") {
+	else if (state == "up") {
 		mTimePerFrame = 0.06f;
-		isChangeX = false;
-		if (!U)			mAni.Set("up_to_stand", 1, "stand", 1);
-		ef_(U && Z)		mAni.Set("stand_throwapple", 1, "up", 3);
-		ef_(U && X)		mAni.Set("up_cut", 1, "up", 3);
-		ef_(U && C) 	mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-jump);
+		tIsChangeX = false;
+		if (!U)				mAni.Set("up_to_stand", 1, "stand", 1);
+		else if (U && Z)	mAni.Set("stand_throwapple", 1, "up", 3);
+		else if (U && X)	mAni.Set("up_cut", 1, "up", 3);
+		else if (U && C) 	mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-tJump);
 	}
-	ef_(state == "up_cut") {
+	else if (state == "up_cut") {
 		mTimePerFrame = 0.06f;
-		isChangeX = false;
-		if (R || L)		mAni.Set("run", 1);
-		ef_(U)			mAni.SetNext("up", 3);
-		ef_(D)			mAni.Set("sit", 1);
-		else			mAni.SetNext("stand", 1);
+		tIsChangeX = false;
+		if (R || L)			mAni.Set("run", 1);
+		else if (U)			mAni.SetNext("up", 3);
+		else if (D)			mAni.Set("sit", 1);
+		else				mAni.SetNext("stand", 1);
 	}
-	ef_(state == "sit") {
+	else if (state == "sit") {
 		mTimePerFrame = 0.06f;
-		isChangeX = false;
+		tIsChangeX = false;
 		if (!D)			mAni.Set("sit_to_stand", 1, "stand", 1);
-		ef_(Z) {
+		else if (Z) {
 			//mScene->Add("2", new Object_Unit_Apple(xx + 5, yy - 27, mTransform.GetFlip()));
 			mAni.Set("sit_throwapple", 1, "sit", 4);
 		}
-		ef_(X)			mAni.Set("sit_cut", 1, "sit", 4);
-		ef_(C)			mAni.Set("stand_jump", 1, "sit", 1) && mPos.y.SetVelocity(-jump);
+		else if (X)			mAni.Set("sit_cut", 1, "sit", 4);
+		else if (C)			mAni.Set("stand_jump", 1, "sit", 1) && mPos.y.SetVelocity(-tJump);
 	}
-	ef_(state == "sit_to_stand") {
+	else if (state == "sit_to_stand") {
 		mTimePerFrame = 0.06f;
-		isChangeX = false;
+		tIsChangeX = false;
 		mAutoNextFrame = true;
 	}
-	ef_(state == "sit_cut") {
+	else if (state == "sit_cut") {
 		mTimePerFrame = 0.06f;
-		isChangeX = false;
+		tIsChangeX = false;
 	}
-	ef_(state == "sit_throwapple") {
+	else if (state == "sit_throwapple") {
 		mTimePerFrame = 0.06f;
-		isChangeX = false;
+		tIsChangeX = false;
 		if (mAni.GetCycleIndex() == 3) {
 			//((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
 		}
 	}
-	ef_(state == "run") {
+	else if (state == "run") {
 		mTimePerFrame = 0.06f;
 		if (!L && !R)	mAni.Set("stand", 1);
 		if (Z)			0; /// "run_throwapple" - thiếu
-		ef_(X)			mAni.Set("run_cut", 1, "run", 9);
-		ef_(C && dis.bottom == 0) {
+		else if (X)			mAni.Set("run_cut", 1, "run", 9);
+		else if (C && tDis.bottom == 0) {
 			// Phải ở dưới đấy thì mới được nhảy
 			C = false;
-			mAni.Set("run_jump", 1) && mPos.y.SetVelocity(-jump);
+			mAni.Set("run_jump", 1) && mPos.y.SetVelocity(-tJump);
 		}
 	}
-	ef_(state == "run_cut") {
+	else if (state == "run_cut") {
 		mTimePerFrame = 0.06f;
 		if (!R && !L)	mAni.Set("stand", 1);
 	}
-	ef_(state == "run_jump") {
+	else if (state == "run_jump") {
 		mTimePerFrame = 0.06f;
-		if (mAni.GetCycleIndex() == 1 && mPos.y.mVelocity == -jump) {
+		if (mAni.GetCycleIndex() == 1 && mPos.y.mVelocity == -tJump) {
 			mAutoNextFrame = false;
 			// mPos.y.mVelocity = -jump;
 			mAni.SetCycleIndex(1);
 		}
-		ef_(mPos.y.mVelocity == 0 && dis.bottom == 0) {
+		else if (mPos.y.mVelocity == 0 && tDis.bottom == 0) {
 			mAni.Set("stand", 1);
 		}
-		ef_(
-			dis.bottom < 20
+		else if (
+			tDis.bottom < 20
 			&& mPos.y.mVelocity > 0
 			&& !mAutoNextFrame
-		) {
+			) {
 			mAutoNextFrame = true;
 			if (R || L)	mAni.SetCycleIndex(11) && mAni.SetNext("run", 11);
 			else		mAni.SetCycleIndex(7) && mAni.SetNext("stand", 1);
 		}
-		ef_(mAutoNextFrame && mPos.y.mVelocity == 0) {
+		else if (mAutoNextFrame && mPos.y.mVelocity == 0) {
 			mAni.Next();
 		}
-		ef_(mAutoNextFrame)							0;	/// Ngưng lại ///
-		ef_(mPos.y.mVelocity <= 0.90 * -jump)		mAni.SetCycleIndex(2);
-		ef_(mPos.y.mVelocity <= 0.60 * -jump)		mAni.SetCycleIndex(3);
-		ef_(mPos.y.mVelocity <= 0.30 * -jump)		mAni.SetCycleIndex(4);
-		ef_(mPos.y.mVelocity <= 0)					mAni.SetCycleIndex(5);
-		ef_(mPos.y.mVelocity <= 0.50 * +jump)		mAni.SetCycleIndex(5);
-		ef_(mPos.y.mVelocity <= 0.90 * +jump)		mAni.SetCycleIndex(6);
+		else if (mAutoNextFrame)							0;	/// Ngưng lại ///
+		else if (mPos.y.mVelocity <= 0.90 * -tJump)		mAni.SetCycleIndex(2);
+		else if (mPos.y.mVelocity <= 0.60 * -tJump)		mAni.SetCycleIndex(3);
+		else if (mPos.y.mVelocity <= 0.30 * -tJump)		mAni.SetCycleIndex(4);
+		else if (mPos.y.mVelocity <= 0)					mAni.SetCycleIndex(5);
+		else if (mPos.y.mVelocity <= 0.50 * +tJump)		mAni.SetCycleIndex(5);
+		else if (mPos.y.mVelocity <= 0.90 * +tJump)		mAni.SetCycleIndex(6);
 		//if (Z) mAni.Set("jump_thowapple", 1, "run_jump", 1);
 		if (X) mAni.Set("jump_cut", 1, "run_jump", 1);
 	}
-
-	//# Climb (still, vertical, horizontal, cut, jump, throwapple)
-	ef_(state == "climb_still") {
+	else if (state == "climb_still") {
 		mTimePerFrame = 0.15f;
 		mAutoNextFrame = true;
-		isChangeX = isChangeY = false;
+		tIsChangeX = tIsChangeY = false;
 		if (L || R)			mAni.Set("climb_horizontal", 1);
-		ef_(Z)				mAni.Set("climb_throwapple", 1, "climb_still", 1);
-		ef_(X)				mAni.Set("climb_cut", 1, "climb_still", 1);
-		ef_(C || bar.first == false) {
+		else if (Z)				mAni.Set("climb_throwapple", 1, "climb_still", 1);
+		else if (X)				mAni.Set("climb_cut", 1, "climb_still", 1);
+		else if (C || tBar.first == false) {
 			C = false;
-			bar.first = false;
-			mAutoNextFrame = false;	
+			tBar.first = false;
+			mAutoNextFrame = false;
 			mPos.y << mPos.y() + 1;
 			mAni.Set("stand_jump", 1);
 		}
 	}
-	ef_(state == "climb_vertical") {
+	else if (state == "climb_vertical") {
 		mTimePerFrame = 0.06f;
 		mPos.y.mVelocity = 0;
 		mAutoNextFrame = false;
-		isChangeX = isChangeY = false;
-		mCurrentTime += dt;
+		tIsChangeX = tIsChangeY = false;
+		mCurrentTime += tDt;
 		auto cycleIndex = mAni.GetCycleIndex();
 
 		if (mCurrentTime >= mTimePerFrame) {
 			mCurrentTime -= mTimePerFrame;
 			float	deltaY = 0;
-			if (U)	deltaY = -min(speedY * mTimePerFrame, abs(unit.top - rope.second.top));
-			ef_(D)	deltaY = +min(speedY * mTimePerFrame, abs(unit.bottom - rope.second.bottom));
+			if (U)	deltaY = -min(tSpeedY * mTimePerFrame, abs(tUnit.top - tRope.second.top));
+			else if (D)	deltaY = +min(tSpeedY * mTimePerFrame, abs(tUnit.bottom - tRope.second.bottom));
 
 			mAni.SetCycleIndex(
-				(deltaY == +speedY * mTimePerFrame) ? (cycleIndex > 3 ? cycleIndex - 1 : 10) :
-				(deltaY == -speedY * mTimePerFrame) ? (cycleIndex < 10 ? cycleIndex + 1 : 3) :
+				(deltaY == +tSpeedY * mTimePerFrame) ? (cycleIndex > 3 ? cycleIndex - 1 : 10) :
+				(deltaY == -tSpeedY * mTimePerFrame) ? (cycleIndex < 10 ? cycleIndex + 1 : 3) :
 				cycleIndex
 			);
 			mPos.y << yy + deltaY;
 		}
 
-		if (Z)		mAni.Set("climb_throwapple", 1, "climb_vertical", cycleIndex);
-		ef_(X)		mAni.Set("climb_cut", 1, "climb_vertical", cycleIndex);
-		ef_(C)		mAni.Set("climb_jump", 1) && mPos.y.SetVelocity(-jump);
+		if (Z)			mAni.Set("climb_throwapple", 1, "climb_vertical", cycleIndex);
+		else if (X)		mAni.Set("climb_cut", 1, "climb_vertical", cycleIndex);
+		else if (C)		mAni.Set("climb_jump", 1) && mPos.y.SetVelocity(-tJump);
 	}
-	ef_(state == "climb_horizontal") {
+	else if (state == "climb_horizontal") {
 		mTimePerFrame = 0.06f;
-		speedX = 100;
+		tSpeedX = 100;
 		mAutoNextFrame = true;
-		isChangeY = false;
+		tIsChangeY = false;
 
 		if (!L && !R)		mAni.Set("climb_still", 1);
-		ef_(Z)				mAni.Set("climb_throwapple", 1, "climb_still", 1);
-		ef_(X)				mAni.Set("climb_cut", 1, "climb_still", 1);
-		ef_(C) {
+		else if (Z)				mAni.Set("climb_throwapple", 1, "climb_still", 1);
+		else if (X)				mAni.Set("climb_cut", 1, "climb_still", 1);
+		else if (C) {
 			C = false;
-			bar.first = false;
+			tBar.first = false;
 			mAutoNextFrame = false;
-			mPos.y << mPos.y() + 1;
+			mPos.y << yy + 1;
 			mAni.Set("stand_jump", 1);
 		}
 	}
-	ef_(state == "climb_throwapple") {
+	else if (state == "climb_throwapple") {
 		mTimePerFrame = 0.06f;
 		mAutoNextFrame = true;
-		isChangeX = isChangeY = false;
+		tIsChangeX = tIsChangeY = false;
 	}
-	ef_(state == "climb_jump") {
+	else if (state == "climb_jump") {
 		mTimePerFrame = 0.06f;
 		mAutoNextFrame = false;
-		if (dis.bottom == 0)						mAni.Set("stand", 1);
-		ef_(mPos.y.mVelocity <= 0.9 * -jump)		mAni.SetCycleIndex(1);
-		ef_(mPos.y.mVelocity <= 0.2 * -jump)		mAni.SetCycleIndex(2);
-		ef_(mPos.y.mVelocity <= 0.5 * +jump)		mAni.SetCycleIndex(3);
-		ef_(mPos.y.mVelocity <= 0.4 * +jump)		mAni.SetCycleIndex(4);
-		ef_(mPos.y.mVelocity <= 0.5 * +jump)		mAni.SetCycleIndex(5);
-		ef_(mPos.y.mVelocity <= 0.6 * +jump)		mAni.SetCycleIndex(6);
-		ef_(mPos.y.mVelocity <= 0.7 * +jump)		mAni.SetCycleIndex(7);
-		ef_(mPos.y.mVelocity <= 0.8 * +jump)		mAni.SetCycleIndex(8);
-		ef_(mPos.y.mVelocity <= 0.9 * +jump)		mAni.SetCycleIndex(9);
-		ef_(mPos.y.mVelocity <= 1.0 * +jump)		mAni.Set("stand_jump", 4, "stand", 1);
+		if (tDis.bottom == 0)							mAni.Set("stand", 1);
+		else if (mPos.y.mVelocity <= 0.9 * -tJump)		mAni.SetCycleIndex(1);
+		else if (mPos.y.mVelocity <= 0.2 * -tJump)		mAni.SetCycleIndex(2);
+		else if (mPos.y.mVelocity <= 0.5 * +tJump)		mAni.SetCycleIndex(3);
+		else if (mPos.y.mVelocity <= 0.4 * +tJump)		mAni.SetCycleIndex(4);
+		else if (mPos.y.mVelocity <= 0.5 * +tJump)		mAni.SetCycleIndex(5);
+		else if (mPos.y.mVelocity <= 0.6 * +tJump)		mAni.SetCycleIndex(6);
+		else if (mPos.y.mVelocity <= 0.7 * +tJump)		mAni.SetCycleIndex(7);
+		else if (mPos.y.mVelocity <= 0.8 * +tJump)		mAni.SetCycleIndex(8);
+		else if (mPos.y.mVelocity <= 0.9 * +tJump)		mAni.SetCycleIndex(9);
+		else if (mPos.y.mVelocity <= 1.0 * +tJump)		mAni.Set("stand_jump", 4, "stand", 1);
 	}
-	ef_(state == "climb_cut") {
+	else if (state == "climb_cut") {
 		mTimePerFrame = 0.06f;
 		mAutoNextFrame = true;
-		isChangeX = isChangeY = false;
+		tIsChangeX = tIsChangeY = false;
 	}
-
-	if (mPos.y.mVelocity >= -0.2 * jump && rope.first) {
+	//# Bar & Rope
+	if (mPos.y.mVelocity >= -0.2 * tJump && tRope.first) {
 		if (state != "climb_vertical" &&
 			state != "climb_cut" &&
 			state != "climb_throwapple") {
-			isChangeX = false;
+			tIsChangeX = false;
 			mCurrentTime = 0;
-			mPos.x << (rope.second.left + rope.second.right) / 2.f;
+			mPos.x << (tRope.second.left + tRope.second.right) / 2.f;
 			mAni.Set("climb_vertical", 1);
 		}
 	}
-	ef_(bar.first) {
-		if((state != "climb_still" &&
+	else if (tBar.first) {
+		if ((state != "climb_still" &&
 			state != "climb_horizontal" &&
 			state != "climb_cut" &&
-			state != "climb_throwapple")){
+			state != "climb_throwapple")) {
 			// Đang nhảy lên
-			mBlk->GetBar(unit, mPos.y.mVelocity * dt);
-			mPos.y << (float)bar.second.top + unitHeight;
+			mBlock->GetBar(tUnit, mPos.y.mVelocity *tDt);
+			mPos.y << (float)tBar.second.top + unitHeight;
 			mAni.Set("climb_still", 1);
-			isChangeY = false;
+			tIsChangeY = false;
 		}
 	}
-	else {
-		//GameDebug::Title("false");
-	}
-
-	//GameDebug::Title(mAni.GetCycleIndex());
-
+}
+void Object_Unit_Aladdin::ObjectAfterEachState() {
 	//# Position
-	mPos.x += !isChangeX ? 0
-		: R ? +min(speedX * dt, dis.right)
-		: L ? -min(speedX * dt, dis.left)
-		: 0;
-	mPos.x.Update(dt);
-	dis = mBlk->GetDistance(unit);
-	mPos.y = !isChangeY ? yy :
-		yy + dis.bottom;
-	mPos.y.Update(dt);
+	mPos.x += !tIsChangeX ? 0 :
+		R ? +min(tSpeedX * tDt, tDis.right) :
+		L ? -min(tSpeedX * tDt, tDis.left) : 0;
+	mPos.x.Update(tDt);
+	tDis = mBlock->GetDistance(tUnit);
+	mPos.y = !tIsChangeY ? yy :
+		yy + tDis.bottom;
+	mPos.y.Update(tDt);
 
 	//# Camera
-	mCam = V2{
-		min(max(0, xx - (WIDTH / 2)), MAP_WIDTH - WIDTH),
-		min(max(0, yy - (HEIGHT - 56)), MAP_HEIGHT - HEIGHT)
-	};
+	mCam.x = min(max(0, xx - (WIDTH / 2)), MAP_WIDTH - WIDTH);
+	mCam.y = min(max(0, yy - (HEIGHT - 56)), MAP_HEIGHT - HEIGHT);
+
+	//# Flip
+	mTransform.SetFlip(R ? Right : L ? Left : Stand);
 
 	//# UpdateStairsState
-	mScene->mMapBlock->UpdateStairState(unit);
+	mScene->mMapBlock->UpdateStairState(tUnit);
+}
+void Object_Unit_Aladdin::CheckCollision(){
+	mScene;
 }
