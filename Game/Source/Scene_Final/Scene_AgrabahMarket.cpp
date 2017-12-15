@@ -1,4 +1,4 @@
-﻿	 #include "Scene_AgrabahMarket.h"
+﻿#include "Scene_AgrabahMarket.h"
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Back.h"
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Front.h"
 #include "../Object_Map_Block/Object_Map_Block.h"
@@ -32,9 +32,9 @@ for(auto &b : mMapBlock->m##name) {		\
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	mMapBlock = new Object_Map_Block("AgrabahMarket_Block");
-
+	auto b = new Object_Map_AgrabahMarket_Back();
 	//# Map
-	Add(new Object_Map_AgrabahMarket_Back());
+	Add(b);
 
 	//# Block
 	Add_Static(Abubonus);

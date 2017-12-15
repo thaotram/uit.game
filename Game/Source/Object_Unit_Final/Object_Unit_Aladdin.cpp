@@ -68,6 +68,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mAni.Set("stand_cut", 1, "stand", 1);
 		}
 		else if (C && tDis.bottom == 0) {
+			mAutoNextFrame = false;
 			mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-tJump);
 		}
 	}
@@ -85,7 +86,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		}
 		else if (
 			tDis.bottom < 20
-			&& mPos.y.mVelocity >= 0
+			&& mPos.y.mVelocity >= 0	
 			&& !mAutoNextFrame
 			) {
 			mAutoNextFrame = true;
@@ -94,7 +95,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (mAutoNextFrame && mPos.y.mVelocity == 0) {
 			mAni.Next();
 		}
-		else if (mAutoNextFrame)						0;
+		else if (mAutoNextFrame)					0;
 		else if (mPos.y.mVelocity <= 0.7 * -tJump)	mAni.SetCycleIndex(2);
 		else if (mPos.y.mVelocity <= 0.3 * -tJump)	mAni.SetCycleIndex(3);
 		else if (mPos.y.mVelocity <= 0)				mAni.SetCycleIndex(4);
@@ -107,7 +108,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (mPos.y.mVelocity <= 1.2 * +tJump)	mAni.SetCycleIndex(10);
 
 		if (Z) {
-			//mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
+			//mScene->Add("2", n?ew Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
 		}
 		if (X && tDis.bottom > 50) {
@@ -345,25 +346,23 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 }
 
 bool isIntersect(RECT a, RECT b) {
-	return 
+	return
 		a.left < b.right &&
-		a.right > b.left && 
-		a.top < b.bottom && 
+		a.right > b.left &&
+		a.top < b.bottom &&
 		a.bottom > b.top;
 }
 
-void Object_Unit_Aladdin::ObjectCheckCollision(){
-	int a = 0;
-	RECT o, u;
+void Object_Unit_Aladdin::ObjectCheckCollision() {
+	mSourceRect.Update(this);
 	for (auto &obj : *mScene) {
 		if (isRender == true && obj != this) {
-			o = obj->GetBound();
-			u = this->GetBound();
-			bool f = isIntersect(o, u);
-			if (f) {
+			if (isIntersect(
+				obj->GetBound(),
+				this->GetBound()
+			)) {
 				obj->ObjectIntersect();
 			};
 		}
 	}
-	GameDebug::Title(a);
 }
