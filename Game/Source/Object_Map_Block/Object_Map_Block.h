@@ -12,9 +12,9 @@ using json = nlohmann::json;
 using namespace std;
 
 enum StairsState {
-	bot,
-	mid,
-	top
+	Bot,
+	Mid,
+	Top
 };
 
 class Object;
