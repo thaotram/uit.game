@@ -26,10 +26,9 @@
         },
         "apple_item": {
             "basePoint": [0, 0],
-            "frameCycle": [1, 2],
+            "frameCycle": [1],
             "frame": {
-                "1": [341, 17, 11, 12, 0, 0],
-                "2": [0, 0, 0, 0, 0, 0]
+                "1": [341, 17, 11, 12, 0, 0]
             }
         },
         "black_magiclamp": {

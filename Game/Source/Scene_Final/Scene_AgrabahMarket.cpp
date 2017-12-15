@@ -40,7 +40,7 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	//Add_Static(Abubonus);
 	//Add_Static(Apple);
 	//Add_Static(Black_Magic_Lamp);
-	//Add_Static(Block_Drop);
+	Add_Static(Block_Drop);
 	//Add_Static(Extra_Health);
 	//Add_Static(Genie_Bonus);
 	//Add_Static(Restart_Point);

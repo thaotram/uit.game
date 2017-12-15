@@ -76,7 +76,7 @@ for (auto &b : m##var) {								\
 left_right.clear();		\
 top_bottom.clear();		\
 
-RECT Object_Map_Block::GetDistance(RECT u) {
+RECT Object_Map_Block::GetDistance(RECT u, Object * pUnit) {
 	RECT out = { -1,-1,-1,-1 };
 
 	//# Filter
@@ -103,6 +103,8 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 	if (mStairsState == StairsState::mid) filterLeftRight(_Stairs_backslash);
 	for (auto &b : top_bottom)	check_stair(b->right - u.left);
 	clearFilter();
+
+	//# 
 
 	return out;
 }

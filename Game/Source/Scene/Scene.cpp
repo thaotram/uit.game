@@ -2,14 +2,12 @@
 #include "../Object/Object.h"
 #include "../Object_Unit/Object_Unit.h"
 
-#define margin 100
 Scene * Scene::mCurrentScene = NULL;
 
 //! Static Public
 void Scene::ReplaceScene(Scene * pScene) {
 	mCurrentScene = pScene;
 }
-
 Scene * Scene::GetCurrentScene() {
 	return mCurrentScene;
 }
@@ -22,6 +20,7 @@ Scene::~Scene() {
 	}
 }
 
+#define margin		100
 #define isRender	obj->mIsRender
 #define isUpdate	obj->mIsUpdate
 void Scene::SceneRender(float delay) {
@@ -42,7 +41,7 @@ void Scene::SceneRender(float delay) {
 				obj->ObjectUpdateEvent(delay);
 				isUpdate = false;
 			}
-			else {				// !inCamera && !isUpdate
+			else {						// !inCamera && !isUpdate
 				isRender = false;
 			}
 		}
@@ -50,13 +49,12 @@ void Scene::SceneRender(float delay) {
 			obj->ObjectUpdateEvent(delay);
 		}
 	}
+	
 	for (auto &obj : mRemoveList) {
-		auto b = &*obj;
-		this->remove(b);
-		delete b;
+		this->remove(&*obj);
+		delete &*obj;
 	}
 	mRemoveList.clear();
-
 
 	for (auto &obj : *this) {
 		if (isRender == true) {

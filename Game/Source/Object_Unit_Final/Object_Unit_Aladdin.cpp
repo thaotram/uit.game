@@ -42,7 +42,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		(LONG)xx + unitWidth / 2,
 		(LONG)yy
 	};
-	tDis = mBlock->GetDistance(tUnit);
+	tDis = mBlock->GetDistance(tUnit, this);
 	tRope = mBlock->GetRope(tUnit, tSpeedX * tDt);
 	tBar = mBlock->GetBar(tUnit, mPos.y.mVelocity * tDt);
 
@@ -66,7 +66,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (Z) {
 			Z = false;
 			mAni.Set("stand_throwapple", 1, "stand", 1);
-			mScene->Add(mScene->itPlayer, new Object_Unit_Apple(xx, yy - 55, mTransform.GetFlip()), itThrowApple);
+			mScene->Add(mScene->itPlayer, new Object_Unit_Apple(xx, yy - 55), itThrowApple);
 		}
 		else if (X) {
 			X = false;
@@ -84,10 +84,13 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		tIsChangeX = false;
 	}
 	else if (state == "stand_throwapple") {
-		mTimePerFrame = 0.04f;
+		mTimePerFrame = 0.03f;
 		tIsChangeX = false;
+		L = R = false;
 		if (mAni.GetCycleIndex() == 3) {
-			((Object_Unit_Apple *)(*itThrowApple))->ThrowApple();
+			((Object_Unit_Apple *)(*itThrowApple))->ThrowApple(
+				mTransform.GetFlip()
+			);
 		}
 	}
 	else if (state == "stand_jump") {
@@ -247,8 +250,14 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mAutoNextFrame = true;
 		tIsChangeX = tIsChangeY = false;
 		if (L || R)			mAni.Set("climb_horizontal", 1);
-		else if (Z)				mAni.Set("climb_throwapple", 1, "climb_still", 1);
-		else if (X)				mAni.Set("climb_cut", 1, "climb_still", 1);
+		else if (Z) {
+			Z = false;
+			mAni.Set("climb_throwapple", 1, "climb_still", 1);
+		}
+		else if (X) {
+			X = false;
+			mAni.Set("climb_cut", 1, "climb_still", 1);
+		}
 		else if (C || tBar.first == false) {
 			C = false;
 			tBar.first = false;
@@ -257,7 +266,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mAni.Set("stand_jump", 1);
 		}
 	}
-	else if (state == "climb_vertical") {
+	else if (state == "climb_vertical") { // Leo dọc
 		mTimePerFrame = 0.06f;
 		mPos.y.mVelocity = 0;
 		mAutoNextFrame = false;
@@ -279,9 +288,18 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mPos.y << yy + deltaY;
 		}
 
-		if (Z)			mAni.Set("climb_throwapple", 1, "climb_vertical", cycleIndex);
-		else if (X)		mAni.Set("climb_cut", 1, "climb_vertical", cycleIndex);
-		else if (C)		mAni.Set("climb_jump", 1) && mPos.y.SetVelocity(-tJump);
+		if (Z) {
+			Z = false;
+			mAni.Set("climb_throwapple", 1, "climb_vertical", cycleIndex);
+		}
+		else if (X) {
+			X = false;
+			mAni.Set("climb_cut", 1, "climb_vertical", cycleIndex);
+		}
+		else if (C) {
+			C = false;
+			mAni.Set("climb_jump", 1) && mPos.y.SetVelocity(-tJump);
+		}
 	}
 	else if (state == "climb_horizontal") {
 		mTimePerFrame = 0.06f;
@@ -290,8 +308,14 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		tIsChangeY = false;
 
 		if (!L && !R)			mAni.Set("climb_still", 1);
-		else if (Z)				mAni.Set("climb_throwapple", 1, "climb_still", 1);
-		else if (X)				mAni.Set("climb_cut", 1, "climb_still", 1);
+		else if (Z) {
+			Z = false;
+			mAni.Set("climb_throwapple", 1, "climb_still", 1);
+		}
+		else if (X) {
+			X = false;
+			mAni.Set("climb_cut", 1, "climb_still", 1);
+		}
 		else if (C) {
 			C = false;
 			tBar.first = false;
@@ -355,7 +379,7 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 		R ? +min(tSpeedX * tDt, tDis.right) :
 		L ? -min(tSpeedX * tDt, tDis.left) : 0;
 	mPos.x.Update(tDt);
-	tDis = mBlock->GetDistance(tUnit);
+	tDis = mBlock->GetDistance(tUnit, this);
 	mPos.y = !tIsChangeY ? yy :
 		yy + tDis.bottom;
 	mPos.y.Update(tDt);
