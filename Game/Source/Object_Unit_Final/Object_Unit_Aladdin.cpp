@@ -63,14 +63,24 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		if (U)						mAni.Set("up", 1);
 		else if (D)					mAni.Set("sit", 1);
 		else if (R || L)			mAni.Set("run", 1);
-		else if (Z)					mAni.Set("stand_throwapple", 1, "stand", 1);
+		else if (Z) {
+			Z = false;
+			mAni.Set("stand_throwapple", 1, "stand", 1);
+		}
 		else if (X) {
+			X = false;
 			mAni.Set("stand_cut", 1, "stand", 1);
 		}
 		else if (C && tDis.bottom == 0) {
+			C = false;
 			mAutoNextFrame = false;
 			mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-tJump);
 		}
+	}
+	else if (state == "stand_cut") {
+		X = false;
+		mTimePerFrame = 0.03f;
+		tIsChangeX = false;
 	}
 	else if (state == "stand_throwapple") {
 		mTimePerFrame = 0.06f;
@@ -80,6 +90,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		}
 	}
 	else if (state == "stand_jump") {
+		C = false;
 		mTimePerFrame = 0.06f;
 		if (tDis.bottom == 0 && mPos.y.mVelocity == 0) {
 			mAni.Set("stand", 1);
@@ -108,21 +119,25 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (mPos.y.mVelocity <= 1.2 * +tJump)	mAni.SetCycleIndex(10);
 
 		if (Z) {
+			Z = false;
 			//mScene->Add("2", n?ew Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
 		}
 		if (X && tDis.bottom > 50) {
+			X = false;
 			mAni.Set("jump_cut", 1, "stand_jump", 4);
 		}
 	}
 	else if (state == "jump_throwapple") {
 		mTimePerFrame = 0.03f;
-		tIsChangeX = false;
+		mAutoNextFrame = true;
+		//tIsChangeX = false;
 		if (mAni.GetCycleIndex() == 4) {
 			//((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
 		}
 	}
 	else if (state == "jump_cut") {
+		X = false;
 		mTimePerFrame = 0.03f;
 		mAutoNextFrame = true;
 	}
@@ -151,7 +166,10 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mAni.Set("sit_throwapple", 1, "sit", 4);
 		}
 		else if (X)			mAni.Set("sit_cut", 1, "sit", 4);
-		else if (C)			mAni.Set("stand_jump", 1, "sit", 1) && mPos.y.SetVelocity(-tJump);
+		else if (C) {
+			C = false;
+			mAni.Set("stand_jump", 1, "sit", 1) && mPos.y.SetVelocity(-tJump);
+		}
 	}
 	else if (state == "sit_to_stand") {
 		mTimePerFrame = 0.06f;
@@ -159,10 +177,12 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mAutoNextFrame = true;
 	}
 	else if (state == "sit_cut") {
+		X = false;
 		mTimePerFrame = 0.06f;
 		tIsChangeX = false;
 	}
 	else if (state == "sit_throwapple") {
+		Z = false;
 		mTimePerFrame = 0.06f;
 		tIsChangeX = false;
 		if (mAni.GetCycleIndex() == 3) {
@@ -180,11 +200,16 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mAni.Set("run_jump", 1) && mPos.y.SetVelocity(-tJump);
 		}
 	}
+	else if (state == "run_throwapple") {
+		// ko có sprite
+	}
 	else if (state == "run_cut") {
-		mTimePerFrame = 0.06f;
+		X = false;
+		mTimePerFrame = 0.03f;
 		if (!R && !L)	mAni.Set("stand", 1);
 	}
 	else if (state == "run_jump") {
+		C = false;
 		mTimePerFrame = 0.06f;
 		if (mAni.GetCycleIndex() == 1 && mPos.y.mVelocity == -tJump) {
 			mAutoNextFrame = false;
