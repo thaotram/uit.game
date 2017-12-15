@@ -12,7 +12,7 @@ void Object_Unit_Static_Spend_These::ObjectUpdateEvent(float dt)
 {
 }
 
-void Object_Unit_Static_Spend_These::ObjectIntersect()
+void Object_Unit_Static_Spend_These::ObjectIntersect(Object * pObject)
 {
 	mAni.SetCycleIndex(10);
 	if (!mIs) {

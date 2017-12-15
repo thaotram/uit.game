@@ -24,6 +24,14 @@
 
 #define state	mAni.GetState()
 
+bool isIntersect(RECT a, RECT b) {
+	return
+		a.left < b.right &&
+		a.right > b.left &&
+		a.top <= b.bottom &&
+		a.bottom >= b.top;
+}
+
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mPos << V2{ 1530, 415 };
 	mAni.Set("stand", 1);
@@ -394,15 +402,6 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	//# UpdateStairsState
 	mScene->mMapBlock->UpdateStairState(tUnit);
 }
-
-bool isIntersect(RECT a, RECT b) {
-	return
-		a.left < b.right &&
-		a.right > b.left &&
-		a.top < b.bottom &&
-		a.bottom > b.top;
-}
-
 void Object_Unit_Aladdin::ObjectCheckCollision() {
 	mSourceRect.Update(this);
 	for (auto &obj : *mScene) {
@@ -411,7 +410,7 @@ void Object_Unit_Aladdin::ObjectCheckCollision() {
 				obj->GetBound(),
 				this->GetBound()
 			)) {
-				obj->ObjectIntersect();
+				obj->ObjectIntersect(this);
 			};
 		}
 	}

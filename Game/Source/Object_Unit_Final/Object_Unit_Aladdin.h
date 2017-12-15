@@ -6,7 +6,6 @@
 class Object_Unit_Aladdin final : public Object_Unit {
 private:
 	//# Tạo sẵn các biến để tái sử dụng trong tính toán (không cần cấp phát lại bộ nhớ)
-	// t = temp
 	bool tIsChangeX, tIsChangeY;
 	float tSpeedX, tSpeedY, tJump, tDt;
 	RECT tDis;

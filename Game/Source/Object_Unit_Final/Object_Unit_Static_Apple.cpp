@@ -10,7 +10,7 @@ void Object_Unit_Static_Apple::ObjectUpdateEvent(float dt) {
 	
 }
 
-void Object_Unit_Static_Apple::ObjectIntersect(){
+void Object_Unit_Static_Apple::ObjectIntersect(Object * pObject){
 	mScene->mApple++;
 	mScene->AddToRemoveList(this);
 }
