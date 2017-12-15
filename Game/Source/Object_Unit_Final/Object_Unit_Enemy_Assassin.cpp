@@ -11,6 +11,5 @@ Object_Unit_Enemy_Assassin::Object_Unit_Enemy_Assassin(float x1, float x2, float
 	mAni.Set("assassin", 1);
 }
 
-Object_Unit_Enemy_Assassin::~Object_Unit_Enemy_Assassin()
-{
+Object_Unit_Enemy_Assassin::~Object_Unit_Enemy_Assassin(){
 }

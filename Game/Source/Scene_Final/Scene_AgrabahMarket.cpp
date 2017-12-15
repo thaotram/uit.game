@@ -61,7 +61,7 @@ Scene_AgrabahMarket::Scene_AgrabahMarket(): Scene() {
 
 	//# Status
 	/// Phần này để cho Huyền làm
-	//Add(new Object_Status_Apple());
+	Add(new Object_Status_Apple());
 	Add(new Object_Status_Magic_Lamp());
 	Add(new Object_Status_Health_Meter(mBlood));
 
@@ -71,7 +71,7 @@ Scene_AgrabahMarket::Scene_AgrabahMarket(): Scene() {
 	Add(new Object_Unit_Enemy_Fat(, , ));
 	Add(new Object_Unit_Enemy_Pirates(, , ));
 	Add(new Object_Unit_Enemy_Straw(, , ));*/
-	Add(new Object_Unit_Enemy_Thin(590, 758, 624));
+	//Add(new Object_Unit_Enemy_Thin(590, 758, 624));
 
 	//# NPC
 	Add(new Object_Unit_NPC_Camel(1545, 1578, 648));
