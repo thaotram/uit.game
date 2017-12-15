@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <list>
 #include "../GameGlobal.h"
+#include "../GameDebug.h"
 #include "../Scene/Scene_Camera.h"
 #include "../Object_Map_Block/Object_Map_Block.h"
 
@@ -16,6 +17,9 @@ public:
 
 	Vector mCamera;
 	Object_Map_Block * mMapBlock;
+
+	int mApple;
+	int mSpendthese;
 
 	list<Object *>::iterator itPlayer;
 	list<Object *>::iterator itMapBack;
