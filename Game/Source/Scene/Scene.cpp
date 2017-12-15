@@ -15,7 +15,13 @@ Scene * Scene::GetCurrentScene() {
 }
 
 //! Public
-Scene::Scene() {}
+Scene::Scene() {
+	mBlood = 7;
+	mApple = 0;
+	mSpendthese = 0;
+	mExtrahealth = 0;
+	mScore = 0;
+}
 Scene::~Scene() {
 	for (auto &tUnit : *this) {
 		delete tUnit;
@@ -63,7 +69,7 @@ void Scene::SceneRender(float delay) {
 			obj->ObjectRender(delay);
 		}
 	}
-	GameDebug::Title("Apple:" + to_string(mApple) + ",Spend these:" + to_string(mSpendthese));
+	GameDebug::Title("Apple:" + to_string(mApple) + " Spend these:" + to_string(mSpendthese) + " Score: " + to_string(mScore));
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}

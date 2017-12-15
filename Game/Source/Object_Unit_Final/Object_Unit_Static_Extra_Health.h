@@ -7,5 +7,6 @@ public:
 	Object_Unit_Static_Extra_Health(float x, float y);
 	~Object_Unit_Static_Extra_Health() {};
 	void ObjectUpdateEvent(float delay);
+	void ObjectIntersect();
 };
 

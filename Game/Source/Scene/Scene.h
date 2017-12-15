@@ -19,8 +19,11 @@ public:
 	Vector mCamera;
 	Object_Map_Block * mMapBlock;
 
+	int mBlood;
 	int mApple;
 	int mSpendthese;
+	int mExtrahealth;
+	int mScore;
 
 	list<Object *>::iterator itPlayer;
 	list<Object *>::iterator itMapBack;
