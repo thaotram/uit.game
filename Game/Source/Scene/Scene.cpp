@@ -65,9 +65,15 @@ list<Object *>::iterator Scene::Add(list<Object *>::iterator pIt, Object * pObje
 	pObject->AfterAddToScene();
 	return insert(pIt, pObject);
 }
-
 list<Object *>::iterator Scene::Add(Object * pObject) {
 	return Add(end(), pObject);
+}
+
+void Scene::Add(list<Object*>::iterator pIt, Object * pObject, list<Object*>::iterator & pItOut) {
+	pItOut = Add(pIt, pObject);
+}
+void Scene::Add(Object * pObject, list<Object*>::iterator & pItOut) {
+	pItOut = Add(pObject);
 }
 
 void Scene::Remove(Object * pObject) {

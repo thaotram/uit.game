@@ -18,6 +18,8 @@ public:
 	Object_Map_Block * mMapBlock;
 
 	list<Object *>::iterator itPlayer;
+	list<Object *>::iterator itMapBack;
+	list<Object *>::iterator itMapFront;
 
 	void SceneRender(float delay);
 
@@ -25,8 +27,10 @@ public:
 	void OnKeyUp(int pKeyCode);
 	void OnMouseDown(float pX, float pY) {};
 
-	list<Object *>::iterator Add(list<Object *>::iterator pIt, Object * pObject);
 	list<Object *>::iterator Add(Object * pObject);
+	list<Object *>::iterator Add(list<Object *>::iterator pIt, Object * pObject);
+	void Add(Object * pObject, list<Object *>::iterator &pItOut);
+	void Add(list<Object *>::iterator pIt, Object * pObject, list<Object *>::iterator &pItOut);
 	void Remove(Object * pIt);
 
 	static void ReplaceScene(Scene * pScene);

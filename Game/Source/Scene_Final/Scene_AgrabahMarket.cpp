@@ -32,7 +32,7 @@ for(auto &b : mMapBlock->m##name) {		\
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	mMapBlock = new Object_Map_Block("AgrabahMarket_Block");
-	
+
 	//# Map
 	Add(new Object_Map_AgrabahMarket_Back());
 
@@ -47,8 +47,8 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	Add_Static(Spend_These);
 
 	//# Unit
-	itPlayer = Add(new Object_Unit_Aladdin());
-	Add(new Object_Map_AgrabahMarket_Front());
+	Add(new Object_Unit_Aladdin(), itPlayer);
+	Add(new Object_Map_AgrabahMarket_Front(), itMapFront);
 
 	//# Status
 	/// Phần này để cho Huyền làm
