@@ -3,7 +3,7 @@
 #define mPos	mPosition
 Object_Unit_Static_Block_Drop::Object_Unit_Static_Block_Drop(float x, float y) : Object_Unit("Item") {
 	mPos << V2{ x , y };
-	mAni.Set("apple_item", 1);
+	mAni.Set("blockdrop", 1);
 	mAutoNextFrame = false;
 }
 

@@ -41,6 +41,7 @@ public:
 	list<RECT> mAbubonus;
 	list<RECT> mApple;
 	list<RECT> mBlack_Magic_Lamp;
+	list<RECT> mBlock_Drop;
 	list<RECT> mExtra_Health;
 	list<RECT> mGenie_Bonus;
 	list<RECT> mRestart_Point;

@@ -9,6 +9,7 @@
 #include "../Object_Unit_Final/Object_Unit_Static_Abubonus.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Apple.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Black_Magic_Lamp.h"
+#include "../Object_Unit_Final/Object_Unit_Static_Block_Drop.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Extra_Health.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Genie_Bonus.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Restart_Point.h"
@@ -37,6 +38,7 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	Add_Static(Abubonus);
 	Add_Static(Apple);
 	Add_Static(Black_Magic_Lamp);
+	Add_Static(Block_Drop);
 	Add_Static(Extra_Health);
 	Add_Static(Genie_Bonus);
 	Add_Static(Restart_Point);

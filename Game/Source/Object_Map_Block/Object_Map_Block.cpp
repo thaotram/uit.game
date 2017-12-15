@@ -32,6 +32,7 @@ Object_Map_Block::Object_Map_Block(string pName) {
 
 	add(Abubonus);
 	add(Apple);
+	add(Block_Drop);
 	add(Black_Magic_Lamp);
 	add(Extra_Health);
 	add(Genie_Bonus);
