@@ -290,6 +290,7 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Black_Magic_Lamp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Magic_Lamp.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Block_Drop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -412,6 +413,9 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Block_Drop.cpp">
       <Filter>Source\Object_Unit\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Status_Final\Object_Status_Magic_Lamp.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -5,6 +5,7 @@
 
 class Object_Status : public Object {
 public:
+	bool mAutoNextFrame = false;
 	Object_Status(string pName);
 	~Object_Status() {};
 

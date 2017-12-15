@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="Define.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Block_Drop.h" />
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Magic_Lamp.h" />
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Number_L.h" />
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Number_S.h" />
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Health_Meter.h" />
@@ -202,6 +203,7 @@
     <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Object_Status_Final\Object_Status_Magic_Lamp.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Block_Drop.cpp" />
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Number_L.cpp" />
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Number_S.cpp" />

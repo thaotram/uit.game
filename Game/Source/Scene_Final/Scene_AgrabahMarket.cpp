@@ -17,6 +17,8 @@
 
 #include "../Object_Status_Final/Object_Status_Apple.h"
 #include "../Object_Status_Final/Object_Status_Life.h"
+#include "../Object_Status_Final/Object_Status_Health_Meter.h"
+#include "../Object_Status_Final/Object_Status_Magic_Lamp.h"
 
 #include "../../Define.h"
 
@@ -50,4 +52,6 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 
 	//# Status
 	Add(new Object_Status_Apple());
+	Add(new Object_Status_Magic_Lamp());
+	Add(new Object_Status_Health_Meter(1));
 }

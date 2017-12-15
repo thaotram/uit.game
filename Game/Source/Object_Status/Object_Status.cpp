@@ -9,7 +9,7 @@ Object_Status::Object_Status(string pName) : Object(pName) {
 void Object_Status::ObjectUpdateProperties(float delay) {
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
-		mAnimation.NextFrame(this);
+		if (mAutoNextFrame) mAnimation.NextFrame(this);
 	}
 	else mCurrentTime += delay;
 
