@@ -61,7 +61,7 @@ void Scene::SceneRender(float delay) {
 			obj->ObjectRender(delay);
 		}
 	}
-	GameDebug::Title("Apple:" + to_string(mApple) + ",Spend these:" + to_string(mSpendthese));
+	// GameDebug::Title("Apple:" + to_string(mApple) + ",Spend these:" + to_string(mSpendthese));
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}

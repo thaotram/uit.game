@@ -28,10 +28,11 @@ public:
 	int		GetFrameIndex(Object * pObject);
 	int		GetCycleIndex();
 	
+	bool	Set(string pState);
 	bool	Set(string pState, int pCycleIndex);
 	bool	Set(string pState, int pCycleIndex, string pNextState, int pNextCycleIndex);
 	bool	SetCycleIndex(int pCycleIndex);
 
 	bool	SetNext(string pNextState, int pNextCycleIndex);
-	bool	Next();
+	bool	NextState();
 };

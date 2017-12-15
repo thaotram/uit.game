@@ -109,7 +109,8 @@ RECT Object_Map_Block::GetDistance(RECT u, Object * pUnit) {
 	for (auto &unit : *(pUnit->mScene)) {		// Đây là filter
 		if (unit->mIsRender) {
 			if (dynamic_cast<Object_Unit_Static_Block_Drop *>(&*unit)) {
-				auto b = unit->GetBound();
+				auto block = (Object_Unit_Static_Block_Drop *)(&*unit);
+				auto b = block->GetBound();
 				if_in(right, left)	top_bottom.push_back(&b);
 			}
 		}

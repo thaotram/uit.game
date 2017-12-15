@@ -35,6 +35,7 @@ bool isIntersect(RECT a, RECT b) {
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mPos << V2{ 1530, 415 };
 	mAni.Set("stand", 1);
+	mIsOnDropBlock = false;
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
@@ -80,7 +81,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			X = false;
 			mAni.Set("stand_cut", 1, "stand", 1);
 		}
-		else if (C && tDis.bottom == 0) {
+		else if (C && tDis.bottom <= 10) {
 			C = false;
 			mAutoNextFrame = false;
 			mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-tJump);
@@ -116,7 +117,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mAni.SetCycleIndex(11);
 		}
 		else if (mAutoNextFrame && mPos.y.mVelocity == 0) {
-			mAni.Next();
+			mAni.NextState();
 		}
 		else if (mAutoNextFrame)					0;
 		else if (mPos.y.mVelocity <= 0.7 * -tJump)	mAni.SetCycleIndex(2);
@@ -206,7 +207,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		if (!L && !R)	mAni.Set("stand", 1);
 		if (Z)			0; /// "run_throwapple" - thiếu
 		else if (X)			mAni.Set("run_cut", 1, "run", 9);
-		else if (C && tDis.bottom == 0) {
+		else if (C && tDis.bottom <= 10) {
 			// Phải ở dưới đấy thì mới được nhảy
 			C = false;
 			mAni.Set("run_jump", 1) && mPos.y.SetVelocity(-tJump);
@@ -241,7 +242,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			else		mAni.SetCycleIndex(7) && mAni.SetNext("stand", 1);
 		}
 		else if (mAutoNextFrame && mPos.y.mVelocity == 0) {
-			mAni.Next();
+			mAni.NextState();
 		}
 		else if (mAutoNextFrame)							0;	/// Ngưng lại ///
 		else if (mPos.y.mVelocity <= 0.90 * -tJump)		mAni.SetCycleIndex(2);
@@ -388,8 +389,11 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 		L ? -min(tSpeedX * tDt, tDis.left) : 0;
 	mPos.x.Update(tDt);
 	tDis = mBlock->GetDistance(tUnit, this);
-	mPos.y = !tIsChangeY ? yy :
-		yy + tDis.bottom;
+
+	if (!mIsOnDropBlock) {
+		mPos.y = !tIsChangeY ? yy :
+			yy + tDis.bottom;
+	}
 	mPos.y.Update(tDt);
 
 	//# Camera
