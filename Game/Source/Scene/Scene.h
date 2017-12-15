@@ -11,6 +11,7 @@ class Object;
 class Scene : public list<Object *> {
 private:
 	static Scene *	mCurrentScene;
+	list<Object *>	mRemoveList;
 public:
 	Scene();
 	~Scene();
@@ -35,7 +36,8 @@ public:
 	list<Object *>::iterator Add(list<Object *>::iterator pIt, Object * pObject);
 	void Add(Object * pObject, list<Object *>::iterator &pItOut);
 	void Add(list<Object *>::iterator pIt, Object * pObject, list<Object *>::iterator &pItOut);
-	void Remove(Object * pIt);
+	
+	void AddToRemoveList(Object * pIt);
 
 	static void ReplaceScene(Scene * pScene);
 	static Scene * GetCurrentScene();

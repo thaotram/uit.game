@@ -26,7 +26,11 @@
         "vector": "cpp",
         "xhash": "cpp",
         "xiosbase": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "initializer_list": "cpp",
+        "map": "cpp",
+        "unordered_map": "cpp",
+        "xutility": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

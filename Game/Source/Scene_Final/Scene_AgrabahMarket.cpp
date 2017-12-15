@@ -37,14 +37,14 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	Add(new Object_Map_AgrabahMarket_Back());
 
 	//# Block
-	Add_Static(Abubonus);
-	Add_Static(Apple);
-	Add_Static(Black_Magic_Lamp);
-	Add_Static(Block_Drop);
-	Add_Static(Extra_Health);
-	Add_Static(Genie_Bonus);
-	Add_Static(Restart_Point);
-	Add_Static(Spend_These);
+	//Add_Static(Abubonus);
+	//Add_Static(Apple);
+	//Add_Static(Black_Magic_Lamp);
+	//Add_Static(Block_Drop);
+	//Add_Static(Extra_Health);
+	//Add_Static(Genie_Bonus);
+	//Add_Static(Restart_Point);
+	//Add_Static(Spend_These);
 
 	//# Unit
 	Add(new Object_Unit_Aladdin(), itPlayer);
@@ -52,7 +52,7 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 
 	//# Status
 	/// Phần này để cho Huyền làm
-	Add(new Object_Status_Apple());
-	Add(new Object_Status_Magic_Lamp());
-	Add(new Object_Status_Health_Meter(1));
+	//Add(new Object_Status_Apple());
+	//Add(new Object_Status_Magic_Lamp());
+	//Add(new Object_Status_Health_Meter(1));
 }

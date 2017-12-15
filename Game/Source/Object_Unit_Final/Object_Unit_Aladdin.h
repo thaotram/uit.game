@@ -12,6 +12,8 @@ private:
 	RECT tDis;
 	RECT tUnit;
 	pair<bool, RECT> tRope, tBar;
+	
+	list<Object *>::iterator itThrowApple;
 public:
 	Object_Unit_Aladdin();
 	~Object_Unit_Aladdin() {};

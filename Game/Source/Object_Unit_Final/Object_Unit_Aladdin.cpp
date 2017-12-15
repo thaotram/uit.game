@@ -66,7 +66,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (Z) {
 			Z = false;
 			mAni.Set("stand_throwapple", 1, "stand", 1);
-			mScene->Add(mScene->itPlayer, new Object_Unit_Apple(xx, yy, true));
+			mScene->Add(mScene->itPlayer, new Object_Unit_Apple(xx, yy - 55, mTransform.GetFlip()), itThrowApple);
 		}
 		else if (X) {
 			X = false;
@@ -84,10 +84,10 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		tIsChangeX = false;
 	}
 	else if (state == "stand_throwapple") {
-		mTimePerFrame = 0.06f;
+		mTimePerFrame = 0.04f;
 		tIsChangeX = false;
-		if (mAni.GetCycleIndex() == 4) {
-			//((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
+		if (mAni.GetCycleIndex() == 3) {
+			((Object_Unit_Apple *)(*itThrowApple))->ThrowApple();
 		}
 	}
 	else if (state == "stand_jump") {

@@ -50,6 +50,14 @@ void Scene::SceneRender(float delay) {
 			obj->ObjectUpdateEvent(delay);
 		}
 	}
+	for (auto &obj : mRemoveList) {
+		auto b = &*obj;
+		this->remove(b);
+		delete b;
+	}
+	mRemoveList.clear();
+
+
 	for (auto &obj : *this) {
 		if (isRender == true) {
 			obj->ObjectRender(delay);
@@ -77,6 +85,6 @@ void Scene::Add(Object * pObject, list<Object*>::iterator & pItOut) {
 	pItOut = Add(pObject);
 }
 
-void Scene::Remove(Object * pObject) {
-	this->remove(pObject);
+void Scene::AddToRemoveList(Object * pObject) {
+	mRemoveList.push_back(pObject);
 }
