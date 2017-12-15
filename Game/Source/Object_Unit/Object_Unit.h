@@ -11,5 +11,6 @@ public:
 	bool mAutoNextFrame;
 
 	virtual void ObjectUpdateEvent(float delay) {};
+	virtual void ObjectIntersect() {};
 	void ObjectUpdateProperties(float delay);
 };

@@ -3,6 +3,8 @@
 #include "../GameDebug.h"
 #include "../../Define.h"
 
+#define isRender	obj->mIsRender
+
 #define I GameGlobal::Input
 #define L I[LEFT]
 #define U I[UP]
@@ -44,9 +46,10 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	tRope = mBlock->GetRope(tUnit, tSpeedX * tDt);
 	tBar = mBlock->GetBar(tUnit, mPos.y.mVelocity * tDt);
 
-	//# Each State
+	//# Các thao tác tính toán / cập nhật
 	ObjectEachState();
 	ObjectAfterEachState();
+	ObjectCheckCollision();
 }
 void Object_Unit_Aladdin::ObjectEachState() {
 	//# Each State
@@ -340,6 +343,27 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	//# UpdateStairsState
 	mScene->mMapBlock->UpdateStairState(tUnit);
 }
-void Object_Unit_Aladdin::CheckCollision(){
-	mScene;
+
+bool isIntersect(RECT a, RECT b) {
+	return 
+		a.left < b.right &&
+		a.right > b.left && 
+		a.top < b.bottom && 
+		a.bottom > b.top;
+}
+
+void Object_Unit_Aladdin::ObjectCheckCollision(){
+	int a = 0;
+	RECT o, u;
+	for (auto &obj : *mScene) {
+		if (isRender == true && obj != this) {
+			o = obj->GetBound();
+			u = this->GetBound();
+			bool f = isIntersect(o, u);
+			if (f) {
+				obj->ObjectIntersect();
+			};
+		}
+	}
+	GameDebug::Title(a);
 }

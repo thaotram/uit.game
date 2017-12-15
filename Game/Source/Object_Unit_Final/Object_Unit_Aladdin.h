@@ -18,5 +18,5 @@ public:
 	void ObjectUpdateEvent(float dt);
 	void ObjectEachState();
 	void ObjectAfterEachState();
-	void CheckCollision();
+	void ObjectCheckCollision();
 };

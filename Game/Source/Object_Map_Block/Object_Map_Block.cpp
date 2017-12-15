@@ -135,13 +135,6 @@ void Object_Map_Block::UpdateStairState(RECT u) {
 	else if(maxLeft <= unitMid && unitMid <= maxRight) {
 		mStairsStateOld = mStairsState;
 	}
-
-	GameDebug::Title(
-		mStairsState == bot ? "bot" :
-		mStairsState == mid ? "mid" :
-		mStairsState == top ? "top" :
-		"null"
-	);
 }
 
 //# Get Rope

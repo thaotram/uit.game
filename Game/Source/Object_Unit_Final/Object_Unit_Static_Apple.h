@@ -7,5 +7,7 @@ public:
 	Object_Unit_Static_Apple(float x, float y);
 	~Object_Unit_Static_Apple() {};
 	void ObjectUpdateEvent(float delay);
+
+	void ObjectIntersect();
 };
 
