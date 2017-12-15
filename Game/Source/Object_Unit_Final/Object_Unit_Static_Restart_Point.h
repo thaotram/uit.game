@@ -7,5 +7,7 @@ public:
 	Object_Unit_Static_Restart_Point(float x, float y);
 	~Object_Unit_Static_Restart_Point() {};
 	void ObjectUpdateEvent(float delay);
+	void ObjectIntersect();
+
 };
 

@@ -11,3 +11,8 @@ void Object_Unit_Static_Restart_Point::ObjectUpdateEvent(float dt)
 {
 
 }
+
+void Object_Unit_Static_Restart_Point::ObjectIntersect()
+{
+	mAutoNextFrame = true;
+}
