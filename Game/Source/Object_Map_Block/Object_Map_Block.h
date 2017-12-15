@@ -5,27 +5,17 @@
 #include <fstream>
 #include <list>
 #include <vector>
-
 #include <json.hpp>
 
 #define V2 D3DXVECTOR2
 using json = nlohmann::json;
 using namespace std;
 
-//enum BlockType {
-//	rope,
-//	apple,
-//	black_magiclamp,
-//	spendthese_item,
-//	geniebonus,
-//	abubonus,
-//	restartpoint,
-//	extrahealth,
-//	woodenbar,
-//	square,
-//	stairs_slash,
-//	stairs_backslash
-//};
+enum StairsState {
+	bot,
+	mid,
+	top
+};
 
 class Object;
 
@@ -36,6 +26,13 @@ private:
 	list<RECT>			mSquare;
 	list<RECT>			mStairs_slash;
 	list<RECT>			mStairs_backslash;
+
+	list<RECT>			m_Stairs_slash;
+	list<RECT>			m_Square;
+	list<RECT>			m_Stairs_backslash;
+
+	StairsState			mStairsState;
+	StairsState			mStairsStateOld;
 public:
 	Object_Map_Block(string pName);
 	~Object_Map_Block() {};
@@ -50,6 +47,7 @@ public:
 	list<RECT> mSpend_These;
 
 	RECT				GetDistance(RECT u);
+	void				UpdateStairState(RECT u);
 	pair<bool, RECT>	GetRope(RECT u, float step);
 	pair<bool, RECT>	GetBar(RECT u, float step);
 };

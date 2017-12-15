@@ -26,6 +26,10 @@ Object_Map_Block::Object_Map_Block(string pName) {
 	add(Stairs_slash);
 	add(Stairs_backslash);
 
+	add(_Square);
+	add(_Stairs_slash);
+	add(_Stairs_backslash);
+
 	add(Abubonus);
 	add(Apple);
 	add(Black_Magic_Lamp);
@@ -33,6 +37,9 @@ Object_Map_Block::Object_Map_Block(string pName) {
 	add(Genie_Bonus);
 	add(Restart_Point);
 	add(Spend_These);
+
+	mStairsState = StairsState::bot;
+	mStairsStateOld = StairsState::bot;
 }
 
 //# GetDistance
@@ -52,17 +59,21 @@ if (b->bottom >= u.bottom) {										\
 	out.bottom = min(out.bottom, (b->bottom - u_x) - u.bottom);		\
 }
 
+#define if_in(x,y)	if(u.x > b.y && b.x > u.y)
 #define filter(var)										\
 for (auto &b : m##var) {								\
 	if_in(right, left) 		top_bottom.push_back(&b);	\
 	if_in(bottom, top)		left_right.push_back(&b);	\
 }														\
 
+#define filterLeftRight(var)							\
+for (auto &b : m##var) {								\
+	if_in(right, left) 		top_bottom.push_back(&b);	\
+}
+
 #define clearFilter()	\
 left_right.clear();		\
 top_bottom.clear();		\
-
-#define if_in(x,y)	if(u.x > b.y && b.x > u.y)
 
 RECT Object_Map_Block::GetDistance(RECT u) {
 	RECT out = { -1,-1,-1,-1 };
@@ -73,6 +84,8 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 
 	//# Square
 	filter(Square);
+	if (mStairsState == StairsState::mid ||
+		mStairsState == StairsState::top) filterLeftRight(_Square);
 	for (auto &b : left_right)	check_squares(left, right);
 	for (auto &b : top_bottom)	check_squares(top, bottom);
 	clearFilter();
@@ -80,14 +93,54 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 	// Chỉ tỉnh toán bottom, không quan tâm các thể loại khác
 	//# Stairs Slash
 	filter(Stairs_slash);
+	if (mStairsState == StairsState::top) filterLeftRight(_Stairs_slash);
 	for (auto &b : top_bottom)	check_stair(u.right - b->left);
 	clearFilter();
 
 	//# Stairs Backslash
 	filter(Stairs_backslash);
+	if (mStairsState == StairsState::mid) filterLeftRight(_Stairs_backslash);
 	for (auto &b : top_bottom)	check_stair(b->right - u.left);
 	clearFilter();
+
 	return out;
+}
+const int maxRight = 2611;
+const int maxLeft = 2291;
+void Object_Map_Block::UpdateStairState(RECT u) {
+	auto unitMid = (u.right + u.left) / 2;
+	if (mStairsState == mStairsStateOld) {
+		if (unitMid <= maxLeft) {
+			switch (mStairsState) {
+			case mid:
+				mStairsState = top;
+				break;
+			case top:
+				mStairsState = mid;
+				break;
+			}
+		}
+		else if (unitMid >= maxRight) {
+			switch (mStairsState) {
+			case mid:
+				mStairsState = bot;
+				break;
+			case bot:
+				mStairsState = mid;
+				break;
+			}
+		}
+	}
+	else if(maxLeft <= unitMid && unitMid <= maxRight) {
+		mStairsStateOld = mStairsState;
+	}
+
+	GameDebug::Title(
+		mStairsState == bot ? "bot" :
+		mStairsState == mid ? "mid" :
+		mStairsState == top ? "top" :
+		"null"
+	);
 }
 
 //# Get Rope

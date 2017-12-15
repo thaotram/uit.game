@@ -6,5 +6,6 @@ public:
 	Object_Status_Number_L();
 	~Object_Status_Number_L() {};
 	void ObjectUpdateEvent(float delay);
+	int vitri;
 };
 

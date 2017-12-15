@@ -29,8 +29,8 @@
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mPos << V2{ 2200, 185 };
-	mPos << V2{ 2700, 640 };
-	mPos << V2{ 50, 640 };
+	//mPos << V2{ 2700, 640 };
+	//mPos << V2{ 50, 640 };
 	mAni.Set("stand", 1);
 }
 
@@ -52,8 +52,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	pair<bool, RECT> bar = mBlk->GetBar(unit, mPos.y.mVelocity * dt);
 	isChangeX = isChangeY = true;
 
-
-	GameDebug::Title(bar.first);
+	//GameDebug::Title(dis);
 
 	//# Each State
 	if (state == "") {
@@ -352,4 +351,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		min(max(0, xx - (WIDTH / 2)), MAP_WIDTH - WIDTH),
 		min(max(0, yy - (HEIGHT - 56)), MAP_HEIGHT - HEIGHT)
 	};
+
+	//# UpdateStairsState
+	mScene->mMapBlock->UpdateStairState(unit);
 }
