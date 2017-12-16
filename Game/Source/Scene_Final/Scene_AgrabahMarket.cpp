@@ -3,8 +3,6 @@
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Front.h"
 #include "../Object_Map_Block/Object_Map_Block.h"
 
-#include "../Object_Unit_Final/Object_Unit_Apple.h"
-#include "../Object_Unit_Final/Object_Unit_Aladdin.h"
 
 #include "../Object_Unit_Final/Object_Unit_Static_Abubonus.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Apple.h"
@@ -46,14 +44,14 @@ Scene_AgrabahMarket::Scene_AgrabahMarket(): Scene() {
 	Add(new Object_Map_AgrabahMarket_Back());
 
 	//# Block
-	Add_Static(Abubonus);
-	Add_Static(Apple);
-	Add_Static(Black_Magic_Lamp);
+	// Add_Static(Abubonus);
+	// Add_Static(Apple);
+	// Add_Static(Black_Magic_Lamp);
 	Add_Static(Block_Drop);
-	Add_Static(Extra_Health);
-	Add_Static(Genie_Bonus);
-	Add_Static(Restart_Point);
-	Add_Static(Spend_These);
+	// Add_Static(Extra_Health);
+	// Add_Static(Genie_Bonus);
+	// Add_Static(Restart_Point);
+	// Add_Static(Spend_These);
 
 	//# Unit
 	Add(new Object_Unit_Aladdin(), itPlayer);
@@ -61,9 +59,9 @@ Scene_AgrabahMarket::Scene_AgrabahMarket(): Scene() {
 
 	//# Status
 	/// Phần này để cho Huyền làm
-	Add(new Object_Status_Apple());
-	Add(new Object_Status_Magic_Lamp());
-	Add(new Object_Status_Health_Meter(mBlood));
+	// Add(new Object_Status_Apple());
+	// Add(new Object_Status_Magic_Lamp());
+	// Add(new Object_Status_Health_Meter(mBlood));
 
 	//# Enemy
 	/*Add(new Object_Unit_Enemy_Assassin(, , ));

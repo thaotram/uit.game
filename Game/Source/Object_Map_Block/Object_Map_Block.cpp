@@ -62,6 +62,7 @@ if (b->bottom >= u.bottom) {										\
 }
 
 #define if_in(x,y)	if(u.x > b.y && b.x > u.y)
+#define if_inptr(x,y)	if(u.x > b->y && b->x > u.y)
 #define filter(var)										\
 for (auto &b : m##var) {								\
 	if_in(right, left) 		top_bottom.push_back(&b);	\
@@ -105,21 +106,25 @@ RECT Object_Map_Block::GetDistance(RECT u, Object * pUnit) {
 	for (auto &b : top_bottom)	check_stair(b->right - u.left);
 	clearFilter();
 
+	GameDebug::TitleCount();
+
 	//# Block_Drop
 	for (auto &unit : *(pUnit->mScene)) {		// Đây là filter
 		if (unit->mIsRender) {
 			if (dynamic_cast<Object_Unit_Static_Block_Drop *>(&*unit)) {
 				auto block = (Object_Unit_Static_Block_Drop *)(&*unit);
-				auto b = block->GetBound();
-				if_in(right, left)	top_bottom.push_back(&b);
+				auto b = new RECT(block->GetBound());
+				if_inptr(right, left)	top_bottom.push_back(b);
 			}
 		}
 	}
 	for (auto &b : top_bottom)	check_squares(top, bottom);
+	for (auto &b : top_bottom)	delete b;
 	clearFilter();
 
 	return out;
 }
+
 const int maxRight = 2611;
 const int maxLeft = 2291;
 void Object_Map_Block::UpdateStairState(RECT u) {

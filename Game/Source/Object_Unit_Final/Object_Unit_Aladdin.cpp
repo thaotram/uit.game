@@ -414,6 +414,7 @@ void Object_Unit_Aladdin::ObjectCheckCollision() {
 				obj->GetBound(),
 				this->GetBound()
 			)) {
+				tDis = mBlock->GetDistance(tUnit, this);
 				obj->ObjectIntersect(this);
 			};
 		}
