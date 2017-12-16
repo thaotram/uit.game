@@ -348,6 +348,8 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Peddler.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Stick.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Knife.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Explosion_Small.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Explosion_Big.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -502,6 +504,12 @@
     </ClCompile>
     <ClCompile Include="Source\Scene\Scene_Block_Store.cpp">
       <Filter>Source\Scene\Scene_Block_Store</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Explosion_Big.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Explosion_Small.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

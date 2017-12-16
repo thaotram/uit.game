@@ -21,6 +21,6 @@ void Object_Unit_Knife::ObjectUpdateEvent(float dt)
 {
 }
 
-void Object_Unit_Knife::ThrowApple(bool flip)
+void Object_Unit_Knife::ThrowKnife(bool flip)
 {
 }
