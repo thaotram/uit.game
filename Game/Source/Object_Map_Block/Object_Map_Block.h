@@ -31,6 +31,15 @@ private:
 	list<RECT>			m_Square;
 	list<RECT>			m_Stairs_backslash;
 
+	list<RECT> 			mNPC_Camel;
+	list<RECT> 			mNPC_Peddler;
+	list<RECT> 			mEnemy_Assassin;
+	list<RECT> 			mEnemy_Circus;
+	list<RECT> 			mEnemy_Fat;
+	list<RECT> 			mEnemy_Pirates;
+	list<RECT> 			mEnemy_Straw;
+	list<RECT> 			mEnemy_Thin;
+
 	StairsState			mStairsState;
 	StairsState			mStairsStateOld;
 public:
