@@ -10,6 +10,7 @@ void Object_Unit_Static_Apple::ObjectUpdateEvent(float dt) {
 	
 }
 
-void Object_Unit_Static_Apple::ObjectIntersect(){
-	mAni.SetCycleIndex(2);
+void Object_Unit_Static_Apple::ObjectIntersect(Object * pObject){
+	mScene->mApple++;
+	mScene->AddToRemoveList(this);
 }

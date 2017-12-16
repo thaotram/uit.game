@@ -1,5 +1,6 @@
 ﻿#include "Object_Map_Block.h"
 #include "../Object/Object.h"
+#include "../Object_Unit_Final/Object_Unit_Static_Block_Drop.h"
 #include "../GameDebug.h"
 #include <math.h>
 
@@ -39,8 +40,8 @@ Object_Map_Block::Object_Map_Block(string pName) {
 	add(Restart_Point);
 	add(Spend_These);
 
-	mStairsState = StairsState::bot;
-	mStairsStateOld = StairsState::bot;
+	mStairsState = StairsState::Bot;
+	mStairsStateOld = StairsState::Bot;
 }
 
 //# GetDistance
@@ -76,7 +77,7 @@ for (auto &b : m##var) {								\
 left_right.clear();		\
 top_bottom.clear();		\
 
-RECT Object_Map_Block::GetDistance(RECT u) {
+RECT Object_Map_Block::GetDistance(RECT u, Object * pUnit) {
 	RECT out = { -1,-1,-1,-1 };
 
 	//# Filter
@@ -85,8 +86,8 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 
 	//# Square
 	filter(Square);
-	if (mStairsState == StairsState::mid ||
-		mStairsState == StairsState::top) filterLeftRight(_Square);
+	if (mStairsState == StairsState::Mid ||
+		mStairsState == StairsState::Top) filterLeftRight(_Square);
 	for (auto &b : left_right)	check_squares(left, right);
 	for (auto &b : top_bottom)	check_squares(top, bottom);
 	clearFilter();
@@ -94,14 +95,27 @@ RECT Object_Map_Block::GetDistance(RECT u) {
 	// Chỉ tỉnh toán bottom, không quan tâm các thể loại khác
 	//# Stairs Slash
 	filter(Stairs_slash);
-	if (mStairsState == StairsState::top) filterLeftRight(_Stairs_slash);
+	if (mStairsState == StairsState::Top) filterLeftRight(_Stairs_slash);
 	for (auto &b : top_bottom)	check_stair(u.right - b->left);
 	clearFilter();
 
 	//# Stairs Backslash
 	filter(Stairs_backslash);
-	if (mStairsState == StairsState::mid) filterLeftRight(_Stairs_backslash);
+	if (mStairsState == StairsState::Mid) filterLeftRight(_Stairs_backslash);
 	for (auto &b : top_bottom)	check_stair(b->right - u.left);
+	clearFilter();
+
+	//# Block_Drop
+	for (auto &unit : *(pUnit->mScene)) {		// Đây là filter
+		if (unit->mIsRender) {
+			if (dynamic_cast<Object_Unit_Static_Block_Drop *>(&*unit)) {
+				auto block = (Object_Unit_Static_Block_Drop *)(&*unit);
+				auto b = block->GetBound();
+				if_in(right, left)	top_bottom.push_back(&b);
+			}
+		}
+	}
+	for (auto &b : top_bottom)	check_squares(top, bottom);
 	clearFilter();
 
 	return out;
@@ -113,26 +127,26 @@ void Object_Map_Block::UpdateStairState(RECT u) {
 	if (mStairsState == mStairsStateOld) {
 		if (unitMid <= maxLeft) {
 			switch (mStairsState) {
-			case mid:
-				mStairsState = top;
+			case Mid:
+				mStairsState = Top;
 				break;
-			case top:
-				mStairsState = mid;
+			case Top:
+				mStairsState = Mid;
 				break;
 			}
 		}
 		else if (unitMid >= maxRight) {
 			switch (mStairsState) {
-			case mid:
-				mStairsState = bot;
+			case Mid:
+				mStairsState = Bot;
 				break;
-			case bot:
-				mStairsState = mid;
+			case Bot:
+				mStairsState = Mid;
 				break;
 			}
 		}
 	}
-	else if(maxLeft <= unitMid && unitMid <= maxRight) {
+	else if (maxLeft <= unitMid && unitMid <= maxRight) {
 		mStairsStateOld = mStairsState;
 	}
 }

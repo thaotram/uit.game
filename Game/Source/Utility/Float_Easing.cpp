@@ -3,7 +3,6 @@
 #include <math.h>
 
 Float_Easing::Float_Easing() {
-	mTime = 0;
 	mEase = Ease::stop;
 	mType = Type::none;
 	mNow = 0;
@@ -14,8 +13,6 @@ void Float_Easing::operator<<(float pValue) {
 
 void Float_Easing::operator=(float pLast) {
 	mLast = pLast;
-	mTime = 0;
-	mDuration = 0.3f;
 }
 void Float_Easing::operator+=(float pDelta) {
 	*this = mLast + pDelta;

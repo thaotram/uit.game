@@ -11,5 +11,6 @@ Object_Status_Health_Meter::Object_Status_Health_Meter(int i) : Object_Status("S
 
 void Object_Status_Health_Meter::ObjectUpdateEvent(float delay)
 {
+
 	mPos <<mScene->mCamera.VECTOR2()+ V2{ 66  , 12 };
 }

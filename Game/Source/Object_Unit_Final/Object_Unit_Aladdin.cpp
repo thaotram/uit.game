@@ -24,9 +24,18 @@
 
 #define state	mAni.GetState()
 
+bool isIntersect(RECT a, RECT b) {
+	return
+		a.left < b.right &&
+		a.right > b.left &&
+		a.top <= b.bottom &&
+		a.bottom >= b.top;
+}
+
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 1530, 415 };
+	mPos << V2{ 4321 , 444 };
 	mAni.Set("stand", 1);
+	mIsOnDropBlock = false;
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
@@ -42,7 +51,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		(LONG)xx + unitWidth / 2,
 		(LONG)yy
 	};
-	tDis = mBlock->GetDistance(tUnit);
+	tDis = mBlock->GetDistance(tUnit, this);
 	tRope = mBlock->GetRope(tUnit, tSpeedX * tDt);
 	tBar = mBlock->GetBar(tUnit, mPos.y.mVelocity * tDt);
 
@@ -63,22 +72,38 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		if (U)						mAni.Set("up", 1);
 		else if (D)					mAni.Set("sit", 1);
 		else if (R || L)			mAni.Set("run", 1);
-		else if (Z)					mAni.Set("stand_throwapple", 1, "stand", 1);
+		else if (Z) {
+			Z = false;
+			mAni.Set("stand_throwapple", 1, "stand", 1);
+			mScene->Add(mScene->itPlayer, new Object_Unit_Apple(xx, yy - 55), itThrowApple);
+		}
 		else if (X) {
+			X = false;
 			mAni.Set("stand_cut", 1, "stand", 1);
 		}
-		else if (C && tDis.bottom == 0) {
+		else if (C && tDis.bottom <= 10) {
+			C = false;
+			mAutoNextFrame = false;
 			mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-tJump);
 		}
 	}
-	else if (state == "stand_throwapple") {
-		mTimePerFrame = 0.06f;
+	else if (state == "stand_cut") {
+		X = false;
+		mTimePerFrame = 0.03f;
 		tIsChangeX = false;
-		if (mAni.GetCycleIndex() == 4) {
-			//((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
+	}
+	else if (state == "stand_throwapple") {
+		mTimePerFrame = 0.03f;
+		tIsChangeX = false;
+		L = R = false;
+		if (mAni.GetCycleIndex() == 3) {
+			((Object_Unit_Apple *)(*itThrowApple))->ThrowApple(
+				mTransform.GetFlip()
+			);
 		}
 	}
 	else if (state == "stand_jump") {
+		C = false;
 		mTimePerFrame = 0.06f;
 		if (tDis.bottom == 0 && mPos.y.mVelocity == 0) {
 			mAni.Set("stand", 1);
@@ -92,9 +117,9 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mAni.SetCycleIndex(11);
 		}
 		else if (mAutoNextFrame && mPos.y.mVelocity == 0) {
-			mAni.Next();
+			mAni.NextState();
 		}
-		else if (mAutoNextFrame)						0;
+		else if (mAutoNextFrame)					0;
 		else if (mPos.y.mVelocity <= 0.7 * -tJump)	mAni.SetCycleIndex(2);
 		else if (mPos.y.mVelocity <= 0.3 * -tJump)	mAni.SetCycleIndex(3);
 		else if (mPos.y.mVelocity <= 0)				mAni.SetCycleIndex(4);
@@ -107,21 +132,25 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (mPos.y.mVelocity <= 1.2 * +tJump)	mAni.SetCycleIndex(10);
 
 		if (Z) {
-			//mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
+			Z = false;
+			//mScene->Add("2", n?ew Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
 		}
 		if (X && tDis.bottom > 50) {
+			X = false;
 			mAni.Set("jump_cut", 1, "stand_jump", 4);
 		}
 	}
 	else if (state == "jump_throwapple") {
 		mTimePerFrame = 0.03f;
-		tIsChangeX = false;
+		mAutoNextFrame = true;
+		//tIsChangeX = false;
 		if (mAni.GetCycleIndex() == 4) {
 			//((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
 		}
 	}
 	else if (state == "jump_cut") {
+		X = false;
 		mTimePerFrame = 0.03f;
 		mAutoNextFrame = true;
 	}
@@ -150,7 +179,10 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mAni.Set("sit_throwapple", 1, "sit", 4);
 		}
 		else if (X)			mAni.Set("sit_cut", 1, "sit", 4);
-		else if (C)			mAni.Set("stand_jump", 1, "sit", 1) && mPos.y.SetVelocity(-tJump);
+		else if (C) {
+			C = false;
+			mAni.Set("stand_jump", 1, "sit", 1) && mPos.y.SetVelocity(-tJump);
+		}
 	}
 	else if (state == "sit_to_stand") {
 		mTimePerFrame = 0.06f;
@@ -158,10 +190,12 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mAutoNextFrame = true;
 	}
 	else if (state == "sit_cut") {
+		X = false;
 		mTimePerFrame = 0.06f;
 		tIsChangeX = false;
 	}
 	else if (state == "sit_throwapple") {
+		Z = false;
 		mTimePerFrame = 0.06f;
 		tIsChangeX = false;
 		if (mAni.GetCycleIndex() == 3) {
@@ -173,17 +207,22 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		if (!L && !R)	mAni.Set("stand", 1);
 		if (Z)			0; /// "run_throwapple" - thiếu
 		else if (X)			mAni.Set("run_cut", 1, "run", 9);
-		else if (C && tDis.bottom == 0) {
+		else if (C && tDis.bottom <= 10) {
 			// Phải ở dưới đấy thì mới được nhảy
 			C = false;
 			mAni.Set("run_jump", 1) && mPos.y.SetVelocity(-tJump);
 		}
 	}
+	else if (state == "run_throwapple") {
+		// ko có sprite
+	}
 	else if (state == "run_cut") {
-		mTimePerFrame = 0.06f;
+		X = false;
+		mTimePerFrame = 0.03f;
 		if (!R && !L)	mAni.Set("stand", 1);
 	}
 	else if (state == "run_jump") {
+		C = false;
 		mTimePerFrame = 0.06f;
 		if (mAni.GetCycleIndex() == 1 && mPos.y.mVelocity == -tJump) {
 			mAutoNextFrame = false;
@@ -203,7 +242,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			else		mAni.SetCycleIndex(7) && mAni.SetNext("stand", 1);
 		}
 		else if (mAutoNextFrame && mPos.y.mVelocity == 0) {
-			mAni.Next();
+			mAni.NextState();
 		}
 		else if (mAutoNextFrame)							0;	/// Ngưng lại ///
 		else if (mPos.y.mVelocity <= 0.90 * -tJump)		mAni.SetCycleIndex(2);
@@ -220,8 +259,14 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mAutoNextFrame = true;
 		tIsChangeX = tIsChangeY = false;
 		if (L || R)			mAni.Set("climb_horizontal", 1);
-		else if (Z)				mAni.Set("climb_throwapple", 1, "climb_still", 1);
-		else if (X)				mAni.Set("climb_cut", 1, "climb_still", 1);
+		else if (Z) {
+			Z = false;
+			mAni.Set("climb_throwapple", 1, "climb_still", 1);
+		}
+		else if (X) {
+			X = false;
+			mAni.Set("climb_cut", 1, "climb_still", 1);
+		}
 		else if (C || tBar.first == false) {
 			C = false;
 			tBar.first = false;
@@ -230,7 +275,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mAni.Set("stand_jump", 1);
 		}
 	}
-	else if (state == "climb_vertical") {
+	else if (state == "climb_vertical") { // Leo dọc
 		mTimePerFrame = 0.06f;
 		mPos.y.mVelocity = 0;
 		mAutoNextFrame = false;
@@ -252,9 +297,18 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mPos.y << yy + deltaY;
 		}
 
-		if (Z)			mAni.Set("climb_throwapple", 1, "climb_vertical", cycleIndex);
-		else if (X)		mAni.Set("climb_cut", 1, "climb_vertical", cycleIndex);
-		else if (C)		mAni.Set("climb_jump", 1) && mPos.y.SetVelocity(-tJump);
+		if (Z) {
+			Z = false;
+			mAni.Set("climb_throwapple", 1, "climb_vertical", cycleIndex);
+		}
+		else if (X) {
+			X = false;
+			mAni.Set("climb_cut", 1, "climb_vertical", cycleIndex);
+		}
+		else if (C) {
+			C = false;
+			mAni.Set("climb_jump", 1) && mPos.y.SetVelocity(-tJump);
+		}
 	}
 	else if (state == "climb_horizontal") {
 		mTimePerFrame = 0.06f;
@@ -262,9 +316,15 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mAutoNextFrame = true;
 		tIsChangeY = false;
 
-		if (!L && !R)		mAni.Set("climb_still", 1);
-		else if (Z)				mAni.Set("climb_throwapple", 1, "climb_still", 1);
-		else if (X)				mAni.Set("climb_cut", 1, "climb_still", 1);
+		if (!L && !R)			mAni.Set("climb_still", 1);
+		else if (Z) {
+			Z = false;
+			mAni.Set("climb_throwapple", 1, "climb_still", 1);
+		}
+		else if (X) {
+			X = false;
+			mAni.Set("climb_cut", 1, "climb_still", 1);
+		}
 		else if (C) {
 			C = false;
 			tBar.first = false;
@@ -328,9 +388,12 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 		R ? +min(tSpeedX * tDt, tDis.right) :
 		L ? -min(tSpeedX * tDt, tDis.left) : 0;
 	mPos.x.Update(tDt);
-	tDis = mBlock->GetDistance(tUnit);
-	mPos.y = !tIsChangeY ? yy :
-		yy + tDis.bottom;
+	tDis = mBlock->GetDistance(tUnit, this);
+
+	if (!mIsOnDropBlock) {
+		mPos.y = !tIsChangeY ? yy :
+			yy + tDis.bottom;
+	}
 	mPos.y.Update(tDt);
 
 	//# Camera
@@ -343,27 +406,16 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	//# UpdateStairsState
 	mScene->mMapBlock->UpdateStairState(tUnit);
 }
-
-bool isIntersect(RECT a, RECT b) {
-	return 
-		a.left < b.right &&
-		a.right > b.left && 
-		a.top < b.bottom && 
-		a.bottom > b.top;
-}
-
-void Object_Unit_Aladdin::ObjectCheckCollision(){
-	int a = 0;
-	RECT o, u;
+void Object_Unit_Aladdin::ObjectCheckCollision() {
+	mSourceRect.Update(this);
 	for (auto &obj : *mScene) {
 		if (isRender == true && obj != this) {
-			o = obj->GetBound();
-			u = this->GetBound();
-			bool f = isIntersect(o, u);
-			if (f) {
-				obj->ObjectIntersect();
+			if (isIntersect(
+				obj->GetBound(),
+				this->GetBound()
+			)) {
+				obj->ObjectIntersect(this);
 			};
 		}
 	}
-	GameDebug::Title(a);
 }

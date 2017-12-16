@@ -7,5 +7,6 @@ public:
 	Object_Unit_Static_Spend_These(float x, float y);
 	~Object_Unit_Static_Spend_These() {};
 	void ObjectUpdateEvent(float delay);
+	void ObjectIntersect(Object * pObject);
 };
 

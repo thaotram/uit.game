@@ -3,7 +3,7 @@
 	"startFrame": 1,
     "time": 0.1,
     "states": {
-		"assassinate": {
+		"assassin": {
 			"note": "thả lu gạch từ trên cửa sổ xuống",
 			"basePoint": [ 6, 22 ],
             "frameCycle": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1 ],
@@ -48,7 +48,7 @@
                 "8": [ 954, 81, 102, 30, -33, -10 ]
 			}
 		},
-		"F":{
+		"circus":{
 			"note": "đứng im ném dao",
 			"basePoint": [ 24, 81 ],
 			"frameCycle": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, -1],

@@ -4,10 +4,16 @@
 Object_Unit_Static_Abubonus::Object_Unit_Static_Abubonus(float x, float y) : Object_Unit("Item") {
 	mPos << V2{ x , y };
 	mAni.Set("abubonus", 1);
-	mAutoNextFrame = false;
+	mAutoNextFrame = true;
 }
 
 void Object_Unit_Static_Abubonus::ObjectUpdateEvent(float delay)
 {
+}
+
+void Object_Unit_Static_Abubonus::ObjectIntersect(Object * pObject)
+{
+	mScene->mScore += 250;
+	mScene->AddToRemoveList(this);
 }
 

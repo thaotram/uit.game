@@ -1,5 +1,33 @@
-﻿	 #include "Scene_AgrabahMarket.h"
+﻿#include "Scene_AgrabahMarket.h"
+#include "../Object_Map_Final/Object_Map_AgrabahMarket_Back.h"
+#include "../Object_Map_Final/Object_Map_AgrabahMarket_Front.h"
+#include "../Object_Map_Block/Object_Map_Block.h"
 
+
+#include "../Object_Unit_Final/Object_Unit_Static_Abubonus.h"
+#include "../Object_Unit_Final/Object_Unit_Static_Apple.h"
+#include "../Object_Unit_Final/Object_Unit_Static_Black_Magic_Lamp.h"
+#include "../Object_Unit_Final/Object_Unit_Static_Block_Drop.h"
+#include "../Object_Unit_Final/Object_Unit_Static_Extra_Health.h"
+#include "../Object_Unit_Final/Object_Unit_Static_Genie_Bonus.h"
+#include "../Object_Unit_Final/Object_Unit_Static_Restart_Point.h"
+#include "../Object_Unit_Final/Object_Unit_Static_Spend_These.h"
+
+#include "../Object_Status_Final/Object_Status_Apple.h"
+#include "../Object_Status_Final/Object_Status_Life.h"
+#include "../Object_Status_Final/Object_Status_Health_Meter.h"
+#include "../Object_Status_Final/Object_Status_Magic_Lamp.h"
+
+#include "../Object_Unit_Final/Object_Unit_Enemy_Assassin.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Circus.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Fat.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Pirates.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Straw.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Thin.h"
+#include "../Object_Unit_Final/Object_Unit_NPC_Camel.h"
+#include "../Object_Unit_Final/Object_Unit_NPC_Peddler.h"
+
+#include "../../Define.h"
 
 #define Add_Static(name)				\
 for(auto &b : mMapBlock->m##name) {		\
@@ -9,9 +37,9 @@ for(auto &b : mMapBlock->m##name) {		\
 	));									\
 }
 
-Scene_AgrabahMarket::Scene_AgrabahMarket() {
+Scene_AgrabahMarket::Scene_AgrabahMarket(): Scene() {
 	mMapBlock = new Object_Map_Block("AgrabahMarket_Block");
-
+	
 	//# Map
 	Add(new Object_Map_AgrabahMarket_Back());
 
@@ -26,13 +54,25 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	Add_Static(Spend_These);
 
 	//# Unit
-	Add(new Object_Unit_Aladdin());
-	Add(new Object_Map_AgrabahMarket_Front());
+	Add(new Object_Unit_Aladdin(), itPlayer);
+	Add(new Object_Map_AgrabahMarket_Front(), itMapFront);
 
 	//# Status
+	/// Phần này để cho Huyền làm
 	Add(new Object_Status_Apple());
 	Add(new Object_Status_Magic_Lamp());
-	Add(new Object_Status_Health_Meter(1));
-	Add(new Object_Status_Spendthese());
-	Add(new Object_Status_Number_S(9));
+	Add(new Object_Status_Health_Meter(mBlood));
+
+	//# Enemy
+	/*Add(new Object_Unit_Enemy_Assassin(, , ));
+	Add(new Object_Unit_Enemy_Circus(, , ));
+	Add(new Object_Unit_Enemy_Fat(, , ));
+	Add(new Object_Unit_Enemy_Pirates(, , ));
+	Add(new Object_Unit_Enemy_Straw(, , ));*/
+	//Add(new Object_Unit_Enemy_Thin(590, 758, 624));
+
+	//# NPC
+	Add(new Object_Unit_NPC_Camel(1545, 1578, 648));
+	//Add(new Object_Unit_NPC_Peddler(, , ));
+
 }
