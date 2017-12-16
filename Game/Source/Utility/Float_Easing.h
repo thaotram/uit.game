@@ -6,14 +6,12 @@ enum Ease {
 };
 enum Type {
 	gravity,
-	quad,
 	none
 };
 
 class Float_Easing {
 private:
 	float
-		mTime,
 		mBack, mNext, mNow, mLast;
 public:
 	Float_Easing();
@@ -21,7 +19,6 @@ public:
 	Type	mType;
 
 	float	mVelocity;
-	float	mDuration;
 
 	void operator<<(float pValue);	// mặc định
 
