@@ -42,9 +42,6 @@
     <Filter Include="Source\Utility">
       <UniqueIdentifier>{d03c4b0d-7fcb-49fa-b5e6-9b2e8d4629f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Object_Map_Block">
-      <UniqueIdentifier>{06821d94-b8e6-408d-a181-35ab1019115a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Object_Status">
       <UniqueIdentifier>{a74ba347-6a0b-4197-8aa1-7853a6a122d6}</UniqueIdentifier>
     </Filter>
@@ -56,6 +53,21 @@
     </Filter>
     <Filter Include="Source\Object_Unit\Enemy">
       <UniqueIdentifier>{49f91c02-c24c-4a24-9d14-abbf57cdf49e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object_Unit\NPC">
+      <UniqueIdentifier>{d687e9fc-a806-4d5f-b85b-2d087cfc2268}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object_Unit\Player">
+      <UniqueIdentifier>{08ed21e1-9aa2-4979-9dfc-d563d2fc4d15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object_Unit\UFO">
+      <UniqueIdentifier>{7c7d2567-38d6-4170-ac4a-ce7d77e15317}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scene\Scene_Block_Store">
+      <UniqueIdentifier>{06821d94-b8e6-408d-a181-35ab1019115a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scene\Scene_Final">
+      <UniqueIdentifier>{857ebbfa-d1b8-41c9-911e-cead274b2396}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -98,7 +110,6 @@
     <None Include="Resources\Debug.json">
       <Filter>Resource Files\Debug</Filter>
     </None>
-    <None Include="ClassDiagram.cd" />
     <None Include="Resources\AgrabahMarket_Back.json">
       <Filter>Resource Files\Map</Filter>
     </None>
@@ -112,8 +123,7 @@
       <Filter>Resource Files\Block</Filter>
     </None>
     <None Include="Resources\Stick.json" />
-    <None Include="Resources\AgrabahMarket_Back_Mới.psd" />
-    <None Include="Resources\AgrabahMarket_Back_Mới_trước.psd" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -245,9 +255,6 @@
     <ClInclude Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Map_Block\Object_Map_Block.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Object_Status\Object_Status.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -305,17 +312,35 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Thin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Pirates.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Assassin.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Circus.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Fat.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Straw.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Camel.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Peddler.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Stick.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Assassin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Circus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Fat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Pirates.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Straw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Camel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Peddler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Stick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\Scene_Block_Store.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Source\Game.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
@@ -346,9 +371,6 @@
     <ClCompile Include="Source\Scene\Scene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scene_Final\Scene_AgrabahMarket.cpp">
-      <Filter>Source\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Source\GameGlobal.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
@@ -357,9 +379,6 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Map\Object_Map.cpp">
       <Filter>Source\Object_Map</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Aladdin.cpp">
-      <Filter>Source\Object_Unit</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Back.cpp">
       <Filter>Source\Object_Map</Filter>
@@ -379,9 +398,6 @@
     <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.cpp">
       <Filter>Source\Object_Map</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Map_Block\Object_Map_Block.cpp">
-      <Filter>Source\Object_Map_Block</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Object_Status\Object_Status.cpp">
       <Filter>Source\Object_Status</Filter>
     </ClCompile>
@@ -396,9 +412,6 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Spendthese.cpp">
       <Filter>Source\Object_Status</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Apple.cpp">
-      <Filter>Source\Object_Unit</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Abubonus.cpp">
       <Filter>Source\Object_Unit\Static</Filter>
@@ -439,29 +452,44 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Thin.cpp">
       <Filter>Source\Object_Unit\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Pirates.cpp">
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Aladdin.cpp">
+      <Filter>Source\Object_Unit\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Apple.cpp">
+      <Filter>Source\Object_Unit\UFO</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Assassin.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Unit\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Circus.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Unit\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Fat.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Unit\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Pirates.cpp">
+      <Filter>Source\Object_Unit\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Straw.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Unit\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Camel.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Unit\NPC</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Peddler.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Unit\NPC</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Stick.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Unit\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene_Final\Scene_AgrabahMarket.cpp">
+      <Filter>Source\Scene\Scene_Final</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\Scene_Block_Store.cpp">
+      <Filter>Source\Scene\Scene_Block_Store</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

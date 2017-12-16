@@ -3,7 +3,7 @@
 #include "../GameGlobal.h"
 #include "../GameDebug.h"
 #include "../Scene/Scene_Camera.h"
-#include "../Object_Map_Block/Object_Map_Block.h"
+#include "../Scene/Scene_Block_Store.h"
 #include "../Utility/Float_Easing.h"
 
 using namespace std;
@@ -18,7 +18,7 @@ public:
 	~Scene();
 
 	Vector mCamera;
-	Object_Map_Block * mMapBlock;
+	Scene_Block_Store * mMapBlock;
 
 	int mBlood;
 	int mApple;

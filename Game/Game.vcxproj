@@ -120,8 +120,6 @@
     <None Include="ClassDiagram.cd" />
     <None Include="Resources\Abu.json" />
     <None Include="Resources\AgrabahMarket_Back.json" />
-    <None Include="Resources\AgrabahMarket_Back_Mới.psd" />
-    <None Include="Resources\AgrabahMarket_Back_Mới_trước.psd" />
     <None Include="Resources\AgrabahMarket_Block.json" />
     <None Include="Resources\AgrabahMarket_Cloud.json" />
     <None Include="Resources\AgrabahMarket_Front.json" />
@@ -190,7 +188,7 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Black_Magic_Lamp.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Apple.h" />
-    <ClInclude Include="Source\Object_Map_Block\Object_Map_Block.h" />
+    <ClInclude Include="Source\Scene\Scene_Block_Store.h" />
     <ClInclude Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.h" />
     <ClInclude Include="Source\Scene\Scene_Camera.h" />
     <ClInclude Include="Source\Utility\Float_Easing.h" />
@@ -242,7 +240,7 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Black_Magic_Lamp.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Apple.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Apple.cpp" />
-    <ClCompile Include="Source\Object_Map_Block\Object_Map_Block.cpp" />
+    <ClCompile Include="Source\Scene\Scene_Block_Store.cpp" />
     <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.cpp" />
     <ClCompile Include="Source\Scene\Scene_Camera.cpp" />
     <ClCompile Include="Source\Utility\Float_Easing.cpp" />

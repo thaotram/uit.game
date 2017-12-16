@@ -1,10 +1,10 @@
-﻿#include "Object_Map_Block.h"
+﻿#include "Scene_Block_Store.h"
 #include "../Object/Object.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Block_Drop.h"
 #include "../GameDebug.h"
 #include <math.h>
 
-//# Object_Map_Block
+//# Scene_Block_Store
 #define add(kind)					\
 json kind = block[#kind];			\
 for (auto& s : kind) {				\
@@ -13,7 +13,7 @@ for (auto& s : kind) {				\
 	);								\
 }
 
-Object_Map_Block::Object_Map_Block(string pName) {
+Scene_Block_Store::Scene_Block_Store(string pName) {
 	pName = "Resources/" + pName + ".json";
 	ifstream i(pName);
 	json j;
@@ -89,7 +89,7 @@ for (auto &b : m##var) {								\
 left_right.clear();		\
 top_bottom.clear();		\
 
-RECT Object_Map_Block::GetDistance(RECT u, Object * pUnit) {
+RECT Scene_Block_Store::GetDistance(RECT u, Object * pUnit) {
 	RECT out = { -1,-1,-1,-1 };
 
 	//# Filter
@@ -138,7 +138,7 @@ RECT Object_Map_Block::GetDistance(RECT u, Object * pUnit) {
 
 const int maxRight = 2611;
 const int maxLeft = 2291;
-void Object_Map_Block::UpdateStairState(RECT u) {
+void Scene_Block_Store::UpdateStairState(RECT u) {
 	auto unitMid = (u.right + u.left) / 2;
 	if (mStairsState == mStairsStateOld) {
 		if (unitMid <= maxLeft) {
@@ -168,7 +168,7 @@ void Object_Map_Block::UpdateStairState(RECT u) {
 }
 
 //# Get Rope
-pair<bool, RECT> Object_Map_Block::GetRope(RECT u, float step) {
+pair<bool, RECT> Scene_Block_Store::GetRope(RECT u, float step) {
 	bool is = false;
 	RECT out = { 0,0,0,0 };
 	for (auto &b : mRope) {
@@ -184,10 +184,29 @@ pair<bool, RECT> Object_Map_Block::GetRope(RECT u, float step) {
 }
 
 //# Get Bar
-pair<bool, RECT> Object_Map_Block::GetBar(RECT u, float step) {
+pair<bool, RECT> Scene_Block_Store::GetBar(RECT u, float step) {
 	bool is = false;
 	RECT out = { 0,0,0,0 };
 	for (auto &b : mBar) {
+		if (u.left >= b.left &&
+			u.right <= b.right &&
+			u.top <= b.top &&
+			u.bottom > b.bottom &&
+			u.top + step >= b.top && step >= 0) {
+			is = true;
+			if (b.top < out.top || out.top == 0) {
+				out = b;
+			}
+		}
+	}
+	return pair<bool, RECT>(is, out);
+}
+
+//# Get Stick
+pair<bool, RECT> Scene_Block_Store::GetStick(RECT u, float step) {
+bool is = false;
+	RECT out = { 0,0,0,0 };
+	for (auto &b : mStatic_Stick) {
 		if (u.left >= b.left &&
 			u.right <= b.right &&
 			u.top <= b.top &&

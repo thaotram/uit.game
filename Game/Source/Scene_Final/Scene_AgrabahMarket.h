@@ -5,11 +5,11 @@
 #include <d3d9.h>
 
 #include "../Scene/Scene.h"
+#include "../Scene/Scene_Block_Store.h"
 #include "../GameDebug.h"
 
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Back.h"
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Front.h"
-#include "../Object_Map_Block/Object_Map_Block.h"
 
 #include "../Object_Unit_Final/Object_Unit_Apple.h"
 #include "../Object_Unit_Final/Object_Unit_Aladdin.h"

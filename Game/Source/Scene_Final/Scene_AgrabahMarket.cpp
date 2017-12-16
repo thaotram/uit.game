@@ -1,7 +1,8 @@
 ﻿#include "Scene_AgrabahMarket.h"
+#include "../Scene/Scene_Block_Store.h"
+
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Back.h"
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Front.h"
-#include "../Object_Map_Block/Object_Map_Block.h"
 
 #include "../Object_Unit_Final/Object_Unit_Aladdin.h"
 
@@ -14,6 +15,7 @@
 #include "../Object_Unit_Final/Object_Unit_Static_Restart_Point.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Spend_These.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Stick.h"
+
 #include "../Object_Status_Final/Object_Status_Apple.h"
 #include "../Object_Status_Final/Object_Status_Life.h"
 #include "../Object_Status_Final/Object_Status_Health_Meter.h"
@@ -40,7 +42,7 @@ for (auto &b : mMapBlock->m##type##name) {	\
 #define Add_NPC(name)		Add_(NPC_, name)
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
-	mMapBlock = new Object_Map_Block("AgrabahMarket_Block");
+	mMapBlock = new Scene_Block_Store("AgrabahMarket_Block");
 
 	//# Map
 	Add(new Object_Map_AgrabahMarket_Back());

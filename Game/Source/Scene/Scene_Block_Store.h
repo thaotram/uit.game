@@ -19,7 +19,7 @@ enum StairsState {
 
 class Object;
 
-class Object_Map_Block {
+class Scene_Block_Store {
 private:
 	list<RECT>			mRope;
 	list<RECT>			mBar;
@@ -34,8 +34,8 @@ private:
 	StairsState			mStairsState;
 	StairsState			mStairsStateOld;
 public:
-	Object_Map_Block(string pName);
-	~Object_Map_Block() {};
+	Scene_Block_Store(string pName);
+	~Scene_Block_Store() {};
 
 	//# Static Item
 	list<RECT> mStatic_Abubonus;
@@ -64,4 +64,5 @@ public:
 	void				UpdateStairState(RECT u);
 	pair<bool, RECT>	GetRope(RECT u, float step);
 	pair<bool, RECT>	GetBar(RECT u, float step);
+	pair<bool, RECT> 	GetStick(RECT u, float step);
 };
