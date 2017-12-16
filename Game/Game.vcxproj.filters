@@ -57,9 +57,6 @@
     <Filter Include="Source\Object_Unit\Enemy">
       <UniqueIdentifier>{49f91c02-c24c-4a24-9d14-abbf57cdf49e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Object_Unit\NPC">
-      <UniqueIdentifier>{d687e9fc-a806-4d5f-b85b-2d087cfc2268}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -115,6 +112,8 @@
       <Filter>Resource Files\Block</Filter>
     </None>
     <None Include="Resources\Stick.json" />
+    <None Include="Resources\AgrabahMarket_Back_Mới.psd" />
+    <None Include="Resources\AgrabahMarket_Back_Mới_trước.psd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -306,30 +305,14 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Thin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Assassin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Circus.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Fat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Pirates.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Straw.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Camel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Peddler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Stick.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Pirates.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Assassin.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Circus.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Fat.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Straw.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Camel.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Peddler.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Stick.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -456,29 +439,29 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Thin.cpp">
       <Filter>Source\Object_Unit\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Stick.cpp">
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Pirates.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Assassin.cpp">
-      <Filter>Source\Object_Unit\Enemy</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Circus.cpp">
-      <Filter>Source\Object_Unit\Enemy</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Fat.cpp">
-      <Filter>Source\Object_Unit\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Pirates.cpp">
-      <Filter>Source\Object_Unit\Enemy</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Straw.cpp">
-      <Filter>Source\Object_Unit\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Peddler.cpp">
-      <Filter>Source\Object_Unit\NPC</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Camel.cpp">
-      <Filter>Source\Object_Unit\NPC</Filter>
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Peddler.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Stick.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

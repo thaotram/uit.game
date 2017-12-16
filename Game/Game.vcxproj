@@ -120,6 +120,8 @@
     <None Include="ClassDiagram.cd" />
     <None Include="Resources\Abu.json" />
     <None Include="Resources\AgrabahMarket_Back.json" />
+    <None Include="Resources\AgrabahMarket_Back_Mới.psd" />
+    <None Include="Resources\AgrabahMarket_Back_Mới_trước.psd" />
     <None Include="Resources\AgrabahMarket_Block.json" />
     <None Include="Resources\AgrabahMarket_Cloud.json" />
     <None Include="Resources\AgrabahMarket_Front.json" />
