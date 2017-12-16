@@ -135,7 +135,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		PostQuitMessage(0);
 		break;
 	case WM_LBUTTONDOWN:
-		Scene::GetCurrentScene()->OnMouseDown(
+		Scene::mScene->OnMouseDown(
 			(float)GET_X_LPARAM(lParam),
 			(float)GET_Y_LPARAM(lParam)
 		);

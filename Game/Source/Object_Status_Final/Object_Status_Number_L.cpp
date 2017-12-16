@@ -7,5 +7,5 @@ Object_Status_Number_L::Object_Status_Number_L() : Object_Status("Status") {
 }
 
 void Object_Status_Number_L::ObjectUpdateEvent(float delay) {
-	mPos << mScene->mCamera.VECTOR2() + V2{ 0 , 0 };
+	mPos << Scene::mScene->mCamera.VECTOR2() + V2{ 0 , 0 };
 }

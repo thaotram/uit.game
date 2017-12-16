@@ -42,13 +42,12 @@ for (auto &b : oObjectStore->m##type##name) {	\
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	oObjectStore = new Scene_ObjectStore("AgrabahMarket_Block");
-		
+
 	//# Unit
 	oPlayer = new Object_Unit_Aladdin();
 	oMapBack = new Object_Map_AgrabahMarket_Back();
 	oMapFront = new Object_Map_AgrabahMarket_Front();
-	
-	oPlayer->mScene = oMapBack->mScene = oMapFront->mScene = this;
+
 	oMapBack->AfterAddToScene();
 	oMapFront->AfterAddToScene();
 
@@ -74,8 +73,6 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	//Add_Enemy(Pirates);
 	//Add_Enemy(Straw);
 	//Add_Enemy(Thin);
-
-
 
 	//# Status
 	/// Phần này để cho Huyền làm

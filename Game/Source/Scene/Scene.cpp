@@ -1,14 +1,11 @@
 ﻿#include "Scene.h"
 #include "../Object/Object.h"
 
-Scene * Scene::mCurrentScene = NULL;
+Scene * Scene::mScene = NULL;
 
 //! Static Public
 void Scene::ReplaceScene(Scene * pScene) {
-	mCurrentScene = pScene;
-}
-Scene * Scene::GetCurrentScene() {
-	return mCurrentScene;
+	mScene = pScene;
 }
 
 //! Public

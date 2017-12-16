@@ -49,7 +49,7 @@ void Game::InitLoop()
 
 //# Được gọi bên trong vòng lặp
 void Game::GameRender(float delay) {
-	Scene        * mScene = Scene::GetCurrentScene();
+	Scene        * mScene = Scene::mScene;
 	ID3DXSprite  * mSpriteHandler = GameGlobal::GetSpriteHandler();
 
 	// Before

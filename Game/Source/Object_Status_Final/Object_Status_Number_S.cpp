@@ -10,5 +10,5 @@ void Object_Status_Number_S::ObjectUpdateEvent(float delay)
 {
 
 	mAni.SetCycleIndex(mNums + 1);
-	mPos << mScene->mCamera.VECTOR2() + V2{ 300  , 200 };
+	mPos << Scene::mScene->mCamera.VECTOR2() + V2{ 300  , 200 };
 }

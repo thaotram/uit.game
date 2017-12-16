@@ -17,6 +17,6 @@ void Object_Unit_Static_Genie_Bonus::ObjectUpdateEvent(float dt)
 
 void Object_Unit_Static_Genie_Bonus::ObjectIntersect(Object * pObject)
 {
-	mScene->mScore += 250;
-	mScene->AddToRemoveList(this);
+	Scene::mScene->mScore += 250;
+	Scene::mScene->AddToRemoveList(this);
 }

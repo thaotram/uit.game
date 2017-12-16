@@ -46,6 +46,5 @@ public:
 	void AddToRemoveList(Object * pIt);
 
 	static void ReplaceScene(Scene * pScene);
-	static Scene * mCurrentScene;
-	static Scene * GetCurrentScene();
+	static Scene * mScene;
 };
