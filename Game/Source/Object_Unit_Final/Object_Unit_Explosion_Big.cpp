@@ -9,6 +9,11 @@
 #define yy mPos.y()
 
 Object_Unit_Explosion_Big::Object_Unit_Explosion_Big(float x, float y) : Object_Unit("EnemyExplosions"){
+	mPos.x << x;
+	mPos.y << y;
+	mAni.Set("blue_smoke", 1);
+	mAutoNextFrame = true;
+	mTimePerFrame = 0.02f;
 }
 
 Object_Unit_Explosion_Big::~Object_Unit_Explosion_Big()
