@@ -6,6 +6,5 @@ public:
 	Object_Status_Health_Meter(int i);
 	~Object_Status_Health_Meter() {};
 	void ObjectUpdateEvent(float delay);
-
 };
 

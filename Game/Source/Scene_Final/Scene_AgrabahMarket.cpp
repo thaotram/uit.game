@@ -1,26 +1,5 @@
 ﻿	 #include "Scene_AgrabahMarket.h"
-#include "../Object_Map_Final/Object_Map_AgrabahMarket_Back.h"
-#include "../Object_Map_Final/Object_Map_AgrabahMarket_Front.h"
-#include "../Object_Map_Block/Object_Map_Block.h"
 
-#include "../Object_Unit_Final/Object_Unit_Apple.h"
-#include "../Object_Unit_Final/Object_Unit_Aladdin.h"
-
-#include "../Object_Unit_Final/Object_Unit_Static_Abubonus.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Apple.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Black_Magic_Lamp.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Block_Drop.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Extra_Health.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Genie_Bonus.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Restart_Point.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Spend_These.h"
-
-#include "../Object_Status_Final/Object_Status_Apple.h"
-#include "../Object_Status_Final/Object_Status_Life.h"
-#include "../Object_Status_Final/Object_Status_Health_Meter.h"
-#include "../Object_Status_Final/Object_Status_Magic_Lamp.h"
-
-#include "../../Define.h"
 
 #define Add_Static(name)				\
 for(auto &b : mMapBlock->m##name) {		\
@@ -54,4 +33,6 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() {
 	Add(new Object_Status_Apple());
 	Add(new Object_Status_Magic_Lamp());
 	Add(new Object_Status_Health_Meter(1));
+	Add(new Object_Status_Spendthese());
+	Add(new Object_Status_Number_S(9));
 }
