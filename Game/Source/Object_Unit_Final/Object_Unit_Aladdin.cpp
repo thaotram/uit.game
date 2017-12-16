@@ -14,10 +14,10 @@
 #define X I[CHAR_X]
 #define C I[CHAR_C]
 
-#define mAni	mAnimation
-#define mPos	mPosition
-#define	mCam	mScene->mCamera
-#define	mBlock	mScene->mMapBlock
+#define mAni			mAnimation
+#define mPos			mPosition
+#define	mCam			mScene->mCamera
+#define	mObjectStore	mScene->oObjectStore
 
 #define xx mPos.x()
 #define yy mPos.y()
@@ -51,9 +51,9 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		(LONG)xx + unitWidth / 2,
 		(LONG)yy
 	};
-	tDis = mBlock->GetDistance(tUnit, this);
-	tRope = mBlock->GetRope(tUnit, tSpeedX * tDt);
-	tBar = mBlock->GetBar(tUnit, mPos.y.mVelocity * tDt);
+	tDis = mObjectStore->GetDistance(tUnit, this);
+	tRope = mObjectStore->GetRope(tUnit, tSpeedX * tDt);
+	tBar = mObjectStore->GetBar(tUnit, mPos.y.mVelocity * tDt);
 
 	//# Các thao tác tính toán / cập nhật
 	ObjectEachState();
@@ -75,7 +75,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (Z) {
 			Z = false;
 			mAni.Set("stand_throwapple", 1, "stand", 1);
-			mScene->Add(mScene->itPlayer, new Object_Unit_Apple(xx, yy - 55), itThrowApple);
+			//mScene->Add(mScene->oPlayer, new Object_Unit_Apple(xx, yy - 55), itThrowApple);
 		}
 		else if (X) {
 			X = false;
@@ -375,7 +375,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			state != "climb_cut" &&
 			state != "climb_throwapple")) {
 			// Đang nhảy lên
-			mBlock->GetBar(tUnit, mPos.y.mVelocity *tDt);
+			mObjectStore->GetBar(tUnit, mPos.y.mVelocity *tDt);
 			mPos.y << (float)tBar.second.top + unitHeight;
 			mAni.Set("climb_still", 1);
 			tIsChangeY = false;
@@ -388,7 +388,7 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 		R ? +min(tSpeedX * tDt, tDis.right) :
 		L ? -min(tSpeedX * tDt, tDis.left) : 0;
 	mPos.x.Update(tDt);
-	tDis = mBlock->GetDistance(tUnit, this);
+	tDis = mObjectStore->GetDistance(tUnit, this);
 
 	if (!mIsOnDropBlock) {
 		mPos.y = !tIsChangeY ? yy :
@@ -404,7 +404,7 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	mTransform.SetFlip(R ? Right : L ? Left : Stand);
 
 	//# UpdateStairsState
-	mScene->mMapBlock->UpdateStairState(tUnit);
+	mScene->oObjectStore->UpdateStairState(tUnit);
 }
 void Object_Unit_Aladdin::ObjectCheckCollision() {
 	mSourceRect.Update(this);
@@ -414,7 +414,7 @@ void Object_Unit_Aladdin::ObjectCheckCollision() {
 				obj->GetBound(),
 				this->GetBound()
 			)) {
-				tDis = mBlock->GetDistance(tUnit, this);
+				tDis = mObjectStore->GetDistance(tUnit, this);
 				obj->ObjectIntersect(this);
 			};
 		}

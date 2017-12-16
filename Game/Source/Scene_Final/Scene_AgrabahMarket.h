@@ -5,7 +5,7 @@
 #include <d3d9.h>
 
 #include "../Scene/Scene.h"
-#include "../Scene/Scene_Block_Store.h"
+#include "../Scene/Scene_ObjectStore.h"
 #include "../GameDebug.h"
 
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Back.h"

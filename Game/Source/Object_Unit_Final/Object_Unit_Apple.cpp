@@ -1,7 +1,7 @@
 ﻿#include "Object_Unit_Apple.h"
 #define mAni	mAnimation
 #define mPos	mPosition
-#define	mBlock	mScene->mMapBlock
+#define	mObjectStore	mScene->oObjectStore
 #define tSpeedX	400
 //#define tSpeedX	490
 
@@ -26,7 +26,7 @@ void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
 		(LONG)xx + 3,
 		(LONG)yy
 	};
-	tDis = mBlock->GetDistance(tUnit, this);
+	tDis = mObjectStore->GetDistance(tUnit, this);
 
 	if(tDis.bottom != 0){
 		mPos.x += tSpeedX * dt * (mFlip ? -1 : 1);

@@ -14,8 +14,9 @@
 
 #include "../Scene/Scene.h"
 
-class Object
-{
+//#define mScene Scene::GetCurrentScene()
+
+class Object {
 protected:
 	string				mName;
 	LPD3DXSPRITE		mSpriteHandler;
@@ -33,7 +34,7 @@ public:
 	Object(string pName);
 	~Object() {};
 
-	Scene		 * mScene;
+	Scene		* mScene;
 	bool		 mIsRender;
 	bool		 mIsUpdate;
 

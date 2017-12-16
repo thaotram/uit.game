@@ -37,6 +37,5 @@ void Object_Unit_Static_Block_Drop::ObjectIntersect(Object * pObject){
 				mPosition.y += 40;
 			}
 		}
-		GameDebug::Title("true");
 	}
 }

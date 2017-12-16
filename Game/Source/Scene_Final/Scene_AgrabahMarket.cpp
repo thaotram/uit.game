@@ -1,5 +1,4 @@
 ﻿#include "Scene_AgrabahMarket.h"
-#include "../Scene/Scene_Block_Store.h"
 
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Back.h"
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Front.h"
@@ -33,8 +32,8 @@
 #include "../../Define.h"
 
 #define Add_(type, name)					\
-for (auto &b : mMapBlock->m##type##name) {	\
-	Add(new Object_Unit_##type##name(*&b));	\
+for (auto &b : oObjectStore->m##type##name) {	\
+	Add(new Object_Unit_##type##name(*&b.first));	\
 }
 
 #define Add_Static(name)	Add_(Static_, name)
@@ -42,38 +41,41 @@ for (auto &b : mMapBlock->m##type##name) {	\
 #define Add_NPC(name)		Add_(NPC_, name)
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
-	mMapBlock = new Scene_Block_Store("AgrabahMarket_Block");
-
-	//# Map
-	Add(new Object_Map_AgrabahMarket_Back());
+	oObjectStore = new Scene_ObjectStore("AgrabahMarket_Block");
+		
+	//# Unit
+	oPlayer = new Object_Unit_Aladdin();
+	oMapBack = new Object_Map_AgrabahMarket_Back();
+	oMapFront = new Object_Map_AgrabahMarket_Front();
+	
+	oPlayer->mScene = oMapBack->mScene = oMapFront->mScene = this;
+	oMapBack->AfterAddToScene();
+	oMapFront->AfterAddToScene();
 
 	//# Block
+	//Add_Static(Abubonus);
+	//Add_Static(Apple);
+	//Add_Static(Black_Magic_Lamp);
+	//Add_Static(Block_Drop);
+	//Add_Static(Extra_Health);
+	//Add_Static(Genie_Bonus);
+	//Add_Static(Restart_Point);
+	//Add_Static(Spend_These);
+	//Add_Static(Stick);
 
-	Add_Static(Abubonus);
-	Add_Static(Apple);
-	Add_Static(Black_Magic_Lamp);
-	Add_Static(Block_Drop);
-	Add_Static(Extra_Health);
-	Add_Static(Genie_Bonus);
-	Add_Static(Restart_Point);
-	Add_Static(Spend_These);
-	Add_Static(Stick);
+	////# NPC
+	//Add_NPC(Camel);
+	//Add_NPC(Peddler);
+	//
+	////# Enemy
+	//Add_Enemy(Assassin);
+	//Add_Enemy(Circus);
+	//Add_Enemy(Fat);
+	//Add_Enemy(Pirates);
+	//Add_Enemy(Straw);
+	//Add_Enemy(Thin);
 
-	//# NPC
-	Add_NPC(Camel);
-	Add_NPC(Peddler);
-	
-	//# Enemy
-	Add_Enemy(Assassin);
-	Add_Enemy(Circus);
-	Add_Enemy(Fat);
-	Add_Enemy(Pirates);
-	Add_Enemy(Straw);
-	Add_Enemy(Thin);
 
-	//# Unit
-	Add(new Object_Unit_Aladdin(), itPlayer);
-	Add(new Object_Map_AgrabahMarket_Front(), itMapFront);
 
 	//# Status
 	/// Phần này để cho Huyền làm

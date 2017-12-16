@@ -1,7 +1,7 @@
 #include "Object_Unit_NPC_Peddler.h"
 #define mAni	mAnimation
 #define mPos	mPosition
-#define	mBlock	mScene->mMapBlock
+#define	mObjectStore	mScene->oObjectStore
 
 #define xx mPos.x()
 #define yy mPos.y()

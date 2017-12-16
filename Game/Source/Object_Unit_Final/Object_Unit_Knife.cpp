@@ -1,7 +1,7 @@
 ﻿#include "Object_Unit_Knife.h"
 #define mAni	mAnimation
 #define mPos	mPosition
-#define	mBlock	mScene->mMapBlock
+#define	mObjectStore	mScene->oObjectStore
 #define tSpeedX	400
 //#define tSpeedX	490
 
