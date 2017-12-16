@@ -8,7 +8,7 @@
 
 Object_Unit_Enemy_Assassin::Object_Unit_Enemy_Assassin(RECT u) : Object_Unit("CivilianEnemies") {
 	mPos.x << (float)(u.left + u.right) / 2;
-	mPos.y << (float)(u.top); 	
+	mPos.y << (float)(u.top) + 22; 	
 	mAni.Set("assassin", 1);
 }
 
