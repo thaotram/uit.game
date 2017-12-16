@@ -54,5 +54,21 @@ void Float_Easing::Update(float dt = 0) {
 	case Type::none:		//# None
 		mNow = mLast;
 		break;
+	case Type::linear:
+		switch (mEase) {
+		case in:
+			mNow += mVelocity*dt;
+			if (mNow >= mLast) {
+				mNow = mLast;
+				mEase = stop;
+			}
+			break;
+		case stop:
+			if (mLast != mNow) {
+				mEase = Ease::in;
+			}
+			break;
+		}
+		break;
 	}
 }

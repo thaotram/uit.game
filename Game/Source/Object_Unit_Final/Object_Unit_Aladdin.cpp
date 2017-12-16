@@ -33,7 +33,7 @@ bool isIntersect(RECT a, RECT b) {
 }
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 4321 , 444 };
+	mPos << V2{ 2626 , 140 };
 	mAni.Set("stand", 1);
 	mIsOnDropBlock = false;
 }

@@ -4,6 +4,7 @@
 #include "../GameDebug.h"
 #include "../Scene/Scene_Camera.h"
 #include "../Object_Map_Block/Object_Map_Block.h"
+#include "../Utility/Float_Easing.h"
 
 using namespace std;
 class Object;
@@ -23,7 +24,7 @@ public:
 	int mApple;
 	int mSpendthese;
 	int mExtrahealth;
-	int mScore;
+	Float_Easing mScore;
 
 	list<Object *>::iterator itPlayer;
 	list<Object *>::iterator itMapBack;

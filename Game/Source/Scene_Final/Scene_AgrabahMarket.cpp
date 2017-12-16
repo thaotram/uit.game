@@ -14,7 +14,7 @@
 #include "../Object_Unit_Final/Object_Unit_Static_Genie_Bonus.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Restart_Point.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Spend_These.h"
-
+#include "../Object_Unit_Final/Object_Unit_Static_Stick.h"
 #include "../Object_Status_Final/Object_Status_Apple.h"
 #include "../Object_Status_Final/Object_Status_Life.h"
 #include "../Object_Status_Final/Object_Status_Health_Meter.h"
@@ -76,5 +76,7 @@ Scene_AgrabahMarket::Scene_AgrabahMarket(): Scene() {
 	//# NPC
 	Add(new Object_Unit_NPC_Camel(1545, 1578, 648));
 	//Add(new Object_Unit_NPC_Peddler(, , ));
+
+	Add(new Object_Unit_Static_Stick(3400,174));
 
 }

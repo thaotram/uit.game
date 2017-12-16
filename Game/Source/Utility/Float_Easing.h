@@ -6,7 +6,8 @@ enum Ease {
 };
 enum Type {
 	gravity,
-	none
+	none,
+	linear
 };
 
 class Float_Easing {

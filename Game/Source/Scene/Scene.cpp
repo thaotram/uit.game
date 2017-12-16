@@ -18,7 +18,9 @@ Scene::Scene() {
 	mApple = 0;
 	mSpendthese = 0;
 	mExtrahealth = 0;
+	mScore.mType = Type::linear;
 	mScore = 0;
+	mScore.mVelocity = 300;
 }
 Scene::~Scene() {
 	for (auto &tUnit : *this) {
@@ -67,7 +69,8 @@ void Scene::SceneRender(float delay) {
 			obj->ObjectRender(delay);
 		}
 	}
-	// GameDebug::Title("Apple:" + to_string(mApple) + ",Spend these:" + to_string(mSpendthese));
+	mScore.Update(delay);
+	GameDebug::Title("Score: " + to_string(int(mScore())));
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}

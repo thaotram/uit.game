@@ -4,7 +4,7 @@
 Object_Unit_Static_Extra_Health::Object_Unit_Static_Extra_Health(float x, float y) : Object_Unit("Item") {
 	mPos << V2{ x , y };
 	mAni.Set("extrahealth", 1);
-	mTimePerFrame = 0.01f;
+	mTimePerFrame = 0.03f;
 	mAutoNextFrame = true;
 }
 
