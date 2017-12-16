@@ -137,7 +137,7 @@
 		},
 		"fat_knife": {
 			"note": "dao bay",
-			"basePoint": [ 6, 25 ],
+			"basePoint": [ 5, 15 ],
             "frameCycle": [ 1, 2, 3, 4, 5, 6, 7, -1 ],
             "frame": {
                 "1": [ 73, 678, 11, 25, 0, 0 ],

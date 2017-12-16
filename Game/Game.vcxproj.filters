@@ -339,6 +339,15 @@
     <ClInclude Include="Source\Scene\Scene_Block_Store.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Pirates.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Assassin.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Circus.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Fat.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Straw.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Camel.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Peddler.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Stick.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Knife.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -484,6 +493,9 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Stick.cpp">
       <Filter>Source\Object_Unit\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Knife.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scene_Final\Scene_AgrabahMarket.cpp">
       <Filter>Source\Scene\Scene_Final</Filter>

@@ -161,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Knife.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Stick.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Assassin.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Circus.h" />
@@ -213,6 +214,7 @@
     <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Knife.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Stick.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Assassin.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Circus.cpp" />
