@@ -31,15 +31,6 @@ private:
 	list<RECT>			m_Square;
 	list<RECT>			m_Stairs_backslash;
 
-	list<RECT> 			mNPC_Camel;
-	list<RECT> 			mNPC_Peddler;
-	list<RECT> 			mEnemy_Assassin;
-	list<RECT> 			mEnemy_Circus;
-	list<RECT> 			mEnemy_Fat;
-	list<RECT> 			mEnemy_Pirates;
-	list<RECT> 			mEnemy_Straw;
-	list<RECT> 			mEnemy_Thin;
-
 	StairsState			mStairsState;
 	StairsState			mStairsStateOld;
 public:
@@ -47,14 +38,27 @@ public:
 	~Object_Map_Block() {};
 
 	//# Static Item
-	list<RECT> mAbubonus;
-	list<RECT> mApple;
-	list<RECT> mBlack_Magic_Lamp;
-	list<RECT> mBlock_Drop;
-	list<RECT> mExtra_Health;
-	list<RECT> mGenie_Bonus;
-	list<RECT> mRestart_Point;
-	list<RECT> mSpend_These;
+	list<RECT> mStatic_Abubonus;
+	list<RECT> mStatic_Apple;
+	list<RECT> mStatic_Black_Magic_Lamp;
+	list<RECT> mStatic_Block_Drop;
+	list<RECT> mStatic_Extra_Health;
+	list<RECT> mStatic_Genie_Bonus;
+	list<RECT> mStatic_Restart_Point;
+	list<RECT> mStatic_Spend_These;
+	list<RECT> mStatic_Stick;
+
+	//# NPC
+	list<RECT> 			mNPC_Camel;
+	list<RECT> 			mNPC_Peddler;
+
+	//# Enemy
+	list<RECT> 			mEnemy_Assassin;
+	list<RECT> 			mEnemy_Circus;
+	list<RECT> 			mEnemy_Fat;
+	list<RECT> 			mEnemy_Pirates;
+	list<RECT> 			mEnemy_Straw;
+	list<RECT> 			mEnemy_Thin;
 
 	RECT				GetDistance(RECT u, Object * pUnit);
 	void				UpdateStairState(RECT u);

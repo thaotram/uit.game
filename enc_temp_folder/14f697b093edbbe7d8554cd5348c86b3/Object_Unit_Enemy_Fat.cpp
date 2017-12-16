@@ -8,7 +8,7 @@
 
 Object_Unit_Enemy_Fat::Object_Unit_Enemy_Fat(RECT u) : Object_Unit("Guards") {
 	mPos.x << (float)(u.left + u.right) / 2;
-	mPos.y << (float)(u.top); 	
+	mPos.y << (float)(u.bottom); 	
 	mAni.Set("fat_eat", 1);
 
 }

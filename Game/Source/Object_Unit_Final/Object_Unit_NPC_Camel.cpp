@@ -6,8 +6,9 @@
 #define xx mPos.x()
 #define yy mPos.y()
 
-Object_Unit_NPC_Camel::Object_Unit_NPC_Camel(float x1, float x2, float y) : Object_Unit("Camel") {
-	mPos << V2{ (x1 + x2) / 2 , y };
+Object_Unit_NPC_Camel::Object_Unit_NPC_Camel(RECT u) : Object_Unit("Camel") {
+	mPos.x << (float)(u.left + u.right) / 2;
+	mPos.y << (float)(u.top);
 	mAni.Set("pedal", 1);
 }
 

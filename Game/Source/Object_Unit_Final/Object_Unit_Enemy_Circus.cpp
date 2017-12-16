@@ -6,8 +6,9 @@
 #define xx mPos.x()
 #define yy mPos.y()
 
-Object_Unit_Enemy_Circus::Object_Unit_Enemy_Circus(float x1, float x2, float y) : Object_Unit("CivilianEnemies") {
-	mPos << V2{ (x1 + x2) / 2 , y };
+Object_Unit_Enemy_Circus::Object_Unit_Enemy_Circus(RECT u) : Object_Unit("CivilianEnemies") {
+	mPos.x << (float)(u.left + u.right) / 2;
+	mPos.y << (float)(u.top); 	
 	mAni.Set("circus", 1);
 }
 

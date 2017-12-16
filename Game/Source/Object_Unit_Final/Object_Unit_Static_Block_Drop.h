@@ -10,7 +10,7 @@ private:
 
 	void NewBlock();
 public:
-	Object_Unit_Static_Block_Drop(float x, float y);
+	Object_Unit_Static_Block_Drop(RECT u);
 	~Object_Unit_Static_Block_Drop() {};
 	void ObjectUpdateEvent(float delay);
 	void ObjectIntersect(Object * pObject);

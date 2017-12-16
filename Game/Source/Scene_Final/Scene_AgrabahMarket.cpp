@@ -3,6 +3,7 @@
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Front.h"
 #include "../Object_Map_Block/Object_Map_Block.h"
 
+#include "../Object_Unit_Final/Object_Unit_Aladdin.h"
 
 #include "../Object_Unit_Final/Object_Unit_Static_Abubonus.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Apple.h"
@@ -29,29 +30,44 @@
 
 #include "../../Define.h"
 
-#define Add_Static(name)				\
-for(auto &b : mMapBlock->m##name) {		\
-	Add(new Object_Unit_Static_##name(	\
-		(float)b.left,					\
-		(float)b.top					\
-	));									\
+#define Add_(type, name)					\
+for (auto &b : mMapBlock->m##type##name) {	\
+	Add(new Object_Unit_##type##name(*&b));	\
 }
 
-Scene_AgrabahMarket::Scene_AgrabahMarket(): Scene() {
+#define Add_Static(name)	Add_(Static_, name)
+#define Add_Enemy(name)		Add_(Enemy_, name)
+#define Add_NPC(name)		Add_(NPC_, name)
+
+Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	mMapBlock = new Object_Map_Block("AgrabahMarket_Block");
-	
+
 	//# Map
 	Add(new Object_Map_AgrabahMarket_Back());
 
 	//# Block
-	// Add_Static(Abubonus);
-	// Add_Static(Apple);
-	// Add_Static(Black_Magic_Lamp);
+
+	Add_Static(Abubonus);
+	Add_Static(Apple);
+	Add_Static(Black_Magic_Lamp);
 	Add_Static(Block_Drop);
-	// Add_Static(Extra_Health);
-	// Add_Static(Genie_Bonus);
-	// Add_Static(Restart_Point);
-	// Add_Static(Spend_These);
+	Add_Static(Extra_Health);
+	Add_Static(Genie_Bonus);
+	Add_Static(Restart_Point);
+	Add_Static(Spend_These);
+	Add_Static(Stick);
+
+	//# NPC
+	Add_NPC(Camel);
+	Add_NPC(Peddler);
+	
+	//# Enemy
+	Add_Enemy(Assassin);
+	Add_Enemy(Circus);
+	Add_Enemy(Fat);
+	Add_Enemy(Pirates);
+	Add_Enemy(Straw);
+	Add_Enemy(Thin);
 
 	//# Unit
 	Add(new Object_Unit_Aladdin(), itPlayer);
@@ -62,19 +78,4 @@ Scene_AgrabahMarket::Scene_AgrabahMarket(): Scene() {
 	// Add(new Object_Status_Apple());
 	// Add(new Object_Status_Magic_Lamp());
 	// Add(new Object_Status_Health_Meter(mBlood));
-
-	//# Enemy
-	/*Add(new Object_Unit_Enemy_Assassin(, , ));
-	Add(new Object_Unit_Enemy_Circus(, , ));
-	Add(new Object_Unit_Enemy_Fat(, , ));
-	Add(new Object_Unit_Enemy_Pirates(, , ));
-	Add(new Object_Unit_Enemy_Straw(, , ));*/
-	//Add(new Object_Unit_Enemy_Thin(590, 758, 624));
-
-	//# NPC
-	Add(new Object_Unit_NPC_Camel(1545, 1578, 648));
-	//Add(new Object_Unit_NPC_Peddler(, , ));
-
-	Add(new Object_Unit_Static_Stick(3400,174));
-
 }

@@ -31,14 +31,25 @@ Object_Map_Block::Object_Map_Block(string pName) {
 	add(_Stairs_slash);
 	add(_Stairs_backslash);
 
-	add(Abubonus);
-	add(Apple);
-	add(Block_Drop);
-	add(Black_Magic_Lamp);
-	add(Extra_Health);
-	add(Genie_Bonus);
-	add(Restart_Point);
-	add(Spend_These);
+	add(Static_Abubonus);
+	add(Static_Apple);
+	add(Static_Block_Drop);
+	add(Static_Black_Magic_Lamp);
+	add(Static_Extra_Health);
+	add(Static_Genie_Bonus);
+	add(Static_Restart_Point);
+	add(Static_Spend_These);
+	add(Static_Stick);
+
+	add(NPC_Camel);
+	add(NPC_Peddler);
+
+	add(Enemy_Assassin);
+	add(Enemy_Circus);
+	add(Enemy_Fat);
+	add(Enemy_Pirates);
+	add(Enemy_Straw);
+	add(Enemy_Thin);
 
 	mStairsState = StairsState::Bot;
 	mStairsStateOld = StairsState::Bot;

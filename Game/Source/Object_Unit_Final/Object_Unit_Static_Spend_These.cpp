@@ -1,8 +1,9 @@
 #include "Object_Unit_Static_Spend_These.h"
 #define mAni	mAnimation
 #define mPos	mPosition
-Object_Unit_Static_Spend_These::Object_Unit_Static_Spend_These(float x, float y) : Object_Unit("Item") {
-	mPos << V2{ x , y };
+Object_Unit_Static_Spend_These::Object_Unit_Static_Spend_These(RECT u) : Object_Unit("Item") {
+	mPos.x << (float)(u.left);
+	mPos.y << (float)(u.top);
 	mAni.Set("spendthese_item", 1);
 	mAutoNextFrame = true;
 }

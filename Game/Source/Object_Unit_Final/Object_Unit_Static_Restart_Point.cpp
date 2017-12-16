@@ -1,8 +1,9 @@
 #include "Object_Unit_Static_Restart_Point.h"
 #define mAni	mAnimation
 #define mPos	mPosition
-Object_Unit_Static_Restart_Point::Object_Unit_Static_Restart_Point(float x, float y) : Object_Unit("Item") {
-	mPos << V2{ x , y };
+Object_Unit_Static_Restart_Point::Object_Unit_Static_Restart_Point(RECT u) : Object_Unit("Item") {
+	mPos.x << (float)(u.left);
+	mPos.y << (float)(u.top);
 	mAni.Set("restartpoint", 1);
 	mAutoNextFrame = false;
 }

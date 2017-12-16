@@ -30,7 +30,8 @@
         "initializer_list": "cpp",
         "map": "cpp",
         "unordered_map": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "xlocale": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

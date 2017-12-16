@@ -8,8 +8,8 @@ void Object_Unit_Static_Block_Drop::NewBlock(){
 	mPos << V2{ mX , mY };
 	mAni.SetCycleIndex(1);
 }
-Object_Unit_Static_Block_Drop::Object_Unit_Static_Block_Drop(float x, float y)
-	: Object_Unit("Item"), mX(x), mY(y) {
+Object_Unit_Static_Block_Drop::Object_Unit_Static_Block_Drop(RECT u)
+	: Object_Unit("Item"), mX((float)(u.left)), mY((float)(u.top)) {
 	mAni.Set("blockdrop");
 	mAutoNextFrame = false;
 	NewBlock();

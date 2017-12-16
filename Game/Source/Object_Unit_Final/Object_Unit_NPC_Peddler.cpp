@@ -6,11 +6,11 @@
 #define xx mPos.x()
 #define yy mPos.y()
 
-Object_Unit_NPC_Peddler::Object_Unit_NPC_Peddler(float x1, float x2, float y) : Object_Unit("Peddler"){
-	mPos << V2{ (x1 + x2) / 2 , y };
+Object_Unit_NPC_Peddler::Object_Unit_NPC_Peddler(RECT u) : Object_Unit("Peddler") {
+	mPos.x << (float)(u.left + u.right) / 2;
+	mPos.y << (float)(u.top);
 	mAni.Set("stalls", 1);
 }
 
-Object_Unit_NPC_Peddler::~Object_Unit_NPC_Peddler()
-{
+Object_Unit_NPC_Peddler::~Object_Unit_NPC_Peddler() {
 }

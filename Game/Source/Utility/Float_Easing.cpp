@@ -10,7 +10,6 @@ Float_Easing::Float_Easing() {
 void Float_Easing::operator<<(float pValue) {
 	mNow = mLast = pValue;
 }
-
 void Float_Easing::operator=(float pLast) {
 	mLast = pLast;
 }

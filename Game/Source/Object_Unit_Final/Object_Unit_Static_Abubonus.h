@@ -4,7 +4,7 @@
 
 class Object_Unit_Static_Abubonus final : public Object_Unit {
 public:
-	Object_Unit_Static_Abubonus(float x, float y);
+	Object_Unit_Static_Abubonus(RECT u);
 	~Object_Unit_Static_Abubonus() {};
 	void ObjectUpdateEvent(float delay);
 	void ObjectIntersect(Object * pObject);

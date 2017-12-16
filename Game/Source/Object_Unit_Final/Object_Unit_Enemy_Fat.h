@@ -5,7 +5,7 @@
 class Object_Unit_Enemy_Fat final : public Object_Unit
 {
 public:
-	Object_Unit_Enemy_Fat(float x1, float x2, float y);
+	Object_Unit_Enemy_Fat(RECT u);
 	~Object_Unit_Enemy_Fat();
 };
 

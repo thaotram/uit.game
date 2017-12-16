@@ -6,8 +6,9 @@
 #define xx mPos.x()
 #define yy mPos.y()
 
-Object_Unit_Static_Stick::Object_Unit_Static_Stick(float x, float y) : Object_Unit("Stick") {
-	mPos << V2{ x , y };
+Object_Unit_Static_Stick::Object_Unit_Static_Stick(RECT u) : Object_Unit("Stick") {
+	mPos.x << (float)(u.left);
+	mPos.y << (float)(u.top);
 	mAni.Set("stick", 1);
 }
 
