@@ -13,7 +13,7 @@ void Object_Unit_Static_Extra_Health::ObjectUpdateEvent(float dt)
 
 }
 
-void Object_Unit_Static_Extra_Health::ObjectIntersect()
+void Object_Unit_Static_Extra_Health::ObjectIntersect(Object * pObject)
 {
 	mScene->mScore += 150;
 	mScene->mBlood = min(mScene->mBlood + 1,8);

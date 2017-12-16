@@ -7,5 +7,5 @@ public:
 	Object_Unit_Static_Abubonus(float x, float y);
 	~Object_Unit_Static_Abubonus() {};
 	void ObjectUpdateEvent(float delay);
-	void ObjectIntersect();
+	void ObjectIntersect(Object * pObject);
 };

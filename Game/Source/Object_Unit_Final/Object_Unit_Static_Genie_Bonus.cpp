@@ -1,4 +1,6 @@
 #include "Object_Unit_Static_Genie_Bonus.h"
+
+
 #define mAni	mAnimation
 #define mPos	mPosition
 Object_Unit_Static_Genie_Bonus::Object_Unit_Static_Genie_Bonus(float x, float y) : Object_Unit("Item") {
@@ -12,7 +14,7 @@ void Object_Unit_Static_Genie_Bonus::ObjectUpdateEvent(float dt)
 {
 }
 
-void Object_Unit_Static_Genie_Bonus::ObjectIntersect()
+void Object_Unit_Static_Genie_Bonus::ObjectIntersect(Object * pObject)
 {
 	mScene->mScore += 250;
 	mScene->AddToRemoveList(this);
