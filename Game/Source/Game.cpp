@@ -8,7 +8,7 @@ Game::Game() {
 	Scene::ReplaceScene(
 		new Scene_AgrabahMarket()
 	);
-	//mScene = Scene::mScene;
+	mScene = Scene::mScene;
 
 	InitLoop();
 }
@@ -44,7 +44,6 @@ void Game::InitLoop() {
 
 //# Được gọi bên trong vòng lặp
 void Game::GameRender(float delay) {
-	//Scene * mScene = Scene::mScene;
 	ID3DXSprite  * mSpriteHandler = GameGlobal::GetSpriteHandler();
 
 	// Before
@@ -57,7 +56,7 @@ void Game::GameRender(float delay) {
 	mDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
 	mDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
 	// Render
-	//mScene->SceneRender(delay);
+	mScene->SceneRender(delay);
 
 	// End
 	mSpriteHandler->End();

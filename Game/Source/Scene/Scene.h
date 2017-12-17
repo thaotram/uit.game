@@ -8,7 +8,6 @@
 #include "../Object/Object.h"
 
 using namespace std;
-//class Object;
 
 class Scene : public list<Object *> {
 private:

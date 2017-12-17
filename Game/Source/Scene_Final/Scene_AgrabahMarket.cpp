@@ -51,6 +51,11 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	oMapBack->AfterAddToScene();
 	oMapFront->AfterAddToScene();
 
+	oObjectStore->mScene =
+	oPlayer->mScene =
+	oMapBack->mScene =
+	oMapFront->mScene = this;
+
 	//# Block
 	//Add_Static(Abubonus);
 	//Add_Static(Apple);

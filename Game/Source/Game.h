@@ -10,7 +10,7 @@
 
 class Game {
 private: 
-	//Scene * mScene;
+	Scene * mScene;
 public:
 	Game();
 	~Game();
