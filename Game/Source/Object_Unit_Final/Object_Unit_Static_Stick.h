@@ -6,5 +6,7 @@ class Object_Unit_Static_Stick final : public Object_Unit{
 public:
 	Object_Unit_Static_Stick(RECT u);
 	~Object_Unit_Static_Stick();
+
+	void StartAnimation();
 };
 

@@ -352,8 +352,19 @@ pair<bool, RECT> Scene_ObjectStore::GetBar(RECT u, float step) {
 }
 
 //# Get Stick
-pair<bool, RECT> Scene_ObjectStore::GetStick(RECT u, float step) {
+pair<bool, pair<RECT, Object *> *> Scene_ObjectStore::GetStick(RECT u, float step) {
 	bool is = false;
-	RECT out = { 0,0,0,0 };
-	return pair<bool, RECT>(is, out);
+	pair<RECT, Object *> * out = nullptr;
+	for (auto &p : mStatic_Stick) {
+		auto b = p.first;
+		if (u.left <= b.right + 35 &&
+			u.right >= b.left &&
+			u.bottom < b.bottom &&
+			u.bottom + step >= b.bottom && step >= 0) {
+			is = true;
+			out = &p;
+			// Giả như nó chỉ đúng đúng 1 lần
+		}
+	}
+	return pair<bool, pair<RECT, Object *> *>(is, out);
 }

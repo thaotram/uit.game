@@ -1,5 +1,6 @@
 ﻿#include "Object_Unit_Aladdin.h"
 #include "../Object_Unit_Final/Object_Unit_Apple.h"
+#include "../Object_Unit_Final/Object_Unit_Static_Stick.h"
 #include "../GameDebug.h"
 #include "../../Define.h"
 
@@ -25,15 +26,15 @@
 #define state	mAni.GetState()
 
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 50 , 300 };
+	mPos << V2{ 3400 , 270 };
 	mAni.Set("stand", 1);
-	mIsOnDropBlock = false;
+	//mIsOnDropBlock = false;
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	//# Tính toán lại giá trị các biến tạm
 	tDt = dt;
-	tJump = 380;
+	tJump = 390;
 	tSpeedX = 200;
 	tSpeedY = 100;
 	tIsChangeX = tIsChangeY = true;
@@ -46,6 +47,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	tDis = mObjectStore->GetDistance(tUnit, this);
 	tBar = mObjectStore->GetBar(tUnit, mPos.y.mVelocity * tDt);
 	tRope = mObjectStore->GetRope(tUnit, tSpeedX * tDt);
+	tStick = mObjectStore->GetStick(tUnit, mPos.y.mVelocity * tDt);
 
 	//# Các thao tác tính toán / cập nhật
 	ObjectEachState();
@@ -350,6 +352,10 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mAutoNextFrame = true;
 		tIsChangeX = tIsChangeY = false;
 	}
+	else if (state == "twiddle") {
+		mTimePerFrame = 0.03f;
+		mAutoNextFrame = true;
+	}
 	//# Bar & Rope
 	if (mPos.y.mVelocity >= -0.2 * tJump && tRope.first) {
 		if (state != "climb_vertical" &&
@@ -373,6 +379,11 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			tIsChangeY = false;
 		}
 	}
+	else if (tStick.first) {
+		mAni.Set("twiddle", 1);
+		mPos.y.SetVelocity(-tJump * 1.2f);
+		((Object_Unit_Static_Stick *)(tStick.second->second))->StartAnimation();
+	}
 }
 void Object_Unit_Aladdin::ObjectAfterEachState() {
 	//# Position
@@ -382,10 +393,7 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	mPos.x.Update(tDt);
 	tDis = mObjectStore->GetDistance(tUnit, this);
 
-	if (!mIsOnDropBlock) {
-		mPos.y = !tIsChangeY ? yy :
-			yy + tDis.bottom;
-	}
+	mPos.y = !tIsChangeY ? yy : yy + tDis.bottom;
 	mPos.y.Update(tDt);
 
 	//# Camera

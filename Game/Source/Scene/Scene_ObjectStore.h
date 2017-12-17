@@ -75,5 +75,5 @@ public:
 
 	pair<bool, RECT>	GetBar(RECT u, float step);
 	pair<bool, RECT>	GetRope(RECT u, float step);
-	pair<bool, RECT> 	GetStick(RECT u, float step);
+	pair<bool, pair<RECT, Object *> *> GetStick(RECT u, float step);
 };

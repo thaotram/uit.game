@@ -9,10 +9,11 @@ private:
 	bool tIsChangeX, tIsChangeY;
 	float tSpeedX, tSpeedY, tJump, tDt;
 	pair<bool, RECT> 
-		tRope, 
 		tBar, 
+		tRope,
 		tDropBlock;
-	
+	pair<bool, pair<RECT, Object *> *> tStick;
+
 	list<Object *>::iterator itThrowApple;
 public:
 	Object_Unit_Aladdin();

@@ -9,10 +9,14 @@
 Object_Unit_Static_Stick::Object_Unit_Static_Stick(RECT u) : Object_Unit("Stick") {
 	mPos.x << (float)(u.left);
 	mPos.y << (float)(u.top);
-	mAni.Set("stick", 1);
+	mAni.Set("stick", 11);
 	mTimePerFrame = 0.03f;
-	mAutoNextFrame = false;
+	mAutoNextFrame = true;
 }
 
-Object_Unit_Static_Stick::~Object_Unit_Static_Stick(){
+Object_Unit_Static_Stick::~Object_Unit_Static_Stick() {
+}
+
+void Object_Unit_Static_Stick::StartAnimation() {
+	mAni.SetCycleIndex(1);
 }

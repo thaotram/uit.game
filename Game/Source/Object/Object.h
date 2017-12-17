@@ -14,7 +14,6 @@
 #include "Object_Transform.h"
 #include "Object_SourceRect.h"
 
-
 //#define mScene Scene::GetCurrentScene()
 
 class Object {
@@ -23,7 +22,7 @@ protected:
 	LPD3DXSPRITE		mSpriteHandler;
 	Object_Json			* mJson;
 	Object_Texture		* mTexture;
-	
+
 	Vector_Easing		mPosition;
 	Object_Animation	mAnimation;
 	Object_Transform	mTransform;
@@ -31,7 +30,7 @@ protected:
 
 	float				mCurrentTime;
 	float 				mTimePerFrame;
-	
+
 public:
 	Object(string pName);
 	~Object() {};
@@ -40,13 +39,13 @@ public:
 	bool		 mIsRender;
 	bool		 mIsUpdate;
 	bool		 mIsMarkedDelete;
-	
+
 	RECT		 tUnit;		// Tọa độ của 4 cạnh so với map lớn
 	RECT 		 tDis;		// Khoảng cách từ tUnit cho đến 4
 
 	virtual void AfterAddToScene() {};
-			void ObjectRender(float delay);
-	
+	void ObjectRender(float delay);
+
 	virtual void ObjectUpdateEvent(float delay) {};
 	virtual void ObjectIntersect(Object * pObject) {};
 	virtual void ObjectUpdateProperties(float delay) {};
@@ -56,19 +55,19 @@ public:
 		Object_SourceRect pSourceRect
 	);
 
-	Object_SourceRect * GetSourceRect() {
+	Object_SourceRect	* GetSourceRect() {
 		return &mSourceRect;
 	}
-	Vector_Easing * GetPosition() {
+	Vector_Easing		* GetPosition() {
 		return &mPosition;
 	}
-	Object_Animation * GetAnimation() {
+	Object_Animation	* GetAnimation() {
 		return &mAnimation;
 	}
-	Object_Transform * GetTransform() {
+	Object_Transform	* GetTransform() {
 		return &mTransform;
 	}
-	Object_Json * GetJson() {
+	Object_Json			* GetJson() {
 		return mJson;
 	}
 	RECT GetBound();
