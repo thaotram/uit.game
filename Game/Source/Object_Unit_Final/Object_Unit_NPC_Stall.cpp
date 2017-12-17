@@ -29,11 +29,11 @@ void Object_Unit_NPC_Stall::ObjectUpdateEvent(float dt)
 			(LONG)mPos.x(),
 			(LONG)mPos.y()
 		};
-		if(mScene->oObjectStore->mNPC_Peddler.size() == 0){
-			mScene->oObjectStore->mNPC_Peddler.push_back(pair<RECT, Object *>(
-				r,
-				nullptr
-			));
-		}
+		//if(mScene->oObjectStore->mNPC_Peddler.size() == 0){
+		//	mScene->oObjectStore->mNPC_Peddler.push_back(pair<RECT, Object *>(
+		//		r,
+		//		nullptr
+		//	));
+		//}
 	}
 }

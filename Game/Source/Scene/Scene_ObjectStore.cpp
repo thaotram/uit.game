@@ -136,7 +136,6 @@ for (auto &unit : m##type##name) {								\
 	}															\
 }
 #define Object_UpdateEvent(type, name)	Object_UpdateEvent_(type,_##name)
-
 void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
 	RECT b, c;
 	Object_UpdateEvent(Static, Abubonus);
@@ -152,7 +151,6 @@ void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
 	Object_UpdateEvent(NPC, Camel);
 	Object_UpdateEvent(NPC, Stall);
 	Object_UpdateEvent(NPC, Peddler);
-
 
 	Object_UpdateEvent(Enemy, Assassin);
 	Object_UpdateEvent(Enemy, Circus);
@@ -191,6 +189,8 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 	Object_Render(Enemy, Pirates);
 	Object_Render(Enemy, Straw);
 	Object_Render(Enemy, Thin);
+
+	
 }
 
 bool ifMarkedDelete(const pair<RECT, Object *>& p) {
@@ -208,6 +208,7 @@ bool ifMarkedDelete(const pair<RECT, Object *>& p) {
 #define Object_RemoveMarkedDelete(type, name) Object_RemoveMarkedDelete_(type, _##name)
 #define Object_RemoveMarkedDelete_(type, name) m##type##name.remove_if(ifMarkedDelete);
 void Scene_ObjectStore::ObjectRemoveMarkedDelete() {
+	Object_RemoveMarkedDelete(Static, Abubonus);
 	Object_RemoveMarkedDelete(Static, Apple);
 	Object_RemoveMarkedDelete(Static, Block_Drop);
 	Object_RemoveMarkedDelete(Static, Black_Magic_Lamp);
@@ -232,6 +233,7 @@ void Scene_ObjectStore::ObjectRemoveMarkedDelete() {
 #define Object_CheckCollision_(type, name) ObjectCheckCollisionEach(pObject, &m##type##name)
 void Scene_ObjectStore::ObjectCheckCollision(Object * pObject) {
 	// Làm gì đó bậy bạ trong này
+	Object_CheckCollision(Static, Abubonus);
 	Object_CheckCollision(Static, Apple);
 	Object_CheckCollision(Static, Block_Drop);
 	Object_CheckCollision(Static, Black_Magic_Lamp);
@@ -377,6 +379,24 @@ pair<bool, RECT> Scene_ObjectStore::GetBar(RECT u, float step) {
 }
 
 //# Get Stick
+pair<bool, pair<RECT, Object *> *> Scene_ObjectStore::GetStick(RECT u, float step) {
+	bool is = false;
+	pair<RECT, Object *> * out = nullptr;
+	for (auto &p : mStatic_Stick) {
+		auto b = p.first;
+		if (u.left <= b.right + 35 &&
+			u.right >= b.left &&
+			u.bottom < b.bottom &&
+			u.bottom + step >= b.bottom && step >= 0) {
+			is = true;
+			out = &p;
+			// Giả như nó chỉ đúng đúng 1 lần
+		}
+	}
+	return pair<bool, pair<RECT, Object *> *>(is, out);
+}
+
+//# Get Camel
 pair<bool, pair<RECT, Object *> *> Scene_ObjectStore::GetStick(RECT u, float step) {
 	bool is = false;
 	pair<RECT, Object *> * out = nullptr;

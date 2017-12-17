@@ -57,29 +57,6 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	oMapBack->mScene =
 	oMapFront->mScene = this;
 
-	//# Block
-	//Add_Static(Abubonus);
-	//Add_Static(Apple);
-	//Add_Static(Black_Magic_Lamp);
-	//Add_Static(Block_Drop);
-	//Add_Static(Extra_Health);
-	//Add_Static(Genie_Bonus);
-	//Add_Static(Restart_Point);
-	//Add_Static(Spend_These);
-	//Add_Static(Stick);
-
-	////# NPC
-	//Add_NPC(Camel);
-	//Add_NPC(Peddler);
-	//
-	////# Enemy
-	//Add_Enemy(Assassin);
-	//Add_Enemy(Circus);
-	//Add_Enemy(Fat);
-	//Add_Enemy(Pirates);
-	//Add_Enemy(Straw);
-	//Add_Enemy(Thin);
-
 	//# Status
 	/// Phần này để cho Huyền làm
 	// Add(new Object_Status_Apple());

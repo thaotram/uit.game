@@ -1,4 +1,4 @@
-#include "Object_Unit_NPC_Camel.h"
+	#include "Object_Unit_NPC_Camel.h"
 #define mAni	mAnimation
 #define mPos	mPosition
 #define	mObjectStore	mScene->oObjectStore
