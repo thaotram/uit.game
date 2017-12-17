@@ -24,14 +24,6 @@
 
 #define state	mAni.GetState()
 
-bool isIntersect(RECT a, RECT b) {
-	return
-		a.left < b.right &&
-		a.right > b.left &&
-		a.top <= b.bottom &&
-		a.bottom >= b.top;
-}
-
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mPos << V2{ 2300 , 300 };
 	mAni.Set("stand", 1);

@@ -28,3 +28,13 @@ enum {
 	CHAR_C
 };
 
+#ifndef intersect_function
+inline static bool isIntersect(RECT a, RECT b) {
+	return
+		a.left < b.right &&
+		a.right > b.left &&
+		a.top <= b.bottom &&
+		a.bottom >= b.top;
+}
+#define intersect_function
+#endif

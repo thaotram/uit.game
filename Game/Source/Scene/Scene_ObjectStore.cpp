@@ -86,7 +86,6 @@ Scene_ObjectStore::Scene_ObjectStore(string pName) {
 
 //# GetDistance
 #define check_square(v, value) long v = value; out.v = (v >= 0 && (v < out.v || out.v == -1)) ? v : out.v
-
 #define check_squares(x,y) {		\
 	check_square(x, u.x - b->y);	\
 	check_square(y, b->x - u.y);	\
@@ -118,35 +117,70 @@ for (auto &b : m##var) {								\
 left_right.clear();		\
 top_bottom.clear();		\
 
+//# Object_Update
+//#define Object_Update_(type, name)								\
+//for (auto &unit : mStatic_Apple) {								\
+//	auto b = unit.first;										\
+//	auto c = mScene->mCamera.RECT({ WIDTH, HEIGHT });			\
+//	if (isIntersect(b, c)) {									\
+//		if (unit.second == nullptr || unit.second == NULL) {	\
+//			unit.second = new Object_Unit_Static_Apple(b);		\
+//			unit.second->mScene = mScene;						\
+//		}														\
+//		unit.second->ObjectUpdateEvent(dt);						\
+//	}															\
+//	else if (unit.second != NULL) {								\
+//		delete unit.second;										\
+//		unit.second = NULL;										\
+//	}															\
+//}
+
 void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
 	for (auto &unit : mStatic_Apple) {
 		auto b = unit.first;
-		auto c = mScene->mCamera;
-		if (b.top < c.y + HEIGHT &&
-			b.bottom > c.y &&
-			b.left < c.x + WIDTH &&
-			b.right > c.x) {
+		auto c = mScene->mCamera.RECT(V2{ WIDTH, HEIGHT });
+		if (isIntersect(b, c)) {
 			if (unit.second == nullptr || unit.second == NULL) {
 				unit.second = new Object_Unit_Static_Apple(b);
 				unit.second->mScene = mScene;
 			}
 			unit.second->ObjectUpdateEvent(dt);
 		}
-		else {
-			if (unit.second != NULL) {
-				delete unit.second;
-				unit.second = NULL;
-			}
+		else if (unit.second != NULL) {
+			delete unit.second;
+			unit.second = NULL;
 		}
 	}
 }
 
+//# Object_Render
+#define Object_Render_(type, name)	\
+for (auto &b : m##type##name) {	   	\
+	if (b.second != NULL) {		   	\
+		b.second->ObjectRender(dt);	\
+	}							   	\
+}
+#define Object_Render(type, name)		Object_Render_(type, _##name)
 void Scene_ObjectStore::ObjectRender(float dt) {
-	for (auto &b : mStatic_Apple) {
-		if (b.second != NULL) {
-			b.second->ObjectRender(dt);
-		}
-	}
+	Object_Render(Static, Abubonus);
+	Object_Render(Static, Apple);
+	Object_Render(Static, Block_Drop);
+	Object_Render(Static, Black_Magic_Lamp);
+	Object_Render(Static, Extra_Health);
+	Object_Render(Static, Genie_Bonus);
+	Object_Render(Static, Restart_Point);
+	Object_Render(Static, Spend_These);
+	Object_Render(Static, Stick);
+
+	Object_Render(NPC, Camel);
+	Object_Render(NPC, Peddler);
+
+	Object_Render(Enemy, Assassin);
+	Object_Render(Enemy, Circus);
+	Object_Render(Enemy, Fat);
+	Object_Render(Enemy, Pirates);
+	Object_Render(Enemy, Straw);
+	Object_Render(Enemy, Thin);
 }
 
 RECT Scene_ObjectStore::GetDistance(RECT u, Object * pUnit) {
