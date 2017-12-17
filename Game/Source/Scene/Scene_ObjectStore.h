@@ -68,7 +68,7 @@ public:
 	void				ObjectUpdateEvent(float dt);
 	void				ObjectRender(float dt);
 	void				AddToRemoveList(Object * pObject);
-	void				RemoveObjectInRemoveList();
+	void				RemoveObjectMarkedDelete();
 
 	void 				ObjectCheckCollision(Object * pObject);
 

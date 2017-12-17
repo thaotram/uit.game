@@ -31,6 +31,7 @@ protected:
 
 	float				mCurrentTime;
 	float 				mTimePerFrame;
+	
 public:
 	Object(string pName);
 	~Object() {};
@@ -38,6 +39,7 @@ public:
 	Scene * 	 mScene;
 	bool		 mIsRender;
 	bool		 mIsUpdate;
+	bool		 mIsMarkedDelete;
 	
 	RECT 		 tDis, tUnit;
 

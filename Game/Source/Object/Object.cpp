@@ -14,6 +14,7 @@ Object::Object(string pName) : mName(pName) {
 
 	mIsRender = true;
 	mIsUpdate = true;
+	mIsMarkedDelete = false;
 }
 void Object::ObjectRender(float delay) {
 	ObjectUpdateProperties(delay);

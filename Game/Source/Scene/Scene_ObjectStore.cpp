@@ -188,20 +188,21 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 	Object_Render(Enemy, Thin);
 }
 
-void Scene_ObjectStore::AddToRemoveList(Object * pObject){
+void Scene_ObjectStore::AddToRemoveList(Object * pObject) {
 	mRemoveList.push_back(pObject);
 }
 
-void Scene_ObjectStore::RemoveObjectInRemoveList(){
-	for (auto &o : mRemoveList) {
-		delete o;
-		int a = 123;
-	}
+bool ifMarkedDelete(const pair<RECT, Object *>& pPair) {
+	if (pPair.second == NULL || pPair.second == nullptr) return true;
+	else return pPair.second->mIsMarkedDelete;
+}
+
+void Scene_ObjectStore::RemoveObjectMarkedDelete() {
+	mStatic_Apple.remove_if(ifMarkedDelete);
 }
 
 void Scene_ObjectStore::ObjectCheckCollision(Object * pObject) {
 	// Làm gì đó bậy bạ trong này
-	// pObject ở đây là player (aladdin hoặc quả táo, hoặc con dao)
 	for (auto &unit : mStatic_Apple) {
 		if (unit.second != NULL) {
 			if (isIntersect(
