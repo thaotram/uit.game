@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class Scene : public list<Object *> {
+class Scene {
 private:
 	list<Object *> mRemoveList;
 public:
@@ -38,10 +38,10 @@ public:
 	void OnKeyUp(int pKeyCode);
 	void OnMouseDown(float pX, float pY) {};
 
-	list<Object *>::iterator Add(Object * pObject);
-	list<Object *>::iterator Add(list<Object *>::iterator pIt, Object * pObject);
-	void Add(Object * pObject, list<Object *>::iterator &pItOut);
-	void Add(list<Object *>::iterator pIt, Object * pObject, list<Object *>::iterator &pItOut);
+	//list<Object *>::iterator Add(Object * pObject);
+	//list<Object *>::iterator Add(list<Object *>::iterator pIt, Object * pObject);
+	//void Add(Object * pObject, list<Object *>::iterator &pItOut);
+	//void Add(list<Object *>::iterator pIt, Object * pObject, list<Object *>::iterator &pItOut);
 
 	void AddToRemoveList(Object * pIt);
 

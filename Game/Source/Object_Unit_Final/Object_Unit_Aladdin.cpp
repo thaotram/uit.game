@@ -408,15 +408,15 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 }
 void Object_Unit_Aladdin::ObjectCheckCollision() {
 	mSourceRect.Update(this);
-	for (auto &obj : *mScene) {
-		if (isRender == true && obj != this) {
-			if (isIntersect(
-				obj->GetBound(),
-				this->GetBound()
-			)) {
-				tDis = mObjectStore->GetDistance(tUnit, this);
-				obj->ObjectIntersect(this);
-			};
-		}
-	}
+	//for (auto &obj : *mScene) {
+	//	if (isRender == true && obj != this) {
+	//		if (isIntersect(
+	//			obj->GetBound(),
+	//			this->GetBound()
+	//		)) {
+	//			tDis = mObjectStore->GetDistance(tUnit, this);
+	//			obj->ObjectIntersect(this);
+	//		};
+	//	}
+	//}
 }
