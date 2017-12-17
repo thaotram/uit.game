@@ -28,7 +28,6 @@
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mPos << V2{ 3400 , 270 };
 	mAni.Set("stand", 1);
-	//mIsOnDropBlock = false;
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
@@ -353,8 +352,9 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		tIsChangeX = tIsChangeY = false;
 	}
 	else if (state == "twiddle") {
-		mTimePerFrame = 0.03f;
+		mTimePerFrame = 0.025f;
 		mAutoNextFrame = true;
+		mAni.SetNext("stand_jump", 3);
 	}
 	//# Bar & Rope
 	if (mPos.y.mVelocity >= -0.2 * tJump && tRope.first) {

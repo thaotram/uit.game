@@ -200,8 +200,27 @@ bool ifMarkedDelete(const pair<RECT, Object *>& p) {
 		 
 }
 
-void Scene_ObjectStore::RemoveObjectMarkedDelete() {
-	mStatic_Apple.remove_if(ifMarkedDelete);
+#define Object_RemoveMarkedDelete(type, name) Object_RemoveMarkedDelete_(type, _##name)
+#define Object_RemoveMarkedDelete_(type, name) m##type##name.remove_if(ifMarkedDelete);
+void Scene_ObjectStore::ObjectRemoveMarkedDelete() {
+	Object_RemoveMarkedDelete(Static, Apple);
+	Object_RemoveMarkedDelete(Static, Block_Drop);
+	Object_RemoveMarkedDelete(Static, Black_Magic_Lamp);
+	Object_RemoveMarkedDelete(Static, Extra_Health);
+	Object_RemoveMarkedDelete(Static, Genie_Bonus);
+	Object_RemoveMarkedDelete(Static, Restart_Point);
+	Object_RemoveMarkedDelete(Static, Spend_These);
+	Object_RemoveMarkedDelete(Static, Stick);
+
+	Object_RemoveMarkedDelete(NPC, Camel);
+	Object_RemoveMarkedDelete(NPC, Peddler);
+
+	Object_RemoveMarkedDelete(Enemy, Assassin);
+	Object_RemoveMarkedDelete(Enemy, Circus);
+	Object_RemoveMarkedDelete(Enemy, Fat);
+	Object_RemoveMarkedDelete(Enemy, Pirates);
+	Object_RemoveMarkedDelete(Enemy, Straw);
+	Object_RemoveMarkedDelete(Enemy, Thin);
 }
 
 #define Object_CheckCollision(type, name) Object_CheckCollision_(type, _##name)
