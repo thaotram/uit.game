@@ -12,5 +12,4 @@ void Object_Unit_Static_Apple::ObjectUpdateEvent(float dt) {}
 void Object_Unit_Static_Apple::ObjectIntersect(Object * pObject) {
 	mScene->mApple++;
 	mIsMarkedDelete = true;
-	//mScene->oObjectStore->AddToRemoveList(this);
 }

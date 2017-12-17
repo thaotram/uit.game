@@ -188,22 +188,48 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 	Object_Render(Enemy, Thin);
 }
 
-void Scene_ObjectStore::AddToRemoveList(Object * pObject) {
-	mRemoveList.push_back(pObject);
-}
-
-bool ifMarkedDelete(const pair<RECT, Object *>& pPair) {
-	if (pPair.second == NULL || pPair.second == nullptr) return true;
-	else return pPair.second->mIsMarkedDelete;
+bool ifMarkedDelete(const pair<RECT, Object *>& p) {
+	if (p.second == NULL || p.second == nullptr) return false;
+	else if(p.second->mIsMarkedDelete){
+		delete p.second;
+		return true;
+	}
+	else {
+		return false;
+	}
+		 
 }
 
 void Scene_ObjectStore::RemoveObjectMarkedDelete() {
 	mStatic_Apple.remove_if(ifMarkedDelete);
 }
 
+#define Object_CheckCollision(type, name) Object_CheckCollision_(type, _##name)
+#define Object_CheckCollision_(type, name) ObjectCheckCollisionEach(pObject, &m##type##name)
 void Scene_ObjectStore::ObjectCheckCollision(Object * pObject) {
 	// Làm gì đó bậy bạ trong này
-	for (auto &unit : mStatic_Apple) {
+	Object_CheckCollision(Static, Apple);
+	Object_CheckCollision(Static, Block_Drop);
+	Object_CheckCollision(Static, Black_Magic_Lamp);
+	Object_CheckCollision(Static, Extra_Health);
+	Object_CheckCollision(Static, Genie_Bonus);
+	Object_CheckCollision(Static, Restart_Point);
+	Object_CheckCollision(Static, Spend_These);
+	Object_CheckCollision(Static, Stick);
+
+	Object_CheckCollision(NPC, Camel);
+	Object_CheckCollision(NPC, Peddler);
+
+	Object_CheckCollision(Enemy, Assassin);
+	Object_CheckCollision(Enemy, Circus);
+	Object_CheckCollision(Enemy, Fat);
+	Object_CheckCollision(Enemy, Pirates);
+	Object_CheckCollision(Enemy, Straw);
+	Object_CheckCollision(Enemy, Thin);
+}
+
+void Scene_ObjectStore::ObjectCheckCollisionEach(Object * pObject, list<pair<RECT, Object*>>* pList){
+	for (auto &unit : *pList) {
 		if (unit.second != NULL) {
 			if (isIntersect(
 				unit.second->GetBound(),
@@ -329,17 +355,5 @@ pair<bool, RECT> Scene_ObjectStore::GetBar(RECT u, float step) {
 pair<bool, RECT> Scene_ObjectStore::GetStick(RECT u, float step) {
 	bool is = false;
 	RECT out = { 0,0,0,0 };
-	//for (auto &b : mStatic_Stick) {
-	//	if (u.left >= b.left &&
-	//		u.right <= b.right &&
-	//		u.top <= b.top &&
-	//		u.bottom > b.bottom &&
-	//		u.top + step >= b.top && step >= 0) {
-	//		is = true;
-	//		if (b.top < out.top || out.top == 0) {
-	//			out = b;
-	//		}
-	//	}
-	//}
 	return pair<bool, RECT>(is, out);
 }

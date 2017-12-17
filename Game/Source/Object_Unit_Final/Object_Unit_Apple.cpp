@@ -38,7 +38,7 @@ void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
 		// Sẽ phải code thêm phần đụng độ quái khi đã có quái
 		mAutoNextFrame = true;
 		if(mAni.GetCycleIndex() == 8){
-			mScene->oObjectStore->AddToRemoveList(this);
+			mIsMarkedDelete = true;
 		}
 	}
 }

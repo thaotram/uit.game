@@ -13,7 +13,7 @@ Object_Unit_Static_Black_Magic_Lamp::Object_Unit_Static_Black_Magic_Lamp(RECT u)
 void Object_Unit_Static_Black_Magic_Lamp::ObjectIntersect(Object * pObject)
 {
 	mAutoNextFrame = true;
-	mScene->oObjectStore->AddToRemoveList(this);
+	mIsMarkedDelete = true;
 	//mScene->Add(mScene->itPlayer, new Object_Unit_Explosion_Big(mPos.x()+20,mPos.y()));
 }
 
