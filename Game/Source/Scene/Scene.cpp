@@ -1,5 +1,4 @@
 ﻿#include "Scene.h"
-#include "../Object/Object.h"
 
 Scene * Scene::mScene = NULL;
 
@@ -30,14 +29,13 @@ Scene::~Scene() {
 void Scene::SceneRender(float delay) {
 	//# Update
 	oPlayer->ObjectUpdateEvent(delay);
-	//oObjectStore->ObjectUpdateEvent(delay);
+	oObjectStore->ObjectUpdateEvent(delay);
 	oMapBack->ObjectUpdateEvent(delay);
 	oMapFront->ObjectUpdateEvent(delay);
 	
-	
 	//# Render
 	oMapBack->ObjectRender(delay);
-	//oObjectStore->ObjectRender(delay);
+	oObjectStore->ObjectRender(delay);
 	oPlayer->ObjectRender(delay);
 	oMapFront->ObjectRender(delay);
 
@@ -79,7 +77,7 @@ void Scene::SceneRender(float delay) {
 	// 	}
 	// }
 
-	//mScore.Update(delay);
+	mScore.Update(delay);
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}

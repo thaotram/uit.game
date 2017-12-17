@@ -109,8 +109,8 @@ for (auto &b : m##var) {									\
 	if_in(bottom, top)		left_right.push_back(&b);	\
 }
 
-#define filter_ground_LeftRight(var)						\
-for (auto &b : m##var) {									\
+#define filter_ground_LeftRight(var)					\
+for (auto &b : m##var) {								\
 	if_in(right, left) 		top_bottom.push_back(&b);	\
 }
 
@@ -120,27 +120,36 @@ top_bottom.clear();		\
 
 void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
 	for (auto &unit : mStatic_Apple) {
-		//auto b = unit.first;
-		//auto c = mScene->mCamera;
-		//if (b.top < c.y + HEIGHT &&
-		//	b.bottom > c.y &&
-		//	b.left < c.x &&
-		//	b.right > c.x + WIDTH) {
-		//	if (unit.second == nullptr) {
-		//		unit.second = new Object_Unit_Static_Apple(b);
-		//	}
-		//	unit.second->ObjectUpdateEvent(dt);
-		//}
-		//else {
-		//	delete unit.second;
-		//}
+		auto b = unit.first;
+		auto c = mScene->mCamera;
+		if (b.top < c.y + HEIGHT &&
+			b.bottom > c.y &&
+			b.left < c.x + WIDTH &&
+			b.right > c.x) {
+			if (unit.second == nullptr) {
+				unit.second = new Object_Unit_Static_Apple(b);
+				unit.second->mScene = mScene;
+			}
+			unit.second->ObjectUpdateEvent(dt);
+		}
+		else {
+			if (unit.second != NULL) {
+				delete unit.second;
+				unit.second = NULL;
+			}
+		}
 	}
 }
 
 void Scene_ObjectStore::ObjectRender(float dt) {
 	for (auto &b : mStatic_Apple) {
-		if (b.second != nullptr) {
-			b.second->ObjectRender(dt);
+		if (b.second != NULL) {
+			try {
+				b.second->ObjectRender(dt);
+			}
+			catch (exception e) {
+				throw "123";
+			}
 		}
 	}
 }

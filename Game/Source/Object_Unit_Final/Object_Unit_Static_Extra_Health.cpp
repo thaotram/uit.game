@@ -16,7 +16,7 @@ void Object_Unit_Static_Extra_Health::ObjectUpdateEvent(float dt)
 
 void Object_Unit_Static_Extra_Health::ObjectIntersect(Object * pObject)
 {
-	Scene::mScene->mScore += 150;
-	Scene::mScene->mBlood = min(Scene::mScene->mBlood + 1,8);
-	Scene::mScene->AddToRemoveList(this);
+	mScene->mScore += 150;
+	mScene->mBlood = min(mScene->mBlood + 1,8);
+	mScene->AddToRemoveList(this);
 }

@@ -9,5 +9,5 @@ Object_Status_Magic_Lamp::Object_Status_Magic_Lamp() : Object_Status("Status") {
 }
 
 void Object_Status_Magic_Lamp::ObjectUpdateEvent(float delay) {
-	mPos << Scene::mScene->mCamera.VECTOR2() + V2{ 18  , 20 };
+	mPos << mScene->mCamera.VECTOR2() + V2{ 18  , 20 };
 }

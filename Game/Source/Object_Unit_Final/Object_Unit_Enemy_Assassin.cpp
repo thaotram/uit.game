@@ -1,7 +1,7 @@
 #include "Object_Unit_Enemy_Assassin.h"
 #define mAni	mAnimation
 #define mPos	mPosition
-#define	mObjectStore	Scene::mScene->oObjectStore
+#define	mObjectStore	mScene->oObjectStore
 
 #define xx mPos.x()
 #define yy mPos.y()

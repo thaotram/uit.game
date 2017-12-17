@@ -8,5 +8,5 @@ Object_Status_Score::Object_Status_Score() : Object_Status("Status") {
 }
 
 void Object_Status_Score::ObjectUpdateEvent(float delay) {
-	mPos << Scene::mScene->mCamera.VECTOR2() + V2{ 0  , 0 };
+	mPos << mScene->mCamera.VECTOR2() + V2{ 0  , 0 };
 }

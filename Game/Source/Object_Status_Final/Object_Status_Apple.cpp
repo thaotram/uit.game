@@ -8,5 +8,5 @@ Object_Status_Apple::Object_Status_Apple() : Object_Status("Status") {
 }
 
 void Object_Status_Apple::ObjectUpdateEvent(float delay){
-	mPos << Scene::mScene->mCamera.VECTOR2()+ V2{ 270  , 192 };
+	mPos << mScene->mCamera.VECTOR2()+ V2{ 270  , 192 };
 }

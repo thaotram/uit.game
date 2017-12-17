@@ -1,25 +1,20 @@
 ﻿#pragma once
 #include "Game.h"
-#include "GameGlobal.h"
-#include "GameTime.h"
-#include "Scene_Final\Scene_AgrabahMarket.h"
 
-#include "../Define.h"
-
-Game::Game()
-{
+Game::Game() {
 	mDevice = GameGlobal::GetDevice();
 
 	//# Game Start
 	Scene::ReplaceScene(
 		new Scene_AgrabahMarket()
 	);
+	//mScene = Scene::mScene;
+
 	InitLoop();
 }
 Game::~Game() {}
 
-void Game::InitLoop()
-{
+void Game::InitLoop() {
 	MSG msg;
 	float
 		timePerFrame = 1.f / FPS,		// Tickperframe là khoảng thời gian hiển thị của mỗi frame
@@ -49,7 +44,7 @@ void Game::InitLoop()
 
 //# Được gọi bên trong vòng lặp
 void Game::GameRender(float delay) {
-	Scene        * mScene = Scene::mScene;
+	//Scene * mScene = Scene::mScene;
 	ID3DXSprite  * mSpriteHandler = GameGlobal::GetSpriteHandler();
 
 	// Before
@@ -62,7 +57,7 @@ void Game::GameRender(float delay) {
 	mDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
 	mDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
 	// Render
-	mScene->SceneRender(delay);
+	//mScene->SceneRender(delay);
 
 	// End
 	mSpriteHandler->End();

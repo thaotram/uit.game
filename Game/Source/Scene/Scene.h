@@ -5,9 +5,10 @@
 #include "../Scene/Scene_Camera.h"
 #include "../Scene/Scene_ObjectStore.h"
 #include "../Utility/Float_Easing.h"
+#include "../Object/Object.h"
 
 using namespace std;
-class Object;
+//class Object;
 
 class Scene : public list<Object *> {
 private:

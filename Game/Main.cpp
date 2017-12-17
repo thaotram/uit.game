@@ -128,17 +128,16 @@ int InitializeDevice() {
 // Được gọi trong hàm InitializeWindow trong hàm main
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	// Message ở đây là các event của windows
-	switch (message)
-	{
+	switch (message) {
 	case WM_DESTROY:
 		GameGlobal::isGameRunning = false;
 		PostQuitMessage(0);
 		break;
 	case WM_LBUTTONDOWN:
-		Scene::mScene->OnMouseDown(
-			(float)GET_X_LPARAM(lParam),
-			(float)GET_Y_LPARAM(lParam)
-		);
+		// Scene::mScene->OnMouseDown(
+		// 	(float)GET_X_LPARAM(lParam),
+		// 	(float)GET_Y_LPARAM(lParam)
+		// );
 		break;
 	case WM_KEYDOWN:
 		if (REAL == 0) KEY = 1;

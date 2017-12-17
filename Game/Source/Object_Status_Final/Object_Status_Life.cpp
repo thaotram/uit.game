@@ -8,5 +8,5 @@ Object_Status_Life::Object_Status_Life() : Object_Status("Status") {
 
 void Object_Status_Life::ObjectUpdateEvent(float delay)
 {
-	mPos << Scene::mScene->mCamera.VECTOR2() + V2{ 17  , 184 };
+	mPos << mScene->mCamera.VECTOR2() + V2{ 17  , 184 };
 }

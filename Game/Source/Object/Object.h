@@ -2,17 +2,18 @@
 #include <d3d9.h>
 #include <d3dx9.h>
 
+#include "../../Define.h"
 #include "../GameGlobal.h"
+#include "../Utility/Vector.h"
+#include "../Scene/Scene.h"
 
 #include "Object_Json.h"
 #include "Object_Texture.h"
 
-#include "../Utility/Vector.h"
 #include "Object_Animation.h"
 #include "Object_Transform.h"
 #include "Object_SourceRect.h"
 
-#include "../Scene/Scene.h"
 
 //#define mScene Scene::GetCurrentScene()
 
@@ -34,6 +35,7 @@ public:
 	Object(string pName);
 	~Object() {};
 
+	Scene * 	 mScene;
 	bool		 mIsRender;
 	bool		 mIsUpdate;
 

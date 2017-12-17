@@ -1,12 +1,11 @@
 ﻿#include "Object.h"
-#include "../Scene/Scene.h"
-#include "../../Define.h"
 
 #define mPos mPosition
 
 Object::Object(string pName) : mName(pName) {
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
 
+	mScene = Scene::mScene;
 	mJson = Object_Json::GetJson(mName);
 	mTexture = Object_Texture::GetTexture(mName);
 

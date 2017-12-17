@@ -1,7 +1,7 @@
 #include "Object_Unit_Explosion_Big.h"
 #define mAni	mAnimation
 #define mPos	mPosition
-#define	mObjectStore	Scene::mScene->oObjectStore
+#define	mObjectStore	mScene->oObjectStore
 #define tSpeedX	400
 //#define tSpeedX	490
 
