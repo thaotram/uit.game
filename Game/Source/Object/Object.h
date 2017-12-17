@@ -41,7 +41,8 @@ public:
 	bool		 mIsUpdate;
 	bool		 mIsMarkedDelete;
 	
-	RECT 		 tDis, tUnit;
+	RECT		 tUnit;		// Tọa độ của 4 cạnh so với map lớn
+	RECT 		 tDis;		// Khoảng cách từ tUnit cho đến 4
 
 	virtual void AfterAddToScene() {};
 			void ObjectRender(float delay);
@@ -70,7 +71,5 @@ public:
 	Object_Json * GetJson() {
 		return mJson;
 	}
-	// Hàm này sẽ khiến hệ thống tính toán nhiều >> tốn kém tài nguyên
-	// Không nên dùng
 	RECT GetBound();
 };

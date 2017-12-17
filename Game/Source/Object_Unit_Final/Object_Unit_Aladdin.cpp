@@ -44,8 +44,8 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		(LONG)yy
 	};
 	tDis = mObjectStore->GetDistance(tUnit, this);
-	tRope = mObjectStore->GetRope(tUnit, tSpeedX * tDt);
 	tBar = mObjectStore->GetBar(tUnit, mPos.y.mVelocity * tDt);
+	tRope = mObjectStore->GetRope(tUnit, tSpeedX * tDt);
 
 	//# Các thao tác tính toán / cập nhật
 	ObjectEachState();
