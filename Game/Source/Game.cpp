@@ -19,7 +19,7 @@ void Game::InitLoop() {
 	float
 		timePerFrame = 1.f / FPS,		// Tickperframe là khoảng thời gian hiển thị của mỗi frame
 		delay = 0;						// Delta chứa tổng tgian thực hiện của mỗi vòng while
-
+	
 	while (GameGlobal::isGameRunning) {
 		GameTime::StartCounter();
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
@@ -35,7 +35,12 @@ void Game::InitLoop() {
 		}
 		else {
 			Sleep(
-				(DWORD)((timePerFrame - delay) * 1000) // milisecond
+				(DWORD)((timePerFrame - delay)) // milisecond
+				// Do bị dôi ra một khoảng thời gian sau khi thực hiện hàm GameRender
+				// ở phía trên nên đoạn này nó cần sleep ít hơn thực tế 1 chút
+				// Nếu để sleep lỗi như này thì trong 1 vòng nó sẽ sleep nhiều khoảng rất nhỏ 
+				// (khoảng 1000 lần)
+				// (DWORD)((timePerFrame - delay) * 1000) // milisecond
 			);
 			delay = timePerFrame;
 		}

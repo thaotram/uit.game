@@ -1,4 +1,7 @@
 #pragma once
+#include <d3dx9.h>
+#include <d3d9.h>
+#include <windows.h>
 
 #define APP_CLASS L"Game"
 #define MAIN_WINDOW_TITLE L"Game Title"
@@ -29,12 +32,8 @@ enum {
 };
 
 #ifndef intersect_function
-inline static bool isIntersect(RECT a, RECT b) {
-	return
-		a.left < b.right &&
-		a.right > b.left &&
-		a.top <= b.bottom &&
-		a.bottom >= b.top;
-}
+
+bool isIntersect(RECT a, RECT b);
+
 #define intersect_function
 #endif

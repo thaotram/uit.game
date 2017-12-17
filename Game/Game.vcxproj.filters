@@ -523,5 +523,8 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Explosion_Big.cpp">
       <Filter>Source\Object_Unit\Explosion</Filter>
     </ClCompile>
+    <ClCompile Include="Define.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

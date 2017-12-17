@@ -115,42 +115,47 @@ for (auto &b : m##var) {								\
 
 #define clearFilter()	\
 left_right.clear();		\
-top_bottom.clear();		\
+top_bottom.clear();		
 
-//# Object_Update
-//#define Object_Update_(type, name)								\
-//for (auto &unit : mStatic_Apple) {								\
-//	auto b = unit.first;										\
-//	auto c = mScene->mCamera.RECT({ WIDTH, HEIGHT });			\
-//	if (isIntersect(b, c)) {									\
-//		if (unit.second == nullptr || unit.second == NULL) {	\
-//			unit.second = new Object_Unit_Static_Apple(b);		\
-//			unit.second->mScene = mScene;						\
-//		}														\
-//		unit.second->ObjectUpdateEvent(dt);						\
-//	}															\
-//	else if (unit.second != NULL) {								\
-//		delete unit.second;										\
-//		unit.second = NULL;										\
-//	}															\
-//}
+#define Object_UpdateEvent_(type, name)										\
+for (auto &unit : m##type##name) {								\
+	b = unit.first;												\
+	c = mScene->mCamera.RECT(V2{ WIDTH, HEIGHT });				\
+	if (isIntersect(b, c)) {									\
+		if (unit.second == nullptr || unit.second == NULL) {	\
+			unit.second = new Object_Unit_##type##name(b);		\
+			unit.second->mScene = mScene;						\
+		}														\
+		unit.second->ObjectUpdateEvent(dt);						\
+	}															\
+	else if (unit.second != NULL) {								\
+		delete unit.second;										\
+		unit.second = NULL;										\
+	}															\
+}
+#define Object_UpdateEvent(type, name)	Object_UpdateEvent_(type,_##name)
 
 void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
-	for (auto &unit : mStatic_Apple) {
-		auto b = unit.first;
-		auto c = mScene->mCamera.RECT(V2{ WIDTH, HEIGHT });
-		if (isIntersect(b, c)) {
-			if (unit.second == nullptr || unit.second == NULL) {
-				unit.second = new Object_Unit_Static_Apple(b);
-				unit.second->mScene = mScene;
-			}
-			unit.second->ObjectUpdateEvent(dt);
-		}
-		else if (unit.second != NULL) {
-			delete unit.second;
-			unit.second = NULL;
-		}
-	}
+	RECT b,c;
+	Object_UpdateEvent(Static, Abubonus);
+	Object_UpdateEvent(Static, Apple);
+	Object_UpdateEvent(Static, Block_Drop);
+	Object_UpdateEvent(Static, Black_Magic_Lamp);
+	Object_UpdateEvent(Static, Extra_Health);
+	Object_UpdateEvent(Static, Genie_Bonus);
+	Object_UpdateEvent(Static, Restart_Point);
+	Object_UpdateEvent(Static, Spend_These);
+	Object_UpdateEvent(Static, Stick);
+
+	Object_UpdateEvent(NPC, Camel);
+	Object_UpdateEvent(NPC, Peddler);
+
+	Object_UpdateEvent(Enemy, Assassin);
+	Object_UpdateEvent(Enemy, Circus);
+	Object_UpdateEvent(Enemy, Fat);
+	Object_UpdateEvent(Enemy, Pirates);
+	Object_UpdateEvent(Enemy, Straw);
+	Object_UpdateEvent(Enemy, Thin);
 }
 
 //# Object_Render
