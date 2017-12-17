@@ -66,7 +66,7 @@ public:
 
 	void				ObjectUpdateEvent(float dt);
 	void				ObjectRender(float dt);
-	void				RemoveObjectMarkedDelete();
+	void				ObjectRemoveMarkedDelete();
 
 	void 				ObjectCheckCollision(Object * pObject);
 	void 				ObjectCheckCollisionEach(Object * pObject, list<pair<RECT, Object *>> * pList);
