@@ -126,13 +126,9 @@ void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
 			b.bottom > c.y &&
 			b.left < c.x + WIDTH &&
 			b.right > c.x) {
-			if (unit.second == nullptr) {
+			if (unit.second == nullptr || unit.second == NULL) {
 				unit.second = new Object_Unit_Static_Apple(b);
-
-				int d1 = 4;
 				unit.second->mScene = mScene;
-
-				int d2 = 5;
 			}
 			unit.second->ObjectUpdateEvent(dt);
 		}

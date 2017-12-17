@@ -7,11 +7,9 @@ Object_Unit_Static_Apple::Object_Unit_Static_Apple(RECT u) : Object_Unit("Item")
 	mAni.Set("apple_item", 1);
 	mAutoNextFrame = false;
 }
-void Object_Unit_Static_Apple::ObjectUpdateEvent(float dt) {
-	
-}
+void Object_Unit_Static_Apple::ObjectUpdateEvent(float dt) {}
 
-void Object_Unit_Static_Apple::ObjectIntersect(Object * pObject){
+void Object_Unit_Static_Apple::ObjectIntersect(Object * pObject) {
 	mScene->mApple++;
 	mScene->AddToRemoveList(this);
 }

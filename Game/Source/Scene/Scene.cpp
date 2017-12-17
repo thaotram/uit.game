@@ -39,44 +39,6 @@ void Scene::SceneRender(float delay) {
 	oPlayer->ObjectRender(delay);
 	oMapFront->ObjectRender(delay);
 
-	// for (auto &obj : *this) {
-	// 	if (dynamic_cast<Object_Unit *>(obj)) {
-	// 		auto pos = obj->GetPosition();
-	// 		bool inCamera =
-	// 			pos->x() + margin > mCamera.x &&
-	// 			pos->x() - margin < mCamera.x + WIDTH &&
-	// 			pos->y() + margin > mCamera.y &&
-	// 			pos->y() - margin < mCamera.y + HEIGHT;
-	// 		if (inCamera) {
-	// 			isRender = true;
-	// 			isUpdate = true;
-	// 			obj->ObjectUpdateEvent(delay);
-	// 		}
-	// 		else if (isUpdate) {		// !inCamera && isUpdate - Chỉ gọi một lần thôi
-	// 			obj->ObjectUpdateEvent(delay);
-	// 			isUpdate = false;
-	// 		}
-	// 		else {						// !inCamera && !isUpdate
-	// 			isRender = false;
-	// 		}
-	// 	}
-	// 	else {
-	// 		obj->ObjectUpdateEvent(delay);
-	// 	}
-	// }
-	
-	// for (auto &obj : mRemoveList) {
-	// 	this->remove(&*obj);
-	// 	delete &*obj;
-	// }
-	// mRemoveList.clear();
-
-	// for (auto &obj : *this) {
-	// 	if (isRender == true) {
-	// 		obj->ObjectRender(delay);
-	// 	}
-	// }
-
 	mScore.Update(delay);
 }
 
