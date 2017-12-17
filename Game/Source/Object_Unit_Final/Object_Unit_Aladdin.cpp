@@ -400,6 +400,7 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 }
 void Object_Unit_Aladdin::ObjectCheckCollision() {
 	mSourceRect.Update(this);
+	mScene->oObjectStore->ObjectCheckCollision(this);
 	//for (auto &obj : *mScene) {
 	//	if (isRender == true && obj != this) {
 	//		if (isIntersect(

@@ -15,5 +15,5 @@ void Object_Unit_Static_Abubonus::ObjectUpdateEvent(float delay) {
 void Object_Unit_Static_Abubonus::ObjectIntersect(Object * pObject)
 {
 	mScene->mScore += 250;
-	mScene->AddToRemoveList(this);
+	mScene->oObjectStore->AddToRemoveList(this);
 }

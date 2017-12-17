@@ -22,6 +22,8 @@ class Scene;
 
 class Scene_ObjectStore {
 private:
+	list<Object *> mRemoveList;
+
 	list<RECT> mRope;
 	list<RECT> mBar;
 	list<RECT> mSquare;
@@ -65,6 +67,10 @@ public:
 
 	void				ObjectUpdateEvent(float dt);
 	void				ObjectRender(float dt);
+	void				AddToRemoveList(Object * pObject);
+	void				RemoveObjectInRemoveList();
+
+	void 				ObjectCheckCollision(Object * pObject);
 
 	RECT				GetDistance(RECT u, Object * pUnit);
 	void				UpdateStairState(RECT u);

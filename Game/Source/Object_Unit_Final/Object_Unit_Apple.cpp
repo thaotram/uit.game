@@ -1,6 +1,6 @@
 ﻿#include "Object_Unit_Apple.h"
-#define mAni	mAnimation
-#define mPos	mPosition
+#define mAni			mAnimation
+#define mPos			mPosition
 #define	mObjectStore	mScene->oObjectStore
 #define tSpeedX	400
 //#define tSpeedX	490
@@ -38,7 +38,7 @@ void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
 		// Sẽ phải code thêm phần đụng độ quái khi đã có quái
 		mAutoNextFrame = true;
 		if(mAni.GetCycleIndex() == 8){
-			mScene->AddToRemoveList(this);
+			mScene->oObjectStore->AddToRemoveList(this);
 		}
 	}
 }

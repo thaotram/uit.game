@@ -38,6 +38,8 @@ public:
 	Scene * 	 mScene;
 	bool		 mIsRender;
 	bool		 mIsUpdate;
+	
+	RECT 		 tDis, tUnit;
 
 	virtual void AfterAddToScene() {};
 			void ObjectRender(float delay);

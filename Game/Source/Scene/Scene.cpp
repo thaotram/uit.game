@@ -33,6 +33,9 @@ void Scene::SceneRender(float delay) {
 	oMapBack->ObjectUpdateEvent(delay);
 	oMapFront->ObjectUpdateEvent(delay);
 
+	//# Remove item in RemoveList 
+	//oObjectStore
+
 	//# Render
 	oMapBack->ObjectRender(delay);
 	oObjectStore->ObjectRender(delay);
@@ -45,21 +48,6 @@ void Scene::SceneRender(float delay) {
 void Scene::OnKeyDown(int pKeyCode) {}
 void Scene::OnKeyUp(int pKeyCode) {}
 
-//list<Object *>::iterator Scene::Add(list<Object *>::iterator pIt, Object * pObject) {
-//	pObject->AfterAddToScene();
-//	return insert(pIt, pObject);
+//void Scene::AddToRemoveList(Object * pObject) {
+//	mRemoveList.push_back(pObject);
 //}
-//list<Object *>::iterator Scene::Add(Object * pObject) {
-//	return Add(end(), pObject);
-//}
-//
-//void Scene::Add(list<Object*>::iterator pIt, Object * pObject, list<Object*>::iterator & pItOut) {
-//	pItOut = Add(pIt, pObject);
-//}
-//void Scene::Add(Object * pObject, list<Object*>::iterator & pItOut) {
-//	pItOut = Add(pObject);
-//}
-//
-void Scene::AddToRemoveList(Object * pObject) {
-	mRemoveList.push_back(pObject);
-}

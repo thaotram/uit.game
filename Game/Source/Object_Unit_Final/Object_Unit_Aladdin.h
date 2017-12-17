@@ -18,8 +18,6 @@ public:
 	Object_Unit_Aladdin();
 	~Object_Unit_Aladdin() {};
 
-	RECT tDis;
-	RECT tUnit;
 	bool mIsOnDropBlock;
 
 	void ObjectUpdateEvent(float dt);

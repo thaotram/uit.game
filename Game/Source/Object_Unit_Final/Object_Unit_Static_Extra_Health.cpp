@@ -18,5 +18,5 @@ void Object_Unit_Static_Extra_Health::ObjectIntersect(Object * pObject)
 {
 	mScene->mScore += 150;
 	mScene->mBlood = min(mScene->mBlood + 1,8);
-	mScene->AddToRemoveList(this);
+	mScene->oObjectStore->AddToRemoveList(this);
 }

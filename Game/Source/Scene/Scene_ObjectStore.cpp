@@ -115,9 +115,9 @@ for (auto &b : m##var) {								\
 
 #define clearFilter()	\
 left_right.clear();		\
-top_bottom.clear();		
+top_bottom.clear();
 
-#define Object_UpdateEvent_(type, name)										\
+#define Object_UpdateEvent_(type, name)							\
 for (auto &unit : m##type##name) {								\
 	b = unit.first;												\
 	c = mScene->mCamera.RECT(V2{ WIDTH, HEIGHT });				\
@@ -136,7 +136,7 @@ for (auto &unit : m##type##name) {								\
 #define Object_UpdateEvent(type, name)	Object_UpdateEvent_(type,_##name)
 
 void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
-	RECT b,c;
+	RECT b, c;
 	Object_UpdateEvent(Static, Abubonus);
 	Object_UpdateEvent(Static, Apple);
 	Object_UpdateEvent(Static, Block_Drop);
@@ -186,6 +186,33 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 	Object_Render(Enemy, Pirates);
 	Object_Render(Enemy, Straw);
 	Object_Render(Enemy, Thin);
+}
+
+void Scene_ObjectStore::AddToRemoveList(Object * pObject){
+	mRemoveList.push_back(pObject);
+}
+
+void Scene_ObjectStore::RemoveObjectInRemoveList(){
+	for (auto &o : mRemoveList) {
+		delete o;
+		int a = 123;
+	}
+}
+
+void Scene_ObjectStore::ObjectCheckCollision(Object * pObject) {
+	// Làm gì đó bậy bạ trong này
+	// pObject ở đây là player (aladdin hoặc quả táo, hoặc con dao)
+	for (auto &unit : mStatic_Apple) {
+		if (unit.second != NULL) {
+			if (isIntersect(
+				unit.second->GetBound(),
+				pObject->GetBound()
+			)) {
+				auto tDis = this->GetDistance(pObject->tUnit, pObject);
+				unit.second->ObjectIntersect(pObject);
+			}
+		}
+	}
 }
 
 RECT Scene_ObjectStore::GetDistance(RECT u, Object * pUnit) {

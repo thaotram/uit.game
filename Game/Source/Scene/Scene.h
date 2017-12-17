@@ -10,8 +10,6 @@
 using namespace std;
 
 class Scene {
-private:
-	list<Object *> mRemoveList;
 public:
 	Scene();
 	~Scene();
@@ -42,8 +40,6 @@ public:
 	//list<Object *>::iterator Add(list<Object *>::iterator pIt, Object * pObject);
 	//void Add(Object * pObject, list<Object *>::iterator &pItOut);
 	//void Add(list<Object *>::iterator pIt, Object * pObject, list<Object *>::iterator &pItOut);
-
-	void AddToRemoveList(Object * pIt);
 
 	static void ReplaceScene(Scene * pScene);
 	static Scene * mScene;

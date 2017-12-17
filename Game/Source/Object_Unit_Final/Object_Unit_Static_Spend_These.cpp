@@ -16,5 +16,5 @@ void Object_Unit_Static_Spend_These::ObjectIntersect(Object * pObject)
 {
 	mScene->mSpendthese++;
 	mScene->mScore += 150;
-	mScene->AddToRemoveList(this);
+	mScene->oObjectStore->AddToRemoveList(this);
 }
