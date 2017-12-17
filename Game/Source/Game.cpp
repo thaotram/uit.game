@@ -35,12 +35,18 @@ void Game::InitLoop() {
 		}
 		else {
 			Sleep(
-				(DWORD)((timePerFrame - delay)) // milisecond
+				(DWORD)((timePerFrame - delay)) // milisecond 
+				// ở đây là đang truyền vào theo đơn vị giây (không đúng)
+
 				// Do bị dôi ra một khoảng thời gian sau khi thực hiện hàm GameRender
 				// ở phía trên nên đoạn này nó cần sleep ít hơn thực tế 1 chút
 				// Nếu để sleep lỗi như này thì trong 1 vòng nó sẽ sleep nhiều khoảng rất nhỏ 
 				// (khoảng 1000 lần)
 				// (DWORD)((timePerFrame - delay) * 1000) // milisecond
+
+				// Edit: không hiểu tại sao khi dùng hàm đếm thì 
+				// nó chỉ chạy thằng này theo đơn vị giây thôi mà 
+				// Không chạy theo đơn vị ms
 			);
 			delay = timePerFrame;
 		}
