@@ -128,7 +128,11 @@ void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
 			b.right > c.x) {
 			if (unit.second == nullptr) {
 				unit.second = new Object_Unit_Static_Apple(b);
+
+				int d1 = 4;
 				unit.second->mScene = mScene;
+
+				int d2 = 5;
 			}
 			unit.second->ObjectUpdateEvent(dt);
 		}
@@ -144,12 +148,7 @@ void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
 void Scene_ObjectStore::ObjectRender(float dt) {
 	for (auto &b : mStatic_Apple) {
 		if (b.second != NULL) {
-			try {
-				b.second->ObjectRender(dt);
-			}
-			catch (exception e) {
-				throw "123";
-			}
+			b.second->ObjectRender(dt);
 		}
 	}
 }

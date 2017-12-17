@@ -2,10 +2,11 @@
 
 map<string, Object_Texture*> Object_Texture::Object_Textures;
 
-Object_Texture * Object_Texture::GetTexture(string pName)
-{
-	return Object_Textures.find(pName) == Object_Textures.end() ?
-		new Object_Texture(pName) : Object_Textures.at(pName);
+Object_Texture * Object_Texture::GetTexture(string pName) {
+	if (Object_Textures.find(pName) == Object_Textures.end()) {
+		Object_Textures[pName] = new Object_Texture(pName);
+	}
+	return Object_Textures.at(pName);
 }
 
 Object_Texture::Object_Texture(string pName) {
@@ -13,7 +14,6 @@ Object_Texture::Object_Texture(string pName) {
 	D3DXIMAGE_INFO		pImageInfo;
 	LPCSTR				pSrcFile = pName.c_str();
 	D3DXGetImageInfoFromFileA(pSrcFile, &pImageInfo);
-	//auto mm = (LPDIRECT3DTEXTURE9)this;
 	D3DXCreateTextureFromFileExA
 	(
 		GameGlobal::GetDevice(),		// Đại diện cho thiết bị

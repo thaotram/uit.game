@@ -35,7 +35,7 @@ void Game::InitLoop() {
 		}
 		else {
 			Sleep(
-				(DWORD)((timePerFrame - delay) * 1000) // milisecond
+				(DWORD)((timePerFrame - delay)) // milisecond
 			);
 			delay = timePerFrame;
 		}

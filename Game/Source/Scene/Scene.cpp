@@ -29,13 +29,13 @@ Scene::~Scene() {
 void Scene::SceneRender(float delay) {
 	//# Update
 	oPlayer->ObjectUpdateEvent(delay);
-	//oObjectStore->ObjectUpdateEvent(delay);
+	oObjectStore->ObjectUpdateEvent(delay);
 	oMapBack->ObjectUpdateEvent(delay);
 	oMapFront->ObjectUpdateEvent(delay);
 	
 	//# Render
 	oMapBack->ObjectRender(delay);
-	//oObjectStore->ObjectRender(delay);
+	oObjectStore->ObjectRender(delay);
 	oPlayer->ObjectRender(delay);
 	oMapFront->ObjectRender(delay);
 
