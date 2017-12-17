@@ -28,6 +28,7 @@
 Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mPos << V2{ 3400 , 270 };
 	mAni.Set("stand", 1);
+	tIsThrowApple = false;
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
@@ -68,7 +69,6 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (Z) {
 			Z = false;
 			mAni.Set("stand_throwapple", 1, "stand", 1);
-			//mScene->Add(mScene->oPlayer, new Object_Unit_Apple(xx, yy - 55), itThrowApple);
 		}
 		else if (X) {
 			X = false;
@@ -89,10 +89,15 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTimePerFrame = 0.03f;
 		tIsChangeX = false;
 		L = R = false;
-		if (mAni.GetCycleIndex() == 3) {
-			((Object_Unit_Apple *)(*itThrowApple))->ThrowApple(
+		if (mAni.GetCycleIndex() == 1) {
+			tIsThrowApple = false;
+		}
+		else if (mAni.GetCycleIndex() == 3 && !tIsThrowApple) {
+			/*((Object_Unit_Apple *)(*itThrowApple))->ThrowApple(
 				mTransform.GetFlip()
-			);
+			);*/
+			tIsThrowApple = true;
+			mScene->oObjectStore->mLost.push_back(new Object_Unit_Apple(xx,yy-55,mTransform.GetFlip()));
 		}
 	}
 	else if (state == "stand_jump") {

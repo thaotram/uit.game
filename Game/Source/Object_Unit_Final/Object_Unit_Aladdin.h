@@ -7,6 +7,7 @@ class Object_Unit_Aladdin final : public Object_Unit {
 private:
 	//# Tạo sẵn các biến để tái sử dụng trong tính toán (không cần cấp phát lại bộ nhớ)
 	bool tIsChangeX, tIsChangeY;
+	bool tIsThrowApple;
 	float tSpeedX, tSpeedY, tJump, tDt;
 
 	pair<bool, RECT> 
@@ -14,8 +15,6 @@ private:
 		tRope,
 		tDropBlock;
 	pair<bool, pair<RECT, Object *> *> tStick;
-
-	list<Object *>::iterator itThrowApple;
 public:
 	Object_Unit_Aladdin();
 	~Object_Unit_Aladdin() {};

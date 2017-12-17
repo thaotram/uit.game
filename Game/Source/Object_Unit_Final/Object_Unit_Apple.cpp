@@ -9,17 +9,15 @@
 #define yy mPos.y()
 
 //# Quả táo dùng để ném đi
-Object_Unit_Apple::Object_Unit_Apple(float x, float y) : Object_Unit("Aladdin") {
+Object_Unit_Apple::Object_Unit_Apple(float x, float y, bool isFlip) : Object_Unit("Aladdin") {
 	mPos << V2{ x , y };
-	mAni.Set("apple", 1);
+	mAni.Set("apple", 2);
 	mTimePerFrame = 0.03f;
 	mAutoNextFrame = false;
-	mIsThrow = false;
+	mFlip = isFlip;
 }
 
-void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
-	if (!mIsThrow) return;
-	
+void Object_Unit_Apple::ObjectUpdateEvent(float dt) {	
 	tUnit = RECT{
 		(LONG)xx - 3,
 		(LONG)yy - 7,
@@ -41,12 +39,4 @@ void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
 			mIsMarkedDelete = true;
 		}
 	}
-}
-
-void Object_Unit_Apple::ThrowApple(bool pFlip) {
-	if (mIsThrow) return;
-
-	mFlip = pFlip;
-	mIsThrow = true;
-	mAni.SetCycleIndex(2);
 }
