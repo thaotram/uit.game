@@ -72,7 +72,8 @@ public:
 
 	RECT				GetDistance(RECT u, Object * pUnit);
 	void				UpdateStairState(RECT u);
-	pair<bool, RECT>	GetRope(RECT u, float step);
+
 	pair<bool, RECT>	GetBar(RECT u, float step);
+	pair<bool, RECT>	GetRope(RECT u, float step);
 	pair<bool, RECT> 	GetStick(RECT u, float step);
 };
