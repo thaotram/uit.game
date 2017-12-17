@@ -362,6 +362,7 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Knife.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Stall.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -524,6 +525,9 @@
       <Filter>Source\Object_Unit\Explosion</Filter>
     </ClCompile>
     <ClCompile Include="Define.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Stall.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

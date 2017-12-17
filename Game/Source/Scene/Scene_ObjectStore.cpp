@@ -18,6 +18,7 @@
 #include "../Object_Unit_Final/Object_Unit_Enemy_Straw.h"
 #include "../Object_Unit_Final/Object_Unit_Enemy_Thin.h"
 #include "../Object_Unit_Final/Object_Unit_NPC_Camel.h"
+#include "../Object_Unit_Final/Object_Unit_NPC_Stall.h"
 #include "../Object_Unit_Final/Object_Unit_NPC_Peddler.h"
 
 #include "../GameDebug.h"
@@ -71,6 +72,7 @@ Scene_ObjectStore::Scene_ObjectStore(string pName) {
 	add_unit(Static_Stick);
 
 	add_unit(NPC_Camel);
+	add_unit(NPC_Stall);
 	add_unit(NPC_Peddler);
 
 	add_unit(Enemy_Assassin);
@@ -148,7 +150,9 @@ void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
 	Object_UpdateEvent(Static, Stick);
 
 	Object_UpdateEvent(NPC, Camel);
+	Object_UpdateEvent(NPC, Stall);
 	Object_UpdateEvent(NPC, Peddler);
+
 
 	Object_UpdateEvent(Enemy, Assassin);
 	Object_UpdateEvent(Enemy, Circus);
@@ -178,6 +182,7 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 	Object_Render(Static, Stick);
 
 	Object_Render(NPC, Camel);
+	Object_Render(NPC, Stall);
 	Object_Render(NPC, Peddler);
 
 	Object_Render(Enemy, Assassin);
@@ -218,6 +223,7 @@ void Scene_ObjectStore::ObjectCheckCollision(Object * pObject) {
 	Object_CheckCollision(Static, Stick);
 
 	Object_CheckCollision(NPC, Camel);
+	Object_CheckCollision(NPC, Stall);
 	Object_CheckCollision(NPC, Peddler);
 
 	Object_CheckCollision(Enemy, Assassin);

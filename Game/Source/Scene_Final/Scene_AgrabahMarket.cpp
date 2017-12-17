@@ -28,6 +28,7 @@
 #include "../Object_Unit_Final/Object_Unit_Enemy_Thin.h"
 #include "../Object_Unit_Final/Object_Unit_NPC_Camel.h"
 #include "../Object_Unit_Final/Object_Unit_NPC_Peddler.h"
+#include "../Object_Unit_Final/Object_Unit_NPC_Stall.h"
 
 #include "../../Define.h"
 

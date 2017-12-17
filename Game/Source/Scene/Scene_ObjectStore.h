@@ -53,6 +53,7 @@ public:
 
 	//# NPC
 	list<pair<RECT, Object *>>	mNPC_Camel;
+	list<pair<RECT, Object *>>	mNPC_Stall;
 	list<pair<RECT, Object *>>	mNPC_Peddler;
 
 	//# Enemy
