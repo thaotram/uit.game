@@ -158,6 +158,10 @@ void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
 	Object_UpdateEvent(Enemy, Pirates);
 	Object_UpdateEvent(Enemy, Straw);
 	Object_UpdateEvent(Enemy, Thin);
+
+	for (auto &b : mLost) {
+		b->ObjectUpdateEvent(dt);
+	}
 }
 
 //# Object_Render
@@ -190,7 +194,9 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 	Object_Render(Enemy, Straw);
 	Object_Render(Enemy, Thin);
 
-	
+	for (auto &b : mLost) {
+		b->ObjectRender(dt);
+	}
 }
 
 bool ifMarkedDelete(const pair<RECT, Object *>& p) {
@@ -199,10 +205,15 @@ bool ifMarkedDelete(const pair<RECT, Object *>& p) {
 		delete p.second;
 		return true;
 	}
-	else {
-		return false;
+	else return false;
+}
+
+bool ifMarkedDeleteLost(const Object* o) {
+	if (o->mIsMarkedDelete) {
+		delete o;
+		return true;
 	}
-		 
+	else return false;
 }
 
 #define Object_RemoveMarkedDelete(type, name) Object_RemoveMarkedDelete_(type, _##name)
@@ -227,6 +238,8 @@ void Scene_ObjectStore::ObjectRemoveMarkedDelete() {
 	Object_RemoveMarkedDelete(Enemy, Pirates);
 	Object_RemoveMarkedDelete(Enemy, Straw);
 	Object_RemoveMarkedDelete(Enemy, Thin);
+
+	mLost.remove_if(ifMarkedDeleteLost);
 }
 
 #define Object_CheckCollision(type, name) Object_CheckCollision_(type, _##name)

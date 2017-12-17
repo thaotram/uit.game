@@ -64,6 +64,9 @@ public:
 	list<pair<RECT, Object *>>	mEnemy_Straw;
 	list<pair<RECT, Object *>>	mEnemy_Thin;
 
+	//# Lost
+	list<Object*>				mLost;
+
 	void				ObjectUpdateEvent(float dt);
 	void				ObjectRender(float dt);
 	void				ObjectRemoveMarkedDelete();
