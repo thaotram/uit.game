@@ -15,6 +15,7 @@ private:
 		tRope,
 		tDropBlock;
 	pair<bool, pair<RECT, Object *> *> tStick;
+	pair<bool, pair<RECT, Object *> *> tCamel;
 public:
 	Object_Unit_Aladdin();
 	~Object_Unit_Aladdin() {};

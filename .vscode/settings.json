@@ -34,7 +34,5 @@
         "xlocale": "cpp",
         "tuple": "cpp",
         "utility": "cpp"
-    },
-    "C_Cpp.errorSquiggles": "Disabled",
-    "epitech-c-cpp-headers.headerType": "post2017"
+    }
 }

@@ -1,38 +1,37 @@
 {
-    "configurations": [
-        {
-            "name": "Win32",
-            "includePath": [
+    "configurations": [{
+        "name": "Win32",
+        "includePath": [
+            "E:/Visual Studio/VC/Tools/MSVC/14.11.25503/include/*",
+            "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/um",
+            "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/ucrt",
+            "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/winrt",
+            "c:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/shared",
+            "C:/Program Files (x86)/Microsoft DirectX SDK (June 2010)/Include",
+            "C:/Program Files (x86)/Microsoft DirectX SDK (June 2010)/Lib/x64/",
+            "${workspaceRoot}",
+            "${workspaceRoot}/Game/GameComponents",
+            "${workspaceRoot}/Game/Include",
+            "${workspaceRoot}/Game/Library"
+        ],
+        "defines": [
+            "_DEBUG",
+            "UNICODE"
+        ],
+        "intelliSenseMode": "msvc-x64",
+        "browse": {
+            "path": [
                 "E:/Visual Studio/VC/Tools/MSVC/14.11.25503/include/*",
                 "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/um",
                 "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/ucrt",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/shared",
                 "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/winrt",
-                "c:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/shared",
-                "C:/Program Files (x86)/Microsoft DirectX SDK (June 2010)/Include",
-                "C:/Program Files (x86)/Microsoft DirectX SDK (June 2010)/Lib/x64/",
-                "${workspaceRoot}",
-                "${workspaceRoot}/Game/GameComponents",
-                "${workspaceRoot}/Game/Include",
-                "${workspaceRoot}/Game/Library"
+                "E:/SETUP/[Code]/AStyle/bin/astyle.exe",
+                "${workspaceRoot}"
             ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE"
-            ],
-            "intelliSenseMode": "msvc-x64",
-            "browse": {
-                "path": [
-                    "E:/Visual Studio/VC/Tools/MSVC/14.11.25503/include/*",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/um",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/ucrt",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/shared",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/winrt",
-                    "${workspaceRoot}"
-                ],
-                "limitSymbolsToIncludedHeaders": true,
-                "databaseFilename": ""
-            }
+            "limitSymbolsToIncludedHeaders": true,
+            "databaseFilename": ""
         }
-    ],
+    }],
     "version": 3
 }

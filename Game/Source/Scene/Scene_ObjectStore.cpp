@@ -119,10 +119,11 @@ for (auto &b : m##var) {								\
 left_right.clear();		\
 top_bottom.clear();
 
+#define margin 100
 #define Object_UpdateEvent_(type, name)							\
 for (auto &unit : m##type##name) {								\
 	b = unit.first;												\
-	c = mScene->mCamera.RECT(V2{ WIDTH, HEIGHT });				\
+	c = (mScene->mCamera - V2{margin, margin}).RECT(V2{ WIDTH + margin *2, HEIGHT + margin *2});	\
 	if (isIntersect(b, c)) {									\
 		if (unit.second == nullptr || unit.second == NULL) {	\
 			unit.second = new Object_Unit_##type##name(b);		\
@@ -410,17 +411,20 @@ pair<bool, pair<RECT, Object *> *> Scene_ObjectStore::GetStick(RECT u, float ste
 }
 
 //# Get Camel
-pair<bool, pair<RECT, Object *> *> Scene_ObjectStore::GetStick(RECT u, float step) {
+pair<bool, pair<RECT, Object *> *> Scene_ObjectStore::GetCamel(RECT u, float step) {
 	bool is = false;
 	pair<RECT, Object *> * out = nullptr;
-	for (auto &p : mStatic_Stick) {
+	for (auto &p : mNPC_Camel) {
 		auto b = p.first;
-		if (u.left <= b.right + 35 &&
-			u.right >= b.left &&
-			u.bottom < b.bottom &&
-			u.bottom + step >= b.bottom && step >= 0) {
+		auto mid = (u.left + u.right) / 2 ;
+		if (mid <= b.right &&
+			mid >= b.left &&
+			u.bottom < b.bottom -30 &&
+			u.bottom + step >= b.bottom -30 &&
+			step >= 0) {
 			is = true;
 			out = &p;
+			break;
 			// Giả như nó chỉ đúng đúng 1 lần
 		}
 	}

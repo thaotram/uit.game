@@ -1,0 +1,3 @@
+BasedOnStyle: Chromium
+AllowShortIfStatementsOnASingleLine: true
+IndentWidth: 4
