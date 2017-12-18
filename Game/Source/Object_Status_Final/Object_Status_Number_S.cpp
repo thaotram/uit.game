@@ -2,40 +2,35 @@
 #define mAni	mAnimation
 #define mPos	mPosition
 
-Object_Status_Number_S::Object_Status_Number_S(float x, float y, int a) : Object_Status("Status") {
+Object_Status_Number_S::Object_Status_Number_S(float x, float y, S_Number_Position a) : Object_Status("Status") {
 	mX = x;
 	mY = y;
-	mA = a;
+	mSNumber = a;
 	mAni.Set("number_s", 1);
 }
 
 void Object_Status_Number_S::ObjectUpdateEvent(float delay)
 {
-	switch (mA)
+	switch (mSNumber)
 	{
-	case 1:
-		// táo: đơn vị
+	case 0:
 		mNums = mScene->mApple % 10;
 		mAni.SetCycleIndex(mNums + 1);
 		break;
-	case 2:
-		// táo: chục
+	case 1:
 		if (mScene->mApple < 10) {
 			mAni.SetCycleIndex(11);
-			break;
 		}
 		else {
 			mNums = mScene->mApple / 10;
 			mAni.SetCycleIndex(mNums + 1);
-			break;
 		}
-	case 3:
-		// spendthese
+		break;
+	case 2:
 		mNums = mScene->mSpendthese;
 		mAni.SetCycleIndex(mNums + 1);
 		break;
-	case 4:
-		// life
+	case 3:
 		mAni.SetCycleIndex(3 + 1);
 		break;
 	}

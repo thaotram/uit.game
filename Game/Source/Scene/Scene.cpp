@@ -40,6 +40,17 @@ Scene::~Scene() {
 	delete oScore_2;
 	delete oScore_3;
 	delete oScore_4;
+
+	delete oSand_1;
+	delete oSand_2;
+	delete oSand_3;
+	delete oSand_4;
+	delete oSand_5;
+	delete oCloud_1;
+	delete oCloud_2;
+	delete oCloud_3;
+	delete oCloud_4;
+
 }
 
 #define isRender	obj->mIsRender
@@ -69,6 +80,16 @@ void Scene::SceneRender(float delay) {
 	oScore_3->ObjectUpdateEvent(delay);
 	oScore_4->ObjectUpdateEvent(delay);
 
+	oSand_1->ObjectUpdateEvent(delay);
+	oSand_2->ObjectUpdateEvent(delay);
+	oSand_3->ObjectUpdateEvent(delay);
+	oSand_4->ObjectUpdateEvent(delay);
+	oSand_5->ObjectUpdateEvent(delay);
+	oCloud_1->ObjectUpdateEvent(delay);
+	oCloud_2->ObjectUpdateEvent(delay);
+	oCloud_3->ObjectUpdateEvent(delay);
+	oCloud_4->ObjectUpdateEvent(delay);
+
 	//# Remove item in RemoveList
 	oObjectStore->ObjectRemoveMarkedDelete();
 
@@ -92,6 +113,16 @@ void Scene::SceneRender(float delay) {
 	oScore_2->ObjectRender(delay);
 	oScore_3->ObjectRender(delay);
 	oScore_4->ObjectRender(delay);
+
+	oSand_1->ObjectRender(delay);
+	oSand_2->ObjectRender(delay);
+	oSand_3->ObjectRender(delay);
+	oSand_4->ObjectRender(delay);
+	oSand_5->ObjectRender(delay);
+	oCloud_1->ObjectRender(delay);
+	oCloud_2->ObjectRender(delay);
+	oCloud_3->ObjectRender(delay);
+	oCloud_4->ObjectRender(delay);
 
 	oMagicLamp->ObjectRender(delay);
 	oHealthMeter->ObjectRender(delay);

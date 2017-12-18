@@ -3,11 +3,67 @@
     "startFrame": 1,
     "time": 0.1,
     "states": {
-        "back": {
+        "sand_1": {
+            "frameCycle": [1, -1],
+            "basePoint": [0, -160],
+            "frame": {
+                "1": [0,200,512,64,0,0]
+            }
+        },
+		"sand_2": {
+            "frameCycle": [1, -1],
+            "basePoint": [0, -136],
+            "frame": {
+                "1": [0,171,512,24,0,0]
+            }
+        },
+		"sand_3": {
+            "frameCycle": [1, -1],
+            "basePoint": [0, -120],
+            "frame": {
+                "1": [0,150,512,16,0,0]
+            }
+        },
+		"sand_4": {
+            "frameCycle": [1, -1],
+            "basePoint": [0, -112],
+            "frame": {
+                "1": [0,137,512,8,0,0]
+            }
+        },
+		"sand_5": {
+            "frameCycle": [1, -1],
+            "basePoint": [0, -96],
+            "frame": {
+                "1": [0,116,512,16,0,0]
+            }
+        },
+		"cloud_1": {
+            "frameCycle": [1, -1],
+            "basePoint": [0, -72],
+            "frame": {
+                "1": [0,87,512,24,0,0]
+            }
+        },
+		"cloud_2": {
+            "frameCycle": [1, -1],
+            "basePoint": [0, -40],
+            "frame": {
+                "1": [0,50,512,32,0,0]
+            }
+        },
+		"cloud_3": {
+            "frameCycle": [1, -1],
+            "basePoint": [0, -16],
+            "frame": {
+                "1": [0,21,512,24,0,0]
+            }
+        },
+		"cloud_4": {
             "frameCycle": [1, -1],
             "basePoint": [0, 0],
             "frame": {
-                "1": [0, 0, 4771, 686, 0, 0]
+                "1": [0,0,512,16,0,0]
             }
         }
     }

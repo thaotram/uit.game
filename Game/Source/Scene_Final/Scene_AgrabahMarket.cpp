@@ -22,6 +22,7 @@
 #include "../Object_Status_Final/Object_Status_Number_S.h"
 #include "../Object_Status_Final/Object_Status_Number_L.h"
 #include "../Object_Status_Final/Object_Status_Spendthese.h"
+#include "../Object_Status_Final/Object_Status_Cloud.h"
 
 #include "../Object_Unit_Final/Object_Unit_Enemy_Assassin.h"
 #include "../Object_Unit_Final/Object_Unit_Enemy_Circus.h"
@@ -62,24 +63,33 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 
 	//# Status
 	oApple = new Object_Status_Apple();
-	oN_Apple_u = new Object_Status_Number_S(296, 200, 1);
-	oN_Apple_t = new Object_Status_Number_S(288, 200, 2);
+	oN_Apple_u = new Object_Status_Number_S(296, 200, S_Apple_Ones);
+	oN_Apple_t = new Object_Status_Number_S(288, 200, S_Apple_Tens);
 
 	oSpendthese = new Object_Status_Spendthese();
-	oNspendthese = new Object_Status_Number_S(253, 200, 3);
+	oNspendthese = new Object_Status_Number_S(253, 200, S_Spendthese);
 
 	oLife = new Object_Status_Life();
-	oNLife = new Object_Status_Number_S(42, 200, 4);
+	oNLife = new Object_Status_Number_S(42, 200, S_Life);
 
 	oMagicLamp = new Object_Status_Magic_Lamp();
 	oHealthMeter = new Object_Status_Health_Meter();
 
-	oScore_1 = new Object_Status_Number_L(275, 20, 1);
-	oScore_2 = new Object_Status_Number_L(258, 20, 2);
-	oScore_3 = new Object_Status_Number_L(241, 20, 3);
-	oScore_4 = new Object_Status_Number_L(224, 20, 4);
+	oScore_1 = new Object_Status_Number_L(275, 20, L_Score_Ones);
+	oScore_2 = new Object_Status_Number_L(258, 20, L_Score_Tens);
+	oScore_3 = new Object_Status_Number_L(241, 20, L_Score_Hundreds);
+	oScore_4 = new Object_Status_Number_L(224, 20, L_Score_Thousand);
 
-
+	oSand_1 = new Object_Status_Cloud(Sand1);
+	oSand_2 = new Object_Status_Cloud(Sand2);
+	oSand_3 = new Object_Status_Cloud(Sand3);
+	oSand_4 = new Object_Status_Cloud(Sand4);
+	oSand_5 = new Object_Status_Cloud(Sand5);
+	oCloud_1 = new Object_Status_Cloud(Cloud1);
+	oCloud_2 = new Object_Status_Cloud(Cloud2);
+	oCloud_3 = new Object_Status_Cloud(Cloud3);
+	oCloud_4 = new Object_Status_Cloud(Cloud4);
+	
 	oHealthMeter->mScene =
 	oMagicLamp->mScene =
 	oLife->mScene =
@@ -90,6 +100,15 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	oScore_2->mScene =
 	oScore_3->mScene =
 	oScore_4->mScene =
+	oSand_1->mScene =
+	oSand_2->mScene =
+	oSand_3->mScene =
+	oSand_4->mScene =
+	oSand_5->mScene =
+	oCloud_1->mScene =
+	oCloud_2->mScene =
+	oCloud_3->mScene =
+	oCloud_4->mScene =
 	oApple->mScene =
 	oN_Apple_u->mScene =
 	oN_Apple_t->mScene = this;

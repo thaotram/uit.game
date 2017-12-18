@@ -39,6 +39,15 @@ public:
 	Object * oScore_3;
 	Object * oScore_4;
 
+	Object* oSand_1;
+	Object* oSand_2;
+	Object* oSand_3;
+	Object* oSand_4;
+	Object* oSand_5;
+	Object* oCloud_1;
+	Object* oCloud_2;
+	Object* oCloud_3;
+	Object* oCloud_4;
 
 	//# Status
 	int mBlood;
