@@ -93,9 +93,4 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	oApple->mScene =
 	oN_Apple_u->mScene =
 	oN_Apple_t->mScene = this;
-	//# Status
-	/// Phần này để cho Huyền làm
-	// Add(new Object_Status_Apple());
-	// Add(new Object_Status_Magic_Lamp());
-	// Add(new Object_Status_Health_Meter(mBlood));
 }

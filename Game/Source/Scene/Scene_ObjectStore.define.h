@@ -37,23 +37,23 @@ Method(Enemy, Thin);				\
 
 //# Add_Unit
 #define Add_Unit(type, name)	Add_Unit_(type, _##name)
-#define Add_Unit_(type, name)				\
-json j_##type##name = block[#type#name];	\
-for (auto& s : j_##type##name) {			\
-	m##type##name.push_back(				\
-		make_pair(							\
-			RECT{s[0],s[1],s[2],s[3]},		\
-			nullptr							\
-		)									\
-	);										\
+#define Add_Unit_(type, name)										\
+json j_##type##name = block[#type#name];							\
+for (auto& s : j_##type##name) {									\
+	m##type##name.push_back(										\
+		make_pair(													\
+			RECT{s[0],s[1],s[2],s[3]},								\
+			nullptr													\
+		)															\
+	);																\
 }
 
-#define Add_Ground(kind)				\
-json j_##kind = block[#kind];			\
-for (auto& s : j_##kind) {				\
-	m##kind.push_back(					\
-		RECT{s[0],s[1],s[2],s[3]}		\
-	);									\
+#define Add_Ground(kind)											\
+json j_##kind = block[#kind];										\
+for (auto& s : j_##kind) {											\
+	m##kind.push_back(												\
+		RECT{s[0],s[1],s[2],s[3]}									\
+	);																\
 }
 
 //# Object_UpdateEvent
@@ -99,21 +99,22 @@ bool ifMarkedDeleteLost(const Object* o) {
 #define Object_CheckCollision_(type, name) ObjectCheckCollisionEach(pObject, &m##type##name)
 #define Object_CheckCollision(type, name) Object_CheckCollision_(type, _##name)
 
-#define Object_Render_(type, name)	\
-for (auto &b : m##type##name) {	   	\
-	if (b.second != NULL) {		   	\
-		b.second->ObjectRender(dt);	\
-	}							   	\
+#define Object_Render_(type, name)									\
+for (auto &b : m##type##name) {	   									\
+	if (b.second != NULL) {		   									\
+		b.second->ObjectRender(dt);									\
+	}							   									\
 }
 #define Object_Render(type, name) Object_Render_(type, _##name)
 
 //# GetDistance
-#define Check_Square(v, value) 						\
-long v = value; 									\
+#define Check_Square(v, value) 										\
+long v = value; 													\
 if(v >= 0 && (v < out.v || out.v == -1)) out.v = v	
-#define Check_Squares(x,y) {		\
-	Check_Square(x, u.x - b->y);	\
-	Check_Square(y, b->x - u.y);	\
+
+#define Check_Squares(x,y) {										\
+	Check_Square(x, u.x - b->y);									\
+	Check_Square(y, b->x - u.y);									\
 }
 
 #define Check_Stair(uy)												\
@@ -127,17 +128,17 @@ if (b->bottom >= u.bottom) {										\
 
 #define If_Object(x,y)		if(u.x > b.y && b.x > u.y)
 #define If_Pointer(x,y)	if(u.x > b->y && b->x > u.y)
-#define Filter_Ground(var)									\
-for (auto &b : m##var) {									\
-	If_Object(right, left) 		top_bottom.push_back(&b);	\
-	If_Object(bottom, top)		left_right.push_back(&b);	\
+#define Filter_Ground(var)											\
+for (auto &b : m##var) {											\
+	If_Object(right, left) 		top_bottom.push_back(&b);			\
+	If_Object(bottom, top)		left_right.push_back(&b);			\
 }
 
-#define Filter_Ground_LeftRight(var)					\
-for (auto &b : m##var) {								\
-	If_Object(right, left) 		top_bottom.push_back(&b);	\
+#define Filter_Ground_LeftRight(var)								\
+for (auto &b : m##var) {											\
+	If_Object(right, left) 		top_bottom.push_back(&b);			\
 }
 
-#define Clear_Filter()	\
-left_right.clear();		\
+#define Clear_Filter()												\
+left_right.clear();													\
 top_bottom.clear();

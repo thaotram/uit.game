@@ -45,9 +45,8 @@ public:
 	int mApple;
 	int mSpendthese;
 	int mExtrahealth;
-	//Float_Easing mScore;
-	int mScore;
 
+	Float_Easing mScore;
 
 	void SceneRender(float delay);
 

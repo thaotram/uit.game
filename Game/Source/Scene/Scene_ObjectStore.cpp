@@ -24,7 +24,11 @@
 #include "../GameDebug.h"
 #include "Scene_ObjectStore.define.h"
 
-//# Scene_Block_Store
+const V2 margin = V2{ 100,100 };
+const int maxRight = 2611;
+const int maxLeft = 2291;
+
+//# Constructor
 Scene_ObjectStore::Scene_ObjectStore(string pName) {
 	pName = "Resources/" + pName + ".json";
 	ifstream i(pName);
@@ -40,13 +44,17 @@ Scene_ObjectStore::Scene_ObjectStore(string pName) {
 	mStairsStateOld = StairsState::Bot;
 }
 
-const V2 margin = V2{ 100,100 };
+//# Hàm thực thi mỗi vòng lặp của Game
 void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
 	RECT camera = (mScene->mCamera - margin).RECT(V2{ WIDTH,HEIGHT } +margin * 2);					
 	EachObject(Object_UpdateEvent);
 	for (auto &b : mLost) {
 		b->ObjectUpdateEvent(dt);
 	}
+}
+void Scene_ObjectStore::ObjectRemoveMarkedDelete() {
+	EachObject(Object_RemoveMarkedDelete);
+	mLost.remove_if(ifMarkedDeleteLost);
 }
 void Scene_ObjectStore::ObjectRender(float dt) {
 	EachObject(Object_Render);
@@ -55,12 +63,7 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 	}
 }
 
-
-void Scene_ObjectStore::ObjectRemoveMarkedDelete() {
-	EachObject(Object_RemoveMarkedDelete);
-	mLost.remove_if(ifMarkedDeleteLost);
-}
-
+//# Kiểm tra đụng độ
 void Scene_ObjectStore::ObjectCheckCollisionEach(Object * pObject, list<pair<RECT, Object*>>* pList) {
 	for (auto &unit : *pList) {
 		if (unit.second != NULL) {
@@ -78,6 +81,7 @@ void Scene_ObjectStore::ObjectCheckCollision(Object * pObject) {
 	EachObject(Object_CheckCollision);
 }
 
+//# Tính toán khoảng cách
 RECT Scene_ObjectStore::GetDistance(RECT u, Object * pUnit) {
 	RECT out = { -1,-1,-1,-1 };
 
@@ -121,6 +125,7 @@ RECT Scene_ObjectStore::GetDistance(RECT u, Object * pUnit) {
 	return out;
 }
 
+//# Get Rope, Bar, Stick, Camel
 pair<bool, RECT> Scene_ObjectStore::GetRope(RECT u, float step) {
 	bool is = false;
 	RECT out = { 0,0,0,0 };
@@ -188,9 +193,7 @@ pair<bool, pair<RECT, Object *> *> Scene_ObjectStore::GetCamel(RECT u, float ste
 	return pair<bool, pair<RECT, Object *> *>(is, out);
 }
 
-//# UpdateStairState
-const int maxRight = 2611;
-const int maxLeft = 2291;
+//# Update Stair (đi cầu thang nhiều tầng)
 void Scene_ObjectStore::UpdateStairState(RECT u) {
 	auto unitMid = (u.right + u.left) / 2;
 	if (mStairsState == mStairsStateOld) {

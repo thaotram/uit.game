@@ -13,9 +13,9 @@ Scene::Scene() {
 	mApple = 0;
 	mSpendthese = 0;
 	mExtrahealth = 0;
-	//mScore.mType = Type::linear;
-	mScore = 0;
-	//mScore.mVelocity = 300;
+	mScore << 0;
+	mScore.mType = Type::linear;
+	mScore.mVelocity = 300;
 }
 Scene::~Scene() {
 	delete oObjectStore;
@@ -40,7 +40,6 @@ Scene::~Scene() {
 	delete oScore_2;
 	delete oScore_3;
 	delete oScore_4;
-
 }
 
 #define isRender	obj->mIsRender
@@ -97,7 +96,7 @@ void Scene::SceneRender(float delay) {
 	oMagicLamp->ObjectRender(delay);
 	oHealthMeter->ObjectRender(delay);
 
-	//mScore.Update(delay);
+	mScore.Update(delay);
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}
