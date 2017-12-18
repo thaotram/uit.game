@@ -37,20 +37,20 @@ Method(Enemy, Thin);				\
 
 //# Add_Unit
 #define Add_Unit(type, name)	Add_Unit_(type, _##name)
-#define Add_Unit_(type, name)			\
-json kind = block[#type#name];			\
-for (auto& s : kind) {					\
-	m##type##name.push_back(			\
-		make_pair(						\
-			RECT{s[0],s[1],s[2],s[3]},	\
-			nullptr						\
-		)								\
-	);									\
+#define Add_Unit_(type, name)				\
+json j_##type##name = block[#type#name];	\
+for (auto& s : j_##type##name) {			\
+	m##type##name.push_back(				\
+		make_pair(							\
+			RECT{s[0],s[1],s[2],s[3]},		\
+			nullptr							\
+		)									\
+	);										\
 }
 
 #define Add_Ground(kind)				\
-json kind = block[#kind];				\
-for (auto& s : kind) {					\
+json j_##kind = block[#kind];			\
+for (auto& s : j_##kind) {				\
 	m##kind.push_back(					\
 		RECT{s[0],s[1],s[2],s[3]}		\
 	);									\
