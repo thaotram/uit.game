@@ -2,9 +2,12 @@
 #include "../Object_Status/Object_Status.h"
 
 class Object_Status_Number_S final : public Object_Status {
+private:
+	float mX, mY;
+	int mA;
 public:
 	int mNums;
-	Object_Status_Number_S();
+	Object_Status_Number_S(float x, float y, int a);
 	~Object_Status_Number_S() {};
 	void ObjectUpdateEvent(float delay);
 };
