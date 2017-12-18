@@ -20,9 +20,15 @@ void Object_Status_Number_S::ObjectUpdateEvent(float delay)
 		break;
 	case 2:
 		// táo: chục
+		if (mNums < 10) {
+			mAni.SetCycleIndex(11);
+			break;
+		}
+		else {
 		mNums = mScene->mApple / 10;
 		mAni.SetCycleIndex(mNums + 1);
 		break;
+		}
 	case 3:
 		// spendthese
 		mNums = mScene->mSpendthese;
