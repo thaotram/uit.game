@@ -1,4 +1,4 @@
-﻿#include "Object_Unit_Aladdin.h"
+#include "Object_Unit_Aladdin.h"
 #include "../Object_Unit_Final/Object_Unit_Apple.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Stick.h"
 #include "../GameDebug.h"
@@ -321,11 +321,11 @@ void Object_Unit_Aladdin::ObjectEachState() {
             X = false;
             mAni.Set("climb_cut", 1, "climb_still", 1);
         }
-        else if (C) {
+        else if (C || tBar.first == false) {
             C = false;
             tBar.first = false;
             mAutoNextFrame = false;
-            mPos.y << yy + 1;
+            mPos.y << mPos.y() + 1;
             mAni.Set("stand_jump", 1);
         }
     }
