@@ -54,11 +54,6 @@ public:
 	void OnKeyUp(int pKeyCode);
 	void OnMouseDown(float pX, float pY) {};
 
-	//list<Object *>::iterator Add(Object * pObject);
-	//list<Object *>::iterator Add(list<Object *>::iterator pIt, Object * pObject);
-	//void Add(Object * pObject, list<Object *>::iterator &pItOut);
-	//void Add(list<Object *>::iterator pIt, Object * pObject, list<Object *>::iterator &pItOut);
-
 	static void ReplaceScene(Scene * pScene);
 	static Scene * mScene;
 };

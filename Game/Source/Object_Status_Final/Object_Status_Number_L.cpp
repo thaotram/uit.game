@@ -14,7 +14,7 @@ void Object_Status_Number_L::ObjectUpdateEvent(float delay)
 	mNumL = (int)(mScene->mScore());
 	switch (mA) {
 	case 1:
-		if (mNumL < 150) {
+		if (mNumL == 0) {
 			mAni.SetCycleIndex(11);
 			break;
 		}
@@ -24,7 +24,7 @@ void Object_Status_Number_L::ObjectUpdateEvent(float delay)
 			break;
 		}
 	case 2:
-		if (mNumL < 150) {
+		if (mNumL < 10) {
 			mAni.SetCycleIndex(11);
 			break;
 		}
@@ -35,7 +35,7 @@ void Object_Status_Number_L::ObjectUpdateEvent(float delay)
 			break;
 		}
 	case 3:
-		if (mNumL < 150) {
+		if (mNumL < 100) {
 			mAni.SetCycleIndex(11);
 			break;
 		}

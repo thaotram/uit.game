@@ -69,7 +69,7 @@ void Scene::SceneRender(float delay) {
 	oScore_3->ObjectUpdateEvent(delay);
 	oScore_4->ObjectUpdateEvent(delay);
 
-	//# Remove item in RemoveList 
+	//# Remove item in RemoveList
 	oObjectStore->ObjectRemoveMarkedDelete();
 
 	//# Render
@@ -87,7 +87,7 @@ void Scene::SceneRender(float delay) {
 
 	oLife->ObjectRender(delay);
 	oNLife->ObjectRender(delay);
-	
+
 	oScore_1->ObjectRender(delay);
 	oScore_2->ObjectRender(delay);
 	oScore_3->ObjectRender(delay);
@@ -101,7 +101,3 @@ void Scene::SceneRender(float delay) {
 
 void Scene::OnKeyDown(int pKeyCode) {}
 void Scene::OnKeyUp(int pKeyCode) {}
-
-//void Scene::AddToRemoveList(Object * pObject) {
-//	mRemoveList.push_back(pObject);
-//}
