@@ -1,6 +1,7 @@
 #include "Object_Unit_Aladdin.h"
 #include "../Object_Unit_Final/Object_Unit_Apple.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Stick.h"
+#include "../Object_Unit_Final/Object_Unit_NPC_Camel.h"
 #include "../GameDebug.h"
 #include "../../Define.h"
 
@@ -391,8 +392,8 @@ void Object_Unit_Aladdin::ObjectEachState() {
     else if (tCamel.first) {
         mAutoNextFrame = false;
         mAni.Set("stand_jump", 1);
-        mPos.y.SetVelocity(-tJump * 1.2f);
-        //((Object_Unit_Static_Stick *)(tStick.second->second))->StartAnimation();
+        mPos.y.SetVelocity(-tJump * 1.0f);
+        ((Object_Unit_NPC_Camel *)(tCamel.second->second))->StartAnimation();
     }
 }
 void Object_Unit_Aladdin::ObjectAfterEachState() {
