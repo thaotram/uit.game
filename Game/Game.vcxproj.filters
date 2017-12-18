@@ -363,6 +363,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Stall.h" />
+    <ClInclude Include="Source\Scene\Scene_ObjectStore.define.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">

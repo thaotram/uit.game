@@ -33,6 +33,12 @@ void Scene::SceneRender(float delay) {
 	oMapBack->ObjectUpdateEvent(delay);
 	oMapFront->ObjectUpdateEvent(delay);
 
+
+
+
+
+
+
 	//# Remove item in RemoveList 
 	oObjectStore->ObjectRemoveMarkedDelete();
 

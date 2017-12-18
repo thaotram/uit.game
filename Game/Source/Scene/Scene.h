@@ -21,6 +21,7 @@ public:
 	Object * oPlayer;
 	Object * oMapBack;
 	Object * oMapFront;
+	Object * oden;
 
 	//# Status
 	int mBlood;
