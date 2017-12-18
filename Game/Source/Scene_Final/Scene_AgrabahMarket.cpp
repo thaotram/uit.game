@@ -56,14 +56,14 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	oMapFront->AfterAddToScene();
 
 	oObjectStore->mScene =
-		oPlayer->mScene =
-		oMapBack->mScene =
-		oMapFront->mScene = this;
+	oPlayer->mScene =
+	oMapBack->mScene =
+	oMapFront->mScene = this;
 
 	//# Status
 	oApple = new Object_Status_Apple();
-	oN_Apple_u = new Object_Status_Number_S(288, 200, 1);
-	oN_Apple_t = new Object_Status_Number_S(296, 200, 2);
+	oN_Apple_u = new Object_Status_Number_S(296, 200, 1);
+	oN_Apple_t = new Object_Status_Number_S(288, 200, 2);
 
 	oSpendthese = new Object_Status_Spendthese();
 	oNspendthese = new Object_Status_Number_S(253, 200, 3);
@@ -74,6 +74,11 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	oMagicLamp = new Object_Status_Magic_Lamp();
 	oHealthMeter = new Object_Status_Health_Meter();
 
+	oScore_1 = new Object_Status_Number_L(275, 20, 1);
+	oScore_2 = new Object_Status_Number_L(258, 20, 2);
+	oScore_3 = new Object_Status_Number_L(241, 20, 3);
+	oScore_4 = new Object_Status_Number_L(224, 20, 4);
+
 
 	oHealthMeter->mScene =
 	oMagicLamp->mScene =
@@ -81,6 +86,10 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	oNLife->mScene =
 	oSpendthese->mScene =
 	oNspendthese->mScene =
+	oScore_1->mScene =
+	oScore_2->mScene =
+	oScore_3->mScene =
+	oScore_4->mScene =
 	oApple->mScene =
 	oN_Apple_u->mScene =
 	oN_Apple_t->mScene = this;

@@ -14,7 +14,7 @@ Scene::Scene() {
 	mSpendthese = 0;
 	mExtrahealth = 0;
 	//mScore.mType = Type::linear;
-	//mScore = 0;
+	mScore = 0;
 	//mScore.mVelocity = 300;
 }
 Scene::~Scene() {
@@ -35,6 +35,11 @@ Scene::~Scene() {
 
 	delete oMagicLamp;
 	delete oHealthMeter;
+
+	delete oScore_1;
+	delete oScore_2;
+	delete oScore_3;
+	delete oScore_4;
 
 }
 
@@ -60,6 +65,11 @@ void Scene::SceneRender(float delay) {
 	oMagicLamp->ObjectUpdateEvent(delay);
 	oHealthMeter->ObjectUpdateEvent(delay);
 
+	oScore_1->ObjectUpdateEvent(delay);
+	oScore_2->ObjectUpdateEvent(delay);
+	oScore_3->ObjectUpdateEvent(delay);
+	oScore_4->ObjectUpdateEvent(delay);
+
 	//# Remove item in RemoveList 
 	oObjectStore->ObjectRemoveMarkedDelete();
 
@@ -78,7 +88,11 @@ void Scene::SceneRender(float delay) {
 
 	oLife->ObjectRender(delay);
 	oNLife->ObjectRender(delay);
-
+	
+	oScore_1->ObjectRender(delay);
+	oScore_2->ObjectRender(delay);
+	oScore_3->ObjectRender(delay);
+	oScore_4->ObjectRender(delay);
 
 	oMagicLamp->ObjectRender(delay);
 	oHealthMeter->ObjectRender(delay);

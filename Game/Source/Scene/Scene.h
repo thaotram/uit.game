@@ -34,6 +34,10 @@ public:
 	Object * oN_Apple_u;
 	Object * oN_Apple_t;
 
+	Object * oScore_1;
+	Object * oScore_2;
+	Object * oScore_3;
+	Object * oScore_4;
 
 
 	//# Status

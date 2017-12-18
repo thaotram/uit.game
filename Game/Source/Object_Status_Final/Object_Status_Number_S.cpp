@@ -15,12 +15,12 @@ void Object_Status_Number_S::ObjectUpdateEvent(float delay)
 	{
 	case 1:
 		// táo: đơn vị
-		mNums = mScene->mApple / 10;
+		mNums = mScene->mApple % 10;
 		mAni.SetCycleIndex(mNums + 1);
 		break;
 	case 2:
 		// táo: chục
-		mNums = mScene->mApple % 10;
+		mNums = mScene->mApple / 10;
 		mAni.SetCycleIndex(mNums + 1);
 		break;
 	case 3:
