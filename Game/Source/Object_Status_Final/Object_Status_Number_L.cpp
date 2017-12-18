@@ -14,23 +14,48 @@ void Object_Status_Number_L::ObjectUpdateEvent(float delay)
 	mNumL = (int)(mScene->mScore());
 	switch (mA) {
 	case 1:
-		mNumL %= 10;
-		mAni.SetCycleIndex(mNumL + 1);
-		break;
+		if (mNumL < 150) {
+			mAni.SetCycleIndex(11);
+			break;
+		}
+		else {
+			mNumL %= 10;
+			mAni.SetCycleIndex(mNumL + 1);
+			break;
+		}
 	case 2:
-		mNumL /= 10;
-		mNumL %= 10;
-		mAni.SetCycleIndex(mNumL + 1);
-		break;
+		if (mNumL < 150) {
+			mAni.SetCycleIndex(11);
+			break;
+		}
+		else {
+			mNumL /= 10;
+			mNumL %= 10;
+			mAni.SetCycleIndex(mNumL + 1);
+			break;
+		}
 	case 3:
-		mNumL /= 100;
-		mNumL %= 10;
-		mAni.SetCycleIndex(mNumL + 1);
-		break;
+		if (mNumL < 150) {
+			mAni.SetCycleIndex(11);
+			break;
+		}
+		else {
+			mNumL /= 100;
+			mNumL %= 10;
+			mAni.SetCycleIndex(mNumL + 1);
+			break;
+		}
 	case 4:
-		mNumL /= 1000;
-		mAni.SetCycleIndex(mNumL + 1);
-		break;
+		if (mNumL < 1000) {
+			mAni.SetCycleIndex(11);
+			break;
+		}
+		else {
+			mNumL /= 1000;
+			mAni.SetCycleIndex(mNumL + 1);
+			break;
+		}
+
 	}
 	mPos << mScene->mCamera.VECTOR2() + V2{ mX , mY };
 }
