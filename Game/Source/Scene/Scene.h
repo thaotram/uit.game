@@ -21,14 +21,28 @@ public:
 	Object * oPlayer;
 	Object * oMapBack;
 	Object * oMapFront;
-	Object * oden;
+	Object * oMagicLamp;
+	Object * oHealthMeter;
+
+	Object * oSpendthese;
+	Object * oNspendthese;
+
+	Object * oLife;
+	Object * oNLife;
+
+	Object * oApple;
+	Object * oN_Apple_u;
+	Object * oN_Apple_t;
+
+
 
 	//# Status
 	int mBlood;
 	int mApple;
 	int mSpendthese;
 	int mExtrahealth;
-	Float_Easing mScore;
+	//Float_Easing mScore;
+	int mScore;
 
 
 	void SceneRender(float delay);

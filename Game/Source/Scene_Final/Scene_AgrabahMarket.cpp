@@ -19,6 +19,9 @@
 #include "../Object_Status_Final/Object_Status_Life.h"
 #include "../Object_Status_Final/Object_Status_Health_Meter.h"
 #include "../Object_Status_Final/Object_Status_Magic_Lamp.h"
+#include "../Object_Status_Final/Object_Status_Number_S.h"
+#include "../Object_Status_Final/Object_Status_Number_L.h"
+#include "../Object_Status_Final/Object_Status_Spendthese.h"
 
 #include "../Object_Unit_Final/Object_Unit_Enemy_Assassin.h"
 #include "../Object_Unit_Final/Object_Unit_Enemy_Circus.h"
@@ -53,10 +56,34 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	oMapFront->AfterAddToScene();
 
 	oObjectStore->mScene =
-	oPlayer->mScene =
-	oMapBack->mScene =
-	oMapFront->mScene = this;
+		oPlayer->mScene =
+		oMapBack->mScene =
+		oMapFront->mScene = this;
 
+	//# Status
+	oApple = new Object_Status_Apple();
+	oN_Apple_u = new Object_Status_Number_S(288, 200, 1);
+	oN_Apple_t = new Object_Status_Number_S(296, 200, 2);
+
+	oSpendthese = new Object_Status_Spendthese();
+	oNspendthese = new Object_Status_Number_S(253, 200, 3);
+
+	oLife = new Object_Status_Life();
+	oNLife = new Object_Status_Number_S(42, 200, 4);
+
+	oMagicLamp = new Object_Status_Magic_Lamp();
+	oHealthMeter = new Object_Status_Health_Meter();
+
+
+	oHealthMeter->mScene =
+	oMagicLamp->mScene =
+	oLife->mScene =
+	oNLife->mScene =
+	oSpendthese->mScene =
+	oNspendthese->mScene =
+	oApple->mScene =
+	oN_Apple_u->mScene =
+	oN_Apple_t->mScene = this;
 	//# Status
 	/// Phần này để cho Huyền làm
 	// Add(new Object_Status_Apple());
