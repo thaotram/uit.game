@@ -19,7 +19,7 @@
 using namespace std;
 
 class Scene_JafarPalace final : public Scene {
-   public:
+public:
     Scene_JafarPalace();
     ~Scene_JafarPalace(){};
 };
