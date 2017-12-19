@@ -41,7 +41,7 @@ public:
 	bool		 mIsMarkedDelete;
 
 	RECT		 tUnit;				// Tọa độ của 4 cạnh so với map lớn
-	RECT		 tUnitDame;		// Tọa độ của 4 cạnh so với map lớn
+	RECT		 tUnitDamage;		// Tọa độ của 4 cạnh so với map lớn
 	RECT 		 tDis;				// Khoảng cách từ tUnit cho đến 4
 
 	virtual void AfterAddToScene() {};

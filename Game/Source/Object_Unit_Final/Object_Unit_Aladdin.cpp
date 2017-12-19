@@ -20,6 +20,7 @@
 #define mPos			mPosition
 #define	mCam			mScene->mCamera
 #define	mObjectStore	mScene->oObjectStore
+#define isFlip			(mTransform.GetFlip())
 
 #define xx mPos.x()
 #define yy mPos.y()
@@ -45,12 +46,15 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 		(LONG)xx + unitWidth / 2,
 		(LONG)yy
 	};
-	tUnitDame = RECT{ 0,0,0,0 };
+	tUnitDamage = RECT{ 0,0,0,0 };
 	tDis = mObjectStore->GetDistance(tUnit, this);
 	tBar = mObjectStore->GetBar(tUnit, mPos.y.mVelocity * tDt);
 	tRope = mObjectStore->GetRope(tUnit, tSpeedX * tDt);
 	tStick = mObjectStore->GetStick(tUnit, mPos.y.mVelocity * tDt);
 	tCamel = mObjectStore->GetCamel(tUnit, mPos.y.mVelocity * tDt);
+
+	//# Flip
+	mTransform.SetFlip(R ? Right : L ? Left : Stand);
 
 	//# Các thao tác tính toán / cập nhật
 	ObjectEachState();
@@ -88,11 +92,11 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTimePerFrame = 0.03f;
 		tIsChangeX = false;
 		if (mAni.GetCycleIndex() == 4) {
-			tUnitDame = RECT{
-				(LONG)xx + 15,
-				(LONG)yy - 68,
-				(LONG)xx + 62,
-				(LONG)yy - 6
+			tUnitDamage = RECT{
+				(LONG)((isFlip) ? (xx - 63) : (xx + 16)),
+				(LONG)(yy - 68),
+				(LONG)((isFlip) ? (xx - 16) : (xx + 63)),
+				(LONG)(yy - 6)
 			};
 		}
 	}
@@ -419,9 +423,6 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	//# Camera
 	mCam.x = min(max(0, xx - (WIDTH / 2)), MAP_WIDTH - WIDTH);
 	mCam.y = min(max(0, yy - (HEIGHT - 156)), MAP_HEIGHT - HEIGHT);
-
-	//# Flip
-	mTransform.SetFlip(R ? Right : L ? Left : Stand);
 
 	//# UpdateStairsState
 	mScene->oObjectStore->UpdateStairState(tUnit);
