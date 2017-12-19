@@ -14,7 +14,6 @@
 #include "Object_Transform.h"
 #include "Object_SourceRect.h"
 
-//#define mScene Scene::GetCurrentScene()
 
 class Object {
 protected:

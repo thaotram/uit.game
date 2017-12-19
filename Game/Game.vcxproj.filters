@@ -125,10 +125,15 @@
     <None Include="Resources\AgrabahMarket_Block.json">
       <Filter>Resource Files\Block</Filter>
     </None>
-    <None Include="Resources\Stick.json" />
     <None Include="ClassDiagram.cd" />
     <None Include="Resources\AgrabahMarket_Back.psd">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\EnemyDisappear.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\Stick.json">
+      <Filter>Resource Files\Unit</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -193,14 +198,13 @@
       <Filter>Resource Files\Unit</Filter>
     </Image>
     <Image Include="Resources\EnemyDisappear.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Unit</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Library\json.hpp">
       <Filter>Library</Filter>
     </ClInclude>
-    <ClInclude Include="Define.h" />
     <ClInclude Include="Source\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -365,11 +369,33 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Knife.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Stall.h" />
-    <ClInclude Include="Source\Scene\Scene_ObjectStore.define.h" />
-    <ClInclude Include="Source\Object_Status_Final\Object_Status_Cloud.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Explosion_Twinkle.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Savila.h" />
+    <ClInclude Include="Source\Object_Map_Final\Object_Map_JafarPalace_Back.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Map_Final\Object_Map_JafarPalace_Front.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Status_Final\Object_Status_Cloud.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Explosion_Twinkle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Stall.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Savila.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene_Final\Scene_JafarPalace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\Scene_ObjectStore.define.h">
+      <Filter>Source\Scene\Scene_ObjectStore</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>Source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -489,9 +515,6 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Apple.cpp">
       <Filter>Source\Object_Unit\UFO</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Assassin.cpp">
       <Filter>Source\Object_Unit\Enemy</Filter>
     </ClCompile>
@@ -534,20 +557,29 @@
     <ClCompile Include="Define.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Stall.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Status_Final\Object_Status_Cloud.cpp">
-      <Filter>Source</Filter>
+    <ClCompile Include="Source\Object_Map_Final\Object_Map_JafarPalace_Back.cpp">
+      <Filter>Source\Object_Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Map_Final\Object_Map_JafarPalace_Front.cpp">
+      <Filter>Source\Object_Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Stall.cpp">
+      <Filter>Source\Object_Unit\NPC</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Explosion_Twinkle.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Unit\Explosion</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Savila.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Unit\UFO</Filter>
     </ClCompile>
-    <ClCompile Include="Resources\EnemyDisappear.json">
-      <Filter>Source</Filter>
+    <ClCompile Include="Source\Scene_Final\Scene_JafarPalace.cpp">
+      <Filter>Source\Scene\Scene_Final</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Status_Final\Object_Status_Cloud.cpp">
+      <Filter>Source\Object_Status</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

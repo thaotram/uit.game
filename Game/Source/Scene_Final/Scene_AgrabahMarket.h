@@ -23,14 +23,6 @@
 #include "../Object_Unit_Final/Object_Unit_Static_Restart_Point.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Spend_These.h"
 
-#include "../Object_Status_Final/Object_Status_Apple.h"
-#include "../Object_Status_Final/Object_Status_Life.h"
-#include "../Object_Status_Final/Object_Status_Health_Meter.h"
-#include "../Object_Status_Final/Object_Status_Magic_Lamp.h"
-#include "../Object_Status_Final/Object_Status_Spendthese.h"
-#include "../Object_Status_Final/Object_Status_Score.h"
-#include "../Object_Status_Final/Object_Status_Number_S.h"
-
 #include "../../Define.h"
 
 using namespace std;
@@ -38,4 +30,5 @@ using namespace std;
 class Scene_AgrabahMarket final : public Scene {
 public:
 	Scene_AgrabahMarket();
+	~Scene_AgrabahMarket(){};
 };
