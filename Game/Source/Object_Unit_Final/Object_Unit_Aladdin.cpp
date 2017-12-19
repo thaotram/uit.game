@@ -173,12 +173,22 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (U && C) 	mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-tJump);
 	}
 	else if (state == "up_cut") {
+		X = false;
 		mTimePerFrame = 0.06f;
 		tIsChangeX = false;
 		if (R || L)			mAni.Set("run", 1);
 		else if (U)			mAni.SetNext("up", 3);
 		else if (D)			mAni.Set("sit", 1);
 		else				mAni.SetNext("stand", 1);
+
+		if (mAni.GetCycleIndex() == 4) {
+			tUnitDamage = RECT{
+				(LONG)((isFlip) ? (xx - 63) : (xx + 16)),
+				(LONG)(yy - 68),
+				(LONG)((isFlip) ? (xx - 16) : (xx + 63)),
+				(LONG)(yy - 6)
+			};
+
 	}
 	else if (state == "sit") {
 		mTimePerFrame = 0.06f;
