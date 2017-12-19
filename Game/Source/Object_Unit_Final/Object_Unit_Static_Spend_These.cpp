@@ -14,7 +14,7 @@ void Object_Unit_Static_Spend_These::ObjectUpdateEvent(float dt) {
 
 void Object_Unit_Static_Spend_These::ObjectIntersect(Object * pObject)
 {
-	mScene->mSpendthese++;
-	mScene->mScore += 150;
+	Scene::mScene->mSpendthese++;
+	Scene::mScene->mScore += 150;
 	mIsMarkedDelete = true;
 }

@@ -18,8 +18,8 @@
 
 #define mAni			mAnimation
 #define mPos			mPosition
-#define	mCam			mScene->mCamera
-#define	mObjectStore	mScene->oObjectStore
+#define	mCam			Scene::mScene->mCamera
+#define	mObjectStore	Scene::mScene->oObjectStore
 #define isFlip			(mTransform.GetFlip())
 
 #define xx mPos.x()
@@ -109,7 +109,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		}
 		else if (mAni.GetCycleIndex() == 3 && !tIsThrowApple) {
 			tIsThrowApple = true;
-			mScene->oObjectStore->mLost.push_back(new Object_Unit_Apple(xx, yy - 55, mTransform.GetFlip()));
+			Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Apple(xx, yy - 55, mTransform.GetFlip()));
 		}
 	}
 	else if (state == "stand_jump") {
@@ -143,7 +143,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 
 		if (Z) {
 			Z = false;
-			//mScene->Add("2", n?ew Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
+			//Scene::mScene->Add("2", n?ew Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
 		}
 		if (X && tDis.bottom > 50) {
@@ -156,7 +156,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mAutoNextFrame = true;
 		//tIsChangeX = false;
 		if (mAni.GetCycleIndex() == 4) {
-			//((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
+			//((Object_Unit*)((*Scene::mScene)["2"]))->mAutoNextFrame = true;
 		}
 	}
 	else if (state == "jump_cut") {
@@ -185,7 +185,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		tIsChangeX = false;
 		if (!D)			mAni.Set("sit_to_stand", 1, "stand", 1);
 		else if (Z) {
-			//mScene->Add("2", new Object_Unit_Apple(xx + 5, yy - 27, mTransform.GetFlip()));
+			//Scene::mScene->Add("2", new Object_Unit_Apple(xx + 5, yy - 27, mTransform.GetFlip()));
 			mAni.Set("sit_throwapple", 1, "sit", 4);
 		}
 		else if (X)			mAni.Set("sit_cut", 1, "sit", 4);
@@ -209,7 +209,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTimePerFrame = 0.06f;
 		tIsChangeX = false;
 		if (mAni.GetCycleIndex() == 3) {
-			//((Object_Unit*)((*mScene)["2"]))->mAutoNextFrame = true;
+			//((Object_Unit*)((*Scene::mScene)["2"]))->mAutoNextFrame = true;
 		}
 	}
 	else if (state == "run") {
@@ -422,16 +422,16 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 
 	//# Camera
 	mCam.x = min(max(0, xx - (WIDTH / 2)), MAP_WIDTH - WIDTH);
-	mCam.y = min(max(0, yy - (HEIGHT - 156)), MAP_HEIGHT - HEIGHT);
+	mCam.y = min(max(0, yy - (HEIGHT - 56)), MAP_HEIGHT - HEIGHT);
 
 	//# UpdateStairsState
-	mScene->oObjectStore->UpdateStairState(tUnit);
+	Scene::mScene->oObjectStore->UpdateStairState(tUnit);
 }
 void Object_Unit_Aladdin::ObjectCheckCollision() {
 	mSourceRect.Update(this);
-	mScene->oObjectStore->ObjectCheckCollision(this);
+	Scene::mScene->oObjectStore->ObjectCheckCollision(this);
 }
 
 void Object_Unit_Aladdin::ObjectGetDame(Object * pObject) {
-	mScene->mBlood--;
+	Scene::mScene->mBlood--;
 }

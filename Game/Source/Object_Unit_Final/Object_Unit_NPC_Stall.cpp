@@ -3,7 +3,7 @@
 
 #define mAni	mAnimation
 #define mPos	mPosition
-#define	mObjectStore	mScene->oObjectStore
+#define	mObjectStore	Scene::mScene->oObjectStore
 
 #define xx mPos.x()
 #define yy mPos.y()
@@ -23,6 +23,6 @@ void Object_Unit_NPC_Stall::ObjectUpdateEvent(float dt)
 {
 	if (mAni.GetCycleIndex() == 47	 && !isShow) {
 		isShow = true;
-		((Object_Unit *)(mScene->oObjectStore->mNPC_Peddler.begin()->second))->mAutoNextFrame = true;
+		((Object_Unit *)(Scene::mScene->oObjectStore->mNPC_Peddler.begin()->second))->mAutoNextFrame = true;
 	}
 }

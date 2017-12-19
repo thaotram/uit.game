@@ -46,7 +46,7 @@ Scene_ObjectStore::Scene_ObjectStore(string pName) {
 
 //# Hàm thực thi mỗi vòng lặp của Game
 void Scene_ObjectStore::ObjectUpdateEvent(float dt) {
-	RECT camera = (mScene->mCamera - margin).RECT(V2{ WIDTH,HEIGHT } +margin * 2);					
+	RECT camera = (Scene::mScene->mCamera - margin).RECT(V2{ WIDTH,HEIGHT } +margin * 2);					
 	EachObject(Object_UpdateEvent);
 	for (auto &b : mLost) {
 		b->ObjectUpdateEvent(dt);

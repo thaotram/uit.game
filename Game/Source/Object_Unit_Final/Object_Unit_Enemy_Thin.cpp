@@ -1,7 +1,7 @@
 #include "Object_Unit_Enemy_Thin.h"
 #define mAni			mAnimation
 #define mPos			mPosition
-#define	mObjectStore	mScene->oObjectStore
+#define	mObjectStore	Scene::mScene->oObjectStore
 #define isFlip			(mTransform.GetFlip())
 
 #define xx mPos.x()

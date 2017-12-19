@@ -2,7 +2,7 @@
 #include "Object_Unit_Savila.h"
 #define mAni mAnimation
 #define mPos mPosition
-#define mObjectStore mScene->oObjectStore
+#define mObjectStore Scene::mScene->oObjectStore
 
 #define xx mPos.x()
 #define yy mPos.y()
@@ -25,6 +25,6 @@ void Object_Unit_NPC_Camel::ObjectUpdateEvent(float dt)
 	}
 	else if (mAni.GetCycleIndex() == 5 && !mIsSpitOut) {
 		mIsSpitOut = true;
-		mScene->oObjectStore->mLost.push_back(new Object_Unit_Savila(xx + 122, yy - 26));
+		Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Savila(xx + 122, yy - 26));
 	}
 }

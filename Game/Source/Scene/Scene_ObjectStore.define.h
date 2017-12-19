@@ -62,7 +62,6 @@ for (auto &unit : m##type##name) {									\
 	if (isIntersect(unit.first, camera)) {							\
 		if (unit.second == nullptr || unit.second == NULL) {		\
 			unit.second = new Object_Unit_##type##name(unit.first);	\
-			unit.second->mScene = mScene;							\
 		}															\
 		unit.second->ObjectUpdateEvent(dt);							\
 	}																\

@@ -2,7 +2,7 @@
 #include "Object_Unit_NPC_Camel.h"
 #define mAni	mAnimation
 #define mPos	mPosition
-#define	mObjectStore	mScene->oObjectStore
+#define	mObjectStore	Scene::mScene->oObjectStore
 #define tSpeedX	400
 #define xx mPos.x()
 #define yy mPos.y()

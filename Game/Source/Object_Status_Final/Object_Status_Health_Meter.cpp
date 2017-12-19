@@ -11,8 +11,8 @@ Object_Status_Health_Meter::Object_Status_Health_Meter() : Object_Status("Status
 }
 
 void Object_Status_Health_Meter::ObjectUpdateEvent(float delay){
-	mScene->mBlood = max(mScene->mBlood, 0);
-	string state = "health_meter_" + to_string(mScene->mBlood);
+	Scene::mScene->mBlood = max(Scene::mScene->mBlood, 0);
+	string state = "health_meter_" + to_string(Scene::mScene->mBlood);
 	if (mAni.GetState() != state)		mAni.Set(state);
-	mPos <<mScene->mCamera.VECTOR2()+ V2{ 66  , 12 };
+	mPos <<Scene::mScene->mCamera.VECTOR2()+ V2{ 66  , 12 };
 }
