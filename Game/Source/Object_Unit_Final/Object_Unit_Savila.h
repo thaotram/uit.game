@@ -7,6 +7,5 @@ public:
 	Object_Unit_Savila(float x, float y);
 	~Object_Unit_Savila();
 	void ObjectUpdateEvent(float dt);
-	void ThrowKnife(bool flip);
 };
 

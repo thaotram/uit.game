@@ -7,7 +7,5 @@ public:
 	Object_Unit_Knife(float x, float y);
 	~Object_Unit_Knife();
 	void ObjectUpdateEvent(float dt);
-	void ThrowKnife(bool flip);
-
 };
 
