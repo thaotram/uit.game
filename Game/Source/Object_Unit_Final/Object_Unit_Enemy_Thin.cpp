@@ -9,12 +9,18 @@
 
 #define state	mAni.GetState()
 
-Object_Unit_Enemy_Thin::Object_Unit_Enemy_Thin(RECT u) : Object_Unit("Guards") {
+Object_Unit_Enemy_Thin::Object_Unit_Enemy_Thin(RECT u) : Object_Unit("BossJafar") {
 	mPos.x << (float)(u.left + u.right) / 2;
 	mPos.y << (float)(u.top);
-	mAni.Set("thin_stand", 1);
+	mAni.Set("jafar_human", 1);
 	mHealthPoint = 2;
 }
+//Object_Unit_Enemy_Thin::Object_Unit_Enemy_Thin(RECT u) : Object_Unit("Guards") {
+//	mPos.x << (float)(u.left + u.right) / 2;
+//	mPos.y << (float)(u.top);
+//	mAni.Set("thin_stand", 1);
+//	mHealthPoint = 2;
+//}
 
 Object_Unit_Enemy_Thin::~Object_Unit_Enemy_Thin() {}
 
