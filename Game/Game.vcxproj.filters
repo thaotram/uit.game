@@ -192,6 +192,9 @@
     <Image Include="Resources\Stick.png">
       <Filter>Resource Files\Unit</Filter>
     </Image>
+    <Image Include="Resources\EnemyDisappear.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Library\json.hpp">

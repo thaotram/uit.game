@@ -150,6 +150,7 @@
     <Image Include="Resources\Camel.png" />
     <Image Include="Resources\CivilianEnemies.png" />
     <Image Include="Resources\Debug.png" />
+    <Image Include="Resources\EnemyDisappear.png" />
     <Image Include="Resources\EnemyExplosions.png" />
     <Image Include="Resources\Genie.png" />
     <Image Include="Resources\Guards.png" />
