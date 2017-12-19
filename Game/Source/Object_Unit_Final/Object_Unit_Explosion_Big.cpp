@@ -22,4 +22,8 @@ Object_Unit_Explosion_Big::~Object_Unit_Explosion_Big()
 
 void Object_Unit_Explosion_Big::ObjectUpdateEvent(float dt)
 {
+	if (mAni.GetCycleIndex() == 16)
+	{
+		mIsMarkedDelete = true;
+	}
 }
