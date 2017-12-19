@@ -135,6 +135,7 @@
     <None Include="Resources\Stick.json">
       <Filter>Resource Files\Unit</Filter>
     </None>
+    <None Include="Resources\BossJafar.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">

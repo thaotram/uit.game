@@ -126,6 +126,7 @@
     <None Include="Resources\AgrabahMarket_Front.json" />
     <None Include="Resources\Aladdin.json" />
     <None Include="Resources\block.json" />
+    <None Include="Resources\BossJafar.json" />
     <None Include="Resources\Camel.json" />
     <None Include="Resources\CivilianEnemies.json" />
     <None Include="Resources\Debug.json" />
