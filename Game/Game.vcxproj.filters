@@ -366,6 +366,7 @@
     <ClInclude Include="Source\Scene\Scene_ObjectStore.define.h" />
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Cloud.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Explosion_Twinkle.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Savila.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -537,6 +538,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Explosion_Twinkle.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Savila.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

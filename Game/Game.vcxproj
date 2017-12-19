@@ -162,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Savila.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Explosion_Twinkle.h" />
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Cloud.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Stall.h" />
@@ -222,6 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Define.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Savila.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Explosion_Twinkle.cpp" />
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Cloud.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Stall.cpp" />

@@ -20,7 +20,3 @@ Object_Unit_Knife::~Object_Unit_Knife()
 void Object_Unit_Knife::ObjectUpdateEvent(float dt)
 {
 }
-
-void Object_Unit_Knife::ThrowKnife(bool flip)
-{
-}
