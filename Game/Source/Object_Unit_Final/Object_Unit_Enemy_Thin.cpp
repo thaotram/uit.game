@@ -18,14 +18,13 @@ Object_Unit_Enemy_Thin::Object_Unit_Enemy_Thin(RECT u) : Object_Unit("Guards") {
 
 Object_Unit_Enemy_Thin::~Object_Unit_Enemy_Thin() {}
 
-void Object_Unit_Enemy_Thin::ObjectUpdateEvent(float dt){
+void Object_Unit_Enemy_Thin::ObjectUpdateEvent(float dt) {
 	if (mHealthPoint == 0) {
 		mIsMarkedDelete = true;
 	}
 }
 
-void Object_Unit_Enemy_Thin::ObjectEachState()
-{
+void Object_Unit_Enemy_Thin::ObjectEachState() {
 	if (state == "") {
 		mAni.Set("thin_stand", 1);
 	}
@@ -39,20 +38,23 @@ void Object_Unit_Enemy_Thin::ObjectEachState()
 				(LONG)(yy - 68),
 				(LONG)((isFlip) ? (xx - 16) : (xx + 63)),
 				(LONG)(yy - 6)
-			}
+			};
+		}
 		if (mAni.GetCycleIndex() == 4) {
 			tUnitDamage = RECT{
 				(LONG)((isFlip) ? (xx - 63) : (xx + 16)),
 				(LONG)(yy - 68),
 				(LONG)((isFlip) ? (xx - 16) : (xx + 63)),
 				(LONG)(yy - 6)
-			}
+			};
+		}
 		if (mAni.GetCycleIndex() == 5) {
 			tUnitDamage = RECT{
 				(LONG)((isFlip) ? (xx - 63) : (xx + 16)),
 				(LONG)(yy - 68),
 				(LONG)((isFlip) ? (xx - 16) : (xx + 63)),
 				(LONG)(yy - 6)
-			}
+			};
+		}
 	}
 }
