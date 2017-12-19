@@ -40,14 +40,16 @@ public:
 	bool		 mIsUpdate;
 	bool		 mIsMarkedDelete;
 
-	RECT		 tUnit;		// Tọa độ của 4 cạnh so với map lớn
-	RECT 		 tDis;		// Khoảng cách từ tUnit cho đến 4
+	RECT		 tUnit;				// Tọa độ của 4 cạnh so với map lớn
+	RECT		 tUnitDame;		// Tọa độ của 4 cạnh so với map lớn
+	RECT 		 tDis;				// Khoảng cách từ tUnit cho đến 4
 
 	virtual void AfterAddToScene() {};
 	void ObjectRender(float delay);
 
 	virtual void ObjectUpdateEvent(float delay) {};
 	virtual void ObjectIntersect(Object * pObject) {};
+	virtual void ObjectGetDame(Object * pObject) {};
 	virtual void ObjectUpdateProperties(float delay) {};
 	void		 ObjectDraw(
 		Vector_Easing pPosition,

@@ -54,6 +54,11 @@ void Object_Transform::SetFlip(Flip pFlip) {
 	}
 }
 
+void Object_Transform::SetFlip(bool pIsFlip)
+{
+	mFlip = pIsFlip;
+}
+
 bool Object_Transform::GetFlip()
 {
 	return mFlip;

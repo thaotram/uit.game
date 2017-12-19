@@ -12,4 +12,5 @@ void Object_Unit_Static_Apple::ObjectUpdateEvent(float dt) {}
 void Object_Unit_Static_Apple::ObjectIntersect(Object * pObject) {
 	mScene->mApple++;
 	mIsMarkedDelete = true;
+	mScene->oObjectStore->mLost.push_back(new Object_Unit_Explosion_Twinkle(mPos.x()+5, mPos.y()+6,mTransform.GetFlip()));
 }

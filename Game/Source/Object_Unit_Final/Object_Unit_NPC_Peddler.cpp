@@ -10,7 +10,7 @@ Object_Unit_NPC_Peddler::Object_Unit_NPC_Peddler(RECT u) : Object_Unit("Peddler"
 	mPos.x << (float)(u.left);
 	mPos.y << (float)(u.top);
 	mAni.Set("peddler_show", 1);
+	mAutoNextFrame = false;
 }
 
-Object_Unit_NPC_Peddler::~Object_Unit_NPC_Peddler() {
-}
+Object_Unit_NPC_Peddler::~Object_Unit_NPC_Peddler() {}

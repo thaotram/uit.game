@@ -11,7 +11,7 @@ Object_Status_Number_L::Object_Status_Number_L(float x, float y, L_Number_Positi
 
 void Object_Status_Number_L::ObjectUpdateEvent(float delay)
 {
-	mNumL = (int)(mScene->mScore());
+	mNumL = (int)(mScene->mScore() / 10) * 10;
 	switch (mLnumber) {
 	case 0:
 		if (mNumL == 0) {

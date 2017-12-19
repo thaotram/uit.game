@@ -45,6 +45,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
         (LONG)xx + unitWidth / 2,
         (LONG)yy
     };
+	tUnitDame = RECT{0,0,0,0};
     tDis = mObjectStore->GetDistance(tUnit, this);
     tBar = mObjectStore->GetBar(tUnit, mPos.y.mVelocity * tDt);
     tRope = mObjectStore->GetRope(tUnit, tSpeedX * tDt);
@@ -86,6 +87,14 @@ void Object_Unit_Aladdin::ObjectEachState() {
         X = false;
         mTimePerFrame = 0.03f;
         tIsChangeX = false;
+		if (mAni.GetCycleIndex() == 4) {
+			tUnitDame = RECT{
+				(LONG)xx + 15,
+				(LONG)yy - 68,
+				(LONG)xx + 62,
+				(LONG)yy - 6
+			};
+		}
     }
     else if (state == "stand_throwapple") {
         mTimePerFrame = 0.03f;
@@ -420,4 +429,8 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 void Object_Unit_Aladdin::ObjectCheckCollision() {
     mSourceRect.Update(this);
     mScene->oObjectStore->ObjectCheckCollision(this);
+}
+
+void Object_Unit_Aladdin::ObjectGetDame(Object * pObject){
+	mScene->mBlood--;
 }

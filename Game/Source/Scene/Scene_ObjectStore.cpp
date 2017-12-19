@@ -24,7 +24,7 @@
 #include "../GameDebug.h"
 #include "Scene_ObjectStore.define.h"
 
-const V2 margin = V2{ 100,100 };
+const V2 margin = V2{ 50,50 };
 const int maxRight = 2611;
 const int maxLeft = 2291;
 
@@ -64,16 +64,25 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 }
 
 //# Kiểm tra đụng độ
-void Scene_ObjectStore::ObjectCheckCollisionEach(Object * pObject, list<pair<RECT, Object*>>* pList) {
+void Scene_ObjectStore::ObjectCheckCollisionEach(Object * pPlayer, list<pair<RECT, Object*>>* pList) {
 	for (auto &unit : *pList) {
 		if (unit.second != NULL) {
-			if (isIntersect(
-				unit.second->GetBound(),
-				pObject->GetBound()
-			)) {
-				auto tDis = this->GetDistance(pObject->tUnit, pObject);
-				unit.second->ObjectIntersect(pObject);
+			auto player_bound = pPlayer->GetBound();
+			auto player_dame = pPlayer->tUnitDame;
+			auto object_bound = unit.second->GetBound();
+			auto object_dame = unit.second->tUnitDame;
+			if (player_dame.top != 0) {
+				int a = 123;
 			}
+			if (isIntersect(
+				player_bound, object_bound
+			)) unit.second->ObjectIntersect(pPlayer);
+			if(isIntersect(
+				player_dame, object_bound
+			)) unit.second->ObjectGetDame(pPlayer);
+			if (isIntersect(
+				player_bound, object_dame
+			)) pPlayer->ObjectGetDame(pPlayer);
 		}
 	}
 }

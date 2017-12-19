@@ -1,6 +1,7 @@
 #pragma once
 #include "../Object_Unit/Object_Unit.h"
 #include "../Scene/Scene.h"
+#include "../Object_Unit_Final/Object_Unit_Explosion_Twinkle.h"
 
 class Object_Unit_Static_Apple final : public Object_Unit {
 public:

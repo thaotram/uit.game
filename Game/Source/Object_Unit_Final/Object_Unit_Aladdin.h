@@ -26,4 +26,6 @@ public:
 	void ObjectEachState();
 	void ObjectAfterEachState();
 	void ObjectCheckCollision();
+
+	void ObjectGetDame(Object * pObject);
 };

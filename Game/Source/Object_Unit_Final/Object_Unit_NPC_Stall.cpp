@@ -21,19 +21,8 @@ Object_Unit_NPC_Stall::~Object_Unit_NPC_Stall()
 
 void Object_Unit_NPC_Stall::ObjectUpdateEvent(float dt)
 {
-	if (mAni.GetCycleIndex() == 48	 && !isShow) {
+	if (mAni.GetCycleIndex() == 47	 && !isShow) {
 		isShow = true;
-		auto r = RECT{ 
-			(LONG)mPos.x(),
-			(LONG)mPos.y(),
-			(LONG)mPos.x(),
-			(LONG)mPos.y()
-		};
-		//if(mScene->oObjectStore->mNPC_Peddler.size() == 0){
-		//	mScene->oObjectStore->mNPC_Peddler.push_back(pair<RECT, Object *>(
-		//		r,
-		//		nullptr
-		//	));
-		//}
+		((Object_Unit *)(mScene->oObjectStore->mNPC_Peddler.begin()->second))->mAutoNextFrame = true;
 	}
 }
