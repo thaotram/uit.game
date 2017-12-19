@@ -223,6 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Define.cpp" />
+    <ClCompile Include="Resources\EnemyDisappear.json" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Savila.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Explosion_Twinkle.cpp" />
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Cloud.cpp" />
