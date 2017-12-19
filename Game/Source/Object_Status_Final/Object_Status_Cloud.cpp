@@ -3,37 +3,37 @@
 #define mPos	mPosition
 
 Object_Status_Cloud::Object_Status_Cloud(State_Cloud c) : Object_Status("AgrabahMarket_Cloud"){
+	mAutoNextFrame = false;
 	mStateCloud = c;
 	switch (mStateCloud)
 	{
-	case 0:
+	case Sand1:
 		mAni.Set("sand_1", 1);
 		break;
-	case 1:
+	case Sand2:
 		mAni.Set("sand_2", 1);
 		break;
-	case 2:
+	case Sand3:
 		mAni.Set("sand_3", 1);
 		break;
-	case 3:
+	case Sand4:
 		mAni.Set("sand_4", 1);
 		break;
-	case 4:
+	case Sand5:
 		mAni.Set("sand_5", 1);
 		break;
-	case 5:
+	case Cloud1:
 		mAni.Set("cloud_1", 1);
 		break;
-	case 6:
+	case Cloud2:
 		mAni.Set("cloud_2", 1);
 		break;
-	case 7:
+	case Cloud3:
 		mAni.Set("cloud_3", 1);
 		break;
-	case 8:
+	case Cloud4:
 		mAni.Set("cloud_4", 1);
 		break;
-
 	}
 }
 

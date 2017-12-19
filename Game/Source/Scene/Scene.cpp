@@ -94,6 +94,16 @@ void Scene::SceneRender(float delay) {
 	oObjectStore->ObjectRemoveMarkedDelete();
 
 	//# Render
+	oSand_1->ObjectRender(delay);
+	oSand_2->ObjectRender(delay);
+	oSand_3->ObjectRender(delay);
+	oSand_4->ObjectRender(delay);
+	oSand_5->ObjectRender(delay);
+	oCloud_1->ObjectRender(delay);
+	oCloud_2->ObjectRender(delay);
+	oCloud_3->ObjectRender(delay);
+	oCloud_4->ObjectRender(delay);
+
 	oMapBack->ObjectRender(delay);
 	oObjectStore->ObjectRender(delay);
 	oPlayer->ObjectRender(delay);
@@ -113,16 +123,6 @@ void Scene::SceneRender(float delay) {
 	oScore_2->ObjectRender(delay);
 	oScore_3->ObjectRender(delay);
 	oScore_4->ObjectRender(delay);
-
-	oSand_1->ObjectRender(delay);
-	oSand_2->ObjectRender(delay);
-	oSand_3->ObjectRender(delay);
-	oSand_4->ObjectRender(delay);
-	oSand_5->ObjectRender(delay);
-	oCloud_1->ObjectRender(delay);
-	oCloud_2->ObjectRender(delay);
-	oCloud_3->ObjectRender(delay);
-	oCloud_4->ObjectRender(delay);
 
 	oMagicLamp->ObjectRender(delay);
 	oHealthMeter->ObjectRender(delay);

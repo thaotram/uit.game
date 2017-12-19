@@ -24,7 +24,7 @@
 #include "../GameDebug.h"
 #include "Scene_ObjectStore.define.h"
 
-const V2 margin = V2{ 100,100 };
+const V2 margin = V2{ 50,50 };
 const int maxRight = 2611;
 const int maxLeft = 2291;
 
@@ -67,11 +67,11 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 void Scene_ObjectStore::ObjectCheckCollisionEach(Object * pObject, list<pair<RECT, Object*>>* pList) {
 	for (auto &unit : *pList) {
 		if (unit.second != NULL) {
+			auto unitBound = unit.second->GetBound();
 			if (isIntersect(
-				unit.second->GetBound(),
+				unitBound,
 				pObject->GetBound()
 			)) {
-				auto tDis = this->GetDistance(pObject->tUnit, pObject);
 				unit.second->ObjectIntersect(pObject);
 			}
 		}

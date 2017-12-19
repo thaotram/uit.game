@@ -15,6 +15,7 @@ void Object_Unit::ObjectUpdateProperties(float delay) {
 	}
 	else mCurrentTime += delay;
 
+	if (mAnimation.GetState() == "") return;
 	mTransform.Update(this);
 	mSourceRect.Update(this);
 }
