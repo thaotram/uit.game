@@ -20,6 +20,6 @@ using namespace std;
 
 class Scene_JafarPalace final : public Scene {
 public:
-    Scene_JafarPalace();
-    ~Scene_JafarPalace(){};
+	Scene_JafarPalace();
+	~Scene_JafarPalace() {};
 };

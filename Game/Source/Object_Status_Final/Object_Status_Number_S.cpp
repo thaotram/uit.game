@@ -14,25 +14,25 @@ void Object_Status_Number_S::ObjectUpdateEvent(float delay)
 	switch (mSNumber)
 	{
 	case 0:
-		mNums = mScene->mApple % 10;
+		mNums = Scene::mScene->mApple % 10;
 		mAni.SetCycleIndex(mNums + 1);
 		break;
 	case 1:
-		if (mScene->mApple < 10) {
+		if (Scene::mScene->mApple < 10) {
 			mAni.SetCycleIndex(11);
 		}
 		else {
-			mNums = mScene->mApple / 10;
+			mNums = Scene::mScene->mApple / 10;
 			mAni.SetCycleIndex(mNums + 1);
 		}
 		break;
 	case 2:
-		mNums = mScene->mSpendthese;
+		mNums = Scene::mScene->mSpendthese;
 		mAni.SetCycleIndex(mNums + 1);
 		break;
 	case 3:
 		mAni.SetCycleIndex(3 + 1);
 		break;
 	}
-	mPos << mScene->mCamera.VECTOR2() + V2{ mX , mY };
+	mPos << Scene::mScene->mCamera.VECTOR2() + V2{ mX , mY };
 }

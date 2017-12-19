@@ -8,5 +8,5 @@ Object_Status_Spendthese::Object_Status_Spendthese() : Object_Status("Status") {
 }
 
 void Object_Status_Spendthese::ObjectUpdateEvent(float delay) {
-	mPos << mScene->mCamera.VECTOR2() + V2{ 234  , 192 };
+	mPos << Scene::mScene->mCamera.VECTOR2() + V2{ 234  , 192 };
 }

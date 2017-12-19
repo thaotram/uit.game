@@ -52,30 +52,6 @@ Scene::Scene() {
 	oCloud_2 = new Object_Status_Cloud(Cloud2);
 	oCloud_3 = new Object_Status_Cloud(Cloud3);
 	oCloud_4 = new Object_Status_Cloud(Cloud4);
-
-	//# Status
-	oHealthMeter->mScene =
-	oMagicLamp->mScene =
-	oLife->mScene =
-	oNLife->mScene =
-	oSpendthese->mScene =
-	oNspendthese->mScene =
-	oScore_1->mScene =
-	oScore_2->mScene =
-	oScore_3->mScene =
-	oScore_4->mScene =
-	oSand_1->mScene =
-	oSand_2->mScene =
-	oSand_3->mScene =
-	oSand_4->mScene =
-	oSand_5->mScene =
-	oCloud_1->mScene =
-	oCloud_2->mScene =
-	oCloud_3->mScene =
-	oCloud_4->mScene =
-	oApple->mScene =
-	oN_Apple_u->mScene =
-	oN_Apple_t->mScene = this;
 }
 Scene::~Scene() {
 	delete oObjectStore;

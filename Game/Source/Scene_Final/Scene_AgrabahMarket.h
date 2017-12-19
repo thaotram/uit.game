@@ -30,5 +30,5 @@ using namespace std;
 class Scene_AgrabahMarket final : public Scene {
 public:
 	Scene_AgrabahMarket();
-	~Scene_AgrabahMarket(){};
+	~Scene_AgrabahMarket() {};
 };

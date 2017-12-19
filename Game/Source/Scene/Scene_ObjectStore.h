@@ -38,8 +38,6 @@ public:
 	Scene_ObjectStore(string pName);
 	~Scene_ObjectStore() {};
 
-	Scene * mScene;
-
 	//# Static Item
 	list<pair<RECT, Object *>>	mStatic_Abubonus;
 	list<pair<RECT, Object *>>	mStatic_Apple;

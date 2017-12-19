@@ -14,8 +14,8 @@ void Object_Unit_Static_Black_Magic_Lamp::ObjectIntersect(Object * pObject)
 {
 	mAutoNextFrame = true;
 	mIsMarkedDelete = true;
-	mScene->oObjectStore->mLost.push_back(new Object_Unit_Explosion_Big(mPos.x(), mPos.y()));
-	//mScene->Add(mScene->itPlayer, new Object_Unit_Explosion_Big(mPos.x()+20,mPos.y()));
+	Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Explosion_Big(mPos.x(), mPos.y()));
+	//Scene::mScene->Add(Scene::mScene->itPlayer, new Object_Unit_Explosion_Big(mPos.x()+20,mPos.y()));
 }
 
 void Object_Unit_Static_Black_Magic_Lamp::ObjectUpdateEvent(float dt)

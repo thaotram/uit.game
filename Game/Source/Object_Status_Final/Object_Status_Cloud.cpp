@@ -39,5 +39,5 @@ Object_Status_Cloud::Object_Status_Cloud(State_Cloud c) : Object_Status("Agrabah
 
 void Object_Status_Cloud::ObjectUpdateEvent(float delay)
 {
-	mPos << mScene->mCamera.VECTOR2();
+	mPos << Scene::mScene->mCamera.VECTOR2();
 }

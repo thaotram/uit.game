@@ -13,12 +13,12 @@ Object_Unit_Static_Apple::Object_Unit_Static_Apple(RECT u) : Object_Unit("Item")
 void Object_Unit_Static_Apple::ObjectUpdateEvent(float dt) {}
 
 void Object_Unit_Static_Apple::ObjectIntersect(Object * pObject) {
-	mScene->mApple++;
+	Scene::mScene->mApple++;
 	mIsMarkedDelete = true;
-	mScene->oObjectStore->mLost.push_back(
+	Scene::mScene->oObjectStore->mLost.push_back(
 		new Object_Unit_Explosion_Twinkle(
 			xx + 5, yy + 6, 
-			mScene->oPlayer->GetTransform()->GetFlip()
+			Scene::mScene->oPlayer->GetTransform()->GetFlip()
 		)
 	);
 }

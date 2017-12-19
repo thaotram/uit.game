@@ -5,7 +5,6 @@
 Object::Object(string pName) : mName(pName) {
 	mSpriteHandler = GameGlobal::GetSpriteHandler();
 
-	mScene = Scene::mScene;
 	mJson = Object_Json::GetJson(mName);
 	mTexture = Object_Texture::GetTexture(mName);
 

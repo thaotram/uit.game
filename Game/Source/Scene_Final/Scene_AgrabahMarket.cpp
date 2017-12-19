@@ -50,6 +50,6 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
     oMapBack->AfterAddToScene();
     oMapFront->AfterAddToScene();
 
-    oObjectStore->mScene = oPlayer->mScene = oMapBack->mScene =
-        oMapFront->mScene = this;
+    //oObjectStore->Scene::mScene = oPlayer->Scene::mScene = oMapBack->Scene::mScene =
+    //    oMapFront->Scene::mScene = this;
 }

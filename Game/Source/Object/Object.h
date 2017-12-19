@@ -34,7 +34,6 @@ public:
 	Object(string pName);
 	~Object() {};
 
-	Scene * 	 mScene;
 	bool		 mIsRender;
 	bool		 mIsUpdate;
 	bool		 mIsMarkedDelete;
