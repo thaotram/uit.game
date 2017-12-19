@@ -68,9 +68,9 @@ void Scene_ObjectStore::ObjectCheckCollisionEach(Object * pPlayer, list<pair<REC
 	for (auto &unit : *pList) {
 		if (unit.second != NULL) {
 			auto player_bound = pPlayer->GetBound();
-			auto player_dame = pPlayer->tUnitDame;
+			auto player_dame = pPlayer->tUnitDamage;
 			auto object_bound = unit.second->GetBound();
-			auto object_dame = unit.second->tUnitDame;
+			auto object_dame = unit.second->tUnitDamage;
 			if (player_dame.top != 0) {
 				int a = 123;
 			}

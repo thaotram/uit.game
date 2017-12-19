@@ -5,7 +5,7 @@ Object_Unit::Object_Unit(string pName) : Object(pName) {
 	mPosition.x.mType = Type::none;
 	mPosition.y.mType = Type::gravity;
 	mAutoNextFrame = true;
-	tUnitDame = RECT{ 0,0,0,0 };
+	tUnitDamage = RECT{ 0,0,0,0 };
 	mHealthPoint = 1;
 }
 
