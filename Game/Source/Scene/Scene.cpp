@@ -89,8 +89,6 @@ Scene::~Scene() {
 
 }
 
-#define isRender	obj->mIsRender
-#define isUpdate	obj->mIsUpdate
 void Scene::SceneRender(float delay) {
 	//# Update
 	oPlayer->ObjectUpdateEvent(delay);
