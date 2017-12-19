@@ -33,6 +33,7 @@
         "xutility": "cpp",
         "xlocale": "cpp",
         "tuple": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "limits": "cpp"
     }
 }
