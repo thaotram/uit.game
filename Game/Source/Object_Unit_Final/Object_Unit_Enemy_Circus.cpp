@@ -12,6 +12,4 @@ Object_Unit_Enemy_Circus::Object_Unit_Enemy_Circus(RECT u) : Object_Unit("Civili
 	mAni.Set("circus", 1);
 }
 
-Object_Unit_Enemy_Circus::~Object_Unit_Enemy_Circus()
-{
-}
+Object_Unit_Enemy_Circus::~Object_Unit_Enemy_Circus() {}

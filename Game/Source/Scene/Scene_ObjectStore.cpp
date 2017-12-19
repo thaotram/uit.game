@@ -71,7 +71,6 @@ void Scene_ObjectStore::ObjectCheckCollisionEach(Object * pPlayer, list<pair<REC
 			auto player_dame = pPlayer->tUnitDame;
 			auto object_bound = unit.second->GetBound();
 			auto object_dame = unit.second->tUnitDame;
-			GameDebug::Title(player_dame);
 			if (player_dame.top != 0) {
 				int a = 123;
 			}
