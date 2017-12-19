@@ -10,8 +10,8 @@ Object_Status_Health_Meter::Object_Status_Health_Meter() : Object_Status("Status
 	mAutoNextFrame = true;
 }
 
-void Object_Status_Health_Meter::ObjectUpdateEvent(float delay)
-{
+void Object_Status_Health_Meter::ObjectUpdateEvent(float delay){
+	mScene->mBlood = max(mScene->mBlood, 0);
 	string state = "health_meter_" + to_string(mScene->mBlood);
 	if (mAni.GetState() != state)		mAni.Set(state);
 	mPos <<mScene->mCamera.VECTOR2()+ V2{ 66  , 12 };
