@@ -12,5 +12,6 @@ public:
 
 	virtual void ObjectUpdateEvent(float delay) {};
 	virtual void ObjectIntersect(Object * pObject) {};
+	virtual void ObjectGetDame(Object * pObject) {};
 	void ObjectUpdateProperties(float delay);
 };

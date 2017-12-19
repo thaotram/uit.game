@@ -12,7 +12,7 @@
         "Debug": true,
         "CodeMap": true,
         ".gitattributes": true,
-        ".gitignore": true,
+        // ".gitignore": true,
         "Game.sln": true
 
     },

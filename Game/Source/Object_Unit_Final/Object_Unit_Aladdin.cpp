@@ -45,7 +45,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
         (LONG)xx + unitWidth / 2,
         (LONG)yy
     };
-	tUnitMakeDame = RECT{0,0,0,0};
+	tUnitDame = RECT{0,0,0,0};
     tDis = mObjectStore->GetDistance(tUnit, this);
     tBar = mObjectStore->GetBar(tUnit, mPos.y.mVelocity * tDt);
     tRope = mObjectStore->GetRope(tUnit, tSpeedX * tDt);

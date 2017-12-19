@@ -64,16 +64,22 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 }
 
 //# Kiểm tra đụng độ
-void Scene_ObjectStore::ObjectCheckCollisionEach(Object * pObject, list<pair<RECT, Object*>>* pList) {
+void Scene_ObjectStore::ObjectCheckCollisionEach(Object * pPlayer, list<pair<RECT, Object*>>* pList) {
 	for (auto &unit : *pList) {
 		if (unit.second != NULL) {
-			auto unitBound = unit.second->GetBound();
+			auto player_bound = unit.second->GetBound();
+			auto player_dame = unit.second->tUnitDame;
+			auto object_bound = pPlayer->GetBound();
+			auto object_dame = pPlayer->GetBound();
 			if (isIntersect(
-				unitBound,
-				pObject->GetBound()
-			)) {
-				unit.second->ObjectIntersect(pObject);
-			}
+				player_bound, object_bound
+			)) unit.second->ObjectIntersect(pPlayer);
+			if(isIntersect(
+				player_dame, object_bound
+			)) unit.second->ObjectGetDame(pPlayer);
+			if (isIntersect(
+				player_bound, object_dame
+			)) pPlayer->ObjectGetDame(pPlayer);
 		}
 	}
 }
