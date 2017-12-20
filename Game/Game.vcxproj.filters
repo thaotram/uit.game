@@ -400,6 +400,7 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Jar_Copper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Disappear.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -587,6 +588,9 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Jar_Copper.cpp">
       <Filter>Source\Object_Unit\UFO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Disappear.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -8,6 +8,5 @@ public:
 	~Object_Unit_Explosion_Big();
 
 	void ObjectUpdateEvent(float dt);
-
 };
 
