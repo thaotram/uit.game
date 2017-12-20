@@ -10,6 +10,7 @@ Object_Unit_Enemy_Circus::Object_Unit_Enemy_Circus(RECT u) : Object_Unit("Civili
 	mPos.x << (float)(u.left + u.right) / 2;
 	mPos.y << (float)(u.top);
 	mAni.Set("circus", 1);
+	mParty = Enemy;
 }
 
 Object_Unit_Enemy_Circus::~Object_Unit_Enemy_Circus() {}
@@ -26,7 +27,8 @@ void Object_Unit_Enemy_Circus::ObjectEachState()
 	}
 	else if (mAni.GetCycleIndex() == 11 && !mIsThrow) {
 		Scene::mScene->oObjectStore->mLost.push_back(
-			new Object_Unit_Knife(xx, yy-50, mTransform.GetFlip())
+			//new Object_Unit_Knife(xx, yy-50, mTransform.GetFlip())
+			new Object_Unit_Knife(xx, yy - 50, true)
 		);
 		mIsThrow = true;
 	}

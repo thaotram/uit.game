@@ -13,6 +13,7 @@ Object_Unit_NPC_Stall::Object_Unit_NPC_Stall(RECT u) : Object_Unit("Peddler") {
 	mPos.y << (float)(u.top);
 	mAni.Set("stalls", 1);
 	isShow = false;
+	mParty = Friend;
 }
 
 Object_Unit_NPC_Stall::~Object_Unit_NPC_Stall()

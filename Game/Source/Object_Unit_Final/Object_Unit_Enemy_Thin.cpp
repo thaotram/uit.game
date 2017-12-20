@@ -14,6 +14,7 @@ Object_Unit_Enemy_Thin::Object_Unit_Enemy_Thin(RECT u) : Object_Unit("Guards") {
 	mPos.y << (float)(u.top);
 	mAni.Set("thin_hit", 1);
 	mHealthPoint = 2;
+	mParty = Enemy;
 }
 
 Object_Unit_Enemy_Thin::~Object_Unit_Enemy_Thin() {}

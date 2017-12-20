@@ -11,6 +11,7 @@ Object_Unit_NPC_Peddler::Object_Unit_NPC_Peddler(RECT u) : Object_Unit("Peddler"
 	mPos.y << (float)(u.top);
 	mAni.Set("peddler_show", 1);
 	mAutoNextFrame = false;
+	mParty = Friend;
 }
 
 Object_Unit_NPC_Peddler::~Object_Unit_NPC_Peddler() {}
