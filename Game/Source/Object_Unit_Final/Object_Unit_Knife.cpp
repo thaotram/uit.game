@@ -37,7 +37,9 @@ void Object_Unit_Knife::ObjectUpdateEvent(float dt)
 	
 	if (tDis.bottom == 0 || tDis.left == 0 || tDis.right == 0) {
 		mIsMarkedDelete = true;
-
+	Scene::mScene->oObjectStore->mLost.push_back(
+		new Object_Unit_Explosion_Tiny(mPos.x(), mPos.y())
+	);
 	}
 	else {
 		mPos.x +=
@@ -60,3 +62,10 @@ void Object_Unit_Knife::ObjectUpdateEvent(float dt)
 	//}
 
 }
+void Object_Unit_Knife::ObjectIntersect(Object* pObject) {
+	mAutoNextFrame = true;
+	mIsMarkedDelete = true;
+	// Scene::mScene->Add(Scene::mScene->itPlayer, new
+	// Object_Unit_Explosion_Big(mPos.x()+20,mPos.y()));
+}
+

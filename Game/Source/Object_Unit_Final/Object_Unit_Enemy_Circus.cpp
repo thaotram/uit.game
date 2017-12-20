@@ -26,7 +26,8 @@ void Object_Unit_Enemy_Circus::ObjectEachState()
 	}
 	else if (mAni.GetCycleIndex() == 11 && !mIsThrow) {
 		Scene::mScene->oObjectStore->mLost.push_back(
-			new Object_Unit_Knife(xx, yy-50, mTransform.GetFlip())
+			//new Object_Unit_Knife(xx, yy-50, mTransform.GetFlip())
+			new Object_Unit_Knife(xx, yy - 50, true)
 		);
 		mIsThrow = true;
 	}
