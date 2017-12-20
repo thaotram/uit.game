@@ -28,11 +28,9 @@
 #include "../../Define.h"
 
 #define Add_(type, name)                              \
-    \
 for(auto &b                                           \
         : oObjectStore->m##type##name) {              \
         Add(new Object_Unit_##type##name(*&b.first)); \
-    \
 }
 
 #define Add_Static(name) Add_(Static_, name)
@@ -50,6 +48,7 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
     oMapBack->AfterAddToScene();
     oMapFront->AfterAddToScene();
 
-    //oObjectStore->Scene::mScene = oPlayer->Scene::mScene = oMapBack->Scene::mScene =
+    // oObjectStore->Scene::mScene = oPlayer->Scene::mScene =
+    // oMapBack->Scene::mScene =
     //    oMapFront->Scene::mScene = this;
 }

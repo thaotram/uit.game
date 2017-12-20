@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include "Game.h"
+#include "Scene_Final/Scene_AgrabahMarket.h"
+#include "Scene_Final/Scene_JafarPalace.h"
 
 Game::Game() {
 	mDevice = GameGlobal::GetDevice();
