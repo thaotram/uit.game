@@ -4,6 +4,8 @@
 
 class Object_Unit_Enemy_Assassin final : public Object_Unit
 {
+private:
+	bool mIsThrow;
 public:
 	Object_Unit_Enemy_Assassin(RECT u);
 	~Object_Unit_Enemy_Assassin() {};
