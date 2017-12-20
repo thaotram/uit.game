@@ -7,5 +7,7 @@ class Object_Unit_Enemy_Assassin final : public Object_Unit
 public:
 	Object_Unit_Enemy_Assassin(RECT u);
 	~Object_Unit_Enemy_Assassin();
+	void ObjectUpdateEvent(float dt);
+	void ObjectEachState();
 	void ObjectGetDame(Object * pObject);
 };

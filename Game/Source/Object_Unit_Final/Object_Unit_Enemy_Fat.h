@@ -4,8 +4,9 @@
 
 class Object_Unit_Enemy_Fat final : public Object_Unit {
 public:
-    Object_Unit_Enemy_Fat(RECT u);
-    ~Object_Unit_Enemy_Fat(){};
-    void ObjectGetDame(Object* pObject);
-    void ObjectUpdateEvent(float delay);
+	Object_Unit_Enemy_Fat(RECT u);
+	~Object_Unit_Enemy_Fat();
+	void ObjectUpdateEvent(float dt);
+	void ObjectEachState();
+	void ObjectGetDame(Object * pObject);
 };
