@@ -13,6 +13,7 @@ Object_Unit_Savila::Object_Unit_Savila(float x, float y) : Object_Unit("Camel")
 	mAni.Set("savila", 1);
 	mTimePerFrame = 0.03f;
 	mAutoNextFrame = false;
+	mParty = Friend;
 }
 
 Object_Unit_Savila::~Object_Unit_Savila()

@@ -18,6 +18,7 @@ Object_Unit_Apple::Object_Unit_Apple(float x, float y, bool isFlip)
     mIsMakeDamage = false;
     mFlip = isFlip;
 	Scene::mScene->mApple = max(Scene::mScene->mApple-1,0);
+	mParty = Friend;
 }
 
 void Object_Unit_Apple::ObjectUpdateEvent(float dt) {

@@ -12,6 +12,7 @@ Object_Unit_NPC_Camel::Object_Unit_NPC_Camel(RECT u) : Object_Unit("Camel") {
 	mPos.y << (float)(u.top);
 	mAni.Set("pedal", 10);
 	mIsSpitOut = false;
+	mParty = Friend;
 }
 
 void Object_Unit_NPC_Camel::StartAnimation() {

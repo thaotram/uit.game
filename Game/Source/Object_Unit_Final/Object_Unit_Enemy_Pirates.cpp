@@ -14,7 +14,7 @@ Object_Unit_Enemy_Pirates::Object_Unit_Enemy_Pirates(RECT u) : Object_Unit("Guar
 	mPos.x << (float)(u.left + u.right) / 2;
 	mPos.y << (float)(u.top);
 	mAni.Set("pirates_defiant", 1);
-
+	mParty = Enemy;
 }
 
 Object_Unit_Enemy_Pirates::~Object_Unit_Enemy_Pirates()

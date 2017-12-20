@@ -17,6 +17,7 @@ Object_Unit_Knife::Object_Unit_Knife(float x, float y, bool isFlip) : Object_Uni
 	mIsCollision = false;
 	mFlip = isFlip;
 	mPos.y.mVelocity = -500;
+	mParty = Enemy;
 }
 
 Object_Unit_Knife::~Object_Unit_Knife()

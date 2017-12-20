@@ -10,6 +10,7 @@ Object_Unit_Enemy_Circus::Object_Unit_Enemy_Circus(RECT u) : Object_Unit("Civili
 	mPos.x << (float)(u.left + u.right) / 2;
 	mPos.y << (float)(u.top);
 	mAni.Set("circus", 1);
+	mParty = Enemy;
 }
 
 Object_Unit_Enemy_Circus::~Object_Unit_Enemy_Circus() {}
