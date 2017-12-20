@@ -78,7 +78,7 @@ void Scene_ObjectStore::ObjectCheckCollisionEach(
 			}
 			if (isIntersect(player_dame, object_bound) && !pPlayer->mIsMakeDamage) {
 				unit.second->ObjectGetDame(pPlayer);
-				pPlayer->mIsMakeDamage |= true;
+				pPlayer->mIsMakeDamage = true;
 			}
 			if (isIntersect(player_bound, object_dame)) {
 				pPlayer->ObjectGetDame(pPlayer);
