@@ -144,7 +144,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 
 		if (Z) {
 			Z = false;
-			//Scene::mScene->Add("2", n?ew Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
+			//Scene::mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
 		}
 		if (X && tDis.bottom > 50) {

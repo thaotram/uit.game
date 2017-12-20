@@ -413,6 +413,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Disappear.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Explosion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -603,6 +606,9 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Disappear.cpp">
       <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Explosion.cpp">
+      <Filter>Source\Object_Unit\Explosion</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
