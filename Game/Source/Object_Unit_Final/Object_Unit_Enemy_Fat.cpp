@@ -17,6 +17,14 @@ Object_Unit_Enemy_Fat::~Object_Unit_Enemy_Fat()
 {
 }
 
+void Object_Unit_Enemy_Fat::ObjectUpdateEvent(float dt)
+{
+}
+
+void Object_Unit_Enemy_Fat::ObjectEachState()
+{
+}
+
 void Object_Unit_Enemy_Fat::ObjectGetDame(Object * pObject)
 {
 	mHealthPoint--;
