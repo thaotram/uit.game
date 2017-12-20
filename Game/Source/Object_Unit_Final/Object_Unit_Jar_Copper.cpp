@@ -15,6 +15,7 @@ Object_Unit_Jar_Copper::Object_Unit_Jar_Copper(float x, float y)
     mTimePerFrame = 0.03f;
     mAutoNextFrame = true;
     mIsCollision = false;
+	mPos.x.mVelocity = 30;
 }
 
 void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
@@ -31,6 +32,7 @@ void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
     // Scene::mScene->oObjectStore->ObjectCheckCollision(this);
 
     if (mAni.GetState() == "jar_copper_fall") {
+		mPos.x += mPos.x.mVelocity*dt;
         mPos.y = yy + tDis.bottom;
         mPos.Update(dt);
         if (tDis.bottom == 0) {

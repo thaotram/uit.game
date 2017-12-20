@@ -26,7 +26,7 @@ void Object_Unit_Enemy_Assassin::ObjectEachState() {
 	}
 	else if (mAni.GetCycleIndex() == 8 && !mIsThrow) {
 		Scene::mScene->oObjectStore->mLost.push_back(
-			new Object_Unit_Jar_Copper(xx, yy)
+			new Object_Unit_Jar_Copper(xx+26, yy+13)
 		);
 		mIsThrow = true;
 	}
