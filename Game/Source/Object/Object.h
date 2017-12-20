@@ -14,6 +14,10 @@
 #include "Object_Transform.h"
 #include "Object_SourceRect.h"
 
+enum Party {
+	Friend,
+	Enemy
+};
 
 class Object {
 protected:
@@ -34,14 +38,16 @@ public:
 	Object(string pName);
 	~Object() {};
 
-	bool		 mIsRender;
-	bool		 mIsUpdate;
-	bool		 mIsMarkedDelete;
-	bool		 mIsMakeDamage;
 
-	RECT		 tUnit;				// Tọa độ của 4 cạnh so với map lớn
-	RECT		 tUnitDamage;		// Tọa độ của 4 cạnh so với map lớn
-	RECT 		 tDis;				// Khoảng cách từ tUnit cho đến 4
+	bool				mIsRender;
+	bool				mIsUpdate;
+	bool				mIsMarkedDelete;
+	bool				mIsMakeDamage;
+
+	RECT				tUnit;				// Tọa độ của 4 cạnh so với map lớn
+	RECT				tUnitDamage;		// Tọa độ của 4 cạnh so với map lớn
+	RECT 				tDis;				// Khoảng cách từ tUnit cho đến 4
+	Party				mParty;
 
 	virtual void AfterAddToScene() {};
 	void ObjectRender(float delay);
