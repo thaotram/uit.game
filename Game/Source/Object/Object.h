@@ -37,6 +37,7 @@ public:
 	bool		 mIsRender;
 	bool		 mIsUpdate;
 	bool		 mIsMarkedDelete;
+	bool		 mIsMakeDamage;
 
 	RECT		 tUnit;				// Tọa độ của 4 cạnh so với map lớn
 	RECT		 tUnitDamage;		// Tọa độ của 4 cạnh so với map lớn
