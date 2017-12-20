@@ -20,13 +20,12 @@ void Object_Unit_Enemy_Assassin::ObjectUpdateEvent(float dt) {
 }
 
 void Object_Unit_Enemy_Assassin::ObjectEachState() {
-	
 	if (mAni.GetCycleIndex() == 1) {
 		mIsThrow = false;
 	}
 	else if (mAni.GetCycleIndex() == 8 && !mIsThrow) {
 		Scene::mScene->oObjectStore->mLost.push_back(
-			new Object_Unit_Jar_Copper(xx+26, yy+13)
+			new Object_Unit_Jar_Copper(xx + 26, yy + 13)
 		);
 		mIsThrow = true;
 	}
@@ -36,5 +35,6 @@ void Object_Unit_Enemy_Assassin::ObjectGetDame(Object * pObject) {
 	mHealthPoint--;
 	if (mHealthPoint <= 0) {
 		mIsMarkedDelete = true;
+		Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Disappear(mPos.x() - 3, mPos.y() - 4));
 	}
 }

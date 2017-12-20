@@ -58,5 +58,6 @@ void Object_Unit_Enemy_Pirates::ObjectGetDame(Object * pObject)
 	mHealthPoint--;
 	if (mHealthPoint <= 0) {
 		mIsMarkedDelete = true;
+		Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Disappear(mPos.x() - 3, mPos.y() - 4));
 	}
 }

@@ -31,6 +31,7 @@ Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mPos << V2{ 1400, 500 };
 	mAni.Set("stand", 1);
 	tIsThrowApple = false;
+	mIsMakeDamage = false;
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
@@ -92,7 +93,10 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		X = false;
 		mTimePerFrame = 0.03f;
 		tIsChangeX = false;
-		if (mAni.GetCycleIndex() == 4) {
+		if (mAni.GetCycleIndex() == 1) {
+			mIsMakeDamage = false;
+		}
+		if (mAni.GetCycleIndex() == 4 && !mIsMakeDamage) {
 			tUnitDamage = RECT{
 				(LONG)((isFlip) ? (xx - 63) : (xx + 16)),
 				(LONG)(yy - 68),
@@ -102,9 +106,9 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		}
 	}
 	else if (state == "stand_throwapple") {
+		L = R = false;
 		mTimePerFrame = 0.03f;
 		tIsChangeX = false;
-		L = R = false;
 		if (mAni.GetCycleIndex() == 1) {
 			tIsThrowApple = false;
 		}
@@ -262,8 +266,9 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		if (Z)				0; /// "run_throwapple" - thiếu
 		else if (X)			mAni.Set("run_cut", 1, "run", 9);
 		else if (C && tDis.bottom <= 10) {
-			// Phải ở dưới đấy thì mới được nhảy
+			// Phải ở dưới đất thì mới được nhảy
 			C = false;
+			mAutoNextFrame = false;
 			mAni.Set("run_jump", 1) && mPos.y.SetVelocity(-tJump);
 		}
 	}
@@ -288,7 +293,6 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTimePerFrame = 0.06f;
 		if (mAni.GetCycleIndex() == 1 && mPos.y.mVelocity == -tJump) {
 			mAutoNextFrame = false;
-			// mPos.y.mVelocity = -jump;
 			mAni.SetCycleIndex(1);
 		}
 		else if (mPos.y.mVelocity == 0 && tDis.bottom == 0) {
@@ -306,14 +310,16 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (mAutoNextFrame && mPos.y.mVelocity == 0) {
 			mAni.NextState();
 		}
-		else if (mAutoNextFrame)							0;	/// Ngưng lại ///
+		else if (mAutoNextFrame)						0;	/// Ngưng lại ///
 		else if (mPos.y.mVelocity <= 0.90 * -tJump)		mAni.SetCycleIndex(2);
 		else if (mPos.y.mVelocity <= 0.60 * -tJump)		mAni.SetCycleIndex(3);
 		else if (mPos.y.mVelocity <= 0.30 * -tJump)		mAni.SetCycleIndex(4);
 		else if (mPos.y.mVelocity <= 0)					mAni.SetCycleIndex(5);
 		else if (mPos.y.mVelocity <= 0.50 * +tJump)		mAni.SetCycleIndex(5);
 		else if (mPos.y.mVelocity <= 0.90 * +tJump)		mAni.SetCycleIndex(6);
-		//if (Z) mAni.Set("jump_thowapple", 1, "run_jump", 1);
+		
+		//# Thiếu
+		// (Z) mAni.Set("jump_thowapple", 1, "run_jump", 1);
 		if (X) mAni.Set("jump_cut", 1, "run_jump", 1);
 	}
 	else if (state == "climb_still") {
