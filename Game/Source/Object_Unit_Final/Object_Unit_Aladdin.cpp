@@ -33,6 +33,7 @@ Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
 	mAni.Set("stand", 1);
 	tIsThrowApple = false;
 	mIsMakeDamage = false;
+	mParty = Friend;
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
@@ -97,7 +98,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		if (mAni.GetCycleIndex() == 1) {
 			mIsMakeDamage = false;
 		}
-		if (mAni.GetCycleIndex() == 4 && !mIsMakeDamage) {
+		else if (mAni.GetCycleIndex() == 4 && !mIsMakeDamage) {
 			tUnitDamage = RECT{
 				(LONG)((isFlip) ? (xx - 63) : (xx + 16)),
 				(LONG)(yy - 68),
@@ -149,7 +150,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 
 		if (Z && hasApple) {
 			Z = false;
-			//Scene::mScene->Add("2", n?ew Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
+			//Scene::mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
 		}
 		if (X && tDis.bottom > 50) {

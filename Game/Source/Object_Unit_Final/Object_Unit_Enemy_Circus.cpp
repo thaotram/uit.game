@@ -16,10 +16,20 @@ Object_Unit_Enemy_Circus::~Object_Unit_Enemy_Circus() {}
 
 void Object_Unit_Enemy_Circus::ObjectUpdateEvent(float dt)
 {
+	ObjectEachState();
 }
 
 void Object_Unit_Enemy_Circus::ObjectEachState()
 {
+	if (mAni.GetCycleIndex() == 1) {
+		mIsThrow = false;
+	}
+	else if (mAni.GetCycleIndex() == 11 && !mIsThrow) {
+		Scene::mScene->oObjectStore->mLost.push_back(
+			new Object_Unit_Knife(xx, yy-50, mTransform.GetFlip())
+		);
+		mIsThrow = true;
+	}
 }
 
 void Object_Unit_Enemy_Circus::ObjectGetDame(Object * pObject)

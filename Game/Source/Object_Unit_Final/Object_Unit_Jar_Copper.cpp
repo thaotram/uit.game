@@ -16,6 +16,7 @@ Object_Unit_Jar_Copper::Object_Unit_Jar_Copper(float x, float y)
     mAutoNextFrame = true;
     mIsCollision = false;
 	mPos.x.mVelocity = 30;
+	mParty = Enemy;
 }
 
 void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
@@ -29,7 +30,7 @@ void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
      		(LONG)yy
      };
      tDis = mObjectStore->GetDistance(tUnit, this);
-    // Scene::mScene->oObjectStore->ObjectCheckCollision(this);
+     Scene::mScene->oObjectStore->ObjectCheckCollision(this);
 
     if (mAni.GetState() == "jar_copper_fall") {
 		mPos.x += mPos.x.mVelocity*dt;

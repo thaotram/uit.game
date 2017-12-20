@@ -173,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Explosion_Tiny.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Jar_Copper.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Disappear.h" />
     <ClInclude Include="Source\Scene_Final\Scene_JafarPalace.h" />
@@ -239,6 +240,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Define.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Explosion_Tiny.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Disappear.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Jar_Copper.cpp" />
     <ClCompile Include="Source\Scene_Final\Scene_JafarPalace.cpp" />
