@@ -164,6 +164,22 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		X = false;
 		mTimePerFrame = 0.03f;
 		mAutoNextFrame = true;
+		if (mAni.GetCycleIndex() == 3) {
+			tUnitDamage = RECT{
+				(LONG)((isFlip) ? (xx - 51) : (xx + 1)),
+				(LONG)(yy - 66),
+				(LONG)((isFlip) ? (xx - 1) : (xx + 51)),
+				(LONG)(yy - 6)
+			};
+		}
+		else if (mAni.GetCycleIndex() == 7) {
+			tUnitDamage = RECT{
+				(LONG)((isFlip) ? (xx - 50) : (xx)),
+				(LONG)(yy - 70),
+				(LONG)((isFlip) ? (xx) : (xx + 50)),
+				(LONG)(yy - 18)
+			};
+		}
 	}
 	else if (state == "up") {
 		mTimePerFrame = 0.06f;
@@ -182,12 +198,20 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (D)			mAni.Set("sit", 1);
 		else				mAni.SetNext("stand", 1);
 
-		if (mAni.GetCycleIndex() == 4) {
+		if (mAni.GetCycleIndex() == 3) {
 			tUnitDamage = RECT{
-				(LONG)((isFlip) ? (xx - 63) : (xx + 16)),
-				(LONG)(yy - 68),
-				(LONG)((isFlip) ? (xx - 16) : (xx + 63)),
-				(LONG)(yy - 6)
+				(LONG)((isFlip) ? (xx) : (xx - 50)),
+				(LONG)(yy - 60),
+				(LONG)((isFlip) ? (xx + 50) : (xx)),
+				(LONG)(yy - 26)
+			};
+		}
+		else if (mAni.GetCycleIndex() == 7 || mAni.GetCycleIndex() == 15) {
+			tUnitDamage = RECT{
+				(LONG)((isFlip) ? (xx - 50) : (xx)),
+				(LONG)(yy - 70),
+				(LONG)((isFlip) ? (xx) : (xx + 50)),
+				(LONG)(yy - 18)
 			};
 		}
 	}
@@ -214,6 +238,14 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		X = false;
 		mTimePerFrame = 0.06f;
 		tIsChangeX = false;
+		if (mAni.GetCycleIndex() == 4) {
+			tUnitDamage = RECT{
+				(LONG)((isFlip) ? (xx - 68) : (xx - 15)),
+				(LONG)(yy - 25),
+				(LONG)((isFlip) ? (xx - 15) : (xx + 68)),
+				(LONG)(yy - 18)
+			};
+		}
 	}
 	else if (state == "sit_throwapple") {
 		Z = false;
@@ -242,6 +274,14 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		X = false;
 		mTimePerFrame = 0.03f;
 		if (!R && !L)	mAni.Set("stand", 1);
+		if (mAni.GetCycleIndex() == 5) {
+			tUnitDamage = RECT{
+				(LONG)((isFlip) ? (xx - 54) : (xx + 17)),
+				(LONG)(yy - 60),
+				(LONG)((isFlip) ? (xx - 17) : (xx + 54)),
+				(LONG)(yy - 18)
+			};
+		}
 	}
 	else if (state == "run_jump") {
 		C = false;
@@ -326,6 +366,38 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (X) {
 			X = false;
 			mAni.Set("climb_cut", 1, "climb_vertical", cycleIndex);
+			if (mAni.GetCycleIndex() == 3) {
+				tUnitDamage = RECT{
+					(LONG)((isFlip) ? (xx - 45) : (xx - 11)),
+					(LONG)(yy - 99),
+					(LONG)((isFlip) ? (xx + 11) : (xx + 45)),
+					(LONG)(yy - 49)
+				};
+			}
+			else if (mAni.GetCycleIndex() == 4) {
+				tUnitDamage = RECT{
+					(LONG)((isFlip) ? (xx - 41) : (xx - 37)),
+					(LONG)(yy - 39),
+					(LONG)((isFlip) ? (xx +37) : (xx + 41)),
+					(LONG)(yy + 3)
+				};
+			}
+			else if (mAni.GetCycleIndex() == 5) {
+				tUnitDamage = RECT{
+					(LONG)((isFlip) ? (xx - 6) : (xx - 39)),
+					(LONG)(yy - 87),
+					(LONG)((isFlip) ? (xx + 39) : (xx + 6)),
+					(LONG)(yy - 21)
+				};
+			}
+			else if (mAni.GetCycleIndex() == 6) {
+				tUnitDamage = RECT{
+					(LONG)((isFlip) ? (xx - 37) : (xx - 35)),
+					(LONG)(yy - 73),
+					(LONG)((isFlip) ? (xx + 35) : (xx + 37)),
+					(LONG)(yy - 18)
+				};
+			}
 		}
 		else if (C) {
 			C = false;
