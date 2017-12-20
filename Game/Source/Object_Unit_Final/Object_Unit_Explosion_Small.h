@@ -10,7 +10,6 @@ private:
 public:
 	Object_Unit_Explosion_Small(float x, float y);
 	~Object_Unit_Explosion_Small();
-	bool mIsThrow;
 	void ObjectUpdateEvent(float dt);
 };
 
