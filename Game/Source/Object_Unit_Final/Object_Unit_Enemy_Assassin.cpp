@@ -15,6 +15,20 @@ Object_Unit_Enemy_Assassin::Object_Unit_Enemy_Assassin(RECT u) : Object_Unit("Ci
 Object_Unit_Enemy_Assassin::~Object_Unit_Enemy_Assassin() {
 }
 
+void Object_Unit_Enemy_Assassin::ObjectUpdateEvent(float dt)
+{
+	ObjectEachState();
+}
+
+void Object_Unit_Enemy_Assassin::ObjectEachState()
+{
+	if (mAni.GetCycleIndex() == 8) {
+		Scene::mScene->oObjectStore->mLost.push_back(
+			new Object_Unit_Jar_Copper_Fall(mPos.x(), mPos.y())
+		);
+	}
+}
+
 void Object_Unit_Enemy_Assassin::ObjectGetDame(Object * pObject)
 {
 	mHealthPoint--;

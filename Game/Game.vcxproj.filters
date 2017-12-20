@@ -397,6 +397,7 @@
     <ClInclude Include="Define.h">
       <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Jar_Copper_Fall.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -581,6 +582,9 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Cloud.cpp">
       <Filter>Source\Object_Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Jar_Copper_Fall.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
