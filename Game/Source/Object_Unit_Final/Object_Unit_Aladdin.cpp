@@ -21,6 +21,7 @@
 #define	mCam			Scene::mScene->mCamera
 #define	mObjectStore	Scene::mScene->oObjectStore
 #define isFlip			(mTransform.GetFlip())
+#define hasApple		Scene::mScene->mApple > 0
 
 #define xx mPos.x()
 #define yy mPos.y()
@@ -76,7 +77,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		if (U)						mAni.Set("up", 1);
 		else if (D)					mAni.Set("sit", 1);
 		else if (R || L)			mAni.Set("run", 1);
-		else if (Z) {
+		else if (Z && hasApple) {
 			Z = false;
 			mAni.Set("stand_throwapple", 1, "stand", 1);
 		}
@@ -147,7 +148,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (mPos.y.mVelocity <= 1.1 * +tJump)	mAni.SetCycleIndex(9);
 		else if (mPos.y.mVelocity <= 1.2 * +tJump)	mAni.SetCycleIndex(10);
 
-		if (Z) {
+		if (Z && hasApple) {
 			Z = false;
 			//Scene::mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
@@ -161,15 +162,22 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTimePerFrame = 0.03f;
 		mAutoNextFrame = true;
 		//tIsChangeX = false;
-		if (mAni.GetCycleIndex() == 4) {
-			//((Object_Unit*)((*Scene::mScene)["2"]))->mAutoNextFrame = true;
+		if (mAni.GetCycleIndex() == 1) {
+			tIsThrowApple = false;
+		}
+		else if (mAni.GetCycleIndex() == 4 && !tIsThrowApple) {
+			tIsThrowApple = true;
+			Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Apple(xx, yy - 55, mTransform.GetFlip()));
 		}
 	}
 	else if (state == "jump_cut") {
 		X = false;
 		mTimePerFrame = 0.03f;
 		mAutoNextFrame = true;
-		if (mAni.GetCycleIndex() == 3) {
+		if(mAni.GetCycleIndex() == 1){
+			mIsMakeDamage = false;
+		}
+		if (mAni.GetCycleIndex() == 3 && !mIsMakeDamage) {
 			tUnitDamage = RECT{
 				(LONG)((isFlip) ? (xx - 51) : (xx + 1)),
 				(LONG)(yy - 66),
@@ -177,7 +185,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 				(LONG)(yy - 6)
 			};
 		}
-		else if (mAni.GetCycleIndex() == 7) {
+		else if (mAni.GetCycleIndex() == 7 && !mIsMakeDamage) {
 			tUnitDamage = RECT{
 				(LONG)((isFlip) ? (xx - 50) : (xx)),
 				(LONG)(yy - 70),
@@ -203,7 +211,10 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (D)			mAni.Set("sit", 1);
 		else				mAni.SetNext("stand", 1);
 
-		if (mAni.GetCycleIndex() == 3) {
+		if (mAni.GetCycleIndex() == 1) {
+			mIsMakeDamage = false;
+		}
+		if (mAni.GetCycleIndex() == 3 && !mIsMakeDamage) {
 			tUnitDamage = RECT{
 				(LONG)((isFlip) ? (xx) : (xx - 50)),
 				(LONG)(yy - 60),
@@ -211,7 +222,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 				(LONG)(yy - 26)
 			};
 		}
-		else if (mAni.GetCycleIndex() == 7 || mAni.GetCycleIndex() == 15) {
+		else if ((mAni.GetCycleIndex() == 7 || mAni.GetCycleIndex() == 15) && !mIsMakeDamage) {
 			tUnitDamage = RECT{
 				(LONG)((isFlip) ? (xx - 50) : (xx)),
 				(LONG)(yy - 70),
@@ -224,7 +235,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTimePerFrame = 0.06f;
 		tIsChangeX = false;
 		if (!D)			mAni.Set("sit_to_stand", 1, "stand", 1);
-		else if (Z) {
+		else if (Z && hasApple) {
 			//Scene::mScene->Add("2", new Object_Unit_Apple(xx + 5, yy - 27, mTransform.GetFlip()));
 			mAni.Set("sit_throwapple", 1, "sit", 4);
 		}
@@ -243,7 +254,10 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		X = false;
 		mTimePerFrame = 0.06f;
 		tIsChangeX = false;
-		if (mAni.GetCycleIndex() == 4) {
+		if (mAni.GetCycleIndex() == 1) {
+			mIsMakeDamage = false;
+		}
+		if (mAni.GetCycleIndex() == 4 && !mIsMakeDamage) {
 			tUnitDamage = RECT{
 				(LONG)((isFlip) ? (xx - 68) : (xx - 15)),
 				(LONG)(yy - 25),
@@ -256,9 +270,14 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		Z = false;
 		mTimePerFrame = 0.06f;
 		tIsChangeX = false;
-		if (mAni.GetCycleIndex() == 3) {
-			//((Object_Unit*)((*Scene::mScene)["2"]))->mAutoNextFrame = true;
+		if (mAni.GetCycleIndex() == 1) {
+			tIsThrowApple = false;
 		}
+		else if (mAni.GetCycleIndex() == 3 && !tIsThrowApple) {
+			tIsThrowApple = true;
+			Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Apple(xx, yy - 40, mTransform.GetFlip()));
+		}
+
 	}
 	else if (state == "run") {
 		mTimePerFrame = 0.06f;
@@ -280,7 +299,10 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		X = false;
 		mTimePerFrame = 0.03f;
 		if (!R && !L)	mAni.Set("stand", 1);
-		if (mAni.GetCycleIndex() == 5) {
+		if (mAni.GetCycleIndex() == 1) {
+			mIsMakeDamage = false;
+		}
+		if (mAni.GetCycleIndex() == 5 && !mIsMakeDamage) {
 			tUnitDamage = RECT{
 				(LONG)((isFlip) ? (xx - 54) : (xx + 17)),
 				(LONG)(yy - 60),
@@ -328,7 +350,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mAutoNextFrame = true;
 		tIsChangeX = tIsChangeY = false;
 		if (L || R)			mAni.Set("climb_horizontal", 1);
-		else if (Z) {
+		else if (Z && hasApple) {
 			Z = false;
 			mAni.Set("climb_throwapple", 1, "climb_still", 1);
 		}
@@ -366,14 +388,17 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mPos.y << yy + deltaY;
 		}
 
-		if (Z) {
+		if (Z && hasApple) {
 			Z = false;
 			mAni.Set("climb_throwapple", 1, "climb_vertical", cycleIndex);
 		}
 		else if (X) {
 			X = false;
 			mAni.Set("climb_cut", 1, "climb_vertical", cycleIndex);
-			if (mAni.GetCycleIndex() == 3) {
+			if (mAni.GetCycleIndex() == 1) {
+				mIsMakeDamage = false;
+			}
+			if (mAni.GetCycleIndex() == 3 && !mIsMakeDamage) {
 				tUnitDamage = RECT{
 					(LONG)((isFlip) ? (xx - 45) : (xx - 11)),
 					(LONG)(yy - 99),
@@ -381,7 +406,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 					(LONG)(yy - 49)
 				};
 			}
-			else if (mAni.GetCycleIndex() == 4) {
+			else if (mAni.GetCycleIndex() == 4 && !mIsMakeDamage) {
 				tUnitDamage = RECT{
 					(LONG)((isFlip) ? (xx - 41) : (xx - 37)),
 					(LONG)(yy - 39),
@@ -389,7 +414,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 					(LONG)(yy + 3)
 				};
 			}
-			else if (mAni.GetCycleIndex() == 5) {
+			else if (mAni.GetCycleIndex() == 5 && !mIsMakeDamage) {
 				tUnitDamage = RECT{
 					(LONG)((isFlip) ? (xx - 6) : (xx - 39)),
 					(LONG)(yy - 87),
@@ -397,7 +422,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 					(LONG)(yy - 21)
 				};
 			}
-			else if (mAni.GetCycleIndex() == 6) {
+			else if (mAni.GetCycleIndex() == 6 && !mIsMakeDamage) {
 				tUnitDamage = RECT{
 					(LONG)((isFlip) ? (xx - 37) : (xx - 35)),
 					(LONG)(yy - 73),
@@ -418,7 +443,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		tIsChangeY = false;
 
 		if (!L && !R)			mAni.Set("climb_still", 1);
-		else if (Z) {
+		else if (Z && hasApple) {
 			Z = false;
 			mAni.Set("climb_throwapple", 1, "climb_still", 1);
 		}
@@ -438,6 +463,13 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTimePerFrame = 0.06f;
 		mAutoNextFrame = true;
 		tIsChangeX = tIsChangeY = false;
+		if (mAni.GetCycleIndex() == 1) {
+			tIsThrowApple = false;
+		}
+		else if (mAni.GetCycleIndex() == 4 && !tIsThrowApple) {
+			tIsThrowApple = true;
+			Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Apple(xx, yy - 42, mTransform.GetFlip()));
+		}
 	}
 	else if (state == "climb_jump") {
 		mTimePerFrame = 0.06f;
