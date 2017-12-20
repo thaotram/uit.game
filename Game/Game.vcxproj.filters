@@ -136,6 +136,12 @@
       <Filter>Resource Files\Unit</Filter>
     </None>
     <None Include="Resources\BossJafar.json" />
+    <None Include="Resources\AgrabahMarket_Block.psd" />
+    <None Include="Resources\Aladdin.psd" />
+    <None Include="Resources\JafarPalace_Back.json" />
+    <None Include="Resources\JafarPalace_Block.json" />
+    <None Include="Resources\JafarPalace_Block.psd" />
+    <None Include="Resources\JafarPalace_Front.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -200,6 +206,12 @@
     </Image>
     <Image Include="Resources\EnemyDisappear.png">
       <Filter>Resource Files\Unit</Filter>
+    </Image>
+    <Image Include="Resources\JafarPalace_Back.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\JafarPalace_Front.png">
+      <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

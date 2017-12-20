@@ -122,9 +122,11 @@
     <None Include="Resources\AgrabahMarket_Back.json" />
     <None Include="Resources\AgrabahMarket_Back.psd" />
     <None Include="Resources\AgrabahMarket_Block.json" />
+    <None Include="Resources\AgrabahMarket_Block.psd" />
     <None Include="Resources\AgrabahMarket_Cloud.json" />
     <None Include="Resources\AgrabahMarket_Front.json" />
     <None Include="Resources\Aladdin.json" />
+    <None Include="Resources\Aladdin.psd" />
     <None Include="Resources\block.json" />
     <None Include="Resources\BossJafar.json" />
     <None Include="Resources\Camel.json" />
@@ -135,6 +137,10 @@
     <None Include="Resources\Genie.json" />
     <None Include="Resources\Guards.json" />
     <None Include="Resources\Item.json" />
+    <None Include="Resources\JafarPalace_Back.json" />
+    <None Include="Resources\JafarPalace_Block.json" />
+    <None Include="Resources\JafarPalace_Block.psd" />
+    <None Include="Resources\JafarPalace_Front.json" />
     <None Include="Resources\MagicCarpet.json" />
     <None Include="Resources\Peddler.json" />
     <None Include="Resources\Status.json" />
@@ -158,6 +164,8 @@
     <Image Include="Resources\Guards.png" />
     <Image Include="Resources\Iago.png" />
     <Image Include="Resources\Item.png" />
+    <Image Include="Resources\JafarPalace_Back.png" />
+    <Image Include="Resources\JafarPalace_Front.png" />
     <Image Include="Resources\MagicCarpet.png" />
     <Image Include="Resources\Peddler.png" />
     <Image Include="Resources\Status.png" />

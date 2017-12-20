@@ -17,7 +17,8 @@ void Object_Unit_Enemy_Fat::ObjectGetDame(Object* pObject) {
     mAni.Set("fat_hurt", 1, "fat_eat", 1);
     if (mHealthPoint <= 0) {
         mIsMarkedDelete = true;
-    }
+		Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Disappear(mPos.x() - 3, mPos.y() - 4));
+	}
 }
 
 void Object_Unit_Enemy_Fat::ObjectUpdateEvent(float dt)
@@ -26,13 +27,4 @@ void Object_Unit_Enemy_Fat::ObjectUpdateEvent(float dt)
 
 void Object_Unit_Enemy_Fat::ObjectEachState()
 {
-}
-
-void Object_Unit_Enemy_Fat::ObjectGetDame(Object * pObject)
-{
-	mHealthPoint--;
-	if (mHealthPoint <= 0) {
-		mIsMarkedDelete = true;
-		Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Disappear(mPos.x() -3 , mPos.y() -4 ));
-	}
 }
