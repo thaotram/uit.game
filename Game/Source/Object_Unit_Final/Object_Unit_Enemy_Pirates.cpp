@@ -56,6 +56,7 @@ void Object_Unit_Enemy_Pirates::ObjectEachState()
 void Object_Unit_Enemy_Pirates::ObjectGetDame(Object * pObject)
 {
 	mHealthPoint--;
+	mAni.Set("pirates_hurt", 1, "pirates_defiant", 1);
 	if (mHealthPoint <= 0) {
 		mIsMarkedDelete = true;
 		Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Disappear(mPos.x() - 3, mPos.y() - 4));

@@ -47,6 +47,7 @@ void Object_Unit_Enemy_Thin::ObjectEachState() {
 void Object_Unit_Enemy_Thin::ObjectGetDame(Object * pObject)
 {
 	mHealthPoint--;
+	mAni.Set("thin_hurt", 1, "thin_stand", 1);
 	if (mHealthPoint <= 0) {
 		mIsMarkedDelete = true;
 		Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Disappear(mPos.x() - 3, mPos.y() - 4));
