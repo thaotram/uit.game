@@ -6,13 +6,12 @@ Object_Unit::Object_Unit(string pName) : Object(pName) {
 	mPosition.y.mType = Type::gravity;
 	mAutoNextFrame = true;
 	tUnitDamage = RECT{ 0,0,0,0 };
-	mHealthPoint = 1;
+	mHealthPoint = 2;
 }
 
 void Object_Unit::ObjectUpdateProperties(float delay) {
 	if (mCurrentTime >= mTimePerFrame) {
 		mCurrentTime -= mTimePerFrame;
-		//mJson = Object_Json::GetJson(mName);
 		if (mAutoNextFrame) mAnimation.NextFrame(this);
 	}
 	else mCurrentTime += delay;

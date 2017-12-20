@@ -15,7 +15,7 @@ Object_Unit_Apple::Object_Unit_Apple(float x, float y, bool isFlip)
 	mAni.Set("apple", 2);
 	mTimePerFrame = 0.03f;
 	mAutoNextFrame = false;
-	mIsCollision = false;
+	mIsMakeDamage = false;
 	mFlip = isFlip;
 }
 
@@ -25,7 +25,7 @@ void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
 	tDis = mObjectStore->GetDistance(tUnit, this);
 	Scene::mScene->oObjectStore->ObjectCheckCollision(this);
 
-	if (tDis.bottom == 0 || tDis.left == 0 || tDis.right == 0) {
+	if (tDis.bottom == 0 || tDis.left == 0 || tDis.right == 0 || mIsMakeDamage == true) {
 		mAutoNextFrame = true;
 	}
 	if (!mAutoNextFrame) {

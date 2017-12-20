@@ -5,7 +5,6 @@
 class Object_Unit_Apple final : public Object_Unit {
 private:
     bool mFlip;
-    bool mIsCollision;
 
 public:
     Object_Unit_Apple(float x, float y, bool isFlip);

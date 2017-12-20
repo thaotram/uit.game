@@ -15,11 +15,6 @@ public:
 
 	virtual void ObjectUpdateEvent(float delay) {};
 	virtual void ObjectIntersect(Object * pObject) {};
-	virtual void ObjectGetDame(Object * pObject) {
-		/*mHealthPoint--;
-		if (mHealthPoint <= 0) {
-			mIsMarkedDelete = true;
-		}*/
-	};
+	virtual void ObjectGetDame(Object * pObject) {};
 	void ObjectUpdateProperties(float delay);
 };

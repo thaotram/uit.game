@@ -14,6 +14,14 @@ Object_Unit_Enemy_Circus::Object_Unit_Enemy_Circus(RECT u) : Object_Unit("Civili
 
 Object_Unit_Enemy_Circus::~Object_Unit_Enemy_Circus() {}
 
+void Object_Unit_Enemy_Circus::ObjectUpdateEvent(float dt)
+{
+}
+
+void Object_Unit_Enemy_Circus::ObjectEachState()
+{
+}
+
 void Object_Unit_Enemy_Circus::ObjectGetDame(Object * pObject)
 {
 	mHealthPoint--;
