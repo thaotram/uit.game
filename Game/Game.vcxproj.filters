@@ -126,22 +126,33 @@
       <Filter>Resource Files\Block</Filter>
     </None>
     <None Include="ClassDiagram.cd" />
-    <None Include="Resources\AgrabahMarket_Back.psd">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="Resources\EnemyDisappear.json">
       <Filter>Resource Files\Unit</Filter>
     </None>
     <None Include="Resources\Stick.json">
       <Filter>Resource Files\Unit</Filter>
     </None>
-    <None Include="Resources\BossJafar.json" />
-    <None Include="Resources\AgrabahMarket_Block.psd" />
-    <None Include="Resources\Aladdin.psd" />
-    <None Include="Resources\JafarPalace_Back.json" />
-    <None Include="Resources\JafarPalace_Block.json" />
-    <None Include="Resources\JafarPalace_Block.psd" />
-    <None Include="Resources\JafarPalace_Front.json" />
+    <None Include="Resources\JafarPalace_Back.json">
+      <Filter>Resource Files\Map</Filter>
+    </None>
+    <None Include="Resources\JafarPalace_Front.json">
+      <Filter>Resource Files\Map</Filter>
+    </None>
+    <None Include="Resources\JafarPalace_Block.psd">
+      <Filter>Resource Files\Block</Filter>
+    </None>
+    <None Include="Resources\JafarPalace_Block.json">
+      <Filter>Resource Files\Block</Filter>
+    </None>
+    <None Include="Resources\AgrabahMarket_Block.psd">
+      <Filter>Resource Files\Block</Filter>
+    </None>
+    <None Include="Resources\Aladdin.psd">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
+    <None Include="Resources\BossJafar.json">
+      <Filter>Resource Files\Unit</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -208,10 +219,10 @@
       <Filter>Resource Files\Unit</Filter>
     </Image>
     <Image Include="Resources\JafarPalace_Back.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Map</Filter>
     </Image>
     <Image Include="Resources\JafarPalace_Front.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Map</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -412,8 +423,10 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Jar_Copper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Disappear.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Explosion_Tiny.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Disappear.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -604,10 +617,10 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Jar_Copper.cpp">
       <Filter>Source\Object_Unit\UFO</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Disappear.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Explosion_Tiny.cpp">
+      <Filter>Source\Object_Unit\Explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Disappear.cpp">
       <Filter>Source\Object_Unit\Explosion</Filter>
     </ClCompile>
   </ItemGroup>

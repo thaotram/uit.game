@@ -69,19 +69,19 @@ void Scene_ObjectStore::ObjectCheckCollisionEach(
 	for (auto &unit : *pList) {
 		if (unit.second != NULL) {
 			auto player_bound = pPlayer->GetBound();
-			auto player_dame = pPlayer->tUnitDamage;
+			auto player_damage = pPlayer->tUnitDamage;
 			auto object_bound = unit.second->GetBound();
-			auto object_dame = unit.second->tUnitDamage;
+			auto object_damage = unit.second->tUnitDamage;
 
 			if (isIntersect(player_bound, object_bound)) {
 				unit.second->ObjectIntersect(pPlayer);
 			}
 			if (pPlayer->mParty != unit.second->mParty) {
-				if (isIntersect(player_dame, object_bound) && !pPlayer->mIsMakeDamage) {
+				if (isIntersect(player_damage, object_bound) && !pPlayer->mIsMakeDamage) {
 					unit.second->ObjectGetDame(pPlayer);
 					//pPlayer->mIsMakeDamage = true;
 				}
-				if (isIntersect(player_bound, object_dame)) {
+				if (isIntersect(player_bound, object_damage)) {
 					pPlayer->ObjectGetDame(pPlayer);
 				}
 			}
@@ -90,6 +90,14 @@ void Scene_ObjectStore::ObjectCheckCollisionEach(
 }
 void Scene_ObjectStore::ObjectCheckCollision(Object *pObject) {
 	EachObject(Object_CheckCollision);
+}
+
+void Scene_ObjectStore::ObjectCheckCollisionWithPlayer(Object * pObject) {
+	auto unit_damage = pObject->tUnitDamage;
+	auto player_bound = Scene::mScene->oPlayer->GetBound();
+	if (isIntersect(player_bound, unit_damage)) {
+		Scene::mScene->oPlayer->ObjectGetDame(pObject);
+	}
 }
 
 //# Tính toán khoảng cách

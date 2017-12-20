@@ -71,6 +71,7 @@ public:
 
 	void 				ObjectCheckCollision(Object * pObject);
 	void 				ObjectCheckCollisionEach(Object * pObject, list<pair<RECT, Object *>> * pList);
+	void 				ObjectCheckCollisionWithPlayer(Object * pObject);
 
 	RECT				GetDistance(RECT u, Object * pUnit);
 	void				UpdateStairState(RECT u);
