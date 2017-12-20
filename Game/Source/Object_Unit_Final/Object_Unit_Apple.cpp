@@ -17,6 +17,7 @@ Object_Unit_Apple::Object_Unit_Apple(float x, float y, bool isFlip)
     mAutoNextFrame = false;
     mIsMakeDamage = false;
     mFlip = isFlip;
+	Scene::mScene->mApple = max(Scene::mScene->mApple-1,0);
 }
 
 void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
