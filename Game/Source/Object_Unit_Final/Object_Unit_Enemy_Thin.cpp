@@ -43,3 +43,11 @@ void Object_Unit_Enemy_Thin::ObjectEachState() {
 		}
 	}
 }
+
+void Object_Unit_Enemy_Thin::ObjectGetDame(Object * pObject)
+{
+	mHealthPoint--;
+	if (mHealthPoint <= 0) {
+		mIsMarkedDelete = true;
+	}
+}

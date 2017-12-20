@@ -10,5 +10,5 @@ public:
 	~Object_Unit_Enemy_Thin();
 	void ObjectUpdateEvent(float dt);
 	void ObjectEachState();
+	void ObjectGetDame(Object * pObject);
 };
-

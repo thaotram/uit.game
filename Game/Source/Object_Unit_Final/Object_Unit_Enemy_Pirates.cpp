@@ -12,7 +12,7 @@
 Object_Unit_Enemy_Pirates::Object_Unit_Enemy_Pirates(RECT u) : Object_Unit("Guards")
 {
 	mPos.x << (float)(u.left + u.right) / 2;
-	mPos.y << (float)(u.top); 	
+	mPos.y << (float)(u.top);
 	mAni.Set("pirates_defiant", 1);
 
 }
@@ -50,5 +50,13 @@ void Object_Unit_Enemy_Pirates::ObjectEachState()
 				(LONG)(yy - 25)
 			};
 		}
+	}
+}
+
+void Object_Unit_Enemy_Pirates::ObjectGetDame(Object * pObject)
+{
+	mHealthPoint--;
+	if (mHealthPoint <= 0) {
+		mIsMarkedDelete = true;
 	}
 }
