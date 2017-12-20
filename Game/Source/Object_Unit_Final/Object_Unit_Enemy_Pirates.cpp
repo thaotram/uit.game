@@ -2,9 +2,12 @@
 #define mAni	mAnimation
 #define mPos	mPosition
 #define	mObjectStore	Scene::mScene->oObjectStore
+#define isFlip			(mTransform.GetFlip())
 
 #define xx mPos.x()
 #define yy mPos.y()
+
+#define state	mAni.GetState()
 
 Object_Unit_Enemy_Pirates::Object_Unit_Enemy_Pirates(RECT u) : Object_Unit("Guards")
 {
@@ -16,4 +19,36 @@ Object_Unit_Enemy_Pirates::Object_Unit_Enemy_Pirates(RECT u) : Object_Unit("Guar
 
 Object_Unit_Enemy_Pirates::~Object_Unit_Enemy_Pirates()
 {
+}
+
+void Object_Unit_Enemy_Pirates::ObjectUpdateEvent(float dt)
+{
+	ObjectEachState();
+}
+
+void Object_Unit_Enemy_Pirates::ObjectEachState()
+{
+	if (state == "") {
+		mAni.Set("pirates_defiant", 1);
+	}
+	else if (state == "pirates_poke") {
+		if (mAni.GetCycleIndex() == 6) {
+			tUnitDamage = RECT{
+				(LONG)((isFlip) ? (xx + 75) : (xx - 18)),
+				(LONG)(yy - 23),
+				(LONG)((isFlip) ? (xx + 18) : (xx - 75)),
+				(LONG)(yy - 10)
+			};
+		}
+	}
+	else if (state == "pirates_cut") {
+		if (mAni.GetCycleIndex() == 4) {
+			tUnitDamage = RECT{
+				(LONG)((isFlip) ? (xx - 27) : (xx - 83)),
+				(LONG)(yy - 52),
+				(LONG)((isFlip) ? (xx + 83) : (xx + 27)),
+				(LONG)(yy - 25)
+			};
+		}
+	}
 }
