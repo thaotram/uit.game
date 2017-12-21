@@ -582,6 +582,6 @@ void Object_Unit_Aladdin::ObjectCheckCollision() {
 
 void Object_Unit_Aladdin::ObjectGetDame(Object * pObject) {
 	if (Scene::mBlood == 0) {
-
+		GameDebug::Title("kill");
 	} else Scene::mBlood--;
 }
