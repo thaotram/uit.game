@@ -12,6 +12,7 @@ Scene * Scene::mScene = NULL;
 
 //! Static Public
 void Scene::ReplaceScene(Scene * pScene) {
+	delete mScene;
 	mScene = pScene;
 }
 

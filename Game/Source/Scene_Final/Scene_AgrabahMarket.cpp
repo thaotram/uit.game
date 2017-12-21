@@ -41,7 +41,7 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
     oObjectStore = new Scene_ObjectStore("AgrabahMarket_Block");
 
     //# Unit
-    oPlayer = new Object_Unit_Aladdin();
+    oPlayer = new Object_Unit_Aladdin(50,50);
     oMapBack = new Object_Map_AgrabahMarket_Back();
     oMapFront = new Object_Map_AgrabahMarket_Front();
 

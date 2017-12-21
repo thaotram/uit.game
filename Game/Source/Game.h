@@ -8,8 +8,6 @@
 #include "../Define.h"
 
 class Game {
-private: 
-	Scene * mScene;
 public:
 	Game();
 	~Game();

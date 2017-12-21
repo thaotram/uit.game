@@ -11,14 +11,14 @@
 Object_Unit_Jar_Copper::Object_Unit_Jar_Copper(float x, float y)
 	: Object_Unit("CivilianEnemies") {
 	mPos << V2{ x, y };
+	mPos.x.mVelocity = 30;
 	mAni.Set("jar_copper_fall", 1);
+
 	mTimePerFrame = 0.03f;
 	mAutoNextFrame = true;
 	mIsCollision = false;
-	mPos.x.mVelocity = 30;
-	mParty = Enemy;
-
 	mIsMakeDamage = false;
+	mParty = Enemy;
 }
 
 void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
@@ -29,13 +29,11 @@ void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
 		(LONG)xx + 14,
 		(LONG)yy
 	};
-	tUnitDamage = GetBound();
 	tDis = mObjectStore->GetDistance(tUnit, this);
-	Scene::mScene->oObjectStore->ObjectCheckCollisionWithPlayer(this);
-
 	if (mAni.GetState() == "jar_copper_fall") {
 		mPos.x += mPos.x.mVelocity*dt;
 		mPos.y = yy + tDis.bottom;
+		tUnitDamage = GetBound();
 		mPos.Update(dt);
 		if (tDis.bottom == 0) {
 			mAni.Set("jar_copper_break", 1);
@@ -46,4 +44,5 @@ void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
 			mIsMarkedDelete = true;
 		}
 	}
+	Scene::mScene->oObjectStore->ObjectCheckCollisionWithPlayer(this);
 }

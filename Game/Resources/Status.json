@@ -68,7 +68,7 @@
 			}
 		},
 		"health_meter_8": {
-			"basePoint": [0, 0],
+			"basePoint": [0, 12],
 			"frameCycle": [1, 2, -1],
 			"frame": {
 				"1": [2, 55, 71, 16, 0, 0],
@@ -76,7 +76,7 @@
 			}
 		},
 		"health_meter_7": {
-			"basePoint": [0, 0],
+			"basePoint": [0, 12],
 			"frameCycle": [1, 2, -1],
 			"frame": {
 				"1": [76, 55, 63, 16, 0, 0],
@@ -84,7 +84,7 @@
 			}
 		},
 		"health_meter_6": {
-			"basePoint": [0, 0],
+			"basePoint": [0, 12],
 			"frameCycle": [1, 2, -1],
 			"frame": {
 				"1": [141, 55, 56, 15, 0, 0],
@@ -92,7 +92,7 @@
 			}
 		},
 		"health_meter_5": {
-			"basePoint": [0, 0],
+			"basePoint": [0, 12],
 			"frameCycle": [1, 2, -1],
 			"frame": {
 				"1": [199, 55, 48, 15, 0, 0],
@@ -100,15 +100,15 @@
 			}
 		},
 		"health_meter_4": {
-			"basePoint": [0, 0],
+			"basePoint": [0, 12],
 			"frameCycle": [1, 2, -1],
 			"frame": {
-				"1": [248, 55, 40, 16, 0, 0],
-				"2": [248, 73, 41, 15, 0, 0]
+				"1": [249, 55, 39, 16, 0, 0],
+				"2": [249, 73, 40, 15, 0, 0]
 			}
 		},
 		"health_meter_3": {
-			"basePoint": [0, 0],
+			"basePoint": [0, 12],
 			"frameCycle": [1, 2, -1],
 			"frame": {
 				"1": [290, 55, 31, 15, 0, 0],
@@ -116,7 +116,7 @@
 			}
 		},
 		"health_meter_2": {
-			"basePoint": [0, 0],
+			"basePoint": [0, 12],
 			"frameCycle": [1, 2, -1],
 			"frame": {
 				"1": [323, 55, 24, 15, 0, 0],
@@ -124,18 +124,18 @@
 			}
 		},
 		"health_meter_1": {
-			"basePoint": [0, 0],
+			"basePoint": [0, 9],
 			"frameCycle": [1, 2, -1],
 			"frame": {
 				"1": [349, 58, 16, 12, 0, 0],
 				"2": [349, 76, 15, 12, 0, 0]
 			}
 		},
-		"health_meter_0":{
+		"health_meter_0": {
 			"basePoint": [0, 0],
 			"frameCycle": [1, -1],
 			"frame": {
-				"1": [0,0,0,0,0,0]
+				"1": [0, 0, 0, 0, 0, 0]
 			}
 		}
 	}

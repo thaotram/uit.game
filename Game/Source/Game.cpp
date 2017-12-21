@@ -7,11 +7,10 @@ Game::Game() {
 	mDevice = GameGlobal::GetDevice();
 
 	//# Game Start
+	// new Scene_AgrabahMarket()
 	Scene::ReplaceScene(
-		new Scene_AgrabahMarket()
+		new Scene_JafarPalace()
 	);
-	mScene = Scene::mScene;
-
 	InitLoop();
 }
 Game::~Game() {}
@@ -69,7 +68,7 @@ void Game::GameRender(float delay) {
 	mDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
 	mDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
 	// Render
-	mScene->SceneRender(delay);
+	Scene::mScene->SceneRender(delay);
 
 	// End
 	mSpriteHandler->End();

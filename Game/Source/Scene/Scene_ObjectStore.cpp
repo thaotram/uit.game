@@ -79,7 +79,7 @@ void Scene_ObjectStore::ObjectCheckCollisionEach(
 			if (pPlayer->mParty != unit.second->mParty) {
 				if (isIntersect(player_damage, object_bound) && !pPlayer->mIsMakeDamage) {
 					unit.second->ObjectGetDame(pPlayer);
-					//pPlayer->mIsMakeDamage = true;
+					pPlayer->mIsMakeDamage = true;
 				}
 				if (isIntersect(player_bound, object_damage)) {
 					pPlayer->ObjectGetDame(pPlayer);
@@ -95,8 +95,9 @@ void Scene_ObjectStore::ObjectCheckCollision(Object *pObject) {
 void Scene_ObjectStore::ObjectCheckCollisionWithPlayer(Object * pObject) {
 	auto unit_damage = pObject->tUnitDamage;
 	auto player_bound = Scene::mScene->oPlayer->GetBound();
-	if (isIntersect(player_bound, unit_damage)) {
+	if (isIntersect(player_bound, unit_damage) && !pObject->mIsMakeDamage) {
 		Scene::mScene->oPlayer->ObjectGetDame(pObject);
+		pObject->mIsMakeDamage = true;
 	}
 }
 

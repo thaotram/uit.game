@@ -10,14 +10,14 @@ private:
 	bool tIsThrowApple;
 	float tSpeedX, tSpeedY, tJump, tDt;
 
-	pair<bool, RECT> 
-		tBar, 
+	pair<bool, RECT>
+		tBar,
 		tRope,
 		tDropBlock;
 	pair<bool, pair<RECT, Object *> *> tStick;
 	pair<bool, pair<RECT, Object *> *> tCamel;
 public:
-	Object_Unit_Aladdin();
+	Object_Unit_Aladdin(float x, float y);
 	~Object_Unit_Aladdin() {};
 
 	bool mIsOnDropBlock;
