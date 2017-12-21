@@ -17,12 +17,12 @@ public:
 
     Vector mCamera;
 
-    Scene_Background*   oBackground;
-    Scene_ObjectStore*  oObjectStore;
-    Object*             oPlayer;
-    Object*             oMapBack;
-    Object*             oMapFront;
-    Scene_Status*       oStatus;
+    static Object*          oPlayer;
+    static Scene_Status*    oStatus;
+    Scene_Background*       oBackground;
+    Scene_ObjectStore*      oObjectStore;
+    Object*                 oMapBack;
+    Object*                 oMapFront;
 
     //# Status Value
     int mBlood;

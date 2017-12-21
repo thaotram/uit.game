@@ -553,6 +553,7 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	Scene::mScene->oObjectStore->UpdateStairState(tUnit);
 }
 void Object_Unit_Aladdin::ObjectCheckCollision() {
+	tUnit = GetBound();
 	mSourceRect.Update(this);
 	Scene::mScene->oObjectStore->ObjectCheckCollision(this);
 }

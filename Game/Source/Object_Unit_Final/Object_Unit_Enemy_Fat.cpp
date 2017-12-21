@@ -47,10 +47,10 @@ void Object_Unit_Enemy_Fat::ObjectEachState()
 			mAni.Set("fat_eat", 1);
 		}
 		else if (xx < mLimit.left) {
-			mPos.x = mLimit.left;
+			mPos.x = (float)mLimit.left;
 		}
 		else if (xx > mLimit.right) {
-			mPos.x = mLimit.right;
+			mPos.x = (float)mLimit.right;
 		}
 	}
 }
