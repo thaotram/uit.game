@@ -4,6 +4,8 @@
 #include "../GameDebug.h"
 
 class Object_Unit_Enemy_Fat final : public Object_Unit {
+private:
+	RECT mLimit;
 public:
 	Object_Unit_Enemy_Fat(RECT u);
 	void ObjectUpdateEvent(float dt);
