@@ -557,7 +557,7 @@ void Object_Unit_Aladdin::ObjectCheckCollision() {
 	mSourceRect.Update(this);
 	Scene::mScene->oObjectStore->ObjectCheckCollision(this);
 }
-
+	
 void Object_Unit_Aladdin::ObjectGetDame(Object * pObject) {
 	Scene::mScene->mBlood--;
 }

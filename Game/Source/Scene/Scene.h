@@ -17,8 +17,8 @@ public:
 
     Vector mCamera;
 
-    static Object*          oPlayer;
-    static Scene_Status*    oStatus;
+    Object*          oPlayer;
+    Scene_Status*    oStatus;
     Scene_Background*       oBackground;
     Scene_ObjectStore*      oObjectStore;
     Object*                 oMapBack;
