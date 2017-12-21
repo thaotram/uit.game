@@ -7,9 +7,9 @@ Game::Game() {
 	mDevice = GameGlobal::GetDevice();
 
 	//# Game Start
-	// new Scene_AgrabahMarket()
 	Scene::ReplaceScene(
-		new Scene_JafarPalace()
+		new Scene_AgrabahMarket()
+		// new Scene_JafarPalace()
 	);
 	InitLoop();
 }

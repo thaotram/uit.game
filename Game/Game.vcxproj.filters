@@ -72,6 +72,9 @@
     <Filter Include="Source\Object_Unit\Explosion">
       <UniqueIdentifier>{47119a5c-acae-4f06-9223-581dbdcfafce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Scene\Scene_Status">
+      <UniqueIdentifier>{ac9b0eee-4ee3-4c7c-aa46-d8918bcde59e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -286,9 +289,6 @@
     <ClInclude Include="Source\Utility\Float_Easing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene\Scene_Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -429,6 +429,9 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Disappear.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Scene\Scene_Status.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -481,9 +484,6 @@
     </ClCompile>
     <ClCompile Include="Source\Utility\Float_Easing.cpp">
       <Filter>Source\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\Scene_Camera.cpp">
-      <Filter>Source\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.cpp">
       <Filter>Source\Object_Map</Filter>
@@ -622,6 +622,9 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Disappear.cpp">
       <Filter>Source\Object_Unit\Explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\Scene_Status.cpp">
+      <Filter>Source\Scene\Scene_Status</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
