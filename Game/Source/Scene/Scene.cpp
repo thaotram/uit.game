@@ -5,10 +5,7 @@ int Scene::mBlood = 7;
 int Scene::mApple = 0;
 int Scene::mSpendthese = 0;
 int Scene::mExtrahealth = 0;
-Float_Easing Scene::mScore = Float_Easing(123);
-//Scene::mScore->
-//mScore.mType = Type::linear;
-//mScore.mVelocity = 300;
+Float_Easing Scene::mScore = *(new Float_Easing(0, Type::linear, 300));
 
 #define UpdateIf(object) if(object) object->ObjectUpdateEvent(delay);
 #define RenderIf(object) if(object) object->ObjectRender(delay);
@@ -34,7 +31,7 @@ Scene::~Scene() {
 
 void Scene::SceneRender(float delay) {
     //# Update Easing
-	mScore.Update(delay);
+	Scene::mScore.Update(delay);
     
     //# Update Event
 	UpdateIf(oPlayer);

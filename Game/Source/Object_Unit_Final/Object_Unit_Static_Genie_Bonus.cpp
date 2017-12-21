@@ -20,7 +20,7 @@ void Object_Unit_Static_Genie_Bonus::ObjectUpdateEvent(float dt)
 
 void Object_Unit_Static_Genie_Bonus::ObjectIntersect(Object * pObject)
 {
-	Scene::mScene->mScore += 250;
+	Scene::mScore += 250;
 	mIsMarkedDelete = true;
 	Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Explosion_Small(mPos.x()+19, mPos.y()+25));
 }

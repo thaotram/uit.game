@@ -7,6 +7,12 @@ Float_Easing::Float_Easing() {
 	mType = Type::none;
 	mNow = 0;
 }
+Float_Easing::Float_Easing(float pStart, Type pType, float pVelocity) {
+	mVelocity = pVelocity;
+	mEase = Ease::stop;
+	mType = pType;
+	operator<<(pStart);
+}
 void Float_Easing::operator<<(float pValue) {
 	mNow = mLast = pValue;
 }

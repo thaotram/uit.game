@@ -244,4 +244,7 @@ void Scene_ObjectStore::UpdateStairState(RECT u) {
 	else if (maxLeft <= unitMid && unitMid <= maxRight) {
 		mStairsStateOld = mStairsState;
 	}
+	else if(unitMid > maxRight && u.bottom == 664) {
+		mStairsState = Bot;
+	}
 }

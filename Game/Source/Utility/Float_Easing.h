@@ -16,7 +16,7 @@ private:
 		mBack, mNext, mNow, mLast;
 public:
 	Float_Easing();
-	Float_Easing(float pStart) {};
+	Float_Easing(float pStart, Type pType, float pVelocity);
 	Ease	mEase, mNextEase;
 	Type	mType;
 
