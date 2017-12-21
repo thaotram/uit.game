@@ -1,6 +1,10 @@
 ﻿#include "Scene.h"
 Scene* Scene::mScene = NULL;
 
+#define UpdateIf(object) if(object) object->ObjectUpdateEvent(delay);
+#define RenderIf(object) if(object) object->ObjectRender(delay);
+
+
 //! Static Public
 void Scene::ReplaceScene(Scene* pScene) {
     delete mScene;
@@ -18,18 +22,8 @@ Scene::Scene() {
     mScore.mVelocity = 300;
 
     //# Status
-
 	oStatus = new Scene_Status();
     oBackground = new Scene_Background();
-    // oSand_1 = new Object_Status_Cloud(Sand1);
-    // oSand_2 = new Object_Status_Cloud(Sand2);
-    // oSand_3 = new Object_Status_Cloud(Sand3);
-    // oSand_4 = new Object_Status_Cloud(Sand4);
-    // oSand_5 = new Object_Status_Cloud(Sand5);
-    // oCloud_1 = new Object_Status_Cloud(Cloud1);
-    // oCloud_2 = new Object_Status_Cloud(Cloud2);
-    // oCloud_3 = new Object_Status_Cloud(Cloud3);
-    // oCloud_4 = new Object_Status_Cloud(Cloud4);
 }
 Scene::~Scene() {
     delete oObjectStore;
@@ -43,23 +37,23 @@ void Scene::SceneRender(float delay) {
 	mScore.Update(delay);
     
     //# Update Event
-    oBackground->ObjectUpdateEvent(delay);
-	oPlayer->ObjectUpdateEvent(delay);
-    oObjectStore->ObjectUpdateEvent(delay);
-    oMapBack->ObjectUpdateEvent(delay);
-	if(oMapFront) oMapFront->ObjectUpdateEvent(delay);
-	oStatus->ObjectUpdateEvent(delay);
+	UpdateIf(oPlayer);
+	UpdateIf(oObjectStore);
+    UpdateIf(oMapBack);
+    UpdateIf(oMapFront);
+	UpdateIf(oStatus);
+    UpdateIf(oBackground);
 
     //# Remove item in RemoveList
     oObjectStore->ObjectRemoveMarkedDelete();
 
 	//# Render
-    oBackground->ObjectRender(delay);
-    oMapBack->ObjectRender(delay);
-    oObjectStore->ObjectRender(delay);
-    oPlayer->ObjectRender(delay);
-    if(oMapFront) oMapFront->ObjectRender(delay);
-	oStatus->ObjectRender(delay);
+	RenderIf(oBackground);
+	RenderIf(oMapBack);
+	RenderIf(oObjectStore);
+	RenderIf(oPlayer);
+	RenderIf(oMapFront);
+	RenderIf(oStatus);
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}
