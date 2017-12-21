@@ -2,45 +2,22 @@
 
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Back.h"
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Front.h"
-
 #include "../Object_Unit_Final/Object_Unit_Aladdin.h"
-
-#include "../Object_Unit_Final/Object_Unit_Static_Abubonus.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Apple.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Black_Magic_Lamp.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Block_Drop.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Extra_Health.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Genie_Bonus.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Restart_Point.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Spend_These.h"
-#include "../Object_Unit_Final/Object_Unit_Static_Stick.h"
-
-#include "../Object_Unit_Final/Object_Unit_Enemy_Assassin.h"
-#include "../Object_Unit_Final/Object_Unit_Enemy_Circus.h"
-#include "../Object_Unit_Final/Object_Unit_Enemy_Fat.h"
-#include "../Object_Unit_Final/Object_Unit_Enemy_Pirates.h"
-#include "../Object_Unit_Final/Object_Unit_Enemy_Straw.h"
-#include "../Object_Unit_Final/Object_Unit_Enemy_Thin.h"
-#include "../Object_Unit_Final/Object_Unit_NPC_Camel.h"
-#include "../Object_Unit_Final/Object_Unit_NPC_Peddler.h"
-#include "../Object_Unit_Final/Object_Unit_NPC_Stall.h"
-
+#include "../Object_Status_Final/Object_Status_Cloud.h"
 #include "../../Define.h"
 
-#define Add_(type, name)                              \
-for(auto &b                                           \
-        : oObjectStore->m##type##name) {              \
-        Add(new Object_Unit_##type##name(*&b.first)); \
-}
-
-#define Add_Static(name) Add_(Static_, name)
-#define Add_Enemy(name) Add_(Enemy_, name)
-#define Add_NPC(name) Add_(NPC_, name)
-
 Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
+	*oBackground << new Object_Status_Cloud(Cloud1);
+	*oBackground << new Object_Status_Cloud(Cloud2);
+	*oBackground << new Object_Status_Cloud(Cloud3);
+	*oBackground << new Object_Status_Cloud(Cloud4);
+	*oBackground << new Object_Status_Cloud(Sand1);
+	*oBackground << new Object_Status_Cloud(Sand2);
+	*oBackground << new Object_Status_Cloud(Sand3);
+	*oBackground << new Object_Status_Cloud(Sand4);
+	*oBackground << new Object_Status_Cloud(Sand5);
+    
     oObjectStore = new Scene_ObjectStore("AgrabahMarket_Block");
-
-    //# Unit
     oPlayer = new Object_Unit_Aladdin(50,50);
     oMapBack = new Object_Map_AgrabahMarket_Back();
     oMapFront = new Object_Map_AgrabahMarket_Front();

@@ -1,8 +1,6 @@
 #pragma once
 #include <list>
-//#include "../Object/Object.h"
 using namespace std;
-
 class Object;
 class Scene_Status : public list<Object *> {
 private:

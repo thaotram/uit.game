@@ -5,6 +5,7 @@
 #include "../Object/Object.h"
 #include "../Scene/Scene_ObjectStore.h"
 #include "../Scene/Scene_Status.h"
+#include "../Scene/Scene_Background.h"
 #include "../Utility/Float_Easing.h"
 
 using namespace std;
@@ -16,43 +17,12 @@ public:
 
     Vector mCamera;
 
-    //# Object
-    Scene_ObjectStore* oObjectStore;
-
-    Object* oPlayer;
-    Object* oMapBack;
-    Object* oMapFront;
-
-    //# Status
-    Scene_Status* oStatus;
-
-    // Object * oMagicLamp;
-    // Object * oHealthMeter;
-
-    // Object * oSpendthese;
-    // Object * oNspendthese;
-
-    // Object * oLife;
-    // Object * oNLife;
-
-    // Object * oApple;
-    // Object * oN_Apple_u;
-    // Object * oN_Apple_t;
-
-    // Object * oScore_1;
-    // Object * oScore_2;
-    // Object * oScore_3;
-    // Object * oScore_4;
-
-    // Object* oSand_1;
-    // Object* oSand_2;
-    // Object* oSand_3;
-    // Object* oSand_4;
-    // Object* oSand_5;
-    // Object* oCloud_1;
-    // Object* oCloud_2;
-    // Object* oCloud_3;
-    // Object* oCloud_4;
+    Scene_Background*   oBackground;
+    Scene_ObjectStore*  oObjectStore;
+    Object*             oPlayer;
+    Object*             oMapBack;
+    Object*             oMapFront;
+    Scene_Status*       oStatus;
 
     //# Status Value
     int mBlood;

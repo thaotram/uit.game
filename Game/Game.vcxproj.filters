@@ -396,9 +396,6 @@
     <ClInclude Include="Source\Object_Map_Final\Object_Map_JafarPalace_Back.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Map_Final\Object_Map_JafarPalace_Front.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Cloud.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -432,6 +429,7 @@
     <ClInclude Include="Source\Scene\Scene_Status.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Scene\Scene_Background.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -596,9 +594,6 @@
     <ClCompile Include="Source\Object_Map_Final\Object_Map_JafarPalace_Back.cpp">
       <Filter>Source\Object_Map</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Map_Final\Object_Map_JafarPalace_Front.cpp">
-      <Filter>Source\Object_Map</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Stall.cpp">
       <Filter>Source\Object_Unit\NPC</Filter>
     </ClCompile>
@@ -625,6 +620,9 @@
     </ClCompile>
     <ClCompile Include="Source\Scene\Scene_Status.cpp">
       <Filter>Source\Scene\Scene_Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\Scene_Background.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

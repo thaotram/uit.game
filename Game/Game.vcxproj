@@ -172,13 +172,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Scene\Scene_Background.h" />
     <ClInclude Include="Source\Scene\Scene_Status.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Explosion_Tiny.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Jar_Copper.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Disappear.h" />
     <ClInclude Include="Source\Scene_Final\Scene_JafarPalace.h" />
     <ClInclude Include="Source\Object_Map_Final\Object_Map_JafarPalace_Back.h" />
-    <ClInclude Include="Source\Object_Map_Final\Object_Map_JafarPalace_Front.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Savila.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Explosion_Twinkle.h" />
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Cloud.h" />
@@ -239,13 +239,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Define.cpp" />
+    <ClCompile Include="Source\Scene\Scene_Background.cpp" />
     <ClCompile Include="Source\Scene\Scene_Status.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Explosion_Tiny.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Disappear.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Jar_Copper.cpp" />
     <ClCompile Include="Source\Scene_Final\Scene_JafarPalace.cpp" />
     <ClCompile Include="Source\Object_Map_Final\Object_Map_JafarPalace_Back.cpp" />
-    <ClCompile Include="Source\Object_Map_Final\Object_Map_JafarPalace_Front.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Savila.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Explosion_Twinkle.cpp" />
     <ClCompile Include="Source\Object_Status_Final\Object_Status_Cloud.cpp" />
