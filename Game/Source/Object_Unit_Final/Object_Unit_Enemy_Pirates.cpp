@@ -23,6 +23,12 @@ Object_Unit_Enemy_Pirates::~Object_Unit_Enemy_Pirates()
 
 void Object_Unit_Enemy_Pirates::ObjectUpdateEvent(float dt)
 {
+	tUnit = RECT{
+		(LONG)xx - 11,
+		(LONG)yy - 52,
+		(LONG)xx + 11,
+		(LONG)yy
+	};
 	ObjectEachState();
 }
 
