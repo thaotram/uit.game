@@ -121,6 +121,11 @@ RECT Scene_ObjectStore::GetDistance(RECT u, Object *pUnit) {
 	for (auto &b : top_bottom) Check_Squares(top, bottom);
 	Clear_Filter();
 
+	//# Horizontal
+	Filter_Ground_LeftRight(Horizontal);
+	for (auto &b : top_bottom) Check_Squares(top, bottom);
+	Clear_Filter();
+
 	// Chỉ tỉnh toán bottom, không quan tâm các thể loại khác
 	//# Stairs Slash
 	Filter_Ground(Stairs_slash);

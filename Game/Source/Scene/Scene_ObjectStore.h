@@ -25,6 +25,7 @@ private:
 	list<RECT> mRope;
 	list<RECT> mBar;
 	list<RECT> mSquare;
+	list<RECT> mHorizontal;
 	list<RECT> mStairs_slash;
 	list<RECT> mStairs_backslash;
 			   
