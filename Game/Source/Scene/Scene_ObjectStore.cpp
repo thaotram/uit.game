@@ -74,8 +74,8 @@ void Scene_ObjectStore::ObjectCheckCollisionEach(
 			auto object_damage = unit.second->tUnitDamage;
 
 			// Chữa cháy - Nếu player hoặc unit chưa được set giá trị cho tUnit thì xài cái bound của nó
-			if(player_bound.top == 0) player_bound = pPlayer->GetBound();
-			if(object_bound.top == 0) object_bound = unit.second->GetBound();
+			//if(player_bound.top == 0) player_bound = pPlayer->GetBound();
+			//if(object_bound.top == 0) object_bound = unit.second->GetBound();
 
 			if (isIntersect(player_bound, object_bound)) {
 				unit.second->ObjectIntersect(pPlayer);

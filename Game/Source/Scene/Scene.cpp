@@ -23,6 +23,7 @@ Scene::Scene() {
 
     //# Status
 	oStatus = new Scene_Status();
+	//oPlater 
     oBackground = new Scene_Background();
 }
 Scene::~Scene() {
