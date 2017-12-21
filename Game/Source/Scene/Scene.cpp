@@ -74,7 +74,7 @@ void Scene::SceneRender(float delay) {
     oObjectStore->ObjectUpdateEvent(delay);
     oMapBack->ObjectUpdateEvent(delay);
     oMapFront->ObjectUpdateEvent(delay);
-	// oStatus->ObjectUpdateEvent(delay);
+	oStatus->ObjectUpdateEvent(delay);
 
     // oSand_1->ObjectUpdateEvent(delay);
     // oSand_2->ObjectUpdateEvent(delay);
@@ -104,7 +104,7 @@ void Scene::SceneRender(float delay) {
     oObjectStore->ObjectRender(delay);
     oPlayer->ObjectRender(delay);
     oMapFront->ObjectRender(delay);
-	// oStatus->ObjectRender(delay);
+	oStatus->ObjectRender(delay);
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}

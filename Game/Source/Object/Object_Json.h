@@ -3,9 +3,9 @@
 #include <d3dx9.h>
 #include <iostream>
 #include <fstream>
-#include <map>
-#include <list>
 #include <vector>
+#include <list>
+#include <map>
 
 #include <json.hpp>
 #include "Object_Animation.h"
