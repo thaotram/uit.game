@@ -26,6 +26,7 @@ void Object_Unit_Static_Block_Drop::ObjectUpdateEvent(float dt) {
 			NewBlock();
 		}
 	}
+	tUnit = GetBound();
 }
 
 void Object_Unit_Static_Block_Drop::ObjectIntersect(Object * pObject){
