@@ -25,11 +25,11 @@ public:
     Object*                 oMapFront;
 
     //# Status Value
-    int mBlood;
-    int mApple;
-    int mSpendthese;
-    int mExtrahealth;
-    Float_Easing mScore;
+    static int mBlood;
+	static int mApple;
+	static int mSpendthese;
+	static int mExtrahealth;
+	static Float_Easing mScore;
 
     void SceneRender(float delay);
 

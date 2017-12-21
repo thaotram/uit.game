@@ -6,6 +6,7 @@ Object_Unit_Static_Spend_These::Object_Unit_Static_Spend_These(RECT u) : Object_
 	mPos.y << (float)(u.top);
 	mAni.Set("spendthese_item", 1);
 	mAutoNextFrame = true;
+	mSourceRect.Update(this);
 	tUnit = GetBound();
 }
 

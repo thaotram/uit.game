@@ -1,6 +1,15 @@
 ﻿#include "Scene.h"
 Scene* Scene::mScene = NULL;
 
+int Scene::mBlood = 7;
+int Scene::mApple = 0;
+int Scene::mSpendthese = 0;
+int Scene::mExtrahealth = 0;
+Float_Easing Scene::mScore = Float_Easing(123);
+//Scene::mScore->
+//mScore.mType = Type::linear;
+//mScore.mVelocity = 300;
+
 #define UpdateIf(object) if(object) object->ObjectUpdateEvent(delay);
 #define RenderIf(object) if(object) object->ObjectRender(delay);
 
@@ -13,17 +22,7 @@ void Scene::ReplaceScene(Scene* pScene) {
 
 //! Public
 Scene::Scene() {
-    mBlood = 7;
-    mApple = 0;
-    mSpendthese = 0;
-    mExtrahealth = 0;
-    mScore << 0;
-    mScore.mType = Type::linear;
-    mScore.mVelocity = 300;
-
-    //# Status
 	oStatus = new Scene_Status();
-	//oPlater 
     oBackground = new Scene_Background();
 }
 Scene::~Scene() {
