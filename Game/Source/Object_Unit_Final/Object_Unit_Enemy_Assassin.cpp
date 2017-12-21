@@ -34,7 +34,7 @@ void Object_Unit_Enemy_Assassin::ObjectEachState() {
 		);
 		mIsThrow = true;
 	}
-	if (abs(xx - playerX) < 50 && mAni.GetCycleIndex() == 11) {
+	else if (mAni.GetCycleIndex() == 11 && abs(xx - playerX) < 50) {
 		mAni.SetCycleIndex(1);
 	}
 }

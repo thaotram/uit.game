@@ -9,6 +9,7 @@ Object_Unit_Static_Genie_Bonus::Object_Unit_Static_Genie_Bonus(RECT u) : Object_
 	mAni.Set("geniebonus", 1);
 	mTimePerFrame = 0.08f;
 	mAutoNextFrame = true;
+	tUnit = GetBound();
 }
 
 void Object_Unit_Static_Genie_Bonus::ObjectUpdateEvent(float dt)

@@ -8,6 +8,7 @@ Object_Unit_Static_Black_Magic_Lamp::Object_Unit_Static_Black_Magic_Lamp(RECT u)
     mPos.y << (float)(u.top);
     mAni.Set("black_magiclamp", 1);
     mAutoNextFrame = false;
+	tUnit = GetBound();
 }
 
 void Object_Unit_Static_Black_Magic_Lamp::ObjectIntersect(Object* pObject) {

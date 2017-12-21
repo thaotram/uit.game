@@ -7,6 +7,7 @@ Object_Unit_Static_Extra_Health::Object_Unit_Static_Extra_Health(RECT u) : Objec
 	mAni.Set("extrahealth", 1);
 	mTimePerFrame = 0.03f;
 	mAutoNextFrame = true;
+	tUnit = GetBound();
 }
 
 void Object_Unit_Static_Extra_Health::ObjectUpdateEvent(float dt)

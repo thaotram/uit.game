@@ -7,6 +7,7 @@ Object_Unit_Static_Abubonus::Object_Unit_Static_Abubonus(RECT u) : Object_Unit("
 	
 	mAni.Set("abubonus", 1);
 	mAutoNextFrame = true;
+	tUnit = GetBound();
 }
 
 void Object_Unit_Static_Abubonus::ObjectUpdateEvent(float delay) {
