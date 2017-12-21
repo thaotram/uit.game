@@ -27,7 +27,7 @@ Object_Status_Number_L::Object_Status_Number_L(L_Number_Position pNumber_Positio
 }
 
 void Object_Status_Number_L::ObjectUpdateEvent(float delay) {
-    mNumber = (int)(Scene::mScene->mScore() / 10) * 10;
+    mNumber = (int)(Scene::mScore() / 10) * 10;
     switch (mNumber_Position) {
         case L_Score_Ones:
             if (mNumber == 0) {

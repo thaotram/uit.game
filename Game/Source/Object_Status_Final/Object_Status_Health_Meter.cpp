@@ -12,8 +12,8 @@ Object_Status_Health_Meter::Object_Status_Health_Meter()
 }
 
 void Object_Status_Health_Meter::ObjectUpdateEvent(float delay) {
-    Scene::mScene->mBlood = max(Scene::mScene->mBlood, 0);
-    string state = "health_meter_" + to_string(Scene::mScene->mBlood);
+    Scene::mBlood = max(Scene::mBlood, 0);
+    string state = "health_meter_" + to_string(Scene::mBlood);
     if (mAni.GetState() != state) {
         mAni.Set(state);
     }

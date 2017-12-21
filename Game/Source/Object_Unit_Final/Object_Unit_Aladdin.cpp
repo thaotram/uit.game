@@ -581,5 +581,7 @@ void Object_Unit_Aladdin::ObjectCheckCollision() {
 }
 
 void Object_Unit_Aladdin::ObjectGetDame(Object * pObject) {
-	Scene::mScene->mBlood--;
+	if (Scene::mBlood == 0) {
+
+	} else Scene::mBlood--;
 }

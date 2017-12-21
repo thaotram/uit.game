@@ -30,14 +30,14 @@ Object_Status_Number_S::Object_Status_Number_S(S_Number_Position pNumber_Positio
 void Object_Status_Number_S::ObjectUpdateEvent(float delay) {
     switch (mNumber_Position) {
         case S_Apple_Ones:
-            mNumber = Scene::mScene->mApple % 10;
+            mNumber = Scene::mApple % 10;
             mAni.SetCycleIndex(mNumber + 1);
             break;
         case S_Apple_Tens:
-            if (Scene::mScene->mApple < 10) {
+            if (Scene::mApple < 10) {
                 mAni.SetCycleIndex(11);
             } else {
-                mNumber = Scene::mScene->mApple / 10;
+                mNumber = Scene::mApple / 10;
                 mAni.SetCycleIndex(mNumber + 1);
             }
             break;
@@ -45,7 +45,7 @@ void Object_Status_Number_S::ObjectUpdateEvent(float delay) {
             if (mNumber == 0) {
                 mAni.SetCycleIndex(11);
             } else {
-                mNumber = Scene::mScene->mSpendthese;
+                mNumber = Scene::mSpendthese;
                 mAni.SetCycleIndex(mNumber + 1);
             }
             break;
