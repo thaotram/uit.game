@@ -19,7 +19,7 @@ void Object_Unit_Static_Apple::ObjectIntersect(Object * pObject) {
 	mIsMarkedDelete = true;
 	Scene::mScene->oObjectStore->mLost.push_back(
 		new Object_Unit_Explosion_Twinkle(
-			xx + 5, yy + 6, 
+			xx - 6, yy - 6, 
 			Scene::mScene->oPlayer->GetTransform()->GetFlip()
 		)
 	);

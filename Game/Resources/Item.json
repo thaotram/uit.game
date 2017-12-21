@@ -1,7 +1,5 @@
 ﻿{
     "name": "Item",
-    "startFrame": 1,
-    "time": 0.1,
     "states": {
         "background_item": {
             "basePoint": [0, 0],
