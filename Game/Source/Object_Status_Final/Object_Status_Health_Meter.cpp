@@ -17,5 +17,5 @@ void Object_Status_Health_Meter::ObjectUpdateEvent(float delay) {
     if (mAni.GetState() != state) {
         mAni.Set(state);
     }
-    mPos << Scene::mScene->mCamera.VECTOR2() + V2{66, 26};
+    mPos << Scene::mScene->mCamera.VECTOR2() + V2{66, 24};
 }

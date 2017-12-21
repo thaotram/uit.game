@@ -68,9 +68,9 @@ void Scene_ObjectStore::ObjectCheckCollisionEach(
 	Object *pPlayer, list<pair<RECT, Object *>> *pList) {
 	for (auto &unit : *pList) {
 		if (unit.second != NULL) {
-			auto player_bound = pPlayer->GetBound();
+			auto player_bound = pPlayer->tUnit;
 			auto player_damage = pPlayer->tUnitDamage;
-			auto object_bound = unit.second->GetBound();
+			auto object_bound = unit.second->tUnit;
 			auto object_damage = unit.second->tUnitDamage;
 
 			if (isIntersect(player_bound, object_bound)) {

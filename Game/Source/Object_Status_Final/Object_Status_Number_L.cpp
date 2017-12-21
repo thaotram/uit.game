@@ -1,56 +1,68 @@
 #include "Object_Status_Number_L.h"
-#define mAni	mAnimation
-#define mPos	mPosition
+#define mAni mAnimation
+#define mPos mPosition
 
-Object_Status_Number_L::Object_Status_Number_L(float x, float y, L_Number_Position a) : Object_Status("Status") {
-	mX = x;
-	mY = y;
-	mLnumber = a;
-	mAni.Set("number_l", 1);
-}
-
-void Object_Status_Number_L::ObjectUpdateEvent(float delay)
-{
-	mNumL = (int)(Scene::mScene->mScore() / 10) * 10;
-	switch (mLnumber) {
-	case 0:
-		if (mNumL == 0) {
-			mAni.SetCycleIndex(11);
-		}
-		else {
-			mNumL %= 10;
-			mAni.SetCycleIndex(mNumL + 1);
-		}
+Object_Status_Number_L::Object_Status_Number_L(L_Number_Position pNumber_Position)
+    : Object_Status("Status") {
+    mAni.Set("number_l", 11);
+    mNumber_Position = pNumber_Position;
+	switch (mNumber_Position) {
+	case L_Score_Ones:
+		mX = 275;
+		mY = 20;
 		break;
-	case 1:
-		if (mNumL < 10) {
-			mAni.SetCycleIndex(11);
-		}
-		else {
-			mNumL /= 10;
-			mNumL %= 10;
-			mAni.SetCycleIndex(mNumL + 1);
-		}
+	case L_Score_Tens:
+		mX = 258;
+		mY = 20;
 		break;
-	case 2:
-		if (mNumL < 100) {
-			mAni.SetCycleIndex(11);
-		}
-		else {
-			mNumL /= 100;
-			mNumL %= 10;
-			mAni.SetCycleIndex(mNumL + 1);
-		}
+	case L_Score_Hundreds:
+		mX = 241;
+		mY = 20;
 		break;
-	case 3:
-		if (mNumL < 1000) {
-			mAni.SetCycleIndex(11);
-		}
-		else {
-			mNumL /= 1000;
-			mAni.SetCycleIndex(mNumL + 1);
-		}
+	case L_Score_Thousand:
+		mX = 224;
+		mY = 20;
 		break;
 	}
-	mPos << Scene::mScene->mCamera.VECTOR2() + V2{ mX , mY };
+}
+
+void Object_Status_Number_L::ObjectUpdateEvent(float delay) {
+    mNumber = (int)(Scene::mScene->mScore() / 10) * 10;
+    switch (mNumber_Position) {
+        case L_Score_Ones:
+            if (mNumber == 0) {
+                mAni.SetCycleIndex(11);
+            } else {
+                mNumber %= 10;
+                mAni.SetCycleIndex(mNumber + 1);
+            }
+            break;
+        case L_Score_Tens:
+            if (mNumber < 10) {
+                mAni.SetCycleIndex(11);
+            } else {
+                mNumber /= 10;
+                mNumber %= 10;
+                mAni.SetCycleIndex(mNumber + 1);
+            }
+            break;
+        case L_Score_Hundreds:
+            if (mNumber < 100) {
+                mAni.SetCycleIndex(11);
+            } else {
+                mNumber /= 100;
+                mNumber %= 10;
+                mAni.SetCycleIndex(mNumber + 1);
+            }
+            break;
+        case L_Score_Thousand:
+            if (mNumber < 1000) {
+                mAni.SetCycleIndex(11);
+            } else {
+                mNumber /= 1000;
+                mAni.SetCycleIndex(mNumber + 1);
+            }
+            break;
+    }
+    mPos << Scene::mScene->mCamera.VECTOR2() + V2{mX, mY};
 }

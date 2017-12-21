@@ -24,6 +24,13 @@ void Object_Unit_Enemy_Thin::ObjectUpdateEvent(float dt) {
 		mIsMarkedDelete = true;
 	}
 	ObjectEachState();
+
+	tUnit = RECT{
+		(LONG)xx - 15,
+		(LONG)yy - 60,
+		(LONG)xx + 15,
+		(LONG)yy
+	};
 }
 
 void Object_Unit_Enemy_Thin::ObjectEachState() {

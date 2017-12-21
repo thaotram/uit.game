@@ -10,11 +10,11 @@ enum S_Number_Position {
 
 class Object_Status_Number_S final : public Object_Status {
 private:
+	int mNumber;
 	float mX, mY;
 public:
-	S_Number_Position mSNumber;
-	int mNums;
-	Object_Status_Number_S(float x, float y, S_Number_Position a);
+	S_Number_Position mNumber_Position;
+	Object_Status_Number_S(S_Number_Position a);
 	~Object_Status_Number_S() {};
 	void ObjectUpdateEvent(float delay);
 };

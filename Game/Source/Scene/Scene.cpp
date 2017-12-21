@@ -19,7 +19,7 @@ Scene::Scene() {
 
     //# Status
 
-	// oStatus = new Scene_Status();
+	oStatus = new Scene_Status();
 
     // oSand_1 = new Object_Status_Cloud(Sand1);
     // oSand_2 = new Object_Status_Cloud(Sand2);
