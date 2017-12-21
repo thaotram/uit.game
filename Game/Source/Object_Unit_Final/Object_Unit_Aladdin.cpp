@@ -63,6 +63,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	ObjectEachState();
 	ObjectAfterEachState();
 	ObjectCheckCollision();
+	GameDebug::Title(tDis);
 }
 
 void Object_Unit_Aladdin::ObjectEachState() {
@@ -76,7 +77,12 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		tIsChangeX = false;
 		if (U)						mAni.Set("up", 1);
 		else if (D)					mAni.Set("sit", 1);
-		else if (R || L)			mAni.Set("run", 1);
+		else if (R || L) {
+			if ((L && tDis.left == 0) || (R && tDis.right == 0)) {
+				mAni.Set("push", 1);
+			}
+			else mAni.Set("run", 1);
+		}
 		else if (Z && hasApple) {
 			Z = false;
 			mAni.Set("stand_throwapple", 1, "stand", 1);
@@ -278,10 +284,26 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Apple(xx, yy - 40, mTransform.GetFlip()));
 		}
 	}
-	else if (state == "run") {
+	else if (state == "push") {
 		mTimePerFrame = 0.06f;
-		if (!L && !R)
-			mAni.Set("stand", 1);
+		if (tDis.right == 0 && L) { 
+			R = false;
+			mAni.Set("run", 1);
+		}
+		else if (tDis.left == 0 && R) {
+			L = false;
+			mAni.Set("run", 1);
+		}
+		if (!L && !R)		mAni.Set("stand", 1);
+	}
+	else if (state == "run") {
+		mTimePerFrame = 0.06f; 
+		if (!L && !R)		mAni.Set("stand", 1);
+		else if (R || L) {
+			if ((L && tDis.left == 0) || (R && tDis.right == 0)) {
+				mAni.Set("push", 1);
+			}
+		}
 		if (Z)				0; /// "run_throwapple" - thiếu
 		else if (X)			mAni.Set("run_cut", 1, "run", 9);
 		else if (C && tDis.bottom <= 10) {
@@ -557,7 +579,7 @@ void Object_Unit_Aladdin::ObjectCheckCollision() {
 	mSourceRect.Update(this);
 	Scene::mScene->oObjectStore->ObjectCheckCollision(this);
 }
-	
+
 void Object_Unit_Aladdin::ObjectGetDame(Object * pObject) {
 	Scene::mScene->mBlood--;
 }

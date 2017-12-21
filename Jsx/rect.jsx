@@ -72,7 +72,7 @@ if (app.documents.length != 0) {
         "Stairs_backslash",
         "Stairs_slash",
         "Square",
-        // "Horizontal"
+        "Horizontal",
 
         "_Stairs_slash",
         "_Stairs_backslash",
