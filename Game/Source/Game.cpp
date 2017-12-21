@@ -8,8 +8,8 @@ Game::Game() {
 
 	//# Game Start
 	Scene::ReplaceScene(
-		// new Scene_AgrabahMarket()
-		new Scene_JafarPalace()
+		new Scene_AgrabahMarket()
+		// new Scene_JafarPalace()
 	);
 	InitLoop();
 }
