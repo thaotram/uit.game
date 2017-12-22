@@ -61,34 +61,37 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 }
 
 //# Kiểm tra đụng độ
+void Scene_ObjectStore::ObjectCheckCollisionWithEnemy(Object *pPlayer) {
+	Object_EachCollision(Enemy);
+}
 void Scene_ObjectStore::ObjectCheckCollisionWithEnemyEach(Object *pPlayer, list<pair<RECT, Object *>> *pList) {
 	for (auto &unit : *pList) {
 		if (unit.second != NULL) {
-			auto player_bound = pPlayer->tUnit;
 			auto player_damage = pPlayer->tUnitDamage;
 			auto object_bound = unit.second->tUnit;
-			auto object_damage = unit.second->tUnitDamage;
-
-			//if (isIntersect(player_bound, object_bound)) {
-			//	unit.second->ObjectIntersect(pPlayer);
-			//}
-			if (pPlayer->mParty != unit.second->mParty) {
-				if (isIntersect(player_damage, object_bound) &&
-					!pPlayer->mIsMakeDamage) {
-					unit.second->ObjectIntersect(pPlayer);
-					pPlayer->mIsMakeDamage = true;
-				}
+			if (isIntersect(player_damage, object_bound) &&
+				!pPlayer->mIsMakeDamage) {
+				unit.second->ObjectIntersect(pPlayer);
+				pPlayer->mIsMakeDamage = true;
 			}
 		}
 	}
 }
 void Scene_ObjectStore::ObjectCheckCollisionWithStatic(Object * pPlayer) {
+	Object_EachCollision(Static);
 }
 void Scene_ObjectStore::ObjectCheckCollisionWithStaticEach(Object * pPlayer, list<pair<RECT, Object*>>* pList) {
+	for (auto &unit : *pList) {
+		if (unit.second != NULL) {
+			auto player_bound = pPlayer->tUnit;
+			auto object_bound = unit.second->tUnit;
+			if (isIntersect(player_bound, object_bound)) {
+				unit.second->ObjectIntersect(pPlayer);
+			}
+		}
+	}
 }
-void Scene_ObjectStore::ObjectCheckCollisionWithEnemy(Object *pPlayer) {
-	EachEnemy(Object_CheckCollisionWithEnemy);
-}
+
 void Scene_ObjectStore::ObjectCheckCollisionWithPlayer(Object *pObject) {
 	auto unit_damage = pObject->tUnitDamage;
 	auto player_bound = Scene::mScene->oPlayer->GetBound();

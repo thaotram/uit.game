@@ -2,6 +2,8 @@
 #define Each Each
 #define _ _
 
+#pragma region -- EachGround, EachObject --
+
 #define EachGround()					\
 	Add_Ground(Bar);					\
 	Add_Ground(Rope);					\
@@ -43,6 +45,15 @@
 	EachStatic(Method)					\
 	EachNPC(Method)
 
+#pragma endregion
+
+#define Object_RemoveMarkedDelete(type, name) m##type##_##name.remove_if(ifMarkedDelete);
+#define Object_Collision_Enemy(type, name) ObjectCheckCollisionWithEnemyEach(pPlayer, &m##type##_##name)
+#define Object_Collision_Static(type, name) ObjectCheckCollisionWithStaticEach(pPlayer, &m##type##_##name)
+
+#define Object_EachCollision(type) 	Each##type(Object_Collision_##type);
+
+//# Add_Unit
 #define Add_Unit(type, name)											\
 json j_##type##_##name = block[#type"_"#name];							\
 for (auto& s : j_##type##_##name) {										\
@@ -54,6 +65,7 @@ for (auto& s : j_##type##_##name) {										\
 	);																	\
 }
 
+//# Add_Ground
 #define Add_Ground(kind)												\
 json j_##kind = block[#kind];											\
 for (auto& s : j_##kind) {												\
@@ -86,7 +98,6 @@ bool ifMarkedDelete(const pair<RECT, Object *>& p) {
 	}
 	else return false;
 }
-
 bool ifMarkedDeleteLost(const Object* o) {
 	if (o->mIsMarkedDelete) {
 		delete o;
@@ -95,54 +106,46 @@ bool ifMarkedDeleteLost(const Object* o) {
 	else return false;
 }
 
-#define Object_RemoveMarkedDelete_(type, name) m##type##name.remove_if(ifMarkedDelete);
-#define Object_RemoveMarkedDelete(type, name) Object_RemoveMarkedDelete_(type, _##name)
-
-#define ToEachMethod(object, type, name)					\
-ObjectCheckCollisionWith##type##Each(object, &m##type##_##name)
-
-#define Object_CheckCollisionWithEnemy_(type, name) ObjectCheckCollisionWithEnemyEach(pPlayer, &m##type##name)
-#define Object_CheckCollisionWithEnemy(type, name) Object_CheckCollisionWithEnemy_(type, _##name)
-
-#define Object_Render(type, name)									\
+//# Render
+#define Object_Render(type, name)										\
 for (auto &b : m##type##_##name) {	   									\
-	if (b.second != NULL) {		   									\
-		b.second->ObjectRender(dt);									\
-	}							   									\
+	if (b.second != NULL) {		   										\
+		b.second->ObjectRender(dt);										\
+	}							   										\
 }
 
 //# GetDistance
-#define Check_Square(v, value) 										\
-long v = value; 													\
+#define Check_Square(v, value) 											\
+long v = value; 														\
 if(v >= 0 && (v < out.v || out.v == -1)) out.v = v
 
-#define Check_Squares(x,y) {										\
-	Check_Square(x, u.x - b->y);									\
-	Check_Square(y, b->x - u.y);									\
+#define Check_Squares(x,y) {											\
+	Check_Square(x, u.x - b->y);										\
+	Check_Square(y, b->x - u.y);										\
 }
 
-#define Check_Stair(uy)												\
-if (b->bottom >= u.bottom) {										\
-	LONG b_height = b->bottom - b->top;								\
-	LONG b_weight = b->right - b->left;								\
-	LONG u_y = max(uy, 0);											\
-	LONG u_x = min(b_height * u_y / b_weight, b_height);			\
-	out.bottom = min(out.bottom, (b->bottom - u_x) - u.bottom);		\
+#define Check_Stair(uy)													\
+if (b->bottom >= u.bottom) {											\
+	LONG b_height = b->bottom - b->top;									\
+	LONG b_weight = b->right - b->left;									\
+	LONG u_y = max(uy, 0);												\
+	LONG u_x = min(b_height * u_y / b_weight, b_height);				\
+	out.bottom = min(out.bottom, (b->bottom - u_x) - u.bottom);			\
 }
 
 #define If_Object(x,y)	if(u.x > b.y && b.x > u.y)
 #define If_Pointer(x,y)	if(u.x > b->y && b->x > u.y)
-#define Filter_Ground(var)											\
-for (auto &b : m##var) {											\
-	If_Object(right, left) 		top_bottom.push_back(&b);			\
-	If_Object(bottom, top)		left_right.push_back(&b);			\
+#define Filter_Ground(var)												\
+for (auto &b : m##var) {												\
+	If_Object(right, left) 		top_bottom.push_back(&b);				\
+	If_Object(bottom, top)		left_right.push_back(&b);				\
 }
 
-#define Filter_Ground_LeftRight(var)								\
-for (auto &b : m##var) {											\
-	If_Object(right, left) 		top_bottom.push_back(&b);			\
+#define Filter_Ground_LeftRight(var)									\
+for (auto &b : m##var) {												\
+	If_Object(right, left) 		top_bottom.push_back(&b);				\
 }
 
-#define Clear_Filter()												\
-left_right.clear();													\
+#define Clear_Filter()													\
+left_right.clear();														\
 top_bottom.clear();
