@@ -45,10 +45,10 @@ void Object_Unit_Enemy_Fat::ObjectEachState()
 			-(mPos.x.mVelocity * tDt);
 		mPos.Update(tDt);
 		if (xx < mLimit.left) {
-			mPos.x << mLimit.left;
+			mPos.x << (float)mLimit.left;
 		}
 		else if (xx > mLimit.right) {
-			mPos.x << mLimit.right;
+			mPos.x << (float)mLimit.right;
 		}
 	}
 
