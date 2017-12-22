@@ -29,35 +29,35 @@ Object_Status_Number_S::Object_Status_Number_S(S_Number_Position pNumber_Positio
 
 void Object_Status_Number_S::ObjectUpdateEvent(float delay)
 {
-	switch (mSNumber) {
+	switch (mNumber_Position) {
 	case S_Apple_Ones:
-		if (Scene::mScene->mApple < 10)
+		if (Scene::mApple < 10)
 			mAni.SetCycleIndex(11);
 		else {
-			mNums = Scene::mScene->mApple % 10;
-			mAni.SetCycleIndex(mNums + 1);
+			mNumber = Scene::mApple % 10;
+			mAni.SetCycleIndex(mNumber + 1);
 		}
 		break;
 	case S_Apple_Tens:
-		if (Scene::mScene->mApple <= 0) {
+		if (Scene::mApple <= 0) {
 			mAni.SetCycleIndex(11);
 		}
-		else if (Scene::mScene->mApple < 10 && Scene::mScene->mApple>0) {
-			mNums = Scene::mScene->mApple;
-			mAni.SetCycleIndex(mNums + 1);
+		else if (Scene::mApple < 10 && Scene::mApple>0) {
+			mNumber = Scene::mApple;
+			mAni.SetCycleIndex(mNumber + 1);
 		}
 		else {
-			mNums = Scene::mScene->mApple / 10;
-			mAni.SetCycleIndex(mNums + 1);
+			mNumber = Scene::mApple / 10;
+			mAni.SetCycleIndex(mNumber + 1);
 		}
 		break;
 	case S_Spendthese:
-		mNums = Scene::mScene->mSpendthese;
-		if (mNums == 0) {
+		mNumber = Scene::mSpendthese;
+		if (mNumber == 0) {
 			mAni.SetCycleIndex(11);
 		}
 		else {
-			mAni.SetCycleIndex(mNums + 1);
+			mAni.SetCycleIndex(mNumber + 1);
 		}
 		break;
 	case S_Life:
