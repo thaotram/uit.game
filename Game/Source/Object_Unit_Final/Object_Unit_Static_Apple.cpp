@@ -9,8 +9,8 @@ Object_Unit_Static_Apple::Object_Unit_Static_Apple(RECT u) : Object_Unit("Item")
 	mPos.y << (float)(u.top);
 	mAni.Set("apple_item", 1);
 	mAutoNextFrame = false;
-	mSourceRect.Update(this);
-	tUnit = GetBound();
+	//mSourceRect.Update(this);
+	tUnit = u;
 }
 void Object_Unit_Static_Apple::ObjectUpdateEvent(float dt) {}
 
