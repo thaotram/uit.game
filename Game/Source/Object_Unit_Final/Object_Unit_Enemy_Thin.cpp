@@ -6,15 +6,17 @@
 
 #define xx mPos.x()
 #define yy mPos.y()
-
 #define state	mAni.GetState()
 
-Object_Unit_Enemy_Thin::Object_Unit_Enemy_Thin(RECT u) : Object_Unit("Guards") {
+Object_Unit_Enemy_Thin::Object_Unit_Enemy_Thin(RECT u) : Object_Unit("Guards"), mLimit(u){
 	mPos.x << (float)(u.left + u.right) / 2;
 	mPos.y << (float)(u.top);
-	mAni.Set("thin_hit", 1);
+	mAni.Set("thin_stand", 1);
+	mPos.x.mVelocity = 180;
+	mTimePerFrame = 0.04f;
 	mHealthPoint = 2;
 	mParty = Enemy;
+	mAutoNextFrame = true;
 }
 
 Object_Unit_Enemy_Thin::~Object_Unit_Enemy_Thin() {}
@@ -23,7 +25,6 @@ void Object_Unit_Enemy_Thin::ObjectUpdateEvent(float dt) {
 	if (mHealthPoint == 0) {
 		mIsMarkedDelete = true;
 	}
-	ObjectEachState();
 
 	tUnit = RECT{
 		(LONG)xx - 15,
@@ -31,24 +32,57 @@ void Object_Unit_Enemy_Thin::ObjectUpdateEvent(float dt) {
 		(LONG)xx + 15,
 		(LONG)yy
 	};
+	tDis = mObjectStore->GetDistance(tUnit, this);
+	tDt = dt;
+	ObjectEachState();
 }
-
+//tam danh
+#define range 100
+//tamnhin
+#define visible 160
 void Object_Unit_Enemy_Thin::ObjectEachState() {
-	if (state == "") {
-		mAni.Set("thin_stand", 1);
-	}
-	else if (state == "thin_run") {
-		mAutoNextFrame = true;
-	}
-	else if (state == "thin_hit") {
-		if (mAni.GetCycleIndex() == 3) {
-			tUnitDamage = RECT{
-				(LONG)((isFlip) ? (xx + 77) : (xx - 26)),
-				(LONG)(yy - 46),
-				(LONG)((isFlip) ? (xx + 26) : (xx - 77)),
-				(LONG)(yy - 18)
-			};
+	{
+		float playerX = Scene::mScene->oPlayer->GetPosition()->x();
+		mTransform.SetFlip(playerX > xx);
+		float distance = abs(xx - playerX);
+
+		if (state == "thin_run") {
+			mPos.x += playerX > xx ?
+				+(mPos.x.mVelocity * tDt) :
+				-(mPos.x.mVelocity * tDt);
+			mPos.Update(tDt);
+			if (xx < mLimit.left) {
+				mPos.x << mLimit.left;
+			}
+			else if (xx > mLimit.right) {
+				mPos.x << mLimit.right;
+			}
 		}
+
+		if (state != "thin_hurt") {
+			if (distance < range) {
+				if (state != "thin_hit")		mAni.Set("thin_hit", 1);
+			}
+			else if (distance < visible) {
+				if ((xx == mLimit.right && playerX > xx) ||
+					(xx == mLimit.left && playerX < xx)) {
+					if (state != "thin_stand")		mAni.Set("thin_stand", 1);
+				}
+				else if (state != "thin_run")		mAni.Set("thin_run", 1);
+			}
+			else {
+				if (state != "thin_stand")		mAni.Set("thin_stand", 1);
+			}
+		}
+		//else if (state == "thin_hit") {
+	//	if (mAni.GetCycleIndex() == 3) {
+	//		tUnitDamage = RECT{
+	//			(LONG)((isFlip) ? (xx + 77) : (xx - 26)),
+	//			(LONG)(yy - 46),
+	//			(LONG)((isFlip) ? (xx + 26) : (xx - 77)),
+	//			(LONG)(yy - 18)
+	//		};
+	//	}
 	}
 }
 

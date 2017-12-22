@@ -4,8 +4,9 @@
 #include "../GameDebug.h"
 #include "../Scene/Scene.h"
 
-class Object_Unit_Enemy_Straw final : public Object_Unit
-{
+class Object_Unit_Enemy_Straw final : public Object_Unit{
+private:
+	RECT mLimit;
 public:
 	Object_Unit_Enemy_Straw(RECT u);
 	~Object_Unit_Enemy_Straw();
