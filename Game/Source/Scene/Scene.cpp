@@ -26,6 +26,7 @@ void Scene::ReplaceScene(Scene* pScene, float pDelay) {
 Scene::Scene() {
 	oStatus = new Scene_Status();
     oBackground = new Scene_Background();
+    //ooo = new Object_Screen();
 }
 Scene::~Scene() {
     delete oObjectStore;
@@ -66,6 +67,8 @@ void Scene::SceneRender(float delay) {
 	RenderIf(oPlayer);
 	RenderIf(oMapFront);
 	RenderIf(oStatus);
+
+    ooo->ObjectRender(delay);
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}

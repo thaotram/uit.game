@@ -72,6 +72,9 @@
     <Filter Include="Source\Object_Unit\Explosion">
       <UniqueIdentifier>{47119a5c-acae-4f06-9223-581dbdcfafce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Object_Screen">
+      <UniqueIdentifier>{c8e714ef-2b7b-405c-baf1-06caad5b0791}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aladdin.json">
@@ -426,11 +429,13 @@
     <ClInclude Include="Source\Scene\Scene_Status.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene\Scene_Background.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Death.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Abu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\Scene_Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
