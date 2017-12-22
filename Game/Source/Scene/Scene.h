@@ -20,7 +20,7 @@ public:
 
     Vector mCamera;
 
-    Object*                 ooo;
+    Object*                 oTransparentScreen;
 
     Object*                 oPlayer;
     Scene_Status*           oStatus;

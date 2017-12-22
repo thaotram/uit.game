@@ -438,7 +438,9 @@
     <ClInclude Include="Source\Scene\Scene_Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Screen\Object_Screen.h" />
+    <ClInclude Include="Source\Object_Screen\Object_Screen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -640,7 +642,7 @@
       <Filter>Source\Object_Unit\NPC</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Screen\Object_Screen.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Object_Screen</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,5 +1,8 @@
-﻿#include "Scene.h"
-Scene* Scene::mScene     = NULL;
+﻿#pragma once
+#include "Scene.h"
+#include "../Object_Screen/Object_Screen.h"
+
+Scene* Scene::mScene = NULL;
 Scene* Scene::mNextScene = NULL;
 
 float Scene::mTime = 0;
@@ -15,51 +18,52 @@ Float_Easing Scene::mScore = *(new Float_Easing(0, Type::linear, 300));
 
 //! Static Public
 void Scene::ReplaceScene(Scene* pScene) {
-    mScene = pScene;
+	mScene = pScene;
 }
 void Scene::ReplaceScene(Scene* pScene, float pDelay) {
-    mDelay = pDelay;
-    mNextScene = pScene;
+	mDelay = pDelay;
+	mNextScene = pScene;
 }
 
 //! Public
 Scene::Scene() {
 	oStatus = new Scene_Status();
-    oBackground = new Scene_Background();
-    // ooo = new Object_Screen();
+	oBackground = new Scene_Background();
+	oTransparentScreen = new Object_Screen();
 }
 Scene::~Scene() {
-    delete oObjectStore;
-    delete oPlayer;
-    delete oMapBack;
-    delete oMapFront;
+	delete oObjectStore;
+	delete oPlayer;
+	delete oMapBack;
+	delete oMapFront;
 }
 
 void Scene::SceneRender(float delay) {
-    //# Replace Scene
+	//# Replace Scene
 
-    // if(mDelay != 0){
-    //     mTime += delay;
-    //     if(mTime > mDelay){
-    //         mDelay = 0;
-    //         mScene = mNextScene;
-    //     }
-    //     return;
-    // }
+	// if(mDelay != 0){
+	//     mTime += delay;
+	//     if(mTime > mDelay){
+	//         mDelay = 0;
+	//         mScene = mNextScene;
+	//     }
+	//     return;
+	// }
 
-    //# Update Easing
+	//# Update Easing
 	Scene::mScore.Update(delay);
-    
-    //# Update Event
+	oTransparentScreen->ObjectUpdateEvent(delay);
+
+	//# Update Event
 	UpdateIf(oPlayer);
 	UpdateIf(oObjectStore);
-    UpdateIf(oMapBack);
-    UpdateIf(oMapFront);
+	UpdateIf(oMapBack);
+	UpdateIf(oMapFront);
 	UpdateIf(oStatus);
-    UpdateIf(oBackground);
+	UpdateIf(oBackground);
 
-    //# Remove item in RemoveList
-    oObjectStore->ObjectRemoveMarkedDelete();
+	//# Remove item in RemoveList
+	oObjectStore->ObjectRemoveMarkedDelete();
 
 	//# Render
 	RenderIf(oBackground);
@@ -69,7 +73,7 @@ void Scene::SceneRender(float delay) {
 	RenderIf(oMapFront);
 	RenderIf(oStatus);
 
-    // ooo->ObjectRender(delay);
+	oTransparentScreen->ObjectRender(delay);
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}
