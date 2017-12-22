@@ -13,6 +13,7 @@ Object_Unit_Enemy_Fat::Object_Unit_Enemy_Fat(RECT u) : Object_Unit("Guards"), mL
 	mAni.Set("fat_eat", 1);
 	mPos.x.mVelocity = 50;
 	mParty = Enemy;
+	mAutoNextFrame = true;
 }
 
 void Object_Unit_Enemy_Fat::ObjectUpdateEvent(float dt) {
@@ -26,31 +27,42 @@ void Object_Unit_Enemy_Fat::ObjectUpdateEvent(float dt) {
 	tDt = dt;
 	ObjectEachState();
 }
-
+//tam danh
+#define range 100
+//tamnhin
+#define visible 160
 void Object_Unit_Enemy_Fat::ObjectEachState()
 {
 	float playerX = Scene::mScene->oPlayer->GetPosition()->x();
 	mTransform.SetFlip(playerX > xx);
+	float distance = abs(xx - playerX);
 
-	if (state == "fat_eat") {
-		if (abs(xx - playerX) > 20) {
-			mAni.Set("fat_run", 1);
-		}
-	}
-
-	else if (state == "fat_run") {
+	if (state == "fat_run") {
 		mPos.x += playerX > xx ?
 			+(mPos.x.mVelocity * tDt) :
 			-(mPos.x.mVelocity * tDt);
 		mPos.Update(tDt);
-		if (abs(xx - playerX) < 20) {
-			mAni.Set("fat_eat", 1);
-		}
-		else if (xx < mLimit.left) {
-			mPos.x = (float)mLimit.left;
+		if (xx < mLimit.left) {
+			mPos.x << mLimit.left;
 		}
 		else if (xx > mLimit.right) {
-			mPos.x = (float)mLimit.right;
+			mPos.x << mLimit.right;
+		}
+	}
+
+	if (state != "fat_hurt") {
+		if (distance < range) {
+			if (state != "fat_throwknife")		mAni.Set("fat_throwknife", 1);
+		}
+		else if (distance < visible) {
+			if ((xx == mLimit.right && playerX > xx) || 
+				(xx == mLimit.left && playerX < xx)) {
+				if (state != "fat_eat")		mAni.Set("fat_eat", 1);
+			}
+			else if (state != "fat_run")		mAni.Set("fat_run", 1);
+		}
+		else {
+			if (state != "fat_eat")		mAni.Set("fat_eat", 1);
 		}
 	}
 }
