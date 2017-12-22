@@ -2,7 +2,6 @@
 #define mAni	mAnimation
 #define mPos	mPosition
 #define	mObjectStore	Scene::mScene->oObjectStore
-#define tSpeedX	200
 
 #define xx mPos.x()
 #define yy mPos.y()
@@ -15,8 +14,9 @@ Object_Unit_Knife::Object_Unit_Knife(float x, float y, bool isFlip) : Object_Uni
 	mTimePerFrame = 0.03f;
 	mAutoNextFrame = true;
 	mIsCollision = false;
-	mFlip = isFlip;
-	mPos.y.mVelocity = -500;
+	mFlip = !isFlip;
+	mPos.x.mVelocity = 350;
+	//	mPos.y.mVelocity = -500;
 	mParty = Enemy;
 }
 
@@ -45,8 +45,8 @@ void Object_Unit_Knife::ObjectUpdateEvent(float dt)
 	else {
 		mPos.x +=
 			mFlip ?
-			-min(tSpeedX * dt, tDis.left) :
-			+min(tSpeedX * dt, tDis.right);
+			-min(mPos.x.mVelocity * dt, tDis.left) :
+			+min(mPos.x.mVelocity * dt, tDis.right);
 		mPos.y = yy + tDis.bottom;
 		mPos.Update(dt);
 	}

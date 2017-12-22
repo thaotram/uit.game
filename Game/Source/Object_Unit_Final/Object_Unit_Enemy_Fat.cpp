@@ -65,6 +65,18 @@ void Object_Unit_Enemy_Fat::ObjectEachState()
 			if (state != "fat_eat")		mAni.Set("fat_eat", 1);
 		}
 	}
+	if (state == "fat_throwknife") {
+		if (mAni.GetCycleIndex() == 1) {
+			mIsThrow = false;
+		}
+		else if (mAni.GetCycleIndex() == 2 && !mIsThrow) {
+			Scene::mScene->oObjectStore->mLost.push_back(
+				new Object_Unit_Knife(xx, yy-50, mTransform.GetFlip())
+				//new Object_Unit_Knife(xx, yy - 50, true)
+			);
+			mIsThrow = true;
+		}
+	}
 }
 
 void Object_Unit_Enemy_Fat::ObjectGetDame(Object* pObject) {
