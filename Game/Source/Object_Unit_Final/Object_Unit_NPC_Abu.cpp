@@ -6,9 +6,8 @@
 #define xx mPos.x()
 #define yy mPos.y()
 
-Object_Unit_NPC_Abu::Object_Unit_NPC_Abu(RECT u) : Object_Unit("Abu") {
-	mPos.x << (float)(u.left);
-	mPos.y << (float)(u.top);
+Object_Unit_NPC_Abu::Object_Unit_NPC_Abu(float x, float y) : Object_Unit("Abu") {
+	mPos << V2{ x , y };
 	mAni.Set("faner_carpet", 1);
 	mAutoNextFrame = true;
 	mParty = Friend;

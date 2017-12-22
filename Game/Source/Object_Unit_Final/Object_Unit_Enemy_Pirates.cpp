@@ -16,14 +16,10 @@ Object_Unit_Enemy_Pirates::Object_Unit_Enemy_Pirates(RECT u) : Object_Unit("Guar
 	mTimePerFrame = 0.04f;
 	mParty = Enemy;
 	mAutoNextFrame = true;
+	mIsMakeDamage = false;
 }
 
-Object_Unit_Enemy_Pirates::~Object_Unit_Enemy_Pirates()
-{
-}
-
-void Object_Unit_Enemy_Pirates::ObjectUpdateEvent(float dt)
-{
+void Object_Unit_Enemy_Pirates::ObjectUpdateEvent(float dt) {
 	tUnit = RECT{
 		(LONG)xx - 11,
 		(LONG)yy - 52,
@@ -50,10 +46,10 @@ void Object_Unit_Enemy_Pirates::ObjectEachState()
 			-(mPos.x.mVelocity * tDt);
 		mPos.Update(tDt);
 		if (xx < mLimit.left) {
-			mPos.x << mLimit.left;
+			mPos.x << (float)mLimit.left;
 		}
 		else if (xx > mLimit.right) {
-			mPos.x << mLimit.right;
+			mPos.x << (float)mLimit.right;
 		}
 	}
 
@@ -72,26 +68,29 @@ void Object_Unit_Enemy_Pirates::ObjectEachState()
 			if (state != "pirates_defiant")		mAni.Set("pirates_defiant", 1);
 		}
 	}
-	//else if (state == "pirates_poke") {
-	//	if (mAni.GetCycleIndex() == 6) {
-	//		tUnitDamage = RECT{
-	//			(LONG)((isFlip) ? (xx + 75) : (xx - 18)),
-	//			(LONG)(yy - 23),
-	//			(LONG)((isFlip) ? (xx + 18) : (xx - 75)),
-	//			(LONG)(yy - 10)
-	//		};
-	//	}
-	//}
-	//else if (state == "pirates_cut") {
-	//	if (mAni.GetCycleIndex() == 4) {
-	//		tUnitDamage = RECT{
-	//			(LONG)((isFlip) ? (xx - 27) : (xx - 83)),
-	//			(LONG)(yy - 52),
-	//			(LONG)((isFlip) ? (xx + 83) : (xx + 27)),
-	//			(LONG)(yy - 25)
-	//		};
-	//	}
-	//}
+	else if (state == "pirates_cut") {
+		auto index = mAni.GetCycleIndex();
+		if (index == 1) {
+			mIsMakeDamage = false;
+		}
+
+		else if (index == 6) {
+			tUnitDamage = RECT{
+				(LONG)((isFlip) ? (xx + 75) : (xx - 18)),
+				(LONG)(yy - 23),
+				(LONG)((isFlip) ? (xx + 18) : (xx - 75)),
+				(LONG)(yy - 10)
+			};
+		}
+		else if (mAni.GetCycleIndex() == 10) {
+			tUnitDamage = RECT{
+				(LONG)((isFlip) ? (xx - 27) : (xx - 83)),
+				(LONG)(yy - 52),
+				(LONG)((isFlip) ? (xx + 83) : (xx + 27)),
+				(LONG)(yy - 25)
+			};
+		}
+	}
 }
 
 void Object_Unit_Enemy_Pirates::ObjectGetDame(Object * pObject)

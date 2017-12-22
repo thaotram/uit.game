@@ -9,7 +9,7 @@ private:
 	RECT mLimit;
 public:
 	Object_Unit_Enemy_Pirates(RECT u);
-	~Object_Unit_Enemy_Pirates();
+	~Object_Unit_Enemy_Pirates() {};
 	void ObjectUpdateEvent(float dt);
 	void ObjectEachState();
 	void ObjectGetDame(Object * pObject);
