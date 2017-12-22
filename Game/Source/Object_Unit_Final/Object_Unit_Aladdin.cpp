@@ -63,7 +63,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	//# Các thao tác tính toán / cập nhật
 	ObjectEachState();
 	ObjectAfterEachState();
-	ObjectCheckCollision();
+	ObjectCheckCollisionWithEnemy();
 	// GameDebug::Title(tDis);
 }
 void Object_Unit_Aladdin::ObjectEachState() {
@@ -583,20 +583,12 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	//# UpdateStairsState
 	Scene::mScene->oObjectStore->UpdateStairState(tUnit);
 }
-void Object_Unit_Aladdin::ObjectCheckCollision() {
+void Object_Unit_Aladdin::ObjectCheckCollisionWithEnemy() {
 	mSourceRect.Update(this);
 	tUnit = GetBound();
-	GameDebug::Title(tUnit.right - tUnit.left);
-	Scene::mScene->oObjectStore->ObjectCheckCollision(this);
+	Scene::mScene->oObjectStore->ObjectCheckCollisionWithEnemy(this);
 }
 void Object_Unit_Aladdin::ObjectGetDame(Object * pObject) {
-	//if (Scene::mBlood == 0) {
-	//	//Scene::ReplaceScene(
-	//	//	new Scene_Death()
-	//	//);
-	//} else 
 	Scene::mBlood--;
-	if(state == "stand") {
-		mAni.Set("hurt", 1);
-	}
+	GameDebug::TitleCount();
 }

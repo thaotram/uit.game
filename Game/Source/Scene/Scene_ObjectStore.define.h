@@ -1,40 +1,47 @@
 #pragma once
 
-//# EachGround
-#define EachGround()				\
-Add_Ground(Bar);					\
-Add_Ground(Rope);					\
-Add_Ground(Square);					\
-Add_Ground(Horizontal);				\
-Add_Ground(Stairs_slash);			\
-Add_Ground(Stairs_backslash);		\
-									\
-Add_Ground(_Square);				\
-Add_Ground(_Stairs_slash);			\
-Add_Ground(_Stairs_backslash);		\
+#define EachGround()					\
+	Add_Ground(Bar);					\
+	Add_Ground(Rope);					\
+	Add_Ground(Square);					\
+	Add_Ground(Horizontal);				\
+	Add_Ground(Stairs_slash);			\
+	Add_Ground(Stairs_backslash);		\
+										\
+	Add_Ground(_Square);				\
+	Add_Ground(_Stairs_slash);			\
+	Add_Ground(_Stairs_backslash);
 
-//# EachObject
-#define EachObject(Method)			\
-Method(Static, Abubonus);			\
-Method(Static, Apple);				\
-Method(Static, Block_Drop);			\
-Method(Static, Black_Magic_Lamp);	\
-Method(Static, Extra_Health);		\
-Method(Static, Genie_Bonus);		\
-Method(Static, Restart_Point);		\
-Method(Static, Spend_These);		\
-Method(Static, Stick);				\
-									\
-Method(NPC, Camel);					\
-Method(NPC, Stall);					\
-Method(NPC, Peddler);				\
-									\
-Method(Enemy, Assassin);			\
-Method(Enemy, Circus);				\
-Method(Enemy, Fat);					\
-Method(Enemy, Pirates);				\
-Method(Enemy, Straw);				\
-Method(Enemy, Thin);				\
+#define EachEnemy(Method)				\
+	Method(Enemy, Assassin);			\
+	Method(Enemy, Circus);				\
+	Method(Enemy, Fat);					\
+	Method(Enemy, Pirates);				\
+	Method(Enemy, Straw);				\
+	Method(Enemy, Thin);
+
+#define EachStatic(Method)				\
+	Method(Static, Abubonus);			\
+	Method(Static, Apple);				\
+	Method(Static, Block_Drop);			\
+	Method(Static, Black_Magic_Lamp);	\
+	Method(Static, Extra_Health);		\
+	Method(Static, Genie_Bonus);		\
+	Method(Static, Restart_Point);		\
+	Method(Static, Spend_These);		\
+	Method(Static, Stick);
+
+#define EachNPC(Method)					\
+	Method(NPC, Camel);					\
+	Method(NPC, Stall);					\
+	Method(NPC, Peddler);
+
+#define EachObject(Method)				\
+	EachEnemy(Method)					\
+	EachStatic(Method)					\
+	EachNPC(Method)
+
+//
 
 //# Add_Unit
 #define Add_Unit(type, name)	Add_Unit_(type, _##name)
@@ -73,7 +80,6 @@ for (auto &unit : m##type##name) {									\
 }
 #define Object_UpdateEvent(type, name)	Object_UpdateEvent_(type,_##name)
 
-
 //# Delete
 bool ifMarkedDelete(const pair<RECT, Object *>& p) {
 	if (p.second == NULL || p.second == nullptr) return false;
@@ -92,12 +98,14 @@ bool ifMarkedDeleteLost(const Object* o) {
 	else return false;
 }
 
-
 #define Object_RemoveMarkedDelete_(type, name) m##type##name.remove_if(ifMarkedDelete);
 #define Object_RemoveMarkedDelete(type, name) Object_RemoveMarkedDelete_(type, _##name)
 
-#define Object_CheckCollision_(type, name) ObjectCheckCollisionEach(pObject, &m##type##name)
-#define Object_CheckCollision(type, name) Object_CheckCollision_(type, _##name)
+#define Object_CheckCollisionWithEnemy_(type, name) ObjectCheckCollisionWithEnemyEach(pObject, &m##type##name)
+#define Object_CheckCollisionWithEnemy(type, name) Object_CheckCollisionWithEnemy_(type, _##name)
+
+#define Object_CheckCollisionWithStatic_(type, name) ObjectCheckCollisionWithStaticEach(pObject, &m##type##name)
+#define Object_CheckCollisionWithStatic(type, name) Object_CheckCollisionWithStatic_(type, _##name)
 
 #define Object_Render_(type, name)									\
 for (auto &b : m##type##name) {	   									\
@@ -110,7 +118,7 @@ for (auto &b : m##type##name) {	   									\
 //# GetDistance
 #define Check_Square(v, value) 										\
 long v = value; 													\
-if(v >= 0 && (v < out.v || out.v == -1)) out.v = v	
+if(v >= 0 && (v < out.v || out.v == -1)) out.v = v
 
 #define Check_Squares(x,y) {										\
 	Check_Square(x, u.x - b->y);									\
@@ -126,7 +134,7 @@ if (b->bottom >= u.bottom) {										\
 	out.bottom = min(out.bottom, (b->bottom - u_x) - u.bottom);		\
 }
 
-#define If_Object(x,y)		if(u.x > b.y && b.x > u.y)
+#define If_Object(x,y)	if(u.x > b.y && b.x > u.y)
 #define If_Pointer(x,y)	if(u.x > b->y && b->x > u.y)
 #define Filter_Ground(var)											\
 for (auto &b : m##var) {											\

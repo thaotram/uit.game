@@ -25,7 +25,6 @@ public:
 	void ObjectUpdateEvent(float dt);
 	void ObjectEachState();
 	void ObjectAfterEachState();
-	void ObjectCheckCollision();
-
+	void ObjectCheckCollisionWithEnemy();
 	void ObjectGetDame(Object * pObject);
 };

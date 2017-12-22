@@ -8,18 +8,19 @@
 #define yy mPos.y()
 #define state	mAni.GetState()
 
-Object_Unit_Enemy_Pirates::Object_Unit_Enemy_Pirates(RECT u) : Object_Unit("Guards"), mLimit(u){
+Object_Unit_Enemy_Pirates::Object_Unit_Enemy_Pirates(RECT u) : Object_Unit("Guards"), mLimit(u) {
 	mPos.x << (float)(u.left + u.right) / 2;
 	mPos.y << (float)(u.top);
 	mAni.Set("pirates_defiant", 1);
 	mPos.x.mVelocity = 180;
-	mTimePerFrame = 0.04f;
+	mTimePerFrame = 0.06f;
 	mParty = Enemy;
 	mAutoNextFrame = true;
 	mIsMakeDamage = false;
 }
 
 void Object_Unit_Enemy_Pirates::ObjectUpdateEvent(float dt) {
+	tDt = dt;
 	tUnit = RECT{
 		(LONG)xx - 11,
 		(LONG)yy - 52,
@@ -27,19 +28,16 @@ void Object_Unit_Enemy_Pirates::ObjectUpdateEvent(float dt) {
 		(LONG)yy
 	};
 	tDis = mObjectStore->GetDistance(tUnit, this);
-	tDt = dt;
 	ObjectEachState();
+	mObjectStore->ObjectCheckCollisionWithPlayer(this);
 }
-//tam danh
 #define range 100
-//tamnhin
 #define visible 160
-void Object_Unit_Enemy_Pirates::ObjectEachState()
-{
+void Object_Unit_Enemy_Pirates::ObjectEachState() {
 	float playerX = Scene::mScene->oPlayer->GetPosition()->x();
 	mTransform.SetFlip(playerX > xx);
 	float distance = abs(xx - playerX);
-
+	tUnitDamage = RECT{ 0,0,0,0 };
 	if (state == "pirates_run") {
 		mPos.x += playerX > xx ?
 			+(mPos.x.mVelocity * tDt) :
@@ -68,12 +66,11 @@ void Object_Unit_Enemy_Pirates::ObjectEachState()
 			if (state != "pirates_defiant")		mAni.Set("pirates_defiant", 1);
 		}
 	}
-	else if (state == "pirates_cut") {
+	if (state == "pirates_cut") {
 		auto index = mAni.GetCycleIndex();
 		if (index == 1) {
 			mIsMakeDamage = false;
 		}
-
 		else if (index == 6) {
 			tUnitDamage = RECT{
 				(LONG)((isFlip) ? (xx + 75) : (xx - 18)),
