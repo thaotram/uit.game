@@ -8,16 +8,16 @@ private:
 	//# Tạo sẵn các biến để tái sử dụng trong tính toán (không cần cấp phát lại bộ nhớ)
 	bool tIsChangeX, tIsChangeY;
 	bool tIsThrowApple;
-	float tSpeedX, tSpeedY, tJump, tDt;
+	float tSpeedX, tSpeedY, tJump;
 
-	pair<bool, RECT> 
-		tBar, 
+	pair<bool, RECT>
+		tBar,
 		tRope,
 		tDropBlock;
 	pair<bool, pair<RECT, Object *> *> tStick;
 	pair<bool, pair<RECT, Object *> *> tCamel;
 public:
-	Object_Unit_Aladdin();
+	Object_Unit_Aladdin(float x, float y);
 	~Object_Unit_Aladdin() {};
 
 	bool mIsOnDropBlock;

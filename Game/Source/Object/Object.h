@@ -4,7 +4,7 @@
 
 #include "../../Define.h"
 #include "../GameGlobal.h"
-#include "../Utility/Vector.h"
+#include "../Utility/Vector_Easing.h"
 #include "../Scene/Scene.h"
 
 #include "Object_Json.h"

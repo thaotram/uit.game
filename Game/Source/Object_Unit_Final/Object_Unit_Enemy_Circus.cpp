@@ -17,6 +17,12 @@ Object_Unit_Enemy_Circus::~Object_Unit_Enemy_Circus() {}
 
 void Object_Unit_Enemy_Circus::ObjectUpdateEvent(float dt)
 {
+	tUnit = RECT{
+		(LONG)xx - 8,
+		(LONG)yy - 58,
+		(LONG)xx + 8,
+		(LONG)yy
+	};
 	ObjectEachState();
 }
 

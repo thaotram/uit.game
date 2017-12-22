@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Scene_Final/Scene_AgrabahMarket.h"
 #include "Scene_Final/Scene_JafarPalace.h"
+#include "Scene_Final/Scene_Death.h"
 
 Game::Game() {
 	mDevice = GameGlobal::GetDevice();
@@ -9,9 +10,8 @@ Game::Game() {
 	//# Game Start
 	Scene::ReplaceScene(
 		new Scene_AgrabahMarket()
+		// new Scene_JafarPalace()
 	);
-	mScene = Scene::mScene;
-
 	InitLoop();
 }
 Game::~Game() {}
@@ -69,7 +69,7 @@ void Game::GameRender(float delay) {
 	mDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
 	mDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
 	// Render
-	mScene->SceneRender(delay);
+	Scene::mScene->SceneRender(delay);
 
 	// End
 	mSpriteHandler->End();

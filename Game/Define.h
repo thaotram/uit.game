@@ -10,7 +10,7 @@
 #define HEIGHT 224
 #define SCALE 2
 #define FPS 60
-#define BACKGROUND_COLOR 0xffffffff
+#define BACKGROUND_COLOR 0xff000000
 
 #define MAP_HEIGHT 686
 #define MAP_WIDTH 4771

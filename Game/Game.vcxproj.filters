@@ -286,9 +286,6 @@
     <ClInclude Include="Source\Utility\Float_Easing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene\Scene_Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -396,9 +393,6 @@
     <ClInclude Include="Source\Object_Map_Final\Object_Map_JafarPalace_Back.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Object_Map_Final\Object_Map_JafarPalace_Front.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Object_Status_Final\Object_Status_Cloud.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -427,6 +421,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Disappear.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\Scene_Status.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\Scene_Background.h" />
+    <ClInclude Include="Source\Scene_Final\Scene_Death.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -481,9 +482,6 @@
     </ClCompile>
     <ClCompile Include="Source\Utility\Float_Easing.cpp">
       <Filter>Source\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\Scene_Camera.cpp">
-      <Filter>Source\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.cpp">
       <Filter>Source\Object_Map</Filter>
@@ -596,9 +594,6 @@
     <ClCompile Include="Source\Object_Map_Final\Object_Map_JafarPalace_Back.cpp">
       <Filter>Source\Object_Map</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Map_Final\Object_Map_JafarPalace_Front.cpp">
-      <Filter>Source\Object_Map</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Stall.cpp">
       <Filter>Source\Object_Unit\NPC</Filter>
     </ClCompile>
@@ -622,6 +617,15 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Disappear.cpp">
       <Filter>Source\Object_Unit\Explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\Scene_Background.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\Scene_Status.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene_Final\Scene_Death.cpp">
+      <Filter>Source\Scene\Scene_Final</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

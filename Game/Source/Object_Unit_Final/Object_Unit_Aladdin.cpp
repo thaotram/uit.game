@@ -2,6 +2,7 @@
 #include "../Object_Unit_Final/Object_Unit_Apple.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Stick.h"
 #include "../Object_Unit_Final/Object_Unit_NPC_Camel.h"
+#include "../Scene_Final/Scene_Death.h"
 #include "../GameDebug.h"
 #include "../../Define.h"
 
@@ -28,8 +29,8 @@
 
 #define state	mAni.GetState()
 
-Object_Unit_Aladdin::Object_Unit_Aladdin() : Object_Unit("Aladdin") {
-	mPos << V2{ 1400, 500 };
+Object_Unit_Aladdin::Object_Unit_Aladdin(float x, float y) : Object_Unit("Aladdin") {
+	mPos << V2{ x, y };
 	mAni.Set("stand", 1);
 	tIsThrowApple = false;
 	mIsMakeDamage = false;
@@ -63,8 +64,8 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	ObjectEachState();
 	ObjectAfterEachState();
 	ObjectCheckCollision();
+	GameDebug::Title(tDis);
 }
-
 void Object_Unit_Aladdin::ObjectEachState() {
 	//# Each State
 	if (state == "") {
@@ -76,7 +77,12 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		tIsChangeX = false;
 		if (U)						mAni.Set("up", 1);
 		else if (D)					mAni.Set("sit", 1);
-		else if (R || L)			mAni.Set("run", 1);
+		else if (R || L) {
+			if ((L && tDis.left == 0) || (R && tDis.right == 0)) {
+				mAni.Set("push", 1);
+			}
+			else mAni.Set("run", 1);
+		}
 		else if (Z && hasApple) {
 			Z = false;
 			mAni.Set("stand_throwapple", 1, "stand", 1);
@@ -174,7 +180,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		X = false;
 		mTimePerFrame = 0.03f;
 		mAutoNextFrame = true;
-		if(mAni.GetCycleIndex() == 1){
+		if (mAni.GetCycleIndex() == 1) {
 			mIsMakeDamage = false;
 		}
 		if (mAni.GetCycleIndex() == 3 && !mIsMakeDamage) {
@@ -277,12 +283,27 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			tIsThrowApple = true;
 			Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Apple(xx, yy - 40, mTransform.GetFlip()));
 		}
-
+	}
+	else if (state == "push") {
+		mTimePerFrame = 0.06f;
+		if (tDis.right == 0 && L) { 
+			R = false;
+			mAni.Set("run", 1);
+		}
+		else if (tDis.left == 0 && R) {
+			L = false;
+			mAni.Set("run", 1);
+		}
+		if (!L && !R)		mAni.Set("stand", 1);
 	}
 	else if (state == "run") {
-		mTimePerFrame = 0.06f;
-		if (!L && !R)
-			mAni.Set("stand", 1);
+		mTimePerFrame = 0.06f; 
+		if (!L && !R)		mAni.Set("stand", 1);
+		else if (R || L) {
+			if ((L && tDis.left == 0) || (R && tDis.right == 0)) {
+				mAni.Set("push", 1);
+			}
+		}
 		if (Z)				0; /// "run_throwapple" - thiếu
 		else if (X)			mAni.Set("run_cut", 1, "run", 9);
 		else if (C && tDis.bottom <= 10) {
@@ -340,7 +361,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (mPos.y.mVelocity <= 0)					mAni.SetCycleIndex(5);
 		else if (mPos.y.mVelocity <= 0.50 * +tJump)		mAni.SetCycleIndex(5);
 		else if (mPos.y.mVelocity <= 0.90 * +tJump)		mAni.SetCycleIndex(6);
-		
+
 		//# Thiếu
 		// (Z) mAni.Set("jump_thowapple", 1, "run_jump", 1);
 		if (X) mAni.Set("jump_cut", 1, "run_jump", 1);
@@ -410,7 +431,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 				tUnitDamage = RECT{
 					(LONG)((isFlip) ? (xx - 41) : (xx - 37)),
 					(LONG)(yy - 39),
-					(LONG)((isFlip) ? (xx +37) : (xx + 41)),
+					(LONG)((isFlip) ? (xx + 37) : (xx + 41)),
 					(LONG)(yy + 3)
 				};
 			}
@@ -495,7 +516,15 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTimePerFrame = 0.025f;
 		mAutoNextFrame = true;
 		mAni.SetNext("stand_jump", 3);
+		if (tDis.bottom < 20) {
+			mAni.Set("stand_jump", 3);
+		}
 	}
+	else if(state == "die"){
+		tIsChangeX = tIsChangeY = false;	
+	}
+
+
 	//# Bar & Rope
 	if (mPos.y.mVelocity >= -0.2 * tJump && tRope.first) {
 		if (state != "climb_vertical" &&
@@ -551,10 +580,14 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	Scene::mScene->oObjectStore->UpdateStairState(tUnit);
 }
 void Object_Unit_Aladdin::ObjectCheckCollision() {
+	tUnit = GetBound();
 	mSourceRect.Update(this);
 	Scene::mScene->oObjectStore->ObjectCheckCollision(this);
 }
-
 void Object_Unit_Aladdin::ObjectGetDame(Object * pObject) {
-	Scene::mScene->mBlood--;
+	if (Scene::mBlood == 0) {
+		Scene::ReplaceScene(
+			new Scene_Death()
+		);
+	} else Scene::mBlood--;
 }

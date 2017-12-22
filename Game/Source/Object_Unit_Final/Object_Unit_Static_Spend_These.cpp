@@ -6,6 +6,8 @@ Object_Unit_Static_Spend_These::Object_Unit_Static_Spend_These(RECT u) : Object_
 	mPos.y << (float)(u.top);
 	mAni.Set("spendthese_item", 1);
 	mAutoNextFrame = true;
+	mSourceRect.Update(this);
+	tUnit = GetBound();
 }
 
 void Object_Unit_Static_Spend_These::ObjectUpdateEvent(float dt) {
@@ -14,7 +16,7 @@ void Object_Unit_Static_Spend_These::ObjectUpdateEvent(float dt) {
 
 void Object_Unit_Static_Spend_These::ObjectIntersect(Object * pObject)
 {
-	Scene::mScene->mSpendthese++;
-	Scene::mScene->mScore += 150;
+	Scene::mSpendthese++;
+	Scene::mScore += 150;
 	mIsMarkedDelete = true;
 }

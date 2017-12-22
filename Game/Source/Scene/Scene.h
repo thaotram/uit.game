@@ -1,68 +1,42 @@
 ﻿#pragma once
 #include <list>
-#include "../GameGlobal.h"
 #include "../GameDebug.h"
-#include "../Scene/Scene_Camera.h"
-#include "../Scene/Scene_ObjectStore.h"
-#include "../Utility/Float_Easing.h"
+#include "../GameGlobal.h"
 #include "../Object/Object.h"
+#include "../Scene/Scene_ObjectStore.h"
+#include "../Scene/Scene_Status.h"
+#include "../Scene/Scene_Background.h"
+#include "../Utility/Float_Easing.h"
 
 using namespace std;
 
 class Scene {
 public:
-	Scene();
-	~Scene();
+    Scene();
+    ~Scene();
 
-	Vector mCamera;
+    Vector mCamera;
 
-	//# Object
-	Scene_ObjectStore * oObjectStore;
-	Object * oPlayer;
-	Object * oMapBack;
-	Object * oMapFront;
-	Object * oMagicLamp;
-	Object * oHealthMeter;
+    Object*          oPlayer;
+    Scene_Status*    oStatus;
+    Scene_Background*       oBackground;
+    Scene_ObjectStore*      oObjectStore;
+    Object*                 oMapBack;
+    Object*                 oMapFront;
 
-	Object * oSpendthese;
-	Object * oNspendthese;
+    //# Status Value
+    static int mBlood;
+	static int mApple;
+	static int mSpendthese;
+	static int mExtrahealth;
+	static Float_Easing mScore;
 
-	Object * oLife;
-	Object * oNLife;
+    virtual void SceneRender(float delay);
 
-	Object * oApple;
-	Object * oN_Apple_u;
-	Object * oN_Apple_t;
+    void OnKeyDown(int pKeyCode);
+    void OnKeyUp(int pKeyCode);
+    void OnMouseDown(float pX, float pY){};
 
-	Object * oScore_1;
-	Object * oScore_2;
-	Object * oScore_3;
-	Object * oScore_4;
-
-	Object* oSand_1;
-	Object* oSand_2;
-	Object* oSand_3;
-	Object* oSand_4;
-	Object* oSand_5;
-	Object* oCloud_1;
-	Object* oCloud_2;
-	Object* oCloud_3;
-	Object* oCloud_4;
-
-	//# Status
-	int mBlood;
-	int mApple;
-	int mSpendthese;
-	int mExtrahealth;
-
-	Float_Easing mScore;
-
-	void SceneRender(float delay);
-
-	void OnKeyDown(int pKeyCode);
-	void OnKeyUp(int pKeyCode);
-	void OnMouseDown(float pX, float pY) {};
-
-	static void ReplaceScene(Scene * pScene);
-	static Scene * mScene;
+    static void ReplaceScene(Scene* pScene);
+    static Scene* mScene;
 };

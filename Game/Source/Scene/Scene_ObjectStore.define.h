@@ -5,6 +5,7 @@
 Add_Ground(Bar);					\
 Add_Ground(Rope);					\
 Add_Ground(Square);					\
+Add_Ground(Horizontal);				\
 Add_Ground(Stairs_slash);			\
 Add_Ground(Stairs_backslash);		\
 									\

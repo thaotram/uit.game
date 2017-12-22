@@ -7,6 +7,7 @@ Object_Unit_Static_Abubonus::Object_Unit_Static_Abubonus(RECT u) : Object_Unit("
 	
 	mAni.Set("abubonus", 1);
 	mAutoNextFrame = true;
+	tUnit = GetBound();
 }
 
 void Object_Unit_Static_Abubonus::ObjectUpdateEvent(float delay) {
@@ -14,6 +15,6 @@ void Object_Unit_Static_Abubonus::ObjectUpdateEvent(float delay) {
 
 void Object_Unit_Static_Abubonus::ObjectIntersect(Object * pObject)
 {
-	Scene::mScene->mScore += 250;
+	Scene::mScore += 250;
 	mIsMarkedDelete = true;
 }

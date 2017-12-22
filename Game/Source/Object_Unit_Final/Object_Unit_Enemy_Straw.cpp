@@ -22,6 +22,12 @@ Object_Unit_Enemy_Straw::~Object_Unit_Enemy_Straw()
 
 void Object_Unit_Enemy_Straw::ObjectUpdateEvent(float dt)
 {
+	tUnit = RECT{
+		(LONG)xx - 15,
+		(LONG)yy - 39,
+		(LONG)xx + 15,
+		(LONG)yy
+	};
 }
 
 void Object_Unit_Enemy_Straw::ObjectEachState()
