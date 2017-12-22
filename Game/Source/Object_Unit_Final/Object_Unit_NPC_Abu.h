@@ -5,7 +5,7 @@
 class Object_Unit_NPC_Abu final : public Object_Unit
 {
 public:
-	Object_Unit_NPC_Abu(RECT u);
+	Object_Unit_NPC_Abu(float x, float y);
 	~Object_Unit_NPC_Abu();
 };
 
