@@ -35,6 +35,7 @@ void Object_Unit_Enemy_Thin::ObjectUpdateEvent(float dt) {
 	tDis = mObjectStore->GetDistance(tUnit, this);
 	tDt = dt;
 	ObjectEachState();
+	mObjectStore->ObjectCheckCollisionWithPlayer(this);
 }
 //tam danh
 #define range 100
@@ -45,6 +46,7 @@ void Object_Unit_Enemy_Thin::ObjectEachState() {
 		float playerX = Scene::mScene->oPlayer->GetPosition()->x();
 		mTransform.SetFlip(playerX > xx);
 		float distance = abs(xx - playerX);
+		tUnitDamage = RECT{ 0,0,0,0 };
 
 		if (state == "thin_run") {
 			mPos.x += playerX > xx ?
@@ -74,15 +76,18 @@ void Object_Unit_Enemy_Thin::ObjectEachState() {
 				if (state != "thin_stand")		mAni.Set("thin_stand", 1);
 			}
 		}
-		//else if (state == "thin_hit") {
-	//	if (mAni.GetCycleIndex() == 3) {
-	//		tUnitDamage = RECT{
-	//			(LONG)((isFlip) ? (xx + 77) : (xx - 26)),
-	//			(LONG)(yy - 46),
-	//			(LONG)((isFlip) ? (xx + 26) : (xx - 77)),
-	//			(LONG)(yy - 18)
-	//		};
-	//	}
+		if (state == "thin_hit") {
+			if (mAni.GetCycleIndex() == 3) {
+				tUnitDamage = RECT{
+					(LONG)((isFlip) ? (xx - 26) : (xx - 77)),
+					(LONG)(yy - 46),
+					(LONG)((isFlip) ? (xx + 77) : (xx + 26)),
+					(LONG)(yy - 18)
+				};
+			} else {
+				mIsMakeDamage = false;
+			}
+		}
 	}
 }
 

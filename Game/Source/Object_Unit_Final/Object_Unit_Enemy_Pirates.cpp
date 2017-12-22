@@ -38,6 +38,7 @@ void Object_Unit_Enemy_Pirates::ObjectEachState() {
 	mTransform.SetFlip(playerX > xx);
 	float distance = abs(xx - playerX);
 	tUnitDamage = RECT{ 0,0,0,0 };
+	
 	if (state == "pirates_run") {
 		mPos.x += playerX > xx ?
 			+(mPos.x.mVelocity * tDt) :
