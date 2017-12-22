@@ -9,7 +9,7 @@ private:
 	bool mFlip;
 	bool mIsCollision;
 public:
-	Object_Unit_Knife(float x, float y, bool isFlip);
+	Object_Unit_Knife(float x, float y, float pVelocityX, float pVelocityY, bool isFlip);
 	~Object_Unit_Knife();
 	void ObjectIntersect(Object * pObject);
 	void ObjectUpdateEvent(float dt);

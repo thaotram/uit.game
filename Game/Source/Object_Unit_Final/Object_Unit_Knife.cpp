@@ -8,15 +8,18 @@
 
 //# Ném dao của Fat & Circus
 
-Object_Unit_Knife::Object_Unit_Knife(float x, float y, bool isFlip) : Object_Unit("Guards"){
+Object_Unit_Knife::Object_Unit_Knife(float x, float y, float pVelocityX, float pVelocityY, bool isFlip) : Object_Unit("Guards"){
 	mPos << V2{ x, y };
 	mAni.Set("fat_knife", 1);
 	mTimePerFrame = 0.03f;
 	mAutoNextFrame = true;
 	mIsCollision = false;
 	mFlip = !isFlip;
-	mPos.x.mVelocity = 350;
-	//	mPos.y.mVelocity = -500;
+
+	// = 400
+	mPos.x.mVelocity = pVelocityX;
+	//= -500;
+	mPos.y.mVelocity = pVelocityY;
 	mParty = Enemy;
 }
 
