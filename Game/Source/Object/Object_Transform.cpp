@@ -23,14 +23,12 @@ void Object_Transform::Update(Object * pObject) {
 	Vector pFlip = { mFlip ? -1.f : 1.f, 1.f };
 
 	Object_Json	* pJson = pObject->GetJson();
-	V2 pPosition = pObject->GetPosition()->VECTOR2();
-
-	V2 pBasePoint = pJson->GetBasePoint(pObject);
+	V2 pPosition 		= pObject->GetPosition()->VECTOR2();
+	V2 pBasePoint 		= pJson->GetBasePoint(pObject);
 	V2 pFrameTransition = pJson->GetTransition(pObject);
-
-	V2 pScalingCenter = pPosition * SCALE + pBasePoint;
-	V2 pTranslation = ((pFlip * pFrameTransition - pCamera) * SCALE - pBasePoint).VECTOR2();
-	V2 pScaling = SCALE * pFlip;
+	V2 pScalingCenter 	= pPosition * SCALE + pBasePoint;
+	V2 pTranslation 	= ((pFlip * pFrameTransition - pCamera) * SCALE - pBasePoint).VECTOR2();
+	V2 pScaling 		= SCALE * pFlip;
 
 	D3DXMatrixTransformation2D(
 		this,				//		 D3DXMATRIX	 * pOut
@@ -54,12 +52,10 @@ void Object_Transform::SetFlip(Flip pFlip) {
 	}
 }
 
-void Object_Transform::SetFlip(bool pIsFlip)
-{
+void Object_Transform::SetFlip(bool pIsFlip) {
 	mFlip = pIsFlip;
 }
 
-bool Object_Transform::GetFlip()
-{
+bool Object_Transform::GetFlip() {
 	return mFlip;
 }

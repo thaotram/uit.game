@@ -68,6 +68,7 @@ void Game::GameRender(float delay) {
 	mDevice->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);
 	mDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);
 	mDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
+
 	// Render
 	Scene::mScene->SceneRender(delay);
 
@@ -76,3 +77,17 @@ void Game::GameRender(float delay) {
 	mDevice->EndScene();
 	mDevice->Present(0, 0, 0, 0);
 }
+
+//{
+//	DWORD AlphaValue = D3DCOLOR_ARGB(50, 255, 255, 255);
+//
+//	mDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
+//	mDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+//	mDevice->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
+//	mDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+//	mDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+//	mDevice->SetTextureStageState(0, D3DTSS_CONSTANT, AlphaValue);
+//	mDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_CONSTANT);
+//	mDevice->SetTextureStageState(1, D3DTSS_COLOROP, D3DTOP_DISABLE);
+//	mDevice->SetTextureStageState(1, D3DTSS_ALPHAOP, D3DTOP_DISABLE);
+//}

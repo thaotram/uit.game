@@ -1,6 +1,9 @@
 ﻿#include "Scene.h"
-Scene* Scene::mScene = NULL;
+Scene* Scene::mScene     = NULL;
+Scene* Scene::mNextScene = NULL;
 
+float Scene::mTime = 0;
+float Scene::mDelay = 0;
 int Scene::mBlood = 7;
 int Scene::mApple = 0;
 int Scene::mSpendthese = 0;
@@ -13,6 +16,10 @@ Float_Easing Scene::mScore = *(new Float_Easing(0, Type::linear, 300));
 //! Static Public
 void Scene::ReplaceScene(Scene* pScene) {
     mScene = pScene;
+}
+void Scene::ReplaceScene(Scene* pScene, float pDelay) {
+    mDelay = pDelay;
+    mNextScene = pScene;
 }
 
 //! Public
@@ -28,6 +35,16 @@ Scene::~Scene() {
 }
 
 void Scene::SceneRender(float delay) {
+    //# Replace Scene
+    if(mDelay != 0){
+        mTime += delay;
+        if(mTime > mDelay){
+            mDelay = 0;
+            mScene = mNextScene;
+        }
+        return;
+    }
+
     //# Update Easing
 	Scene::mScore.Update(delay);
     

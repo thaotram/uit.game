@@ -11,14 +11,17 @@
 using namespace std;
 
 class Scene {
+private:
+    static float mTime;
+    static float mDelay;
 public:
     Scene();
     ~Scene();
 
     Vector mCamera;
 
-    Object*          oPlayer;
-    Scene_Status*    oStatus;
+    Object*                 oPlayer;
+    Scene_Status*           oStatus;
     Scene_Background*       oBackground;
     Scene_ObjectStore*      oObjectStore;
     Object*                 oMapBack;
@@ -31,12 +34,14 @@ public:
 	static int mExtrahealth;
 	static Float_Easing mScore;
 
-    virtual void SceneRender(float delay);
+    virtual void SceneRender(float pDelay);
 
     void OnKeyDown(int pKeyCode);
     void OnKeyUp(int pKeyCode);
     void OnMouseDown(float pX, float pY){};
 
     static void ReplaceScene(Scene* pScene);
+    static void ReplaceScene(Scene* pScene, float delay);
     static Scene* mScene;
+    static Scene* mNextScene;
 };

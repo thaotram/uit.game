@@ -587,6 +587,10 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	Scene::mScene->oObjectStore->UpdateStairState(tUnit);
 }
 void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
-	Scene::mBlood--;
-	GameDebug::TitleCount();
+	if(Scene::mBlood == 0) {
+		Scene::ReplaceScene(
+			new Scene_Death(),
+			2.f
+		);
+	} else Scene::mBlood--;
 }

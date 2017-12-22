@@ -68,24 +68,24 @@ void Object_Unit_Enemy_Pirates::ObjectEachState() {
 	}
 	if (state == "pirates_cut") {
 		auto index = mAni.GetCycleIndex();
-		if (index == 1) {
-			mIsMakeDamage = false;
-		}
-		else if (index == 6) {
+		if (index == 6 || index == 14) {
 			tUnitDamage = RECT{
-				(LONG)((isFlip) ? (xx + 75) : (xx - 18)),
+				(LONG)((isFlip) ? (xx - 18) : (xx - 75)),
 				(LONG)(yy - 23),
-				(LONG)((isFlip) ? (xx + 18) : (xx - 75)),
+				(LONG)((isFlip) ? (xx + 75) : (xx + 18)),
 				(LONG)(yy - 10)
 			};
 		}
-		else if (mAni.GetCycleIndex() == 10) {
+		else if (index == 20 || index == 25 || index == 30) {
 			tUnitDamage = RECT{
 				(LONG)((isFlip) ? (xx - 27) : (xx - 83)),
 				(LONG)(yy - 52),
 				(LONG)((isFlip) ? (xx + 83) : (xx + 27)),
 				(LONG)(yy - 25)
 			};
+		}
+		else {
+			mIsMakeDamage = false;
 		}
 	}
 }
