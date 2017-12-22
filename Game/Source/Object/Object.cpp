@@ -41,7 +41,7 @@ RECT Object::GetBound() {
 		(LONG)(yy - basepoint.y),
 		(LONG)(xx + basepoint.x),
 		(LONG)(yy - basepoint.y + mSourceRect.GetHeight())
-	}: RECT{
+	} : RECT{
 		(LONG)(xx - basepoint.x),
 		(LONG)(yy - basepoint.y),
 		(LONG)(xx - basepoint.x + mSourceRect.GetWidth()),

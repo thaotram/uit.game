@@ -38,7 +38,6 @@ public:
 	Object(string pName);
 	~Object() {};
 
-
 	bool				mIsRender;
 	bool				mIsUpdate;
 	bool				mIsMarkedDelete;
