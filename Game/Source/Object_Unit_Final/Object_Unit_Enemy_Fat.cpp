@@ -2,6 +2,7 @@
 #define mAni mAnimation
 #define mPos mPosition
 #define mObjectStore Scene::mScene->oObjectStore
+#define isFlip			(mTransform.GetFlip())
 
 #define xx mPos.x()
 #define yy mPos.y()
@@ -11,7 +12,8 @@ Object_Unit_Enemy_Fat::Object_Unit_Enemy_Fat(RECT u) : Object_Unit("Guards"), mL
 	mPos.x << (float)(u.left + u.right) / 2;
 	mPos.y << (float)(u.top);
 	mAni.Set("fat_eat", 1);
-	mPos.x.mVelocity = 50;
+	mPos.x.mVelocity = 180;
+	mTimePerFrame = 0.04f;
 	mParty = Enemy;
 	mAutoNextFrame = true;
 }
@@ -70,10 +72,8 @@ void Object_Unit_Enemy_Fat::ObjectEachState()
 			mIsThrow = false;
 		}
 		else if (mAni.GetCycleIndex() == 4 && !mIsThrow) {
-			bool isFlip = mTransform.GetFlip();
 			Scene::mScene->oObjectStore->mLost.push_back(
 				new Object_Unit_Knife(xx + (isFlip? + 42: - 42), yy - 30, 400, 0, isFlip)
-				//new Object_Unit_Knife(xx, yy - 50, true)
 			);
 			mIsThrow = true;
 		}
