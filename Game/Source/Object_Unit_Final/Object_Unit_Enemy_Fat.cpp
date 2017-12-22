@@ -69,9 +69,10 @@ void Object_Unit_Enemy_Fat::ObjectEachState()
 		if (mAni.GetCycleIndex() == 1) {
 			mIsThrow = false;
 		}
-		else if (mAni.GetCycleIndex() == 2 && !mIsThrow) {
+		else if (mAni.GetCycleIndex() == 4 && !mIsThrow) {
+			bool isFlip = mTransform.GetFlip();
 			Scene::mScene->oObjectStore->mLost.push_back(
-				new Object_Unit_Knife(xx, yy-50, mTransform.GetFlip())
+				new Object_Unit_Knife(xx + (isFlip? + 42: - 42), yy - 30, 400, 0, isFlip)
 				//new Object_Unit_Knife(xx, yy - 50, true)
 			);
 			mIsThrow = true;
