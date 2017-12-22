@@ -26,5 +26,5 @@ public:
 	void ObjectEachState();
 	void ObjectAfterEachState();
 	void ObjectCheckCollisionWithEnemy();
-	void ObjectGetDame(Object * pObject);
+	void ObjectIntersect(Object * pObject);
 };

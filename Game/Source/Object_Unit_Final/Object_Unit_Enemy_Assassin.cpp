@@ -39,7 +39,7 @@ void Object_Unit_Enemy_Assassin::ObjectEachState() {
 	}
 }
 
-void Object_Unit_Enemy_Assassin::ObjectGetDame(Object * pObject) {
+void Object_Unit_Enemy_Assassin::ObjectIntersect(Object * pObject) {
 	mHealthPoint--;
 	if (mHealthPoint <= 0) {
 		mIsMarkedDelete = true;

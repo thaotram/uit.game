@@ -90,7 +90,7 @@ void Object_Unit_Enemy_Pirates::ObjectEachState() {
 	}
 }
 
-void Object_Unit_Enemy_Pirates::ObjectGetDame(Object * pObject)
+void Object_Unit_Enemy_Pirates::ObjectIntersect(Object * pObject)
 {
 	mHealthPoint--;
 	mAni.Set("pirates_hurt", 1, "pirates_defiant", 1);

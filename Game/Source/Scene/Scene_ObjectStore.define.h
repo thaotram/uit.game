@@ -41,9 +41,6 @@
 	EachStatic(Method)					\
 	EachNPC(Method)
 
-//
-
-//# Add_Unit
 #define Add_Unit(type, name)	Add_Unit_(type, _##name)
 #define Add_Unit_(type, name)										\
 json j_##type##name = block[#type#name];							\
@@ -101,10 +98,10 @@ bool ifMarkedDeleteLost(const Object* o) {
 #define Object_RemoveMarkedDelete_(type, name) m##type##name.remove_if(ifMarkedDelete);
 #define Object_RemoveMarkedDelete(type, name) Object_RemoveMarkedDelete_(type, _##name)
 
-#define Object_CheckCollisionWithEnemy_(type, name) ObjectCheckCollisionWithEnemyEach(pObject, &m##type##name)
+#define Object_CheckCollisionWithEnemy_(type, name) ObjectCheckCollisionWithEnemyEach(pPlayer, &m##type##name)
 #define Object_CheckCollisionWithEnemy(type, name) Object_CheckCollisionWithEnemy_(type, _##name)
 
-#define Object_CheckCollisionWithStatic_(type, name) ObjectCheckCollisionWithStaticEach(pObject, &m##type##name)
+#define Object_CheckCollisionWithStatic_(type, name) ObjectCheckCollisionWithStaticEach(pPlayer, &m##type##name)
 #define Object_CheckCollisionWithStatic(type, name) Object_CheckCollisionWithStatic_(type, _##name)
 
 #define Object_Render_(type, name)									\

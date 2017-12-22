@@ -80,7 +80,7 @@ void Object_Unit_Enemy_Fat::ObjectEachState()
 	}
 }
 
-void Object_Unit_Enemy_Fat::ObjectGetDame(Object* pObject) {
+void Object_Unit_Enemy_Fat::ObjectIntersect(Object* pObject) {
 	mHealthPoint--;
 	mAni.Set("fat_hurt", 1, "fat_eat", 1);
 	if (mHealthPoint <= 0) {

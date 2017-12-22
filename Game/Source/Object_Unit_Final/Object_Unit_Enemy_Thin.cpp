@@ -86,7 +86,7 @@ void Object_Unit_Enemy_Thin::ObjectEachState() {
 	}
 }
 
-void Object_Unit_Enemy_Thin::ObjectGetDame(Object * pObject)
+void Object_Unit_Enemy_Thin::ObjectIntersect(Object * pObject)
 {
 	mHealthPoint--;
 	mAni.Set("thin_hurt", 1, "thin_stand", 1);

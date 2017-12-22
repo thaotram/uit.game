@@ -54,7 +54,6 @@ public:
 
 	virtual void ObjectUpdateEvent(float delay) {};
 	virtual void ObjectIntersect(Object * pObject) {};
-	virtual void ObjectGetDame(Object * pObject) {};
 	virtual void ObjectUpdateProperties(float delay) {};
 	void		 ObjectDraw(
 		Vector_Easing pPosition,

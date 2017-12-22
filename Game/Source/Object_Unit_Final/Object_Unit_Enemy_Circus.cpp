@@ -40,7 +40,7 @@ void Object_Unit_Enemy_Circus::ObjectEachState()
 	}
 }
 
-void Object_Unit_Enemy_Circus::ObjectGetDame(Object * pObject)
+void Object_Unit_Enemy_Circus::ObjectIntersect(Object * pObject)
 {
 	mHealthPoint--;
 	if (mHealthPoint <= 0) {

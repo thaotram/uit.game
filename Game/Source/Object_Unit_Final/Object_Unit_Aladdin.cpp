@@ -588,7 +588,7 @@ void Object_Unit_Aladdin::ObjectCheckCollisionWithEnemy() {
 	tUnit = GetBound();
 	Scene::mScene->oObjectStore->ObjectCheckCollisionWithEnemy(this);
 }
-void Object_Unit_Aladdin::ObjectGetDame(Object * pObject) {
+void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 	Scene::mBlood--;
 	GameDebug::TitleCount();
 }

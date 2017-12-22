@@ -70,9 +70,10 @@ public:
 	void				ObjectRender(float dt);
 	void				ObjectRemoveMarkedDelete();
 
-	void 				ObjectCheckCollisionWithEnemy(Object * pObject);
-	void 				ObjectCheckCollisionWithEnemyEach(Object * pObject, list<pair<RECT, Object *>> * pList);
-	void 				ObjectCheckCollisionWithStaticEach(Object * pObject, list<pair<RECT, Object *>> * pList);
+	void 				ObjectCheckCollisionWithEnemy(Object * pPlayer);
+	void 				ObjectCheckCollisionWithEnemyEach(Object * pPlayer, list<pair<RECT, Object *>> * pList);
+	void 				ObjectCheckCollisionWithStatic(Object * pPlayer);
+	void 				ObjectCheckCollisionWithStaticEach(Object * pPlayer, list<pair<RECT, Object *>> * pList);
 	void 				ObjectCheckCollisionWithPlayer(Object * pObject);
 
 	RECT				GetDistance(RECT u, Object * pUnit);

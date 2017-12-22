@@ -81,7 +81,7 @@ void Object_Unit_Enemy_Straw::ObjectEachState()
 	//}
 }
 
-void Object_Unit_Enemy_Straw::ObjectGetDame(Object * pObject)
+void Object_Unit_Enemy_Straw::ObjectIntersect(Object * pObject)
 {
 	mHealthPoint--;
 	if (mHealthPoint <= 0) {

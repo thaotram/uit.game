@@ -69,30 +69,31 @@ void Scene_ObjectStore::ObjectCheckCollisionWithEnemyEach(Object *pPlayer, list<
 			auto object_bound = unit.second->tUnit;
 			auto object_damage = unit.second->tUnitDamage;
 
-			if (isIntersect(player_bound, object_bound)) {
-				unit.second->ObjectIntersect(pPlayer);
-			}
+			//if (isIntersect(player_bound, object_bound)) {
+			//	unit.second->ObjectIntersect(pPlayer);
+			//}
 			if (pPlayer->mParty != unit.second->mParty) {
 				if (isIntersect(player_damage, object_bound) &&
 					!pPlayer->mIsMakeDamage) {
-					unit.second->ObjectGetDame(pPlayer);
+					unit.second->ObjectIntersect(pPlayer);
 					pPlayer->mIsMakeDamage = true;
 				}
 			}
 		}
 	}
 }
-void Scene_ObjectStore::ObjectCheckCollisionWithStaticEach(Object * pObject, list<pair<RECT, Object*>>* pList) {
-
+void Scene_ObjectStore::ObjectCheckCollisionWithStatic(Object * pPlayer) {
 }
-void Scene_ObjectStore::ObjectCheckCollisionWithEnemy(Object *pObject) {
+void Scene_ObjectStore::ObjectCheckCollisionWithStaticEach(Object * pPlayer, list<pair<RECT, Object*>>* pList) {
+}
+void Scene_ObjectStore::ObjectCheckCollisionWithEnemy(Object *pPlayer) {
 	EachEnemy(Object_CheckCollisionWithEnemy);
 }
 void Scene_ObjectStore::ObjectCheckCollisionWithPlayer(Object *pObject) {
 	auto unit_damage = pObject->tUnitDamage;
 	auto player_bound = Scene::mScene->oPlayer->GetBound();
 	if (isIntersect(player_bound, unit_damage) && !pObject->mIsMakeDamage) {
-		Scene::mScene->oPlayer->ObjectGetDame(pObject);
+		Scene::mScene->oPlayer->ObjectIntersect(pObject);
 		pObject->mIsMakeDamage = true;
 	}
 }

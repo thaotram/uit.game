@@ -12,5 +12,5 @@ public:
 	~Object_Unit_Enemy_Pirates() {};
 	void ObjectUpdateEvent(float dt);
 	void ObjectEachState();
-	void ObjectGetDame(Object * pObject);
+	void ObjectIntersect(Object * pObject);
 };
