@@ -1,4 +1,6 @@
 #pragma once
+#define Each Each
+#define _ _
 
 #define EachGround()					\
 	Add_Ground(Bar);					\
@@ -41,41 +43,39 @@
 	EachStatic(Method)					\
 	EachNPC(Method)
 
-#define Add_Unit(type, name)	Add_Unit_(type, _##name)
-#define Add_Unit_(type, name)										\
-json j_##type##name = block[#type#name];							\
-for (auto& s : j_##type##name) {									\
-	m##type##name.push_back(										\
-		make_pair(													\
-			RECT{s[0],s[1],s[2],s[3]},								\
-			nullptr													\
-		)															\
-	);																\
+#define Add_Unit(type, name)											\
+json j_##type##_##name = block[#type"_"#name];							\
+for (auto& s : j_##type##_##name) {										\
+	m##type##_##name.push_back(											\
+		make_pair(														\
+			RECT{s[0],s[1],s[2],s[3]},									\
+			nullptr														\
+		)																\
+	);																	\
 }
 
-#define Add_Ground(kind)											\
-json j_##kind = block[#kind];										\
-for (auto& s : j_##kind) {											\
-	m##kind.push_back(												\
-		RECT{s[0],s[1],s[2],s[3]}									\
-	);																\
+#define Add_Ground(kind)												\
+json j_##kind = block[#kind];											\
+for (auto& s : j_##kind) {												\
+	m##kind.push_back(													\
+		RECT{s[0],s[1],s[2],s[3]}										\
+	);																	\
 }
 
 //# Object_UpdateEvent
-#define Object_UpdateEvent_(type, name)								\
-for (auto &unit : m##type##name) {									\
-	if (isIntersect(unit.first, camera)) {							\
-		if (unit.second == nullptr || unit.second == NULL) {		\
-			unit.second = new Object_Unit_##type##name(unit.first);	\
-		}															\
-		unit.second->ObjectUpdateEvent(dt);							\
-	}																\
-	else if (unit.second != NULL) {									\
-		delete unit.second;											\
-		unit.second = NULL;											\
-	}																\
+#define Object_UpdateEvent(type, name)									\
+for (auto &unit : m##type##_##name) {									\
+	if (isIntersect(unit.first, camera)) {								\
+		if (unit.second == nullptr || unit.second == NULL) {			\
+			unit.second = new Object_Unit_##type##_##name(unit.first);	\
+		}																\
+		unit.second->ObjectUpdateEvent(dt);								\
+	}																	\
+	else if (unit.second != NULL) {										\
+		delete unit.second;												\
+		unit.second = NULL;												\
+	}																	\
 }
-#define Object_UpdateEvent(type, name)	Object_UpdateEvent_(type,_##name)
 
 //# Delete
 bool ifMarkedDelete(const pair<RECT, Object *>& p) {
@@ -98,19 +98,18 @@ bool ifMarkedDeleteLost(const Object* o) {
 #define Object_RemoveMarkedDelete_(type, name) m##type##name.remove_if(ifMarkedDelete);
 #define Object_RemoveMarkedDelete(type, name) Object_RemoveMarkedDelete_(type, _##name)
 
+#define ToEachMethod(object, type, name)					\
+ObjectCheckCollisionWith##type##Each(object, &m##type##_##name)
+
 #define Object_CheckCollisionWithEnemy_(type, name) ObjectCheckCollisionWithEnemyEach(pPlayer, &m##type##name)
 #define Object_CheckCollisionWithEnemy(type, name) Object_CheckCollisionWithEnemy_(type, _##name)
 
-#define Object_CheckCollisionWithStatic_(type, name) ObjectCheckCollisionWithStaticEach(pPlayer, &m##type##name)
-#define Object_CheckCollisionWithStatic(type, name) Object_CheckCollisionWithStatic_(type, _##name)
-
-#define Object_Render_(type, name)									\
-for (auto &b : m##type##name) {	   									\
+#define Object_Render(type, name)									\
+for (auto &b : m##type##_##name) {	   									\
 	if (b.second != NULL) {		   									\
 		b.second->ObjectRender(dt);									\
 	}							   									\
 }
-#define Object_Render(type, name) Object_Render_(type, _##name)
 
 //# GetDistance
 #define Check_Square(v, value) 										\

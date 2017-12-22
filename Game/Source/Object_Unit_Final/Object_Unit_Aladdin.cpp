@@ -63,8 +63,11 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	//# Các thao tác tính toán / cập nhật
 	ObjectEachState();
 	ObjectAfterEachState();
-	ObjectCheckCollisionWithEnemy();
-	// GameDebug::Title(tDis);
+
+	mSourceRect.Update(this);
+	tUnit = GetBound();
+	Scene::mScene->oObjectStore->ObjectCheckCollisionWithEnemy(this);
+	Scene::mScene->oObjectStore->ObjectCheckCollisionWithStatic(this);
 }
 void Object_Unit_Aladdin::ObjectEachState() {
 	//# Each State
@@ -582,11 +585,6 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 
 	//# UpdateStairsState
 	Scene::mScene->oObjectStore->UpdateStairState(tUnit);
-}
-void Object_Unit_Aladdin::ObjectCheckCollisionWithEnemy() {
-	mSourceRect.Update(this);
-	tUnit = GetBound();
-	Scene::mScene->oObjectStore->ObjectCheckCollisionWithEnemy(this);
 }
 void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 	Scene::mBlood--;
