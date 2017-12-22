@@ -430,6 +430,9 @@
     <ClInclude Include="Source\Scene_Final\Scene_Death.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Abu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -626,6 +629,9 @@
     </ClCompile>
     <ClCompile Include="Source\Scene_Final\Scene_Death.cpp">
       <Filter>Source\Scene\Scene_Final</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Abu.cpp">
+      <Filter>Source\Object_Unit\NPC</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
