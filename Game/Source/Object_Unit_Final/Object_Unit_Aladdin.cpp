@@ -2,6 +2,7 @@
 #include "../Object_Unit_Final/Object_Unit_Apple.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Stick.h"
 #include "../Object_Unit_Final/Object_Unit_NPC_Camel.h"
+#include "../Scene_Final/Scene_Death.h"
 #include "../GameDebug.h"
 #include "../../Define.h"
 
@@ -65,7 +66,6 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	ObjectCheckCollision();
 	GameDebug::Title(tDis);
 }
-
 void Object_Unit_Aladdin::ObjectEachState() {
 	//# Each State
 	if (state == "") {
@@ -520,6 +520,11 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mAni.Set("stand_jump", 3);
 		}
 	}
+	else if(state == "die"){
+		tIsChangeX = tIsChangeY = false;	
+	}
+
+
 	//# Bar & Rope
 	if (mPos.y.mVelocity >= -0.2 * tJump && tRope.first) {
 		if (state != "climb_vertical" &&
@@ -579,9 +584,10 @@ void Object_Unit_Aladdin::ObjectCheckCollision() {
 	mSourceRect.Update(this);
 	Scene::mScene->oObjectStore->ObjectCheckCollision(this);
 }
-
 void Object_Unit_Aladdin::ObjectGetDame(Object * pObject) {
 	if (Scene::mBlood == 0) {
-		GameDebug::Title("kill");
+		Scene::ReplaceScene(
+			new Scene_Death()
+		);
 	} else Scene::mBlood--;
 }

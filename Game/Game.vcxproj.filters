@@ -427,6 +427,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Scene\Scene_Background.h" />
+    <ClInclude Include="Source\Scene_Final\Scene_Death.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -620,6 +623,9 @@
     </ClCompile>
     <ClCompile Include="Source\Scene\Scene_Status.cpp">
       <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene_Final\Scene_Death.cpp">
+      <Filter>Source\Scene\Scene_Final</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

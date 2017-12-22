@@ -12,7 +12,6 @@ Float_Easing Scene::mScore = *(new Float_Easing(0, Type::linear, 300));
 
 //! Static Public
 void Scene::ReplaceScene(Scene* pScene) {
-    delete mScene;
     mScene = pScene;
 }
 

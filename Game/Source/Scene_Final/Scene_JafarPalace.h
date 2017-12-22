@@ -1,9 +1,4 @@
 #pragma once
-#include <d3d9.h>
-#include <d3dx9.h>
-#include <math.h>
-#include <vector>
-
 #include "../GameDebug.h"
 #include "../Scene/Scene.h"
 #include "../Scene/Scene_ObjectStore.h"

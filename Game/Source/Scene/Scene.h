@@ -31,7 +31,7 @@ public:
 	static int mExtrahealth;
 	static Float_Easing mScore;
 
-    void SceneRender(float delay);
+    virtual void SceneRender(float delay);
 
     void OnKeyDown(int pKeyCode);
     void OnKeyUp(int pKeyCode);
