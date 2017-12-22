@@ -7,12 +7,6 @@ Object_Screen::Object_Screen(string pName) : Object(pName) {
 }
 
 void Object_Screen::ObjectUpdateProperties(float delay) {
-	// if (mCurrentTime >= mTimePerFrame) {
-	// 	mCurrentTime -= mTimePerFrame;
-	// 	if (mAutoNextFrame) mAnimation.NextFrame(this);
-	// }
-	// else mCurrentTime += delay;
-
 	mTransform.Update(this);
 	mSourceRect.Update(this);
 }

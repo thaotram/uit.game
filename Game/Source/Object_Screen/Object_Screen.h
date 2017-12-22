@@ -11,5 +11,4 @@ public:
 
 	virtual void ObjectUpdateEvent(float delay) {};
 	void ObjectUpdateProperties(float delay);
-
 };

@@ -57,7 +57,7 @@ void Game::InitLoop() {
 
 //# Được gọi bên trong vòng lặp
 void Game::GameRender(float delay) {
-	ID3DXSprite  * mSpriteHandler = GameGlobal::GetSpriteHandler();
+	ID3DXSprite * mSpriteHandler = GameGlobal::GetSpriteHandler();
 
 	// Before
 	mDevice->Clear(0, NULL, D3DCLEAR_TARGET, BACKGROUND_COLOR, 0.f, 0);
