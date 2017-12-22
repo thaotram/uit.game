@@ -1,6 +1,9 @@
 #include "Object_Unit_Static_Spend_These.h"
 #define mAni	mAnimation
 #define mPos	mPosition
+#define xx		mPos.x()
+#define yy		mPos.y()
+
 Object_Unit_Static_Spend_These::Object_Unit_Static_Spend_These(RECT u) : Object_Unit("Item") {
 	mPos.x << (float)(u.left);
 	mPos.y << (float)(u.top);
@@ -19,4 +22,10 @@ void Object_Unit_Static_Spend_These::ObjectIntersect(Object * pObject)
 	Scene::mSpendthese++;
 	Scene::mScore += 150;
 	mIsMarkedDelete = true;
+	Scene::mScene->oObjectStore->mLost.push_back(
+		new Object_Unit_Explosion_Twinkle(
+			xx - 6, yy - 6,
+			Scene::mScene->oPlayer->GetTransform()->GetFlip()
+		)
+	);
 }
