@@ -64,7 +64,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	ObjectEachState();
 	ObjectAfterEachState();
 	ObjectCheckCollision();
-	GameDebug::Title(tDis);
+	// GameDebug::Title(tDis);
 }
 void Object_Unit_Aladdin::ObjectEachState() {
 	//# Each State
@@ -523,6 +523,10 @@ void Object_Unit_Aladdin::ObjectEachState() {
 	else if(state == "die"){
 		tIsChangeX = tIsChangeY = false;	
 	}
+	else if(state == "hurt"){
+		tIsChangeX = tIsChangeY = false;	
+		mAni.SetNext("stand", 1);
+	}
 
 
 	//# Bar & Rope
@@ -580,14 +584,19 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	Scene::mScene->oObjectStore->UpdateStairState(tUnit);
 }
 void Object_Unit_Aladdin::ObjectCheckCollision() {
-	tUnit = GetBound();
 	mSourceRect.Update(this);
+	tUnit = GetBound();
+	GameDebug::Title(tUnit.right - tUnit.left);
 	Scene::mScene->oObjectStore->ObjectCheckCollision(this);
 }
 void Object_Unit_Aladdin::ObjectGetDame(Object * pObject) {
-	if (Scene::mBlood == 0) {
-		Scene::ReplaceScene(
-			new Scene_Death()
-		);
-	} else Scene::mBlood--;
+	//if (Scene::mBlood == 0) {
+	//	//Scene::ReplaceScene(
+	//	//	new Scene_Death()
+	//	//);
+	//} else 
+	Scene::mBlood--;
+	if(state == "stand") {
+		mAni.Set("hurt", 1);
+	}
 }

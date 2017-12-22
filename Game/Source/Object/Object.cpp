@@ -32,10 +32,16 @@ void Object::ObjectDraw(Vector_Easing pPosition, Object_Transform pTransform, Ob
 }
 
 RECT Object::GetBound() {
+	bool flip = mTransform.GetFlip();
 	float xx = mPos.x();
 	float yy = mPos.y();
 	V2 basepoint = mJson->GetBasePoint(this);
-	return RECT{
+	return flip ? RECT{
+		(LONG)(xx + basepoint.x - mSourceRect.GetWidth()),
+		(LONG)(yy - basepoint.y),
+		(LONG)(xx + basepoint.x),
+		(LONG)(yy - basepoint.y + mSourceRect.GetHeight())
+	}: RECT{
 		(LONG)(xx - basepoint.x),
 		(LONG)(yy - basepoint.y),
 		(LONG)(xx - basepoint.x + mSourceRect.GetWidth()),
