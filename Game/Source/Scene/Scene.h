@@ -3,7 +3,6 @@
 #include "../GameDebug.h"
 #include "../GameGlobal.h"
 #include "../Object/Object.h"
-//#include "../Object_Screen/Object_Screen.h"
 #include "../Scene/Scene_ObjectStore.h"
 #include "../Scene/Scene_Status.h"
 #include "../Scene/Scene_Background.h"

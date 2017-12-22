@@ -18,12 +18,9 @@ Object_Unit_Enemy_Straw::Object_Unit_Enemy_Straw(RECT u) : Object_Unit("Civilian
 	mAutoNextFrame = true;
 }
 
-Object_Unit_Enemy_Straw::~Object_Unit_Enemy_Straw()
-{
-}
+Object_Unit_Enemy_Straw::~Object_Unit_Enemy_Straw(){}
 
-void Object_Unit_Enemy_Straw::ObjectUpdateEvent(float dt)
-{
+void Object_Unit_Enemy_Straw::ObjectUpdateEvent(float dt){
 	tUnit = RECT{
 		(LONG)xx - 15,
 		(LONG)yy - 39,
@@ -33,16 +30,17 @@ void Object_Unit_Enemy_Straw::ObjectUpdateEvent(float dt)
 	tDis = mObjectStore->GetDistance(tUnit, this);
 	tDt = dt;
 	ObjectEachState();
+	mObjectStore->ObjectCheckCollisionWithPlayer(this);
 }
 //tam danh
 #define range 50
 //tamnhin
 #define visible 160
-void Object_Unit_Enemy_Straw::ObjectEachState()
-{
+void Object_Unit_Enemy_Straw::ObjectEachState(){
 	float playerX = Scene::mScene->oPlayer->GetPosition()->x();
 	mTransform.SetFlip(playerX < xx);
 	float distance = abs(xx - playerX);
+    tUnitDamage = RECT{0, 0, 0, 0};
 
 	if (state == "straw_run") {
 		mPos.x += playerX > xx ?
@@ -50,10 +48,10 @@ void Object_Unit_Enemy_Straw::ObjectEachState()
 			-(mPos.x.mVelocity * tDt);
 		mPos.Update(tDt);
 		if (xx < mLimit.left) {
-			mPos.x << mLimit.left;
+			mPos.x << (float)mLimit.left;
 		}
 		else if (xx > mLimit.right) {
-			mPos.x << mLimit.right;
+			mPos.x << (float)mLimit.right;
 		}
 	}
 	if (distance < range) {
@@ -69,16 +67,18 @@ void Object_Unit_Enemy_Straw::ObjectEachState()
 	else {
 		if (state != "straw_stand")		mAni.Set("straw_stand", 1);
 	}
-	//else if (state == "straw_hit") {
-	//	if (mAni.GetCycleIndex() == 4) {
-	//		tUnitDamage = RECT{
-	//			(LONG)((isFlip) ? (xx - 42) : (xx + 5)),
-	//			(LONG)(yy - 36),
-	//			(LONG)((isFlip) ? (xx - 5) : (xx + 42)),
-	//			(LONG)(yy - 24)
-	//		};
-	//	}
-	//}
+	if (state == "straw_hit") {
+		if (mAni.GetCycleIndex() == 4) {
+			tUnitDamage = RECT{
+				(LONG)((isFlip) ? (xx - 42) : (xx + 5)),
+				(LONG)(yy - 36),
+				(LONG)((isFlip) ? (xx - 5) : (xx + 42)),
+				(LONG)(yy - 24)
+			};
+		} else {
+			mIsMakeDamage = false;
+		}
+	}
 }
 
 void Object_Unit_Enemy_Straw::ObjectIntersect(Object * pObject)

@@ -26,7 +26,7 @@ void Scene::ReplaceScene(Scene* pScene, float pDelay) {
 Scene::Scene() {
 	oStatus = new Scene_Status();
     oBackground = new Scene_Background();
-    //ooo = new Object_Screen();
+    // ooo = new Object_Screen();
 }
 Scene::~Scene() {
     delete oObjectStore;
@@ -37,14 +37,15 @@ Scene::~Scene() {
 
 void Scene::SceneRender(float delay) {
     //# Replace Scene
-    if(mDelay != 0){
-        mTime += delay;
-        if(mTime > mDelay){
-            mDelay = 0;
-            mScene = mNextScene;
-        }
-        return;
-    }
+
+    // if(mDelay != 0){
+    //     mTime += delay;
+    //     if(mTime > mDelay){
+    //         mDelay = 0;
+    //         mScene = mNextScene;
+    //     }
+    //     return;
+    // }
 
     //# Update Easing
 	Scene::mScore.Update(delay);
@@ -68,7 +69,7 @@ void Scene::SceneRender(float delay) {
 	RenderIf(oMapFront);
 	RenderIf(oStatus);
 
-    ooo->ObjectRender(delay);
+    // ooo->ObjectRender(delay);
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}

@@ -1,14 +1,11 @@
 #pragma once
 #include "../../Define.h"
 #include "../Object/Object.h"
-#include "../Scene/Scene.h"
 
-class Object_Status : public Object {
+class Object_Screen final : public Object {
 public:
-	bool mAutoNextFrame = false;
-	Object_Status(string pName);
-	~Object_Status() {};
-
+	Object_Screen();
+	~Object_Screen() {};
 	virtual void ObjectUpdateEvent(float delay) {};
 	void ObjectUpdateProperties(float delay);
 };

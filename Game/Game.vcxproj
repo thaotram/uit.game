@@ -172,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Object_Screen\Object_Screen.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Abu.h" />
     <ClInclude Include="Source\Scene\Scene_Background.h" />
     <ClInclude Include="Source\Scene\Scene_Status.h" />
@@ -241,6 +242,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Define.cpp" />
+    <ClCompile Include="Source\Object_Screen\Object_Screen.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_NPC_Abu.cpp" />
     <ClCompile Include="Source\Scene\Scene_Background.cpp" />
     <ClCompile Include="Source\Scene\Scene_Status.cpp" />
