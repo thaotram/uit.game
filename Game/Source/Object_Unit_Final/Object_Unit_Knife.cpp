@@ -14,6 +14,7 @@ Object_Unit_Knife::Object_Unit_Knife(float x, float y, float pVelocityX, float p
 	mTimePerFrame = 0.03f;
 	mAutoNextFrame = true;
 	mIsCollision = false;
+	mIsMakeDamage = false;
 	mFlip = !isFlip;
 
 	// = 400
@@ -29,15 +30,15 @@ Object_Unit_Knife::~Object_Unit_Knife()
 
 void Object_Unit_Knife::ObjectUpdateEvent(float dt)
 {
-	tUnit=
-		RECT{
-			(LONG)xx,
-			(LONG)yy,
-			(LONG)xx,
-			(LONG)yy
+	tUnit = RECT{
+		(LONG)xx-5,
+		(LONG)yy-15,
+		(LONG)xx+5,
+		(LONG)yy+15
 	};
 	tDis = mObjectStore->GetDistance(tUnit, this);
-	//Scene::mScene->oObjectStore->ObjectCheckCollision(this);
+	tUnitDamage = GetBound();
+	Scene::mScene->oObjectStore->ObjectCheckCollisionWithPlayer(this);
 	
 	if (tDis.bottom == 0 || tDis.left == 0 || tDis.right == 0) {
 		mIsMarkedDelete = true;
@@ -53,7 +54,6 @@ void Object_Unit_Knife::ObjectUpdateEvent(float dt)
 		mPos.y = yy + tDis.bottom;
 		mPos.Update(dt);
 	}
-
 
 	//if (!mAutoNextFrame) {
 	//	mPos.y = yy + tDis.bottom;

@@ -14,6 +14,7 @@ Object_Unit_Explosion_Big::Object_Unit_Explosion_Big(float x, float y) : Object_
 	mAni.Set("blue_smoke", 1);
 	mAutoNextFrame = true;
 	mTimePerFrame = 0.02f;
+	mParty = Friend;
 }
 
 Object_Unit_Explosion_Big::~Object_Unit_Explosion_Big()
