@@ -24,7 +24,7 @@ void Object_Unit_Static_Spend_These::ObjectIntersect(Object * pObject)
 	mIsMarkedDelete = true;
 	Scene::mScene->oObjectStore->mLost.push_back(
 		new Object_Unit_Explosion_Twinkle(
-			xx - 6, yy - 6,
+			xx - 2, yy - 4,
 			Scene::mScene->oPlayer->GetTransform()->GetFlip()
 		)
 	);

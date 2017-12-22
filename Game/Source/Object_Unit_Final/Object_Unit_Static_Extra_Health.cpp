@@ -1,6 +1,9 @@
 #include "Object_Unit_Static_Extra_Health.h"
 #define mAni	mAnimation
 #define mPos	mPosition
+#define xx		mPos.x()
+#define yy		mPos.y()
+
 Object_Unit_Static_Extra_Health::Object_Unit_Static_Extra_Health(RECT u) : Object_Unit("Item") {
 	mPos.x << (float)(u.left);
 	mPos.y << (float)(u.top);
@@ -21,4 +24,10 @@ void Object_Unit_Static_Extra_Health::ObjectIntersect(Object * pObject)
 	Scene::mScore += 150;
 	Scene::mBlood = min(Scene::mBlood + 1,8);
 	mIsMarkedDelete = true;
+	Scene::mScene->oObjectStore->mLost.push_back(
+		new Object_Unit_Explosion_Twinkle(
+			xx - 4, yy - 4,
+			Scene::mScene->oPlayer->GetTransform()->GetFlip()
+		)
+	);
 }
