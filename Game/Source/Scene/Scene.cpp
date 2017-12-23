@@ -4,9 +4,14 @@
 
 Scene* Scene::mScene = NULL;
 Scene* Scene::mNextScene = NULL;
+Scene* Scene::mBackScene = NULL;
 
-float Scene::mTime = 0;
+Object_Screen* Scene::oTransparentScreen = new Object_Screen();
+
+float Scene::mTimer = 0;
 float Scene::mDelay = 0;
+
+//# Status
 int Scene::mBlood = 7;
 int Scene::mApple = 0;
 int Scene::mSpendthese = 0;
@@ -16,20 +21,16 @@ Float_Easing Scene::mScore = *(new Float_Easing(0, Type::linear, 300));
 #define UpdateIf(object) if(object) object->ObjectUpdateEvent(delay);
 #define RenderIf(object) if(object) object->ObjectRender(delay);
 
-//! Static Public
 void Scene::ReplaceScene(Scene* pScene) {
-	mScene = pScene;
-}
-void Scene::ReplaceScene(Scene* pScene, float pDelay) {
-	mDelay = pDelay;
+	mDelay = 1.f;
+	mTimer = 0;
 	mNextScene = pScene;
+	oTransparentScreen->mAlpha = 255;
 }
 
-//! Public
 Scene::Scene() {
 	oStatus = new Scene_Status();
 	oBackground = new Scene_Background();
-	oTransparentScreen = new Object_Screen();
 }
 Scene::~Scene() {
 	delete oObjectStore;

@@ -10,40 +10,42 @@
 
 using namespace std;
 
+class Object_Screen;
 class Scene {
 private:
-    static float mTime;
-    static float mDelay;
+	static bool	 mIsDie;
+	static float mTimer;
+	static float mDelay;
 public:
-    Scene();
-    ~Scene();
+	Scene();
+	~Scene();
 
-    Vector mCamera;
+	Vector mCamera;
 
-    Object*                 oTransparentScreen;
+	static Object_Screen*   oTransparentScreen;
 
-    Object*                 oPlayer;
-    Scene_Status*           oStatus;
-    Scene_Background*       oBackground;
-    Scene_ObjectStore*      oObjectStore;
-    Object*                 oMapBack;
-    Object*                 oMapFront;
+	Object*                 oPlayer;
+	Scene_Status*           oStatus;
+	Scene_Background*       oBackground;
+	Scene_ObjectStore*      oObjectStore;
+	Object*                 oMapBack;
+	Object*                 oMapFront;
 
-    //# Status Value
-    static int mBlood;
+	//# Status Value
+	static int mBlood;
 	static int mApple;
 	static int mSpendthese;
 	static int mExtrahealth;
 	static Float_Easing mScore;
 
-    virtual void SceneRender(float pDelay);
+	virtual void SceneRender(float pDelay);
 
-    void OnKeyDown(int pKeyCode);
-    void OnKeyUp(int pKeyCode);
-    void OnMouseDown(float pX, float pY){};
+	void OnKeyDown(int pKeyCode);
+	void OnKeyUp(int pKeyCode);
+	void OnMouseDown(float pX, float pY) {};
 
-    static void ReplaceScene(Scene* pScene);
-    static void ReplaceScene(Scene* pScene, float delay);
-    static Scene* mScene;
-    static Scene* mNextScene;
+	static void ReplaceScene(Scene* pScene);
+	static Scene* mScene;
+	static Scene* mNextScene;
+	static Scene* mBackScene;
 };

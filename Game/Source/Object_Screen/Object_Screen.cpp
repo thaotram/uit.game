@@ -7,9 +7,10 @@ Object_Screen::Object_Screen() : Object("Black") {
 	mTransform.Update(this);
 	mSourceRect.Update(this);
 
-	mAlpha = Float_Easing(255, Type::linear, 250);
+	mAlpha = Float_Easing(255, Type::linear, 300);
 	mAlpha = 0;
 	// Càng lớn càng đậm
+	// Max là 255
 }
 
 void Object_Screen::ObjectUpdateEvent(float delay) {

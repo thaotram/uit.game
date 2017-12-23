@@ -289,7 +289,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 	}
 	else if (state == "push") {
 		mTimePerFrame = 0.06f;
-		if (tDis.right == 0 && L) { 
+		if (tDis.right == 0 && L) {
 			R = false;
 			mAni.Set("run", 1);
 		}
@@ -300,7 +300,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		if (!L && !R)		mAni.Set("stand", 1);
 	}
 	else if (state == "run") {
-		mTimePerFrame = 0.06f; 
+		mTimePerFrame = 0.06f;
 		if (!L && !R)		mAni.Set("stand", 1);
 		else if (R || L) {
 			if ((L && tDis.left == 0) || (R && tDis.right == 0)) {
@@ -523,14 +523,13 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mAni.Set("stand_jump", 3);
 		}
 	}
-	else if(state == "die"){
-		tIsChangeX = tIsChangeY = false;	
+	else if (state == "die") {
+		tIsChangeX = tIsChangeY = false;
 	}
-	else if(state == "hurt"){
-		tIsChangeX = tIsChangeY = false;	
+	else if (state == "hurt") {
+		tIsChangeX = tIsChangeY = false;
 		mAni.SetNext("stand", 1);
 	}
-
 
 	//# Bar & Rope
 	if (mPos.y.mVelocity >= -0.2 * tJump && tRope.first) {
@@ -587,10 +586,12 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	Scene::mScene->oObjectStore->UpdateStairState(tUnit);
 }
 void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
-	if(Scene::mBlood == 0) {
-		Scene::ReplaceScene(
-			new Scene_Death(),
-			2.f
-		);
-	} else Scene::mBlood--;
+	Scene::mBlood--;
+	//  0: Còn sống
+	// -1: Đã chết
+	// -2: Chết rồi, đang đợi
+	if (Scene::mBlood < 0) {
+		if (Scene::mBlood == -1) Scene::ReplaceScene(new Scene_Death());
+		Scene::mBlood = -2;
+	}
 }
