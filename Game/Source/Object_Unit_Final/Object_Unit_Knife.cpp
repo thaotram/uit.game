@@ -17,19 +17,12 @@ Object_Unit_Knife::Object_Unit_Knife(float x, float y, float pVelocityX, float p
 	mIsMakeDamage = false;
 	mFlip = !isFlip;
 
-	// = 400
-	mPos.x.mVelocity = pVelocityX;
-	//= -500;
-	mPos.y.mVelocity = pVelocityY;
+	mPos.x.mVelocity = pVelocityX;	// = 400
+	mPos.y.mVelocity = pVelocityY; 	// = -500;
 	mParty = Enemy;
 }
 
-Object_Unit_Knife::~Object_Unit_Knife()
-{
-}
-
-void Object_Unit_Knife::ObjectUpdateEvent(float dt)
-{
+void Object_Unit_Knife::ObjectUpdateEvent(float dt) {
 	tUnit = RECT{
 		(LONG)xx-5,
 		(LONG)yy-15,
@@ -40,11 +33,11 @@ void Object_Unit_Knife::ObjectUpdateEvent(float dt)
 	tUnitDamage = GetBound();
 	Scene::mScene->oObjectStore->ObjectCheckCollisionWithPlayer(this);
 	
-	if (tDis.bottom == 0 || tDis.left == 0 || tDis.right == 0) {
+	if (!tDis.bottom || !tDis.left || !tDis.right || mIsMakeDamage) {
 		mIsMarkedDelete = true;
-	Scene::mScene->oObjectStore->mLost.push_back(
-		new Object_Unit_Explosion_Tiny(mPos.x(), mPos.y())
-	);
+		Scene::mScene->oObjectStore->mLost.push_back(
+			new Object_Unit_Explosion_Tiny(mPos.x(), mPos.y())
+		);
 	}
 	else {
 		mPos.x +=

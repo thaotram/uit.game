@@ -22,12 +22,12 @@ Scene_Death::~Scene_Death() {
 
 void Scene_Death::SceneRender(float delay) {
 	if (mNextScene == NULL) {
-		// mTimer += delay;
-		// if(mTimer > 3.f) {
-		// 	Scene::NextScene(Scene::mBackScene);
-		// 	mExtrahealth = max(0, mExtrahealth - 1);
-		// 	mBlood = 7;
-		// }
+		mTimer += delay;
+		if(mTimer > 3.f) {
+			Scene::NextScene(Scene::mBackScene);
+			mExtrahealth = max(0, mExtrahealth - 1);
+			mBlood = 7;
+		}
 	}
  
     oPlayer->ObjectUpdateEvent(delay);

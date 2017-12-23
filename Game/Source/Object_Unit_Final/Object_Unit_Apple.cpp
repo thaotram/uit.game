@@ -17,8 +17,8 @@ Object_Unit_Apple::Object_Unit_Apple(float x, float y, bool isFlip)
     mAutoNextFrame = false;
     mIsMakeDamage = false;
     mFlip = isFlip;
-	Scene::mScene->mApple = max(Scene::mScene->mApple-1,0);
-	mParty = Friend;
+    Scene::mScene->mApple = max(Scene::mScene->mApple - 1, 0);
+    mParty = Friend;
 }
 
 void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
@@ -26,8 +26,7 @@ void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
         RECT{(LONG)xx - 4, (LONG)yy - 7, (LONG)xx + 3, (LONG)yy};
     tDis = mObjectStore->GetDistance(tUnit, this);
     Scene::mScene->oObjectStore->ObjectCheckCollisionWithEnemy(this);
-    if (tDis.bottom == 0 || tDis.left == 0 || tDis.right == 0 ||
-        mIsMakeDamage == true) {
+    if (!tDis.bottom || !tDis.left || !tDis.right || mIsMakeDamage) {
         mAutoNextFrame = true;
     }
     if (!mAutoNextFrame) {
