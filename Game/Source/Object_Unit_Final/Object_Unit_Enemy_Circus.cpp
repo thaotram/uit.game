@@ -2,6 +2,7 @@
 #define mAni	mAnimation
 #define mPos	mPosition
 #define	mObjectStore	Scene::mScene->oObjectStore
+#define isFlip			(mTransform.GetFlip())
 
 #define xx mPos.x()
 #define yy mPos.y()
@@ -28,14 +29,24 @@ void Object_Unit_Enemy_Circus::ObjectUpdateEvent(float dt)
 
 void Object_Unit_Enemy_Circus::ObjectEachState()
 {
+	float playerX = Scene::mScene->oPlayer->GetPosition()->x();
+	mTransform.SetFlip(playerX < xx);
+	float distanceX = abs(xx - playerX);
+
 	if (mAni.GetCycleIndex() == 1) {
 		mIsThrow = false;
 	}
 	else if (mAni.GetCycleIndex() == 11 && !mIsThrow) {
-		Scene::mScene->oObjectStore->mLost.push_back(
-			//new Object_Unit_Knife(xx, yy-50, mTransform.GetFlip())
-			new Object_Unit_Knife(xx, yy - 50, 0, -500, true)
-		);
+		if (distanceX > 120) {
+			Scene::mScene->oObjectStore->mLost.push_back(
+				new Object_Unit_Knife(xx + (isFlip ? -20 : 20), yy - 65, -160, -400, isFlip)
+			);
+		}
+		else {
+			Scene::mScene->oObjectStore->mLost.push_back(
+				new Object_Unit_Knife(xx + (isFlip ? -45 : 45), yy - 30, -400, 0, isFlip)
+			);
+		}
 		mIsThrow = true;
 	}
 }
