@@ -19,7 +19,8 @@ Object::Object(string pName) : mName(pName) {
 }
 void Object::ObjectRender(float delay) {
 	ObjectUpdateProperties(delay);
-	ObjectDraw(mPosition, mTransform, mSourceRect);
+	tIsDraw = mIsFlicker ? !tIsDraw : true;
+	if(tIsDraw) ObjectDraw(mPosition, mTransform, mSourceRect);
 }
 void Object::ObjectDraw(Vector_Easing pPosition, Object_Transform pTransform, Object_SourceRect pSourceRect) {
 	mSpriteHandler->SetTransform(&pTransform);
