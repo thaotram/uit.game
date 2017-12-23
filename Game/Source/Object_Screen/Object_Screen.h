@@ -3,6 +3,7 @@
 
 #pragma once
 #include "../../Define.h"
+#include "../GameGlobal.h"
 #include "../Object/Object.h"
 #include "../Utility/Float_Easing.h"
 

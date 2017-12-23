@@ -21,10 +21,10 @@ Float_Easing Scene::mScore = *(new Float_Easing(0, Type::linear, 300));
 #define UpdateIf(object) if(object) object->ObjectUpdateEvent(delay);
 #define RenderIf(object) if(object) object->ObjectRender(delay);
 
-void Scene::ReplaceScene(Scene* pScene) {
+void Scene::ReplaceScene(Scene* pNextScene) {
 	mDelay = 1.f;
 	mTimer = 0;
-	mNextScene = pScene;
+	mNextScene = pNextScene;
 	oTransparentScreen->mAlpha = 100;
 }
 
@@ -41,14 +41,13 @@ Scene::~Scene() {
 
 void Scene::SceneRender(float delay) {
 	//# Replace Scene
-	// if(mDelay != 0){
-	//     mTime += delay;
-	//     if(mTime > mDelay){
-	//         mDelay = 0;
-	//         mScene = mNextScene;
-	//     }
-	//     return;
-	// }
+	float alpha = oTransparentScreen->mAlpha();
+	GameDebug::Title(alpha);
+	if (alpha == 100) {		// Tức là đen toàn bộ
+		//mBackScene = mScene;
+		//mScene = mNextScene;
+		//oTransparentScreen->mAlpha = 0;
+	}
 
 	//# Update Easing
 	Scene::mScore.Update(delay);

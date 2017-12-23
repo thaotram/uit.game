@@ -14,7 +14,7 @@ enum Flip {
 	Stand
 };
 
-//class Object;
+class Object;
 class Object_Transform: public D3DXMATRIX {
 private:
 	bool mFlip;	// Flip
