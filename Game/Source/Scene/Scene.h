@@ -25,7 +25,7 @@ public:
 
 	Vector mCamera;
 
-	static Object_Screen*	oTransparentScreen;
+	Object_Screen*	oTransparentScreen;
 
 	Object*                 oPlayer;
 	Scene_Status*           oStatus;
@@ -47,7 +47,7 @@ public:
 	void OnKeyUp(int pKeyCode);
 	void OnMouseDown(float pX, float pY) {};
 
-	static void ReplaceScene(Scene* pScene);
+	static void NextScene(Scene* pScene);
 	static Scene* mScene;
 	static Scene* mNextScene;
 	static Scene* mBackScene;

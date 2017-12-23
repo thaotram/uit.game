@@ -6,8 +6,6 @@ Scene* Scene::mScene = NULL;
 Scene* Scene::mNextScene = NULL;
 Scene* Scene::mBackScene = NULL;
 
-Object_Screen* Scene::oTransparentScreen = new Object_Screen();
-
 float Scene::mTimer = 0;
 float Scene::mDelay = 0;
 
@@ -21,16 +19,14 @@ Float_Easing Scene::mScore = *(new Float_Easing(0, Type::linear, 300));
 #define UpdateIf(object) if(object) object->ObjectUpdateEvent(delay);
 #define RenderIf(object) if(object) object->ObjectRender(delay);
 
-void Scene::ReplaceScene(Scene* pNextScene) {
-	mDelay = 1.f;
-	mTimer = 0;
+void Scene::NextScene(Scene* pNextScene) {
 	mNextScene = pNextScene;
-	oTransparentScreen->mAlpha = 100;
 }
 
 Scene::Scene() {
 	oStatus = new Scene_Status();
 	oBackground = new Scene_Background();
+	oTransparentScreen = new Object_Screen();
 }
 Scene::~Scene() {
 	delete oObjectStore;
@@ -39,14 +35,21 @@ Scene::~Scene() {
 	delete oMapFront;
 }
 
+#define alpha oTransparentScreen->mAlpha
 void Scene::SceneRender(float delay) {
 	//# Replace Scene
-	float alpha = oTransparentScreen->mAlpha();
-	GameDebug::Title(alpha);
-	if (alpha == 100) {		// Tức là đen toàn bộ
-		//mBackScene = mScene;
-		//mScene = mNextScene;
-		//oTransparentScreen->mAlpha = 0;
+	if (mNextScene != NULL && mNextScene != nullptr) {
+		if (alpha() == 255) {
+			mBackScene = mScene;
+			mScene = mNextScene;
+			mNextScene = NULL;
+		}
+		else {
+			alpha = 255;
+		}
+	}
+	else if (mNextScene == NULL) {
+		alpha << 0;
 	}
 
 	//# Update Easing

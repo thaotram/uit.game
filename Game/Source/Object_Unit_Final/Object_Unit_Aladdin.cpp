@@ -591,7 +591,7 @@ void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 	// -1: Đã chết
 	// -2: Chết rồi, đang đợi
 	if (Scene::mBlood < 0) {
-		if (Scene::mBlood == -1) Scene::ReplaceScene(new Scene_Death());
+		if (Scene::mBlood == -1) Scene::NextScene(new Scene_Death());
 		Scene::mBlood = -2;
 	}
 }

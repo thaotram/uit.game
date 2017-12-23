@@ -6,7 +6,7 @@ Object_Screen::Object_Screen() : Object("Black") {
 	mTransform.Update(this);
 	mSourceRect.Update(this);
 
-	mAlpha = Float_Easing(255, Type::linear, 300);
+	mAlpha = Float_Easing(255, Type::linear, 600);
 	mAlpha = 0;
 }
 
@@ -15,8 +15,8 @@ void Object_Screen::ObjectUpdateEvent(float delay) {
 }
 
 void Object_Screen::ObjectDraw(Vector_Easing pPosition, Object_Transform pTransform, Object_SourceRect pSourceRect) {
-	GameGlobal::GetSpriteHandler()->SetTransform(&pTransform);
-	GameGlobal::GetSpriteHandler()->Draw(
+	mSpriteHandler->SetTransform(&pTransform);
+	mSpriteHandler->Draw(
 		&*mTexture,
 		&pSourceRect,
 		NULL,
