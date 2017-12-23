@@ -1,4 +1,8 @@
 ﻿#pragma once
+
+#ifndef Object_Included
+#define Object_Included
+
 #include <d3d9.h>
 #include <d3dx9.h>
 
@@ -77,3 +81,5 @@ public:
 	}
 	RECT GetBound();
 };
+
+#endif

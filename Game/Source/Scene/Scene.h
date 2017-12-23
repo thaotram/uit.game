@@ -1,4 +1,7 @@
-﻿#pragma once
+﻿#ifndef Scene_Included
+#define Scene_Included
+
+#pragma once
 #include <list>
 #include "../GameDebug.h"
 #include "../GameGlobal.h"
@@ -10,7 +13,6 @@
 
 using namespace std;
 
-class Object_Screen;
 class Scene {
 private:
 	static bool	 mIsDie;
@@ -22,7 +24,7 @@ public:
 
 	Vector mCamera;
 
-	static Object_Screen*   oTransparentScreen;
+	static Object*			oTransparentScreen;
 
 	Object*                 oPlayer;
 	Scene_Status*           oStatus;
@@ -49,3 +51,5 @@ public:
 	static Scene* mNextScene;
 	static Scene* mBackScene;
 };
+
+#endif // !Scene_included
