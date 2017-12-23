@@ -41,6 +41,7 @@ public:
 	~Object() {};
 
 	bool				mIsFlicker;
+	bool				tIsDraw;
 	bool				mAlwaysOn;
 	bool				mIsMarkedDelete;
 	bool				mIsMakeDamage;
