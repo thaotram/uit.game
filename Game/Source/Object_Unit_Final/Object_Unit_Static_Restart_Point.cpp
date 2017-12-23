@@ -8,6 +8,7 @@ Object_Unit_Static_Restart_Point::Object_Unit_Static_Restart_Point(RECT u) : Obj
 	mAutoNextFrame = false;
 	mSourceRect.Update(this);
 	tUnit = GetBound();
+	mAlwaysOn = true;
 }
 
 void Object_Unit_Static_Restart_Point::ObjectUpdateEvent(float dt)

@@ -36,7 +36,7 @@ protected:
 
 	float				mCurrentTime;
 	float 				mTimePerFrame;
-
+	bool				mAlwaysOn;
 public:
 	Object(string pName);
 	~Object() {};
