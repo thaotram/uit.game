@@ -535,7 +535,10 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		R = L = false;
 		mAutoNextFrame = true;
 		mAni.SetNext("stand", 1);
-		Scene::mRestartPoint->GetAnimation()->SetCycleIndex(1);
+		if(Scene::mRestartPoint->GetAnimation()->GetCycleIndex() == 18
+			&& mAni.GetCycleIndex() == 14){
+			Scene::mRestartPoint->GetAnimation()->SetCycleIndex(1);
+		}
 	}
 	//# Bar & Rope
 	if (mPos.y.mVelocity >= -0.2 * tJump && tRope.first) {
