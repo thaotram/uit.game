@@ -14,6 +14,7 @@ Object_Unit_Enemy_Assassin::Object_Unit_Enemy_Assassin(RECT u)
 	mPos.x << (float)(u.left + u.right) / 2;
 	mPos.y << (float)(u.top) + 22;
 	mAni.Set("assassin", 11);
+	mTimePerFrame = 0.07f;
 	mHealthPoint = 1;
 	mParty = Enemy;
 }

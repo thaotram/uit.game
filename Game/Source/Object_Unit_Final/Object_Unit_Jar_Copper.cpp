@@ -39,6 +39,7 @@ void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
 		}
 	}
 	else if (mAni.GetState() == "jar_copper_break") {
+		mIsMakeDamage = true;
 		if (mAni.GetCycleIndex() == 9) {
 			mIsMarkedDelete = true;
 		}
