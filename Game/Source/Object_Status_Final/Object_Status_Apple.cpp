@@ -7,7 +7,7 @@ Object_Status_Apple::Object_Status_Apple() : Object_Status("Status") {
 }
 
 void Object_Status_Apple::ObjectUpdateEvent(float delay) {
-	mIsFlicker = Scene::mApple <= 3;
+	mIsFlicker = Scene::mApple <= 5;
 	if (Scene::mApple <= 0) {
 		mAni.SetCycleIndex(2);
 	}

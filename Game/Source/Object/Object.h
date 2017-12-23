@@ -41,6 +41,7 @@ public:
 	~Object() {};
 
 	int					tCount;
+	int					tFlickerPerSecond;
 	bool				tIsDraw;
 	bool				mIsFlicker;
 	bool				mAlwaysOn;

@@ -16,12 +16,13 @@ Object::Object(string pName) : mName(pName) {
 
 	mIsFlicker = false;
 	mAlwaysOn = false;
+	tFlickerPerSecond = 3;
 	tCount = 1;
 }
 void Object::ObjectRender(float delay) {
 	ObjectUpdateProperties(delay);
-	tCount = tCount >= 20 ? 1 : tCount + 1;
-	tIsDraw = mIsFlicker ? tCount > 10 : true;
+	tCount = tCount >= (FPS / tFlickerPerSecond) ? 1 : tCount + 1;
+	tIsDraw = mIsFlicker ? tCount > (FPS / tFlickerPerSecond / 2) : true;
 	if(tIsDraw) ObjectDraw(mPosition, mTransform, mSourceRect);
 }
 void Object::ObjectDraw(Vector_Easing pPosition, Object_Transform pTransform, Object_SourceRect pSourceRect) {
