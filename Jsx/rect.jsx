@@ -63,6 +63,7 @@ if (app.documents.length != 0) {
         "Static_Genie_Bonus",
         "Static_Restart_Point",
         "Static_Spend_These",
+		"Static_Fire",
        
         "Static_Block_Drop",
         "Static_Stick",
