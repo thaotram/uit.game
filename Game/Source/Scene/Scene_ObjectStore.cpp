@@ -10,6 +10,7 @@
 #include "../Object_Unit_Final/Object_Unit_Static_Restart_Point.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Spend_These.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Stick.h"
+#include "../Object_Unit_Final/Object_Unit_Static_Fire.h"
 
 #include "../Object_Unit_Final/Object_Unit_Enemy_Assassin.h"
 #include "../Object_Unit_Final/Object_Unit_Enemy_Circus.h"

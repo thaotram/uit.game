@@ -445,6 +445,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object_Map_Final\Object_Map_JafarPalace_Background.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Fire.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -649,6 +650,9 @@
       <Filter>Source\Object_Screen</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Map_Final\Object_Map_JafarPalace_Background.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Fire.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
