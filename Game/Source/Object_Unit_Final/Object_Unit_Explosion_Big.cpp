@@ -15,6 +15,12 @@ Object_Unit_Explosion_Big::Object_Unit_Explosion_Big(float x, float y) : Object_
 	mAutoNextFrame = true;
 	mTimePerFrame = 0.02f;
 	mParty = Friend;
+	tUnitDamage = RECT{
+		(LONG)x - 100,
+		(LONG)y - 100,
+		(LONG)x + 100,
+		(LONG)y + 20
+	};
 }
 
 Object_Unit_Explosion_Big::~Object_Unit_Explosion_Big()
@@ -23,6 +29,8 @@ Object_Unit_Explosion_Big::~Object_Unit_Explosion_Big()
 
 void Object_Unit_Explosion_Big::ObjectUpdateEvent(float dt)
 {
+	mIsMakeDamage = false;
+	mObjectStore->ObjectCheckCollisionWithEnemy(this);
 	if (mAni.GetCycleIndex() == 16)
 	{
 		mIsMarkedDelete = true;
