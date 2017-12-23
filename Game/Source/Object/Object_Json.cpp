@@ -69,7 +69,7 @@ Object_Json::Object_Json(string pName) {
 }
 
 Object_Json * Object_Json::GetJson(string pName){
-	//return new Object_Json(pName);
+	// return new Object_Json(pName);
 	if (Object_Jsons.find(pName) == Object_Jsons.end()) {
 		Object_Jsons[pName] = new Object_Json(pName);
 	}
