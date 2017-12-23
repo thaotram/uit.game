@@ -8,34 +8,22 @@
 #define xx mPos.x()
 #define yy mPos.y()
 
-Object_Unit_Explosion_Big::Object_Unit_Explosion_Big(float x, float y) : Object_Unit("EnemyExplosions"){
-	mPos.x << x;
-	mPos.y << y;
-	mAni.Set("blue_smoke", 1);
-	mAutoNextFrame = true;
-	mTimePerFrame = 0.02f;
-	mParty = Friend;
-	tUnitDamage = RECT{
-		(LONG)x - 100,
-		(LONG)y - 100,
-		(LONG)x + 100,
-		(LONG)y + 20
-	};
+Object_Unit_Explosion_Big::Object_Unit_Explosion_Big(float x, float y)
+    : Object_Unit("EnemyExplosions") {
+    mPos.x << x;
+    mPos.y << y;
+    mAni.Set("blue_smoke", 1);
+    mAutoNextFrame = true;
+    mTimePerFrame = 0.02f;
+    mParty = Friend;
+    tUnitDamage =
+        RECT{(LONG)x - 100, (LONG)y - 100, (LONG)x + 100, (LONG)y + 20};
 }
 
-Object_Unit_Explosion_Big::~Object_Unit_Explosion_Big() {}
 void Object_Unit_Explosion_Big::ObjectUpdateEvent(float dt) {
+    mIsMakeDamage = false;
+    mObjectStore->ObjectCheckCollisionWithEnemy(this);
     if (mAni.GetCycleIndex() == 16) {
         mIsMarkedDelete = true;
     }
-}
-
-void Object_Unit_Explosion_Big::ObjectUpdateEvent(float dt)
-{
-	mIsMakeDamage = false;
-	mObjectStore->ObjectCheckCollisionWithEnemy(this);
-	if (mAni.GetCycleIndex() == 16)
-	{
-		mIsMarkedDelete = true;
-	}
 }
