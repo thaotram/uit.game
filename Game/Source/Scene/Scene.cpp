@@ -6,7 +6,7 @@ Scene* Scene::mScene = NULL;
 Scene* Scene::mNextScene = NULL;
 Scene* Scene::mBackScene = NULL;
 
-Object* Scene::oTransparentScreen = new Object_Screen();
+Object_Screen* Scene::oTransparentScreen = new Object_Screen();
 
 float Scene::mTimer = 0;
 float Scene::mDelay = 0;
@@ -25,7 +25,7 @@ void Scene::ReplaceScene(Scene* pScene) {
 	mDelay = 1.f;
 	mTimer = 0;
 	mNextScene = pScene;
-	((Object_Screen*)oTransparentScreen)->mAlpha = 100;
+	oTransparentScreen->mAlpha = 100;
 }
 
 Scene::Scene() {

@@ -13,6 +13,7 @@
 
 using namespace std;
 
+class Object_Screen;
 class Scene {
 private:
 	static bool	 mIsDie;
@@ -24,7 +25,7 @@ public:
 
 	Vector mCamera;
 
-	static Object*			oTransparentScreen;
+	static Object_Screen*	oTransparentScreen;
 
 	Object*                 oPlayer;
 	Scene_Status*           oStatus;
