@@ -66,6 +66,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	tUnit = GetBound();
 	Scene::mScene->oObjectStore->ObjectCheckCollisionWithEnemy(this);
 	Scene::mScene->oObjectStore->ObjectCheckCollisionWithStatic(this);
+
 }
 void Object_Unit_Aladdin::ObjectEachState() {
 	//# Each State
@@ -523,7 +524,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 	}
 	else if (state == "die") {
 		tIsChangeX = tIsChangeY = false;
-		R = L = false;
+		mTransform.SetFlip(Right);
 		mTimePerFrame = 0.1f;
 	}
 	else if (state == "hurt") {
@@ -532,7 +533,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 	}
 	else if (state == "revival") {
 		tIsChangeX = tIsChangeY = false;
-		R = L = false;
+		mTransform.SetFlip(Right);
 		mAutoNextFrame = true;
 		mAni.SetNext("stand", 1);
 		if(Scene::mRestartPoint->GetAnimation()->GetCycleIndex() == 18

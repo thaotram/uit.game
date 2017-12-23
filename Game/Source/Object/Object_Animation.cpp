@@ -23,8 +23,7 @@ string Object_Animation::GetState() {
 	return mState;
 }
 
-string Object_Animation::GetNextState()
-{
+string Object_Animation::GetNextState() {
 	return mNextState;
 }
 

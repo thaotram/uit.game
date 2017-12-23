@@ -1,7 +1,5 @@
 ﻿{
     "name": "JafarPalace_Front",
-    "startFrame": 1,
-    "time": 0.1,
     "states": {
         "back": {
             "frameCycle": [1, -1],
