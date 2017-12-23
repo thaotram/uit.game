@@ -11,11 +11,10 @@ Object::Object(string pName) : mName(pName) {
 	mCurrentTime = 0;
 	mTimePerFrame = 0.06f;
 
-	mIsRender = true;
-	mIsUpdate = true;
 	mIsMarkedDelete = false;
 	mIsMakeDamage = false;
 
+	mIsFlicker = false;
 	mAlwaysOn = false;
 }
 void Object::ObjectRender(float delay) {

@@ -13,7 +13,7 @@ Object_Unit_Enemy_Fat::Object_Unit_Enemy_Fat(RECT u) : Object_Unit("Guards"), mL
 	mPos.y << (float)(u.top);
 	mAni.Set("fat_eat", 1);
 	mPos.x.mVelocity = 180;
-	mTimePerFrame = 0.04f;
+	mTimePerFrame = 0.06f;
 	mParty = Enemy;
 	mAutoNextFrame = true;
 }

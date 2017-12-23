@@ -36,20 +36,19 @@ protected:
 
 	float				mCurrentTime;
 	float 				mTimePerFrame;
-	bool				mAlwaysOn;
 public:
 	Object(string pName);
 	~Object() {};
 
-	bool				mIsRender;
-	bool				mIsUpdate;
+	bool				mIsFlicker;
+	bool				mAlwaysOn;
 	bool				mIsMarkedDelete;
 	bool				mIsMakeDamage;
 
+	Party				mParty;
 	RECT				tUnit;				// Tọa độ của 4 cạnh so với map lớn
 	RECT				tUnitDamage;		// Tọa độ của 4 cạnh so với map lớn
 	RECT 				tDis;				// Khoảng cách từ tUnit cho đến 4
-	Party				mParty;
 
 	virtual void AfterAddToScene() {};
 	void ObjectRender(float delay);

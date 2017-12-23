@@ -6,8 +6,6 @@
 #include "../GameDebug.h"
 #include "../../Define.h"
 
-#define isRender	obj->mIsRender
-
 #define I GameGlobal::Input
 #define L I[LEFT]
 #define U I[UP]

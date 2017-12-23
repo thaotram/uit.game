@@ -83,7 +83,7 @@ for (auto &unit : m##type##_##name) {									\
 		}																\
 		unit.second->ObjectUpdateEvent(dt);								\
 	}																	\
-	else if (unit.second != NULL && !mAlwaysOn) {						\
+	else if (unit.second != NULL && !unit.second->mAlwaysOn) {			\
 		delete unit.second;												\
 		unit.second = NULL;												\
 	}																	\

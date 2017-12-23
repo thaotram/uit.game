@@ -14,7 +14,7 @@ Object_Unit_Enemy_Thin::Object_Unit_Enemy_Thin(RECT u)
     mPos.y << (float)(u.top);
     mAni.Set("thin_stand", 1);
     mPos.x.mVelocity = 180;
-    mTimePerFrame = 0.04f;
+    mTimePerFrame = 0.06f;
     mHealthPoint = 2;
     mParty = Enemy;
     mAutoNextFrame = true;
