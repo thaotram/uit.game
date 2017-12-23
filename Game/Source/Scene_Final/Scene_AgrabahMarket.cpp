@@ -3,10 +3,14 @@
 #include "../../Define.h"
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Back.h"
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Front.h"
+#include "../Object_Screen/Object_Screen.h"
 #include "../Object_Status_Final/Object_Status_Cloud.h"
 #include "../Object_Unit_Final/Object_Unit_Aladdin.h"
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
+    oStatus = new Scene_Status();
+	oBackground = new Scene_Background();
+
     const vector<State_Cloud> Vector_State_Cloud = 
 		{Cloud1, Cloud2, Cloud3, Cloud4, Sand1, Sand2, Sand3, Sand4, Sand5};
 	for (const auto &v : Vector_State_Cloud) {
@@ -20,4 +24,27 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 
     oMapBack->AfterAddToScene();
     oMapFront->AfterAddToScene();
+}
+
+void Scene_AgrabahMarket::SceneRender(float delay){
+    //# Update
+    oPlayer->ObjectUpdateEvent(delay);
+    oObjectStore->ObjectUpdateEvent(delay);
+    oTransparentScreen->ObjectUpdateEvent(delay);
+    oMapBack->ObjectUpdateEvent(delay);
+	oMapFront->ObjectUpdateEvent(delay);
+    oStatus->ObjectUpdateEvent(delay);
+	oBackground->ObjectUpdateEvent(delay);
+
+	//# Remove item in RemoveList
+	// oObjectStore->ObjectRemoveMarkedDelete();
+
+    //# Render
+	oBackground->ObjectRender(delay);
+    oMapBack->ObjectRender(delay);
+    oObjectStore->ObjectRender(delay);
+    oPlayer->ObjectRender(delay);
+	oMapFront->ObjectRender(delay);
+    oStatus->ObjectRender(delay);
+    oTransparentScreen->ObjectRender(delay);
 }

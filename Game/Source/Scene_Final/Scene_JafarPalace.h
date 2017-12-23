@@ -13,7 +13,12 @@
 using namespace std;
 
 class Scene_JafarPalace final : public Scene {
+private: 
+	Object* oMapBack;
+    Scene_Status* oStatus;
+
 public:
 	Scene_JafarPalace();
 	~Scene_JafarPalace() {};
+	void SceneRender(float delay);
 };

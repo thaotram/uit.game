@@ -7,7 +7,6 @@
 #include "../../Define.h"
 
 Scene_Death::Scene_Death() : Scene() {
-    oObjectStore = new Scene_ObjectStore("");
     oPlayer = new Object_Unit_Aladdin(160, 150);
     oPlayer->GetAnimation()->Set("die", 1);
     oAbu = new Object_Unit_NPC_Abu(160 + 90, 150 + 19);

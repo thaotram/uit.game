@@ -29,15 +29,11 @@ void Scene::NextScene(Scene* pNextScene) {
 }
 
 Scene::Scene() {
-	oStatus = new Scene_Status();
-	oBackground = new Scene_Background();
 	if(!oTransparentScreen) oTransparentScreen = new Object_Screen();
 }
 Scene::~Scene() {
 	delete oObjectStore;
 	delete oPlayer;
-	delete oMapBack;
-	delete oMapFront;
 }
 
 
@@ -54,29 +50,29 @@ void Scene::SceneTranlation(float delay){
 
 void Scene::SceneRender(float delay) {
 	//# Update Easing
-	Scene::mScore.Update(delay);
-	oTransparentScreen->ObjectUpdateEvent(delay);
+	// Scene::mScore.Update(delay);
+	// oTransparentScreen->ObjectUpdateEvent(delay);
 
-	//# Update Event
-	UpdateIf(oPlayer);
-	UpdateIf(oObjectStore);
-	UpdateIf(oMapBack);
-	UpdateIf(oMapFront);
-	UpdateIf(oStatus);
-	UpdateIf(oBackground);
+	// //# Update Event
+	// UpdateIf(oPlayer);
+	// UpdateIf(oObjectStore);
+	// UpdateIf(oMapBack);
+	// UpdateIf(oMapFront);
+	// UpdateIf(oStatus);
+	// UpdateIf(oBackground);
 
-	//# Remove item in RemoveList
-	oObjectStore->ObjectRemoveMarkedDelete();
+	// //# Remove item in RemoveList
+	// oObjectStore->ObjectRemoveMarkedDelete();
 
-	//# Render
-	RenderIf(oBackground);
-	RenderIf(oMapBack);
-	RenderIf(oObjectStore);
-	RenderIf(oPlayer);
-	RenderIf(oMapFront);
-	RenderIf(oStatus);
+	// //# Render
+	// RenderIf(oBackground);
+	// RenderIf(oMapBack);
+	// RenderIf(oObjectStore);
+	// RenderIf(oPlayer);
+	// RenderIf(oMapFront);
+	// RenderIf(oStatus);
 
-	oTransparentScreen->ObjectRender(delay);
+	// oTransparentScreen->ObjectRender(delay);
 }
 
 void Scene::OnKeyDown(int pKeyCode) {}

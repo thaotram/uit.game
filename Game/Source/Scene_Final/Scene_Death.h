@@ -7,6 +7,7 @@ using namespace std;
 class Scene_Death final : public Scene {
 private:
     Object* oAbu;
+
     Scene* pLastScene;
 	float mTimer;
 public:
