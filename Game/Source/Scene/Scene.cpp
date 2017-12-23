@@ -40,7 +40,6 @@ Scene::~Scene() {
 
 void Scene::SceneRender(float delay) {
 	//# Replace Scene
-
 	// if(mDelay != 0){
 	//     mTime += delay;
 	//     if(mTime > mDelay){

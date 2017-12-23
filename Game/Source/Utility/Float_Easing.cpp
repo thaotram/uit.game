@@ -10,7 +10,7 @@ Float_Easing::Float_Easing() {
 Float_Easing::Float_Easing(float pStart, Type pType, float pVelocity) {
 	mEase = Ease::stop;
 	mType = pType;
-	mVelocity = pVelocity;
+	SetVelocity(pVelocity);
 	operator<<(pStart);
 }
 void Float_Easing::operator<<(float pValue) {
@@ -61,14 +61,8 @@ void Float_Easing::Update(float dt = 0) {
 	case Type::linear:
 		switch (mEase) {
 		case in:
-			mNow += mVelocity*dt;
-			if (
-				(mNow >= mLast && mVelocity > 0) ||
-				(mNow <= mLast && mVelocity < 0)
-			) {
-				mNow = mLast;
-				mEase = stop;
-			}
+			mNow += (mNow < mLast ? 1 : -1) * min(abs(mVelocity)*dt, abs(mNow - mLast));
+			if (mNow == mLast) mEase = stop;
 			break;
 		case stop:
 			if (mLast != mNow) {
