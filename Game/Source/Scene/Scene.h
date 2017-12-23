@@ -25,7 +25,7 @@ public:
 
 	Vector mCamera;
 
-	Object_Screen*	oTransparentScreen;
+	static Object_Screen*	oTransparentScreen;
 
 	Object*                 oPlayer;
 	Scene_Status*           oStatus;
@@ -42,6 +42,7 @@ public:
 	static Float_Easing mScore;
 
 	virtual void SceneRender(float pDelay);
+	void SceneTranlation(float pDelay);
 
 	void OnKeyDown(int pKeyCode);
 	void OnKeyUp(int pKeyCode);

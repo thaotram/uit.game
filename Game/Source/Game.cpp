@@ -67,6 +67,7 @@ void Game::GameRender(float delay) {
 	mDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_POINT);
 
 	// Render
+	Scene::mScene->SceneTranlation(delay);
 	Scene::mScene->SceneRender(delay);
 
 	// End
