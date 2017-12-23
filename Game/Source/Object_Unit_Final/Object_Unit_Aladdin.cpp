@@ -530,7 +530,13 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		tIsChangeX = tIsChangeY = false;
 		mAni.SetNext("stand", 1);
 	}
-
+	else if (state == "revival") {
+		tIsChangeX = tIsChangeY = false;
+		R = L = false;
+		mAutoNextFrame = true;
+		mAni.SetNext("stand", 1);
+		Scene::mRestartPoint->GetAnimation()->SetCycleIndex(1);
+	}
 	//# Bar & Rope
 	if (mPos.y.mVelocity >= -0.2 * tJump && tRope.first) {
 		if (state != "climb_vertical" &&

@@ -28,10 +28,12 @@ void Scene_Death::SceneRender(float delay) {
 			mExtrahealth = max(0, mExtrahealth - 1);
 			mBlood = 7;
 			auto object = ((Object_Unit_Static_Restart_Point*)mRestartPoint);
+			object->mAutoNextFrame = false;
+			object->GetAnimation()->SetCycleIndex(18);
 			mBackScene->oPlayer->GetPosition()->operator<<(
 				V2{
-					(float)object->mRect.left,
-					(float)object->mRect.top
+					(float)object->mRect.left + 9,
+					(float)object->mRect.bottom
 				}
 			);
 			mBackScene->oPlayer->GetAnimation()->Set("revival", 1);
