@@ -28,6 +28,8 @@ void Scene_Death::SceneRender(float delay) {
 			mExtrahealth = max(0, mExtrahealth - 1);
 			mBlood = 7;
 			auto object = ((Object_Unit_Static_Restart_Point*)mRestartPoint);
+			if (!object) return;
+
 			object->mAutoNextFrame = false;
 			object->GetAnimation()->SetCycleIndex(18);
 			mBackScene->oPlayer->GetPosition()->operator<<(
