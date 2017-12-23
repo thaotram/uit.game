@@ -30,7 +30,7 @@ void Object_Unit_Enemy_Fat::ObjectUpdateEvent(float dt) {
 	ObjectEachState();
 }
 //tam danh
-#define range 100
+#define range 110
 //tamnhin
 #define visible 160
 void Object_Unit_Enemy_Fat::ObjectEachState()

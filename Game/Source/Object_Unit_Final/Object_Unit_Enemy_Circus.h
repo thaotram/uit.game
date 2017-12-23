@@ -8,7 +8,6 @@ class Object_Unit_Enemy_Circus final : public Object_Unit
 {
 private:
 	bool mIsThrow;
-	bool mIsFlip;
 public:
 	Object_Unit_Enemy_Circus(RECT u);
 	~Object_Unit_Enemy_Circus();

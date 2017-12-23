@@ -31,7 +31,7 @@ void Object_Unit_Enemy_Pirates::ObjectUpdateEvent(float dt) {
 	ObjectEachState();
 	mObjectStore->ObjectCheckCollisionWithPlayer(this);
 }
-#define range 100
+#define range 110
 #define visible 160
 void Object_Unit_Enemy_Pirates::ObjectEachState() {
 	float playerX = Scene::mScene->oPlayer->GetPosition()->x();
