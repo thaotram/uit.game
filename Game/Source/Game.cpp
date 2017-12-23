@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include "Game.h"
 #include "Scene_Final/Scene_AgrabahMarket.h"
-#include "Scene_Final/Scene_JafarPalace.h"
-#include "Scene_Final/Scene_Death.h"
+// #include "Scene_Final/Scene_JafarPalace.h"
+// #include "Scene_Final/Scene_Death.h"
 
 Game::Game() {
 	mDevice = GameGlobal::GetDevice();

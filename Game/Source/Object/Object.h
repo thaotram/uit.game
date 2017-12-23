@@ -1,8 +1,7 @@
-﻿#pragma once
-
-#ifndef Object_Included
+﻿#ifndef Object_Included
 #define Object_Included
 
+#pragma once
 #include <d3d9.h>
 #include <d3dx9.h>
 

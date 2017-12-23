@@ -4,7 +4,6 @@
 #include "../Object_Unit/Object_Unit.h"
 #include "../Object_Status/Object_Status.h"
 #include "../Scene/Scene.h"
-#include "../../Define.h"
 
 Object_Transform::Object_Transform() {
 	D3DXMatrixTransformation2D(
