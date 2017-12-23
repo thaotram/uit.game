@@ -126,7 +126,7 @@
     <None Include="Resources\AgrabahMarket_Front.json" />
     <None Include="Resources\Aladdin.json" />
     <None Include="Resources\Aladdin.psd" />
-    <None Include="Resources\block.json" />
+    <None Include="Resources\Black.json" />
     <None Include="Resources\BossJafar.json" />
     <None Include="Resources\Camel.json" />
     <None Include="Resources\CivilianEnemies.json" />
@@ -137,6 +137,7 @@
     <None Include="Resources\Guards.json" />
     <None Include="Resources\Item.json" />
     <None Include="Resources\JafarPalace_Back.json" />
+    <None Include="Resources\JafarPalace_Background.json" />
     <None Include="Resources\JafarPalace_Block.json" />
     <None Include="Resources\JafarPalace_Block.psd" />
     <None Include="Resources\JafarPalace_Front.json" />
@@ -144,6 +145,7 @@
     <None Include="Resources\Peddler.json" />
     <None Include="Resources\Status.json" />
     <None Include="Resources\Stick.json" />
+    <None Include="Resources\Twinkle.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Abu.png" />
@@ -152,6 +154,7 @@
     <Image Include="Resources\AgrabahMarket_Front.png" />
     <Image Include="Resources\Aladdin.png" />
     <Image Include="Resources\Aladdin_Miscellaneous_Cutscenes.png" />
+    <Image Include="Resources\Black.png" />
     <Image Include="Resources\block.png" />
     <Image Include="Resources\BossJafar.png" />
     <Image Include="Resources\Camel.png" />

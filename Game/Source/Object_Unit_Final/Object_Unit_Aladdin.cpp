@@ -525,7 +525,6 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		tIsChangeX = tIsChangeY = false;
 		R = L = false;
 		mTimePerFrame = 0.1f;
-		GameDebug::Title(mAnimation.GetFrameIndex(this));
 	}
 	else if (state == "hurt") {
 		tIsChangeX = tIsChangeY = false;

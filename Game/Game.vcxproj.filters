@@ -80,9 +80,6 @@
     <None Include="Resources\Aladdin.json">
       <Filter>Resource Files\Unit</Filter>
     </None>
-    <None Include="Resources\block.json">
-      <Filter>Resource Files\Unit</Filter>
-    </None>
     <None Include="Resources\Camel.json">
       <Filter>Resource Files\Unit</Filter>
     </None>
@@ -156,6 +153,9 @@
     <None Include="Resources\BossJafar.json">
       <Filter>Resource Files\Unit</Filter>
     </None>
+    <None Include="Resources\Black.json" />
+    <None Include="Resources\JafarPalace_Background.json" />
+    <None Include="Resources\Twinkle.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -226,6 +226,9 @@
     </Image>
     <Image Include="Resources\JafarPalace_Front.png">
       <Filter>Resource Files\Map</Filter>
+    </Image>
+    <Image Include="Resources\Black.png">
+      <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
