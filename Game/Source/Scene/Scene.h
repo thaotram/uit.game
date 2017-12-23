@@ -35,6 +35,7 @@ public:
 	Object*                 oMapFront;
 
 	//# Status Value
+	static Object * mRestartPoint;
 	static int mBlood;
 	static int mApple;
 	static int mSpendthese;

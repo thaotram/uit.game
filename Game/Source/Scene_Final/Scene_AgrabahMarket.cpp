@@ -13,7 +13,8 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 		oBackground->push_back(new Object_Status_Cloud(v));
 	}
     oObjectStore = new Scene_ObjectStore("AgrabahMarket_Block");
-    oPlayer = new Object_Unit_Aladdin(50, 624);
+	//oPlayer = new Object_Unit_Aladdin(50, 624);
+	oPlayer = new Object_Unit_Aladdin(2200, 400);
     oMapBack = new Object_Map_AgrabahMarket_Back();
     oMapFront = new Object_Map_AgrabahMarket_Front();
 

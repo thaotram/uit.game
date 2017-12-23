@@ -11,6 +11,7 @@ float Scene::mTimer = 0;
 float Scene::mDelay = 0;
 
 //# Status
+Object * Scene::mRestartPoint = NULL;
 int Scene::mBlood = 7;
 int Scene::mApple = 10;
 int Scene::mSpendthese = 0;

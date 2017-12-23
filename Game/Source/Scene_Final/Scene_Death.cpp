@@ -3,7 +3,7 @@
 #include "../Object_Map_Final/Object_Map_JafarPalace_Back.h"
 #include "../Object_Screen/Object_Screen.h"
 #include "../Object_Unit_Final/Object_Unit_Aladdin.h"
-
+#include "../Object_Unit_Final/Object_Unit_Static_Restart_Point.h"
 #include "../../Define.h"
 
 Scene_Death::Scene_Death() : Scene() {
@@ -24,17 +24,25 @@ void Scene_Death::SceneRender(float delay) {
 	if (mNextScene == NULL) {
 		mTimer += delay;
 		if(mTimer > 3.f) {
-			Scene::NextScene(Scene::mBackScene);
+			NextScene(mBackScene);
 			mExtrahealth = max(0, mExtrahealth - 1);
 			mBlood = 7;
+			auto object = ((Object_Unit_Static_Restart_Point*)mRestartPoint);
+			mBackScene->oPlayer->GetPosition()->operator<<(
+				V2{
+					(float)object->mRect.left,
+					(float)object->mRect.top
+				}
+			);
+			mBackScene->oPlayer->GetAnimation()->Set("revival", 1);
 		}
 	}
  
     oPlayer->ObjectUpdateEvent(delay);
     oAbu->ObjectUpdateEvent(delay);
-    Scene::oTransparentScreen->ObjectUpdateEvent(delay);
+    oTransparentScreen->ObjectUpdateEvent(delay);
 
     oPlayer->ObjectRender(delay);
     oAbu->ObjectRender(delay);
-    Scene::oTransparentScreen->ObjectRender(delay);
+    oTransparentScreen->ObjectRender(delay);
 }

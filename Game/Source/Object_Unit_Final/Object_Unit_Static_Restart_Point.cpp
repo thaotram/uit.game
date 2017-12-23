@@ -9,6 +9,7 @@ Object_Unit_Static_Restart_Point::Object_Unit_Static_Restart_Point(RECT u) : Obj
 	mSourceRect.Update(this);
 	tUnit = GetBound();
 	mAlwaysOn = true;
+	mRect = u;
 }
 
 void Object_Unit_Static_Restart_Point::ObjectUpdateEvent(float dt)
@@ -19,4 +20,5 @@ void Object_Unit_Static_Restart_Point::ObjectUpdateEvent(float dt)
 void Object_Unit_Static_Restart_Point::ObjectIntersect(Object * pObject)
 {
 	mAutoNextFrame = true;
+	Scene::mRestartPoint = this;
 }
