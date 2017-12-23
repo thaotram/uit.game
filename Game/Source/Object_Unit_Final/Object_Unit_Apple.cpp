@@ -26,8 +26,7 @@ void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
         RECT{(LONG)xx - 4, (LONG)yy - 7, (LONG)xx + 3, (LONG)yy};
     tDis = mObjectStore->GetDistance(tUnit, this);
     Scene::mScene->oObjectStore->ObjectCheckCollisionWithEnemy(this);
-    if (tDis.bottom == 0 || tDis.left == 0 || tDis.right == 0 ||
-        mIsMakeDamage == true) {
+    if (!tDis.bottom || !tDis.left || !tDis.right || mIsMakeDamage) {
         mAutoNextFrame = true;
     }
     if (!mAutoNextFrame) {
