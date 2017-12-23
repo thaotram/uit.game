@@ -12,7 +12,7 @@ float Scene::mDelay = 0;
 
 //# Status
 int Scene::mBlood = 7;
-int Scene::mApple = 0;
+int Scene::mApple = 3;
 int Scene::mSpendthese = 0;
 int Scene::mExtrahealth = 3;
 Float_Easing Scene::mScore = *(new Float_Easing(0, Type::linear, 300));
