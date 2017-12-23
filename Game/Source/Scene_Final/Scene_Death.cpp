@@ -25,7 +25,7 @@ void Scene_Death::SceneRender(float delay) {
 		mTimer += delay;
 		if(mTimer > 3.f) {
 			Scene::NextScene(Scene::mBackScene);
-			mExtrahealth = min(0, mExtrahealth - 1);
+			mExtrahealth = max(0, mExtrahealth - 1);
 			mBlood = 7;
 		}
 	}

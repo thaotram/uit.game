@@ -14,7 +14,7 @@ float Scene::mDelay = 0;
 int Scene::mBlood = 7;
 int Scene::mApple = 0;
 int Scene::mSpendthese = 0;
-int Scene::mExtrahealth = 0;
+int Scene::mExtrahealth = 3;
 Float_Easing Scene::mScore = *(new Float_Easing(0, Type::linear, 300));
 
 #define UpdateIf(object) if(object) object->ObjectUpdateEvent(delay);
