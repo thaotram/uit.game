@@ -4,6 +4,7 @@
 
 Object_Status_Apple::Object_Status_Apple() : Object_Status("Status") {
 	mAni.Set("s_apple", 2);
+	mIsFlicker = true;
 }
 
 void Object_Status_Apple::ObjectUpdateEvent(float delay) {

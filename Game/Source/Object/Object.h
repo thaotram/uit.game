@@ -40,8 +40,9 @@ public:
 	Object(string pName);
 	~Object() {};
 
-	bool				mIsFlicker;
+	int					tCount;
 	bool				tIsDraw;
+	bool				mIsFlicker;
 	bool				mAlwaysOn;
 	bool				mIsMarkedDelete;
 	bool				mIsMakeDamage;
