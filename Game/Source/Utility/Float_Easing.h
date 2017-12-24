@@ -23,6 +23,7 @@ public:
 	Type	mType;
 
 	float	mVelocity;
+	float	mCross;
 
 	void operator<<(float pValue);	// mặc định
 

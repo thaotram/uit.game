@@ -36,5 +36,6 @@
         "utility": "cpp",
         "limits": "cpp"
     },
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "python.pythonPath": "C:\\Program Files\\Python\\2.7\\python.exe"
 }

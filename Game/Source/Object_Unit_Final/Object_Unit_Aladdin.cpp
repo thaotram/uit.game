@@ -607,7 +607,7 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	if (dynamic_cast<Scene_JafarPalace*>(Scene::mScene)) {
 		auto s = ((Scene_JafarPalace*)Scene::mScene);
 		auto bossX = s->oBoss->GetPosition()->x();
-		const float vv = 100.f;
+		const float vv = 150.f;
 
 		tIsPull -= tDt;
 		if (abs(xx - bossX) > 10 && tIsPull > 0) {
