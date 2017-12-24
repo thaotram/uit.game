@@ -7,14 +7,15 @@
 #define xx mPos.x()
 #define yy mPos.y()
 
-#define state	mAni.GetState()
+#define state mAni.GetState()
 
 Object_Unit_Enemy_Jarfar::Object_Unit_Enemy_Jarfar(float x, float y)
     : Object_Unit("BossJafar") {
     mPos.x << x;
     mPos.y << y;
-    mAni.Set("jafar_human", 1);
+    mAni.Set("jafar_human", 2);
     mParty = Enemy;
+    mAutoNextFrame = false;
 }
 
 Object_Unit_Enemy_Jarfar::~Object_Unit_Enemy_Jarfar() {}
@@ -29,25 +30,29 @@ void Object_Unit_Enemy_Jarfar::ObjectEachState() {
     float distanceX = abs(xx - playerX);
     mTransform.SetFlip(playerX < xx);
 
-	if(state == "jafar_human"){
-		if(
-			distanceX > 10 && 
-			mAni.GetCycleIndex() != 5 &&
-			mAni.GetCycleIndex() != 6) {
-			mAni.SetCycleIndex(1);
-		}
-		else if(distanceX <= 10){
-			mAni.SetCycleIndex(8);
-		}
-	}
+    const int range = 50;
+    if (state == "jafar_human") {
+        if (distanceX <= range) {
+            mAutoNextFrame = false;
+            mAni.SetCycleIndex(1);
+        } else {
+			// Đủ tầm cho nó cash phép
+			if(!mAutoNextFrame){
+            	mAutoNextFrame = true;
+				mAni.SetCycleIndex(2);
+			}
+        } 
+    }
     // if (mAni.GetCycleIndex() == 1) {
     //     // mIsThrow = false;
     // } else if (mAni.GetCycleIndex() == 11 && !mIsThrow) {
     //     if (distanceX > 120) {
-    //         Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Knife(
+    //         Scene::mScene->oObjectStore->mLost.push_back(new
+    //         Object_Unit_Knife(
     //             xx + (isFlip ? -20 : 20), yy - 65, -160, -400, isFlip));
     //     } else {
-    //         Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Knife(
+    //         Scene::mScene->oObjectStore->mLost.push_back(new
+    //         Object_Unit_Knife(
     //             xx + (isFlip ? -45 : 45), yy - 30, -400, 0, isFlip));
     //     }
     //     mIsThrow = true;
