@@ -1,6 +1,7 @@
 ﻿#include "Float_Easing.h"
 #include "../GameDebug.h"
 #include <math.h>
+const float maxTime = 1.f;
 
 Float_Easing::Float_Easing() {
 	mEase = Ease::stop;
@@ -66,6 +67,23 @@ void Float_Easing::Update(float dt = 0) {
 			break;
 		case stop:
 			if (mLast != mNow) {
+				mEase = Ease::in;
+			}
+			break;
+		}
+		break;
+	case Type::bytime:
+		switch (mEase) {
+		case in:
+			mTime += dt;
+			mNow += (mLast - mNow) / (mTime - maxTime) * dt;
+			if (mNow == mLast) {
+				mEase = stop;
+			}
+			break;
+		case stop:
+			if (mLast != mNow) {
+				mTime = 0;
 				mEase = Ease::in;
 			}
 			break;

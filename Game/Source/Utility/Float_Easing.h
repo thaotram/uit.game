@@ -6,13 +6,15 @@ enum Ease {
 };
 enum Type {
 	gravity,
+	linear,
 	none,
-	linear
+	bytime
 };
 
 class Float_Easing {
 private:
 	float
+		mTime,
 		mBack, mNext, mNow, mLast;
 public:
 	Float_Easing();

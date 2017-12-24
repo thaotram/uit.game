@@ -10,7 +10,7 @@
 Object_Unit_Bullet_Star::Object_Unit_Bullet_Star(float x, float y)
     : Object_Unit("BossJafar") {
     mPos << V2{x, y};
-	mPos.x.mType = mPos.y.mType = linear;
+	mPos.x.mType = mPos.y.mType = bytime;
     mAni.Set("bullet_star", 1);
 
     mAutoNextFrame = true;
@@ -24,7 +24,7 @@ void Object_Unit_Bullet_Star::ObjectUpdateEvent(float dt) {
     //Scene::mScene->oObjectStore->ObjectCheckCollisionWithPlayer(this);
 	auto pos = Scene::mScene->oPlayer->GetPosition();
 
-	if (tDis.right == 0) mIsMarkedDelete = true;
+	//if (tDis.right == 0) mIsMarkedDelete = true;
     
 	mPos.x = pos->x();
 	mPos.y = pos->y();
