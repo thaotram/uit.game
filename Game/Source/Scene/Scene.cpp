@@ -29,7 +29,8 @@ void Scene::NextScene(Scene* pNextScene) {
 }
 
 Scene::Scene() {
-	if(!oTransparentScreen) oTransparentScreen = new Object_Screen();
+	if(!oTransparentScreen) oTransparentScreen = 
+		new Object_Screen("Screen", "Black");
 }
 Scene::~Scene() {
 	delete oObjectStore;
@@ -48,32 +49,6 @@ void Scene::SceneTranlation(float delay){
 	}
 }
 
-void Scene::SceneRender(float delay) {
-	//# Update Easing
-	// Scene::mScore.Update(delay);
-	// oTransparentScreen->ObjectUpdateEvent(delay);
-
-	// //# Update Event
-	// UpdateIf(oPlayer);
-	// UpdateIf(oObjectStore);
-	// UpdateIf(oMapBack);
-	// UpdateIf(oMapFront);
-	// UpdateIf(oStatus);
-	// UpdateIf(oBackground);
-
-	// //# Remove item in RemoveList
-	// oObjectStore->ObjectRemoveMarkedDelete();
-
-	// //# Render
-	// RenderIf(oBackground);
-	// RenderIf(oMapBack);
-	// RenderIf(oObjectStore);
-	// RenderIf(oPlayer);
-	// RenderIf(oMapFront);
-	// RenderIf(oStatus);
-
-	// oTransparentScreen->ObjectRender(delay);
-}
-
+void Scene::SceneRender(float delay) {}
 void Scene::OnKeyDown(int pKeyCode) {}
 void Scene::OnKeyUp(int pKeyCode) {}

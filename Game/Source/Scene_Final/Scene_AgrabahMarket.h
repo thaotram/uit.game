@@ -31,7 +31,6 @@ class Scene_AgrabahMarket final : public Scene {
 private:
     Scene_Status* oStatus;
     Scene_Background* oBackground;
-    Scene_ObjectStore* oObjectStore;
     Object* oMapBack;
     Object* oMapFront;
 

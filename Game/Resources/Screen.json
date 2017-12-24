@@ -1,0 +1,19 @@
+﻿{
+    "name": "Screen",
+    "states": {
+        "Black": {
+            "basePoint": [0, 0],
+            "frameCycle": [1],
+            "frame": {
+                "1": [0, 0, 320, 224, 0, 0]
+            }
+        },
+        "JafarPalace_Background": {
+            "basePoint": [0, 0],
+            "frameCycle": [1],
+            "frame": {
+                "1": [320, 0, 320, 224, 0, 0]
+            }
+        }
+    }
+}

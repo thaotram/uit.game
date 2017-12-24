@@ -7,4 +7,6 @@ Object_Map_JafarPalace_Background::Object_Map_JafarPalace_Background()
     mAnimation.Set("back", 1);
 }
 
-void Object_Map_JafarPalace_Background::ObjectUpdateEvent(float delay) {}
+void Object_Map_JafarPalace_Background::ObjectUpdateEvent(float delay) {
+    
+}

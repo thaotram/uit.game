@@ -9,10 +9,10 @@
 
 class Object_Screen final : public Object {
 public:
-	Object_Screen();
+	Object_Screen(string pName, string pState);
 	~Object_Screen() {};
-	// [0,100], 100 = hiện toàn bộ / đen toàn bộ
-	Float_Easing mAlpha;
+
+	Float_Easing mAlpha;	// [0,100], 100 = hiện toàn bộ / đen toàn bộ
 
 	void ObjectUpdateEvent(float delay);
 	void ObjectDraw(

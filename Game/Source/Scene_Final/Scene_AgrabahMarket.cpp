@@ -3,9 +3,9 @@
 #include "../../Define.h"
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Back.h"
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Front.h"
-#include "../Object_Screen/Object_Screen.h"
-#include "../Object_Status_Final/Object_Status_Cloud.h"
 #include "../Object_Unit_Final/Object_Unit_Aladdin.h"
+#include "../Object_Status_Final/Object_Status_Cloud.h"
+#include "../Object_Screen/Object_Screen.h"
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
     oStatus = new Scene_Status();
@@ -16,9 +16,10 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	for (const auto &v : Vector_State_Cloud) {
 		oBackground->push_back(new Object_Status_Cloud(v));
 	}
+    
     oObjectStore = new Scene_ObjectStore("AgrabahMarket_Block");
-	//oPlayer = new Object_Unit_Aladdin(50, 624);
-	oPlayer = new Object_Unit_Aladdin(2200, 400);
+	oPlayer = new Object_Unit_Aladdin(50, 624);
+	// oPlayer = new Object_Unit_Aladdin(2200, 400);
     oMapBack = new Object_Map_AgrabahMarket_Back();
     oMapFront = new Object_Map_AgrabahMarket_Front();
 
@@ -37,7 +38,7 @@ void Scene_AgrabahMarket::SceneRender(float delay){
 	oBackground->ObjectUpdateEvent(delay);
 
 	//# Remove item in RemoveList
-	// oObjectStore->ObjectRemoveMarkedDelete();
+	oObjectStore->ObjectRemoveMarkedDelete();
 
     //# Render
 	oBackground->ObjectRender(delay);

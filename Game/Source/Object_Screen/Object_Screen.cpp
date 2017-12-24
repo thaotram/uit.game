@@ -1,17 +1,15 @@
 ﻿#include "Object_Screen.h"
 
-Object_Screen::Object_Screen() : Object("Black") {
+Object_Screen::Object_Screen(string pName, string pState) : Object(pName){
 	mPosition << V2{ 0,0 };
-	mAnimation.Set("black", 1);
-	mTransform.Update(this);
-	mSourceRect.Update(this);
-
-	mAlpha = Float_Easing(255, Type::linear, 600);
-	mAlpha = 0;
+	mAnimation.Set(pState, 1);
+	mAlpha = Float_Easing(0, Type::linear, 600);
 }
 
 void Object_Screen::ObjectUpdateEvent(float delay) {
 	mAlpha.Update(delay);
+	mTransform.Update(this);
+	mSourceRect.Update(this);
 }
 
 void Object_Screen::ObjectDraw(Vector_Easing pPosition, Object_Transform pTransform, Object_SourceRect pSourceRect) {

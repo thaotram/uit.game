@@ -14,6 +14,7 @@ using namespace std;
 
 class Scene_JafarPalace final : public Scene {
 private: 
+	Object* oMapBackground;
 	Object* oMapBack;
     Scene_Status* oStatus;
 
