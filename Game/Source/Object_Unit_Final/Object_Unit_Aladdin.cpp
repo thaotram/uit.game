@@ -611,5 +611,5 @@ void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 void Object_Unit_Aladdin::ObjectIntersectStar(Object * pObject) {
 	auto s = ((Scene_JafarPalace*)Scene::mScene);
 	auto pos = s->oBoss->GetPosition();
-	mPos.x += (pos->x() > xx ? 1 : -1) * 200 * tDt;
+	mPos.x += (xx < pos->x() ? 1 : -1) * 100 * tDt;
 }
