@@ -11,7 +11,8 @@ Object_Unit_Bullet_Star::Object_Unit_Bullet_Star(float x, float y)
     : Object_Unit("BossJafar") {
     mPos << V2{x, y};
     mPos.x.mType = mPos.y.mType = bytime;
-    mAni.Set("bullet_star", 1);
+
+    mAni.Set("bullet_star", rand() % 3 + 1);
 
     mAutoNextFrame = true;
     mParty = Enemy;

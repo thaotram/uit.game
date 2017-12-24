@@ -4,6 +4,7 @@
 #include "../Object_Unit_Final/Object_Unit_NPC_Camel.h"
 #include "../Object_Unit_Final/Object_Unit_Bullet_Star.h"
 #include "../Scene_Final/Scene_Death.h"
+#include "../Scene_Final/Scene_JafarPalace.h"
 #include "../GameDebug.h"
 #include "../../Define.h"
 
@@ -608,5 +609,7 @@ void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 }
 
 void Object_Unit_Aladdin::ObjectIntersectStar(Object * pObject) {
-
+	auto s = ((Scene_JafarPalace*)Scene::mScene);
+	auto pos = s->oBoss->GetPosition();
+	mPos.x += (pos->x() > xx ? 1 : -1) * 200 * tDt;
 }

@@ -15,11 +15,12 @@ class Scene_JafarPalace final : public Scene {
 private: 
 	Object* oMapBackground;
 	Object* oMapBack;
-	Object* oBoss;
     Scene_Status* oStatus;
 
 public:
 	Scene_JafarPalace();
 	~Scene_JafarPalace() {};
+
+	Object* oBoss;
 	void SceneRender(float delay);
 };
