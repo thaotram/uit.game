@@ -14,7 +14,7 @@ Scene_JafarPalace::Scene_JafarPalace() : Scene() {
 	oMapBack = new Object_Map_JafarPalace_Back();
 	oMapBack->AfterAddToScene();
 
-	((Object_Screen *)oTransparentScreen)->mAlpha = 255;
+	((Object_Screen *)oTransparentScreen)->mAlpha = 0;
 }
 
 void Scene_JafarPalace::SceneRender(float delay){

@@ -1,9 +1,9 @@
 ﻿#include "Object_Screen.h"
 
-Object_Screen::Object_Screen(string pName, string pState) : Object(pName){
+Object_Screen::Object_Screen(string pName, string pState) : Object(pName) {
 	mPosition << V2{ 0,0 };
 	mAnimation.Set(pState, 1);
-	mAlpha = Float_Easing(0, Type::linear, 600);
+	mAlpha = Float_Easing(255, Type::linear, 600);
 }
 
 void Object_Screen::ObjectUpdateEvent(float delay) {
@@ -19,6 +19,6 @@ void Object_Screen::ObjectDraw(Vector_Easing pPosition, Object_Transform pTransf
 		&pSourceRect,
 		NULL,
 		&(pPosition.VECTOR() * SCALE).VECTOR3(),
-		((int)(mAlpha())) << 24
+		((int)(mAlpha()) << 24) + 0xFFFFFF
 	);
 }
