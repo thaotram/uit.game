@@ -2,6 +2,7 @@
 #include "../Object_Unit_Final/Object_Unit_Apple.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Stick.h"
 #include "../Object_Unit_Final/Object_Unit_NPC_Camel.h"
+#include "../Object_Unit_Final/Object_Unit_Bullet_Star.h"
 #include "../Scene_Final/Scene_Death.h"
 #include "../GameDebug.h"
 #include "../../Define.h"
@@ -600,7 +601,10 @@ void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 	//  0: Còn sống
 	// -1: Đã chết
 	// -2: Chết rồi, đang đợi
-	if (Scene::mBlood < 0) {
+	if(dynamic_cast<Object_Unit_Bullet_Star*>(pObject)){
+		
+	}
+	else if (Scene::mBlood < 0) {
 		if (Scene::mBlood == -1) Scene::NextScene(new Scene_Death());
 		Scene::mBlood = -2;
 	}

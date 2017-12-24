@@ -76,7 +76,7 @@ void Float_Easing::Update(float dt = 0) {
 		switch (mEase) {
 		case in:
 			mTime += dt;
-			mNow += (mLast - mNow) / (mTime - maxTime) * dt;
+			mNow += (mLast - mNow) / (maxTime - mTime) * dt;
 			if (mNow == mLast) {
 				mEase = stop;
 			}
