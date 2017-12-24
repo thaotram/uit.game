@@ -352,8 +352,8 @@
             }
         },
         "run_throwapple": {
-            "note": "chạy + chém",
-            "basePoint": [18, 52],
+            "note": "chạy + ném táo",
+            "basePoint": [28, 66],
             "frameCycle": [1, 2, 3, 4, 5, 6, 0],
             "frame": {
                 "1": [2, 2788, 66, 67, 0, 0],
@@ -515,7 +515,7 @@
         "hurt": {
             "note": "",
             "basePoint": [22, 45],
-            "frameCycle": [1, 2, 4, 5, 3, 6, 7],
+            "frameCycle": [1, 2, 4, 5, 3, 6, 7, -1],
             "frame": {
                 "1": [9, 2167, 42, 46, 0, 0],
                 "2": [58, 2161, 55, 52, -10, -7],

@@ -2,7 +2,7 @@
 #define mAni mAnimation
 #define mPos mPosition
 #define mObjectStore Scene::mScene->oObjectStore
-#define tSpeedX 400
+#define tSpeedX 500
 //#define tSpeedX	490
 
 #define xx mPos.x()

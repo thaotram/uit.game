@@ -36,6 +36,7 @@ Object_Unit_Aladdin::Object_Unit_Aladdin(float x, float y) : Object_Unit("Aladdi
 	mIsMakeDamage = false;
 	mParty = Friend;
 	tIsPull = 0;
+	tFlickerPerSecond = 5;
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
@@ -61,6 +62,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	//# Flip
 	mTransform.SetFlip(R ? Right : L ? Left : Stand);
 	cTime = max(cTime - tDt, 0);
+	mIsFlicker = cTime > 0;
 
 	//# Các thao tác tính toán / cập nhật
 	ObjectEachState();
@@ -101,6 +103,9 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			C = false;
 			mAutoNextFrame = false;
 			mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-tJump);
+		}
+		else if (cTime > 0) {
+			mAni.Set("hurt", 1);
 		}
 	}
 	else if (state == "stand_cut") {
@@ -310,7 +315,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 				mAni.Set("push", 1);
 			}
 		}
-		if (Z)				0; /// "run_throwapple" - thiếu
+		if (Z && hasApple)	mAni.Set("run_throwapple", 1, "run", 9);
 		else if (X)			mAni.Set("run_cut", 1, "run", 9);
 		else if (C && tDis.bottom <= 10) {
 			// Phải ở dưới đất thì mới được nhảy
@@ -320,7 +325,16 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		}
 	}
 	else if (state == "run_throwapple") {
-		// ko có sprite
+		mTimePerFrame = 0.03f;
+		mAutoNextFrame = true;
+		//tIsChangeX = false;
+		if (mAni.GetCycleIndex() == 1) {
+			tIsThrowApple = false;
+		}
+		else if (mAni.GetCycleIndex() == 4 && !tIsThrowApple) {
+			tIsThrowApple = true;
+			Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Apple(xx, yy - 55, mTransform.GetFlip()));
+		}
 	}
 	else if (state == "run_cut") {
 		X = false;
@@ -534,6 +548,9 @@ void Object_Unit_Aladdin::ObjectEachState() {
 	else if (state == "hurt") {
 		tIsChangeX = tIsChangeY = false;
 		mAni.SetNext("stand", 1);
+		if (L || R) {
+			mAni.Set("run", 1);
+		}
 	}
 	else if (state == "revival") {
 		tIsChangeX = tIsChangeY = false;
@@ -616,7 +633,7 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 }
 void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 	if (cTime == 0) {
-		cTime = 0.8;
+		cTime = 0.8f;
 		Scene::mBlood--;
 	}
 	//  0: Còn sống
