@@ -30,7 +30,7 @@ Game::Game() {
 		"Peddler",
 		"Status",
 		"Stick",
-		"Twinkle" 
+		"Twinkle"
 	};
 	for (auto str : List) {
 		Object_Json::GetJson(str);

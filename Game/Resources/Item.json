@@ -1,6 +1,13 @@
 ﻿{
     "name": "Item",
     "states": {
+	    "fire": {
+            "basePoint": [0, 0],
+            "frameCycle": [1, -1],
+            "frame": {
+                "1": [0, 0, 0, 0, 0, 0]
+            }
+        },
         "background_item": {
             "basePoint": [0, 0],
             "frameCycle": [1, -1],

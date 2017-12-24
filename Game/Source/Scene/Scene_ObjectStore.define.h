@@ -33,7 +33,8 @@
 	Method(Static, Genie_Bonus);		\
 	Method(Static, Restart_Point);		\
 	Method(Static, Spend_These);		\
-	Method(Static, Stick);
+	Method(Static, Stick);				\
+	Method(Static, Fire);
 
 #define EachNPC(Method)					\
 	Method(NPC, Camel);					\

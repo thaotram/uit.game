@@ -48,6 +48,7 @@ public:
 	list<pair<RECT, Object *>>	mStatic_Restart_Point;
 	list<pair<RECT, Object *>>	mStatic_Spend_These;
 	list<pair<RECT, Object *>>	mStatic_Stick;
+	list<pair<RECT, Object *>>	mStatic_Fire;
 
 	//# NPC
 	list<pair<RECT, Object *>>	mNPC_Camel;

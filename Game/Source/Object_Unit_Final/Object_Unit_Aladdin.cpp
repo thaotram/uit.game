@@ -60,6 +60,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 
 	//# Flip
 	mTransform.SetFlip(R ? Right : L ? Left : Stand);
+	cTime = max(cTime - tDt, 0);
 
 	//# Các thao tác tính toán / cập nhật
 	ObjectEachState();
@@ -614,7 +615,10 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	Scene::mScene->oObjectStore->UpdateStairState(tUnit);
 }
 void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
-	Scene::mBlood--;
+	if (cTime == 0) {
+		cTime = 0.8;
+		Scene::mBlood--;
+	}
 	//  0: Còn sống
 	// -1: Đã chết
 	// -2: Chết rồi, đang đợi

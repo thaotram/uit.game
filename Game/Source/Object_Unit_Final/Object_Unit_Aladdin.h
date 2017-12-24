@@ -9,6 +9,7 @@ private:
 	bool tIsChangeX, tIsChangeY;
 	bool tIsThrowApple;
 	float tSpeedX, tSpeedY, tJump;
+	float cTime;
 	float tIsPull;
 
 	pair<bool, RECT>
