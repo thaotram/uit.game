@@ -25,6 +25,8 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 
     oMapBack->AfterAddToScene();
     oMapFront->AfterAddToScene();
+
+    ((Object_Screen *)oTransparentScreen)->mAlpha = 0;
 }
 
 void Scene_AgrabahMarket::SceneRender(float delay){
