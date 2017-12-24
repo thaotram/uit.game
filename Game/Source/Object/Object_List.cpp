@@ -1,24 +1,24 @@
-﻿#include "Scene_Background.h"
+﻿#include "Object_List.h"
 #include "../Object/Object.h"
 #define forList(method) if (this != NULL) for (auto &b : *this) b->method(delay);
-Scene_Background::Scene_Background() {
+Object_List::Object_List() {
 	clear();
 }
 
-Scene_Background::~Scene_Background() {
+Object_List::~Object_List() {
 	if (this != NULL) for (auto &b : *this) delete b;
 	clear();
 }
 
-void Scene_Background::operator<<(Object *pObject) { 
+void Object_List::operator<<(Object *pObject) { 
 	//# Chèn phần tử vào
 	push_back(pObject); 
 }
 
-void Scene_Background::ObjectUpdateEvent(float delay) {
+void Object_List::ObjectUpdateEvent(float delay) {
 	forList(ObjectUpdateEvent);
 }
 
-void Scene_Background::ObjectRender(float delay) {
+void Object_List::ObjectRender(float delay) {
 	forList(ObjectRender);
 }

@@ -9,7 +9,7 @@
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
     oStatus = new Scene_Status();
-	oBackground = new Scene_Background();
+	oBackground = new Object_List();
 
     const vector<State_Cloud> Vector_State_Cloud = 
 		{Cloud1, Cloud2, Cloud3, Cloud4, Sand1, Sand2, Sand3, Sand4, Sand5};

@@ -1,7 +1,7 @@
 ﻿#include "Scene_Death.h"
 
-#include "../Object_Map_Final/Object_Map_JafarPalace_Back.h"
 #include "../Object_Screen/Object_Screen.h"
+#include "../Object_Map_Final/Object_Map_JafarPalace_Back.h"
 #include "../Object_Unit_Final/Object_Unit_Aladdin.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Restart_Point.h"
 #include "../../Define.h"

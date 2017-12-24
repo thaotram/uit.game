@@ -6,9 +6,7 @@
 #include "../GameDebug.h"
 #include "../GameGlobal.h"
 #include "../Object/Object.h"
-#include "../Scene/Scene_Background.h"
 #include "../Scene/Scene_ObjectStore.h"
-#include "../Scene/Scene_Status.h"
 #include "../Utility/Float_Easing.h"
 
 using namespace std;

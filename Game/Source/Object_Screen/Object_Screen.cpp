@@ -19,6 +19,6 @@ void Object_Screen::ObjectDraw(Vector_Easing pPosition, Object_Transform pTransf
 		&pSourceRect,
 		NULL,
 		&(pPosition.VECTOR() * SCALE).VECTOR3(),
-		((int)(mAlpha()) << 24) + 0xFFFFFF
+		((int)(mAlpha()) << 24) | 0xFFFFFF
 	);
 }

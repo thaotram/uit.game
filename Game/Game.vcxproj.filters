@@ -438,14 +438,14 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_NPC_Abu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene\Scene_Background.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Object_Screen\Object_Screen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Object_Map_Final\Object_Map_JafarPalace_Background.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Fire.h" />
+    <ClInclude Include="Source\Object\Object_List.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp">
@@ -634,9 +634,6 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Disappear.cpp">
       <Filter>Source\Object_Unit\Explosion</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scene\Scene_Background.cpp">
-      <Filter>Source\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Scene\Scene_Status.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
@@ -654,6 +651,9 @@
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Fire.cpp">
       <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object\Object_List.cpp">
+      <Filter>Source\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

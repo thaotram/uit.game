@@ -2,10 +2,10 @@
 #include <list>
 using namespace std;
 class Object;
-class Scene_Background : public list<Object *> {
+class Object_List : public list<Object *> {
 public:
-    Scene_Background();
-    ~Scene_Background();
+    Object_List();
+    ~Object_List();
     
     void operator<<(Object *pObject);
     void ObjectUpdateEvent(float delay);
