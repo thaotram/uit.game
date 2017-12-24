@@ -1,37 +1,40 @@
 #include "Scene_JafarPalace.h"
 
+#include "../../Define.h"
 #include "../Object_Map_Final/Object_Map_JafarPalace_Back.h"
 #include "../Object_Map_Final/Object_Map_JafarPalace_Background.h"
 #include "../Object_Screen/Object_Screen.h"
 #include "../Object_Unit_Final/Object_Unit_Aladdin.h"
-#include "../../Define.h"
+#include "../Object_Unit_Final/Object_Unit_Enemy_Jarfar.h"
 
 Scene_JafarPalace::Scene_JafarPalace() : Scene() {
-	oObjectStore = new Scene_ObjectStore("JafarPalace_Block");
-	oPlayer = new Object_Unit_Aladdin(200, 50);
+    oObjectStore = new Scene_ObjectStore("JafarPalace_Block");
+    oPlayer = new Object_Unit_Aladdin(200, 50);
+    oBoss = new Object_Unit_Enemy_Jarfar(412, 328);
+    oMapBackground = new Object_Screen("Screen", "JafarPalace_Background");
+    oMapBack = new Object_Map_JafarPalace_Back();
+    oMapBack->AfterAddToScene();
 
-	oMapBackground = new Object_Screen("Screen", "JafarPalace_Background");
-	oMapBack = new Object_Map_JafarPalace_Back();
-	oMapBack->AfterAddToScene();
-
-	((Object_Screen *)oTransparentScreen)->mAlpha = 0;
+    ((Object_Screen *)oTransparentScreen)->mAlpha = 0;
 }
 
-void Scene_JafarPalace::SceneRender(float delay){
+void Scene_JafarPalace::SceneRender(float delay) {
     //# Update
-	oPlayer->ObjectUpdateEvent(delay);
-	oObjectStore->ObjectUpdateEvent(delay);
-	oMapBack->ObjectUpdateEvent(delay);
-	oMapBackground->ObjectUpdateEvent(delay);
-	oTransparentScreen->ObjectUpdateEvent(delay);
+    oPlayer->ObjectUpdateEvent(delay);
+    oObjectStore->ObjectUpdateEvent(delay);
+	oBoss->ObjectUpdateEvent(delay);
+    oMapBack->ObjectUpdateEvent(delay);
+    oMapBackground->ObjectUpdateEvent(delay);
+    oTransparentScreen->ObjectUpdateEvent(delay);
 
-	//# Remove item in RemoveList
-	oObjectStore->ObjectRemoveMarkedDelete();
+    //# Remove item in RemoveList
+    oObjectStore->ObjectRemoveMarkedDelete();
 
     //# Render
-	oMapBackground->ObjectRender(delay);
-	oMapBack->ObjectRender(delay);
-	oObjectStore->ObjectRender(delay);
+    oMapBackground->ObjectRender(delay);
+    oMapBack->ObjectRender(delay);
+    oObjectStore->ObjectRender(delay);
+	oBoss->ObjectRender(delay);
     oPlayer->ObjectRender(delay);
     oTransparentScreen->ObjectRender(delay);
 }

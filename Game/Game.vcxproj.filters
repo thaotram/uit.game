@@ -235,18 +235,6 @@
     <ClInclude Include="Library\json.hpp">
       <Filter>Library</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameDebug.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameGlobal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameTime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Object\Object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -446,17 +434,13 @@
     <ClInclude Include="Source\Object\Object_List.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Game.h" />
+    <ClInclude Include="Source\GameDebug.h" />
+    <ClInclude Include="Source\GameGlobal.h" />
+    <ClInclude Include="Source\GameTime.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jarfar.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Game.cpp">
-      <Filter>Source\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameDebug.cpp">
-      <Filter>Source\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameTime.cpp">
-      <Filter>Source\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Object\Object.cpp">
       <Filter>Source\Object</Filter>
     </ClCompile>
@@ -477,9 +461,6 @@
     </ClCompile>
     <ClCompile Include="Source\Scene\Scene.cpp">
       <Filter>Source\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameGlobal.cpp">
-      <Filter>Source\Game</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit\Object_Unit.cpp">
       <Filter>Source\Object_Unit</Filter>
@@ -654,6 +635,21 @@
     </ClCompile>
     <ClCompile Include="Source\Object\Object_List.cpp">
       <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameDebug.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameGlobal.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameTime.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jarfar.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

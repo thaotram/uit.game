@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <list>
-#include <vector>
 #include <json.hpp>
 
 #define V2 D3DXVECTOR2

@@ -175,6 +175,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Game.h" />
+    <ClInclude Include="Source\GameDebug.h" />
+    <ClInclude Include="Source\GameGlobal.h" />
+    <ClInclude Include="Source\GameTime.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jarfar.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Fire.h" />
     <ClInclude Include="Source\Object_Map_Final\Object_Map_JafarPalace_Background.h" />
     <ClInclude Include="Source\Object_Screen\Object_Screen.h" />
@@ -226,10 +231,6 @@
     <ClInclude Include="Source\Object_Map_Final\Object_Map_AgrabahMarket_Front.h" />
     <ClInclude Include="Source\Utility\Float_Easing.h" />
     <ClInclude Include="Library\json.hpp" />
-    <ClInclude Include="Source\Game.h" />
-    <ClInclude Include="Source\GameDebug.h" />
-    <ClInclude Include="Source\GameGlobal.h" />
-    <ClInclude Include="Source\GameTime.h" />
     <ClInclude Include="Source\Object\Object.h" />
     <ClInclude Include="Source\Object\Object_Animation.h" />
     <ClInclude Include="Source\Object\Object_Json.h" />
@@ -247,6 +248,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Define.cpp" />
+    <ClCompile Include="Source\Game.cpp" />
+    <ClCompile Include="Source\GameDebug.cpp" />
+    <ClCompile Include="Source\GameGlobal.cpp" />
+    <ClCompile Include="Source\GameTime.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jarfar.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Fire.cpp" />
     <ClCompile Include="Source\Object_Map_Final\Object_Map_JafarPalace_Background.cpp" />
     <ClCompile Include="Source\Object_Screen\Object_Screen.cpp" />
@@ -299,10 +305,6 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Source\Object_Unit\Object_Unit.cpp" />
     <ClCompile Include="Source\Object_Map\Object_Map.cpp" />
-    <ClCompile Include="Source\Game.cpp" />
-    <ClCompile Include="Source\GameDebug.cpp" />
-    <ClCompile Include="Source\GameGlobal.cpp" />
-    <ClCompile Include="Source\GameTime.cpp" />
     <ClCompile Include="Source\Object\Object.cpp" />
     <ClCompile Include="Source\Object\Object_Animation.cpp" />
     <ClCompile Include="Source\Object\Object_Json.cpp" />

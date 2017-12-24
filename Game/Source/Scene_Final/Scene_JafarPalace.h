@@ -15,6 +15,7 @@ class Scene_JafarPalace final : public Scene {
 private: 
 	Object* oMapBackground;
 	Object* oMapBack;
+	Object* oBoss;
     Scene_Status* oStatus;
 
 public:
