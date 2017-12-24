@@ -175,6 +175,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Fire.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_FireSurf.h" />
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\GameDebug.h" />
     <ClInclude Include="Source\GameGlobal.h" />
@@ -249,6 +251,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Define.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Fire.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_FireSurf.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\GameDebug.cpp" />
     <ClCompile Include="Source\GameGlobal.cpp" />
