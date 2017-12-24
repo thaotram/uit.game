@@ -35,6 +35,7 @@ Object_Unit_Aladdin::Object_Unit_Aladdin(float x, float y) : Object_Unit("Aladdi
 	tIsThrowApple = false;
 	mIsMakeDamage = false;
 	mParty = Friend;
+	tStar = 0;
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
@@ -584,7 +585,21 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	mPos.x += !tIsChangeX ? 0 :
 		R ? +min(tSpeedX * tDt, tDis.right) :
 		L ? -min(tSpeedX * tDt, tDis.left) : 0;
+
+	GameDebug::Title(tStar);
+	const int v = 150;
+	if (tStar == 0) {}
+	else if(tStar > 0) {
+		mPos.x += min(tStar, +tDt * v);
+		tStar -= tDt * v;
+		tStar = max(tStar, 0);
+	} else {
+		mPos.x += max(tStar, -tDt * v);
+		tStar += tDt * v;
+		tStar = min(tStar, 0);
+	}
 	mPos.x.Update(tDt);
+	
 	tDis = mObjectStore->GetDistance(tUnit, this);
 
 	mPos.y = !tIsChangeY ? yy : yy + tDis.bottom;
@@ -610,6 +625,6 @@ void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 
 void Object_Unit_Aladdin::ObjectIntersectStar(Object * pObject) {
 	auto s = ((Scene_JafarPalace*)Scene::mScene);
-	auto pos = s->oBoss->GetPosition();
-	mPos.x += (xx < pos->x() ? 1 : -1) * 100 * tDt;
+	auto bossX = s->oBoss->GetPosition()->x();
+	tStar = (xx < bossX ? 1 : -1) * 20;
 }
