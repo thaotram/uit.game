@@ -73,13 +73,15 @@ void Float_Easing::Update(float dt = 0) {
 		}
 		break;
 	case Type::pull:
+		const float velo = 100.f;
 		switch (mEase) {
 		case in:
+			// auto l = abs(mLast - mNow);
+			// auto mmm = sqrt(mVelocity - l*l);
 			mTime += dt;
 			mNow += (mLast - mNow) / (maxTime - mTime) * dt;
-			if (mNow == mLast) {
-				mEase = stop;
-			}
+
+			if (mNow == mLast) mEase = stop;
 			break;
 		case stop:
 			if (mLast != mNow) {

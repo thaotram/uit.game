@@ -586,16 +586,19 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 		R ? +min(tSpeedX * tDt, tDis.right) :
 		L ? -min(tSpeedX * tDt, tDis.left) : 0;
 
-	auto s = ((Scene_JafarPalace*)Scene::mScene);
-	auto bossX = s->oBoss->GetPosition()->x();
-	const float vv = 100.f;
+	if (dynamic_cast<Scene_JafarPalace*>(Scene::mScene)) {
+		auto s = ((Scene_JafarPalace*)Scene::mScene);
+		auto bossX = s->oBoss->GetPosition()->x();
+		const float vv = 100.f;
 
-	tIsPull -= tDt;
-	if (abs(xx - bossX) > 10 && tIsPull > 0) {
-		mPos.x += (xx < bossX ? 1 : -1) * vv * tDt;
-	} else {
-		tIsPull = 0;
+		tIsPull -= tDt;
+		if (abs(xx - bossX) > 10 && tIsPull > 0) {
+			mPos.x += (xx < bossX ? 1 : -1) * vv * tDt;
+		} else {
+			tIsPull = 0;
+		}
 	}
+	
 	mPos.x.Update(tDt);
 	
 	tDis = mObjectStore->GetDistance(tUnit, this);
