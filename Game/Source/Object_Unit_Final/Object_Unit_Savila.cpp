@@ -16,7 +16,7 @@ Object_Unit_Savila::Object_Unit_Savila(float x, float y)
 }
 
 void Object_Unit_Savila::ObjectUpdateEvent(float dt) {
-    tUnit = tUnitDamage = RECT{(LONG)xx, (LONG)yy, (LONG)xx + 6, (LONG)yy + 5};
+    tUnit = tUnitDamage = RECT{(LONG)xx, (LONG)yy, (LONG)xx, (LONG)yy};
     tDis = mObjectStore->GetDistance(tUnit, this);
     Scene::mScene->oObjectStore->ObjectCheckCollisionWithEnemy(this);
     if (tDis.right == 0 || mIsMakeDamage) mIsMarkedDelete = true;

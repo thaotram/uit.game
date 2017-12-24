@@ -10,14 +10,15 @@
 Object_Unit_Bullet_Star::Object_Unit_Bullet_Star(float x, float y)
     : Object_Unit("BossJafar") {
     mPos << V2{x, y};
-	mPos.x.mType = mPos.y.mType = gravity;
+	mPos.x.mType = mPos.y.mType = linear;
     mAni.Set("bullet_star", 1);
+
     mAutoNextFrame = true;
     mParty = Enemy;
 }
 
 void Object_Unit_Bullet_Star::ObjectUpdateEvent(float dt) {
-    tUnit = RECT{(LONG)xx, (LONG)yy, (LONG)xx + 6, (LONG)yy + 5};
+    tUnit = RECT{(LONG)xx, (LONG)yy, (LONG)xx, (LONG)yy};
     tDis = mObjectStore->GetDistance(tUnit, this);
 	//tUnitDamage = RECT{ 0,0,0,0 };
     //Scene::mScene->oObjectStore->ObjectCheckCollisionWithPlayer(this);
