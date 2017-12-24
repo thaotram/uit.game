@@ -1,12 +1,12 @@
 #pragma once
 #include "../GameDebug.h"
 #include "../Object_Unit/Object_Unit.h"
-#include "../Object_Unit_Final/Object_Unit_Disappear.h"
-#include "../Object_Unit_Final/Object_Unit_Knife.h"
+// #include "../Object_Unit_Final/Object_Unit_Disappear.h"
+#include "../Object_Unit_Final/Object_Unit_Bullet_Star.h"
 
 class Object_Unit_Enemy_Jarfar final : public Object_Unit {
 private:
-
+    bool mIsCash;
 public:
     Object_Unit_Enemy_Jarfar(float x, float y);
     ~Object_Unit_Enemy_Jarfar();

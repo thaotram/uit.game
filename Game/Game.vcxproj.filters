@@ -439,6 +439,7 @@
     <ClInclude Include="Source\GameGlobal.h" />
     <ClInclude Include="Source\GameTime.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jarfar.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Bullet_Star.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Object\Object.cpp">
@@ -649,6 +650,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jarfar.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Bullet_Star.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
