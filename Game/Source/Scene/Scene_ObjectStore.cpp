@@ -1,6 +1,9 @@
 ﻿#include "Scene_ObjectStore.h"
 #include <math.h>
 #include "../Object/Object.h"
+
+#include "../Object_Unit_Final/Object_Unit_Aladdin.h"
+
 #include "../Object_Unit_Final/Object_Unit_Static_Abubonus.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Apple.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Black_Magic_Lamp.h"
@@ -98,6 +101,23 @@ void Scene_ObjectStore::ObjectCheckCollisionWithPlayer(Object *pObject) {
 	auto player_bound = Scene::mScene->oPlayer->GetBound();
 	if (isIntersect(player_bound, unit_damage) && !pObject->mIsMakeDamage) {
 		Scene::mScene->oPlayer->ObjectIntersect(pObject);
+		pObject->mIsMakeDamage = true;
+	}
+}
+
+void Scene_ObjectStore::ObjectCheckCollisionWithPlayerBulletStar(Object *pObject){
+	auto unit_damage = pObject->tUnitDamage;
+	auto player_pos = Scene::mScene->oPlayer->GetPosition();
+	auto player_bound = RECT{
+		(LONG)player_pos->x() - 5,
+		(LONG)player_pos->y() - 50,
+		(LONG)player_pos->x() + 5,
+		(LONG)player_pos
+	};
+	if (isIntersect(player_bound, unit_damage) && !pObject->mIsMakeDamage) {
+		(
+			(Object_Unit_Aladdin*)Scene::mScene->oPlayer
+		)->ObjectIntersectStar(pObject);
 		pObject->mIsMakeDamage = true;
 	}
 }

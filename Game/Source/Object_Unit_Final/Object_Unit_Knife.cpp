@@ -1,4 +1,5 @@
 ﻿#include "Object_Unit_Knife.h"
+#include "../Object_Unit_Final/Object_Unit_Explosion_Tiny.h"
 #define mAni	mAnimation
 #define mPos	mPosition
 #define	mObjectStore	Scene::mScene->oObjectStore

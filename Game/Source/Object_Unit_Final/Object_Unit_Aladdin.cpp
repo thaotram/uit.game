@@ -76,7 +76,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 	}
 	else if (state == "stand") {
 		mAutoNextFrame = true;
-		mTimePerFrame = 0.06f;
+		mTimePerFrame = 0.1f;
 		tIsChangeX = false;
 		if (U)						mAni.Set("up", 1);
 		else if (D)					mAni.Set("sit", 1);
@@ -601,11 +601,12 @@ void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 	//  0: Còn sống
 	// -1: Đã chết
 	// -2: Chết rồi, đang đợi
-	if(dynamic_cast<Object_Unit_Bullet_Star*>(pObject)){
-		
-	}
-	else if (Scene::mBlood < 0) {
+	if (Scene::mBlood < 0) {
 		if (Scene::mBlood == -1) Scene::NextScene(new Scene_Death());
 		Scene::mBlood = -2;
 	}
+}
+
+void Object_Unit_Aladdin::ObjectIntersectStar(Object * pObject) {
+
 }

@@ -46,12 +46,14 @@ void Object_Unit_Enemy_Jarfar::ObjectEachState() {
                 mAni.SetCycleIndex(2);
             }
         }
-        float index = mAni.GetCycleIndex();
+        int index = mAni.GetCycleIndex();
 		if (index == 4 || index == 6 || index == 8 || index == 10) {
 			mIsCash = false;
 		} else if ((index == 5 || index == 7 || index == 9) && !mIsCash) {
 			mIsCash = true; 
-            Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Bullet_Star(xx, yy - 30));
+            Scene::mScene->oObjectStore->mLost.push_back(
+				new Object_Unit_Bullet_Star(xx + 70 * (isFlip ? - 1 : +1), yy - 40)
+			);
         }
     }
 }

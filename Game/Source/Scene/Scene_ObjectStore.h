@@ -75,6 +75,9 @@ public:
 	void 				ObjectCheckCollisionWithStaticEach(Object * pPlayer, list<pair<RECT, Object *>> * pList);
 	void 				ObjectCheckCollisionWithPlayer(Object * pObject);
 
+	void 				ObjectCheckCollisionWithPlayerBulletStar(Object * pObject);
+
+
 	RECT				GetDistance(RECT u, Object * pUnit);
 	void				UpdateStairState(RECT u);
 

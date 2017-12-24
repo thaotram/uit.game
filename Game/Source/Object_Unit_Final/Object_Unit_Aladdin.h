@@ -26,4 +26,5 @@ public:
 	void ObjectEachState();
 	void ObjectAfterEachState();
 	void ObjectIntersect(Object * pObject);
+	void ObjectIntersectStar(Object * pObject);
 };
