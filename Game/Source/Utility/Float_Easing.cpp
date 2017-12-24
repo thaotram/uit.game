@@ -72,7 +72,7 @@ void Float_Easing::Update(float dt = 0) {
 			break;
 		}
 		break;
-	case Type::bytime:
+	case Type::pull:
 		switch (mEase) {
 		case in:
 			mTime += dt;

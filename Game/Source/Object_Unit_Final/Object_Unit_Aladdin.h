@@ -8,7 +8,8 @@ private:
 	//# Tạo sẵn các biến để tái sử dụng trong tính toán (không cần cấp phát lại bộ nhớ)
 	bool tIsChangeX, tIsChangeY;
 	bool tIsThrowApple;
-	float tSpeedX, tSpeedY, tJump, tStar;
+	float tSpeedX, tSpeedY, tJump;
+	float tIsPull;
 
 	pair<bool, RECT>
 		tBar,

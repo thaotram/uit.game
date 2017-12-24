@@ -8,7 +8,7 @@ enum Type {
 	gravity,
 	linear,
 	none,
-	bytime
+	pull
 };
 
 class Float_Easing {

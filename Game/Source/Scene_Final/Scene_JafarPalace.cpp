@@ -9,8 +9,9 @@
 
 Scene_JafarPalace::Scene_JafarPalace() : Scene() {
     oObjectStore = new Scene_ObjectStore("JafarPalace_Block");
+    oStatus = new Scene_Status();
     oPlayer = new Object_Unit_Aladdin(200, 50);
-    oBoss = new Object_Unit_Enemy_Jarfar(412, 328);
+    oBoss = new Object_Unit_Enemy_Jarfar(412, 340);
     oMapBackground = new Object_Screen("Screen", "JafarPalace_Background");
     oMapBack = new Object_Map_JafarPalace_Back();
     oMapBack->AfterAddToScene();
@@ -25,6 +26,7 @@ void Scene_JafarPalace::SceneRender(float delay) {
 	oBoss->ObjectUpdateEvent(delay);
     oMapBack->ObjectUpdateEvent(delay);
     oMapBackground->ObjectUpdateEvent(delay);
+    oStatus->ObjectUpdateEvent(delay);
     oTransparentScreen->ObjectUpdateEvent(delay);
 
     //# Remove item in RemoveList
@@ -36,5 +38,6 @@ void Scene_JafarPalace::SceneRender(float delay) {
     oObjectStore->ObjectRender(delay);
 	oBoss->ObjectRender(delay);
     oPlayer->ObjectRender(delay);
+    oStatus->ObjectRender(delay);
     oTransparentScreen->ObjectRender(delay);
 }
