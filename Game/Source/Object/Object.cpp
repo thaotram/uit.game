@@ -23,9 +23,10 @@ void Object::ObjectRender(float delay) {
 	if (mIsFlicker) {
 		tCount = tCount >= (FPS / tFlickerPerSecond) ? 1 : tCount + 1;
 		tIsDraw =  tCount > (FPS / tFlickerPerSecond / 2);
+	} else {
+		tIsDraw = true;
 	}
-	// if(tIsDraw) 
-	ObjectDraw(mPosition, mTransform, mSourceRect);
+	if(tIsDraw) ObjectDraw(mPosition, mTransform, mSourceRect);
 }
 void Object::ObjectDraw(Vector_Easing pPosition, Object_Transform pTransform, Object_SourceRect pSourceRect) {
 	mSpriteHandler->SetTransform(&pTransform);
