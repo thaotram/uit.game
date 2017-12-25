@@ -10,7 +10,7 @@
 Scene_JafarPalace::Scene_JafarPalace() : Scene() {
     oObjectStore = new Scene_ObjectStore("JafarPalace_Block");
     oStatus = new Scene_Status();
-    oPlayer = new Object_Unit_Aladdin(200, 50);
+    oPlayer = new Object_Unit_Aladdin(90, 352);
     oBoss = new Object_Unit_Enemy_Jarfar(412, 340);
     oMapBackground = new Object_Screen("Screen", "JafarPalace_Background");
     oMapBack = new Object_Map_JafarPalace_Back();
@@ -21,6 +21,8 @@ Scene_JafarPalace::Scene_JafarPalace() : Scene() {
 
 void Scene_JafarPalace::SceneRender(float delay) {
     //# Update
+    Scene::mScore.Update(delay);
+    
     oPlayer->ObjectUpdateEvent(delay);
     oObjectStore->ObjectUpdateEvent(delay);
 	oBoss->ObjectUpdateEvent(delay);

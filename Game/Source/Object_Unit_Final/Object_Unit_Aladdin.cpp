@@ -36,7 +36,7 @@ Object_Unit_Aladdin::Object_Unit_Aladdin(float x, float y) : Object_Unit("Aladdi
 	mIsMakeDamage = false;
 	mParty = Friend;
 	tIsPull = 0;
-	tFlickerPerSecond = 5;
+	tFlickerPerSecond = 6;
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
@@ -68,8 +68,12 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	ObjectEachState();
 	ObjectAfterEachState();
 
-	mSourceRect.Update(this);
-	tUnit = GetBound();
+	tUnit = RECT{
+		(LONG)xx - unitWidth / 2,
+		(LONG)yy - unitHeight + 30,
+		(LONG)xx + unitWidth / 2,
+		(LONG)yy
+	};
 	Scene::mScene->oObjectStore->Collision_Player_Enemy(this);
 	Scene::mScene->oObjectStore->Collision_Player_Static(this);
 
@@ -104,9 +108,9 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mAutoNextFrame = false;
 			mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-tJump);
 		}
-		else if (cTime > 0) {
-			mAni.Set("hurt", 1);
-		}
+		// else if (cTime > 0) {
+		// 	mAni.Set("hurt", 1);
+		// }
 	}
 	else if (state == "stand_cut") {
 		X = false;

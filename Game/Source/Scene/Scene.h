@@ -19,13 +19,16 @@ private:
     static float mTimer;
     static float mDelay;
 
+protected:
+    float mMapHeight, mMapWidth;
+
 public:
     Scene();
     ~Scene();
 
     Vector mCamera;
 
-	Object_Unit_Aladdin* oPlayer;
+    Object_Unit_Aladdin* oPlayer;
     Scene_ObjectStore* oObjectStore;
     static Object_Screen* oTransparentScreen;
 

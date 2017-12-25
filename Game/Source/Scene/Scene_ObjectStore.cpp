@@ -99,7 +99,7 @@ void Scene_ObjectStore::Collision_Player_Static_Each(Object * pPlayer, list<pair
 
 void Scene_ObjectStore::Collision_Enemy_Player(Object *pEnemy) {
 	auto unit_damage = pEnemy->tUnitDamage;
-	auto player_bound = Scene::mScene->oPlayer->GetBound();
+	auto player_bound = Scene::mScene->oPlayer->tUnit;
 	if (isIntersect(player_bound, unit_damage) && !pEnemy->mIsMakeDamage) {
 		Scene::mScene->oPlayer->ObjectIntersect(pEnemy);
 		pEnemy->mIsMakeDamage = true;

@@ -1,13 +1,11 @@
 ﻿#pragma once
 #include "Game.h"
 #include "Scene_Final/Scene_AgrabahMarket.h"
-#include "Scene_Final/Scene_JafarPalace.h"
 // #include "Scene_Final/Scene_Death.h"
 
 Game::Game() {
 	mDevice = GameGlobal::GetDevice();
 	//# Game Start
-	// Scene::mScene = new Scene_JafarPalace();
 	Scene::mScene = new Scene_AgrabahMarket();
 	auto List = {
 		"Abu",

@@ -1,4 +1,5 @@
 ﻿#include "Scene_AgrabahMarket.h"
+#include "Scene_JafarPalace.h"
 
 #include "../../Define.h"
 #include "../Object_Map_Final/Object_Map_AgrabahMarket_Back.h"
@@ -18,8 +19,8 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	}
     
     oObjectStore = new Scene_ObjectStore("AgrabahMarket_Block");
-	oPlayer = new Object_Unit_Aladdin(50, 624);
-	// oPlayer = new Object_Unit_Aladdin(2200, 400);
+	//oPlayer = new Object_Unit_Aladdin(50, 624);
+	 oPlayer = new Object_Unit_Aladdin(4600, 100);
     oMapBack = new Object_Map_AgrabahMarket_Back();
     oMapFront = new Object_Map_AgrabahMarket_Front();
 
@@ -30,7 +31,13 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 }
 
 void Scene_AgrabahMarket::SceneRender(float delay){
+    auto op = oPlayer->GetPosition();
+    if(op->x() > 4720 && op->y() < 215){
+        Scene::NextScene(new Scene_JafarPalace());
+    }
     //# Update
+    Scene::mScore.Update(delay);
+    
     oPlayer->ObjectUpdateEvent(delay);
     oObjectStore->ObjectUpdateEvent(delay);
     oTransparentScreen->ObjectUpdateEvent(delay);
