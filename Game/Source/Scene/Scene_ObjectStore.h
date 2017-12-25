@@ -77,6 +77,7 @@ public:
 	void 				Collision_Player_Static_Each(Object * pPlayer, list<pair<RECT, Object *>> * pListStatic);
 	void 				Collision_Enemy_Player(Object * pEnemy);
 	void 				Collision_BulletStar_Player(Object * pBulletStar);
+	void 				Collision_Apple_Jarfar(Object * pApple);
 
 
 	RECT				GetDistance(RECT u, Object * pUnit);

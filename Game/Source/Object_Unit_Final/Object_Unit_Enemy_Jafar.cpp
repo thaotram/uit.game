@@ -1,6 +1,6 @@
 #pragma once
 #include "Object_Unit_Aladdin.h"
-#include "Object_Unit_Enemy_Jarfar.h"
+#include "Object_Unit_Enemy_Jafar.h"
 
 #define mAni mAnimation
 #define mPos mPosition
@@ -12,7 +12,7 @@
 
 #define state mAni.GetState()
 
-Object_Unit_Enemy_Jarfar::Object_Unit_Enemy_Jarfar(float x, float y)
+Object_Unit_Enemy_Jafar::Object_Unit_Enemy_Jafar(float x, float y)
     : Object_Unit("BossJafar") {
     mPos.x << x;
     mPos.y << y;
@@ -24,14 +24,14 @@ Object_Unit_Enemy_Jarfar::Object_Unit_Enemy_Jarfar(float x, float y)
 	mIsCash = false;
 }
 
-Object_Unit_Enemy_Jarfar::~Object_Unit_Enemy_Jarfar() {}
+Object_Unit_Enemy_Jafar::~Object_Unit_Enemy_Jafar() {}
 
-void Object_Unit_Enemy_Jarfar::ObjectUpdateEvent(float dt) {
+void Object_Unit_Enemy_Jafar::ObjectUpdateEvent(float dt) {
     tUnit = RECT{(LONG)xx - 8, (LONG)yy - 58, (LONG)xx + 8, (LONG)yy};
     ObjectEachState();
 }
 
-void Object_Unit_Enemy_Jarfar::ObjectEachState() {
+void Object_Unit_Enemy_Jafar::ObjectEachState() {
     float playerX = Scene::mScene->oPlayer->GetPosition()->x();
     float distanceX = abs(xx - playerX);
     mTransform.SetFlip(playerX < xx);
@@ -60,7 +60,7 @@ void Object_Unit_Enemy_Jarfar::ObjectEachState() {
     }
 }
 
-void Object_Unit_Enemy_Jarfar::ObjectIntersect(Object* pObject) {
+void Object_Unit_Enemy_Jafar::ObjectIntersect(Object* pObject) {
     // mHealthPoint--;
     // if (mHealthPoint <= 0) {
     //     mIsMarkedDelete = true;

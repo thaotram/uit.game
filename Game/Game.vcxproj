@@ -182,7 +182,7 @@
     <ClInclude Include="Source\GameGlobal.h" />
     <ClInclude Include="Source\GameTime.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Bullet_Star.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jarfar.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jafar.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Fire.h" />
     <ClInclude Include="Source\Object_Map_Final\Object_Map_JafarPalace_Background.h" />
     <ClInclude Include="Source\Object_Screen\Object_Screen.h" />
@@ -258,7 +258,7 @@
     <ClCompile Include="Source\GameGlobal.cpp" />
     <ClCompile Include="Source\GameTime.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Bullet_Star.cpp" />
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jarfar.cpp" />
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jafar.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Fire.cpp" />
     <ClCompile Include="Source\Object_Map_Final\Object_Map_JafarPalace_Background.cpp" />
     <ClCompile Include="Source\Object_Screen\Object_Screen.cpp" />

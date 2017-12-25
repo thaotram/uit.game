@@ -28,6 +28,8 @@
 #include "../GameDebug.h"
 #include "Scene_ObjectStore.define.h"
 
+#include "../Scene_Final/Scene_JafarPalace.h"
+
 const V2 margin = V2{ 50, 50 };
 const int maxRight = 2611;
 const int maxLeft = 2291;
@@ -119,6 +121,16 @@ void Scene_ObjectStore::Collision_BulletStar_Player(Object *pBulletStar) {
 		Scene::mScene->oPlayer->ObjectIntersectStar(pBulletStar);
 		pBulletStar->mIsMakeDamage = true;
 	}
+}
+
+void Scene_ObjectStore::Collision_Apple_Jarfar(Object *pApple){
+	auto scene = (Scene_JafarPalace*)(Scene::mScene);
+	auto unit_damage = pApple->tUnitDamage;
+	auto boss_bound = scene->oBoss->tUnit;
+	if (isIntersect(boss_bound, unit_damage) && !pApple->mIsMakeDamage) {
+		scene->oBoss->ObjectIntersect(pApple);
+		pApple->mIsMakeDamage = true;
+	 }
 }
 
 //# Tính toán khoảng cách

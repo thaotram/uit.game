@@ -438,10 +438,10 @@
     <ClInclude Include="Source\GameDebug.h" />
     <ClInclude Include="Source\GameGlobal.h" />
     <ClInclude Include="Source\GameTime.h" />
-    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jarfar.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Bullet_Star.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_FireSurf.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Fire.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jafar.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Object\Object.cpp">
@@ -651,9 +651,6 @@
     <ClCompile Include="Source\GameTime.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jarfar.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Bullet_Star.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -661,6 +658,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Fire.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jafar.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
