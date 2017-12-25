@@ -2,6 +2,8 @@
 #include <d3dx9.h>
 #include <d3d9.h>
 #include <windows.h>
+#include <iostream>
+#include <sstream>
 
 #define APP_CLASS L"Game"
 #define MAIN_WINDOW_TITLE L"Game Title"
@@ -20,6 +22,8 @@
 
 #define V2 D3DXVECTOR2
 
+using namespace std;
+
 enum {
 	ANYBUTTON,
 	LEFT,
@@ -32,8 +36,11 @@ enum {
 };
 
 #ifndef intersect_function
-
-bool isIntersect(RECT a, RECT b);
-
 #define intersect_function
-#endif
+bool isIntersect(RECT a, RECT b);
+#endif // !intersect_function
+
+#ifndef StringToLPCWSTR_function
+#define StringToLPCWSTR_function
+LPCWSTR StringToLPCWSTR(string input);
+#endif // !StringToLPCWSTR_function

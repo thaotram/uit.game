@@ -156,6 +156,7 @@
     <None Include="Resources\Black.json" />
     <None Include="Resources\JafarPalace_Background.json" />
     <None Include="Resources\Twinkle.json" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -442,6 +443,7 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_FireSurf.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Fire.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jafar.h" />
+    <ClInclude Include="Source\GameSound\GameSound.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Object\Object.cpp">
@@ -663,5 +665,13 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jafar.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GameSound\GameSound.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Sound\01_Storyline.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>

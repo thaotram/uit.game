@@ -3,14 +3,8 @@
 int GameDebug::count = 0;
 
 void GameDebug::Log(string input) {
-	wstring wstring;
-	wstringstream wstringstream;
-	wstring.assign(input.begin(), input.end());
-	wstringstream << wstring << L"\n";
-
-	// LPCWSTR
 	OutputDebugString(
-		wstringstream.str().c_str()
+		StringToLPCWSTR(input)
 	);
 }
 

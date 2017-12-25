@@ -1,39 +1,46 @@
 ﻿#pragma once
 #include "Game.h"
+#include "GameSound/GameSound.h"
 #include "Scene_Final/Scene_AgrabahMarket.h"
 // #include "Scene_Final/Scene_Death.h"
 
+const auto List = {
+	"Abu",
+	"AgrabahMarket_Back",
+	"AgrabahMarket_Cloud",
+	"AgrabahMarket_Front",
+	"Aladdin",
+	"Black",
+	"BossJafar",
+	"Camel",
+	"CivilianEnemies",
+	"EnemyDisappear",
+	"EnemyExplosions",
+	"Genie",
+	"Guards",
+	"Item",
+	"JafarPalace_Back",
+	"JafarPalace_Background",
+	"MagicCarpet",
+	"Peddler",
+	"Status",
+	"Stick",
+	"Twinkle"
+};
+
 Game::Game() {
 	mDevice = GameGlobal::GetDevice();
+
 	//# Game Start
 	Scene::mScene = new Scene_AgrabahMarket();
-	auto List = {
-		"Abu",
-		"AgrabahMarket_Back",
-		"AgrabahMarket_Cloud",
-		"AgrabahMarket_Front",
-		"Aladdin",
-		"Black",
-		"BossJafar",
-		"Camel",
-		"CivilianEnemies",
-		"EnemyDisappear",
-		"EnemyExplosions",
-		"Genie",
-		"Guards",
-		"Item",
-		"JafarPalace_Back",
-		"JafarPalace_Background",
-		"MagicCarpet",
-		"Peddler",
-		"Status",
-		"Stick",
-		"Twinkle"
-	};
 	for (auto str : List) {
 		Object_Json::GetJson(str);
 		Object_Texture::GetTexture(str);
 	}
+	auto x = new GameSound();
+	x->Initialization();
+	x->LoadAudioData("Sound/01_Storyline.wav");
+	x->PlayASound();
 
 	InitLoop();
 }
