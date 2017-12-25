@@ -1,14 +1,23 @@
 #include "GameSound.h"
 #define __(content) hr = (content); if(FAILED(hr)) return hr;
 
-
-WAVEFORMATEXTENSIBLE	GameSound::wfx = { 0 };
-XAUDIO2_BUFFER			GameSound::buffer = { 0 };
-IXAudio2 *				GameSound::pXAudio2 = NULL;
-IXAudio2MasteringVoice*	GameSound::pMasterVoice = NULL;
+//WAVEFORMATEXTENSIBLE	GameSound::wfx = { 0 };
+//XAUDIO2_BUFFER			GameSound::buffer = { 0 };
+//IXAudio2 *				GameSound::pXAudio2 = NULL;
+//IXAudio2MasteringVoice*	GameSound::pMasterVoice = NULL;
 
 GameSound::GameSound() {
+	wfx = { 0 };
+	buffer = { 0 };
+	pXAudio2 = NULL;
 	pSourceVoice = NULL;
+	pMasterVoice = NULL;
+}
+
+GameSound::GameSound(LPCWSTR pName) {
+	GameSound();
+	Initialization();
+	LoadAudioData(pName);
 }
 
 HRESULT GameSound::Initialization() {
@@ -54,7 +63,8 @@ HRESULT GameSound::LoadAudioData(LPCWSTR pName) {
 
 	return 0;
 }
-HRESULT GameSound::PlayASound() {
+
+HRESULT GameSound::Play() {
 	HRESULT hr = 0;
 	__(pXAudio2->CreateSourceVoice(&pSourceVoice, (WAVEFORMATEX*)&wfx));
 	__(pSourceVoice->SubmitSourceBuffer(&buffer));
