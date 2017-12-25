@@ -7,8 +7,8 @@
 Game::Game() {
 	mDevice = GameGlobal::GetDevice();
 	//# Game Start
-	Scene::mScene = new Scene_JafarPalace();
-	// Scene::mScene = new Scene_AgrabahMarket();
+	// Scene::mScene = new Scene_JafarPalace();
+	Scene::mScene = new Scene_AgrabahMarket();
 	auto List = {
 		"Abu",
 		"AgrabahMarket_Back",
