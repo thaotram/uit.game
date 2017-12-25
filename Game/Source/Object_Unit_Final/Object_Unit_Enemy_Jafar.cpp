@@ -19,7 +19,7 @@ Object_Unit_Enemy_Jafar::Object_Unit_Enemy_Jafar(float x, float y)
     mAni.Set("jafar_human", 2);
     mParty = Enemy;
     mAutoNextFrame = false;
-    mHealthPoint = 10;
+    mHealthPoint = 20;
 
 	mIsCash = false;
 }
@@ -61,7 +61,11 @@ void Object_Unit_Enemy_Jafar::ObjectEachState() {
 }
 
 void Object_Unit_Enemy_Jafar::ObjectIntersect(Object* pObject) {
-    // mHealthPoint--;
+    mHealthPoint--;
+    GameDebug::Title(mHealthPoint);
+    if(state == "jafar_human" && mHealthPoint <= 10){
+        mAni.Set("jafar_snake", 1);
+    }
     // if (mHealthPoint <= 0) {
     //     mIsMarkedDelete = true;
     //     Scene::mScene->oObjectStore->mLost.push_back(

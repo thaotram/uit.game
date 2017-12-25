@@ -1,0 +1,21 @@
+﻿{
+    "name": "GoldScarab",
+    "states": {
+        "Left": {
+            "note": "nằm như tắm nắng",
+            "basePoint": [62, 92],
+            "frameCycle": [1],
+            "frame": {
+                "1": [0, 0, 124, 184, 0, 0]
+            }
+        },
+        "Right": {
+            "note": "bắn súng lúc mới vào giới thiệu game",
+            "basePoint": [186, 92],
+            "frameCycle": [1],
+            "frame": {
+                "1": [124, 0, 124, 184, 0, 0]
+            }
+        }
+    }
+}

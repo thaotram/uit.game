@@ -33,7 +33,6 @@ void Object_Unit_Bullet_Star::ObjectUpdateEvent(float dt) {
 	auto target = V2{ px, py - 30 };
 	auto vector = V2{ xx, yy } -target;
 	auto cross = sqrt(pow(vector.x, 2) + pow(vector.y, 2));
-	GameDebug::Title(cross);
 	mPos.x.mCross = mPos.y.mCross = cross;
 	mPos = target;
 	mPos.Update(dt);
