@@ -125,7 +125,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		}
 	}
 	else if (state == "stand_throwapple") {
-		L = R = false;
+		// L = R = false;
 		mTimePerFrame = 0.03f;
 		tIsChangeX = false;
 		if (mAni.GetCycleIndex() == 1) {
@@ -606,12 +606,12 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 
 	if (dynamic_cast<Scene_JafarPalace*>(Scene::mScene)) {
 		auto s = ((Scene_JafarPalace*)Scene::mScene);
-		auto bossX = s->oBoss->GetPosition()->x();
-		const float vv = 150.f;
+		const float bossX = s->oBoss->GetPosition()->x();
+		const float pullSpeed = 130.f;
 
 		tIsPull -= tDt;
 		if (abs(xx - bossX) > 10 && tIsPull > 0) {
-			mPos.x += (xx < bossX ? 1 : -1) * vv * tDt;
+			mPos.x += (xx < bossX ? 1 : -1) * pullSpeed * tDt;
 		} else {
 			tIsPull = 0;
 		}

@@ -13,7 +13,7 @@ Object_Unit_Bullet_Star::Object_Unit_Bullet_Star(float x, float y)
 	: Object_Unit("BossJafar") {
 	mPos << V2{ x, y };
 	mPos.x.mType = mPos.y.mType = pull;
-	mPos.x.mVelocity = mPos.x.mVelocity = 200;
+	mPos.x.mVelocity = mPos.y.mVelocity = 200.f;
 
 	mAni.Set("bullet_star", rand() % 3 + 1);
 
@@ -29,8 +29,9 @@ void Object_Unit_Bullet_Star::ObjectUpdateEvent(float dt) {
 
 	auto pos = Scene::mScene->oPlayer->GetPosition();
 	auto target = V2{ px, py - 30 };
-	auto vector = mPos.VECTOR2() - target;
+	auto vector = V2{ xx, yy } -target;
 	auto cross = sqrt(pow(vector.x, 2) + pow(vector.y, 2));
+	GameDebug::Title(cross);
 	mPos.x.mCross = mPos.y.mCross = cross;
 	mPos = target;
 	mPos.Update(dt);

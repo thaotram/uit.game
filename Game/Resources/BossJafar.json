@@ -4,7 +4,7 @@
         "jafar_human": {
             "note": "boss ở dạng người, đoạn frameCycle 7, 6, 7, 6 ... được lặp lại đến khi aladdin bị hút gần lại boss thì mới chuyển đến frame 8",
             "basePoint": [27, 70],
-            "frameCycle": [2, 3, 4, 5, 7, 6, 7, 6, 7, 6, 6, -9, 2, -8, 1, -1],
+            "frameCycle": [2, 3, 4, 5, 7, 6, 7, 6, 7, 6, 6, -10, 2, -8, 1, -1],
             "frame": {
                 "1": [8, 9, 64, 71, -1, -1],
                 "2": [80, 10, 57, 70, 0, 0],
