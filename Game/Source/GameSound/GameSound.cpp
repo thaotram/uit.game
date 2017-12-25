@@ -1,27 +1,25 @@
 #include "GameSound.h"
-#include <winapifamily.h>
+#define __(content) hr = (content); if(FAILED(hr)) return hr;
+
+
+WAVEFORMATEXTENSIBLE	GameSound::wfx = { 0 };
+XAUDIO2_BUFFER			GameSound::buffer = { 0 };
+IXAudio2 *				GameSound::pXAudio2 = NULL;
+IXAudio2MasteringVoice*	GameSound::pMasterVoice = NULL;
 
 GameSound::GameSound() {
 	pSourceVoice = NULL;
 }
 
 HRESULT GameSound::Initialization() {
-	HRESULT hr;
-	pXAudio2 = NULL;
-	pMasterVoice = NULL;
-
-	if (FAILED(hr = XAudio2Create(&pXAudio2, 0, XAUDIO2_DEFAULT_PROCESSOR)))
-		return hr;
-	if (FAILED(hr = pXAudio2->CreateMasteringVoice(&pMasterVoice)))
-		return hr;
-	return 1;
+	HRESULT hr = 0;
+	__(XAudio2Create(&pXAudio2, 0, XAUDIO2_DEFAULT_PROCESSOR));
+	__(pXAudio2->CreateMasteringVoice(&pMasterVoice));
+	return hr;
 }
-HRESULT GameSound::LoadAudioData(string pName) {
-	wfx = { 0 };
-	buffer = { 0 };
-
+HRESULT GameSound::LoadAudioData(LPCWSTR pName) {
 	HANDLE hFile = CreateFile(
-		TEXT("Sound/01_Storyline.wav"),
+		pName,
 		GENERIC_READ,
 		FILE_SHARE_READ,
 		NULL,
@@ -54,39 +52,16 @@ HRESULT GameSound::LoadAudioData(string pName) {
 	buffer.pAudioData = pDataBuffer;		// size of the audio buffer in bytes
 	buffer.Flags = XAUDIO2_END_OF_STREAM;	// tell the source voice not to expect any data after this buffer
 
-	return 1;
-}
-HRESULT GameSound::PlayASound() {
-	HRESULT hr;
-	if (FAILED(hr = pXAudio2->CreateSourceVoice(&pSourceVoice, (WAVEFORMATEX*)&wfx)))
-		return hr;
-	if (FAILED(hr = pSourceVoice->SubmitSourceBuffer(&buffer)))
-		return hr;
-	if (FAILED(hr = pSourceVoice->Start(0)))
-		return hr;
 	return 0;
 }
-
-//# Private
-HRESULT GameSound::CreateFileFromString(string pName, HANDLE &hFile) {
-	hFile = CreateFile(
-		StringToLPCWSTR(pName),
-		GENERIC_READ,
-		FILE_SHARE_READ,
-		NULL,
-		OPEN_EXISTING,
-		0,
-		NULL
-	);
-
-	if (INVALID_HANDLE_VALUE == hFile)
-		return HRESULT_FROM_WIN32(GetLastError());
-
-	if (INVALID_SET_FILE_POINTER == SetFilePointer(hFile, 0, NULL, FILE_BEGIN))
-		return HRESULT_FROM_WIN32(GetLastError());
-
-	return 1;
+HRESULT GameSound::PlayASound() {
+	HRESULT hr = 0;
+	__(pXAudio2->CreateSourceVoice(&pSourceVoice, (WAVEFORMATEX*)&wfx));
+	__(pSourceVoice->SubmitSourceBuffer(&buffer));
+	__(pSourceVoice->Start(0));
+	return hr;
 }
+
 HRESULT GameSound::ReadChunkData(HANDLE hFile, void * buffer, DWORD buffersize, DWORD bufferoffset) {
 	HRESULT hr = S_OK;
 	if (INVALID_SET_FILE_POINTER == SetFilePointer(hFile, bufferoffset, NULL, FILE_BEGIN))

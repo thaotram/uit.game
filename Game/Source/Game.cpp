@@ -2,7 +2,6 @@
 #include "Game.h"
 #include "GameSound/GameSound.h"
 #include "Scene_Final/Scene_AgrabahMarket.h"
-// #include "Scene_Final/Scene_Death.h"
 
 const auto List = {
 	"Abu",
@@ -37,10 +36,10 @@ Game::Game() {
 		Object_Json::GetJson(str);
 		Object_Texture::GetTexture(str);
 	}
-	auto x = new GameSound();
-	x->Initialization();
-	x->LoadAudioData("Sound/01_Storyline.wav");
-	x->PlayASound();
+	GameSound::Initialization();
+	auto S1_StoryLine = new GameSound();
+	S1_StoryLine->LoadAudioData("Sound/01_Storyline.wav");
+	S1_StoryLine->PlayASound();
 
 	InitLoop();
 }

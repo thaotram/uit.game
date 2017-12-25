@@ -20,14 +20,14 @@ using namespace std;
 
 class GameSound {
 private:
-	IXAudio2* pXAudio2;
-	IXAudio2MasteringVoice* pMasterVoice;
+	static XAUDIO2_BUFFER buffer;
+	static WAVEFORMATEXTENSIBLE wfx;
+
+	static IXAudio2* pXAudio2;
+	static IXAudio2MasteringVoice* pMasterVoice;
+
 	IXAudio2SourceVoice* pSourceVoice;
 
-	WAVEFORMATEXTENSIBLE wfx;
-	XAUDIO2_BUFFER buffer;
-
-	HRESULT CreateFileFromString(string pName, HANDLE &pHandleFile);
 	HRESULT ReadChunkData(HANDLE hFile, void * buffer, DWORD buffersize, DWORD bufferoffset);
 	HRESULT FindChunk(HANDLE hFile, DWORD fourcc, DWORD & dwChunkSize, DWORD & dwChunkDataPosition);
 public:
@@ -35,8 +35,8 @@ public:
 	~GameSound() {};
 
 
-	HRESULT Initialization();
-	HRESULT LoadAudioData(string pName);
+	static HRESULT Initialization();
+	HRESULT LoadAudioData(LPCWSTR pName);
 	HRESULT PlayASound();
 
 
