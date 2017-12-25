@@ -22,7 +22,7 @@ Object_Unit_Explosion_Big::Object_Unit_Explosion_Big(float x, float y)
 
 void Object_Unit_Explosion_Big::ObjectUpdateEvent(float dt) {
     mIsMakeDamage = false;
-    mObjectStore->ObjectCheckCollisionWithEnemy(this);
+    mObjectStore->Collision_Player_Enemy(this);
     if (mAni.GetCycleIndex() == 16) {
         mIsMarkedDelete = true;
     }

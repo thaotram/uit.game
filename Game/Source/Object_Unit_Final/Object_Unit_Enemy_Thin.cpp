@@ -31,7 +31,7 @@ void Object_Unit_Enemy_Thin::ObjectUpdateEvent(float dt) {
     tDis = mObjectStore->GetDistance(tUnit, this);
     tDt = dt;
     ObjectEachState();
-    mObjectStore->ObjectCheckCollisionWithPlayer(this);
+    mObjectStore->Collision_Enemy_Player(this);
 }
 // tam danh
 #define range 100

@@ -44,5 +44,5 @@ void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
 			mIsMarkedDelete = true;
 		}
 	}
-	Scene::mScene->oObjectStore->ObjectCheckCollisionWithPlayer(this);
+	Scene::mScene->oObjectStore->Collision_Enemy_Player(this);
 }

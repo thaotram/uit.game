@@ -25,7 +25,7 @@ void Object_Unit_Bullet_Star::ObjectUpdateEvent(float dt) {
 	tUnit = RECT{ (LONG)xx, (LONG)yy, (LONG)xx, (LONG)yy };
 	tDis = mObjectStore->GetDistance(tUnit, this);
 	tUnitDamage = RECT{ (LONG)xx - 14, (LONG)yy - 14, (LONG)xx + 14, (LONG)yy };
-	Scene::mScene->oObjectStore->ObjectCheckCollisionWithPlayerBulletStar(this);
+	Scene::mScene->oObjectStore->Collision_BulletStar_Player(this);
 
 	auto pos = Scene::mScene->oPlayer->GetPosition();
 	auto target = V2{ px, py - 30 };

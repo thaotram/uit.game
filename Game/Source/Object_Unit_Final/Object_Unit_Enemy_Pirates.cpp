@@ -29,7 +29,7 @@ void Object_Unit_Enemy_Pirates::ObjectUpdateEvent(float dt) {
 	};
 	tDis = mObjectStore->GetDistance(tUnit, this);
 	ObjectEachState();
-	mObjectStore->ObjectCheckCollisionWithPlayer(this);
+	mObjectStore->Collision_Enemy_Player(this);
 }
 #define range 110
 #define visible 160

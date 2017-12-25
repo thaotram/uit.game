@@ -65,10 +65,10 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 }
 
 //# Kiểm tra đụng độ
-void Scene_ObjectStore::ObjectCheckCollisionWithEnemy(Object * pPlayer) {
+void Scene_ObjectStore::Collision_Player_Enemy(Object * pPlayer) {
 	Object_EachCollision(Enemy);
 }
-void Scene_ObjectStore::ObjectCheckCollisionWithEnemyEach(Object *pPlayer, list<pair<RECT, Object *>> *pList) {
+void Scene_ObjectStore::Collision_Player_Enemy_Each(Object *pPlayer, list<pair<RECT, Object *>> *pList) {
 	for (auto &unit : *pList) {
 		if (unit.second != NULL) {
 			auto player_damage = pPlayer->tUnitDamage;
@@ -82,10 +82,10 @@ void Scene_ObjectStore::ObjectCheckCollisionWithEnemyEach(Object *pPlayer, list<
 		}
 	}
 }
-void Scene_ObjectStore::ObjectCheckCollisionWithStatic(Object * pPlayer) {
+void Scene_ObjectStore::Collision_Player_Static(Object * pPlayer) {
 	Object_EachCollision(Static);
 }
-void Scene_ObjectStore::ObjectCheckCollisionWithStaticEach(Object * pPlayer, list<pair<RECT, Object*>>* pList) {
+void Scene_ObjectStore::Collision_Player_Static_Each(Object * pPlayer, list<pair<RECT, Object*>>* pList) {
 	for (auto &unit : *pList) {
 		if (unit.second != NULL) {
 			auto player_bound = pPlayer->tUnit;
@@ -97,29 +97,29 @@ void Scene_ObjectStore::ObjectCheckCollisionWithStaticEach(Object * pPlayer, lis
 	}
 }
 
-void Scene_ObjectStore::ObjectCheckCollisionWithPlayer(Object *pObject) {
-	auto unit_damage = pObject->tUnitDamage;
+void Scene_ObjectStore::Collision_Enemy_Player(Object *pEnemy) {
+	auto unit_damage = pEnemy->tUnitDamage;
 	auto player_bound = Scene::mScene->oPlayer->GetBound();
-	if (isIntersect(player_bound, unit_damage) && !pObject->mIsMakeDamage) {
-		Scene::mScene->oPlayer->ObjectIntersect(pObject);
-		pObject->mIsMakeDamage = true;
+	if (isIntersect(player_bound, unit_damage) && !pEnemy->mIsMakeDamage) {
+		Scene::mScene->oPlayer->ObjectIntersect(pEnemy);
+		pEnemy->mIsMakeDamage = true;
 	}
 }
 
-void Scene_ObjectStore::ObjectCheckCollisionWithPlayerBulletStar(Object *pObject) {
-	auto unit_damage = pObject->tUnitDamage;
+void Scene_ObjectStore::Collision_BulletStar_Player(Object *pBulletStar) {
+	auto unit_damage = pBulletStar->tUnitDamage;
 	auto player_pos = Scene::mScene->oPlayer->GetPosition();
 	auto player_bound = RECT{
 		(LONG)player_pos->x() - 5,
 		(LONG)player_pos->y() - 50,
 		(LONG)player_pos->x() + 5,
-		(LONG)player_pos
+		(LONG)player_pos->y()
 	};
-	if (isIntersect(player_bound, unit_damage) && !pObject->mIsMakeDamage) {
+	if (isIntersect(player_bound, unit_damage) && !pBulletStar->mIsMakeDamage) {
 		(
 			(Object_Unit_Aladdin*)Scene::mScene->oPlayer
-			)->ObjectIntersectStar(pObject);
-		pObject->mIsMakeDamage = true;
+			)->ObjectIntersectStar(pBulletStar);
+		pBulletStar->mIsMakeDamage = true;
 	}
 }
 

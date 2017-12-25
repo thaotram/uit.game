@@ -49,8 +49,8 @@
 #pragma endregion
 
 #define Object_RemoveMarkedDelete(type, name) m##type##_##name.remove_if(ifMarkedDelete);
-#define Object_Collision_Enemy(type, name) ObjectCheckCollisionWithEnemyEach(pPlayer, &m##type##_##name)
-#define Object_Collision_Static(type, name) ObjectCheckCollisionWithStaticEach(pPlayer, &m##type##_##name)
+#define Object_Collision_Enemy(type, name) Collision_Player_Enemy_Each(pPlayer, &m##type##_##name)
+#define Object_Collision_Static(type, name) Collision_Player_Static_Each(pPlayer, &m##type##_##name)
 
 #define Object_EachCollision(type) 	Each##type(Object_Collision_##type);
 

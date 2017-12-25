@@ -70,8 +70,8 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 
 	mSourceRect.Update(this);
 	tUnit = GetBound();
-	Scene::mScene->oObjectStore->ObjectCheckCollisionWithEnemy(this);
-	Scene::mScene->oObjectStore->ObjectCheckCollisionWithStatic(this);
+	Scene::mScene->oObjectStore->Collision_Player_Enemy(this);
+	Scene::mScene->oObjectStore->Collision_Player_Static(this);
 
 }
 void Object_Unit_Aladdin::ObjectEachState() {

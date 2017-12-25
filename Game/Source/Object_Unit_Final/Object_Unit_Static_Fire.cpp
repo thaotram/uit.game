@@ -18,7 +18,7 @@ Object_Unit_Static_Fire::~Object_Unit_Static_Fire()
 
 void Object_Unit_Static_Fire::ObjectUpdateEvent(float delay){
 	mIsMakeDamage = false;
-	Scene::mScene->oObjectStore->ObjectCheckCollisionWithPlayer(this);
+	Scene::mScene->oObjectStore->Collision_Enemy_Player(this);
 }
 
 void Object_Unit_Static_Fire::ObjectIntersect(Object * pObject)

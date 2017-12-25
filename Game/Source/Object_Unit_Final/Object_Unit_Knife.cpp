@@ -32,7 +32,7 @@ void Object_Unit_Knife::ObjectUpdateEvent(float dt) {
 	};
 	tDis = mObjectStore->GetDistance(tUnit, this);
 	tUnitDamage = GetBound();
-	Scene::mScene->oObjectStore->ObjectCheckCollisionWithPlayer(this);
+	Scene::mScene->oObjectStore->Collision_Enemy_Player(this);
 	
 	if (!tDis.bottom || !tDis.left || !tDis.right || mIsMakeDamage) {
 		mIsMarkedDelete = true;
