@@ -59,13 +59,25 @@ void Object_Unit_Enemy_Jafar::ObjectEachState() {
         }
     }
 	else if (state == "jafar_snake") {
-		
+		if (mAni.GetCycleIndex() == 11) {
+			if (!mIsCash) {
+				mIsCash = true;
+				Scene::mScene->oObjectStore->mLost.push_back(
+					new Object_Unit_FireSurf(xx, yy, mTransform.GetFlip())
+				);
+				GameDebug::TitleCount();
+			}
+		}
+		else
+		{
+			mIsCash = false;
+		}
 	}
 }
 
 void Object_Unit_Enemy_Jafar::ObjectIntersect(Object* pObject) {
     mHealthPoint--;
-    GameDebug::Title(mHealthPoint);
+    //GameDebug::Title(mHealthPoint);
     if(state == "jafar_human" && mHealthPoint <= 10){
         mAni.Set("jafar_snake", 1);
 		mAutoNextFrame = true;
