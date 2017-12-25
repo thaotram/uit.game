@@ -64,16 +64,11 @@ void Scene_ObjectStore::ObjectRender(float dt) {
 	for (auto &b : mLost) b->ObjectRender(dt);
 }
 
-void Scene_ObjectStore::ObjectCheckCollisionWithEnemy(Object * pPlayer) {
-	Object * temp = NULL;
-	ObjectCheckCollisionWithEnemy(pPlayer, temp);
-}
-
 //# Kiểm tra đụng độ
-void Scene_ObjectStore::ObjectCheckCollisionWithEnemy(Object * pPlayer, Object * &pEnemy) {
+void Scene_ObjectStore::ObjectCheckCollisionWithEnemy(Object * pPlayer) {
 	Object_EachCollision(Enemy);
 }
-void Scene_ObjectStore::ObjectCheckCollisionWithEnemyEach(Object *pPlayer, list<pair<RECT, Object *>> *pList, Object * &pEnemy) {
+void Scene_ObjectStore::ObjectCheckCollisionWithEnemyEach(Object *pPlayer, list<pair<RECT, Object *>> *pList) {
 	for (auto &unit : *pList) {
 		if (unit.second != NULL) {
 			auto player_damage = pPlayer->tUnitDamage;
@@ -81,7 +76,6 @@ void Scene_ObjectStore::ObjectCheckCollisionWithEnemyEach(Object *pPlayer, list<
 			if (isIntersect(player_damage, object_bound) &&
 				!pPlayer->mIsMakeDamage) {
 				unit.second->ObjectIntersect(pPlayer);
-				pEnemy = unit.second;
 				pPlayer->mIsMakeDamage = true;
 				return;
 			}

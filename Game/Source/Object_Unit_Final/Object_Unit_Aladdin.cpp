@@ -70,8 +70,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 
 	mSourceRect.Update(this);
 	tUnit = GetBound();
-	Object * ss;
-	Scene::mScene->oObjectStore->ObjectCheckCollisionWithEnemy(this, ss);
+	Scene::mScene->oObjectStore->ObjectCheckCollisionWithEnemy(this);
 	Scene::mScene->oObjectStore->ObjectCheckCollisionWithStatic(this);
 
 }
