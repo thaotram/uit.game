@@ -58,6 +58,9 @@ void Object_Unit_Enemy_Jafar::ObjectEachState() {
 			);
         }
     }
+	else if (state == "jafar_snake") {
+		
+	}
 }
 
 void Object_Unit_Enemy_Jafar::ObjectIntersect(Object* pObject) {
@@ -65,6 +68,7 @@ void Object_Unit_Enemy_Jafar::ObjectIntersect(Object* pObject) {
     GameDebug::Title(mHealthPoint);
     if(state == "jafar_human" && mHealthPoint <= 10){
         mAni.Set("jafar_snake", 1);
+		mAutoNextFrame = true;
     }
     // if (mHealthPoint <= 0) {
     //     mIsMarkedDelete = true;
