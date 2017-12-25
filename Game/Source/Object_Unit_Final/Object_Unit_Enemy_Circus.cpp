@@ -1,4 +1,7 @@
+#pragma once
 #include "Object_Unit_Enemy_Circus.h"
+#include "Object_Unit_Aladdin.h"
+
 #define mAni	mAnimation
 #define mPos	mPosition
 #define	mObjectStore	Scene::mScene->oObjectStore

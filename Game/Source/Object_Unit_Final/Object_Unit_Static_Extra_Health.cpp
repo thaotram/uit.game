@@ -1,4 +1,7 @@
+#pragma once
 #include "Object_Unit_Static_Extra_Health.h"
+#include "Object_Unit_Aladdin.h"
+
 #define mAni	mAnimation
 #define mPos	mPosition
 #define xx		mPos.x()

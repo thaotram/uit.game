@@ -116,9 +116,7 @@ void Scene_ObjectStore::Collision_BulletStar_Player(Object *pBulletStar) {
 		(LONG)player_pos->y()
 	};
 	if (isIntersect(player_bound, unit_damage) && !pBulletStar->mIsMakeDamage) {
-		(
-			(Object_Unit_Aladdin*)Scene::mScene->oPlayer
-			)->ObjectIntersectStar(pBulletStar);
+		Scene::mScene->oPlayer->ObjectIntersectStar(pBulletStar);
 		pBulletStar->mIsMakeDamage = true;
 	}
 }

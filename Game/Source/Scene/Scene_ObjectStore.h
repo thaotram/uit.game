@@ -72,9 +72,9 @@ public:
 	void				ObjectRemoveMarkedDelete();
 
 	void 				Collision_Player_Enemy(Object * pPlayer);
-	void 				Collision_Player_Enemy_Each(Object * pPlayer, list<pair<RECT, Object *>> * pList);
+	void 				Collision_Player_Enemy_Each(Object * pPlayer, list<pair<RECT, Object *>> * pListEnemy);
 	void 				Collision_Player_Static(Object * pPlayer);
-	void 				Collision_Player_Static_Each(Object * pPlayer, list<pair<RECT, Object *>> * pList);
+	void 				Collision_Player_Static_Each(Object * pPlayer, list<pair<RECT, Object *>> * pListStatic);
 	void 				Collision_Enemy_Player(Object * pEnemy);
 	void 				Collision_BulletStar_Player(Object * pBulletStar);
 

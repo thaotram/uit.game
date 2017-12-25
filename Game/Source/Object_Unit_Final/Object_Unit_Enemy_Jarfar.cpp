@@ -1,3 +1,5 @@
+#pragma once
+#include "Object_Unit_Aladdin.h"
 #include "Object_Unit_Enemy_Jarfar.h"
 
 #define mAni mAnimation

@@ -1,4 +1,7 @@
+#pragma once
 #include "Object_Unit_Static_Spend_These.h"
+#include "Object_Unit_Aladdin.h"
+
 #define mAni	mAnimation
 #define mPos	mPosition
 #define xx		mPos.x()

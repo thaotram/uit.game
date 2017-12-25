@@ -1,4 +1,6 @@
+#pragma once
 #include "Object_Unit_Bullet_Star.h"
+#include "Object_Unit_Aladdin.h"
 #include "../Object_Unit_Final/Object_Unit_Explosion_Tiny.h"
 #define mAni mAnimation
 #define mPos mPosition

@@ -1,4 +1,6 @@
+#pragma once
 #include "Object_Unit_Enemy_Assassin.h"
+#include "Object_Unit_Aladdin.h"
 #include "../Object_Unit_Final/Object_Unit_Jar_Copper.h"
 
 #define mAni			mAnimation

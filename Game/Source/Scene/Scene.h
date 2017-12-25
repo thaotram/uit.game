@@ -11,6 +11,7 @@
 
 using namespace std;
 
+class Object_Unit_Aladdin;
 class Object_Screen;
 class Scene {
 private:
@@ -24,7 +25,7 @@ public:
 
     Vector mCamera;
 
-    Object* oPlayer;
+	Object_Unit_Aladdin* oPlayer;
     Scene_ObjectStore* oObjectStore;
     static Object_Screen* oTransparentScreen;
 
