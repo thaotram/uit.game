@@ -1,7 +1,7 @@
 {
     "name": "Option_Scene",
     "states": {
-        "back": {
+        "main_menu": {
             "frameCycle": [1],
             "basePoint": [0, 0],
             "frame": {
