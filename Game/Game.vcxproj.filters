@@ -454,6 +454,7 @@
     <ClInclude Include="Source\GameSound\GameSound.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Start.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Options.h" />
+    <ClInclude Include="Source\Object_Map_Final\Object_Map_Scene_Start.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Object\Object.cpp">
@@ -682,6 +683,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scene_Final\Scene_Options.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Map_Final\Object_Map_Scene_Start.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
