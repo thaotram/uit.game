@@ -445,6 +445,7 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jafar.h" />
     <ClInclude Include="Source\GameSound\GameSound.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Options.h" />
+    <ClInclude Include="Scene_Start.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Object\Object.cpp">
@@ -667,6 +668,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameSound\GameSound.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Start.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scene_Final\Scene_Options.cpp">
