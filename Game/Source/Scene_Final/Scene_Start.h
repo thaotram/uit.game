@@ -2,6 +2,7 @@
 #include "../GameDebug.h"
 #include "../Scene/Scene.h"
 #include "../Scene/Scene_ObjectStore.h"
+#include "Scene_Items.h"
 #include "../../Define.h"
 
 using namespace std;

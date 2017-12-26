@@ -180,8 +180,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
-    <ClInclude Include="Source\Object_Map_Final\Object_Map_Scene_Start.h" />
-    <ClInclude Include="Source\Scene_Final\Scene_Options.h" />
+    <ClInclude Include="Source\Object_Map_Final\Object_Map_Items_Front.h" />
+    <ClInclude Include="Source\Scene_Final\Scene_Items.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Start.h" />
     <ClInclude Include="Source\GameSound\GameSound.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Fire.h" />
@@ -260,8 +260,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Define.cpp" />
-    <ClCompile Include="Source\Object_Map_Final\Object_Map_Scene_Start.cpp" />
-    <ClCompile Include="Source\Scene_Final\Scene_Options.cpp" />
+    <ClCompile Include="Source\Object_Map_Final\Object_Map_Items_Front.cpp" />
+    <ClCompile Include="Source\Scene_Final\Scene_Items.cpp" />
     <ClCompile Include="Source\Scene_Final\Scene_Start.cpp" />
     <ClCompile Include="Source\GameSound\GameSound.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Fire.cpp" />

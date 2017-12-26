@@ -2,7 +2,6 @@
 
 #include "../../Define.h"
 #include "../Object_Screen/Object_Screen.h"
-#include "../Scene_Final/Scene_AgrabahMarket.h"
 
 #define I GameGlobal::Input
 #define Z I[CHAR_Z]
@@ -11,7 +10,6 @@
 
 Scene_Start::Scene_Start() : Scene()
 {
-
 	oObjectStore = new Scene_ObjectStore("");
 	oMapBackground = new Object_Screen("Option_Scene", "main_menu");
 }
@@ -19,7 +17,8 @@ Scene_Start::Scene_Start() : Scene()
 void Scene_Start::SceneRender(float delay)
 {
 	if (Z || X || C){
-		Scene::NextScene(new Scene_AgrabahMarket());
+		Z = X = C = false;
+		Scene::NextScene(new Scene_Items());
 	}
 	oMapBackground->ObjectUpdateEvent(delay);
 	oMapBackground->ObjectRender(delay);
