@@ -32,7 +32,7 @@ void Object_Unit_FireSurf::ObjectUpdateEvent(float dt)
 {
 	tUnitDamage = RECT{
 		(LONG)xx - 37,
-		(LONG)yy - 50,
+		(LONG)yy - 10,
 		(LONG)xx + 37,
 		(LONG)yy
 	};

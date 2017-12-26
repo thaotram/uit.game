@@ -59,7 +59,7 @@ void Object_Unit_Enemy_Jafar::ObjectEachState() {
         }
     }
 	else if (state == "jafar_snake") {
-		if (mAni.GetCycleIndex() == 11) {
+		if (mAni.GetCycleIndex() == 14) {
 			if (!mIsCash) {
 				mIsCash = true;
 				Scene::mScene->oObjectStore->mLost.push_back(
