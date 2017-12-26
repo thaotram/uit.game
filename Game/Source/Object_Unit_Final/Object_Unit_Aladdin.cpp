@@ -3,8 +3,10 @@
 #include "../Object_Unit_Final/Object_Unit_Static_Stick.h"
 #include "../Object_Unit_Final/Object_Unit_NPC_Camel.h"
 #include "../Object_Unit_Final/Object_Unit_Bullet_Star.h"
+#include "../Object_Unit_Final/Object_Unit_Fire.h"
 #include "../Scene_Final/Scene_Death.h"
 #include "../Scene_Final/Scene_JafarPalace.h"
+#include "../Object_Unit_Final/Object_Unit_Static_Fire.h"
 #include "../GameDebug.h"
 #include "../../Define.h"
 
@@ -108,9 +110,9 @@ void Object_Unit_Aladdin::ObjectEachState() {
 			mAutoNextFrame = false;
 			mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-tJump);
 		}
-		// else if (cTime > 0) {
-		// 	mAni.Set("hurt", 1);
-		// }
+		else if (cTime > 0) {
+			mAni.Set("hurt", 1);
+		}
 	}
 	else if (state == "stand_cut") {
 		X = false;
@@ -639,6 +641,10 @@ void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 	if (cTime == 0) {
 		cTime = 0.8f;
 		Scene::mBlood--;
+		if (dynamic_cast<Object_Unit_Static_Fire *>(pObject)) {
+			Scene::mScene->oObjectStore->mLost.push_back(
+				new Object_Unit_Fire(xx, yy));
+		}
 	}
 	//  0: Còn sống
 	// -1: Đã chết

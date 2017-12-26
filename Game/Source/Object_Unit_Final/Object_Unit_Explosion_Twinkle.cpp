@@ -9,9 +9,7 @@
 #define xx mPos.x()
 #define yy mPos.y()
 
-Object_Unit_Explosion_Twinkle::Object_Unit_Explosion_Twinkle(float x, float y,
-                                                             bool isFlip)
-    : Object_Unit("Twinkle") {
+Object_Unit_Explosion_Twinkle::Object_Unit_Explosion_Twinkle(float x, float y, bool isFlip) : Object_Unit("Twinkle") {
     mPos.x << x;
     mPos.y << y;
     mAni.Set("twinkle", 1);
