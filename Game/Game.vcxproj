@@ -144,6 +144,7 @@
     <None Include="Resources\JafarPalace_Block.psd" />
     <None Include="Resources\JafarPalace_Front.json" />
     <None Include="Resources\MagicCarpet.json" />
+    <None Include="Resources\Option_Scene.json" />
     <None Include="Resources\Peddler.json" />
     <None Include="Resources\Status.json" />
     <None Include="Resources\Stick.json" />
@@ -172,6 +173,7 @@
     <Image Include="Resources\JafarPalace_Background.png" />
     <Image Include="Resources\JafarPalace_Front.png" />
     <Image Include="Resources\MagicCarpet.png" />
+    <Image Include="Resources\Option_Scene.png" />
     <Image Include="Resources\Peddler.png" />
     <Image Include="Resources\Status.png" />
     <Image Include="Resources\Stick.png" />

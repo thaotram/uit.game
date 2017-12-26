@@ -158,6 +158,7 @@
     <None Include="Resources\Twinkle.json" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Resources\Aladdin_Miscellaneous_Cutscenes.json" />
+    <None Include="Resources\Option_Scene.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -233,6 +234,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\JafarPalace_Background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Option_Scene.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
