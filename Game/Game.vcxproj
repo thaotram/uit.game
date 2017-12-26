@@ -176,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Scene_Final\Scene_Options.h" />
     <ClInclude Include="Source\GameSound\GameSound.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Fire.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_FireSurf.h" />
@@ -253,6 +254,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Define.cpp" />
+    <ClCompile Include="Source\Scene_Final\Scene_Options.cpp" />
     <ClCompile Include="Source\GameSound\GameSound.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Fire.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_FireSurf.cpp" />
