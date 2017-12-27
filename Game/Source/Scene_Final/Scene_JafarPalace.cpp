@@ -11,7 +11,10 @@ Scene_JafarPalace::Scene_JafarPalace() : Scene() {
 	delete mBackScene;
     oObjectStore = new Scene_ObjectStore("JafarPalace_Block");
     oStatus = new Scene_Status();
-    oPlayer = new Object_Unit_Aladdin(90, 352);
+
+	mStartPoint = { 90, 352 };
+	oPlayer = new Object_Unit_Aladdin(mStartPoint.x, mStartPoint.y);
+
     oBoss = new Object_Unit_Enemy_Jafar(412, 326);
     oMapBackground = new Object_Screen("Screen", "JafarPalace_Background");
     oMapBack = new Object_Map_JafarPalace_Back();
