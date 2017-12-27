@@ -57,5 +57,7 @@ void Object_Unit_Knife::ObjectIntersect(Object* pObject) {
 
 void Object_Unit_Knife::ObjectIntersectBack(Object * pObject) {
 	mFlip ^= 1;
+	mPos.x.mVelocity = 100;
+	mPos.y.mVelocity = -100;
 }
 

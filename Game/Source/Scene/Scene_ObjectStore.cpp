@@ -139,7 +139,13 @@ void Scene_ObjectStore::Collision_Player_UFO(Object * pObject)
 {
 	for (auto &unit : mLost) {
 		if (dynamic_cast<Object_Unit_Knife*>(unit)) {
-			auto unit_bound = unit->tUnit;
+			auto u = unit->tUnit;
+			auto unit_bound = RECT{
+				u.left - 10,
+				u.top - 10,
+				u.right + 10,
+				u.bottom + 10
+			};
 			auto object_damage = pObject->tUnitDamage;
 			if (isIntersect(unit_bound, object_damage) && !unit->mIsMakeDamage) {
 				((Object_Unit_Knife*)unit)->ObjectIntersectBack(pObject);

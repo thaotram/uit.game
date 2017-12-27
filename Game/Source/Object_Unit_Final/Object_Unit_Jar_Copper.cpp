@@ -1,4 +1,5 @@
 ﻿#include "Object_Unit_Jar_Copper.h"
+#include "Object_Unit_Disappear.h"
 #define mAni mAnimation
 #define mPos mPosition
 #define mObjectStore Scene::mScene->oObjectStore
@@ -50,4 +51,8 @@ void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
 void Object_Unit_Jar_Copper::ObjectIntersect(Object * pObject)
 {
 	mIsMarkedDelete = true;
+	Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Disappear(
+		round(xx),
+		round(yy)
+	));
 }
