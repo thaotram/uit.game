@@ -1,7 +1,7 @@
 {
     "name": "Aladdin_Miscellaneous_Cutscenes",
     "states": {
-        "Background_Start": {
+        "End": {
             "frameCycle": [1],
             "basePoint": [0, 0],
             "frame": {
