@@ -25,10 +25,12 @@ Scene_Start::Scene_Start() : Scene(){
 	Scene::mSpendthese = 0;
 	Scene::mExtrahealth = 3;
 	Scene::mScore << 0;
+
+	mSound = new GameSound(L"Sound/OST/01_Storyline.wav");
+	mSound->Play(1.0f);
 }
 
-void Scene_Start::SceneRender(float delay)
-{
+void Scene_Start::SceneRender(float delay){
 	if ((Z || X || C) && !isNext) {
 		isNext = true;
 		Z = X = C = false;

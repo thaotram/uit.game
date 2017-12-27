@@ -8,7 +8,7 @@
 #include "../Object/Object.h"
 #include "../Scene/Scene_ObjectStore.h"
 #include "../Utility/Float_Easing.h"
-#include "../GameSound/GameSound.h"
+#include "../GameSound.h"
 
 using namespace std;
 
@@ -30,6 +30,7 @@ public:
 
     Vector mCamera;
 
+	GameSound * mSound;
     Object_Unit_Aladdin* oPlayer;
     Scene_ObjectStore* oObjectStore;
     static Object_Screen* oTransparentScreen;

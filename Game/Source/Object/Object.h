@@ -16,7 +16,7 @@
 #include "Object_Animation.h"
 #include "Object_Transform.h"
 #include "Object_SourceRect.h"
-#include "../GameSound/GameSound.h"
+#include "../GameSound.h"
 
 enum Party {
 	Friend,

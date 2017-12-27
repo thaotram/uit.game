@@ -6,7 +6,7 @@
 #include "../Object_Unit_Final/Object_Unit_Fire.h"
 #include "../Scene_Final/Scene_Death.h"
 #include "../Scene_Final/Scene_JafarPalace.h"
-#include "../GameSound/GameSound.h"
+#include "../GameSound.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Fire.h"
 #include "../GameDebug.h"
 #include "../../Define.h"

@@ -20,6 +20,8 @@ Scene_JafarPalace::Scene_JafarPalace() : Scene() {
     oMapBack->AfterAddToScene();
 
 	((Object_Screen *)oTransparentScreen)->mAlpha = 0;
+
+    mSound = new GameSound(L"Sound/OST/16_Boss Tune.wav");
 }
 
 void Scene_JafarPalace::SceneRender(float delay) {

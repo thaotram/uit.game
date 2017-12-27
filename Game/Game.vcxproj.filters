@@ -125,7 +125,6 @@
     <None Include="Resources\AgrabahMarket_Block.json">
       <Filter>Resource Files\Block</Filter>
     </None>
-    <None Include="ClassDiagram.cd" />
     <None Include="Resources\EnemyDisappear.json">
       <Filter>Resource Files\Unit</Filter>
     </None>
@@ -156,9 +155,16 @@
     <None Include="Resources\Black.json" />
     <None Include="Resources\JafarPalace_Background.json" />
     <None Include="Resources\Twinkle.json" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="Resources\Aladdin_Miscellaneous_Cutscenes.json" />
     <None Include="Resources\Option_Scene.json" />
+    <None Include="Resources\AladdinRunThrowApple.psd" />
+    <None Include="Resources\AladdinRunThrowApple_Sprite.psd" />
+    <None Include="Resources\Screen.json" />
+    <None Include="Resources\Screen.psd" />
+    <None Include="Resources\Twinkle.psd" />
+    <None Include="Resources\Twinkle.png.psd" />
+    <None Include="Resources\GoldScarab.psd" />
+    <None Include="Resources\GoldScarab.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Aladdin.png">
@@ -237,6 +243,15 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\Option_Scene.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Screen.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Twinkle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\GoldScarab.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
@@ -451,12 +466,12 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_FireSurf.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Fire.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jafar.h" />
-    <ClInclude Include="Source\GameSound\GameSound.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Start.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Items.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Win.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Kiss.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Knife.h" />
+    <ClInclude Include="Source\GameSound.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Object\Object.cpp">
@@ -678,9 +693,6 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Enemy_Jafar.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GameSound\GameSound.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Scene_Final\Scene_Start.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -694,6 +706,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Knife.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameSound.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

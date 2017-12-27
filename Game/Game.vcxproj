@@ -117,8 +117,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="Resources\Abu.json" />
     <None Include="Resources\AgrabahMarket_Back.json" />
     <None Include="Resources\AgrabahMarket_Block.json" />
@@ -127,6 +125,8 @@
     <None Include="Resources\AgrabahMarket_Front.json" />
     <None Include="Resources\Aladdin.json" />
     <None Include="Resources\Aladdin.psd" />
+    <None Include="Resources\AladdinRunThrowApple.psd" />
+    <None Include="Resources\AladdinRunThrowApple_Sprite.psd" />
     <None Include="Resources\Aladdin_Miscellaneous_Cutscenes.json" />
     <None Include="Resources\Black.json" />
     <None Include="Resources\BossJafar.json" />
@@ -136,6 +136,8 @@
     <None Include="Resources\EnemyDisappear.json" />
     <None Include="Resources\EnemyExplosions.json" />
     <None Include="Resources\Genie.json" />
+    <None Include="Resources\GoldScarab.json" />
+    <None Include="Resources\GoldScarab.psd" />
     <None Include="Resources\Guards.json" />
     <None Include="Resources\Item.json" />
     <None Include="Resources\JafarPalace_Back.json" />
@@ -146,9 +148,13 @@
     <None Include="Resources\MagicCarpet.json" />
     <None Include="Resources\Option_Scene.json" />
     <None Include="Resources\Peddler.json" />
+    <None Include="Resources\Screen.json" />
+    <None Include="Resources\Screen.psd" />
     <None Include="Resources\Status.json" />
     <None Include="Resources\Stick.json" />
     <None Include="Resources\Twinkle.json" />
+    <None Include="Resources\Twinkle.png.psd" />
+    <None Include="Resources\Twinkle.psd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Abu.png" />
@@ -166,6 +172,7 @@
     <Image Include="Resources\EnemyDisappear.png" />
     <Image Include="Resources\EnemyExplosions.png" />
     <Image Include="Resources\Genie.png" />
+    <Image Include="Resources\GoldScarab.png" />
     <Image Include="Resources\Guards.png" />
     <Image Include="Resources\Iago.png" />
     <Image Include="Resources\Item.png" />
@@ -175,8 +182,10 @@
     <Image Include="Resources\MagicCarpet.png" />
     <Image Include="Resources\Option_Scene.png" />
     <Image Include="Resources\Peddler.png" />
+    <Image Include="Resources\Screen.png" />
     <Image Include="Resources\Status.png" />
     <Image Include="Resources\Stick.png" />
+    <Image Include="Resources\Twinkle.png" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
@@ -185,7 +194,7 @@
     <ClInclude Include="Source\Scene_Final\Scene_Win.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Items.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Start.h" />
-    <ClInclude Include="Source\GameSound\GameSound.h" />
+    <ClInclude Include="Source\GameSound.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Fire.h" />
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_FireSurf.h" />
     <ClInclude Include="Source\Game.h" />
@@ -267,7 +276,7 @@
     <ClCompile Include="Source\Scene_Final\Scene_Win.cpp" />
     <ClCompile Include="Source\Scene_Final\Scene_Items.cpp" />
     <ClCompile Include="Source\Scene_Final\Scene_Start.cpp" />
-    <ClCompile Include="Source\GameSound\GameSound.cpp" />
+    <ClCompile Include="Source\GameSound.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Fire.cpp" />
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_FireSurf.cpp" />
     <ClCompile Include="Source\Game.cpp" />

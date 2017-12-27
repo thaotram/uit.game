@@ -25,6 +25,7 @@ private:
     Object_List* oBackground;
     Object* oMapBack;
     Object* oMapFront;
+	bool mIsNext;
 
 public:
     Scene_AgrabahMarket();

@@ -16,6 +16,7 @@ Scene_Items::Scene_Items() : Scene() {
 	oItem = new Object_Screen("Item", "guide");
 	alpha = 0;
 	isNext = false;
+	// mSound = new GameSound(L"Sound/OST/03_Prince Ali.wav");
 }
 
 void Scene_Items::SceneRender(float delay) {

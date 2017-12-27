@@ -40,10 +40,12 @@ Scene::~Scene() {
 void Scene::SceneTranlation(float delay) {
 	if (mNextScene != NULL) {
 		if (alpha() == 255) {
+			if (mScene->mSound) mScene->mSound->Stop();
 			mBackScene = mScene;
 			mScene = mNextScene;
 			mNextScene = NULL;
 			alpha = 0;
+			if (mScene->mSound) mScene->mSound->Play(1.0f);
 		}
 	}
 }
