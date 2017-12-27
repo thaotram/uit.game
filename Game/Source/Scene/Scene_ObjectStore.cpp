@@ -263,7 +263,7 @@ pair<bool, pair<RECT, Object *> *> Scene_ObjectStore::GetCamel(RECT u,
 	for (auto &p : mNPC_Camel) {
 		auto b = p.first;
 		if (u.left <= b.right && u.right >= b.left &&
-			u.bottom < b.bottom - 22 && u.bottom + step >= b.bottom - 22 &&
+			u.bottom <= b.bottom - 22 && u.bottom + step >= b.bottom - 22 &&
 			step >= 0) {
 			is = true;
 			out = &p;
