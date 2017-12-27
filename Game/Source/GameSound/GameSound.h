@@ -7,7 +7,6 @@
 #include <iostream>
 #include <sstream>
 #include "../../Define.h"
-#include "VoiceCallback.h"
 
 #define fourccRIFF 'FFIR'
 #define fourccDATA 'atad'

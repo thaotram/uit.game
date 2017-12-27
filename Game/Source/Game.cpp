@@ -39,12 +39,6 @@ Game::Game() {
 	}
 
 	GameSound::Initialization();
-	auto S1_StoryLine = new GameSound(L"Sound/01_Storyline.wav");
-	S1_StoryLine->Play();
-
-	//auto S2_StoryLine = new GameSound(L"Sound/SFX/Win a Bonus.wav");
-	//S2_StoryLine->Play();
-
 	InitLoop();
 }
 Game::~Game() {}

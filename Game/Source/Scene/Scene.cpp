@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Scene.h"
 #include "../Object_Screen/Object_Screen.h"
+#include "../Object_Unit_Final/Object_Unit_Aladdin.h"
 
 Scene* Scene::mScene = NULL;
 Scene* Scene::mNextScene = NULL;
@@ -29,16 +30,14 @@ void Scene::NextScene(Scene* pNextScene) {
 }
 
 Scene::Scene() {
-	if(!oTransparentScreen) oTransparentScreen = 
-		new Object_Screen("Screen", "Black");
+	if (!oTransparentScreen) oTransparentScreen = new Object_Screen("Screen", "Black");
 }
 Scene::~Scene() {
 	delete oObjectStore;
 	delete oPlayer;
 }
 
-
-void Scene::SceneTranlation(float delay){
+void Scene::SceneTranlation(float delay) {
 	if (mNextScene != NULL) {
 		if (alpha() == 255) {
 			mBackScene = mScene;

@@ -8,6 +8,7 @@
 #include "../Object/Object.h"
 #include "../Scene/Scene_ObjectStore.h"
 #include "../Utility/Float_Easing.h"
+#include "../GameSound/GameSound.h"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ private:
 
 protected:
     float mMapHeight, mMapWidth;
+	bool mIsSound;
 
 public:
     Scene();

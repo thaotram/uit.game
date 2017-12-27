@@ -14,15 +14,13 @@ GameSound::GameSound(LPCWSTR pName) {
 HRESULT GameSound::Play() {
 	HRESULT hr = S_OK;
 	pSourceVoice = NULL;
-	VoiceCallback voiceCallback;
+	
 	__(pXAudio2->CreateSourceVoice(
-		&pSourceVoice, (WAVEFORMATEX*)&wfx,
-		0, XAUDIO2_DEFAULT_FREQ_RATIO, &voiceCallback, NULL, NULL
+		&pSourceVoice, (WAVEFORMATEX*)&wfx
 	));
+
 	__(pSourceVoice->SubmitSourceBuffer(&buffer));
 	__(pSourceVoice->Start(0));
-
-	WaitForSingleObjectEx(voiceCallback.hBufferEndEvent, INFINITE, TRUE);
 	return hr;
 }
 

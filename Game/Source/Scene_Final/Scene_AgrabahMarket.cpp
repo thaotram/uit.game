@@ -12,8 +12,8 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	delete mBackScene;
 	oStatus = new Scene_Status();
     oBackground = new Object_List();
-
-    const vector<State_Cloud> Vector_State_Cloud = {
+	
+	const vector<State_Cloud> Vector_State_Cloud = {
         Cloud1, Cloud2, Cloud3, Cloud4, Sand1, Sand2, Sand3, Sand4, Sand5};
     for (const auto &v : Vector_State_Cloud) {
         oBackground->push_back(new Object_Status_Cloud(v));
@@ -29,9 +29,16 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
     oMapFront->AfterAddToScene();
 
     ((Object_Screen *)oTransparentScreen)->mAlpha = 0;
+	mIsSound = false;
 }
 
 void Scene_AgrabahMarket::SceneRender(float delay) {
+	if (!mIsSound) {
+		mIsSound = true;
+		(new GameSound(L"Sound/OST/01_Storyline.wav"))->Play();
+	}
+
+
     auto op = oPlayer->GetPosition();
     if (op->x() > 4720 && op->y() < 215) {
         Scene::NextScene(new Scene_JafarPalace());
