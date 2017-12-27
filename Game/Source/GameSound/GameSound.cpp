@@ -7,7 +7,6 @@ IXAudio2 *				GameSound::pXAudio2 = NULL;
 IXAudio2MasteringVoice*	GameSound::pMasterVoice = NULL;
 
 GameSound::GameSound(LPCWSTR pName) {
-	//Initialization();
 	LoadAudioData(pName);
 }
 

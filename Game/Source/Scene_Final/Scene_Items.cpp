@@ -1,7 +1,6 @@
 #include "Scene_Items.h"
 
 #include "../../Define.h"
-//#include "../Object_Map_Final/Object_Map_Items_Front.h"
 #include "../Object_Screen/Object_Screen.h"
 
 #define I GameGlobal::Input

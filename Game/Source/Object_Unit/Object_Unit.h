@@ -7,6 +7,7 @@ class Object_Unit : public Object {
 protected:
     int mHealthPoint;
 	float tDt;
+	GameSound * mSound;
 public:
     Object_Unit(string pName);
     ~Object_Unit(){};
