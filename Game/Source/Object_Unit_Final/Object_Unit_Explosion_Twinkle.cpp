@@ -15,7 +15,6 @@ Object_Unit_Explosion_Twinkle::Object_Unit_Explosion_Twinkle(float x, float y, b
     mAni.Set("twinkle", 1);
     mAutoNextFrame = true;
     mTimePerFrame = 0.02f;
-    // mTransform.SetFlip(isFlip);
 }
 
 Object_Unit_Explosion_Twinkle::~Object_Unit_Explosion_Twinkle() {}

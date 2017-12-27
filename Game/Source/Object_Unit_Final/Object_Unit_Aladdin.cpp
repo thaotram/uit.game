@@ -79,7 +79,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	};
 	Scene::mScene->oObjectStore->Collision_Player_Enemy(this);
 	Scene::mScene->oObjectStore->Collision_Player_Static(this);
-
+	Scene::mScene->oObjectStore->Collision_Player_UFO(this);
 }
 void Object_Unit_Aladdin::ObjectEachState() {
 	//# Each State
@@ -172,9 +172,8 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (mPos.y.mVelocity <= 1.1 * +tJump)	mAni.SetCycleIndex(9);
 		else if (mPos.y.mVelocity <= 1.2 * +tJump)	mAni.SetCycleIndex(10);
 
-		if (Z && hasApple) {
+		if (Z && hasApple && tDis.bottom > 50) {
 			Z = false;
-			//Scene::mScene->Add("2", new Object_Unit_Apple(xx - 12, yy - 55, mTransform.GetFlip()));
 			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
 		}
 		if (X && tDis.bottom > 50) {
@@ -260,7 +259,6 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		tIsChangeX = false;
 		if (!D)			mAni.Set("sit_to_stand", 1, "stand", 1);
 		else if (Z && hasApple) {
-			//Scene::mScene->Add("2", new Object_Unit_Apple(xx + 5, yy - 27, mTransform.GetFlip()));
 			mAni.Set("sit_throwapple", 1, "sit", 4);
 		}
 		else if (X)			mAni.Set("sit_cut", 1, "sit", 4);
@@ -392,9 +390,8 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (mPos.y.mVelocity <= 0.50 * +tJump)		mAni.SetCycleIndex(5);
 		else if (mPos.y.mVelocity <= 0.90 * +tJump)		mAni.SetCycleIndex(6);
 
-		//# Thiếu
-		// (Z) mAni.Set("jump_thowapple", 1, "run_jump", 1);
-		if (X) mAni.Set("jump_cut", 1, "run_jump", 1);
+		if (Z && hasApple && tDis.bottom > 50) mAni.Set("jump_throwapple", 1, "run_jump", 4);
+		else if (X && tDis.bottom > 50) mAni.Set("jump_cut", 1, "run_jump", 4);
 	}
 	else if (state == "climb_still") {
 		mTimePerFrame = 0.15f;
@@ -556,10 +553,30 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTimePerFrame = 0.1f;
 	}
 	else if (state == "hurt") {
-		tIsChangeX = tIsChangeY = false;
 		mAni.SetNext("stand", 1);
-		if (L || R) {
-			mAni.Set("run", 1);
+		mAutoNextFrame = true;
+		mTimePerFrame = 0.1f;
+		tIsChangeX = false;
+		//if (U)						mAni.Set("up", 1);
+		//else if (D)					mAni.Set("sit", 1);
+		if (R || L) {
+			if ((L && tDis.left == 0) || (R && tDis.right == 0)) {
+				mAni.Set("push", 1);
+			}
+			else mAni.Set("run", 1);
+		}
+		else if (Z && hasApple) {
+			Z = false;
+			mAni.Set("stand_throwapple", 1, "stand", 1);
+		}
+		else if (X) {
+			X = false;
+			mAni.Set("stand_cut", 1, "stand", 1);
+		}
+		else if (C && tDis.bottom <= 10) {
+			C = false;
+			mAutoNextFrame = false;
+			mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-tJump);
 		}
 	}
 	else if (state == "revival") {
@@ -644,10 +661,15 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 	if (cTime == 0) {
 		cTime = 0.8f;
-		Scene::mBlood--;
 		if (dynamic_cast<Object_Unit_Static_Fire *>(pObject)) {
-			Scene::mScene->oObjectStore->mLost.push_back(
-				new Object_Unit_Fire(xx, yy));
+			if (abs(yy - pObject->GetPosition()->y()) < 4) {
+				Scene::mBlood--;
+				Scene::mScene->oObjectStore->mLost.push_back(
+					new Object_Unit_Fire(xx, yy));
+			}
+		}
+		else {
+			Scene::mBlood--;
 		}
 	}
 	//  0: Còn sống

@@ -12,4 +12,5 @@ public:
 	~Object_Unit_Jar_Copper() {};
 
 	void ObjectUpdateEvent(float dt);
+	void ObjectIntersect(Object * pObject);
 };

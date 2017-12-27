@@ -8,6 +8,7 @@
 #include "../Object_Unit_Final/Object_Unit_Enemy_Jafar.h"
 
 Scene_JafarPalace::Scene_JafarPalace() : Scene() {
+	delete mBackScene;
     oObjectStore = new Scene_ObjectStore("JafarPalace_Block");
     oStatus = new Scene_Status();
     oPlayer = new Object_Unit_Aladdin(90, 352);
@@ -20,6 +21,10 @@ Scene_JafarPalace::Scene_JafarPalace() : Scene() {
 }
 
 void Scene_JafarPalace::SceneRender(float delay) {
+	if (mApple == 0 && oObjectStore->mStatic_Apple.size() == 0) {
+		delete oObjectStore;
+		oObjectStore = new Scene_ObjectStore("JafarPalace_Block");
+	}
     //# Update
     Scene::mScore.Update(delay);
     

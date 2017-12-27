@@ -3,6 +3,8 @@
 #include "../GameDebug.h"
 
 class Object_Unit_Fire : public Object_Unit{
+private:
+	float mTime;
 public:
 	Object_Unit_Fire(float x, float y);
 	~Object_Unit_Fire();

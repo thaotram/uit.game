@@ -7,19 +7,26 @@
 #define Z I[CHAR_Z]
 #define X I[CHAR_X]
 #define C I[CHAR_C]
+#define alpha oTransparentScreen->mAlpha
 
-Scene_Start::Scene_Start() : Scene()
-{
+Scene_Start::Scene_Start() : Scene(){
+	delete mBackScene;
 	oObjectStore = new Scene_ObjectStore("");
 	oMapBackground = new Object_Screen("Option_Scene", "main_menu");
+	alpha = 0;
+	isNext = false;
 }
 
 void Scene_Start::SceneRender(float delay)
 {
-	if (Z || X || C){
+	if ((Z || X || C) && !isNext) {
+		isNext = true;
 		Z = X = C = false;
 		Scene::NextScene(new Scene_Items());
 	}
 	oMapBackground->ObjectUpdateEvent(delay);
+	oTransparentScreen->ObjectUpdateEvent(delay);
+
 	oMapBackground->ObjectRender(delay);
+	oTransparentScreen->ObjectRender(delay);
 }

@@ -11,13 +11,16 @@ Object_Unit_Fire::Object_Unit_Fire(float x, float y) : Object_Unit("BossJafar") 
 	mPos.x << x;
 	mPos.y << y;
 	mAni.Set("fire", 1);
+	mTimePerFrame = 0.03f;
 	mAutoNextFrame = true;
+	mTime = 0;
 }
 
 Object_Unit_Fire::~Object_Unit_Fire() {}
 
 void Object_Unit_Fire::ObjectUpdateEvent(float dt) {
-	if (mAni.GetCycleIndex() == 6) {
+	mTime += dt;
+	if (mTime >= 0.8f) {
 		mIsMarkedDelete = true;
 	}
 }

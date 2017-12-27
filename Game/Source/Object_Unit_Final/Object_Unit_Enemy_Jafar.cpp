@@ -65,7 +65,6 @@ void Object_Unit_Enemy_Jafar::ObjectEachState() {
 				Scene::mScene->oObjectStore->mLost.push_back(
 					new Object_Unit_FireSurf(xx, yy, mTransform.GetFlip())
 				);
-				GameDebug::TitleCount();
 			}
 		}
 		else
@@ -77,14 +76,8 @@ void Object_Unit_Enemy_Jafar::ObjectEachState() {
 
 void Object_Unit_Enemy_Jafar::ObjectIntersect(Object* pObject) {
     mHealthPoint--;
-    //GameDebug::Title(mHealthPoint);
     if(state == "jafar_human" && mHealthPoint <= 10){
         mAni.Set("jafar_snake", 1);
 		mAutoNextFrame = true;
     }
-    // if (mHealthPoint <= 0) {
-    //     mIsMarkedDelete = true;
-    //     Scene::mScene->oObjectStore->mLost.push_back(
-    //         new Object_Unit_Disappear(mPos.x() - 3, mPos.y() - 4));
-    // }
 }

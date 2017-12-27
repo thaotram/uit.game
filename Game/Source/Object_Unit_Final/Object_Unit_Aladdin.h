@@ -9,7 +9,6 @@ private:
 	bool tIsChangeX, tIsChangeY;
 	bool tIsThrowApple;
 	float tSpeedX, tSpeedY, tJump;
-	float cTime;
 	float tIsPull;
 
 	pair<bool, RECT>
@@ -23,6 +22,7 @@ public:
 	~Object_Unit_Aladdin() {};
 
 	bool mIsOnDropBlock;
+	float cTime;
 
 	void ObjectUpdateEvent(float dt);
 	void ObjectEachState();
