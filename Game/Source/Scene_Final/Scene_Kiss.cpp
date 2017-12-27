@@ -1,4 +1,5 @@
 #include "Scene_Kiss.h"
+#include "Scene_Start.h"
 
 #include "../../Define.h"
 #include "../Object_Screen/Object_Screen.h"
@@ -11,9 +12,17 @@ Scene_Kiss::Scene_Kiss() : Scene() {
 	oPlayer = new Object_Unit_Aladdin(250, 200);
 	oPlayer->GetAnimation()->Set("kiss", 1);
 	((Object_Screen *)oTransparentScreen)->mAlpha = 0;
+	mTime = 0;
+	isNext = false;
 }
 
 void Scene_Kiss::SceneRender(float delay) {
+	mTime += delay;
+	if (mTime > 3.f && !isNext)
+	{
+		isNext = true;
+		NextScene(new Scene_Start());
+	}
 	//# Update
 	oPlayer->ObjectUpdateEvent(delay);
 	oTransparentScreen->ObjectUpdateEvent(delay);

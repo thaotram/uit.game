@@ -10,6 +10,8 @@ using namespace std;
 
 class Scene_Win final : public Scene {
 private:
+	bool isNext;
+private:
 	Object* oMapBackground;
 	//Object* oMapBack;
 	//Scene_Win* oStatus;

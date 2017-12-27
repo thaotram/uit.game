@@ -3,6 +3,7 @@
 #include "../../Define.h"
 #include "../Object_Screen/Object_Screen.h"
 #include "../Object_Unit_Final/Object_Unit_Aladdin.h"
+#include "../Scene_Final/Scene_Kiss.h"
 #define xx mPos.x()
 #define yy mPos.y()
 
@@ -20,9 +21,15 @@ Scene_Win::Scene_Win() : Scene() {
 	// oMapBackground = new Object_Screen("Aladdin_Miscellaneous_Cutscenes", "End");
 
 	((Object_Screen *)oTransparentScreen)->mAlpha = 0;
+	isNext = false;
 }
 
 void Scene_Win::SceneRender(float delay) {
+	if (oPlayer->GetPosition()->x() > 320 && !isNext) {
+		isNext = true;
+		NextScene(new Scene_Kiss());
+	}
+	
 	//# Update
 	oMapBackground->ObjectUpdateEvent(delay);
 	oPlayer->ObjectUpdateEvent(delay);
