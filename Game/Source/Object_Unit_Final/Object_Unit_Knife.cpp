@@ -21,6 +21,7 @@ Object_Unit_Knife::Object_Unit_Knife(float x, float y, float pVelocityX, float p
 	mPos.x.mVelocity = pVelocityX;
 	mPos.y.mVelocity = pVelocityY;
 	mParty = Enemy;
+	mSound = new GameSound(L"Sound/SFX/Cash Register (FM Only).wav");
 }
 
 void Object_Unit_Knife::ObjectUpdateEvent(float dt) {
@@ -36,6 +37,9 @@ void Object_Unit_Knife::ObjectUpdateEvent(float dt) {
 	
 	if (!tDis.bottom || !tDis.left || !tDis.right || mIsMakeDamage) {
 		mIsMarkedDelete = true;
+		if (!mIsMakeDamage) {
+			mSound->Play();
+		}
 		Scene::mScene->oObjectStore->mLost.push_back(
 			new Object_Unit_Explosion_Tiny(mPos.x(), mPos.y())
 		);
@@ -51,8 +55,8 @@ void Object_Unit_Knife::ObjectUpdateEvent(float dt) {
 
 }
 void Object_Unit_Knife::ObjectIntersect(Object* pObject) {
-	mAutoNextFrame = true;
-	mIsMarkedDelete = true;
+	//mAutoNextFrame = true;
+	//mIsMarkedDelete = true;
 }
 
 void Object_Unit_Knife::ObjectIntersectBack(Object * pObject) {

@@ -7,6 +7,7 @@ private:
 	bool isDrop;
 	float mX, mY;
 	float mTimeCount;
+	bool isPlay;
 
 	void NewBlock();
 public:

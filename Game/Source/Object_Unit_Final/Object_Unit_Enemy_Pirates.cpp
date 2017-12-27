@@ -20,6 +20,10 @@ Object_Unit_Enemy_Pirates::Object_Unit_Enemy_Pirates(RECT u) : Object_Unit("Guar
 	mParty = Enemy;
 	mAutoNextFrame = true;
 	mIsMakeDamage = false;
+	isPlay = false;
+	mPiratesHit = new GameSound(L"Sound/SFX/High Sword.wav");
+	mPiratesHurt = new GameSound(L"Sound/SFX/Guard Hit 2.wav");
+
 }
 
 void Object_Unit_Enemy_Pirates::ObjectUpdateEvent(float dt) {
@@ -87,9 +91,15 @@ void Object_Unit_Enemy_Pirates::ObjectEachState() {
 				(LONG)((isFlip) ? (xx + 83) : (xx + 27)),
 				(LONG)(yy - 25)
 			};
+			if (!isPlay)
+			{
+				mPiratesHit->Play();
+				isPlay = true;
+			}
 		}
 		else {
 			mIsMakeDamage = false;
+			isPlay = false;
 		}
 	}
 }
@@ -100,6 +110,11 @@ void Object_Unit_Enemy_Pirates::ObjectIntersect(Object * pObject)
 	mAni.Set("pirates_hurt", 1, "pirates_defiant", 1);
 	if (mHealthPoint <= 0) {
 		mIsMarkedDelete = true;
+		if (!isPlay)
+		{
+			mPiratesHurt->Play();
+			isPlay = true;
+		}
 		Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Disappear(mPos.x() - 3, mPos.y() - 4));
 	}
 }

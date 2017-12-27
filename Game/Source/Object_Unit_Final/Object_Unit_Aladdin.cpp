@@ -37,6 +37,7 @@ Object_Unit_Aladdin::Object_Unit_Aladdin(float x, float y) : Object_Unit("Aladdi
 	mAni.Set("stand", 1);
 	tIsThrowApple = false;
 	mIsMakeDamage = false;
+	isPlay = false;
 	mParty = Friend;
 	tIsPull = 0;
 	tFlickerPerSecond = 6;
@@ -44,6 +45,7 @@ Object_Unit_Aladdin::Object_Unit_Aladdin(float x, float y) : Object_Unit("Aladdi
 	mAladdinHurt = new GameSound(L"Sound/SFX/Aladdin Hurt.wav");
 	mObjectThrow = new GameSound(L"Sound/SFX/Object Throw.wav");
 	mAladdinBurn = new GameSound(L"Sound/SFX/Fire From Coal.wav");
+	mRestartPoint = new GameSound(L"Sound/SFX/Coming Out.wav");
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
@@ -628,6 +630,10 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTransform.SetFlip(Right);
 		mAutoNextFrame = true;
 		mAni.SetNext("stand", 1);
+		if (!isPlay) {
+			mRestartPoint->Play();
+			isPlay = true;
+		}
 		if(Scene::mRestartPoint->GetAnimation()->GetCycleIndex() == 18
 			&& mAni.GetCycleIndex() == 14){
 			Scene::mRestartPoint->GetAnimation()->SetCycleIndex(1);

@@ -33,8 +33,8 @@ Scene::Scene() {
 	if (!oTransparentScreen) oTransparentScreen = new Object_Screen("Screen", "Black");
 }
 Scene::~Scene() {
-	delete oObjectStore;
-	delete oPlayer;
+	//delete oObjectStore;
+	//delete oPlayer;
 }
 
 void Scene::SceneTranlation(float delay) {

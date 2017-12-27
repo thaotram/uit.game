@@ -7,6 +7,9 @@
 class Object_Unit_Enemy_Thin final : public Object_Unit{
 private:
 	RECT mLimit;
+	bool isPlay;
+	GameSound* mThinHurt;
+	GameSound* mThinHit;
 public:
 	Object_Unit_Enemy_Thin(RECT u);
 	~Object_Unit_Enemy_Thin();
