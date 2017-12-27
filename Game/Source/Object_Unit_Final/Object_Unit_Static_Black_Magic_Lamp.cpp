@@ -10,7 +10,7 @@ Object_Unit_Static_Black_Magic_Lamp::Object_Unit_Static_Black_Magic_Lamp(RECT u)
     mAutoNextFrame = false;
 	mSourceRect.Update(this);
 	tUnit = GetBound();
-	mSound = new GameSound(L"Sound/SFX/Gem Collect.wav");
+	mSound = new GameSound(L"Sound/SFX/Genie Fumes.wav");
 }
 
 void Object_Unit_Static_Black_Magic_Lamp::ObjectIntersect(Object* pObject) {

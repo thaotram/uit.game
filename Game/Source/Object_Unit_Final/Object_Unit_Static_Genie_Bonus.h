@@ -5,6 +5,8 @@
 
 
 class Object_Unit_Static_Genie_Bonus final : public Object_Unit {
+private:
+	GameSound* mWow;
 public:
 	Object_Unit_Static_Genie_Bonus(RECT u);
 	~Object_Unit_Static_Genie_Bonus() {};
