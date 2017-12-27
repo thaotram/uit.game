@@ -18,7 +18,9 @@ Object_Unit_Enemy_Straw::Object_Unit_Enemy_Straw(RECT u) : Object_Unit("Civilian
 	mTimePerFrame = 0.07f;
 	mAni.Set("straw_stand", 1);
 	mParty = Enemy;
+	isPlay = false;
 	mAutoNextFrame = true;
+	mSound = new GameSound(L"Sound/SFX/Rope Appear.wav");
 }
 
 Object_Unit_Enemy_Straw::~Object_Unit_Enemy_Straw(){}
@@ -89,6 +91,10 @@ void Object_Unit_Enemy_Straw::ObjectIntersect(Object * pObject)
 	mHealthPoint--;
 	if (mHealthPoint <= 0) {
 		mIsMarkedDelete = true;
+		if (!isPlay) {
+			mSound->Play();
+			isPlay = true;
+		}
 		Scene::mScene->oObjectStore->mLost.push_back(new Object_Unit_Disappear(mPos.x() - 3, mPos.y() - 4));
 	}
 }

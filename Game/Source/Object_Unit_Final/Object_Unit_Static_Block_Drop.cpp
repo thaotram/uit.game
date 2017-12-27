@@ -13,6 +13,7 @@ Object_Unit_Static_Block_Drop::Object_Unit_Static_Block_Drop(RECT u)
 	mAni.Set("blockdrop");
 	mAutoNextFrame = false;
 	NewBlock();
+	mSound = new GameSound(L"Sound/SFX/Rock Bounce.wav");
 }
 
 void Object_Unit_Static_Block_Drop::ObjectUpdateEvent(float dt) {
@@ -36,6 +37,10 @@ void Object_Unit_Static_Block_Drop::ObjectIntersect(Object * pObject){
 			if (unit->tDis.bottom == 0) {
 				isDrop = true;
 				mPosition.y += 40;
+			}
+			if (!isPlay) {
+				mSound->Play();
+				isPlay = true;
 			}
 		}
 	}

@@ -21,6 +21,8 @@ Object_Unit_Enemy_Thin::Object_Unit_Enemy_Thin(RECT u)
     mHealthPoint = 2;
     mParty = Enemy;
     mAutoNextFrame = true;
+	mThinHit = new GameSound(L"Sound/SFX/Balloon Pop.wav");
+	mThinHurt = new GameSound(L"Sound/SFX/Guard Hit 1.wav");
 }
 
 Object_Unit_Enemy_Thin::~Object_Unit_Enemy_Thin() {}
@@ -75,8 +77,14 @@ void Object_Unit_Enemy_Thin::ObjectEachState() {
             tUnitDamage =
                 RECT{(LONG)((isFlip) ? (xx - 26) : (xx - 77)), (LONG)(yy - 46),
                      (LONG)((isFlip) ? (xx + 77) : (xx + 26)), (LONG)(yy - 18)};
-        } else {
+			if (!isPlay) {
+				mThinHit->Play();
+				isPlay = true;
+			}
+        }
+		else {
             mIsMakeDamage = false;
+			isPlay = false;
         }
     }
 }
@@ -86,6 +94,10 @@ void Object_Unit_Enemy_Thin::ObjectIntersect(Object* pObject) {
     mAni.Set("thin_hurt", 1, "thin_stand", 1);
     if (mHealthPoint <= 0) {
         mIsMarkedDelete = true;
+		if (!isPlay) {
+			mThinHurt->Play();
+			isPlay = true;
+		}
         Scene::mScene->oObjectStore->mLost.push_back(
             new Object_Unit_Disappear(mPos.x() - 3, mPos.y() - 4));
     }

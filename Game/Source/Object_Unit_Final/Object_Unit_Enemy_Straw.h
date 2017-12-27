@@ -7,6 +7,7 @@
 class Object_Unit_Enemy_Straw final : public Object_Unit{
 private:
 	RECT mLimit;
+	bool isPlay;
 public:
 	Object_Unit_Enemy_Straw(RECT u);
 	~Object_Unit_Enemy_Straw();

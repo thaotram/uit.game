@@ -7,6 +7,10 @@
 class Object_Unit_Enemy_Pirates final : public Object_Unit{
 private:
 	RECT mLimit;
+	bool isPlay;
+	GameSound* mPiratesHurt;
+	GameSound* mPiratesHit;
+
 public:
 	Object_Unit_Enemy_Pirates(RECT u);
 	~Object_Unit_Enemy_Pirates() {};

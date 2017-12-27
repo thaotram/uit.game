@@ -20,6 +20,7 @@ Object_Unit_Enemy_Fat::Object_Unit_Enemy_Fat(RECT u)
     mTimePerFrame = 0.09f;
     mParty = Enemy;
     mAutoNextFrame = true;
+	mSound = new GameSound(L"Sound/SFX/Wall Hit 2.wav");
 }
 
 void Object_Unit_Enemy_Fat::ObjectUpdateEvent(float dt) {
@@ -77,6 +78,10 @@ void Object_Unit_Enemy_Fat::ObjectIntersect(Object* pObject) {
     mAni.Set("fat_hurt", 1, "fat_eat", 1);
     if (mHealthPoint <= 0) {
         mIsMarkedDelete = true;
+		if (!isPlay) {
+			mSound->Play();
+			isPlay = true;
+		}
         Scene::mScene->oObjectStore->mLost.push_back(
             new Object_Unit_Disappear(mPos.x() - 3, mPos.y() - 4));
     }

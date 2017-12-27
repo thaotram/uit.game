@@ -14,7 +14,9 @@ Object_Unit_Enemy_Circus::Object_Unit_Enemy_Circus(RECT u) : Object_Unit("Civili
 	mPos.x << (float)(u.left + u.right) / 2;
 	mPos.y << (float)(u.top);
 	mAni.Set("circus", 1);
+	isPlay = false;
 	mParty = Enemy;
+	mSound = new GameSound(L"Sound/SFX/Wall Spikes.wav");
 }
 
 Object_Unit_Enemy_Circus::~Object_Unit_Enemy_Circus() {}
@@ -51,6 +53,10 @@ void Object_Unit_Enemy_Circus::ObjectEachState()
 			);
 		}
 		mIsThrow = true;
+		if (!isPlay) {
+			mSound->Play();
+			isPlay = true;
+		}
 	}
 }
 

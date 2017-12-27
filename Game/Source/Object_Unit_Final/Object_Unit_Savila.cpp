@@ -13,13 +13,17 @@ Object_Unit_Savila::Object_Unit_Savila(float x, float y)
     mAni.Set("savila", 1);
     mAutoNextFrame = false;
     mParty = Friend;
+	mSound = new GameSound(L"Sound/SFX/Cash Register (FM Only).wav");
 }
 
 void Object_Unit_Savila::ObjectUpdateEvent(float dt) {
     tUnit = tUnitDamage = RECT{(LONG)xx, (LONG)yy, (LONG)xx, (LONG)yy};
     tDis = mObjectStore->GetDistance(tUnit, this);
     Scene::mScene->oObjectStore->Collision_Player_Enemy(this);
-    if (tDis.right == 0 || mIsMakeDamage) mIsMarkedDelete = true;
+	if (tDis.right == 0 || mIsMakeDamage) {
+		mIsMarkedDelete = true;
+		mSound->Play();
+	}
 
     mPos.x += min(tSpeedX * dt, tDis.right);
     mPos.x.Update(dt);

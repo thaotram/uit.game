@@ -9,10 +9,12 @@ private:
 	GameSound* mAladdinHurt;
 	GameSound* mObjectThrow;
 	GameSound* mAladdinBurn;
+	GameSound* mRestartPoint;
 
 	//# Tạo sẵn các biến để tái sử dụng trong tính toán (không cần cấp phát lại bộ nhớ)
 	bool tIsChangeX, tIsChangeY;
 	bool tIsThrowApple;
+	bool isPlay;
 	float tSpeedX, tSpeedY, tJump;
 	float tIsPull;
 
