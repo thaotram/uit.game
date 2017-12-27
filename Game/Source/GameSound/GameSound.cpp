@@ -3,25 +3,32 @@
 
 //WAVEFORMATEXTENSIBLE	GameSound::wfx = { 0 };
 //XAUDIO2_BUFFER			GameSound::buffer = { 0 };
-//IXAudio2 *				GameSound::pXAudio2 = NULL;
-//IXAudio2MasteringVoice*	GameSound::pMasterVoice = NULL;
-
-GameSound::GameSound() {
-	wfx = { 0 };
-	buffer = { 0 };
-	pXAudio2 = NULL;
-	pSourceVoice = NULL;
-	pMasterVoice = NULL;
-}
+IXAudio2 *				GameSound::pXAudio2 = NULL;
+IXAudio2MasteringVoice*	GameSound::pMasterVoice = NULL;
 
 GameSound::GameSound(LPCWSTR pName) {
-	GameSound();
-	Initialization();
+	//Initialization();
 	LoadAudioData(pName);
 }
 
+HRESULT GameSound::Play() {
+	HRESULT hr = S_OK;
+	pSourceVoice = NULL;
+	VoiceCallback voiceCallback;
+	__(pXAudio2->CreateSourceVoice(
+		&pSourceVoice, (WAVEFORMATEX*)&wfx,
+		0, XAUDIO2_DEFAULT_FREQ_RATIO, &voiceCallback, NULL, NULL
+	));
+	__(pSourceVoice->SubmitSourceBuffer(&buffer));
+	__(pSourceVoice->Start(0));
+
+	WaitForSingleObjectEx(voiceCallback.hBufferEndEvent, INFINITE, TRUE);
+	return hr;
+}
+
+//# Audio
 HRESULT GameSound::Initialization() {
-	HRESULT hr = 0;
+	HRESULT hr = S_OK;
 	__(XAudio2Create(&pXAudio2, 0, XAUDIO2_DEFAULT_PROCESSOR));
 	__(pXAudio2->CreateMasteringVoice(&pMasterVoice));
 	return hr;
@@ -61,17 +68,10 @@ HRESULT GameSound::LoadAudioData(LPCWSTR pName) {
 	buffer.pAudioData = pDataBuffer;		// size of the audio buffer in bytes
 	buffer.Flags = XAUDIO2_END_OF_STREAM;	// tell the source voice not to expect any data after this buffer
 
-	return 0;
+	return S_OK;
 }
 
-HRESULT GameSound::Play() {
-	HRESULT hr = 0;
-	__(pXAudio2->CreateSourceVoice(&pSourceVoice, (WAVEFORMATEX*)&wfx));
-	__(pSourceVoice->SubmitSourceBuffer(&buffer));
-	__(pSourceVoice->Start(0));
-	return hr;
-}
-
+//# Chunk
 HRESULT GameSound::ReadChunkData(HANDLE hFile, void * buffer, DWORD buffersize, DWORD bufferoffset) {
 	HRESULT hr = S_OK;
 	if (INVALID_SET_FILE_POINTER == SetFilePointer(hFile, bufferoffset, NULL, FILE_BEGIN))

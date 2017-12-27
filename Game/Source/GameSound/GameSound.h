@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <xaudio2.h>
 #include <windows.h>
 #include <memory>
@@ -7,6 +7,7 @@
 #include <iostream>
 #include <sstream>
 #include "../../Define.h"
+#include "VoiceCallback.h"
 
 #define fourccRIFF 'FFIR'
 #define fourccDATA 'atad'
@@ -20,22 +21,22 @@ using namespace std;
 
 class GameSound {
 private:
+	static IXAudio2* pXAudio2;
+	static IXAudio2MasteringVoice* pMasterVoice;
+
+	//# 3 Biến Private xài chung
+	IXAudio2SourceVoice* pSourceVoice;
 	XAUDIO2_BUFFER buffer;
 	WAVEFORMATEXTENSIBLE wfx;
 
-	IXAudio2* pXAudio2;
-	IXAudio2MasteringVoice* pMasterVoice;
-
-	IXAudio2SourceVoice* pSourceVoice;
-
+	//# Mấy hàm này chỉ xài nội bộ trong app
 	HRESULT ReadChunkData(HANDLE hFile, void * buffer, DWORD buffersize, DWORD bufferoffset);
 	HRESULT FindChunk(HANDLE hFile, DWORD fourcc, DWORD & dwChunkSize, DWORD & dwChunkDataPosition);
+	HRESULT LoadAudioData(LPCWSTR pName);
 public:
-	GameSound();
+	static HRESULT Initialization();
 	GameSound(LPCWSTR pName);
 	~GameSound() {};
 
-	HRESULT Initialization();
-	HRESULT LoadAudioData(LPCWSTR pName);
 	HRESULT Play();
 };

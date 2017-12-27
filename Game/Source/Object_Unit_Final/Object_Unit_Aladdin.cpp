@@ -6,6 +6,7 @@
 #include "../Object_Unit_Final/Object_Unit_Fire.h"
 #include "../Scene_Final/Scene_Death.h"
 #include "../Scene_Final/Scene_JafarPalace.h"
+#include "../GameSound/GameSound.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Fire.h"
 #include "../GameDebug.h"
 #include "../../Define.h"
@@ -314,6 +315,9 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		if (!L && !R)		mAni.Set("stand", 1);
 	}
 	else if (state == "run") {
+		auto S2_StoryLine = new GameSound(L"Sound/SFX/Extra Health.wav");
+		S2_StoryLine->Play();
+
 		mTimePerFrame = 0.06f;
 		if (!L && !R)		mAni.Set("stand", 1);
 		else if (R || L) {

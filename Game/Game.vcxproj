@@ -257,6 +257,7 @@
     <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Aladdin.h" />
     <ClInclude Include="Source\Scene\Scene.h" />
     <ClInclude Include="Source\Scene_Final\Scene_AgrabahMarket.h" />
+    <ClInclude Include="Source\GameSound\VoiceCallback.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Define.cpp" />
@@ -336,6 +337,7 @@
     <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Aladdin.cpp" />
     <ClCompile Include="Source\Scene\Scene.cpp" />
     <ClCompile Include="Source\Scene_Final\Scene_AgrabahMarket.cpp" />
+    <ClCompile Include="Source\GameSound\VoiceCallback.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Sound\01_Storyline.wav" />
