@@ -10,9 +10,9 @@
 #define C I[CHAR_C]
 #define alpha oTransparentScreen->mAlpha
 #define KnifeX oKnife->GetPosition()->x
+
 Scene_Start::Scene_Start() : Scene(){
 	delete mBackScene;
-	oObjectStore = new Scene_ObjectStore("");
 	oMapBackground = new Object_Screen("Option_Scene", "main_menu");
 	oKnife = new Object_Unit_Static_Knife(70,126);
 	oKnife->GetPosition()->x.mType = linear;
