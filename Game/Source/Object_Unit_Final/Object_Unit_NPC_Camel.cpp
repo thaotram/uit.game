@@ -13,9 +13,11 @@ Object_Unit_NPC_Camel::Object_Unit_NPC_Camel(RECT u) : Object_Unit("Camel") {
 	mAni.Set("pedal", 10);
 	mIsSpitOut = false;
 	mParty = Friend;
+	mSound = new GameSound(L"Sound/SFX/Camel Spit.wav");
 }
 
 void Object_Unit_NPC_Camel::StartAnimation() {
+	mSound->Play();
 	mAni.SetCycleIndex(1);
 }
 

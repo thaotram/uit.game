@@ -19,6 +19,8 @@ Object_Unit_Jar_Copper::Object_Unit_Jar_Copper(float x, float y)
 	mIsCollision = false;
 	mIsMakeDamage = false;
 	mParty = Enemy;
+	isPlay = false;
+	mSound = new GameSound(L"Sound/SFX/Clay Pot.wav");
 }
 
 void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
@@ -41,6 +43,10 @@ void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
 	}
 	else if (mAni.GetState() == "jar_copper_break") {
 		mIsMakeDamage = true;
+		if (!isPlay) {
+			mSound->Play();
+			isPlay = true;
+		}
 		if (mAni.GetCycleIndex() == 9) {
 			mIsMarkedDelete = true;
 		}

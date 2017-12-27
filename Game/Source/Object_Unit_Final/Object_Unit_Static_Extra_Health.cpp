@@ -15,11 +15,11 @@ Object_Unit_Static_Extra_Health::Object_Unit_Static_Extra_Health(RECT u) : Objec
 	mAutoNextFrame = true;
 	mSourceRect.Update(this);
 	tUnit = GetBound();
+	mSound = new GameSound(L"Sound/SFX/Extra Health.wav");
 }
 
 void Object_Unit_Static_Extra_Health::ObjectUpdateEvent(float dt)
 {
-
 }
 
 void Object_Unit_Static_Extra_Health::ObjectIntersect(Object * pObject)
@@ -33,4 +33,5 @@ void Object_Unit_Static_Extra_Health::ObjectIntersect(Object * pObject)
 			Scene::mScene->oPlayer->GetTransform()->GetFlip()
 		)
 	);
+	mSound->Play();
 }

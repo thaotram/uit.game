@@ -5,6 +5,11 @@
 
 class Object_Unit_Aladdin final : public Object_Unit {
 private:
+	GameSound* mHighWord;
+	GameSound* mAladdinHurt;
+	GameSound* mObjectThrow;
+	GameSound* mAladdinBurn;
+
 	//# Tạo sẵn các biến để tái sử dụng trong tính toán (không cần cấp phát lại bộ nhớ)
 	bool tIsChangeX, tIsChangeY;
 	bool tIsThrowApple;

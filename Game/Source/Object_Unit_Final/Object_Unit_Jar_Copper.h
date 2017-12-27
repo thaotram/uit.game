@@ -6,7 +6,7 @@ class Object_Unit_Jar_Copper final : public Object_Unit {
 private:
 	bool mFlip;
 	bool mIsCollision;
-
+	bool isPlay;
 public:
 	Object_Unit_Jar_Copper(float x, float y);
 	~Object_Unit_Jar_Copper() {};

@@ -14,6 +14,7 @@ Object_Unit_Static_Spend_These::Object_Unit_Static_Spend_These(RECT u) : Object_
 	mAutoNextFrame = true;
 	mSourceRect.Update(this);
 	tUnit = GetBound();
+	mSound = new GameSound(L"Sound/SFX/Gem Collect.wav");
 }
 
 void Object_Unit_Static_Spend_These::ObjectUpdateEvent(float dt) {
@@ -31,4 +32,5 @@ void Object_Unit_Static_Spend_These::ObjectIntersect(Object * pObject)
 			Scene::mScene->oPlayer->GetTransform()->GetFlip()
 		)
 	);
+	mSound->Play();
 }
