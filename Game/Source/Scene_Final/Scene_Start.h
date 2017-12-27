@@ -10,6 +10,7 @@ using namespace std;
 class Scene_Start final :public Scene
 {
 private:
+	bool isNext;
 	Object* oMapBackground;
 	//Scene* pLastScene;
 	//float mTimer;

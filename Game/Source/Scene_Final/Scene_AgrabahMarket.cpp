@@ -9,7 +9,8 @@
 #include "../Object_Unit_Final/Object_Unit_Aladdin.h"
 
 Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
-    oStatus = new Scene_Status();
+	delete mBackScene;
+	oStatus = new Scene_Status();
     oBackground = new Object_List();
 
     const vector<State_Cloud> Vector_State_Cloud = {

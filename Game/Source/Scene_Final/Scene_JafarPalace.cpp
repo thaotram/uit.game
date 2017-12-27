@@ -8,6 +8,7 @@
 #include "../Object_Unit_Final/Object_Unit_Enemy_Jafar.h"
 
 Scene_JafarPalace::Scene_JafarPalace() : Scene() {
+	delete mBackScene;
     oObjectStore = new Scene_ObjectStore("JafarPalace_Block");
     oStatus = new Scene_Status();
     oPlayer = new Object_Unit_Aladdin(90, 352);
