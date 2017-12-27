@@ -13,7 +13,12 @@ Object_Unit_Static_Fire::Object_Unit_Static_Fire(RECT u) : Object_Unit("Item") {
     mAni.Set("fire", 1);
     mAutoNextFrame = false;
     mSourceRect.Update(this);
-    tUnit = tUnitDamage = u;
+	tUnit = tUnitDamage = RECT{
+		u.left + 10,
+		u.top,
+		u.right - 10,
+		u.bottom
+	};
 }
 
 Object_Unit_Static_Fire::~Object_Unit_Static_Fire() {}

@@ -18,8 +18,8 @@ Object_Unit_Knife::Object_Unit_Knife(float x, float y, float pVelocityX, float p
 	mIsMakeDamage = false;
 	mFlip = !isFlip;
 
-	mPos.x.mVelocity = pVelocityX;	// = 400
-	mPos.y.mVelocity = pVelocityY; 	// = -500;
+	mPos.x.mVelocity = pVelocityX;
+	mPos.y.mVelocity = pVelocityY;
 	mParty = Enemy;
 }
 
@@ -49,21 +49,13 @@ void Object_Unit_Knife::ObjectUpdateEvent(float dt) {
 		mPos.Update(dt);
 	}
 
-	//if (!mAutoNextFrame) {
-	//	mPos.y = yy + tDis.bottom;
-	//	mPos.Update(dt);
-	//}
-	//else {
-	//	if (mAni.GetCycleIndex() == 8) {
-	//		mIsMarkedDelete = true;
-	//	}
-	//}
-
 }
 void Object_Unit_Knife::ObjectIntersect(Object* pObject) {
 	mAutoNextFrame = true;
 	mIsMarkedDelete = true;
-	// Scene::mScene->Add(Scene::mScene->itPlayer, new
-	// Object_Unit_Explosion_Big(mPos.x()+20,mPos.y()));
+}
+
+void Object_Unit_Knife::ObjectIntersectBack(Object * pObject) {
+	mFlip ^= 1;
 }
 

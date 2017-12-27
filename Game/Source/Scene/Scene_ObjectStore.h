@@ -78,7 +78,7 @@ public:
 	void 				Collision_Enemy_Player(Object * pEnemy);
 	void 				Collision_BulletStar_Player(Object * pBulletStar);
 	void 				Collision_Apple_Jarfar(Object * pApple);
-
+	void				Collision_Player_Knife(Object * pObject);
 
 	RECT				GetDistance(RECT u, Object * pUnit);
 	void				UpdateStairState(RECT u);

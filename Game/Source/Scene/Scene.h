@@ -33,6 +33,7 @@ public:
     static Object_Screen* oTransparentScreen;
 
     //# Status Value
+	V2 mStartPoint;
     static Object* mRestartPoint;
     static int mBlood;
     static int mApple;

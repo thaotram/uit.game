@@ -133,6 +133,20 @@ void Scene_ObjectStore::Collision_Apple_Jarfar(Object *pApple){
 	 }
 }
 
+void Scene_ObjectStore::Collision_Player_Knife(Object * pObject)
+{
+
+	for (auto &unit : mLost) {
+		if (dynamic_cast<Object_Unit_Knife*>(unit)) {
+			auto unit_bound = unit->tUnit;
+			auto object_damage = pObject->tUnitDamage;
+			if (isIntersect(unit_bound, object_damage) && !unit->mIsMakeDamage) {
+				((Object_Unit_Knife*)unit)->ObjectIntersectBack(pObject);
+			}
+		}
+	}
+}
+
 //# Tính toán khoảng cách
 RECT Scene_ObjectStore::GetDistance(RECT u, Object *pUnit) {
 	RECT out = { -1, -1, -1, -1 };

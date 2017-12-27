@@ -18,8 +18,6 @@ void Object_Unit_Static_Black_Magic_Lamp::ObjectIntersect(Object* pObject) {
     Scene::mScene->oObjectStore->mLost.push_back(
         new Object_Unit_Explosion_Big(mPos.x() + 16, mPos.y() - 5)
     );
-    // Scene::mScene->Add(Scene::mScene->itPlayer, new
-    // Object_Unit_Explosion_Big(mPos.x()+20,mPos.y()));
 }
 
 void Object_Unit_Static_Black_Magic_Lamp::ObjectUpdateEvent(float dt) {}

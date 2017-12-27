@@ -20,6 +20,10 @@ Scene_JafarPalace::Scene_JafarPalace() : Scene() {
 }
 
 void Scene_JafarPalace::SceneRender(float delay) {
+	if (mApple == 0 && oObjectStore->mStatic_Apple.size() == 0) {
+		delete oObjectStore;
+		oObjectStore = new Scene_ObjectStore("JafarPalace_Block");
+	}
     //# Update
     Scene::mScore.Update(delay);
     

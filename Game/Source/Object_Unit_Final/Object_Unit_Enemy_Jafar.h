@@ -1,7 +1,6 @@
 #pragma once
 #include "../GameDebug.h"
 #include "../Object_Unit/Object_Unit.h"
-// #include "../Object_Unit_Final/Object_Unit_Disappear.h"
 #include "../Object_Unit_Final/Object_Unit_Bullet_Star.h"
 #include "../Object_Unit_Final/Object_Unit_FireSurf.h"
 
