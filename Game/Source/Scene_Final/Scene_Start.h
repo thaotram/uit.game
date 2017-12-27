@@ -12,6 +12,7 @@ class Scene_Start final :public Scene
 private:
 	bool isNext;
 	Object* oMapBackground;
+	Object* oKnife;
 	//Scene* pLastScene;
 	//float mTimer;
 public:
