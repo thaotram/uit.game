@@ -5,8 +5,8 @@
 #include <iostream>
 #include <sstream>
 
-#define APP_CLASS L"Game"
-#define MAIN_WINDOW_TITLE L"Game Title"
+#define APP_CLASS L"Aladdin: 15520649 - 15520914 - 15520325"
+#define MAIN_WINDOW_TITLE L"Aladdin: 15520649 - 15520914 - 15520325"
 
 #define WIDTH 320
 #define HEIGHT 224
