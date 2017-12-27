@@ -32,7 +32,7 @@ Game::Game() {
 	mDevice = GameGlobal::GetDevice();
 
 	//# Game Start
-	Scene::mScene = new Scene_JafarPalace();
+	Scene::mScene = new Scene_Start();
 	for (auto str : List) {
 		Object_Json::GetJson(str);
 		Object_Texture::GetTexture(str);

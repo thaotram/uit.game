@@ -20,8 +20,8 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
     }
 	mStartPoint = { 50, 624 };
     oObjectStore = new Scene_ObjectStore("AgrabahMarket_Block");
-    oPlayer = new Object_Unit_Aladdin(mStartPoint.x, mStartPoint.y);
-    //oPlayer = new Object_Unit_Aladdin(4600, 100);
+    //oPlayer = new Object_Unit_Aladdin(mStartPoint.x, mStartPoint.y);
+    oPlayer = new Object_Unit_Aladdin(4600, 100);
     oMapBack = new Object_Map_AgrabahMarket_Back();
     oMapFront = new Object_Map_AgrabahMarket_Front();
 

@@ -46,6 +46,7 @@ Object_Unit_Aladdin::Object_Unit_Aladdin(float x, float y) : Object_Unit("Aladdi
 	mObjectThrow = new GameSound(L"Sound/SFX/Object Throw.wav");
 	mAladdinBurn = new GameSound(L"Sound/SFX/Fire From Coal.wav");
 	mRestartPoint = new GameSound(L"Sound/SFX/Coming Out.wav");
+	mFlag = new GameSound(L"Sound/SFX/Flagpole.wav");
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
@@ -667,6 +668,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mAni.SetCycleIndex(1);
 		mPos.y.SetVelocity(-tJump * 1.2f);
 		((Object_Unit_Static_Stick *)(tStick.second->second))->StartAnimation();
+		mFlag->Play();
 	}
 	else if (tCamel.first) {
 		mAutoNextFrame = false;

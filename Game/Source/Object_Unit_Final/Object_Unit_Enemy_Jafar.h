@@ -7,6 +7,9 @@
 class Object_Unit_Enemy_Jafar final : public Object_Unit {
 private:
     bool mIsCash;
+	bool isPlay;
+	GameSound* mStonesStar;
+
 public:
     Object_Unit_Enemy_Jafar(float x, float y);
     ~Object_Unit_Enemy_Jafar();

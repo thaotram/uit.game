@@ -5,6 +5,7 @@
 class Object_Unit_NPC_Stall final : public Object_Unit{
 private:
 	bool isShow;
+	bool isPlay;
 public:
 	Object_Unit_NPC_Stall(RECT u);
 	~Object_Unit_NPC_Stall();

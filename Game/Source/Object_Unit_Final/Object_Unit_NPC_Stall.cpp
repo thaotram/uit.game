@@ -13,7 +13,9 @@ Object_Unit_NPC_Stall::Object_Unit_NPC_Stall(RECT u) : Object_Unit("Peddler") {
 	mPos.y << (float)(u.top);
 	mAni.Set("stalls", 1);
 	isShow = false;
+	isPlay = false;
 	mParty = Friend;
+	mSound = new GameSound(L"Sound/SFX/Peddler Shop.wav");
 }
 
 Object_Unit_NPC_Stall::~Object_Unit_NPC_Stall()
@@ -24,6 +26,10 @@ void Object_Unit_NPC_Stall::ObjectUpdateEvent(float dt)
 {
 	if (mAni.GetCycleIndex() == 47	 && !isShow) {
 		isShow = true;
+		if (!isPlay) {
+			mSound->Play();
+			isPlay = true;
+		}
 		((Object_Unit *)(Scene::mScene->oObjectStore->mNPC_Peddler.begin()->second))->mAutoNextFrame = true;
 	}
 }
