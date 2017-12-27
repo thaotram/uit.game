@@ -180,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Source\Scene_Final\Scene_Kiss.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Win.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Items.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Start.h" />
@@ -260,6 +261,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Define.cpp" />
+    <ClCompile Include="Source\Scene_Final\Scene_Kiss.cpp" />
     <ClCompile Include="Source\Scene_Final\Scene_Win.cpp" />
     <ClCompile Include="Source\Scene_Final\Scene_Items.cpp" />
     <ClCompile Include="Source\Scene_Final\Scene_Start.cpp" />

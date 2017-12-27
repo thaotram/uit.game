@@ -3,6 +3,8 @@
 #include "GameSound/GameSound.h"
 #include "Scene_Final/Scene_AgrabahMarket.h"
 #include "Scene_Final/Scene_Start.h"
+#include "Scene_Final/Scene_Win.h"
+#include "Scene_Final\Scene_Kiss.h"
 
 const auto List = {
 	"Abu",
@@ -32,7 +34,7 @@ Game::Game() {
 	mDevice = GameGlobal::GetDevice();
 
 	//# Game Start
-	Scene::mScene = new Scene_Start();
+	Scene::mScene = new Scene_Kiss();
 	for (auto str : List) {
 		Object_Json::GetJson(str);
 		Object_Texture::GetTexture(str);
