@@ -40,6 +40,10 @@ Object_Unit_Aladdin::Object_Unit_Aladdin(float x, float y) : Object_Unit("Aladdi
 	mParty = Friend;
 	tIsPull = 0;
 	tFlickerPerSecond = 6;
+	mHighWord = new GameSound(L"Sound/SFX/High Sword.wav");
+	mAladdinHurt = new GameSound(L"Sound/SFX/Aladdin Hurt.wav");
+	mObjectThrow = new GameSound(L"Sound/SFX/Object Throw.wav");
+	mAladdinBurn = new GameSound(L"Sound/SFX/Fire From Coal.wav");
 }
 
 void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
@@ -100,10 +104,12 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		}
 		else if (Z && hasApple) {
 			Z = false;
+			mObjectThrow->Play();
 			mAni.Set("stand_throwapple", 1, "stand", 1);
 		}
 		else if (X) {
 			X = false;
+			mHighWord->Play();
 			mAni.Set("stand_cut", 1, "stand", 1);
 		}
 		else if (C && tDis.bottom <= 10) {
@@ -174,10 +180,12 @@ void Object_Unit_Aladdin::ObjectEachState() {
 
 		if (Z && hasApple && tDis.bottom > 50) {
 			Z = false;
+			mObjectThrow->Play();
 			mAni.Set("jump_throwapple", 1, "stand_jump", 4);
 		}
 		if (X && tDis.bottom > 50) {
 			X = false;
+			mHighWord->Play();
 			mAni.Set("jump_cut", 1, "stand_jump", 4);
 		}
 	}
@@ -221,8 +229,14 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTimePerFrame = 0.06f;
 		tIsChangeX = false;
 		if (!U)				mAni.Set("up_to_stand", 1, "stand", 1);
-		else if (U && Z)	mAni.Set("stand_throwapple", 1, "up", 3);
-		else if (U && X)	mAni.Set("up_cut", 1, "up", 3);
+		else if (U && Z) {
+			mObjectThrow->Play();
+			mAni.Set("stand_throwapple", 1, "up", 3);
+		}
+		else if (U && X) {
+			mHighWord->Play();
+			mAni.Set("up_cut", 1, "up", 3);
+		}
 		else if (U && C) 	mAni.Set("stand_jump", 1, "stand", 1) && mPos.y.SetVelocity(-tJump);
 	}
 	else if (state == "up_cut") {
@@ -259,9 +273,13 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		tIsChangeX = false;
 		if (!D)			mAni.Set("sit_to_stand", 1, "stand", 1);
 		else if (Z && hasApple) {
+			mObjectThrow->Play();
 			mAni.Set("sit_throwapple", 1, "sit", 4);
 		}
-		else if (X)			mAni.Set("sit_cut", 1, "sit", 4);
+		else if (X) {
+			mAni.Set("sit_cut", 1, "sit", 4);
+			mHighWord->Play();
+		}
 		else if (C) {
 			C = false;
 			mAni.Set("stand_jump", 1, "sit", 1) && mPos.y.SetVelocity(-tJump);
@@ -320,8 +338,14 @@ void Object_Unit_Aladdin::ObjectEachState() {
 				mAni.Set("push", 1);
 			}
 		}
-		if (Z && hasApple)	mAni.Set("run_throwapple", 1, "run", 9);
-		else if (X)			mAni.Set("run_cut", 1, "run", 9);
+		if (Z && hasApple) {
+			mObjectThrow->Play();
+			mAni.Set("run_throwapple", 1, "run", 9);
+		}
+		else if (X) {
+			mHighWord->Play();
+			mAni.Set("run_cut", 1, "run", 9);
+		}
 		else if (C && tDis.bottom <= 10) {
 			// Phải ở dưới đất thì mới được nhảy
 			C = false;
@@ -387,8 +411,14 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		else if (mPos.y.mVelocity <= 0.50 * +tJump)		mAni.SetCycleIndex(5);
 		else if (mPos.y.mVelocity <= 0.90 * +tJump)		mAni.SetCycleIndex(6);
 
-		if (Z && hasApple && tDis.bottom > 50) mAni.Set("jump_throwapple", 1, "run_jump", 4);
-		else if (X && tDis.bottom > 50) mAni.Set("jump_cut", 1, "run_jump", 4);
+		if (Z && hasApple && tDis.bottom > 50) {
+			mObjectThrow->Play();
+			mAni.Set("jump_throwapple", 1, "run_jump", 4);
+		}
+		else if (X && tDis.bottom > 50) {
+			mHighWord->Play();
+			mAni.Set("jump_cut", 1, "run_jump", 4);
+		}
 	}
 	else if (state == "climb_still") {
 		mTimePerFrame = 0.15f;
@@ -397,10 +427,12 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		if (L || R)			mAni.Set("climb_horizontal", 1);
 		else if (Z && hasApple) {
 			Z = false;
+			mObjectThrow->Play();
 			mAni.Set("climb_throwapple", 1, "climb_still", 1);
 		}
 		else if (X) {
 			X = false;
+			mHighWord->Play();
 			mAni.Set("climb_cut", 1, "climb_still", 1);
 		}
 		else if (C || tBar.first == false) {
@@ -435,10 +467,12 @@ void Object_Unit_Aladdin::ObjectEachState() {
 
 		if (Z && hasApple) {
 			Z = false;
+			mObjectThrow->Play();
 			mAni.Set("climb_throwapple", 1, "climb_vertical", cycleIndex);
 		}
 		else if (X) {
 			X = false;
+			mHighWord->Play();
 			mAni.Set("climb_cut", 1, "climb_vertical", cycleIndex);
 			if (mAni.GetCycleIndex() == 1) {
 				mIsMakeDamage = false;
@@ -490,10 +524,12 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		if (!L && !R)			mAni.Set("climb_still", 1);
 		else if (Z && hasApple) {
 			Z = false;
+			mObjectThrow->Play();
 			mAni.Set("climb_throwapple", 1, "climb_still", 1);
 		}
 		else if (X) {
 			X = false;
+			mHighWord->Play();
 			mAni.Set("climb_cut", 1, "climb_still", 1);
 		}
 		else if (C || tBar.first == false) {
@@ -549,6 +585,16 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTransform.SetFlip(Right);
 		mTimePerFrame = 0.1f;
 	}
+	else if (state == "flying_carpet") {
+		tIsChangeX = tIsChangeY = false;
+		mTransform.SetFlip(Right);
+		mTimePerFrame = 0.1f;
+	}
+	else if (state == "kiss") {
+		tIsChangeX = tIsChangeY = false;
+		mTransform.SetFlip(Right);
+		mTimePerFrame = 0.1f;
+	}
 	else if (state == "hurt") {
 		mAni.SetNext("stand", 1);
 		mAutoNextFrame = true;
@@ -564,6 +610,7 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		}
 		else if (Z && hasApple) {
 			Z = false;
+			mObjectThrow->Play();
 			mAni.Set("stand_throwapple", 1, "stand", 1);
 		}
 		else if (X) {
@@ -645,7 +692,7 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	
 	tDis = mObjectStore->GetDistance(tUnit, this);
 
-	mPos.y = !tIsChangeY ? yy : yy + tDis.bottom;
+	if(tIsChangeY) mPos.y = yy + tDis.bottom;
 	mPos.y.Update(tDt);
 
 	//# Camera
@@ -659,6 +706,7 @@ void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 	if (cTime == 0) {
 		cTime = 0.8f;
 		if (dynamic_cast<Object_Unit_Static_Fire *>(pObject)) {
+			mAladdinBurn->Play();
 			if (abs(yy - pObject->GetPosition()->y()) < 4) {
 				Scene::mBlood--;
 				Scene::mScene->oObjectStore->mLost.push_back(
@@ -666,6 +714,7 @@ void Object_Unit_Aladdin::ObjectIntersect(Object * pObject) {
 			}
 		}
 		else {
+			mAladdinHurt->Play();
 			Scene::mBlood--;
 		}
 	}

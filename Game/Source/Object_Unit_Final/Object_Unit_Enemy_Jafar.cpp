@@ -1,6 +1,7 @@
 #pragma once
 #include "Object_Unit_Aladdin.h"
 #include "Object_Unit_Enemy_Jafar.h"
+#include "../Scene_Final/Scene_Win.h"
 
 #define mAni mAnimation
 #define mPos mPosition
@@ -80,4 +81,7 @@ void Object_Unit_Enemy_Jafar::ObjectIntersect(Object* pObject) {
         mAni.Set("jafar_snake", 1);
 		mAutoNextFrame = true;
     }
+	else if (state == "jafar_snake" && mHealthPoint <= 0) {
+		Scene::NextScene(new Scene_Win());
+	}
 }

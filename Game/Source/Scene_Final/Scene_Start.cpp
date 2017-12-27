@@ -15,6 +15,12 @@ Scene_Start::Scene_Start() : Scene(){
 	oMapBackground = new Object_Screen("Option_Scene", "main_menu");
 	alpha = 0;
 	isNext = false;
+
+	Scene::mBlood = 7;
+	Scene::mApple = 10;
+	Scene::mSpendthese = 0;
+	Scene::mExtrahealth = 3;
+	Scene::mScore << 0;
 }
 
 void Scene_Start::SceneRender(float delay)

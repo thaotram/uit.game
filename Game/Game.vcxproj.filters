@@ -455,6 +455,8 @@
     <ClInclude Include="Source\Scene_Final\Scene_Start.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Items.h" />
     <ClInclude Include="Source\Scene_Final\Scene_Win.h" />
+    <ClInclude Include="Source\Scene_Final\Scene_Kiss.h" />
+    <ClInclude Include="Source\Object_Unit_Final\Object_Unit_Static_Knife.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Object\Object.cpp">
@@ -686,6 +688,12 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scene_Final\Scene_Win.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene_Final\Scene_Kiss.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object_Unit_Final\Object_Unit_Static_Knife.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

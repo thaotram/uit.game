@@ -23,6 +23,8 @@ Object_Unit_Apple::Object_Unit_Apple(float x, float y, bool isFlip)
     mFlip = isFlip;
     Scene::mScene->mApple = max(Scene::mScene->mApple - 1, 0);
     mParty = Friend;
+	isPlay = false;
+	mSound = new GameSound(L"Sound/SFX/Apple Splat.wav");
 }
 
 void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
@@ -30,6 +32,11 @@ void Object_Unit_Apple::ObjectUpdateEvent(float dt) {
     tDis = mObjectStore->GetDistance(tUnit, this);
 	if (!tDis.bottom || !tDis.left || !tDis.right || mIsMakeDamage) {
 		mAutoNextFrame = true;
+		if (!isPlay)
+		{
+			mSound->Play();
+			isPlay = true;
+		}
 	}
 	if (!mAutoNextFrame) {
 		mPos.x += mFlip ?

@@ -8,17 +8,13 @@
 
 using namespace std;
 
-class Scene_Win final : public Scene {
+class Scene_Kiss final : public Scene {
 private:
+	float mTime;
 	bool isNext;
-private:
-	Object* oMapBackground;
-	//Object* oMapBack;
-	//Scene_Win* oStatus;
-
 public:
-	Scene_Win();
-	~Scene_Win() {};
+	Scene_Kiss();
+	~Scene_Kiss() {};
 
 	//Object* oBoss;
 	void SceneRender(float delay);
