@@ -585,6 +585,16 @@ void Object_Unit_Aladdin::ObjectEachState() {
 		mTransform.SetFlip(Right);
 		mTimePerFrame = 0.1f;
 	}
+	else if (state == "flying_carpet") {
+		tIsChangeX = tIsChangeY = false;
+		mTransform.SetFlip(Right);
+		mTimePerFrame = 0.1f;
+	}
+	else if (state == "kiss") {
+		tIsChangeX = tIsChangeY = false;
+		mTransform.SetFlip(Right);
+		mTimePerFrame = 0.1f;
+	}
 	else if (state == "hurt") {
 		mAni.SetNext("stand", 1);
 		mAutoNextFrame = true;
@@ -682,7 +692,7 @@ void Object_Unit_Aladdin::ObjectAfterEachState() {
 	
 	tDis = mObjectStore->GetDistance(tUnit, this);
 
-	mPos.y = !tIsChangeY ? yy : yy + tDis.bottom;
+	if(tIsChangeY) mPos.y = yy + tDis.bottom;
 	mPos.y.Update(tDt);
 
 	//# Camera
