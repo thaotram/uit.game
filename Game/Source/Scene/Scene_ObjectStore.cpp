@@ -25,6 +25,8 @@
 #include "../Object_Unit_Final/Object_Unit_NPC_Peddler.h"
 #include "../Object_Unit_Final/Object_Unit_NPC_Stall.h"
 
+#include "../Object_Unit_Final/Object_Unit_Jar_Copper.h"
+
 #include "../GameDebug.h"
 #include "Scene_ObjectStore.define.h"
 
@@ -123,25 +125,32 @@ void Scene_ObjectStore::Collision_BulletStar_Player(Object *pBulletStar) {
 	}
 }
 
-void Scene_ObjectStore::Collision_Apple_Jarfar(Object *pApple){
+void Scene_ObjectStore::Collision_Apple_Jarfar(Object *pApple) {
 	auto scene = (Scene_JafarPalace*)(Scene::mScene);
 	auto unit_damage = pApple->tUnitDamage;
 	auto boss_bound = scene->oBoss->tUnit;
 	if (isIntersect(boss_bound, unit_damage) && !pApple->mIsMakeDamage) {
 		scene->oBoss->ObjectIntersect(pApple);
 		pApple->mIsMakeDamage = true;
-	 }
+	}
 }
 
-void Scene_ObjectStore::Collision_Player_Knife(Object * pObject)
+void Scene_ObjectStore::Collision_Player_UFO(Object * pObject)
 {
-
 	for (auto &unit : mLost) {
 		if (dynamic_cast<Object_Unit_Knife*>(unit)) {
 			auto unit_bound = unit->tUnit;
 			auto object_damage = pObject->tUnitDamage;
 			if (isIntersect(unit_bound, object_damage) && !unit->mIsMakeDamage) {
 				((Object_Unit_Knife*)unit)->ObjectIntersectBack(pObject);
+			}
+		}
+		else if (dynamic_cast<Object_Unit_Jar_Copper*>(unit)) {
+			auto unit_bound = unit->tUnit;
+			auto object_damage = pObject->tUnitDamage;
+			if (isIntersect(unit_bound, object_damage) && !unit->mIsMakeDamage) {
+				unit->ObjectIntersect(pObject); 
+				unit->mIsMakeDamage = true;
 			}
 		}
 	}

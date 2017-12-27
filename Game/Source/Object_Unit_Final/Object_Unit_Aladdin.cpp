@@ -78,9 +78,7 @@ void Object_Unit_Aladdin::ObjectUpdateEvent(float dt) {
 	};
 	Scene::mScene->oObjectStore->Collision_Player_Enemy(this);
 	Scene::mScene->oObjectStore->Collision_Player_Static(this);
-	Scene::mScene->oObjectStore->Collision_Player_Knife(this);
-
-
+	Scene::mScene->oObjectStore->Collision_Player_UFO(this);
 }
 void Object_Unit_Aladdin::ObjectEachState() {
 	//# Each State

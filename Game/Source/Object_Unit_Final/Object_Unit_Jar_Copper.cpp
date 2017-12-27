@@ -46,3 +46,8 @@ void Object_Unit_Jar_Copper::ObjectUpdateEvent(float dt) {
 	}
 	Scene::mScene->oObjectStore->Collision_Enemy_Player(this);
 }
+
+void Object_Unit_Jar_Copper::ObjectIntersect(Object * pObject)
+{
+	mIsMarkedDelete = true;
+}
