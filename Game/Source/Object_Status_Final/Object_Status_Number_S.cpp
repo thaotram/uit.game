@@ -61,7 +61,12 @@ void Object_Status_Number_S::ObjectUpdateEvent(float delay)
 		}
 		break;
 	case S_Life:
-		mAni.SetCycleIndex(Scene::mExtrahealth + 1);
+		if (Scene::mExtrahealth == 0) {
+			mAni.SetCycleIndex(11);
+		}
+		else {
+			mAni.SetCycleIndex(Scene::mExtrahealth + 1);
+		}
 		break;
 	}
 	mPos << Scene::mScene->mCamera.VECTOR2() + V2{ mX , mY };
