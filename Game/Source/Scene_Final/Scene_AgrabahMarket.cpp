@@ -30,6 +30,7 @@ Scene_AgrabahMarket::Scene_AgrabahMarket() : Scene() {
 	((Object_Screen *)oTransparentScreen)->mAlpha = 0;
 	mIsSound = false;
 	mIsNext = false;
+	Scene::mRestartPoint = NULL;
 
 	mSound = new GameSound(L"Sound/OST/03_Prince Ali.wav");
 }

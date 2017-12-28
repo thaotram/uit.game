@@ -5,7 +5,7 @@
 #include "../Object_Unit_Final/Object_Unit_Aladdin.h"
 #include "../Object_Unit_Final/Object_Unit_Static_Restart_Point.h"
 #include "../../Define.h"
-
+#include "../Scene_Final/Scene_Start.h"
 Scene_Death::Scene_Death() : Scene() {
 	oObjectStore = new Scene_ObjectStore("");
     oPlayer = new Object_Unit_Aladdin(160, 150);
@@ -25,7 +25,12 @@ void Scene_Death::SceneRender(float delay) {
 		mTimer += delay;
 		if(mTimer > 3.f) {
 			NextScene(mBackScene);
-			mExtrahealth = max(0, mExtrahealth - 1);
+			if (mExtrahealth> 0) {
+				mExtrahealth--;
+			}
+			else {
+				mNextScene = new Scene_Start();
+			}
 			mBlood = 7;
 			auto object = ((Object_Unit_Static_Restart_Point*)mRestartPoint);
 			if (!object) {

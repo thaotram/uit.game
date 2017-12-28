@@ -19,6 +19,7 @@ Scene_JafarPalace::Scene_JafarPalace() : Scene() {
     oMapBack = new Object_Map_JafarPalace_Back();
     oMapBack->AfterAddToScene();
 
+	Scene::mRestartPoint = NULL;
 	((Object_Screen *)oTransparentScreen)->mAlpha = 0;
 
     mSound = new GameSound(L"Sound/OST/16_Boss Tune.wav");
