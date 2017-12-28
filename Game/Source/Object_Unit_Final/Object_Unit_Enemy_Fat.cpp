@@ -33,8 +33,11 @@ void Object_Unit_Enemy_Fat::ObjectUpdateEvent(float dt) {
 #define range 110
 // tamnhin
 #define visible 160
+#define visibleY 40
 void Object_Unit_Enemy_Fat::ObjectEachState() {
     float playerX = Scene::mScene->oPlayer->GetPosition()->x();
+	float playerY = Scene::mScene->oPlayer->GetPosition()->y();
+	float distanceY = abs(yy - playerY);
     mTransform.SetFlip(playerX > xx);
     float distance = abs(xx - playerX);
 
@@ -52,7 +55,7 @@ void Object_Unit_Enemy_Fat::ObjectEachState() {
     if (state != "fat_hurt") {
         if (distance < range) {
             if (state != "fat_throwknife") mAni.Set("fat_throwknife", 1);
-        } else if (distance < visible) {
+        } else if (distance < visible && distanceY < visibleY) {
             if ((xx == mLimit.right && playerX > xx) ||
                 (xx == mLimit.left && playerX < xx)) {
                 if (state != "fat_eat") mAni.Set("fat_eat", 1);
